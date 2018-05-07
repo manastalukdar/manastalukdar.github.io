@@ -22,7 +22,7 @@
     <ul>
       <li>
         <a href="https://manastalukdar.github.io/resume-cv/" target="_blank">
-        Resume (long)
+        Resume
         </a>
       </li>
     </ul>
