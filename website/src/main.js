@@ -13,20 +13,22 @@ import VueAnalytics from 'vue-analytics'
 fontawesome.library.add(brands, faSpinner)
 
 Vue.config.productionTip = false
+const isProd = process.env.NODE_ENV === 'production'
 
 Vue.use(VueAnalytics, {
   id: 'UA-118888630-1',
-  disableScriptLoader: true,
+  router,
   debug: {
-    sendHitTask: false
-  },
-  router
+    enabled: !isProd,
+    sendHitTask: isProd
+  }
 })
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  // render: h => h(App)
   components: { App },
   template: '<App/>'
-})
+}) // .$mount('#app')
