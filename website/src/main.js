@@ -14,14 +14,6 @@ fontawesome.library.add(brands, faSpinner)
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
-})
-
 Vue.use(VueAnalytics, {
   id: 'UA-118888630-1',
   disableScriptLoader: true,
@@ -29,4 +21,12 @@ Vue.use(VueAnalytics, {
     sendHitTask: process.env.NODE_ENV === 'production'
   },
   router
+})
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
 })
