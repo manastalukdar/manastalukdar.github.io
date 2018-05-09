@@ -8,6 +8,8 @@ import brands from '@fortawesome/fontawesome-free-brands'
 
 import { faSpinner } from '@fortawesome/fontawesome-free-solid'
 
+import VueAnalytics from 'vue-analytics'
+
 fontawesome.library.add(brands, faSpinner)
 
 Vue.config.productionTip = false
@@ -18,4 +20,13 @@ new Vue({
   router,
   components: { App },
   template: '<App/>'
+})
+
+Vue.use(VueAnalytics, {
+  id: 'UA-118888630-1',
+  disableScriptLoader: true,
+  debug: {
+    sendHitTask: process.env.NODE_ENV === 'production'
+  },
+  router
 })
