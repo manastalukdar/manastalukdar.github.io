@@ -14,7 +14,7 @@ import { faLinkedin, faGithub, faTwitter } from '@fortawesome/free-brands-svg-ic
 import { FontAwesomeIcon,  FontAwesomeLayers, FontAwesomeLayersText } from '@fortawesome/vue-fontawesome'
 import VueAnalytics from 'vue-analytics'
 import "vue-material-design-icons/styles.css"
-
+import store from './store'
 // Application
 import App from './App.vue'
 
@@ -25,7 +25,6 @@ import router from './router'
 Vue.use('./plugins/vuetify', {
   iconfont: 'mdi' // 'md' || 'mdi' || 'fa' || 'fa4'
 })
-
 
 library.add(faUserSecret, faSpinner, faLinkedin, faGithub, faTwitter);
 
@@ -50,6 +49,7 @@ Vue.use(VueAnalytics, {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

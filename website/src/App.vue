@@ -1,6 +1,7 @@
 <template>
   <v-app dark>
-    <toolbar-topNavBar/>
+    <main-nav-menu-navigationDrawer/>
+    <main-nav-menu-topNavBar/>
 
     <v-content>
       <HelloWorld/>
