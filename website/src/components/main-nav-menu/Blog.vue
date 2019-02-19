@@ -22,8 +22,7 @@
       <v-list-tile
         v-for="item in blogItems"
         :key="item.text"
-        :href="item.href"
-        :target="item.target">
+        :to="item.href">
         <v-list-tile-avatar>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-tile-avatar>
@@ -34,35 +33,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
   export default {
-    data: () => ({
-      blogText: "Blog",
-      blogItems: [
-        {
-          href: '/blog/',
-          target: '_blank',
-          icon: 'mdi-newspaper',
-          text: 'Posts'
-        },
-        {
-          href: '/blog/categories',
-          target: '_blank',
-          icon: 'mdi-domain',
-          text: 'Categories'
-        },
-        {
-          href: '/blog/tags',
-          target: '_blank',
-          icon: 'mdi-tag-multiple',
-          text: 'Tags'
-        },
-        {
-          href: '/blog/archive',
-          target: '_blank',
-          icon: 'mdi-archive',
-          text: 'Archive'
-        }
-      ]
-    })
+    computed: mapState({
+      blogText: state => state.MainNavMenu.blog.blogText,
+      blogItems: state => state.MainNavMenu.blog.blogItems
+    }),
+    data: () => ({})
   }
 </script>

@@ -22,10 +22,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
   export default {
-    data: () => ({
-      legalText: "Legal",
-      legalPath: "/legal/"
-    })
+    computed: mapState({
+      legalText: state => state.MainNavMenu.legal.legalText,
+      legalPath: state => state.MainNavMenu.legal.legalPath
+    }),
+    data: () => ({})
   }
 </script>

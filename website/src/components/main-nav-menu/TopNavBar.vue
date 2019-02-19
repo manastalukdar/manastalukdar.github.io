@@ -2,7 +2,7 @@
   <v-toolbar app>
     <v-toolbar-title class="headline">
       <router-link to="/" tag="span" style="cursor: pointer">
-          Manas Talukdar
+          {{ title }}
       </router-link>
     </v-toolbar-title>
     <v-spacer></v-spacer>
@@ -14,7 +14,7 @@
     </v-toolbar-items>
 
     <v-menu class="hidden-md-and-up">
-        <v-toolbar-side-icon slot="activator" @click="sidebar = !sidebar"></v-toolbar-side-icon>
+        <v-toolbar-side-icon slot="activator" @click="flipSidebarVisibility"></v-toolbar-side-icon>
     </v-menu>
 
     <!--<v-menu class="hidden-md-and-up">
@@ -30,9 +30,16 @@
 </template>
 
 <script>
-//import { mapState } from 'vuex'
+
+import { mapState, mapActions } from 'vuex'
 
 export default {
+  computed: mapState({
+    title: state => state.GlobalData.appTitle
+  }),
+  methods: mapActions('MainNavMenu', [
+    'flipSidebarVisibility'
+  ]),
   data: () => ({
     //sidebar: store.sidebar.show
   })
