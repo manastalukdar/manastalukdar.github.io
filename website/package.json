@@ -8,8 +8,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "docs:build": "vuepress build docs",
-    "docs:dev": "vuepress dev docs"
+    "blog:build": "vuepress build blog",
+    "blog:dev": "vuepress dev blog"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
@@ -33,6 +33,8 @@
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
+    "@vuepress/plugin-blog": "^1.0.0-alpha.0",
+    "@vuepress/plugin-pagination": "^1.0.0-alpha.0",
     "autoprefixer": "^9.4.7",
     "babel-eslint": "^10.0.1",
     "chalk": "^2.4.2",
