@@ -19,7 +19,7 @@
       <v-icon dark>arrow_drop_down</v-icon>
     </v-btn>
     <v-list dense>
-      <v-list-tile :href="contactForm.href">
+      <v-list-tile :to="contactForm.href">
         <v-list-tile-avatar>
             <v-icon>{{ contactForm.icon }}</v-icon>
           </v-list-tile-avatar>
@@ -42,31 +42,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
   export default {
-    data: () => ({
-      contactText: "Contact",
-      subHeaderTextSocialMedia: { text: "Social Media" },
-      contactForm: { text: "Form", icon: 'mdi-email-box', href: '/contact/' },
-      socialMediaItems: [
-        {
-          href: 'https://www.linkedin.com/in/manastalukdar/',
-          target: '_blank',
-          icon: 'mdi-linkedin',
-          text: 'LinkedIn'
-        },
-        {
-          href: 'https://github.com/manastalukdar',
-          target: '_blank',
-          icon: 'mdi-github-circle',
-          text: 'GitHub'
-        },
-        {
-          href: 'https://www.twitter.com/manastalukdar/',
-          target: '_blank',
-          icon: 'mdi-twitter',
-          text: 'Twitter'
-        }
-      ]
-    })
+    computed: mapState({
+      contactText: state => state.MainNavMenu.contact.contactText,
+      subHeaderTextSocialMedia: state => state.MainNavMenu.contact.subHeaderTextSocialMedia,
+      contactForm: state => state.MainNavMenu.contact.contactForm,
+      socialMediaItems: state => state.MainNavMenu.contact.socialMediaItems
+    }),
+    data: () => ({})
   }
 </script>

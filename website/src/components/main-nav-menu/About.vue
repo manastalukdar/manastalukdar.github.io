@@ -22,10 +22,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
   export default {
-    data: () => ({
-      aboutText: "About",
-      aboutPath: "/about/"
-    })
+    computed: mapState({
+      aboutText: state => state.MainNavMenu.about.aboutText,
+      aboutPath: state => state.MainNavMenu.about.aboutPath
+    }),
+    data: () => ({})
   }
 </script>

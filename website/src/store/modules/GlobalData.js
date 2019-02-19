@@ -1,17 +1,24 @@
+// initial state
 const state = {
   appTitle: "Manas Talukdar",
-  sidebar: {
-    visible: false
-  }
+  appOwner: "Manas Talukdar",
+  copyrightStartYear: "2018",
+  copyrightEndYear: (new Date()).getFullYear()
 }
 
-const mutations = {
-  flip (state) {
-    state.visible = !state.visible
-  }
-}
+// getters
+const getters = {}
+
+// actions
+const actions = {}
+
+
+// mutations
+const mutations = {}
 
 export default {
   state,
+  getters,
+  actions,
   mutations
 }
