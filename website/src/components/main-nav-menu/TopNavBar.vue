@@ -2,7 +2,7 @@
   <v-toolbar app>
     <v-toolbar-title class="headline">
       <router-link to="/" tag="span" style="cursor: pointer">
-          {{ title }}
+          {{ appTitle }}
       </router-link>
     </v-toolbar-title>
     <v-spacer></v-spacer>
@@ -16,16 +16,6 @@
     <v-menu class="hidden-md-and-up">
         <v-toolbar-side-icon slot="activator" @click="flipSidebarVisibility"></v-toolbar-side-icon>
     </v-menu>
-
-    <!--<v-menu class="hidden-md-and-up">
-        <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
-        <v-list>
-          <v-list-tile><main-nav-menu-blog/></v-list-tile>
-          <v-list-tile><main-nav-menu-about/></v-list-tile>
-          <v-list-tile><main-nav-menu-legal/></v-list-tile>
-          <v-list-tile><main-nav-menu-contact/></v-list-tile>
-        </v-list>
-    </v-menu>-->
   </v-toolbar>
 </template>
 
@@ -35,14 +25,12 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
   computed: mapState({
-    title: state => state.GlobalData.appTitle
+    appTitle: state => state.GlobalData.appTitle
   }),
   methods: mapActions('MainNavMenu', [
     'flipSidebarVisibility'
   ]),
-  data: () => ({
-    //sidebar: store.sidebar.show
-  })
+  data: () => ({})
 }
 </script>
 

@@ -1,5 +1,7 @@
 <template>
-  <v-navigation-drawer v-model="sidebarVisibility" app right>
+  <v-navigation-drawer v-model="sidebarVisibility" class="hidden-md-and-up" app right
+    :disable-resize-watcher="true"
+    :disable-route-watcher="true">
     <v-list>
         <v-list-tile><main-nav-menu-blog/></v-list-tile>
         <v-list-tile><main-nav-menu-about/></v-list-tile>
