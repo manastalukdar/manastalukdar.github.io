@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar app>
+  <v-toolbar color="blue darken-3" dark app>
     <v-toolbar-title class="headline">
       <router-link to="/" tag="span" style="cursor: pointer">
           {{ appTitle }}

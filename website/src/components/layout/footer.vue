@@ -9,7 +9,7 @@
       flat
       tile
     >
-      <v-card-actions class="dark darken-2 py-3 justify-center">
+      <v-card-actions class="dark blue darken-3 py-3 justify-center">
         &copy;&nbsp;{{copyrightStartYear}}—{{copyrightEndYear}}&nbsp;<strong>{{ appOwner }}</strong>
       </v-card-actions>
     </v-card>
