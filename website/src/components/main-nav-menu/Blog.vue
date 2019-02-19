@@ -19,15 +19,7 @@
       <v-icon dark>arrow_drop_down</v-icon>
     </v-btn>
     <v-list dense>
-      <v-list-tile
-        v-for="item in blogItems"
-        :key="item.text"
-        :to="item.href">
-        <v-list-tile-avatar>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-tile-avatar>
-        <v-list-tile-title v-text="item.text"></v-list-tile-title>
-      </v-list-tile>
+      <main-nav-menu-blobMenuItems/>
     </v-list>
   </v-menu>
 </template>
@@ -36,8 +28,7 @@
 import { mapState } from 'vuex'
   export default {
     computed: mapState({
-      blogText: state => state.MainNavMenu.blog.blogText,
-      blogItems: state => state.MainNavMenu.blog.blogItems
+      blogText: state => state.MainNavMenu.blog.blogText
     }),
     data: () => ({})
   }

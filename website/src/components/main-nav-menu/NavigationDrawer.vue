@@ -3,16 +3,47 @@
     :disable-resize-watcher="true"
     :disable-route-watcher="true">
     <v-list>
-        <v-list-tile><main-nav-menu-blog/></v-list-tile>
-        <v-list-tile><main-nav-menu-about/></v-list-tile>
-        <v-list-tile><main-nav-menu-legal/></v-list-tile>
-        <v-list-tile><main-nav-menu-contact/></v-list-tile>
+      <v-list-group
+        no-action>
+        <v-list-tile slot="activator">
+          <v-list-tile-action>
+            <v-icon>mdi-blogger</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title>{{blogText}}</v-list-tile-title>
+        </v-list-tile>
+        <main-nav-menu-blobMenuItems/>
+      </v-list-group>
+
+      <v-list-tile :to="aboutPath">
+        <v-list-tile-action>
+          <v-icon>mdi-information</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title>{{aboutText}}</v-list-tile-title>
+      </v-list-tile>
+
+      <v-list-tile :to="legalPath">
+        <v-list-tile-action>
+          <v-icon>mdi-gavel</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-title>{{legalText}}</v-list-tile-title>
+      </v-list-tile>
+
+      <v-list-group
+        no-action>
+        <v-list-tile slot="activator">
+          <v-list-tile-action>
+            <v-icon>mdi-contact-mail</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title>{{contactText}}</v-list-tile-title>
+        </v-list-tile>
+        <main-nav-menu-contactMenuItems/>
+      </v-list-group>
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
-
+import { mapState } from 'vuex'
 export default {
   computed: {
     sidebarVisibility: {
@@ -24,9 +55,16 @@ export default {
       set(value) {
         this.$store.commit('MainNavMenu/setSidebarVisibility', value)
       }
-    }
-  },
-  data: () => ({ })
+    },
+    ...mapState({
+      blogText: state => state.MainNavMenu.blog.blogText,
+      aboutText: state => state.MainNavMenu.about.aboutText,
+      aboutPath: state => state.MainNavMenu.about.aboutPath,
+      legalText: state => state.MainNavMenu.legal.legalText,
+      legalPath: state => state.MainNavMenu.legal.legalPath,
+      contactText: state => state.MainNavMenu.contact.contactText
+    })
+  }
 }
 </script>
 
