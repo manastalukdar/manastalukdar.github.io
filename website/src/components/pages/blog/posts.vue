@@ -1,7 +1,7 @@
 <template>
     <v-card class="wrapper">
         <iframe frameborder="0"
-        src="https://manastalukdar.github.io/blog" name="postsBox" id="postsBox">
+        src="https://manastalukdar.github.io/blog-articles" name="postsBox" id="postsBox">
         <p>iframes are not supported by your browser.</p>
         </iframe>
     </v-card>
