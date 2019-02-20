@@ -10,14 +10,17 @@
       slot="activator"
       :aria-label="aboutText"
       flat
-      :to="aboutPath"
       style="min-width: 48px"
     >
       <span
         class="hidden-sm-and-down mr-1"
         v-text="aboutText"
       />
+      <v-icon dark>arrow_drop_down</v-icon>
     </v-btn>
+    <v-list dense>
+      <main-nav-menu-aboutMenuItems/>
+    </v-list>
   </v-menu>
 </template>
 
@@ -25,8 +28,7 @@
 import { mapState } from 'vuex'
   export default {
     computed: mapState({
-      aboutText: state => state.MainNavMenu.about.aboutText,
-      aboutPath: state => state.MainNavMenu.about.aboutPath
+      aboutText: state => state.MainNavMenu.about.aboutText
     }),
     data: () => ({})
   }

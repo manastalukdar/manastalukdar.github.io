@@ -14,12 +14,16 @@
         <main-nav-menu-blobMenuItems/>
       </v-list-group>
 
-      <v-list-tile :to="aboutPath">
-        <v-list-tile-action>
-          <v-icon>mdi-information</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-title>{{aboutText}}</v-list-tile-title>
-      </v-list-tile>
+      <v-list-group
+        no-action>
+        <v-list-tile slot="activator">
+          <v-list-tile-action>
+            <v-icon>mdi-information</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title>{{aboutText}}</v-list-tile-title>
+        </v-list-tile>
+        <main-nav-menu-aboutMenuItems/>
+      </v-list-group>
 
       <v-list-tile :to="legalPath">
         <v-list-tile-action>
