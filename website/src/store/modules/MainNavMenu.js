@@ -32,7 +32,14 @@ const state = {
     },
     about: {
       aboutText: "About",
-      aboutPath: "/about/"
+      aboutItems: [
+        {
+          href: '/about/resume',
+          target: '_blank',
+          icon: 'mdi-file-document-box',
+          text: 'Resume'
+        }
+      ]
     },
     legal: {
       legalText: "Legal",

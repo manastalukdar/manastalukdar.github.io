@@ -21,7 +21,7 @@
       </v-flex>
       <p></p>
       <v-flex xs12>
-        <a class="headline" href="https://manastalukdar.github.io/resume-cv/" target="_blank">
+        <a class="headline" href="/about/resume/">
         Resume
         </a>
       </v-flex>
