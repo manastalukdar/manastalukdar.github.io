@@ -1,5 +1,5 @@
 <template>
-    <v-card class="wrapper">
+    <v-card class="blog-wrapper">
         <iframe frameborder="0"
         src="https://manastalukdar.github.io/blog-articles" name="postsBox" id="postsBox">
         <p>iframes are not supported by your browser.</p>
@@ -12,13 +12,13 @@ export default {}
 </script>
 
 <style>
-.wrapper {
+.blog-wrapper {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     padding-top: 25px;
     height: 0;
 }
-.wrapper iframe {
+.blog-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
