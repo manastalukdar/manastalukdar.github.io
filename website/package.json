@@ -7,9 +7,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "blog:build": "vuepress build blog",
-    "blog:dev": "vuepress dev blog"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
