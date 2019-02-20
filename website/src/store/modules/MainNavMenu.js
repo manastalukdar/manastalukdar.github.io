@@ -5,7 +5,7 @@ const state = {
       blogText: "Blog",
       blogItems: [
         {
-          href: '/blog/',
+          href: '/blog/posts',
           target: '_blank',
           icon: 'mdi-newspaper',
           text: 'Posts'
