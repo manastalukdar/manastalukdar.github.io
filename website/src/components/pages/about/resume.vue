@@ -1,5 +1,5 @@
 <template light>
-    <v-card class="wrapper">
+    <v-card class="resume-wrapper">
         <iframe frameborder="0" scrolling="no"
         src="https://manastalukdar.github.io/resume-cv" name="resumeBox" id="resumeBox">
         <p>iframes are not supported by your browser.</p>
@@ -12,14 +12,14 @@ export default {}
 </script>
 
 <style>
-.wrapper {
+.resume-wrapper {
     position: relative;
     padding-bottom: 200%; /* 56.25% = 16:9 */
     padding-top: 25px;
     height: 0;
     overflow: hidden;
 }
-.wrapper iframe {
+.resume-wrapper iframe {
     position: absolute;
     top: 0;
     left: 0;
