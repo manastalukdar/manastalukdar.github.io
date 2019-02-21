@@ -51,7 +51,15 @@ new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
+  created () {
+    if (sessionStorage.redirect) {
+      const redirect = sessionStorage.redirect
+      delete sessionStorage.redirect
+      this.$router.push(redirect)
+    }
+  }
 })
 
 
