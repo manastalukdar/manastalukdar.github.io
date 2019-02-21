@@ -46,34 +46,11 @@ Vue.use(VueAnalytics, {
 })
 
 /* eslint-disable no-new */
-/*
-new Vue({
-  el: '#app',
-  router,
-  store,
-  components: { App },
-  template: '<App/>',
-  // https://stackoverflow.com/questions/47677220/vuejs-history-mode-with-github-gitlab-pages
-  created () {
-    if (sessionStorage.redirect) {
-      const redirect = sessionStorage.redirect
-      delete sessionStorage.redirect
-      this.$router.push(redirect)
-    }
-  }
-})
-*/
 
 new Vue({
   router,
   store,
   render: h => h(App),
-  created () {
-    var redirect = sessionStorage.redirect;
-    delete sessionStorage.redirect;
-    if (redirect && redirect != location.href) {
-        history.replaceState(null, null, redirect);
-    }
-  }
+  created () {}
 }).$mount('#app')
 
