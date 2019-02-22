@@ -1,0 +1,25 @@
+sudo: required
+
+language: node_js
+node_js:
+  - "node"
+
+branches:
+  only:
+    - source
+
+script:
+  - cd website
+  - npm install
+  - npm run build
+
+#https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: false
+  local-dir: website/dist
+  on:
+    branch: source
+  target-branch: master
