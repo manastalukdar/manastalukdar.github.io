@@ -1,4 +1,4 @@
-import Vue from 'vue'
+/* import Vue from 'vue'
 import Vuex from 'vuex'
 import GlobalData from './modules/GlobalData'
 import MainNavMenu from './modules/MainNavMenu'
@@ -9,10 +9,17 @@ Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 
-export default new Vuex.Store({
-  modules: {
-    GlobalData,
-    MainNavMenu
-  },
-  strict: debug
-})
+const store = () => {
+  return new Vuex.Store({
+    state: {},
+    modules: {
+      GlobalData,
+      MainNavMenu
+    },
+    strict: debug
+  })
+}
+
+export default store */
+
+export const state = () => ({})
