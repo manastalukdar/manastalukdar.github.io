@@ -53,8 +53,8 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/blog',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/markdownit' // https://github.com/nuxt-community/modules/tree/master/packages/markdownit
   ],
   /*
   ** Axios module configuration
