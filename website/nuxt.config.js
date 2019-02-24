@@ -53,7 +53,8 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/blog'
+    '@nuxtjs/blog',
+    '@nuxtjs/google-analytics'
   ],
   /*
   ** Axios module configuration
@@ -115,5 +116,10 @@ module.exports = {
       type: 'image/x-icon',
       href: '/favicon.ico'
     }
-  ]
+  ],
+
+  googleAnalytics: {
+    id: 'UA-118888630-1',
+    dev: false
+  }
 }
