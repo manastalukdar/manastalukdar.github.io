@@ -11,7 +11,7 @@ branches:
 script:
   - cd website
   - npm install
-  - npm run build
+  - npm run nuxt-generate
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:
