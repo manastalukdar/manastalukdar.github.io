@@ -1,16 +1,16 @@
 <template>
   <v-toolbar color="blue darken-3" dark app>
     <v-toolbar-title class="headline">
-      <router-link to="/" tag="span" style="cursor: pointer">
+      <nuxt-link to="/" tag="span" style="cursor: pointer">
         {{ appTitle }}
-      </router-link>
+      </nuxt-link>
     </v-toolbar-title>
     <v-spacer />
     <v-toolbar-items class="hidden-sm-and-down">
       <MainNavMenuBlog />
-      <main-nav-menu-about />
-      <main-nav-menu-legal />
-      <main-nav-menu-contact />
+      <MainNavMenuAbout />
+      <MainNavMenuLegal />
+      <MainNavMenuContact />
     </v-toolbar-items>
 
     <v-menu class="hidden-md-and-up">

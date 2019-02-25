@@ -19,7 +19,7 @@ export default {
   }),
   head() {
     return {
-      title: this.appOwner + ' || ' + this.currentPage
+      title: this.currentPage + ' || ' + this.appOwner
     }
   }
 }
