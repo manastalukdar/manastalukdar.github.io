@@ -13,7 +13,7 @@
         >
           <v-text-field
             v-model="name"
-            :name="name"
+            name="name"
             :rules="[rules.length(2)]"
             :counter="2"
             box
@@ -23,7 +23,7 @@
           />
           <v-text-field
             v-model="email"
-            :name="email"
+            name="email"
             :rules="[rules.email]"
             box
             color="light"
@@ -32,7 +32,7 @@
           />
           <v-textarea
             v-model="message"
-            :name="message"
+            name="message"
             auto-grow
             :rules="[rules.length(5)]"
             :counter="5"
