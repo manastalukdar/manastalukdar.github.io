@@ -12,6 +12,8 @@ branches:
 
 script:
   - cd website
+  - npm install –g npm@latest
+  - npm --version
   - npm install
   - npm run nuxt-generate --verbose
 
