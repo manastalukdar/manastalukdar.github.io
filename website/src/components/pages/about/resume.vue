@@ -1,14 +1,16 @@
 <template light>
   <v-card class="resume-wrapper">
-    <iframe
-      id="resumeBox"
-      name="resumeBox"
-      frameborder="0"
-      scrolling="no"
-      src="https://manastalukdar.github.io/resume-cv"
-    >
-      <p>iframes are not supported by your browser.</p>
-    </iframe>
+    <no-ssr>
+      <iframe
+        id="resumeBox"
+        name="resumeBox"
+        frameborder="0"
+        scrolling="no"
+        src="https://manastalukdar.github.io/resume-cv"
+      >
+        <p>iframes are not supported by your browser.</p>
+      </iframe>
+    </no-ssr>
   </v-card>
 </template>
 
