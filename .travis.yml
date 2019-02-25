@@ -1,10 +1,12 @@
-sudo: required
+# sudo: required
+# dist: xenial
 
-dist: xenial
+os:
+  - osx
 
 language: node_js
 node_js:
-  - "8"
+  - "node"
 
 branches:
   only:
