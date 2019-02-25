@@ -10,7 +10,7 @@ branches:
   only:
     - source
 
-script:
+before_script:
   - cd website
   - npm install
   - npm run nuxt-generate --verbose
