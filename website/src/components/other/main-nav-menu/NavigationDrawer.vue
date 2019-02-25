@@ -34,7 +34,7 @@
         <AboutMenuItems />
       </v-list-group>
 
-      <v-list-tile :to="legalPath">
+      <v-list-tile nuxt :to="legalPath">
         <v-list-tile-action>
           <v-icon>mdi-gavel</v-icon>
         </v-list-tile-action>
