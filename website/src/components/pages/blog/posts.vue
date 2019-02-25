@@ -21,9 +21,6 @@ export default {
       ' | ' +
       state.MainNavMenu.blog.blogItems[0].text
   }),
-  fetch({ store, params }) {
-    store.dispatch('GlobalData/setCurrentPageName', this.currentPage)
-  },
   head() {
     return {
       title: this.currentPage + ' || ' + this.appOwner
