@@ -48,7 +48,7 @@ const state = () => ({
   contact: {
     contactText: 'Contact',
     subHeaderTextSocialMedia: { text: 'Social Media' },
-    contactForm: { text: 'Form', icon: 'mdi-email-box', href: '/contact/' },
+    contactForm: { text: 'Form', icon: 'mdi-email-box', href: '/contact/form' },
     socialMediaItems: [
       {
         href: 'https://www.linkedin.com/in/manastalukdar/',
