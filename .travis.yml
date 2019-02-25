@@ -4,13 +4,13 @@ dist: xenial
 
 language: node_js
 node_js:
-  - "node"
+  - "8"
 
 branches:
   only:
     - source
 
-before_script:
+script:
   - cd website
   - npm install
   - npm run nuxt-generate --verbose
