@@ -127,6 +127,7 @@ module.exports = {
   sitemap: {
     path: '/sitemap.xml',
     cacheTime: 1000 * 60 * 15, // 15 mins
+    generate: true,
     gzip: true
   },
 
