@@ -54,7 +54,8 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
-    '@nuxtjs/markdownit' // https://github.com/nuxt-community/modules/tree/master/packages/markdownit
+    '@nuxtjs/markdownit', // https://github.com/nuxt-community/modules/tree/master/packages/markdownit
+    '@nuxtjs/sitemap'
   ],
   /*
   ** Axios module configuration
@@ -121,5 +122,17 @@ module.exports = {
   googleAnalytics: {
     id: 'UA-118888630-1',
     dev: false
+  },
+
+  sitemap: {
+    path: '/sitemap.xml',
+    cacheTime: 1000 * 60 * 15, // 15 mins
+    gzip: true
+  },
+
+  render: {
+    static: {
+      maxAge: 1000 * 60 * 60 * 24 * 7
+    }
   }
 }

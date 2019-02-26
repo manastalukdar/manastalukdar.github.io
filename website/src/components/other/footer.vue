@@ -10,7 +10,7 @@
       tile
     >
       <v-card-actions class="dark blue darken-3 py-3 justify-center">
-        &copy;&nbsp; {{ copyrightStartYear }} — {{ copyrightEndYear }} &nbsp;<strong> {{ appOwner }} </strong>
+        &copy;&nbsp; {{ copyrightStartYear }} — {{ copyrightEndYear }} &nbsp;<strong> {{ appOwner }} </strong> &nbsp;||&nbsp; <a href="/sitemap.xml" target="_blank">sitemap</a>
       </v-card-actions>
     </v-card>
   </v-footer>
