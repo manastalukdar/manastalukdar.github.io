@@ -1,8 +1,8 @@
 {
-  "name": "website",
+  "name": "manas.talukdar.personal.website",
   "version": "1.0.0",
   "private": true,
-  "description": "Manas Talukdar's personal website.",
+  "description": "Manas Talukdar personal website.",
   "author": "Manas Talukdar",
   "scripts": {
     "nuxt-dev": "nuxt",
