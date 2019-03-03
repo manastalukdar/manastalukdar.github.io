@@ -12,6 +12,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'keywords', content: 'Manas Talukdar, resume' },
       { hid: 'description', name: 'description', content: pkg.description },
       {
         name: 'google-site-verification',
