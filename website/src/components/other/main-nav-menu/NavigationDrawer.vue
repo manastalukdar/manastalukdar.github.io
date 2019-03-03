@@ -4,6 +4,7 @@
     class="hidden-md-and-up"
     app
     right
+    :clipped="true"
     :disable-resize-watcher="true"
     :disable-route-watcher="true"
   >

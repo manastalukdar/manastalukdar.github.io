@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
-    <MainNavMenuNavigationDrawer />
     <MainNavMenuTopNavBar />
+    <MainNavMenuNavigationDrawer />
 
     <v-content>
       <transition name="fade">

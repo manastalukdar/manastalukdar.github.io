@@ -28,7 +28,11 @@ export default {
     return {
       title: this.currentPage + ' || ' + this.appOwner,
       meta: [
-        { hid: 'description', name: 'description', content: 'Manas Talukdar resume' }
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Manas Talukdar resume'
+        }
       ]
     }
   }
