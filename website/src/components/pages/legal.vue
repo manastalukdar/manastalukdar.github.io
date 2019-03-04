@@ -21,7 +21,7 @@ export default {
     return {
       title: this.currentPage + ' || ' + this.appOwner,
       meta: [
-        { hid: 'description', name: 'description', content: 'Legal disclaimer' }
+        { hid: 'description', name: 'description', content: 'Legal disclaimer.' }
       ]
     }
   }
