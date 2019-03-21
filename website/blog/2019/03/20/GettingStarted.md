@@ -1,12 +1,20 @@
 ---
-tags: tag1, tag2, tag3
-categories: cat1, cat2
+published: true
+tags:
+  - tag1
+  - tag2
+  - tag3
+categories:
+  - cat1
+  - cat2
+author: "Manas Talukdar"
 post-format: standard
 url-slug: getting-started
-first-published: 2019-03-20
+first-published-on: 2019-03-20
+last-updated-on: 2019-03-20
 meta-title: Getting Started
-meta-description: Getting started post.
-excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+meta-description: "Getting started post."
+excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
 ---
 
 # Getting Started
