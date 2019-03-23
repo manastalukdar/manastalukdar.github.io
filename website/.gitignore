@@ -102,3 +102,5 @@ dist
 
 # Service worker
 sw.*
+
+**/sitemap.xml*
