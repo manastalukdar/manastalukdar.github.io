@@ -25,7 +25,11 @@ export default {
     return {
       title: this.currentPage + ' || ' + this.appOwner,
       meta: [
-        { hid: 'description', name: 'description', content: 'Reflections on software engineering and other matters.' }
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Reflections on software engineering and other matters.'
+        }
       ]
     }
   }
