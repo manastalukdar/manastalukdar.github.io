@@ -1,8 +1,8 @@
-# sudo: required
-# dist: xenial
+sudo: required
+dist: xenial
 
-os:
-  - osx
+# os:
+#  - osx
 
 language: node_js
 node_js:
@@ -12,10 +12,22 @@ branches:
   only:
     - source
 
-script:
+before_install:
+  - sudo add-apt-repository ppa:deadsnakes/ppa -y
+  - sudo apt-get update -y
+  - sudo apt-get install python3.7 -y
+
+script:  
+  - python3.7 --version
+  - pyenv versions
+  - pyenv global 3.7
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+  - python3.7 scripts/create_blog_posts_list.py
   - cd website
   - npm install
   - npm run nuxt-generate --verbose
+  - cd ..
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:

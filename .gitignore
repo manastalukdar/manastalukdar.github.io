@@ -1,12 +1,12 @@
 .DS_Store
-node_modules/
+website/node_modules/
 **/dist/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-/test/unit/coverage/
-/test/e2e/reports/
-selenium-debug.log
+website/npm-debug.log*
+website/yarn-debug.log*
+website/yarn-error.log*
+website/test/unit/coverage/
+website/test/e2e/reports/
+website/selenium-debug.log
 
 # Editor directories and files
 .idea
@@ -77,25 +77,22 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+website/.env
 
 # parcel-bundler cache (https://parceljs.org/)
-.cache
-
-# next.js build output
-.next
+website/.cache
 
 # nuxt.js build output
-.nuxt
+website/.nuxt
 
 # Nuxt generate
-dist
+website/dist
 
 # vuepress build output
-.vuepress/dist
+website/.vuepress/dist
 
 # Serverless directories
-.serverless
+website/.serverless
 
 # IDE
 .idea
@@ -104,3 +101,5 @@ dist
 sw.*
 
 **/sitemap.xml*
+
+website/blog/posts_list.json
