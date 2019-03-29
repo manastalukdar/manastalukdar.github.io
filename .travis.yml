@@ -13,14 +13,8 @@ branches:
     - source
 
 before_install:
-#  - sudo add-apt-repository ppa:deadsnakes/ppa -y
-#  - sudo apt-get update -y
-#  - sudo apt-get install python3.7 -y
   - brew update
   - brew upgrade python
-  - which python
-  - node -v
-  - npm -v
 
 install: true
 
@@ -30,12 +24,9 @@ script:
   - npm run nuxt-generate --verbose
   - cd ..
   - python3 --version
-#  - pyenv versions
-#  - pyenv global 3.7
   - pip3 install --upgrade pip
   - pip3 install -r website/scripts/python-requirements.txt
   - python3 website/scripts/create_blog_posts_list.py
-  - cd website
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:
