@@ -46,13 +46,13 @@ def create_posts_list(files):
   # https://stackoverflow.com/a/12517490
   dir = os.path.dirname(POSTS_LIST_FILE_JSON)
   print(dir)
-  if not os.path.exists(dir):
+  """ if not os.path.exists(dir):
     try:
         os.makedirs(dir)
         print(f"Created directory {dir}")
     except OSError as exc: # Guard against race condition
         if exc.errno != errno.EEXIST:
-            raise
+            raise """
   file_to_update_json = open(POSTS_LIST_FILE_JSON, "w+")
   file_to_update_json.write(json_data)
   file_to_update_json.close()
