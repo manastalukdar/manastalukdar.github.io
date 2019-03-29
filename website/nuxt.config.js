@@ -76,6 +76,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    dir: 'dist',
     transpile: ['vuetify/lib'],
     plugins: [new VuetifyLoaderPlugin()],
     loaders: {
