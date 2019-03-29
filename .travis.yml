@@ -1,9 +1,6 @@
 sudo: required
 dist: xenial
 
-# os:
-#  - osx
-
 language: node_js
 node_js:
   - "node"

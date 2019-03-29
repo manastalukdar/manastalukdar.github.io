@@ -19,7 +19,7 @@ POST_LINK_STRING = "link"
 def find_files():
     """Return the list of files to process."""
     result = {}
-    root_dir = "website\\blog"
+    root_dir = "website/blog"
     cwd = os.getcwd()
     #print(os.listdir(root_dir))
     for root, dirs, files in os.walk(root_dir):
@@ -35,10 +35,10 @@ def create_posts_list(files):
   count = 0
   data_all = []
   for item in files.items():
-    count = count+1
     post = frontmatter.load(item[1])
     post[POST_LINK_STRING] = item[0]
     if post['published'] == True:
+      count = count+1
       data_all.append(post.metadata)
   print(f"Total posts: {count}")
   data_all.sort(key=extract_time, reverse=True)
