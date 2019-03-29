@@ -18,6 +18,7 @@ script:
   - cd website
   - npm install
   - npm run nuxt-generate --verbose
+  - ls
   - cd ..  
   - python3.7 --version
   - pyenv versions
