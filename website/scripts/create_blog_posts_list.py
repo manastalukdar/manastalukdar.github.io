@@ -12,7 +12,7 @@ import errno
 
 from datetime import date, datetime
 
-POSTS_LIST_FILE_JSON = "website/dist/posts_list.json"
+POSTS_LIST_FILE_JSON = "website/dist/blog/posts_list.json"
 
 POST_LINK_STRING = "link"
 
@@ -44,10 +44,12 @@ def create_posts_list(files):
   data_all.sort(key=extract_time, reverse=True)
   json_data = json.dumps(data_all, default=json_serial)#, indent=2)
   # https://stackoverflow.com/a/12517490
-  if not os.path.exists(os.path.dirname(POSTS_LIST_FILE_JSON)):
+  dir = os.path.dirname(POSTS_LIST_FILE_JSON)
+  print(dir)
+  if not os.path.exists(dir):
     try:
-        os.makedirs(os.path.dirname(POSTS_LIST_FILE_JSON))
-        print("created directory")
+        os.makedirs(dir)
+        print(f"Created directory {dir}")
     except OSError as exc: # Guard against race condition
         if exc.errno != errno.EEXIST:
             raise
