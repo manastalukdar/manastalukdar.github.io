@@ -1,3 +1,4 @@
+import postsList from './src/static/blogdata/posts_list.json'
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 module.exports = {
@@ -30,6 +31,11 @@ module.exports = {
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
       }
     ]
+  },
+
+  env: {
+    baseURL:
+      process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000'
   },
 
   /*
@@ -144,6 +150,23 @@ module.exports = {
   render: {
     static: {
       maxAge: 1000 * 60 * 60 * 24 * 7
+    }
+  },
+
+  generate: {
+    routes: function() {
+      return postsList.map(postmetadata => {
+        // eslint-disable-next-line no-console
+        // console.log(postmetadata)
+        return {
+          route:
+            '/blog/' +
+            postmetadata['first-published-on'].replace(/-/g, '/') +
+            '/' +
+            postmetadata['url-slug'],
+          payload: postmetadata
+        }
+      })
     }
   }
 }

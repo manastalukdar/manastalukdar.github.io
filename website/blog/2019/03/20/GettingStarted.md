@@ -1,5 +1,6 @@
 ---
 published: true
+file-name: GettingStarted
 tags:
   - tag1
   - tag2
