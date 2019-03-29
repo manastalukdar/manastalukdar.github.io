@@ -24,7 +24,7 @@ script:
   - pyenv global 3.7
   - pip install --upgrade pip
   - pip install -r website/scripts/python-requirements.txt
-  - python3.7 website/scripts/create_blog_posts_list.py
+#  - python3.7 website/scripts/create_blog_posts_list.py
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:
