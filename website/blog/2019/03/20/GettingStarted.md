@@ -9,11 +9,13 @@ categories:
   - cat2
 author: "Manas Talukdar"
 post-format: standard
+title: Getting Started
 url-slug: getting-started
 first-published-on: 2019-03-20
 last-updated-on: 2019-03-20
-meta-title: Getting Started
-meta-description: "Getting started post."
+meta:
+  title: Getting Started
+  description: "Getting started post."
 excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
 ---
 

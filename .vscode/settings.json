@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
         "Talukdar",
-        "Talukdar's"
-    ]
+        "Talukdar's",
+        "serializable"
+    ],
+    "python.linting.pylintEnabled": true
 }
