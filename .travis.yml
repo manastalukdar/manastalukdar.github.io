@@ -18,9 +18,11 @@ branches:
 before_install:
   - which python
   - brew update
-  - brew install python
+  - brew upgrade python
   - which python
   - brew install pyenv
+
+install: true
 
 script:  
   - cd website
