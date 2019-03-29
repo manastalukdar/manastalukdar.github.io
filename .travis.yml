@@ -20,6 +20,7 @@ script:
   - npm run nuxt-generate --verbose
   - ls
   - cd ..  
+  - ls
   - python3.7 --version
   - pyenv versions
   - pyenv global 3.7
