@@ -47,6 +47,7 @@ def create_posts_list(files):
   if not os.path.exists(os.path.dirname(POSTS_LIST_FILE_JSON)):
     try:
         os.makedirs(os.path.dirname(POSTS_LIST_FILE_JSON))
+        print("created directory")
     except OSError as exc: # Guard against race condition
         if exc.errno != errno.EEXIST:
             raise
