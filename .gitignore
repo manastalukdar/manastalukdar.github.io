@@ -102,4 +102,4 @@ sw.*
 
 **/sitemap.xml*
 
-website/blog/posts_list.json
+website/src/static/blogdata/*

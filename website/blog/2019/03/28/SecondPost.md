@@ -1,5 +1,6 @@
 ---
-published: false
+published: true
+file-name: SecondPost
 tags:
  - tag1
  - tag2

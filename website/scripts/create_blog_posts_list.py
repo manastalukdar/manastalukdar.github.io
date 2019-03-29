@@ -1,5 +1,5 @@
 """
-Script to get list of all blogs along with their metadat from the markdown frontmatter by parsing each markdown file.md from all subdirectories under ..\\blog\\
+Script to (1) get list of all blogs along with their metadata from the markdown frontmatter by parsing each markdown file.md from all subdirectories under ..\\blog\\ (2) copy all blog posts markdown files to under dist folder.
 pip install -r python-requirements.txt
 """
 
@@ -9,12 +9,15 @@ import json
 import markdown
 import frontmatter
 import errno
+import shutil
 
 from datetime import date, datetime
 
-POSTS_LIST_FILE_JSON = "website/dist/blog/posts_list.json"
+POSTS_LIST_FILE_JSON = "website/src/static/blogdata/posts_list.json"
+POSTS_DIST_FOLDER = "website/src/static/blogdata"
+POSTS_FOLDER = "blogdata"
 
-POST_LINK_STRING = "link"
+POST_PATH_STRING = "path"
 
 def find_files():
     """Return the list of files to process."""
@@ -27,7 +30,8 @@ def find_files():
         for file in files:
             if file.endswith(".md"):
                 postFile = os.path.join(cwd, root, file)
-                result[root] = postFile
+                path = root.replace(root_dir + "\\", "")
+                result[path] = postFile
     return result
 
 def create_posts_list(files):
@@ -36,7 +40,7 @@ def create_posts_list(files):
   data_all = []
   for item in files.items():
     post = frontmatter.load(item[1])
-    post[POST_LINK_STRING] = item[0]
+    post[POST_PATH_STRING] = item[0]
     if post['published'] == True:
       count = count+1
       data_all.append(post.metadata)
@@ -45,7 +49,6 @@ def create_posts_list(files):
   json_data = json.dumps(data_all, default=json_serial)#, indent=2)
   # https://stackoverflow.com/a/12517490
   dir = os.path.dirname(POSTS_LIST_FILE_JSON)
-  print(dir)
   if not os.path.exists(dir):
     try:
         os.makedirs(dir)
@@ -56,6 +59,28 @@ def create_posts_list(files):
   file_to_update_json = open(POSTS_LIST_FILE_JSON, "w+")
   file_to_update_json.write(json_data)
   file_to_update_json.close()
+
+def copy_blog_posts(src, dest):
+    try:
+        shutil.copytree(src, dest, ignore=shutil.ignore_patterns('*.gitkeep', 'drafts'))
+    except OSError as e:
+        # If the error was caused because the source wasn't a directory
+        if e.errno == errno.ENOTDIR:
+            shutil.copy(src, dest)
+        else:
+            print('Directory not copied. Error: %s' % e)
+
+def initialize():
+  if os.path.exists(POSTS_DIST_FOLDER):
+    shutil.rmtree(POSTS_DIST_FOLDER)
+
+def ignore_function(ignore):
+    def _ignore_(path, names):
+        ignored_names = []
+        if ignore in names:
+            ignored_names.append(ignore)
+        return set(ignored_names)
+    return _ignore_
 
 # https://stackoverflow.com/a/26924872
 def extract_time(json):
@@ -76,7 +101,9 @@ def json_serial(obj):
 
 def main():
     """main method."""
+    initialize()
     files = find_files()
+    copy_blog_posts(POSTS_FOLDER, POSTS_DIST_FOLDER)
     create_posts_list(files)
 
 if __name__ == '__main__':

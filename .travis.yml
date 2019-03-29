@@ -19,14 +19,14 @@ before_install:
 install: true
 
 script:  
-  - cd website
-  - npm install
-  - npm run nuxt-generate --verbose
-  - cd ..
   - python3 --version
   - pip3 install --upgrade pip
   - pip3 install -r website/scripts/python-requirements.txt
   - python3 website/scripts/create_blog_posts_list.py
+  - cd website
+  - npm install
+  - npm run nuxt-generate --verbose
+  - cd ..
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:
