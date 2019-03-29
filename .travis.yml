@@ -4,13 +4,9 @@
 os:
  - osx
 
-#language: node_js
-#node_js:
-#  - "node"
-
-language: python
-python:
-  - "3.7"
+language: node_js
+node_js:
+  - "node"
 
 branches:
   only:
@@ -20,16 +16,15 @@ before_install:
 #  - sudo add-apt-repository ppa:deadsnakes/ppa -y
 #  - sudo apt-get update -y
 #  - sudo apt-get install python3.7 -y
-#  - brew update
-#  - brew upgrade python
+  - brew update
+  - brew upgrade python
   - which python
-  - brew install node
+  - node -v
+  - npm -v
 
 install: true
 
 script:  
-  - node -v
-  - npm -v
   - cd website
   - npm install
   - npm run nuxt-generate --verbose
