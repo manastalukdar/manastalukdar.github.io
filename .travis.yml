@@ -4,35 +4,41 @@
 os:
  - osx
 
-language: node_js
-node_js:
-  - "node"
+#language: node_js
+#node_js:
+#  - "node"
 
-#python:
-#  - "3.7"
+python:
+  - "3.7"
 
 branches:
   only:
     - source
 
 before_install:
+#  - sudo add-apt-repository ppa:deadsnakes/ppa -y
+#  - sudo apt-get update -y
+#  - sudo apt-get install python3.7 -y
 #  - brew update
-  - brew upgrade python
+#  - brew upgrade python
   - which python
+  - brew install node
 
 install: true
 
 script:  
+  - node -v
+  - npm -v
   - cd website
   - npm install
   - npm run nuxt-generate --verbose
   - cd ..
-  - python --version
-  - pyenv versions
-  - pyenv global 3.7
+  - python3 --version
+#  - pyenv versions
+#  - pyenv global 3.7
   - pip3 install --upgrade pip
   - pip3 install -r website/scripts/python-requirements.txt
-  - python website/scripts/create_blog_posts_list.py
+  - python3 website/scripts/create_blog_posts_list.py
   - cd website
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
