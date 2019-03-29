@@ -1,5 +1,5 @@
-sudo: required
-dist: xenial
+#sudo: required
+#dist: xenial
 
 language: node_js
 node_js:
@@ -18,13 +18,15 @@ script:
   - cd website
   - npm install
   - npm run nuxt-generate --verbose
-  # - cd ..  
-  # - python3.7 --version
-  # - pyenv versions
-  # - pyenv global 3.7
-  # - pip install --upgrade pip
-  # - pip install -r website/scripts/python-requirements.txt
-  # - python3.7 website/scripts/create_blog_posts_list.py
+  - cd ..  
+  - python3.7 --version
+  - pyenv versions
+  - pyenv global 3.7
+  - pip install --upgrade pip
+  - pip install -r website/scripts/python-requirements.txt
+  - python3.7 website/scripts/create_blog_posts_list.py
+  - cd website
+  - ls
 
 #https://caveofcode.com/2017/05/publish-an-angular-app-to-github-pages/
 deploy:
