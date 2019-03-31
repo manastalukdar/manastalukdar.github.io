@@ -15,7 +15,7 @@ from datetime import date, datetime
 
 POSTS_LIST_FILE_JSON = "website/src/static/blogdata/posts_list.json"
 POSTS_DIST_FOLDER = "website/src/static/blogdata"
-POSTS_FOLDER = "blogdata"
+POSTS_FOLDER = "website/blog"
 
 POST_PATH_STRING = "path"
 
