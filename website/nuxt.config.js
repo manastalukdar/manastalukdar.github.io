@@ -1,4 +1,4 @@
-import postsList from './src/static/blogdata/posts_list.json'
+import blogMetadata from './src/static/blogdata/posts_list.json'
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 module.exports = {
@@ -70,7 +70,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
-    '@nuxtjs/markdownit', // https://github.com/nuxt-community/modules/tree/master/packages/markdownit
+    // '@nuxtjs/markdownit', // https://github.com/nuxt-community/modules/tree/master/packages/markdownit
     '@nuxtjs/sitemap'
   ],
   /*
@@ -79,6 +79,14 @@ module.exports = {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
+
+  /* markdownit: {
+    // injected: true
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    use: [['markdown-it-container', 'mdContainer'], 'markdown-it-attrs']
+  }, */
 
   /*
   ** Build configuration
@@ -106,6 +114,10 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+      config.module.rules.push({
+        test: /\.md$/,
+        loader: ['raw-loader']
+      })
     }
   },
 
@@ -157,9 +169,7 @@ module.exports = {
 
   generate: {
     routes: function() {
-      return postsList.map(postmetadata => {
-        // eslint-disable-next-line no-console
-        // console.log(postmetadata)
+      return blogMetadata.map(postmetadata => {
         return {
           route:
             '/blog/' +

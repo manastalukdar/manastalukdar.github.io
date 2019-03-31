@@ -33,20 +33,10 @@ const mutations = {
   }
 }
 
-const initBlogMetadata = function() {
-  const baseURL =
-    process.env.NODE_ENV === 'production'
-      ? 'https://manastalukdar.github.io'
-      : 'http://localhost:3000'
-
-  this.actions.blogMetadata(baseURL)
-}
-
 export default {
   namespaced: true,
   state,
   getters,
   actions,
-  mutations,
-  initBlogMetadata
+  mutations
 }
