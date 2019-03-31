@@ -30,7 +30,7 @@ def find_files():
         for file in files:
             if file.endswith(".md"):
                 postFile = os.path.join(cwd, root, file)
-                path = root.replace(root_dir + "\\", "")
+                path = root.replace(root_dir + "\\", "").replace("\\", "/") + "/" + file
                 result[path] = postFile
     return result
 

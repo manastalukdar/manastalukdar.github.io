@@ -44,6 +44,9 @@ export default {
     aboutItems: state => state.MainNavMenu.about.aboutItems,
     appOwner: state => state.GlobalData.appOwner
   }),
+  async fetch({ store, params, env }) {
+    await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+  },
   head() {
     return {
       title: this.appOwner

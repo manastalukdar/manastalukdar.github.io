@@ -35,7 +35,9 @@ module.exports = {
 
   env: {
     baseURL:
-      process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000'
+      process.env.NODE_ENV === 'production'
+        ? 'https://manastalukdar.github.io'
+        : 'http://localhost:3000'
   },
 
   /*

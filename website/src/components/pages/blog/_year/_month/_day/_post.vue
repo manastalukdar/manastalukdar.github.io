@@ -5,7 +5,8 @@
       wrap
     >
       <v-flex xs12>
-        Post: {{ $route }}
+        Post: {{ $route.params }}
+        {{ postMetadata }}
         <!--{{ postMetadata.excerpt }}-->
       </v-flex>
     </v-layout>
@@ -15,32 +16,42 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  computed: mapState({
-    appOwner: state => state.GlobalData.appOwner,
-    currentPage: state =>
-      state.MainNavMenu.blog.blogText + ' | ' + this.postMetaTitle
-  }),
-  asyncData(context, params) {
-    // check if you got a payload first
-    if (context.payload) {
-      // extract the user object passed from nuxt.config.js
-      return {
-        postMetaTitle: context.payload.meta.title,
-        postMetadata: context.payload
+  computed: {
+    postMetadata: {
+      get() {
+        return this.$store.getters['BlogMetadata/getPostMetadata'](
+          this.$route.params.year,
+          this.$route.params.month,
+          this.$route.params.day,
+          this.$route.params.post
+        )
       }
-    } else {
-      // if you got no context, go ahead and make the API request, or log error
-      // console.log("Failed to retrive data")
+    },
+    ...mapState({
+      appOwner: state => state.GlobalData.appOwner,
+      currentPage: state => state.MainNavMenu.blog.blogText + ' | '
+    })
+  },
+  async fetch({ store, params, env }) {
+    if (store.state.BlogMetadata.blogMetadata.length === 0) {
+      await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
     }
   },
   head() {
+    const postMetadata = this.$store.getters['BlogMetadata/getPostMetadata'](
+      this.$route.params.year,
+      this.$route.params.month,
+      this.$route.params.day,
+      this.$route.params.post
+    )
     return {
-      title: this.currentPage + ' || ' + this.appOwner,
+      title:
+        this.currentPage + postMetadata.meta.title + ' || ' + this.appOwner,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.postMetadata.meta.description
+          content: postMetadata.meta.description
         }
       ]
     }
