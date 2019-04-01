@@ -18,7 +18,7 @@
 import { mapState } from 'vuex'
 import MainNavMenuNavigationDrawer from '../other/main-nav-menu/NavigationDrawer.vue'
 import MainNavMenuTopNavBar from '../other/main-nav-menu/TopNavBar.vue'
-import Footer from '../other/Footer.vue'
+import Footer from '../other/footer.vue'
 export default {
   /* name: 'App', */
   components: {
