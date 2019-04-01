@@ -51,15 +51,13 @@ jobs:
           at: ~/repo/tmp
 
       - run:
-        command: |
-          cd tmp
-          ls
-          cd ..
-          cp tmp/blogdata website/src/static/ -r
-          cd website
-          npm install
-          npm run nuxt-generate --verbose
-          cd .. 
+          command: |
+            find tmp
+            cp tmp/blogdata website/src/static/ -r
+            cd website
+            npm install
+            npm run nuxt-generate --verbose
+            cd .. 
 
 workflows:
   version: 2
