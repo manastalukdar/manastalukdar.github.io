@@ -10,7 +10,7 @@ website/selenium-debug.log
 
 # Editor directories and files
 .idea
-.vscode
+.vscode/.ropeproject
 *.suo
 *.ntvs*
 *.njsproj

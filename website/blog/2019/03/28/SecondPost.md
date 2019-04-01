@@ -6,8 +6,8 @@ tags:
 categories:
  - cat1
 author: "Manas Talukdar"
-post-format: standard,
-title: Second Post,
+post-format: standard
+title: Second Post
 url-slug: second-post
 first-published-on: 2019-03-28
 last-updated-on: 2019-03-28

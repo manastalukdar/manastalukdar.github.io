@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import blogMetadata from './src/static/blogdata/blog_metadata.json'
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
@@ -169,16 +170,96 @@ module.exports = {
 
   generate: {
     routes: function() {
-      return blogMetadata.map(postmetadata => {
-        return {
+      const routesAll = []
+      const tags = []
+      const categories = []
+      blogMetadata.map(postmetadata => {
+        postmetadata.tags.map(tag => {
+          if (_.indexOf(tags, tag) === -1) {
+            tags.push(tag)
+          }
+        })
+        postmetadata.categories.map(category => {
+          if (_.indexOf(categories, category) === -1) {
+            categories.push(category)
+          }
+        })
+        routesAll.push({
           route:
             '/blog/' +
             postmetadata['first-published-on'].replace(/-/g, '/') +
             '/' +
             postmetadata['url-slug'],
           payload: postmetadata
-        }
+        })
       })
+
+      const groupedByAuthor = _.groupBy(blogMetadata, function(postmetadata) {
+        return postmetadata.author
+      })
+      for (const [key, value] of Object.entries(groupedByAuthor)) {
+        value.map(postmetadata => {
+          routesAll.push({
+            route: '/blog/author/' + key,
+            payload: postmetadata
+          })
+        })
+      }
+
+      const groupedByPostFormat = _.groupBy(blogMetadata, function(
+        postmetadata
+      ) {
+        return postmetadata['post-format']
+      })
+      for (const [key, value] of Object.entries(groupedByPostFormat)) {
+        value.map(postmetadata => {
+          routesAll.push({
+            route: '/blog/post-format/' + key,
+            payload: postmetadata
+          })
+        })
+      }
+
+      // https://stackoverflow.com/questions/55450096/how-to-groupby-in-lodash-for-each-item-in-a-nested-array
+      const groupedByTag = blogMetadata.reduce(function(acc, curr) {
+        curr.tags.forEach(function(item) {
+          if (acc[item]) {
+            acc[item].push(curr)
+          } else {
+            acc[item] = [curr]
+          }
+        })
+        return acc
+      }, {})
+      for (const [key, value] of Object.entries(groupedByTag)) {
+        value.map(postmetadata => {
+          routesAll.push({
+            route: '/blog/tag/' + key,
+            payload: postmetadata
+          })
+        })
+      }
+
+      const groupedByCategories = blogMetadata.reduce(function(acc, curr) {
+        curr.categories.forEach(function(item) {
+          if (acc[item]) {
+            acc[item].push(curr)
+          } else {
+            acc[item] = [curr]
+          }
+        })
+        return acc
+      }, {})
+      for (const [key, value] of Object.entries(groupedByCategories)) {
+        value.map(postmetadata => {
+          routesAll.push({
+            route: '/blog/category/' + key,
+            payload: postmetadata
+          })
+        })
+      }
+
+      return routesAll
     }
   }
 }
