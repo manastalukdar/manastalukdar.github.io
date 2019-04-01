@@ -57,8 +57,7 @@ jobs:
             cd website
             npm install
             sudo npm run nuxt-generate
-            cd .. 
-            find website/dist
+            cd ..
 
 workflows:
   version: 2
