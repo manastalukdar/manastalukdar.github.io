@@ -4,5 +4,19 @@
         "Talukdar's",
         "serializable"
     ],
-    "python.linting.pylintEnabled": true
+    "python.linting.pylintEnabled": true,
+    "eslint.validate": [
+        {
+            "language": "vue",
+            "autoFix": true
+          },
+          {
+            "language": "html",
+            "autoFix": true
+          },
+          {
+            "language": "javascript",
+            "autoFix": true
+          }
+      ]
 }
