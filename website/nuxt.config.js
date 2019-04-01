@@ -169,6 +169,7 @@ module.exports = {
   },
 
   generate: {
+    dir: 'dist',
     routes: function() {
       const routesAll = []
       const tags = []
