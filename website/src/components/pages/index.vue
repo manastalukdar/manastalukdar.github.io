@@ -44,9 +44,11 @@ export default {
     aboutItems: state => state.MainNavMenu.about.aboutItems,
     appOwner: state => state.GlobalData.appOwner
   }),
-  async fetch({ store, params, env }) {
-    if (store.state.BlogMetadata.blogMetadata.length === 0) {
-      await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+  async fetch({ store, params, env, payload }) {
+    if (!payload) {
+      if (store.state.BlogMetadata.blogMetadata.length === 0) {
+        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+      }
     }
   },
   head() {
