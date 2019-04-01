@@ -74,7 +74,6 @@ export default {
     })
   },
   async asyncData({ store, params, env, payload }) {
-    const path = require('path')
     const fm = require('front-matter')
     const md = require('markdown-it')({
       html: true,
@@ -82,11 +81,7 @@ export default {
       typographer: true
     })
     if (payload) {
-      const fullPath = './src/static/blogdata/' + payload.path
-      // eslint-disable-next-line no-console
-      console.log(fullPath)
-      const fileContent = await require('./src/static/blogdata/' + payload.path)
-
+      const fileContent = await import('./src/static/blogdata/' + payload.path)
       const res = fm(fileContent.default)
       // console.log(res.attributes)
       return {
