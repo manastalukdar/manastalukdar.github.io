@@ -28,6 +28,7 @@ jobs:
             python3 -m pip install --upgrade pip
             python3 -m pip install -r website/scripts/python-requirements.txt
             python3 website/scripts/create_blog_metadata.py
+            ls
       
       - persist_to_workspace:
           root: tmp
@@ -52,7 +53,7 @@ jobs:
           cd tmp
           ls
           cd ..
-          cp tmp/blogdata website/src/static/ -r
+          cp tmp/website/src/static/blogdata website/src/static/ -r
           cd website
           npm install
           npm run nuxt-generate --verbose
@@ -60,7 +61,7 @@ jobs:
 
 workflows:
   version: 2
-  build-test:
+  build:
     jobs:
       - generate_blog_metadata:        
           filters:
