@@ -1,4 +1,4 @@
-import blogMetadata from './src/static/blogdata/posts_list.json'
+import blogMetadata from './src/static/blogdata/blog_metadata.json'
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 module.exports = {

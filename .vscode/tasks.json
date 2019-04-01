@@ -40,9 +40,9 @@
             "dependsOn": ["Delete css folder", "Delete fonts folder", "Delete img folder", "Delete js folder"]
         }*/,
         {
-            "label": "create-blog-posts-list",
+            "label": "create-blog-metadata",
             "type": "shell",
-            "command": "python ${workspaceFolder}/website/scripts/create_blog_posts_list.py"
+            "command": "python ${workspaceFolder}/website/scripts/create_blog_metadata.py"
         }
     ]
 }

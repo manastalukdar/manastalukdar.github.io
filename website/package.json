@@ -30,8 +30,6 @@
     "express": "^4.16.4",
     "front-matter": "^3.0.1",
     "lodash": "^4.17.11",
-    "markdown-it-attrs": "^2.3.2",
-    "markdown-it-container": "^2.0.0",
     "nuxt": "^2.5.1",
     "vue-material-design-icons": "^3.1.0",
     "vuetify": "^1.5.7",
