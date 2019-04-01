@@ -28,7 +28,8 @@ jobs:
             python3 -m pip install --upgrade pip
             python3 -m pip install -r website/scripts/python-requirements.txt
             python3 website/scripts/create_blog_metadata.py
-            ls
+            mkdir -p tmp/
+            cp website/src/static/blogdata tmp -r
       
       - persist_to_workspace:
           root: tmp
