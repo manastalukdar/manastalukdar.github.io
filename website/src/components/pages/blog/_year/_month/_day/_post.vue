@@ -81,7 +81,9 @@ export default {
       typographer: true
     })
     if (payload) {
-      const fileContent = await import('src/static/blogdata/' + payload.path)
+      const fileContent = await import('src/static/blogdata/' +
+        payload.path +
+        '1')
       const res = fm(fileContent.default)
       // console.log(res.attributes)
       return {
