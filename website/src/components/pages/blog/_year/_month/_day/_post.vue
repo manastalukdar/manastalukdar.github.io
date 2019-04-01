@@ -44,6 +44,12 @@
             </nuxt-link>
           &nbsp;
           </div>
+          &nbsp;|| Post-format:&nbsp;
+          <nuxt-link
+            :to="{ name: 'blog-postformat-type', params: { type: postMetadata['post-format'] } }"
+          >
+            {{ postMetadata['post-format'] }}
+          </nuxt-link>
         </v-layout>
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div v-html="postContent" />
@@ -75,7 +81,9 @@ export default {
       typographer: true
     })
     if (payload) {
+      console.log(payload)
       const fileContent = await import('./src/static/blogdata/' + payload.path)
+      console.log(fileContent.default)
       const res = fm(fileContent.default)
       // console.log(res.attributes)
       return {
