@@ -52,8 +52,8 @@ jobs:
 
       - run:
           command: |
-            find tmp
-            cp tmp/blogdata website/src/static/ -r
+            cp tmp/blogdata website/src/static/blogdata -r
+            find website/src
             cd website
             npm install
             sudo npm run nuxt-generate
