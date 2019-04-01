@@ -11,7 +11,7 @@ const getters = {
   getPostMetadata: state => (year, month, date, slug) => {
     return _.find(state.blogMetadata, function(post) {
       return (
-        post['last-updated-on'] === year + '-' + month + '-' + date &&
+        post['first-published-on'] === year + '-' + month + '-' + date &&
         post['url-slug'] === slug
       )
     })

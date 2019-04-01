@@ -46,7 +46,7 @@
           </div>
           &nbsp;|| Post-format:&nbsp;
           <nuxt-link
-            :to="{ name: 'blog-postformat-type', params: { type: postMetadata['post-format'] } }"
+            :to="{ name: 'blog-post-format-type', params: { type: postMetadata['post-format'] } }"
           >
             {{ postMetadata['post-format'] }}
           </nuxt-link>
