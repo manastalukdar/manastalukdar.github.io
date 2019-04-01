@@ -45,7 +45,9 @@ export default {
     appOwner: state => state.GlobalData.appOwner
   }),
   async fetch({ store, params, env }) {
-    await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+    if (store.state.BlogMetadata.blogMetadata.length === 0) {
+      await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+    }
   },
   head() {
     return {
