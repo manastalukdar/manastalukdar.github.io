@@ -58,6 +58,7 @@ jobs:
             npm install
             npm run nuxt-generate --verbose
             cd .. 
+            find website
             find website/dist
 
 workflows:
