@@ -23,6 +23,3 @@ const store = () => {
 export default store */
 
 export const state = () => ({})
-
-// https://github.com/nuxt/nuxt.js/issues/492
-// https://github.com/nuxt/nuxt.js/issues/123
