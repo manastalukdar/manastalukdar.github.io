@@ -30,11 +30,12 @@ jobs:
             python3 website/scripts/create_blog_metadata.py
             mkdir -p tmp/
             cp website/src/static/blogdata tmp -r
+            find tmp
       
       - persist_to_workspace:
           root: tmp
           paths: 
-            - website/src/static/blogdata
+            - blogdata
       
   generate_website: # node
     <<: *defaults
@@ -54,7 +55,7 @@ jobs:
           cd tmp
           ls
           cd ..
-          cp tmp/website/src/static/blogdata website/src/static/ -r
+          cp tmp/blogdata website/src/static/ -r
           cd website
           npm install
           npm run nuxt-generate --verbose
