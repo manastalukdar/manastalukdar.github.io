@@ -53,11 +53,26 @@ jobs:
       - run:
           command: |
             cp tmp/blogdata website/src/static/blogdata -r
-            find website/src
             cd website
             npm install
             sudo npm run nuxt-generate
             cd ..
+            cp website/dist tmp -r
+      
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "manas.talukdar@gmail.com"
+            git config user.name "circle-ci-build"
+      
+      - add_ssh_keys:
+          fingerprints:
+            - "5e:7e:51:39:c2:4e:ee:84:0f:1d:e5:4d:4a:f6:6e:7f"
+
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: gh-pages --dotfiles --dist tmp/dist --branch master --message "Circle CI Updates"
 
 workflows:
   version: 2
