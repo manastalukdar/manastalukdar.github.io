@@ -1,13 +1,52 @@
 <template>
   <v-container>
     <v-layout
-      text-xs-center
       wrap
     >
       <v-flex xs12>
+        <v-layout row justify-center class="title">
+          <p>
+            {{ postMetadata.title }}
+          </p>
+        </v-layout>
+        <v-layout row justify-center>
+          Author:&nbsp;
+          <nuxt-link
+            :to="{ name: 'blog-author-name', params: { name:postMetadata.author } }"
+          >
+            {{ postMetadata.author }}
+          </nuxt-link>
+          &nbsp;
+          || First Published: {{ postMetadata["first-published-on"] }} || Last Updated: {{ postMetadata["last-updated-on"] }}
+        </v-layout>
+        <v-layout row justify-center>
+          Categories:&nbsp;
+          <div
+            v-for="item in postMetadata.categories"
+            :key="item"
+          >
+            <nuxt-link
+              :to="{ name: 'blog-category-name', params: { name:item } }"
+            >
+              {{ item }}
+            </nuxt-link>
+          &nbsp;
+          </div>
+          &nbsp;|| Tags:&nbsp;
+          <div
+            v-for="item in postMetadata.tags"
+            :key="item"
+          >
+            <nuxt-link
+              :to="{ name: 'blog-tag-name', params: { name:item } }"
+            >
+              {{ item }}
+            </nuxt-link>
+          &nbsp;
+          </div>
+        </v-layout>
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div v-html="postContent" />
-        {{ postMetadata }}
       </v-flex>
     </v-layout>
   </v-container>
@@ -41,7 +80,8 @@ export default {
       // console.log(res.attributes)
       return {
         postContent: md.render(res.body),
-        postMetadata: payload
+        postMetadata: payload,
+        baseURL: env.baseURL
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
@@ -59,7 +99,8 @@ export default {
       const res = fm(fileContent.data)
       return {
         postContent: md.render(res.body),
-        postMetadata: postMetadata
+        postMetadata: postMetadata,
+        baseURL: env.baseURL
       }
     }
   },
