@@ -258,6 +258,64 @@ module.exports = {
         })
       }
 
+      const groupedByYear = blogMetadata.reduce(function(acc, curr) {
+        const year = curr['first-published-on'].split('-')[0]
+        if (acc[year]) {
+          acc[year].push(curr)
+        } else {
+          acc[year] = [curr]
+        }
+        return acc
+      }, {})
+      for (const [key, value] of Object.entries(groupedByYear)) {
+        routesAll.push({
+          route: '/blog/' + key,
+          payload: value
+        })
+      }
+
+      const groupedByMonth = blogMetadata.reduce(function(acc, curr) {
+        const year = curr['first-published-on'].split('-')[0]
+        const month = curr['first-published-on'].split('-')[1]
+        const key = year + '-' + month
+        if (acc[key]) {
+          acc[key].push(curr)
+        } else {
+          acc[key] = [curr]
+        }
+        return acc
+      }, {})
+      for (const [key, value] of Object.entries(groupedByMonth)) {
+        const year = key.split('-')[0]
+        const month = key.split('-')[1]
+        routesAll.push({
+          route: '/blog/' + year + '/' + month,
+          payload: value
+        })
+      }
+
+      const groupedByDay = blogMetadata.reduce(function(acc, curr) {
+        const year = curr['first-published-on'].split('-')[0]
+        const month = curr['first-published-on'].split('-')[1]
+        const day = curr['first-published-on'].split('-')[2]
+        const key = year + '-' + month + '-' + day
+        if (acc[key]) {
+          acc[key].push(curr)
+        } else {
+          acc[key] = [curr]
+        }
+        return acc
+      }, {})
+      for (const [key, value] of Object.entries(groupedByDay)) {
+        const year = key.split('-')[0]
+        const month = key.split('-')[1]
+        const day = key.split('-')[2]
+        routesAll.push({
+          route: '/blog/' + year + '/' + month + '/' + day,
+          payload: value
+        })
+      }
+
       return routesAll
     }
   }
