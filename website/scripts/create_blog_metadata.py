@@ -10,6 +10,7 @@ import markdown
 import frontmatter
 import errno
 import shutil
+import re
 
 from datetime import date, datetime
 
@@ -43,6 +44,14 @@ def create_posts_list(files):
     post[POST_PATH_STRING] = item[0]
     if post['published'] == True:
       count = count+1
+      newTags = get_data_with_url_slug(post['tags'])
+      post['tags'] = newTags
+      newCategories = get_data_with_url_slug(post['categories'])
+      post['categories'] = newCategories
+      newAuthors = get_data_with_url_slug(post['authors'])
+      post['authors'] = newAuthors
+      newPostFormat = get_data_with_url_slug(post['post-format'])
+      post['post-format'] = newPostFormat
       data_all.append(post.metadata)
   print(f"Total posts: {count}")
   data_all.sort(key=extract_time, reverse=True)
@@ -81,6 +90,24 @@ def ignore_function(ignore):
             ignored_names.append(ignore)
         return set(ignored_names)
     return _ignore_
+
+def get_data_with_url_slug(items):
+  if isinstance(items, list):
+    newItems = []
+    for item in items:
+      newItem = process_item_for_url_slug(item)
+      newItems.append(newItem)
+    return newItems
+  else:
+    newItem = process_item_for_url_slug(items)
+    return newItem
+
+def process_item_for_url_slug(item):
+  # https://stackoverflow.com/questions/43358857/how-to-remove-special-characters-except-space-from-a-file-in-python/43358965
+  noSpecialChar = re.sub(r"[^a-zA-Z0-9]+", ' ', item)
+  itemSlug = noSpecialChar.lower().replace(" ", "-")
+  newItem = {"name": item, "url-slug": itemSlug}
+  return newItem
 
 # https://stackoverflow.com/a/26924872
 def extract_time(json):

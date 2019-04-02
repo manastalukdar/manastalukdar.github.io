@@ -29,24 +29,24 @@
           Categories:&nbsp;
           <div
             v-for="item in postMetadata.categories"
-            :key="item"
+            :key="item['name']"
           >
             <nuxt-link
-              :to="{ name: 'blog-category-name', params: { name:item } }"
+              :to="{ name: 'blog-category-name', params: { name:item['url-slug'] } }"
             >
-              <span>{{ item }}</span>
+              <span>{{ item['name'] }}</span>
             </nuxt-link>
           &nbsp;
           </div>
           &nbsp;|| Tags:&nbsp;
           <div
             v-for="item in postMetadata.tags"
-            :key="item"
+            :key="item['name']"
           >
             <nuxt-link
-              :to="{ name: 'blog-tag-name', params: { name:item } }"
+              :to="{ name: 'blog-tag-name', params: { name:item['url-slug'] } }"
             >
-              <span>{{ item }}</span>
+              <span>{{ item['name'] }}</span>
             </nuxt-link>
           &nbsp;
           </div>

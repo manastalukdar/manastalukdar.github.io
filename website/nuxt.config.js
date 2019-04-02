@@ -172,8 +172,6 @@ module.exports = {
     dir: 'dist',
     routes: function() {
       const routesAll = []
-      const tags = []
-      const categories = []
 
       routesAll.push({
         route: '/',
@@ -186,16 +184,6 @@ module.exports = {
       })
 
       blogMetadata.map(postmetadata => {
-        postmetadata.tags.map(tag => {
-          if (_.indexOf(tags, tag) === -1) {
-            tags.push(tag)
-          }
-        })
-        postmetadata.categories.map(category => {
-          if (_.indexOf(categories, category) === -1) {
-            categories.push(category)
-          }
-        })
         routesAll.push({
           route:
             '/blog/' +
@@ -209,17 +197,16 @@ module.exports = {
       const groupedByPostFormat = _.groupBy(blogMetadata, function(
         postmetadata
       ) {
-        return postmetadata['post-format']
+        return postmetadata['post-format']['url-slug']
       })
       for (const [key, value] of Object.entries(groupedByPostFormat)) {
-        value.map(postmetadata => {
-          routesAll.push({
-            route: '/blog/post-format/' + key,
-            payload: postmetadata
-          })
+        routesAll.push({
+          route: '/blog/post-format/' + key,
+          payload: value
         })
       }
 
+      // https://stackoverflow.com/questions/55450096/how-to-groupby-in-lodash-for-each-item-in-a-nested-array
       const groupedByAuthor = blogMetadata.reduce(function(acc, curr) {
         curr.authors.forEach(function(item) {
           if (acc[item['url-slug']]) {
@@ -231,50 +218,43 @@ module.exports = {
         return acc
       }, {})
       for (const [key, value] of Object.entries(groupedByAuthor)) {
-        value.map(postmetadata => {
-          routesAll.push({
-            route: '/blog/author/' + key,
-            payload: postmetadata
-          })
+        routesAll.push({
+          route: '/blog/author/' + key,
+          payload: value
         })
       }
 
-      // https://stackoverflow.com/questions/55450096/how-to-groupby-in-lodash-for-each-item-in-a-nested-array
       const groupedByTag = blogMetadata.reduce(function(acc, curr) {
         curr.tags.forEach(function(item) {
-          if (acc[item]) {
-            acc[item].push(curr)
+          if (acc[item['url-slug']]) {
+            acc[item['url-slug']].push(curr)
           } else {
-            acc[item] = [curr]
+            acc[item['url-slug']] = [curr]
           }
         })
         return acc
       }, {})
       for (const [key, value] of Object.entries(groupedByTag)) {
-        value.map(postmetadata => {
-          routesAll.push({
-            route: '/blog/tag/' + key,
-            payload: postmetadata
-          })
+        routesAll.push({
+          route: '/blog/tag/' + key,
+          payload: value
         })
       }
 
       const groupedByCategories = blogMetadata.reduce(function(acc, curr) {
         curr.categories.forEach(function(item) {
-          if (acc[item]) {
-            acc[item].push(curr)
+          if (acc[item['url-slug']]) {
+            acc[item['url-slug']].push(curr)
           } else {
-            acc[item] = [curr]
+            acc[item['url-slug']] = [curr]
           }
         })
         return acc
       }, {})
       for (const [key, value] of Object.entries(groupedByCategories)) {
-        value.map(postmetadata => {
-          routesAll.push({
-            route: '/blog/category/' + key,
-            payload: postmetadata
-          })
+        routesAll.push({
+          route: '/blog/category/' + key,
+          payload: value
         })
       }
 
