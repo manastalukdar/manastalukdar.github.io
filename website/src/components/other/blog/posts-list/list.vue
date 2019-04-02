@@ -3,17 +3,20 @@
     wrap
   >
     <v-flex xs12>
-      <div
-        v-for="post in postsList"
-        :key="post['path']"
+      <v-data-iterator
+        :items="postsList"
+        :rows-per-page-items="rowsPerPageItems"
+        :pagination.sync="pagination"
+        content-tag="v-layout"
+        row
+        wrap
       >
-        <singlePost :post-metadata="post" />
-        <hr>
-      </div>
+        <template v-slot:item="props">
+          <singlePost :post-metadata="props.item" />
+          <hr>
+        </template>
+      </v-data-iterator>
     </v-flex>
-    <v-layout justify-center class="text-xs-center pt-2">
-      <v-pagination v-model="pagination.page" :length="pages" />
-    </v-layout>
   </v-layout>
 </template>
 
@@ -31,8 +34,9 @@ export default {
     }
   },
   data: () => ({
+    rowsPerPageItems: [1, 5, 10],
     pagination: {
-      itemsPerPage: 5
+      rowsPerPage: 5
     }
   }),
   computed: {

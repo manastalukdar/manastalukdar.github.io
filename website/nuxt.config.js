@@ -172,6 +172,8 @@ module.exports = {
     dir: 'dist',
     routes: function() {
       const routesAll = []
+      const tags = []
+      const categories = []
 
       routesAll.push({
         route: '/',
@@ -235,6 +237,7 @@ module.exports = {
         return acc
       }, {})
       for (const [key, value] of Object.entries(groupedByTag)) {
+        tags.push({ key: value.length })
         routesAll.push({
           route: '/blog/tag/' + key,
           payload: value
@@ -252,6 +255,7 @@ module.exports = {
         return acc
       }, {})
       for (const [key, value] of Object.entries(groupedByCategories)) {
+        categories.push({ key: value.length })
         routesAll.push({
           route: '/blog/category/' + key,
           payload: value
