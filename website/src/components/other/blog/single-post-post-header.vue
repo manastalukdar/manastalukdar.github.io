@@ -10,12 +10,18 @@
           </p>
         </v-layout>
         <v-layout row justify-center>
-          Author:&nbsp;
-          <nuxt-link
-            :to="{ name: 'blog-author-name', params: { name:postMetadata.author } }"
+          Authors:&nbsp;
+          <div
+            v-for="item in postMetadata.authors"
+            :key="item['name']"
           >
-            {{ postMetadata.author }}
-          </nuxt-link>
+            <nuxt-link
+              :to="{ name: 'blog-author-name', params: { name:item['url-slug'] } }"
+            >
+              <span>{{ item['name'] }}</span>
+            </nuxt-link>
+          &nbsp;
+          </div>
           &nbsp;
           || First Published: {{ postMetadata["first-published-on"] }} || Last Updated: {{ postMetadata["last-updated-on"] }}
         </v-layout>
@@ -28,7 +34,7 @@
             <nuxt-link
               :to="{ name: 'blog-category-name', params: { name:item } }"
             >
-              {{ item }}
+              <span>{{ item }}</span>
             </nuxt-link>
           &nbsp;
           </div>
@@ -40,7 +46,7 @@
             <nuxt-link
               :to="{ name: 'blog-tag-name', params: { name:item } }"
             >
-              {{ item }}
+              <span>{{ item }}</span>
             </nuxt-link>
           &nbsp;
           </div>

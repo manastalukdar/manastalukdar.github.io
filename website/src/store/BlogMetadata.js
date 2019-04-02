@@ -22,7 +22,7 @@ const getters = {
 const actions = {
   async getBlogMetadata({ commit }, baseURL) {
     const { data } = await axios
-      .get(baseURL + '/blogdata/blog_metadata.json')
+      .get(baseURL + '/blogdata/metadata/blog_metadata.json')
       .catch(function(error) {
         if (error.response) {
           // The request was made and the server responded with a status code

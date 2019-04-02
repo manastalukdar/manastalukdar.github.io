@@ -1,6 +1,5 @@
 import _ from 'lodash'
-import blogMetadata from './src/static/blogdata/blog_metadata.json'
-
+import blogMetadata from './src/static/blogdata/metadata/blog_metadata.json'
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 module.exports = {
@@ -177,6 +176,11 @@ module.exports = {
       const categories = []
 
       routesAll.push({
+        route: '/',
+        payload: 'dummy'
+      })
+
+      routesAll.push({
         route: '/blog/posts',
         payload: blogMetadata
       })
@@ -202,18 +206,6 @@ module.exports = {
         })
       })
 
-      const groupedByAuthor = _.groupBy(blogMetadata, function(postmetadata) {
-        return postmetadata.author
-      })
-      for (const [key, value] of Object.entries(groupedByAuthor)) {
-        value.map(postmetadata => {
-          routesAll.push({
-            route: '/blog/author/' + key,
-            payload: postmetadata
-          })
-        })
-      }
-
       const groupedByPostFormat = _.groupBy(blogMetadata, function(
         postmetadata
       ) {
@@ -223,6 +215,25 @@ module.exports = {
         value.map(postmetadata => {
           routesAll.push({
             route: '/blog/post-format/' + key,
+            payload: postmetadata
+          })
+        })
+      }
+
+      const groupedByAuthor = blogMetadata.reduce(function(acc, curr) {
+        curr.authors.forEach(function(item) {
+          if (acc[item['url-slug']]) {
+            acc[item['url-slug']].push(curr)
+          } else {
+            acc[item['url-slug']] = [curr]
+          }
+        })
+        return acc
+      }, {})
+      for (const [key, value] of Object.entries(groupedByAuthor)) {
+        value.map(postmetadata => {
+          routesAll.push({
+            route: '/blog/author/' + key,
             payload: postmetadata
           })
         })
