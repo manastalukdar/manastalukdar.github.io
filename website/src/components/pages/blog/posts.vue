@@ -21,6 +21,15 @@ export default {
       ' | ' +
       state.MainNavMenu.blog.blogItems[0].text
   }),
+  async asyncData({ store, params, env, payload }) {
+    if (payload) {
+      return {
+        blogMetadata: payload
+      }
+    } else if (store.state.BlogMetadata.blogMetadata.length === 0) {
+      await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+    }
+  },
   head() {
     return {
       title: this.currentPage + ' || ' + this.appOwner,
