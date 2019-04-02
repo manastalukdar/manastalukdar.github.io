@@ -13,7 +13,7 @@ import shutil
 
 from datetime import date, datetime
 
-POSTS_LIST_FILE_JSON = "website/src/static/blogdata/blog_metadata.json"
+POSTS_LIST_FILE_JSON = "website/src/static/blogdata/metadata/blog_metadata.json"
 POSTS_DIST_FOLDER = "website/src/static/blogdata"
 POSTS_FOLDER = "website/blog"
 
