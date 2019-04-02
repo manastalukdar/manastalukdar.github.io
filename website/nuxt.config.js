@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import blogMetadata from './src/static/blogdata/blog_metadata.json'
+
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 module.exports = {
@@ -174,6 +175,12 @@ module.exports = {
       const routesAll = []
       const tags = []
       const categories = []
+
+      routesAll.push({
+        route: '/blog/posts',
+        payload: blogMetadata
+      })
+
       blogMetadata.map(postmetadata => {
         postmetadata.tags.map(tag => {
           if (_.indexOf(tags, tag) === -1) {
