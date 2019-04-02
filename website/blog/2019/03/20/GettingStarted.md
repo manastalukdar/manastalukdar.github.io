@@ -7,10 +7,8 @@ tags:
 categories:
   - cat1
   - cat2
-authors: 
-  - 
-    name: "Manas Talukdar"
-    url-slug: manas-talukdar
+authors:
+  - "Manas Talukdar"
 post-format: standard
 title: Getting Started
 url-slug: getting-started

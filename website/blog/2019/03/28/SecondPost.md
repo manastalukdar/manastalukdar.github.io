@@ -5,10 +5,8 @@ tags:
  - tag2
 categories:
  - cat1
-authors:
-  - 
-    name: "Manas Talukdar"
-    url-slug: "manas-talukdar"
+authors: 
+ - "Manas Talukdar"
 post-format: standard
 title: Second Post
 url-slug: second-post
