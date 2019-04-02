@@ -5,8 +5,12 @@
     >
       <v-flex xs12>
         <postHeader :post-metadata="postMetadata" />
-        <p />
-        {{ postMetadata.excerpt }}
+        {{ postMetadata.excerpt }}&nbsp;
+        <nuxt-link
+          :to="{ name: 'blog-year-month-day-post', params: { year:postLinkSlugs.year, month:postLinkSlugs.month, day: postLinkSlugs.day, post: postLinkSlugs.post } }"
+        >
+          <span>...read more</span>
+        </nuxt-link>
       </v-flex>
     </v-layout>
   </v-container>
@@ -23,6 +27,16 @@ export default {
       type: Object,
       required: true,
       default: () => {}
+    }
+  },
+  computed: {
+    postLinkSlugs: function() {
+      const items = this.postMetadata['first-published-on'].split('-')
+      const year = items[0]
+      const month = items[1]
+      const day = items[2]
+      const post = this.postMetadata['url-slug']
+      return { year: year, month: month, day: day, post: post }
     }
   }
 }

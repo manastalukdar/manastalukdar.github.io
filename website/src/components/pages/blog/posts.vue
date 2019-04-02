@@ -1,25 +1,29 @@
 <template>
   <v-container>
     <v-layout
-      text-xs-center
+      text-xs-justify
       wrap
     >
-      <v-flex xs12>
-        Under construction.
-      </v-flex>
+      [Under Construction]
+      <postsList :posts-list="blogMetadata" />
     </v-layout>
   </v-container>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import postsList from '../../other/blog/posts-list/list.vue'
 export default {
+  components: {
+    postsList
+  },
   computed: mapState({
     appOwner: state => state.GlobalData.appOwner,
     currentPage: state =>
       state.MainNavMenu.blog.blogText +
       ' | ' +
-      state.MainNavMenu.blog.blogItems[0].text
+      state.MainNavMenu.blog.blogItems[0].text,
+    blogMetadata: state => state.BlogMetadata.blogMetadata
   }),
   async asyncData({ store, params, env, payload }) {
     if (payload) {
