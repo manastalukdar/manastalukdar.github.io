@@ -15,7 +15,7 @@
 <script>
 import { mapState } from 'vuex'
 import axios from 'axios'
-import postHeader from '../../../../../other/blog/post-header.vue'
+import postHeader from '../../../../../other/blog/single-post-post-header.vue'
 export default {
   components: {
     postHeader
