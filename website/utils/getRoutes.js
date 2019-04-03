@@ -1,22 +1,37 @@
 import _ from 'lodash'
 import blogMetadata from '../src/static/blogdata/metadata/blog_metadata.json'
 
-const sitemapRoutes = []
-const nuxtGenerateRoutes = []
+const properties = {
+  sitemapRoutes: [],
+  nuxtGenerateRoutes: [],
+  feedItems: [],
+  tags: [],
+  categories: [],
+  authors: [],
+  baseUrl: ''
+}
 
 const functions = {
+  initializeProperties() {
+    properties.sitemapRoutes = []
+    properties.nuxtGenerateRoutes = []
+    properties.feedItems = []
+    properties.tags = []
+    properties.categories = []
+    properties.authors = []
+  },
+  setBaseUrl(baseUrl) {
+    properties.baseUrl = baseUrl
+  },
   generateRoutes() {
-    const tags = []
-    const categories = []
-    this.sitemapRoutes = []
-    this.nuxtGenerateRoutes = []
+    this.initializeProperties()
 
-    nuxtGenerateRoutes.push({
+    properties.nuxtGenerateRoutes.push({
       route: '/',
       payload: 'dummy'
     })
 
-    nuxtGenerateRoutes.push({
+    properties.nuxtGenerateRoutes.push({
       route: '/blog/posts',
       payload: blogMetadata
     })
@@ -27,11 +42,14 @@ const functions = {
         postmetadata['first-published-on'].replace(/-/g, '/') +
         '/' +
         postmetadata['url-slug']
-      nuxtGenerateRoutes.push({
+      properties.nuxtGenerateRoutes.push({
         route: route,
         payload: postmetadata
       })
-      sitemapRoutes.push(route)
+      properties.sitemapRoutes.push(route)
+      properties.feedItems.push(
+        helperFunctions.getFeedItem(postmetadata, route)
+      )
     })
 
     const groupedByPostFormat = _.groupBy(blogMetadata, function(postmetadata) {
@@ -39,11 +57,11 @@ const functions = {
     })
     for (const [key, value] of Object.entries(groupedByPostFormat)) {
       const route = '/blog/post-format/' + key
-      nuxtGenerateRoutes.push({
+      properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
       })
-      sitemapRoutes.push(route)
+      properties.sitemapRoutes.push(route)
     }
 
     // https://stackoverflow.com/questions/55450096/how-to-groupby-in-lodash-for-each-item-in-a-nested-array
@@ -59,11 +77,12 @@ const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByAuthor)) {
       const route = '/blog/author/' + key
-      nuxtGenerateRoutes.push({
+      properties.authors.push({ key: value.length })
+      properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
       })
-      sitemapRoutes.push(route)
+      properties.sitemapRoutes.push(route)
     }
 
     const groupedByTag = blogMetadata.reduce(function(acc, curr) {
@@ -78,12 +97,12 @@ const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByTag)) {
       const route = '/blog/tag/' + key
-      tags.push({ key: value.length })
-      nuxtGenerateRoutes.push({
+      properties.tags.push({ key: value.length })
+      properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
       })
-      sitemapRoutes.push(route)
+      properties.sitemapRoutes.push(route)
     }
 
     const groupedByCategories = blogMetadata.reduce(function(acc, curr) {
@@ -98,12 +117,12 @@ const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByCategories)) {
       const route = '/blog/category/' + key
-      categories.push({ key: value.length })
-      nuxtGenerateRoutes.push({
+      properties.categories.push({ key: value.length })
+      properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
       })
-      sitemapRoutes.push(route)
+      properties.sitemapRoutes.push(route)
     }
 
     const groupedByYear = blogMetadata.reduce(function(acc, curr) {
@@ -117,11 +136,11 @@ const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByYear)) {
       const route = '/blog/' + key
-      nuxtGenerateRoutes.push({
+      properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
       })
-      sitemapRoutes.push(route)
+      properties.sitemapRoutes.push(route)
     }
 
     const groupedByMonth = blogMetadata.reduce(function(acc, curr) {
@@ -139,11 +158,11 @@ const functions = {
       const year = key.split('-')[0]
       const month = key.split('-')[1]
       const route = '/blog/' + year + '/' + month
-      nuxtGenerateRoutes.push({
+      properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
       })
-      sitemapRoutes.push(route)
+      properties.sitemapRoutes.push(route)
     }
 
     const groupedByDay = blogMetadata.reduce(function(acc, curr) {
@@ -163,17 +182,39 @@ const functions = {
       const month = key.split('-')[1]
       const day = key.split('-')[2]
       const route = '/blog/' + year + '/' + month + '/' + day
-      nuxtGenerateRoutes.push({
+      properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
       })
-      sitemapRoutes.push(route)
+      properties.sitemapRoutes.push(route)
     }
   }
 }
 
+const helperFunctions = {
+  getFeedItem(postMetadata, route) {
+    const authors = []
+    postMetadata.authors.forEach(function(author) {
+      authors.push({
+        name: author.name
+      })
+    })
+    const item = {
+      title: postMetadata.title,
+      id: route,
+      link: properties.baseUrl + route,
+      description: postMetadata.meta.description,
+      content: postMetadata.excerpt + ' ...read more',
+      date: new Date(postMetadata['first-published-on']),
+      author: authors
+    }
+
+    return item
+  }
+}
+
 module.exports = {
-  sitemapRoutes,
-  nuxtGenerateRoutes,
-  functions
+  properties,
+  functions,
+  helperFunctions
 }

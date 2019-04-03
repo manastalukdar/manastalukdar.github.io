@@ -1,6 +1,12 @@
-import _ from 'lodash'
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const getRoutes = require('./utils/getRoutes.js')
+
+const baseUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://manastalukdar.github.io'
+    : 'http://localhost:3000'
+
+const feedPath = '/blogfeed.xml'
 
 module.exports = {
   mode: 'universal',
@@ -13,7 +19,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'keywords', content: 'Manas Talukdar, resume' },
+      { name: 'keywords', content: 'Manas Talukdar, resume, blog' },
       {
         hid: 'description',
         name: 'description',
@@ -30,15 +36,18 @@ module.exports = {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
+      },
+      {
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        title: 'Manas Talukdar - blog',
+        href: baseUrl + feedPath
       }
     ]
   },
 
   env: {
-    baseURL:
-      process.env.NODE_ENV === 'production'
-        ? 'https://manastalukdar.github.io'
-        : 'http://localhost:3000'
+    baseURL: baseUrl
   },
 
   /*
@@ -71,7 +80,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
-    // '@nuxtjs/markdownit', // https://github.com/nuxt-community/modules/tree/master/packages/markdownit
+    '@nuxtjs/feed',
     '@nuxtjs/sitemap'
   ],
   /*
@@ -80,14 +89,6 @@ module.exports = {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
-
-  /* markdownit: {
-    // injected: true
-    preset: 'default',
-    linkify: true,
-    breaks: true,
-    use: [['markdown-it-container', 'mdContainer'], 'markdown-it-attrs']
-  }, */
 
   /*
   ** Build configuration
@@ -156,13 +157,13 @@ module.exports = {
 
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://manastalukdar.github.io',
+    hostname: baseUrl,
     cacheTime: 1000 * 60 * 15, // 15 mins
     generate: true,
     gzip: true,
     routes() {
       getRoutes.functions.generateRoutes()
-      return getRoutes.sitemapRoutes
+      return getRoutes.properties.sitemapRoutes
     }
   },
 
@@ -172,11 +173,44 @@ module.exports = {
     }
   },
 
+  feed: [
+    // A default feed configuration object
+    {
+      path: feedPath, // The route to your feed.
+      create(feed) {
+        feed.options = {
+          title: 'Manas Talukdar - blog',
+          link: baseUrl + feedPath,
+          description: 'Syndication feed for blog.',
+          copyright:
+            'All rights reserved ' +
+            new Date().getFullYear() +
+            ' Manas Talukdar'
+        }
+        getRoutes.functions.setBaseUrl(baseUrl)
+        getRoutes.functions.generateRoutes()
+        getRoutes.properties.feedItems.forEach(item => {
+          feed.addItem(item)
+        })
+        getRoutes.properties.categories.forEach(category => {
+          feed.addCategory(category)
+        })
+        feed.addContributor({
+          name: 'Manas Talukdar',
+          link: 'https://manastalukdar.github.io'
+        })
+      },
+      cacheTime: 1000 * 60 * 15, // How long should the feed be cached
+      type: 'rss2', // Can be: rss2, atom1, json1
+      data: ['Some additional data'] // Will be passed as 2nd argument to `create` function
+    }
+  ],
+
   generate: {
     dir: 'dist',
     routes: function() {
       getRoutes.functions.generateRoutes()
-      return getRoutes.nuxtGenerateRoutes
+      return getRoutes.properties.nuxtGenerateRoutes
     }
   }
 }

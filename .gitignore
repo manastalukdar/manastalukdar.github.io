@@ -103,3 +103,5 @@ sw.*
 **/sitemap.xml*
 
 website/src/static/blogdata/*
+
+website/static
