@@ -33,8 +33,6 @@ export default {
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
-      // eslint-disable-next-line no-console
-      console.log(payload)
       const catName = payload[0].categories.filter(category => {
         if (category['url-slug'] === params.name) {
           return category.name
@@ -51,6 +49,12 @@ export default {
       const posts = store.getters['BlogMetadata/getPostsForCategory'](
         params.name
       )
+      if (posts === undefined) {
+        return {
+          blogMetadata: [],
+          authorName: ''
+        }
+      }
       const catName = posts[0].categories.filter(category => {
         if (category['url-slug'] === params.name) {
           return category.name

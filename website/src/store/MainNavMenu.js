@@ -9,6 +9,7 @@ const state = () => ({
     dayText: 'Day',
     tagText: 'Tag',
     categoryText: 'Category',
+    postFormatText: 'Post Format',
     blogItems: [
       {
         href: '/blog/posts',
