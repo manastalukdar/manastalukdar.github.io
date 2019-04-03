@@ -1,6 +1,6 @@
 import _ from 'lodash'
-import blogMetadata from './src/static/blogdata/metadata/blog_metadata.json'
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+const getRoutes = require('./utils/getRoutes.js')
 
 module.exports = {
   mode: 'universal',
@@ -159,7 +159,11 @@ module.exports = {
     hostname: 'https://manastalukdar.github.io',
     cacheTime: 1000 * 60 * 15, // 15 mins
     generate: true,
-    gzip: true
+    gzip: true,
+    routes() {
+      getRoutes.functions.generateRoutes()
+      return getRoutes.sitemapRoutes
+    }
   },
 
   render: {
@@ -171,7 +175,9 @@ module.exports = {
   generate: {
     dir: 'dist',
     routes: function() {
-      const routesAll = []
+      getRoutes.functions.generateRoutes()
+      return getRoutes.nuxtGenerateRoutes
+      /* const routesAll = []
       const tags = []
       const categories = []
 
@@ -186,12 +192,13 @@ module.exports = {
       })
 
       blogMetadata.map(postmetadata => {
+        const route =
+          '/blog/' +
+          postmetadata['first-published-on'].replace(/-/g, '/') +
+          '/' +
+          postmetadata['url-slug']
         routesAll.push({
-          route:
-            '/blog/' +
-            postmetadata['first-published-on'].replace(/-/g, '/') +
-            '/' +
-            postmetadata['url-slug'],
+          route: route,
           payload: postmetadata
         })
       })
@@ -202,8 +209,9 @@ module.exports = {
         return postmetadata['post-format']['url-slug']
       })
       for (const [key, value] of Object.entries(groupedByPostFormat)) {
+        const route = '/blog/post-format/' + key
         routesAll.push({
-          route: '/blog/post-format/' + key,
+          route: route,
           payload: value
         })
       }
@@ -220,8 +228,9 @@ module.exports = {
         return acc
       }, {})
       for (const [key, value] of Object.entries(groupedByAuthor)) {
+        const route = '/blog/author/' + key
         routesAll.push({
-          route: '/blog/author/' + key,
+          route: route,
           payload: value
         })
       }
@@ -237,9 +246,10 @@ module.exports = {
         return acc
       }, {})
       for (const [key, value] of Object.entries(groupedByTag)) {
+        const route = '/blog/tag/' + key
         tags.push({ key: value.length })
         routesAll.push({
-          route: '/blog/tag/' + key,
+          route: route,
           payload: value
         })
       }
@@ -255,9 +265,10 @@ module.exports = {
         return acc
       }, {})
       for (const [key, value] of Object.entries(groupedByCategories)) {
+        const route = '/blog/category/' + key
         categories.push({ key: value.length })
         routesAll.push({
-          route: '/blog/category/' + key,
+          route: route,
           payload: value
         })
       }
@@ -272,8 +283,9 @@ module.exports = {
         return acc
       }, {})
       for (const [key, value] of Object.entries(groupedByYear)) {
+        const route = '/blog/' + key
         routesAll.push({
-          route: '/blog/' + key,
+          route: route,
           payload: value
         })
       }
@@ -292,8 +304,9 @@ module.exports = {
       for (const [key, value] of Object.entries(groupedByMonth)) {
         const year = key.split('-')[0]
         const month = key.split('-')[1]
+        const route = '/blog/' + year + '/' + month
         routesAll.push({
-          route: '/blog/' + year + '/' + month,
+          route: route,
           payload: value
         })
       }
@@ -314,13 +327,14 @@ module.exports = {
         const year = key.split('-')[0]
         const month = key.split('-')[1]
         const day = key.split('-')[2]
+        const route = '/blog/' + year + '/' + month + '/' + day
         routesAll.push({
-          route: '/blog/' + year + '/' + month + '/' + day,
+          route: route,
           payload: value
         })
       }
 
-      return routesAll
+      return routesAll  */
     }
   }
 }
