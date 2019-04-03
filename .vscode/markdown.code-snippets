@@ -31,7 +31,7 @@
 			" - cat2",
 			"authors:",
 			" - \"Manas Talukdar\"",
-			"post-format: standard",
+			"post-format: standard aside gallery link image quote status video audio chat",
 			"title: Getting Started",
 			"url-slug: getting-started",
 			"first-published-on: 2019-03-20",
