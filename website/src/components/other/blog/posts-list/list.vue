@@ -33,7 +33,7 @@ export default {
     }
   },
   data: () => ({
-    rowsPerPageItems: [1, 5, 10],
+    rowsPerPageItems: [5, 10],
     pagination: {
       rowsPerPage: 5
     }

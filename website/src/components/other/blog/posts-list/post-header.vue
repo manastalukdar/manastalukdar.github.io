@@ -4,12 +4,12 @@
       wrap
     >
       <v-flex xs12>
-        <v-layout row justify-center class="title">
+        <v-layout row justify-center title>
           <p>
             {{ postMetadata.title }}
           </p>
         </v-layout>
-        <v-layout row justify-center>
+        <v-layout row justify-center wrap>
           Authors:&nbsp;
           <div
             v-for="item in postMetadata.authors"
@@ -25,7 +25,7 @@
           &nbsp;
           || First Published: {{ postMetadata["first-published-on"] }}
         </v-layout>
-        <v-layout row justify-center>
+        <v-layout row justify-center wrap>
           Categories:&nbsp;
           <div
             v-for="item in postMetadata.categories"
