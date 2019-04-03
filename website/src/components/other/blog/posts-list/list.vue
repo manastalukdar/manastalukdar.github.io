@@ -2,7 +2,7 @@
   <v-layout
     wrap
   >
-    <v-flex xs12>
+    <v-flex xs12 py-2>
       <v-data-iterator
         :items="postsList"
         :rows-per-page-items="rowsPerPageItems"

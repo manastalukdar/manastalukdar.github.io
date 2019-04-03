@@ -16,6 +16,23 @@ const getters = {
       )
     })
   },
+  getPostsForTag: state => tag => {
+    const groupedByTags = state.blogMetadata.reduce(function(acc, curr) {
+      curr.tags.forEach(function(item) {
+        if (acc[item['url-slug']]) {
+          acc[item['url-slug']].push(curr)
+        } else {
+          acc[item['url-slug']] = [curr]
+        }
+      })
+      return acc
+    }, {})
+    for (const [key, value] of Object.entries(groupedByTags)) {
+      if (key === tag) {
+        return value
+      }
+    }
+  },
   getPostsForCategory: state => category => {
     const groupedByCategories = state.blogMetadata.reduce(function(acc, curr) {
       curr.categories.forEach(function(item) {
@@ -29,6 +46,89 @@ const getters = {
     }, {})
     for (const [key, value] of Object.entries(groupedByCategories)) {
       if (key === category) {
+        return value
+      }
+    }
+  },
+  getPostsForAuthor: state => author => {
+    const groupedByAuthor = state.blogMetadata.reduce(function(acc, curr) {
+      curr.authors.forEach(function(item) {
+        if (acc[item['url-slug']]) {
+          acc[item['url-slug']].push(curr)
+        } else {
+          acc[item['url-slug']] = [curr]
+        }
+      })
+      return acc
+    }, {})
+    for (const [key, value] of Object.entries(groupedByAuthor)) {
+      if (key === author) {
+        return value
+      }
+    }
+  },
+  getPostsForPostFormat: state => postFormat => {
+    const groupedByPostFormat = _.groupBy(state.blogMetadata, function(
+      postmetadata
+    ) {
+      return postmetadata['post-format']['url-slug']
+    })
+    for (const [key, value] of Object.entries(groupedByPostFormat)) {
+      if (key === postFormat) {
+        return value
+      }
+    }
+  },
+  getPostsForYear: state => year => {
+    const groupedByYear = state.blogMetadata.reduce(function(acc, curr) {
+      const yearCurr = curr['first-published-on'].split('-')[0]
+      const key = yearCurr
+      if (acc[key]) {
+        acc[key].push(curr)
+      } else {
+        acc[key] = [curr]
+      }
+      return acc
+    }, {})
+    for (const [key, value] of Object.entries(groupedByYear)) {
+      if (key === year) {
+        return value
+      }
+    }
+  },
+  getPostsForMonth: state => (year, month) => {
+    const groupedByMonth = state.blogMetadata.reduce(function(acc, curr) {
+      const yearCurr = curr['first-published-on'].split('-')[0]
+      const monthCurr = curr['first-published-on'].split('-')[1]
+      const key = yearCurr + '-' + monthCurr
+      if (acc[key]) {
+        acc[key].push(curr)
+      } else {
+        acc[key] = [curr]
+      }
+      return acc
+    }, {})
+    for (const [key, value] of Object.entries(groupedByMonth)) {
+      if (key === year + '-' + month) {
+        return value
+      }
+    }
+  },
+  getPostsForDay: state => (year, month, day) => {
+    const groupedByDay = state.blogMetadata.reduce(function(acc, curr) {
+      const yearCurr = curr['first-published-on'].split('-')[0]
+      const monthCurr = curr['first-published-on'].split('-')[1]
+      const dayCurr = curr['first-published-on'].split('-')[2]
+      const key = yearCurr + '-' + monthCurr + '-' + dayCurr
+      if (acc[key]) {
+        acc[key].push(curr)
+      } else {
+        acc[key] = [curr]
+      }
+      return acc
+    }, {})
+    for (const [key, value] of Object.entries(groupedByDay)) {
+      if (key === year + '-' + month + '-' + day) {
         return value
       }
     }
