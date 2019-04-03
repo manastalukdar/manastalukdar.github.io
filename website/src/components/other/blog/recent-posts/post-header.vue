@@ -4,7 +4,7 @@
       wrap
     >
       <v-flex xs12>
-        <v-layout row justify-center class="title">
+        <v-layout row justify-center wrap title>
           <p>
             {{ postMetadata.title }}
           </p>

@@ -4,6 +4,11 @@
       text-xs-justify
       wrap
     >
+      <v-flex xs12>
+        <v-layout row justify-center class="title">
+          {{ pageTitle }}
+        </v-layout>
+      </v-flex>
       <postsList :posts-list="blogMetadata" />
     </v-layout>
   </v-container>
@@ -22,7 +27,8 @@ export default {
       state.MainNavMenu.blog.blogText +
       ' | ' +
       state.MainNavMenu.blog.blogItems[0].text,
-    blogMetadata: state => state.BlogMetadata.blogMetadata
+    blogMetadata: state => state.BlogMetadata.blogMetadata,
+    pageTitle: state => state.MainNavMenu.blog.blogText
   }),
   async asyncData({ store, params, env, payload }) {
     if (payload) {
