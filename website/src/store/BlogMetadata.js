@@ -15,6 +15,23 @@ const getters = {
         post['url-slug'] === slug
       )
     })
+  },
+  getPostsForCategory: state => category => {
+    const groupedByCategories = state.blogMetadata.reduce(function(acc, curr) {
+      curr.categories.forEach(function(item) {
+        if (acc[item['url-slug']]) {
+          acc[item['url-slug']].push(curr)
+        } else {
+          acc[item['url-slug']] = [curr]
+        }
+      })
+      return acc
+    }, {})
+    for (const [key, value] of Object.entries(groupedByCategories)) {
+      if (key === category) {
+        return value
+      }
+    }
   }
 }
 
