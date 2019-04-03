@@ -4,9 +4,11 @@
       text-xs-justify
       wrap
     >
-      <v-layout row justify-center class="title">
-        {{ categoryText }}:&nbsp; {{ categoryName }}
-      </v-layout>
+      <v-flex xs12>
+        <v-layout row justify-center class="title">
+          {{ categoryText }}:&nbsp; {{ categoryName }}
+        </v-layout>
+      </v-flex>
       <postsList :posts-list="blogMetadata" />
     </v-layout>
   </v-container>
@@ -27,32 +29,36 @@ export default {
         ' | ' +
         state.MainNavMenu.blog.categoryText,
       categoryText: state => state.MainNavMenu.blog.categoryText
-      // blogMetadata: state => state.BlogMetadata.blogMetadata,
-      // categoryName: state => state.BlogMetadata.blogMetadata[0].categories[0].name
     })
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
+      // eslint-disable-next-line no-console
+      console.log(payload)
+      const catName = payload[0].categories.filter(category => {
+        if (category['url-slug'] === params.name) {
+          return category.name
+        }
+      })
       return {
         blogMetadata: payload,
-        categoryName: payload[0].categories[0].name
+        categoryName: catName[0].name
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
         await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
       }
-      const catName = store.state.BlogMetadata.blogMetadata[0].categories.map(
-        category => {
-          // eslint-disable-next-line no-console
-          console.log(category)
-          if (category['url-slug'] === params.name) {
-            return category.name
-          } else return {}
-        }
+      const posts = store.getters['BlogMetadata/getPostsForCategory'](
+        params.name
       )
+      const catName = posts[0].categories.filter(category => {
+        if (category['url-slug'] === params.name) {
+          return category.name
+        }
+      })
       return {
-        blogMetadata: store.state.BlogMetadata.blogMetadata,
-        categoryName: catName
+        blogMetadata: posts,
+        categoryName: catName[0].name
       }
     }
   },
