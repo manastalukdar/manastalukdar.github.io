@@ -7,7 +7,6 @@
         :items="postsList"
         :rows-per-page-items="rowsPerPageItems"
         :pagination.sync="pagination"
-        content-tag="v-layout"
         row
         wrap
       >

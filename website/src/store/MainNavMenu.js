@@ -3,6 +3,12 @@ const state = () => ({
   sidebarVisible: false,
   blog: {
     blogText: 'Blog',
+    authorText: 'Author',
+    yearText: 'Year',
+    monthText: 'Month',
+    dayText: 'Day',
+    tagText: 'Tag',
+    categoryText: 'Category',
     blogItems: [
       {
         href: '/blog/posts',

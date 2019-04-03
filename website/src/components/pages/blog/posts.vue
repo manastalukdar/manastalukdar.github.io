@@ -4,7 +4,6 @@
       text-xs-justify
       wrap
     >
-      [Under Construction]
       <postsList :posts-list="blogMetadata" />
     </v-layout>
   </v-container>
