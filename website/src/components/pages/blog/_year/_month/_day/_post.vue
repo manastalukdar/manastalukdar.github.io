@@ -4,9 +4,7 @@
       wrap
     >
       <v-flex xs12>
-        <postHeader :post-metadata="postMetadata" />
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div v-html="postContent" />
+        <post :post-metadata="postMetadata" :post-content="postContent" />
       </v-flex>
     </v-layout>
   </v-container>
@@ -15,10 +13,10 @@
 <script>
 import { mapState } from 'vuex'
 import axios from 'axios'
-import postHeader from '../../../../../other/blog/single-post/post-header.vue'
+import post from '../../../../../other/blog/single-post/post.vue'
 export default {
   components: {
-    postHeader
+    post
   },
   data() {
     return {

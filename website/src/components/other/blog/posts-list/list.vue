@@ -12,7 +12,7 @@
       >
         <template v-slot:item="props">
           <singlePost :post-metadata="props.item" />
-          <hr>
+          <!--<hr>-->
         </template>
       </v-data-iterator>
     </v-flex>
