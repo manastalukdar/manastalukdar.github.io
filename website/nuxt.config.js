@@ -16,6 +16,10 @@ const siteOwner = 'Manas Talukdar'
 module.exports = {
   mode: 'universal',
 
+  helper: {
+    aboutBlurbText: ''
+  },
+
   /*
   ** Headers of the page
   */
@@ -24,11 +28,11 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'keywords', content: siteOwner + ', resume, blog' },
+      { name: 'keywords', content: siteOwner + ', blog, resume' },
       {
         hid: 'description',
         name: 'description',
-        content: siteOwner + "'s personal website."
+        content: siteOwner + ' - personal website, blog, resume. '
       },
       {
         name: 'google-site-verification',
@@ -83,6 +87,7 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
+    './modules/helper',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
