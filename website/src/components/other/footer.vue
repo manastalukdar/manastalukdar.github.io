@@ -15,7 +15,7 @@
         </v-flex>
         <v-flex xs6 text-xs-right style="margin-left: 2em; margin-right: 2em">
           Built with <a href="https://vuejs.org/" target="_blank" style="color:white">Vue.js</a> and <a href="https://nuxtjs.org/" target="_blank" style="color:white">Nuxt.js</a>
-          &nbsp;||&nbsp; <a href="/sitemap.xml" target="_blank" style="color:white">{{ siteMapText }}</a>
+          &nbsp;||&nbsp; <a href="/sitemap.xml" target="_blank" style="color:white">{{ siteMapText }}</a>&nbsp;||&nbsp; <a href="/blogfeed.xml" target="_blank" style="color:white">{{ blogFeedtext }}</a>
         </v-flex>
       </v-layout>
     </v-card>
@@ -27,6 +27,7 @@ import { mapState } from 'vuex'
 export default {
   data: () => ({
     siteMapText: 'sitemap',
+    blogFeedtext: 'feed',
     builtWithText:
       'Built with <a href="https://vuejs.org/" target="_blank">Vue.js</a> and <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>'
   }),

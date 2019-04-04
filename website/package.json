@@ -2,7 +2,7 @@
   "name": "manas.talukdar.personal.website",
   "version": "1.0.0",
   "private": true,
-  "description": "Manas Talukdar personal website.",
+  "description": "Manas Talukdar - personal website, blog, resume.",
   "author": "Manas Talukdar",
   "scripts": {
     "nuxt-dev": "nuxt",
