@@ -1,0 +1,3 @@
+- Created high-value engineering team that developed product which spawned v-next series of solutions.
+- Successfully completed research project and developed prototype for distributed data store that I subsequently took to product stage as engineering manager.
+- Worked throughout the stack, from using front-end frameworks to develop web apps to back-end development including storage, access layers, API and middleware SDK.
