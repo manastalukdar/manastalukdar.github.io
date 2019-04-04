@@ -201,11 +201,13 @@ export default {
       return result + '</ul>'
     }
   },
-  async fetch({ store, params, env, payload }) {
-    if (!payload) {
-      if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+  async asyncData({ store, params, env, payload }) {
+    if (payload) {
+      return {
+        blogMetadata: payload
       }
+    } else if (store.state.BlogMetadata.blogMetadata.length === 0) {
+      await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
     }
   },
   head() {
