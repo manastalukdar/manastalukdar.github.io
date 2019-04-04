@@ -1,3 +1,5 @@
+import { Feed } from 'feed'
+const fs = require('fs')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const getRoutes = require('./utils/getRoutes.js')
 
@@ -6,7 +8,10 @@ const baseUrl =
     ? 'https://manastalukdar.github.io'
     : 'http://localhost:3000'
 
-const feedPath = '/blogfeed.xml'
+const staticDir = './src/static'
+const feedFileName = '/blogfeed.xml'
+const feedPath = staticDir + feedFileName
+const siteOwner = 'Manas Talukdar'
 
 module.exports = {
   mode: 'universal',
@@ -19,11 +24,11 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'keywords', content: 'Manas Talukdar, resume, blog' },
+      { name: 'keywords', content: siteOwner + ', resume, blog' },
       {
         hid: 'description',
         name: 'description',
-        content: "Manas Talukdar's personal website."
+        content: siteOwner + "'s personal website."
       },
       {
         name: 'google-site-verification',
@@ -40,8 +45,8 @@ module.exports = {
       {
         rel: 'alternate',
         type: 'application/rss+xml',
-        title: 'Manas Talukdar - blog',
-        href: baseUrl + feedPath
+        title: siteOwner + ' - blog',
+        href: baseUrl + feedFileName
       }
     ]
   },
@@ -80,7 +85,6 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
-    '@nuxtjs/feed',
     '@nuxtjs/sitemap'
   ],
   /*
@@ -120,6 +124,34 @@ module.exports = {
         test: /\.md$/,
         loader: ['raw-loader']
       })
+
+      // feed generation
+      getRoutes.functions.setBaseUrl(baseUrl)
+      getRoutes.functions.generateRoutes()
+      const feed = new Feed({
+        title: siteOwner + ' - blog',
+        link: baseUrl + feedFileName,
+        description: 'Syndication feed for blog.',
+        copyright:
+          'All rights reserved ' + new Date().getFullYear() + ' ' + siteOwner,
+        author: {
+          name: siteOwner,
+          link: baseUrl
+        }
+      })
+      getRoutes.properties.feedItems.forEach(item => {
+        feed.addItem(item)
+      })
+      getRoutes.properties.categories.forEach(category => {
+        feed.addCategory(category)
+      })
+      feed.addContributor({
+        name: siteOwner,
+        link: baseUrl
+      })
+      fs.writeFile(feedPath, feed.rss2(), err => {
+        if (err) throw err
+      })
     }
   },
 
@@ -128,7 +160,7 @@ module.exports = {
     layouts: './src/components/layouts',
     middleware: './src/middleware',
     pages: './src/components/pages',
-    static: './src/static',
+    static: staticDir,
     store: './src/store'
   },
 
@@ -172,39 +204,6 @@ module.exports = {
       maxAge: 1000 * 60 * 60 * 24 * 7
     }
   },
-
-  feed: [
-    // A default feed configuration object
-    {
-      path: feedPath, // The route to your feed.
-      create(feed) {
-        feed.options = {
-          title: 'Manas Talukdar - blog',
-          link: baseUrl + feedPath,
-          description: 'Syndication feed for blog.',
-          copyright:
-            'All rights reserved ' +
-            new Date().getFullYear() +
-            ' Manas Talukdar'
-        }
-        getRoutes.functions.setBaseUrl(baseUrl)
-        getRoutes.functions.generateRoutes()
-        getRoutes.properties.feedItems.forEach(item => {
-          feed.addItem(item)
-        })
-        getRoutes.properties.categories.forEach(category => {
-          feed.addCategory(category)
-        })
-        feed.addContributor({
-          name: 'Manas Talukdar',
-          link: 'https://manastalukdar.github.io'
-        })
-      },
-      cacheTime: 1000 * 60 * 15, // How long should the feed be cached
-      type: 'rss2', // Can be: rss2, atom1, json1
-      data: ['Some additional data'] // Will be passed as 2nd argument to `create` function
-    }
-  ],
 
   generate: {
     dir: 'dist',

@@ -5,7 +5,7 @@
       wrap
     >
       <v-flex xs12>
-        <v-layout row justify-center class="title">
+        <v-layout row justify-center class="headline">
           {{ postFormatText }}:&nbsp; {{ postFormatType }}
         </v-layout>
       </v-flex>

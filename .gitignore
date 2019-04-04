@@ -104,4 +104,4 @@ sw.*
 
 website/src/static/blogdata/*
 
-website/static
+website/src/static/*feed.xml
