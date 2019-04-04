@@ -1,0 +1,36 @@
+<template>
+  <v-layout column wrap>
+    <v-flex xs12>
+      <v-card
+        color="blue-grey darken-4"
+        class="pa-3"
+        style="height:100%"
+      >
+        <v-layout row justify-center title>
+          <span>Recent</span>
+        </v-layout>
+        <p />
+        <!--eslint-disable-next-line vue/no-v-html-->
+        <div v-html="recent" />
+      </v-card>
+    </v-flex>
+  </v-layout>
+</template>
+
+<script>
+const fm = require('front-matter')
+const md = require('markdown-it')({
+  html: true,
+  linkify: true,
+  typographer: true
+})
+export default {
+  asyncComputed: {
+    async recent() {
+      const fileContent = await import('./recent-updates.md')
+      const res = fm(fileContent.default)
+      return md.render(res.body)
+    }
+  }
+}
+</script>

@@ -74,7 +74,8 @@ module.exports = {
   plugins: [
     '@/plugins/vuetify',
     '@/plugins/fontawesome.js',
-    '@/plugins/materialdesignicons.js'
+    '@/plugins/materialdesignicons.js',
+    '@plugins/vueAsyncComputed.js'
   ],
 
   /*

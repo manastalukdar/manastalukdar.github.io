@@ -29,10 +29,14 @@ export default {
       type: Array,
       required: true,
       default: () => []
+    },
+    itemsToDisplay: {
+      type: Number,
+      required: true,
+      default: 5
     }
   },
   data: () => ({
-    itemsToDisplay: 5,
     pageTitle: 'Recent Posts'
   }),
   computed: {
