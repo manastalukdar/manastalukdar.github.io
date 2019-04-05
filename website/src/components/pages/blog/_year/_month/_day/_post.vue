@@ -30,12 +30,22 @@ export default {
     })
   },
   async asyncData({ store, params, env, payload }) {
+    const hljs = require('highlight.js') // https://highlightjs.org/
     const fm = require('front-matter')
     const md = require('markdown-it')({
       html: true,
       linkify: true,
-      typographer: true
+      typographer: true,
+      highlight: function(str, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+          try {
+            return hljs.highlight(lang, str).value
+          } catch (__) {}
+        }
+        return '' // use external default escaping
+      }
     })
+    md.use(require('markdown-it-mathjax')())
     const postIdTemp =
       'blog/' +
       params.year +
@@ -144,4 +154,11 @@ export default {
 </script>
 
 <style>
+pre {
+  margin: 2em;
+}
+code {
+  margin: 0em;
+  padding: 1em;
+}
 </style>
