@@ -4,7 +4,7 @@
 
 #### Work
 
-- **Cloud Services**: I am current managing a team working on metadata for large scale distributed data store.
+- **Cloud Services**: I currently manage a team working on metadata for large scale distributed data store.
 
 #### Other
 
