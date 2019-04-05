@@ -43,12 +43,16 @@ export default {
       type: String,
       required: true,
       default: ''
-    }
-  },
-  asyncData({ store, params, env, payload }) {
-    return {
-      postId: this.$route.path,
-      url: env.baseURL + this.$route.path
+    },
+    url: {
+      type: String,
+      required: true,
+      default: ''
+    },
+    postId: {
+      type: String,
+      required: true,
+      default: ''
     }
   }
 }
