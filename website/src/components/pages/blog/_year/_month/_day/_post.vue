@@ -96,6 +96,17 @@ export default {
       this.$route.params.day,
       this.$route.params.post
     ) */
+    const keywordsArray = []
+    this.postMetadata.categories.forEach(category => {
+      keywordsArray.push(category.name)
+    })
+    this.postMetadata.tags.forEach(tag => {
+      keywordsArray.push(tag.name)
+    })
+    this.postMetadata.authors.forEach(author => {
+      keywordsArray.push(author.name)
+    })
+    const keywords = keywordsArray.join()
     return {
       title:
         this.currentPage +
@@ -107,6 +118,11 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.postMetadata.meta.description
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: keywords
         }
       ]
     }

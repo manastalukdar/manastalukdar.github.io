@@ -28,7 +28,11 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'keywords', content: siteOwner + ', blog, resume' },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: siteOwner + ', blog, resume'
+      },
       {
         hid: 'description',
         name: 'description',
@@ -79,7 +83,8 @@ module.exports = {
     '@/plugins/vuetify',
     '@/plugins/fontawesome.js',
     '@/plugins/materialdesignicons.js',
-    '@plugins/vueAsyncComputed.js'
+    '@plugins/vueAsyncComputed.js',
+    '~/plugins/disqus'
   ],
 
   /*
