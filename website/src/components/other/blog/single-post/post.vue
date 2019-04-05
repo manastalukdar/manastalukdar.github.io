@@ -19,7 +19,7 @@
 
     <v-layout wrap ma-2>
       <v-flex xs12>
-        <comments post-id="postId" />
+        <comments :post-id="postId" :url="url" />
       </v-flex>
     </v-layout>
   </v-layout>
@@ -47,7 +47,8 @@ export default {
   },
   asyncData({ store, params, env, payload }) {
     return {
-      postId: env.baseURL + this.$route.path
+      postId: this.$route.path,
+      url: env.baseURL + this.$route.path
     }
   }
 }
