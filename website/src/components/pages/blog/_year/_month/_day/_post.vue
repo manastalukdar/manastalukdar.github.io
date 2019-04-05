@@ -161,4 +161,11 @@ code {
   margin: 0em;
   padding: 1em;
 }
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 300;
+  border-left: 2px solid #eee;
+}
 </style>
