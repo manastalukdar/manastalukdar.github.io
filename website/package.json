@@ -34,6 +34,7 @@
     "lru-cache": "^5.1.1",
     "nuxt": "^2.5.1",
     "vue-async-computed": "^3.6.1",
+    "vue-disqus": "^3.0.5",
     "vue-material-design-icons": "^3.1.0",
     "vuetify": "^1.5.7",
     "vuetify-loader": "^1.2.0"
