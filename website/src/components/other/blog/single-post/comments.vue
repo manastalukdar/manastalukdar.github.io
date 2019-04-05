@@ -9,7 +9,7 @@
         class="pa-4"
       >
         <div class="comments">
-          <vue-disqus shortname="disqusShortname" :identifier="postId" url="url" />
+          <vue-disqus :shortname="disqusShortname" :identifier="postId" url="url" />
         </div>
       </v-card>
     </v-flex>
