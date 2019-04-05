@@ -4,7 +4,7 @@
       wrap
     >
       <v-flex xs12>
-        <post :post-metadata="postMetadata" :post-content="postContent" />
+        <post :post-metadata="postMetadata" :post-content="postContent" :url="url" :post-id="postId" />
       </v-flex>
     </v-layout>
   </v-container>
@@ -36,6 +36,15 @@ export default {
       linkify: true,
       typographer: true
     })
+    const postIdTemp =
+      'blog/' +
+      params.year +
+      '/' +
+      params.month +
+      '/' +
+      params.day +
+      '/' +
+      params.post
     if (payload) {
       const fileContent = await import('./src/static/blogdata/' + payload.path)
       const res = fm(fileContent.default)
@@ -43,7 +52,9 @@ export default {
       return {
         postContent: md.render(res.body),
         postMetadata: payload,
-        baseURL: env.baseURL
+        baseURL: env.baseURL,
+        postId: postIdTemp,
+        url: env.baseURL + postIdTemp
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
@@ -85,7 +96,9 @@ export default {
       return {
         postContent: md.render(res.body),
         postMetadata: postMetadata,
-        baseURL: env.baseURL
+        baseURL: env.baseURL,
+        postId: postIdTemp,
+        url: env.baseURL + '/' + postIdTemp
       }
     }
   },
