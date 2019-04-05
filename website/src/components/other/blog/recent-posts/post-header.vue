@@ -1,6 +1,7 @@
 <template>
   <v-layout
     wrap
+    class="text-xs-center"
   >
     <v-flex xs12>
       <v-layout row justify-center wrap>

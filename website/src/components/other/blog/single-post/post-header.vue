@@ -1,6 +1,7 @@
 <template>
   <v-layout
     wrap
+    class="text-xs-center"
   >
     <v-flex xs12>
       <v-layout row justify-center title>
@@ -22,7 +23,7 @@
           &nbsp;
         </div>
         &nbsp;
-        || First Published: {{ postMetadata["first-published-on"] }} || Last Updated: {{ postMetadata["last-updated-on"] }}
+        || Published: {{ postMetadata["first-published-on"] }} || Updated: {{ postMetadata["last-updated-on"] }}
       </v-layout>
       <v-layout row justify-center wrap>
         Categories:&nbsp;
