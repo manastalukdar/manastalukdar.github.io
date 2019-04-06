@@ -5,9 +5,17 @@
   >
     <v-flex xs12>
       <v-layout row justify-center title>
-        <p>
-          {{ postMetadata.title }}
-        </p>
+        <div class="text-xs-center align-right mr-2">
+          <p>
+            {{ postMetadata.title }}
+          </p>
+        </div>
+        <div xs2 class="text-xs-right align-left ml-2">
+          <p>
+            <v-icon>{{ postFormatIcon }}</v-icon>
+          </p>
+        </div>
+        <p />
       </v-layout>
       <v-layout row justify-center wrap>
         Authors:&nbsp;
@@ -68,6 +76,13 @@ export default {
       type: Object,
       required: true,
       default: () => {}
+    }
+  },
+  computed: {
+    postFormatIcon() {
+      return this.$store.getters['BlogMetadata/getPostFormatIcon'](
+        this.postMetadata['post-format'].name
+      )
     }
   }
 }
