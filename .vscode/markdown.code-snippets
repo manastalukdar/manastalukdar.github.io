@@ -16,7 +16,7 @@
 	// 	"description": "Log output to console"
 	// }
 
-	"Problem Definition": {
+	"Blog Post": {
 		"scope": "markdown",
 		"prefix": "blog-post",
 		"body": [
@@ -43,6 +43,15 @@
 			"---",
 			"",
 			"# Title"
+		]
+	},
+	"iframe-container embed": {
+		"scope": "markdown",
+		"prefix": "iframe-container-embed",
+		"body": [
+			"::: iframe-container",
+			"<iframe frameborder=0 src=\"\"></iframe>",
+			":::"
 		]
 	}
 }
