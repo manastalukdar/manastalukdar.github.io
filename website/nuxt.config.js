@@ -12,6 +12,7 @@ const staticDir = './src/static'
 const feedFileName = '/blogfeed.xml'
 const feedPath = staticDir + feedFileName
 const siteOwner = 'Manas Talukdar'
+const sitemapPath = '/sitemap.xml'
 
 module.exports = {
   mode: 'universal',
@@ -199,13 +200,15 @@ module.exports = {
   },
 
   sitemap: {
-    path: '/sitemap.xml',
+    path: sitemapPath,
     hostname: baseUrl,
     cacheTime: 1000 * 60 * 15, // 15 mins
     generate: true,
     gzip: true,
     routes() {
       getRoutes.functions.generateRoutes()
+      getRoutes.properties.sitemapRoutes.push(baseUrl + sitemapPath)
+      getRoutes.properties.sitemapRoutes.push(baseUrl + feedFileName)
       return getRoutes.properties.sitemapRoutes
     }
   },

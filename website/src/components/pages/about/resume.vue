@@ -22,8 +22,14 @@ export default {
     currentPage: state =>
       state.MainNavMenu.about.aboutText +
       ' | ' +
-      state.MainNavMenu.about.aboutItems[0].text
+      state.MainNavMenu.about.aboutItems[0].text,
+    currentHref: state => state.MainNavMenu.about.aboutItems[0].href
   }),
+  asyncData({ store, params, env, payload }) {
+    return {
+      baseUrl: env.baseURL
+    }
+  },
   head() {
     return {
       title: this.currentPage + ' || ' + this.appOwner,
@@ -33,7 +39,8 @@ export default {
           name: 'description',
           content: 'Manas Talukdar resume'
         }
-      ]
+      ],
+      link: [{ rel: 'canonical', href: this.baseUrl + this.currentHref }]
     }
   }
 }

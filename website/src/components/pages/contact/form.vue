@@ -87,11 +87,25 @@ export default {
     currentPage: state =>
       state.MainNavMenu.contact.contactText +
       ' | ' +
-      state.MainNavMenu.contact.contactForm.text
+      state.MainNavMenu.contact.contactForm.text,
+    currentHref: state => state.MainNavMenu.contact.contactForm.href
   }),
+  asyncData({ store, params, env, payload }) {
+    return {
+      baseUrl: env.baseURL
+    }
+  },
   head() {
     return {
-      title: this.currentPage + ' || ' + this.appOwner
+      title: this.currentPage + ' || ' + this.appOwner,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Contact Form.'
+        }
+      ],
+      link: [{ rel: 'canonical', href: this.baseUrl + this.currentHref }]
     }
   },
   methods: {

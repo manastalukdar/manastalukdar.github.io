@@ -50,7 +50,7 @@ const state = () => ({
   },
   legal: {
     legalText: 'Legal',
-    legalPath: '/legal/'
+    legalPath: '/legal'
   },
   contact: {
     contactText: 'Contact',
