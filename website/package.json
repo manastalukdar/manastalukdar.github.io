@@ -33,6 +33,7 @@
     "highlight.js": "^9.15.6",
     "lodash": "^4.17.11",
     "lru-cache": "^5.1.1",
+    "markdown-it-container": "^2.0.0",
     "markdown-it-html5-embed": "^1.0.0",
     "markdown-it-mathjax": "^2.0.0",
     "nuxt": "^2.5.1",
