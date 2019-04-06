@@ -28,15 +28,20 @@ export default {
       ' | ' +
       state.MainNavMenu.blog.blogItems[0].text,
     blogMetadata: state => state.BlogMetadata.blogMetadata,
-    pageTitle: state => state.MainNavMenu.blog.blogText
+    pageTitle: state => state.MainNavMenu.blog.blogText,
+    currentHref: state => state.MainNavMenu.blog.blogItems[0].href
   }),
   async asyncData({ store, params, env, payload }) {
     if (payload) {
       return {
+        baseUrl: env.baseURL,
         blogMetadata: payload
       }
     } else if (store.state.BlogMetadata.blogMetadata.length === 0) {
       await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+      return {
+        baseUrl: env.baseURL
+      }
     }
   },
   head() {
@@ -48,7 +53,8 @@ export default {
           name: 'description',
           content: 'Reflections on software engineering and other matters.'
         }
-      ]
+      ],
+      link: [{ rel: 'canonical', href: this.baseUrl + this.currentHref }]
     }
   }
 }

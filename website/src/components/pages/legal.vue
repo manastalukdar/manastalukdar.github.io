@@ -15,8 +15,14 @@ import { mapState } from 'vuex'
 export default {
   computed: mapState({
     appOwner: state => state.GlobalData.appOwner,
-    currentPage: state => state.MainNavMenu.legal.legalText
+    currentPage: state => state.MainNavMenu.legal.legalText,
+    currentHref: state => state.MainNavMenu.legal.legalPath
   }),
+  asyncData({ store, params, env, payload }) {
+    return {
+      baseUrl: env.baseURL
+    }
+  },
   head() {
     return {
       title: this.currentPage + ' || ' + this.appOwner,
@@ -26,7 +32,8 @@ export default {
           name: 'description',
           content: 'Legal disclaimer.'
         }
-      ]
+      ],
+      link: [{ rel: 'canonical', href: this.baseUrl + this.currentHref }]
     }
   }
 }
