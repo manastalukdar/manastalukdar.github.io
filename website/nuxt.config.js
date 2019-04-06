@@ -30,6 +30,11 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
+        hid: 'title',
+        name: 'title',
+        content: siteOwner
+      },
+      {
         hid: 'keywords',
         name: 'keywords',
         content: siteOwner + ', blog, resume'
@@ -37,7 +42,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: siteOwner + ' - personal website, blog, resume. '
+        content: siteOwner + ' - personal website, blog, resume.'
       },
       {
         name: 'google-site-verification',

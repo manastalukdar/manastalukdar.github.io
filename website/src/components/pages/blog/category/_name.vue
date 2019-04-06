@@ -75,6 +75,16 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'Blog posts in category ' + this.categoryName
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content:
+            this.currentPage +
+            ' | ' +
+            this.categoryName +
+            ' || ' +
+            this.appOwner
         }
       ]
     }

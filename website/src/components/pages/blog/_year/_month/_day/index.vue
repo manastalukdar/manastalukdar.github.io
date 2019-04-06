@@ -66,6 +66,12 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'Blog posts on day ' + this.dayName
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content:
+            this.currentPage + ' | ' + this.dayName + ' || ' + this.appOwner
         }
       ]
     }

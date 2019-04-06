@@ -13,6 +13,11 @@
 <script>
 import { mapState } from 'vuex'
 export default {
+  data: function() {
+    return {
+      title: this.currentPage + ' || ' + this.appOwner
+    }
+  },
   computed: mapState({
     appOwner: state => state.GlobalData.appOwner,
     currentPage: state => state.MainNavMenu.legal.legalText,
@@ -25,12 +30,17 @@ export default {
   },
   head() {
     return {
-      title: this.currentPage + ' || ' + this.appOwner,
+      title: this.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
           content: 'Legal disclaimer.'
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content: this.title
         }
       ],
       link: [{ rel: 'canonical', href: this.baseUrl + this.currentHref }]

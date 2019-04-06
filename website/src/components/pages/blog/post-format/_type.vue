@@ -67,6 +67,16 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'Blog posts of format ' + this.postFormatType
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content:
+            this.currentPage +
+            ' | ' +
+            this.postFormatType +
+            ' || ' +
+            this.appOwner
         }
       ]
     }
