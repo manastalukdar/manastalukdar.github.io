@@ -47,9 +47,11 @@ const functions = {
         payload: postmetadata
       })
       properties.sitemapRoutes.push(route)
-      properties.feedItems.push(
-        helperFunctions.getFeedItem(postmetadata, route)
-      )
+      if (properties.feedItems.length < 10) {
+        properties.feedItems.push(
+          helperFunctions.getFeedItem(postmetadata, route)
+        )
+      }
     })
 
     const groupedByPostFormat = _.groupBy(blogMetadata, function(postmetadata) {
