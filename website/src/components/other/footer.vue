@@ -10,10 +10,10 @@
       tile
     >
       <v-layout row class="justify-center">
-        <v-flex xs6 text-xs-left style="margin-left: 2em; margin-right: 2em">
+        <v-flex xs6 text-xs-left style="margin-left: 1em; margin-right: 1em">
           &copy;&nbsp; {{ copyrightStartYear }} — {{ copyrightEndYear }} &nbsp;<strong> {{ appOwner }} </strong>
         </v-flex>
-        <v-flex xs6 text-xs-right style="margin-left: 2em; margin-right: 2em">
+        <v-flex xs6 text-xs-right style="margin-left: 1em; margin-right: 1em">
           Built with <a href="https://vuejs.org/" target="_blank" style="color:white">Vue.js</a> and <a href="https://nuxtjs.org/" target="_blank" style="color:white">Nuxt.js</a>
           &nbsp;||&nbsp; <a href="/sitemap.xml" target="_blank" style="color:white">{{ siteMapText }}</a>&nbsp;||&nbsp; <a href="/blogfeed.xml" target="_blank" style="color:white">{{ blogFeedtext }}</a>
         </v-flex>
