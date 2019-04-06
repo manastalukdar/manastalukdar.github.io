@@ -69,19 +69,23 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  data: () => ({
-    name: undefined,
-    email: undefined,
-    message: '',
-    form: false,
-    isLoading: false,
-    rules: {
-      email: v => (v || '').match(/@/) || 'Please enter a valid email',
-      length: len => v =>
-        (v || '').length >= len || `Invalid character length, required ${len}`,
-      required: v => !!v || 'This field is required'
+  data: function() {
+    return {
+      name: undefined,
+      email: undefined,
+      message: '',
+      form: false,
+      isLoading: false,
+      rules: {
+        email: v => (v || '').match(/@/) || 'Please enter a valid email',
+        length: len => v =>
+          (v || '').length >= len ||
+          `Invalid character length, required ${len}`,
+        required: v => !!v || 'This field is required'
+      },
+      title: this.currentPage + ' || ' + this.appOwner
     }
-  }),
+  },
   computed: mapState({
     appOwner: state => state.GlobalData.appOwner,
     currentPage: state =>
@@ -97,12 +101,17 @@ export default {
   },
   head() {
     return {
-      title: this.currentPage + ' || ' + this.appOwner,
+      title: this.title,
       meta: [
         {
           hid: 'description',
           name: 'description',
           content: 'Contact Form.'
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content: this.title
         }
       ],
       link: [{ rel: 'canonical', href: this.baseUrl + this.currentHref }]

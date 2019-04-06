@@ -26,7 +26,8 @@ export default {
   computed: {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
-      currentPage: state => state.MainNavMenu.blog.blogText + ' | '
+      currentPage: state => state.MainNavMenu.blog.blogText + ' | ',
+      currentHref: state => state.MainNavMenu.contact.contactForm.href
     })
   },
   async asyncData({ store, params, env, payload }) {
@@ -161,6 +162,15 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.postMetadata.meta.description
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content:
+            this.currentPage +
+            this.postMetadata.meta.title +
+            ' || ' +
+            this.appOwner
         },
         {
           hid: 'keywords',

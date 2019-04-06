@@ -73,6 +73,12 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'Blog posts by author ' + this.authorName
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content:
+            this.currentPage + ' | ' + this.authorName + ' || ' + this.appOwner
         }
       ]
     }

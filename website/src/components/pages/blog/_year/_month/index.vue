@@ -65,6 +65,12 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'Blog posts on month ' + this.monthName
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content:
+            this.currentPage + ' | ' + this.monthName + ' || ' + this.appOwner
         }
       ]
     }

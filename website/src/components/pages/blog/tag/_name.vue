@@ -72,6 +72,12 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'Blog posts with tag ' + this.tagName
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content:
+            this.currentPage + ' | ' + this.tagName + ' || ' + this.appOwner
         }
       ]
     }

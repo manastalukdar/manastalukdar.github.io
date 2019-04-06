@@ -38,6 +38,11 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'Manas Talukdar resume'
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content: this.currentPage + ' || ' + this.appOwner
         }
       ],
       link: [{ rel: 'canonical', href: this.baseUrl + this.currentHref }]
