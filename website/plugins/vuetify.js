@@ -6,6 +6,9 @@ const LRU = require('lru-cache')
 // https://vuetifyjs.com/en/framework/colors
 
 Vue.use(Vuetify, {
+  options: {
+    customProperties: true
+  },
   theme: {
     primary: colors.teal.lighten3, // blue.darken2
     accent: colors.grey.darken3,

@@ -132,6 +132,29 @@ const getters = {
         return value
       }
     }
+  },
+  getPostFormatIcon: state => postFormatType => {
+    if (postFormatType === 'standard') {
+      return 'mdi-pin'
+    } else if (postFormatType === 'aside') {
+      return 'mdi-note-text' // mdi-text
+    } else if (postFormatType === 'gallery') {
+      return 'mdi-image-multiple'
+    } else if (postFormatType === 'link') {
+      return 'mdi-link-variant'
+    } else if (postFormatType === 'image') {
+      return 'mdi-image'
+    } else if (postFormatType === 'quote') {
+      return 'mdi-format-quote-open'
+    } else if (postFormatType === 'status') {
+      return 'mdi-message'
+    } else if (postFormatType === 'video') {
+      return 'mdi-video'
+    } else if (postFormatType === 'audio') {
+      return 'mdi-volume-high'
+    } else if (postFormatType === 'chat') {
+      return 'chat'
+    }
   }
 }
 
