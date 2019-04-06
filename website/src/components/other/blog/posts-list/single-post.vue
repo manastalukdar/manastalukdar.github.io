@@ -7,7 +7,6 @@
         <v-card
           color="blue-grey darken-4"
           hover
-          raised
           class="pa-3"
           nuxt
           :to="{ name: 'blog-year-month-day-post', params: { year:postLinkSlugs.year, month:postLinkSlugs.month, day: postLinkSlugs.day, post: postLinkSlugs.post } }"
