@@ -4,6 +4,8 @@
       <v-card
         color="blue-grey darken-4"
         class="pa-3"
+        raised
+        elevation="8"
         style="height:100%"
       >
         <v-layout row justify-center title>
