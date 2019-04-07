@@ -1,7 +1,7 @@
 <template>
   <v-layout wrap>
     <v-flex xs12>
-      <v-card color="cardColorDark" raised class="pa-4">
+      <v-card :color="cardColor" raised class="pa-4">
         <div class="comments">
           <vue-disqus
             :shortname="disqusShortname"
@@ -31,6 +31,11 @@ export default {
   data: function() {
     return {
       disqusShortname: 'manastalukdar'
+    }
+  },
+  computed: {
+    cardColor() {
+      return this.$store.getters['GlobalData/getCardColor']
     }
   }
 }

@@ -2,7 +2,7 @@
   <v-layout column wrap>
     <v-flex xs12>
       <v-card
-        color="cardColorDark"
+        :color="cardColor"
         class="pa-3"
         raised
         elevation="8"
@@ -32,6 +32,11 @@ export default {
   },
   data: () => ({
     itemsToDisplay: 5
-  })
+  }),
+  computed: {
+    cardColor() {
+      return this.$store.getters['GlobalData/getCardColor']
+    }
+  }
 }
 </script>

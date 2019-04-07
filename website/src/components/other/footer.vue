@@ -1,6 +1,6 @@
 <template>
   <v-footer app dark height="auto">
-    <v-card class="flex dark blue darken-3 py-3" flat tile>
+    <v-card class="flex blue darken-3 py-3" flat tile>
       <v-layout row class="justify-center">
         <v-flex xs6 text-xs-left style="margin-left: 1em; margin-right: 1em">
           &copy;&nbsp; {{ copyrightStartYear }} —

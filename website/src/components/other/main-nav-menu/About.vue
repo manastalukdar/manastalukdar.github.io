@@ -7,7 +7,7 @@
       style="min-width: 48px"
     >
       <span class="hidden-sm-and-down mr-1" v-text="aboutText" />
-      <v-icon dark>
+      <v-icon>
         arrow_drop_down
       </v-icon>
     </v-btn>
