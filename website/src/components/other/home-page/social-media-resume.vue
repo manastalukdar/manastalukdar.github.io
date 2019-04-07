@@ -1,12 +1,7 @@
 <template>
   <v-layout wrap>
     <v-flex xs12>
-      <v-card
-        color="blue-grey darken-4"
-        class="pa-3"
-        raised
-        elevation="8"
-      >
+      <v-card color="blue-grey darken-4" class="pa-3" raised elevation="8">
         <v-flex xs12>
           <v-list>
             <v-layout row justify-center>
@@ -26,10 +21,7 @@
         <v-flex xs12>
           <v-list>
             <v-layout row justify-center>
-              <v-list-tile
-                :key="aboutItems[0].text"
-                :to="aboutItems[0].href"
-              >
+              <v-list-tile :key="aboutItems[0].text" :to="aboutItems[0].href">
                 <v-list-tile-title v-text="aboutItems[0].text" />
               </v-list-tile>
             </v-layout>

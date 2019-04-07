@@ -18,5 +18,8 @@
             "language": "javascript",
             "autoFix": true
           }
-      ]
+      ],
+      "eslint.autoFixOnSave": true,
+      "editor.formatOnSave": false,
+      "vetur.validation.template": false
 }

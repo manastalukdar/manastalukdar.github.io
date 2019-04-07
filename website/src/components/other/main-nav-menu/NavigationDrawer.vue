@@ -8,9 +8,7 @@
     :disable-route-watcher="true"
   >
     <v-list>
-      <v-list-group
-        no-action
-      >
+      <v-list-group no-action>
         <v-list-tile slot="activator">
           <v-list-tile-action>
             <v-icon>
@@ -22,9 +20,7 @@
         <BlogMenuItems />
       </v-list-group>
 
-      <v-list-group
-        no-action
-      >
+      <v-list-group no-action>
         <v-list-tile slot="activator">
           <v-list-tile-action>
             <v-icon>mdi-information</v-icon>
@@ -41,9 +37,7 @@
         <v-list-tile-title> {{ legalText }} </v-list-tile-title>
       </v-list-tile>
 
-      <v-list-group
-        no-action
-      >
+      <v-list-group no-action>
         <v-list-tile slot="activator">
           <v-list-tile-action>
             <v-icon>mdi-contact-mail</v-icon>
@@ -90,5 +84,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

@@ -1,12 +1,17 @@
 <template>
-  <v-layout
-    wrap
-    class="text-xs-center"
-  >
+  <v-layout wrap class="text-xs-center">
     <v-flex xs12>
       <v-layout row justify-center wrap>
         <nuxt-link
-          :to="{ name: 'blog-year-month-day-post', params: { year:postLinkSlugs.year, month:postLinkSlugs.month, day: postLinkSlugs.day, post: postLinkSlugs.post } }"
+          :to="{
+            name: 'blog-year-month-day-post',
+            params: {
+              year: postLinkSlugs.year,
+              month: postLinkSlugs.month,
+              day: postLinkSlugs.day,
+              post: postLinkSlugs.post
+            }
+          }"
         >
           {{ postMetadata.title }}
         </nuxt-link>

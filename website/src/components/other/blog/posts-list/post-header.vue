@@ -1,8 +1,5 @@
 <template>
-  <v-layout
-    wrap
-    class="text-xs-center"
-  >
+  <v-layout wrap class="text-xs-center">
     <v-flex xs12>
       <v-layout row justify-center title>
         <div class="text-xs-center align-right mr-2">
@@ -19,40 +16,36 @@
       </v-layout>
       <v-layout row justify-center wrap>
         Authors:&nbsp;
-        <div
-          v-for="item in postMetadata.authors"
-          :key="item['name']"
-        >
+        <div v-for="item in postMetadata.authors" :key="item['name']">
           <nuxt-link
-            :to="{ name: 'blog-author-name', params: { name:item['url-slug'] } }"
+            :to="{
+              name: 'blog-author-name',
+              params: { name: item['url-slug'] }
+            }"
           >
             <span>{{ item['name'] }}</span>
           </nuxt-link>
           &nbsp;
         </div>
-        &nbsp;
-        || Published: {{ postMetadata["first-published-on"] }}
+        &nbsp; || Published: {{ postMetadata['first-published-on'] }}
       </v-layout>
       <v-layout row justify-center wrap>
         Categories:&nbsp;
-        <div
-          v-for="item in postMetadata.categories"
-          :key="item['name']"
-        >
+        <div v-for="item in postMetadata.categories" :key="item['name']">
           <nuxt-link
-            :to="{ name: 'blog-category-name', params: { name:item['url-slug']} }"
+            :to="{
+              name: 'blog-category-name',
+              params: { name: item['url-slug'] }
+            }"
           >
             <span>{{ item['name'] }}</span>
           </nuxt-link>
           &nbsp;
         </div>
         &nbsp;|| Tags:&nbsp;
-        <div
-          v-for="item in postMetadata.tags"
-          :key="item['name']"
-        >
+        <div v-for="item in postMetadata.tags" :key="item['name']">
           <nuxt-link
-            :to="{ name: 'blog-tag-name', params: { name:item['url-slug'] } }"
+            :to="{ name: 'blog-tag-name', params: { name: item['url-slug'] } }"
           >
             <span>{{ item['name'] }}</span>
           </nuxt-link>
@@ -82,5 +75,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

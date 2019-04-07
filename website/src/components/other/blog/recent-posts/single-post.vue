@@ -1,7 +1,5 @@
 <template>
-  <v-layout
-    wrap
-  >
+  <v-layout wrap>
     <v-flex xs12>
       <postHeader :post-metadata="postMetadata" />
       <p />
@@ -25,5 +23,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

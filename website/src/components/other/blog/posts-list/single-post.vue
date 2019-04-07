@@ -1,21 +1,35 @@
 <template>
   <v-container>
-    <v-layout
-      wrap
-    >
+    <v-layout wrap>
       <v-flex xs12>
         <v-card
           color="blue-grey darken-4"
           hover
           class="pa-3"
           nuxt
-          :to="{ name: 'blog-year-month-day-post', params: { year:postLinkSlugs.year, month:postLinkSlugs.month, day: postLinkSlugs.day, post: postLinkSlugs.post } }"
+          :to="{
+            name: 'blog-year-month-day-post',
+            params: {
+              year: postLinkSlugs.year,
+              month: postLinkSlugs.month,
+              day: postLinkSlugs.day,
+              post: postLinkSlugs.post
+            }
+          }"
         >
           <postHeader :post-metadata="postMetadata" />
           <p />
           {{ postMetadata.excerpt }}&nbsp;
           <nuxt-link
-            :to="{ name: 'blog-year-month-day-post', params: { year:postLinkSlugs.year, month:postLinkSlugs.month, day: postLinkSlugs.day, post: postLinkSlugs.post } }"
+            :to="{
+              name: 'blog-year-month-day-post',
+              params: {
+                year: postLinkSlugs.year,
+                month: postLinkSlugs.month,
+                day: postLinkSlugs.day,
+                post: postLinkSlugs.post
+              }
+            }"
           >
             <span>...read more</span>
           </nuxt-link>
@@ -51,5 +65,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

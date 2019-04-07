@@ -1,14 +1,8 @@
 <template>
-  <v-layout
-    wrap
-  >
+  <v-layout wrap>
     <v-layout wrap ma-2>
       <v-flex xs12>
-        <v-card
-          color="blue-grey darken-4"
-          raised
-          class="pa-4"
-        >
+        <v-card color="blue-grey darken-4" raised class="pa-4">
           <postHeader :post-metadata="postMetadata" />
           <p />
           <!-- eslint-disable-next-line vue/no-v-html -->
@@ -58,5 +52,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>
