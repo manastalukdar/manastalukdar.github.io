@@ -1,15 +1,13 @@
 <template>
-  <v-layout
-    wrap
-  >
+  <v-layout wrap>
     <v-flex xs12>
-      <v-card
-        color="blue-grey darken-4"
-        raised
-        class="pa-4"
-      >
+      <v-card color="blue-grey darken-4" raised class="pa-4">
         <div class="comments">
-          <vue-disqus :shortname="disqusShortname" :identifier="postId" :url="url" />
+          <vue-disqus
+            :shortname="disqusShortname"
+            :identifier="postId"
+            :url="url"
+          />
         </div>
       </v-card>
     </v-flex>
@@ -38,5 +36,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

@@ -1,10 +1,13 @@
 <template>
   <v-container>
-    <v-layout
-      wrap
-    >
+    <v-layout wrap>
       <v-flex xs12>
-        <post :post-metadata="postMetadata" :post-content="postContent" :url="url" :post-id="postId" />
+        <post
+          :post-metadata="postMetadata"
+          :post-content="postContent"
+          :url="url"
+          :post-id="postId"
+        />
       </v-flex>
     </v-layout>
   </v-container>
@@ -41,6 +44,7 @@ export default {
         if (lang && hljs.getLanguage(lang)) {
           try {
             return hljs.highlight(lang, str).value
+            // eslint-disable-next-line no-empty
           } catch (__) {}
         }
         return '' // use external default escaping

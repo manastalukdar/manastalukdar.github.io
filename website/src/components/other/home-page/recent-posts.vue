@@ -8,7 +8,10 @@
         elevation="8"
         style="height:100%"
       >
-        <recentPosts :items-to-display="itemsToDisplay" :posts-list="postsList" />
+        <recentPosts
+          :items-to-display="itemsToDisplay"
+          :posts-list="postsList"
+        />
       </v-card>
     </v-flex>
   </v-layout>

@@ -10,6 +10,8 @@ Vue.use(Vuetify, {
     customProperties: true
   },
   theme: {
+    backgroundDark: colors.blueGrey.darken2, // #252a33,
+    cardColorDark: colors.blueGrey.darken4,
     primary: colors.teal.lighten3, // blue.darken2
     accent: colors.grey.darken3,
     secondary: colors.amber.darken3,

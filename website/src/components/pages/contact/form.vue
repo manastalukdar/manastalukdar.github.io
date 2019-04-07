@@ -1,9 +1,6 @@
 <template>
   <v-container>
-    <v-layout
-      text-xs-center
-      wrap
-    >
+    <v-layout text-xs-center wrap>
       <v-flex xs12>
         <v-form
           ref="form"
@@ -42,10 +39,7 @@
           />
           <v-divider />
           <v-card-actions>
-            <v-btn
-              flat
-              @click="$refs.form.reset()"
-            >
+            <v-btn flat @click="$refs.form.reset()">
               Clear
             </v-btn>
             <v-spacer />
@@ -147,5 +141,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

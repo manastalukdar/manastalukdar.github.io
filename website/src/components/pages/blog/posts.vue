@@ -1,9 +1,6 @@
 <template>
   <v-container>
-    <v-layout
-      text-xs-justify
-      wrap
-    >
+    <v-layout text-xs-justify wrap>
       <v-flex xs12>
         <v-layout row justify-center headline>
           {{ pageTitle }}
@@ -91,5 +88,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

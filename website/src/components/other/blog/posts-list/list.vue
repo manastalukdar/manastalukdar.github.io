@@ -1,7 +1,5 @@
 <template>
-  <v-layout
-    wrap
-  >
+  <v-layout wrap>
     <v-flex xs12 py-2>
       <v-data-iterator
         :items="postsList"
