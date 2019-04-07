@@ -211,13 +211,13 @@ export default {
           content: 'article'
         },
         {
-          name: 'og:article.section',
-          property: 'og:article.section',
+          name: 'og:article:section',
+          property: 'og:article:section',
           content: category
         },
         {
-          name: 'og:article.tag',
-          property: 'og:article.tag',
+          name: 'og:article:tag',
+          property: 'og:article:tag',
           content: tags
         }
       ],
