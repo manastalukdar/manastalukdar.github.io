@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar color="blue darken-3" dark app>
+  <v-toolbar :color="headerAndFooterColor" app>
     <v-toolbar-side-icon class="hidden-sm-and-up">
       <nuxt-link to="/" tag="span" style="cursor: pointer"
         ><v-icon>mdi-home</v-icon></nuxt-link
@@ -54,7 +54,10 @@ export default {
     },
     ...mapState({
       appTitle: state => state.GlobalData.appTitle
-    })
+    }),
+    headerAndFooterColor() {
+      return this.$store.getters['GlobalData/getHeaderAndFooterColor']
+    }
   },
   methods: {
     ...mapActions({

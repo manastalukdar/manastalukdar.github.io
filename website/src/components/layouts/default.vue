@@ -55,7 +55,7 @@ export default {
 }
 */
 .theme--dark .v-list {
-  background: #263238 !important;
+  background: #263238;
 }
 .theme--dark a {
   color: #42b983;

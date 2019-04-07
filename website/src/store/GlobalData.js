@@ -6,7 +6,9 @@ const state = () => ({
   copyrightEndYear: new Date().getFullYear(),
   currentPageName: '',
   darkMode: true,
-  cardColorDark: 'cardColorDark'
+  cardColorDark: 'cardColorDark',
+  headerAndFooterColorDark: 'headerAndFooterColorDark',
+  headerAndFooterColorLight: 'headerAndFooterColorLight'
 })
 
 // getters
@@ -14,6 +16,13 @@ const getters = {
   getCardColor: state => {
     if (state.darkMode) {
       return state.cardColorDark
+    }
+  },
+  getHeaderAndFooterColor: state => {
+    if (state.darkMode) {
+      return state.headerAndFooterColorDark
+    } else {
+      return state.headerAndFooterColorLight
     }
   }
 }
