@@ -48,7 +48,7 @@ export default {
 }
 /*
 .application .theme--dark .v-content {
-  background-color: #252a33 !important;
+  background-color: #252a33 !important; // : var(--v-accent-lighten2)
 }
 */
 </style>
