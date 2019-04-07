@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app :dark="darkMode">
     <MainNavMenuTopNavBar />
     <MainNavMenuNavigationDrawer />
 
@@ -26,9 +26,12 @@ export default {
     MainNavMenuTopNavBar,
     Footer
   },
-  computed: mapState({
-    appOwner: state => state.GlobalData.appOwner
-  }),
+  computed: {
+    ...mapState({
+      appOwner: state => state.GlobalData.appOwner,
+      darkMode: state => state.GlobalData.darkMode
+    })
+  },
   head() {
     return {
       title: this.appOwner
@@ -51,4 +54,26 @@ export default {
   background-color: #252a33 !important; // : var(--v-accent-lighten2)
 }
 */
+.theme--dark .v-list {
+  background: #263238 !important;
+}
+.theme--dark a {
+  color: #42b983;
+}
+.theme--dark a:hover {
+  color: #ce7720;
+}
+/*.theme--dark a:visited {
+  color: #b1be80;
+}*/
+
+.theme--light a {
+  color: #31805c;
+}
+.theme--light a:hover {
+  color: #ca6a2a;
+}
+/*.theme--light a:visited {
+  color: #797a33;
+}*/
 </style>

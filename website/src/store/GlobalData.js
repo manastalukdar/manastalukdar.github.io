@@ -4,16 +4,27 @@ const state = () => ({
   appOwner: 'Manas Talukdar',
   copyrightStartYear: '2018',
   copyrightEndYear: new Date().getFullYear(),
-  currentPageName: ''
+  currentPageName: '',
+  darkMode: true,
+  cardColorDark: 'cardColorDark'
 })
 
 // getters
-const getters = {}
+const getters = {
+  getCardColor: state => {
+    if (state.darkMode) {
+      return state.cardColorDark
+    }
+  }
+}
 
 // actions
 const actions = {
   setCurrentPageName({ commit }, name) {
     commit('currentPageName', name)
+  },
+  flipThemeMode({ commit }) {
+    commit('flipThemeMode')
   }
 }
 
@@ -21,6 +32,9 @@ const actions = {
 const mutations = {
   setCurrentPageName(state, name) {
     state.currentPageName = name
+  },
+  flipThemeMode(state) {
+    state.darkMode = !state.darkMode
   }
 }
 

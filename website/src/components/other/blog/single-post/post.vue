@@ -2,7 +2,7 @@
   <v-layout wrap>
     <v-layout wrap ma-2>
       <v-flex xs12>
-        <v-card color="cardColorDark" raised class="pa-4">
+        <v-card :color="cardColor" raised class="pa-4">
           <postHeader :post-metadata="postMetadata" />
           <p />
           <!-- eslint-disable-next-line vue/no-v-html -->
@@ -47,6 +47,11 @@ export default {
       type: String,
       required: true,
       default: ''
+    }
+  },
+  computed: {
+    cardColor() {
+      return this.$store.getters['GlobalData/getCardColor']
     }
   }
 }

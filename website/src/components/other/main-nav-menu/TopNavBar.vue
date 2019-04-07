@@ -1,11 +1,19 @@
 <template>
   <v-toolbar color="blue darken-3" dark app>
-    <v-toolbar-title class="headline">
+    <v-toolbar-side-icon class="hidden-sm-and-up">
+      <nuxt-link to="/" tag="span" style="cursor: pointer"
+        ><v-icon>mdi-home</v-icon></nuxt-link
+      ></v-toolbar-side-icon
+    >
+    <v-toolbar-title class="hidden-xs-only headline">
       <nuxt-link to="/" tag="span" style="cursor: pointer">
         {{ appTitle }}
       </nuxt-link>
     </v-toolbar-title>
     <v-spacer />
+    <v-btn flat icon @click="flipThemeMode">
+      <v-icon>mdi-invert-colors</v-icon>
+    </v-btn>
     <v-toolbar-items class="hidden-sm-and-down">
       <MainNavMenuBlog />
       <MainNavMenuAbout />
@@ -33,10 +41,27 @@ export default {
     MainNavMenuContact
   },
   data: () => ({}),
-  computed: mapState({
-    appTitle: state => state.GlobalData.appTitle
-  }),
-  methods: mapActions('MainNavMenu', ['flipSidebarVisibility'])
+  computed: {
+    darkMode: {
+      // getter
+      get() {
+        return this.$store.state.GlobalData.darkMode
+      },
+      // setter
+      set(value) {
+        this.$store.commit('GlobalData/setThemeMode', value)
+      }
+    },
+    ...mapState({
+      appTitle: state => state.GlobalData.appTitle
+    })
+  },
+  methods: {
+    ...mapActions({
+      flipSidebarVisibility: 'MainNavMenu/flipSidebarVisibility',
+      flipThemeMode: 'GlobalData/flipThemeMode'
+    })
+  }
 }
 </script>
 

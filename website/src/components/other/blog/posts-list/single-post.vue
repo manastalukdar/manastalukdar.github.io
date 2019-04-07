@@ -3,7 +3,7 @@
     <v-layout wrap>
       <v-flex xs12>
         <v-card
-          color="cardColorDark"
+          :color="cardColor"
           hover
           class="pa-3"
           nuxt
@@ -60,6 +60,9 @@ export default {
       const day = items[2]
       const post = this.postMetadata['url-slug']
       return { year: year, month: month, day: day, post: post }
+    },
+    cardColor() {
+      return this.$store.getters['GlobalData/getCardColor']
     }
   }
 }
