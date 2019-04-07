@@ -45,16 +45,47 @@ export default {
     }
   },
   head() {
+    const title = this.currentPage + ' || ' + this.appOwner
+    const description = 'Reflections on software engineering and other matters.'
+    const url = this.baseUrl + this.currentHref
     return {
-      title: this.currentPage + ' || ' + this.appOwner,
+      title: title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Reflections on software engineering and other matters.'
+          content: description
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content: title
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: title
+        },
+        {
+          hid: 'og-title',
+          name: 'og:title',
+          property: 'og:title',
+          content: title
+        },
+        {
+          hid: 'og-url',
+          name: 'og:url',
+          property: 'og:url',
+          content: url
+        },
+        {
+          hid: 'og-description',
+          name: 'og:description',
+          property: 'og:description',
+          content: description
         }
       ],
-      link: [{ rel: 'canonical', href: this.baseUrl + this.currentHref }]
+      link: [{ rel: 'canonical', href: url }]
     }
   }
 }

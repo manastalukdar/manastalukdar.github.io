@@ -34,6 +34,8 @@ export default {
   async asyncData({ store, params, env, payload }) {
     if (payload) {
       return {
+        yearUrlSlug: params.year,
+        baseUrl: env.baseURL,
         blogMetadata: payload,
         yearName: params.year
       }
@@ -44,32 +46,63 @@ export default {
       const posts = store.getters['BlogMetadata/getPostsForYear'](params.year)
       if (posts === undefined) {
         return {
+          yearUrlSlug: params.year,
+          baseUrl: env.baseURL,
           blogMetadata: [],
           yearName: ''
         }
       }
       return {
+        yearUrlSlug: params.year,
+        baseUrl: env.baseURL,
         blogMetadata: posts,
         yearName: params.year
       }
     }
   },
   head() {
+    const title =
+      this.currentPage + ' | ' + this.yearName + ' || ' + this.appOwner
+    const description = 'Blog posts on year ' + this.yearName
+    const url = this.baseUrl + '/blog/' + this.yearUrlSlug
     return {
-      title: this.currentPage + ' | ' + this.yearName + ' || ' + this.appOwner,
+      title: title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Blog posts on year ' + this.yearName
+          content: description
         },
         {
           hid: 'title',
           name: 'title',
-          content:
-            this.currentPage + ' | ' + this.yearName + ' || ' + this.appOwner
+          content: title
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: title
+        },
+        {
+          hid: 'og-title',
+          name: 'og:title',
+          property: 'og:title',
+          content: title
+        },
+        {
+          hid: 'og-url',
+          name: 'og:url',
+          property: 'og:url',
+          content: url
+        },
+        {
+          hid: 'og-description',
+          name: 'og:description',
+          property: 'og:description',
+          content: description
         }
-      ]
+      ],
+      link: [{ rel: 'canonical', href: url }]
     }
   }
 }
