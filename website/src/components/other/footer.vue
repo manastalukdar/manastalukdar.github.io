@@ -1,6 +1,6 @@
 <template>
-  <v-footer app dark height="auto">
-    <v-card class="flex blue darken-3 py-3" flat tile>
+  <v-footer app height="auto">
+    <v-card class="flex py-3" flat tile :color="headerAndFooterColor">
       <v-layout row class="justify-center">
         <v-flex xs6 text-xs-left style="margin-left: 1em; margin-right: 1em">
           &copy;&nbsp; {{ copyrightStartYear }} —
@@ -8,21 +8,13 @@
         </v-flex>
         <v-flex xs6 text-xs-right style="margin-left: 1em; margin-right: 1em">
           Built with
-          <a href="https://vuejs.org/" target="_blank" style="color:white"
-            >Vue.js</a
-          >
+          <a href="https://vuejs.org/" target="_blank">Vue.js</a>
           and
-          <a href="https://nuxtjs.org/" target="_blank" style="color:white"
-            >Nuxt.js</a
-          >
+          <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>
           &nbsp;||&nbsp;
-          <a href="/sitemap.xml" target="_blank" style="color:white">{{
-            siteMapText
-          }}</a
+          <a href="/sitemap.xml" target="_blank">{{ siteMapText }}</a
           >&nbsp;||&nbsp;
-          <a href="/blogfeed.xml" target="_blank" style="color:white">{{
-            blogFeedtext
-          }}</a>
+          <a href="/blogfeed.xml" target="_blank">{{ blogFeedtext }}</a>
         </v-flex>
       </v-layout>
     </v-card>
@@ -38,10 +30,15 @@ export default {
     builtWithText:
       'Built with <a href="https://vuejs.org/" target="_blank">Vue.js</a> and <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>'
   }),
-  computed: mapState({
-    appOwner: state => state.GlobalData.appOwner,
-    copyrightStartYear: state => state.GlobalData.copyrightStartYear,
-    copyrightEndYear: state => state.GlobalData.copyrightEndYear
-  })
+  computed: {
+    ...mapState({
+      appOwner: state => state.GlobalData.appOwner,
+      copyrightStartYear: state => state.GlobalData.copyrightStartYear,
+      copyrightEndYear: state => state.GlobalData.copyrightEndYear
+    }),
+    headerAndFooterColor() {
+      return this.$store.getters['GlobalData/getHeaderAndFooterColor']
+    }
+  }
 }
 </script>

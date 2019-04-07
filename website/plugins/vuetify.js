@@ -11,6 +11,8 @@ Vue.use(Vuetify, {
   },
   theme: {
     backgroundDark: colors.blueGrey.darken2, // #252a33,
+    headerAndFooterColorDark: colors.blue.darken3,
+    headerAndFooterColorLight: colors.blue.lighten4,
     cardColorDark: colors.blueGrey.darken4,
     primary: colors.teal.lighten3, // blue.darken2
     accent: colors.grey.darken3,
