@@ -46,4 +46,9 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
+/*
+.application .theme--dark .v-content {
+  background-color: #252a33 !important;
+}
+*/
 </style>

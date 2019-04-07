@@ -3,7 +3,7 @@
     <v-layout wrap>
       <v-flex xs12>
         <v-card
-          color="blue-grey darken-4"
+          color="cardColorDark"
           hover
           class="pa-3"
           nuxt

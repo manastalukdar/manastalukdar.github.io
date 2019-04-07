@@ -1,7 +1,7 @@
 <template>
   <v-layout wrap>
     <v-flex xs12>
-      <v-card color="blue-grey darken-4" class="pa-3" raised elevation="8">
+      <v-card color="cardColorDark" class="pa-3" raised elevation="8">
         <!--eslint-disable-next-line vue/no-v-html-->
         <div class="text-xs-justify" v-html="aboutBlurb" />
       </v-card>
