@@ -13,12 +13,21 @@ const feedFileName = '/blogfeed.xml'
 const feedPath = staticDir + feedFileName
 const siteOwner = 'Manas Talukdar'
 const sitemapPath = '/sitemap.xml'
+const faviconPath = '/favicon.ico'
+
+const siteName = siteOwner
+const siteDescription = siteOwner + ' - personal website, blog, resume.'
 
 module.exports = {
   mode: 'universal',
 
   helper: {
     aboutBlurbText: ''
+  },
+
+  // https://pwa.nuxtjs.org/modules/meta.html
+  meta: {
+    // ...
   },
 
   /*
@@ -42,15 +51,61 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: siteOwner + ' - personal website, blog, resume.'
+        content: siteDescription
       },
       {
         name: 'google-site-verification',
         content: 'fkepJA8wLesbvVtlowW987jJEqJ6-hQp3OA5d4Rw9x0'
+      },
+      {
+        hid: 'author',
+        name: 'author',
+        content: siteOwner
+      },
+      {
+        hid: 'apple-mobile-web-app-title',
+        name: 'apple-mobile-web-app-title',
+        content: siteOwner
+      },
+      {
+        hid: 'og-site_name',
+        name: 'og:site_name',
+        property: 'og:site_name',
+        content: siteName
+      },
+      {
+        hid: 'og-image',
+        name: 'og:image',
+        property: 'og:image',
+        content: baseUrl + faviconPath
+      },
+      {
+        hid: 'og-type',
+        name: 'og:type',
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        hid: 'og-title',
+        name: 'og:title',
+        property: 'og:title',
+        content: siteOwner
+      },
+      {
+        hid: 'og-url',
+        name: 'og:url',
+        property: 'og:url',
+        content: baseUrl
+      },
+      {
+        hid: 'og-description',
+        name: 'og:description',
+        property: 'og:description',
+        content: siteDescription
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: faviconPath },
       {
         rel: 'stylesheet',
         href:
@@ -195,7 +250,7 @@ module.exports = {
     {
       rel: 'icon',
       type: 'image/x-icon',
-      href: '/favicon.ico'
+      href: faviconPath
     }
   ],
 

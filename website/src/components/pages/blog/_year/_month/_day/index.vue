@@ -34,6 +34,8 @@ export default {
   async asyncData({ store, params, env, payload }) {
     if (payload) {
       return {
+        dayUrlSlug: params.year + '/' + params.month + '/' + params.day,
+        baseUrl: env.baseURL,
         blogMetadata: payload,
         dayName: params.year + '-' + params.month + '-' + params.day
       }
@@ -48,32 +50,63 @@ export default {
       )
       if (posts === undefined) {
         return {
+          dayUrlSlug: params.year + '/' + params.month + '/' + params.day,
+          baseUrl: env.baseURL,
           blogMetadata: [],
           dayName: ''
         }
       }
       return {
+        dayUrlSlug: params.year + '/' + params.month + '/' + params.day,
+        baseUrl: env.baseURL,
         blogMetadata: posts,
         dayName: params.year + '-' + params.month + '-' + params.day
       }
     }
   },
   head() {
+    const title =
+      this.currentPage + ' | ' + this.dayName + ' || ' + this.appOwner
+    const description = 'Blog posts on day ' + this.dayName
+    const url = this.baseUrl + '/blog/' + this.dayUrlSlug
     return {
-      title: this.currentPage + ' | ' + this.dayName + ' || ' + this.appOwner,
+      title: title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Blog posts on day ' + this.dayName
+          content: description
         },
         {
           hid: 'title',
           name: 'title',
-          content:
-            this.currentPage + ' | ' + this.dayName + ' || ' + this.appOwner
+          content: title
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: title
+        },
+        {
+          hid: 'og-title',
+          name: 'og:title',
+          property: 'og:title',
+          content: title
+        },
+        {
+          hid: 'og-url',
+          name: 'og:url',
+          property: 'og:url',
+          content: url
+        },
+        {
+          hid: 'og-description',
+          name: 'og:description',
+          property: 'og:description',
+          content: description
         }
-      ]
+      ],
+      link: [{ rel: 'canonical', href: url }]
     }
   }
 }

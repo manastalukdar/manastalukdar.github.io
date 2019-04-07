@@ -140,44 +140,88 @@ export default {
       this.$route.params.day,
       this.$route.params.post
     ) */
+    const title =
+      this.currentPage + this.postMetadata.meta.title + ' || ' + this.appOwner
+    const description = this.postMetadata.meta.description
     const keywordsArray = []
+    const categoriesArray = []
+    const tagsArray = []
+    const authorsArray = []
     this.postMetadata.categories.forEach(category => {
+      categoriesArray.push(category.name)
       keywordsArray.push(category.name)
     })
     this.postMetadata.tags.forEach(tag => {
+      tagsArray.push(tag.name)
       keywordsArray.push(tag.name)
     })
     this.postMetadata.authors.forEach(author => {
+      authorsArray.push(author.name)
       keywordsArray.push(author.name)
     })
     const keywords = keywordsArray.join()
+    const tags = tagsArray.join()
+    const category = categoriesArray[0]
+    // const category = this.postMetadata.categories[0].name
     return {
-      title:
-        this.currentPage +
-        this.postMetadata.meta.title +
-        ' || ' +
-        this.appOwner,
+      title: title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.postMetadata.meta.description
+          content: description
         },
         {
           hid: 'title',
           name: 'title',
-          content:
-            this.currentPage +
-            this.postMetadata.meta.title +
-            ' || ' +
-            this.appOwner
+          content: title
         },
         {
           hid: 'keywords',
           name: 'keywords',
           content: keywords
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: title
+        },
+        {
+          hid: 'og-title',
+          name: 'og:title',
+          property: 'og:title',
+          content: title
+        },
+        {
+          hid: 'og-url',
+          name: 'og:url',
+          property: 'og:url',
+          content: this.url
+        },
+        {
+          hid: 'og-description',
+          name: 'og:description',
+          property: 'og:description',
+          content: description
+        },
+        {
+          hid: 'og-type',
+          name: 'og:type',
+          property: 'og:type',
+          content: 'article'
+        },
+        {
+          name: 'og:article.section',
+          property: 'og:article.section',
+          content: category
+        },
+        {
+          name: 'og:article.tag',
+          property: 'og:article.tag',
+          content: tags
         }
-      ]
+      ],
+      link: [{ rel: 'canonical', href: this.url }]
     }
   }
 }

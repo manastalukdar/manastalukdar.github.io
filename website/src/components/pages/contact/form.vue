@@ -69,23 +69,20 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  data: function() {
-    return {
-      name: undefined,
-      email: undefined,
-      message: '',
-      form: false,
-      isLoading: false,
-      rules: {
-        email: v => (v || '').match(/@/) || 'Please enter a valid email',
-        length: len => v =>
-          (v || '').length >= len ||
-          `Invalid character length, required ${len}`,
-        required: v => !!v || 'This field is required'
-      },
-      title: this.currentPage + ' || ' + this.appOwner
-    }
-  },
+  data: () => ({
+    name: undefined,
+    email: undefined,
+    message: '',
+    form: false,
+    isLoading: false,
+    rules: {
+      email: v => (v || '').match(/@/) || 'Please enter a valid email',
+      length: len => v =>
+        (v || '').length >= len || `Invalid character length, required ${len}`,
+      required: v => !!v || 'This field is required'
+    },
+    description: 'Contact Form.'
+  }),
   computed: mapState({
     appOwner: state => state.GlobalData.appOwner,
     currentPage: state =>
@@ -100,21 +97,46 @@ export default {
     }
   },
   head() {
+    const title = this.currentPage + ' || ' + this.appOwner
+    const url = this.baseUrl + this.currentHref
     return {
-      title: this.title,
+      title: title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Contact Form.'
+          content: this.description
         },
         {
           hid: 'title',
           name: 'title',
-          content: this.title
+          content: title
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: title
+        },
+        {
+          hid: 'og-title',
+          name: 'og:title',
+          property: 'og:title',
+          content: title
+        },
+        {
+          hid: 'og-url',
+          name: 'og:url',
+          property: 'og:url',
+          content: url
+        },
+        {
+          hid: 'og-description',
+          name: 'og:description',
+          property: 'og:description',
+          content: this.description
         }
       ],
-      link: [{ rel: 'canonical', href: this.baseUrl + this.currentHref }]
+      link: [{ rel: 'canonical', href: url }]
     }
   },
   methods: {

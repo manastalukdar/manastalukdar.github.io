@@ -39,6 +39,8 @@ export default {
         }
       })
       return {
+        tagUrlSlug: params.name,
+        baseUrl: env.baseURL,
         blogMetadata: payload,
         tagName: tagNameTemp[0].name
       }
@@ -49,6 +51,8 @@ export default {
       const posts = store.getters['BlogMetadata/getPostsForTag'](params.name)
       if (posts === undefined) {
         return {
+          tagUrlSlug: params.name,
+          baseUrl: env.baseURL,
           blogMetadata: [],
           authorName: ''
         }
@@ -59,27 +63,56 @@ export default {
         }
       })
       return {
+        tagUrlSlug: params.name,
+        baseUrl: env.baseURL,
         blogMetadata: posts,
         tagName: tagNameTemp[0].name
       }
     }
   },
   head() {
+    const title =
+      this.currentPage + ' | ' + this.tagName + ' || ' + this.appOwner
+    const description = 'Blog posts with tag ' + this.tagName
+    const url = this.baseUrl + '/blog/tag/' + this.tagUrlSlug
     return {
-      title: this.currentPage + ' | ' + this.tagName + ' || ' + this.appOwner,
+      title: title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: 'Blog posts with tag ' + this.tagName
+          content: description
         },
         {
           hid: 'title',
           name: 'title',
-          content:
-            this.currentPage + ' | ' + this.tagName + ' || ' + this.appOwner
+          content: title
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: title
+        },
+        {
+          hid: 'og-title',
+          name: 'og:title',
+          property: 'og:title',
+          content: title
+        },
+        {
+          hid: 'og-url',
+          name: 'og:url',
+          property: 'og:url',
+          content: url
+        },
+        {
+          hid: 'og-description',
+          name: 'og:description',
+          property: 'og:description',
+          content: description
         }
-      ]
+      ],
+      link: [{ rel: 'canonical', href: url }]
     }
   }
 }

@@ -35,6 +35,8 @@ export default {
     if (payload) {
       const postFormatTypeTemp = payload[0]['post-format'].name
       return {
+        postFormatUrlSlug: params.type,
+        baseUrl: env.baseURL,
         blogMetadata: payload,
         postFormatType: postFormatTypeTemp
       }
@@ -47,21 +49,28 @@ export default {
       )
       if (posts === undefined) {
         return {
+          postFormatUrlSlug: params.type,
+          baseUrl: env.baseURL,
           blogMetadata: [],
           authorName: ''
         }
       }
       const postFormatTypeTemp = posts[0]['post-format'].name
       return {
+        postFormatUrlSlug: params.type,
+        baseUrl: env.baseURL,
         blogMetadata: posts,
         postFormatType: postFormatTypeTemp
       }
     }
   },
   head() {
+    const title =
+      this.currentPage + ' | ' + this.postFormatType + ' || ' + this.appOwner
+    const description = 'Blog posts of format ' + this.postFormatType
+    const url = this.baseUrl + '/blog/post-format/' + this.postFormatType
     return {
-      title:
-        this.currentPage + ' | ' + this.postFormatType + ' || ' + this.appOwner,
+      title: title,
       meta: [
         {
           hid: 'description',
@@ -71,14 +80,33 @@ export default {
         {
           hid: 'title',
           name: 'title',
-          content:
-            this.currentPage +
-            ' | ' +
-            this.postFormatType +
-            ' || ' +
-            this.appOwner
+          content: title
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: title
+        },
+        {
+          hid: 'og-title',
+          name: 'og:title',
+          property: 'og:title',
+          content: title
+        },
+        {
+          hid: 'og-url',
+          name: 'og:url',
+          property: 'og:url',
+          content: url
+        },
+        {
+          hid: 'og-description',
+          name: ':description',
+          property: 'og:description',
+          content: description
         }
-      ]
+      ],
+      link: [{ rel: 'canonical', href: url }]
     }
   }
 }
