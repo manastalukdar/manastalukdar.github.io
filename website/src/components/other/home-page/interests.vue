@@ -2,7 +2,7 @@
   <v-layout column wrap>
     <v-flex xs12>
       <v-card
-        color="blue-grey darken-4"
+        color="cardColorDark"
         class="pa-3"
         raised
         elevation="8"
