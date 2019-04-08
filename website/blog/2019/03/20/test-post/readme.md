@@ -8,13 +8,13 @@ categories:
 authors: 
  - "Manas Talukdar"
 post-format: standard
-title: Second Post
-url-slug: second-post
-first-published-on: 2019-03-28
-last-updated-on: 2019-03-28
+title: Test Post
+url-slug: test-post
+first-published-on: 2019-03-20
+last-updated-on: 2019-03-20
 meta:
- title: Second Post
- description: "Second post."
+ title: Test Post
+ description: "Test post."
 excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
 ---
 
