@@ -16,17 +16,22 @@ authors:
 post-format: standard
 title: Summary of LinkedIn Engineering Blog Post on Logs
 url-slug: log-real-time-data-abstraction-linkedin
-first-published-on: 2019-04-06
-last-updated-on: 2019-04-06
+first-published-on: 2019-04-08
+last-updated-on: 2019-04-08
 meta:
  title: Summary of LinkedIn Engineering Blog Post on Logs
  description: "Summary of LinkedIn Engineering Blog Post on Logs."
 excerpt: "Summary of LinkedIn Engineering blog post discussing how to use logs for data integration, real time processing, and system building."
 ---
 
-**Note**: The content below is mostly from the [original blog post](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying). This post contains notes as I read through the original post and extracted key points. All credit goes entirely to the original author and this post here is merely an effort in summarizing his post.
+**Note**: The content below is from the [original blog post](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying). This post contains notes as I read through the original post and extracted key points. All credit goes entirely to the original author and this post here is merely an effort in summarizing his post.
 
 # The Log: What every software engineer should know about real-time data's unifying abstraction
+
+- [The Log: What every software engineer should know about real-time data's unifying abstraction](#the-log-what-every-software-engineer-should-know-about-real-time-datas-unifying-abstraction)
+  - [Part One: What Is a Log](#part-one-what-is-a-log)
+  - [Logs in databases](#logs-in-databases)
+  - [Logs in distributed systems](#logs-in-distributed-systems)
 
 Sometimes called write-ahead logs or commit logs or transaction logs, logs have been around almost as long as computers and are at the heart of many distributed data systems and real-time application architectures.
 
@@ -67,3 +72,23 @@ _If two identical, deterministic processes begin in the same state and get the s
 The _state_ of the process is whatever data remains on the machine, either in memory or persisted on disk, at the end of the processing.
 
 With regards to distributed systems, the problem of making multiple machines all do the same thing reduces to the problem of implementing a distributed consistent log to feed as input to these processes. The purpose of the log here is to squeeze all the non-determinism out of the input stream to ensure that each replica processing this input stays in sync.
+
+The time stamps that index the log now act as the clock for the state of the replicas.
+
+There can be many ways of applying this principle depending on what is put in the log. As long as two processes process the inputs in the same way, the processes will remaining consistent across replicas.
+
+Uses of logs is described differently by different users. Database people generally differentiate between _physical_ and logical _logging_. Physical logging means logging the contents of each row that is changed. Logical logging means logging not the changed rows but the SQL commands that lead to the row changes (the insert, update, and delete statements).
+
+The distributed systems literature commonly distinguishes two broad approaches to processing and replication.
+
+1. State machine model: Usually refers to an active-active model where we keep a log of the incoming requests and each replica processes each request.
+2. Primary-backup model (A slight modification of state machine model): Elect one replica as the leader and allow this leader to process requests in the order they arrive and log out the changes to its state from processing the requests. The other replicas apply in order the state changes the leader makes so that they will be in sync and ready to take over as leader should the leader fail.
+
+![Primary-Backup and State-Machine models](https://content.linkedin.com/content/dam/engineering/en-us/blog/migrated/active_and_passive_arch.png)
+
+An example consider a replicated "arithmetic service", which has a number as its state and applies arithmetic operations to this value.
+
+1. Active-active mode: Log out the transformations to apply: "+1", "*2", "-4", etc. Each replica would apply these transformations and hence go through the same set of values.
+2. Active-passive mode: single master execute the transformations and log out the _result_, say "1", "3", "6", etc.
+
+It should be obvious that ordering is key for ensuring consistency between replicas.
