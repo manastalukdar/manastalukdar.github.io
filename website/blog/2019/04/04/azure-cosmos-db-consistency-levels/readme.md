@@ -6,9 +6,8 @@ tags:
  - Data Consistency
  - Conference Talk
  - Facebook @Scale Conference
- - Microsoft
+ - Microsoft Azure
  - Leslie Lamport
- - Azure
  - Cosmos DB
 categories:
  - Technology

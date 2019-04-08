@@ -1,8 +1,10 @@
 {
     "cSpell.words": [
-        "Talukdar",
-        "Talukdar's",
-        "serializable"
+      "Microservices",
+      "Talukdar",
+      "Talukdar's",
+      "observability",
+      "serializable"
     ],
     "python.linting.pylintEnabled": true,
     "eslint.validate": [
