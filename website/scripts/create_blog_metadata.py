@@ -92,14 +92,15 @@ def ignore_function(ignore):
     return _ignore_
 
 def get_data_with_url_slug(items):
-  if isinstance(items, list):
+  sortedItems = sorted(items, key=str.lower)
+  if isinstance(sortedItems, list):
     newItems = []
-    for item in items:
+    for item in sortedItems:
       newItem = process_item_for_url_slug(item)
       newItems.append(newItem)
     return newItems
   else:
-    newItem = process_item_for_url_slug(items)
+    newItem = process_item_for_url_slug(sortedItems)
     return newItem
 
 def process_item_for_url_slug(item):

@@ -66,6 +66,9 @@ export default {
 .theme--dark a:hover {
   color: #ce7720;
 }
+.theme--dark a:active {
+  color: #e90e0e;
+}
 /*.theme--dark a:visited {
   color: #b1be80;
 }*/
@@ -75,6 +78,9 @@ export default {
 }
 .theme--light a:hover {
   color: #ca6a2a;
+}
+.theme--light a:active {
+  color: #e90e0e;
 }
 /*.theme--light a:visited {
   color: #797a33;
