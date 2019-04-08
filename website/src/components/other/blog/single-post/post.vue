@@ -1,8 +1,8 @@
 <template>
-  <v-layout wrap>
-    <v-layout wrap ma-2>
+  <v-layout column wrap>
+    <v-layout wrap row ma-2>
       <v-flex xs12>
-        <v-card :color="cardColor" raised class="pa-4">
+        <v-card :color="cardColor" raised elevation="8" class="pa-4">
           <postHeader :post-metadata="postMetadata" />
           <p />
           <!-- eslint-disable-next-line vue/no-v-html -->
@@ -11,7 +11,7 @@
       </v-flex>
     </v-layout>
 
-    <v-layout wrap ma-2>
+    <v-layout wrap row ma-2>
       <v-flex xs12>
         <comments :post-id="postId" :url="url" />
       </v-flex>

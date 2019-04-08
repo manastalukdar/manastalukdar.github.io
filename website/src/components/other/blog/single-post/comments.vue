@@ -1,7 +1,7 @@
 <template>
   <v-layout wrap>
     <v-flex xs12>
-      <v-card :color="cardColor" raised class="pa-4">
+      <v-card :color="cardColor" raised elevation="8" class="pa-4">
         <div class="comments">
           <vue-disqus
             :shortname="disqusShortname"
