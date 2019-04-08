@@ -6,6 +6,7 @@ tags:
  - Book
  - Technical Literature
  - Cloud Computing
+ - Reading
 categories:
  - Technology
 authors:
