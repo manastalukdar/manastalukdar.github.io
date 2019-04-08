@@ -4,7 +4,7 @@
 
 #### Work
 
-- **Cloud Services**: I currently manage a team working on metadata for large scale distributed data store.
+- **Cloud Services**: I currently manage a team working on SaaS metadata solution (for industrial process data to enable asset management using context) for large scale distributed data store.
 
 #### Other
 
