@@ -32,7 +32,7 @@ const functions = {
     })
 
     properties.nuxtGenerateRoutes.push({
-      route: '/blog/posts',
+      route: '/blog/posts/',
       payload: blogMetadata
     })
 
@@ -41,7 +41,8 @@ const functions = {
         '/blog/' +
         postmetadata['first-published-on'].replace(/-/g, '/') +
         '/' +
-        postmetadata['url-slug']
+        postmetadata['url-slug'] +
+        '/'
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: postmetadata
@@ -58,7 +59,7 @@ const functions = {
       return postmetadata['post-format']['url-slug']
     })
     for (const [key, value] of Object.entries(groupedByPostFormat)) {
-      const route = '/blog/post-format/' + key
+      const route = '/blog/post-format/' + key + '/'
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
@@ -78,7 +79,7 @@ const functions = {
       return acc
     }, {})
     for (const [key, value] of Object.entries(groupedByAuthor)) {
-      const route = '/blog/author/' + key
+      const route = '/blog/author/' + key + '/'
       properties.authors.push({ key: value.length })
       properties.nuxtGenerateRoutes.push({
         route: route,
@@ -98,7 +99,7 @@ const functions = {
       return acc
     }, {})
     for (const [key, value] of Object.entries(groupedByTag)) {
-      const route = '/blog/tag/' + key
+      const route = '/blog/tag/' + key + '/'
       properties.tags.push({ key: value.length })
       properties.nuxtGenerateRoutes.push({
         route: route,
@@ -118,7 +119,7 @@ const functions = {
       return acc
     }, {})
     for (const [key, value] of Object.entries(groupedByCategories)) {
-      const route = '/blog/category/' + key
+      const route = '/blog/category/' + key + '/'
       properties.categories.push({ key: value.length })
       properties.nuxtGenerateRoutes.push({
         route: route,
@@ -137,7 +138,7 @@ const functions = {
       return acc
     }, {})
     for (const [key, value] of Object.entries(groupedByYear)) {
-      const route = '/blog/' + key
+      const route = '/blog/' + key + '/'
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
@@ -159,7 +160,7 @@ const functions = {
     for (const [key, value] of Object.entries(groupedByMonth)) {
       const year = key.split('-')[0]
       const month = key.split('-')[1]
-      const route = '/blog/' + year + '/' + month
+      const route = '/blog/' + year + '/' + month + '/'
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
@@ -183,7 +184,7 @@ const functions = {
       const year = key.split('-')[0]
       const month = key.split('-')[1]
       const day = key.split('-')[2]
-      const route = '/blog/' + year + '/' + month + '/' + day
+      const route = '/blog/' + year + '/' + month + '/' + day + '/'
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value

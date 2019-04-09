@@ -65,7 +65,7 @@ export default {
     const title =
       this.currentPage + ' | ' + this.postFormatType + ' || ' + this.appOwner
     const description = 'Blog posts of format ' + this.postFormatType
-    const url = this.baseUrl + '/blog/post-format/' + this.postFormatType
+    const url = this.baseUrl + '/blog/post-format/' + this.postFormatType + '/'
     return {
       title: title,
       meta: [

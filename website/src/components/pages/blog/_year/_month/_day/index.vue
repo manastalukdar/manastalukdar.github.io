@@ -65,7 +65,7 @@ export default {
     const title =
       this.currentPage + ' | ' + this.dayName + ' || ' + this.appOwner
     const description = 'Blog posts on day ' + this.dayName
-    const url = this.baseUrl + '/blog/' + this.dayUrlSlug
+    const url = this.baseUrl + '/blog/' + this.dayUrlSlug + '/'
     return {
       title: title,
       meta: [

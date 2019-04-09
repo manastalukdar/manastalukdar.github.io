@@ -71,7 +71,7 @@ export default {
     const title =
       this.currentPage + ' | ' + this.tagName + ' || ' + this.appOwner
     const description = 'Blog posts with tag ' + this.tagName
-    const url = this.baseUrl + '/blog/tag/' + this.tagUrlSlug
+    const url = this.baseUrl + '/blog/tag/' + this.tagUrlSlug + '/'
     return {
       title: title,
       meta: [
