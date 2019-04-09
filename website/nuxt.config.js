@@ -161,6 +161,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
+    '@nuxtjs/redirect-module',
     '@nuxtjs/sitemap'
   ],
   /*
@@ -279,6 +280,14 @@ module.exports = {
       return getRoutes.properties.sitemapRoutes
     }
   },
+
+  redirect: [
+    {
+      // https://stackoverflow.com/questions/54346345/nuxt-js-force-trailing-slash-at-the-end-of-all-urls
+      from: '^.*(?<!/)$',
+      to: (from, req) => req.url + '/'
+    }
+  ],
 
   render: {
     static: {
