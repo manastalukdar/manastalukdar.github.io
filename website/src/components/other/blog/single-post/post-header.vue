@@ -17,12 +17,7 @@
       <v-layout row justify-center wrap>
         Authors:&nbsp;
         <div v-for="item in postMetadata.authors" :key="item['name']">
-          <nuxt-link
-            :to="{
-              name: 'blog-author-name',
-              params: { name: item['url-slug'] }
-            }"
-          >
+          <nuxt-link :to="getAuthorRoute(item['url-slug'])">
             <span>{{ item['name'] }}</span>
           </nuxt-link>
           &nbsp;
@@ -33,31 +28,21 @@
       <v-layout row justify-center wrap>
         Categories:&nbsp;
         <div v-for="item in postMetadata.categories" :key="item['name']">
-          <nuxt-link
-            :to="{
-              name: 'blog-category-name',
-              params: { name: item['url-slug'] }
-            }"
-          >
+          <nuxt-link :to="getCategoryRoute(item['url-slug'])">
             <span>{{ item['name'] }}</span>
           </nuxt-link>
           &nbsp;
         </div>
         &nbsp;|| Tags:&nbsp;
         <div v-for="item in postMetadata.tags" :key="item['name']">
-          <nuxt-link
-            :to="{ name: 'blog-tag-name', params: { name: item['url-slug'] } }"
-          >
+          <nuxt-link :to="getTagRoute(item['url-slug'])">
             <span>{{ item['name'] }}</span>
           </nuxt-link>
           &nbsp;
         </div>
         &nbsp;|| Post-format:&nbsp;
         <nuxt-link
-          :to="{
-            name: 'blog-post-format-type',
-            params: { type: postMetadata['post-format']['url-slug'] }
-          }"
+          :to="getPostFormatRoute(postMetadata['post-format']['url-slug'])"
         >
           {{ postMetadata['post-format'].name }}
         </nuxt-link>
@@ -67,6 +52,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   props: {
     postMetadata: {
@@ -80,6 +66,29 @@ export default {
       return this.$store.getters['BlogMetadata/getPostFormatIcon'](
         this.postMetadata['post-format'].name
       )
+    },
+    ...mapState({
+      dynamicCategoryRoute: state =>
+        state.MainNavMenu.blog.dynamicItems.category.href,
+      dynamicTagRoute: state => state.MainNavMenu.blog.dynamicItems.tag.href,
+      dynamicAuthorRoute: state =>
+        state.MainNavMenu.blog.dynamicItems.author.href,
+      dynamicPostFormatRoute: state =>
+        state.MainNavMenu.blog.dynamicItems.postFormat.href
+    })
+  },
+  methods: {
+    getCategoryRoute(slug) {
+      return this.dynamicCategoryRoute + slug + '/'
+    },
+    getTagRoute(slug) {
+      return this.dynamicTagRoute + slug + '/'
+    },
+    getAuthorRoute(slug) {
+      return this.dynamicAuthorRoute + slug + '/'
+    },
+    getPostFormatRoute(slug) {
+      return this.dynamicPostFormatRoute + slug + '/'
     }
   }
 }
