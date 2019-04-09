@@ -29,8 +29,8 @@ export default {
   computed: {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
-      currentPage: state => state.MainNavMenu.blog.blogText + ' | ',
-      currentHref: state => state.MainNavMenu.contact.contactForm.href
+      currentPage: state => state.Navigation.blog.blogText + ' | ',
+      currentHref: state => state.Navigation.contact.contactForm.href
     })
   },
   async asyncData({ store, params, env, payload }) {

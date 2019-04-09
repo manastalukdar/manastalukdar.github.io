@@ -26,7 +26,7 @@ export default {
   },
   data: () => ({}),
   computed: mapState({
-    contactText: state => state.MainNavMenu.contact.contactText
+    contactText: state => state.Navigation.contact.contactText
   })
 }
 </script>

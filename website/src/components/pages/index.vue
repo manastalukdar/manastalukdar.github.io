@@ -53,8 +53,8 @@ export default {
   },
   computed: {
     ...mapState({
-      socialMediaItems: state => state.MainNavMenu.contact.socialMediaItems,
-      aboutItems: state => state.MainNavMenu.about.aboutItems,
+      socialMediaItems: state => state.Navigation.contact.socialMediaItems,
+      aboutItems: state => state.Navigation.about.aboutItems,
       appOwner: state => state.GlobalData.appOwner,
       blogMetadata: state => state.BlogMetadata.blogMetadata
     })

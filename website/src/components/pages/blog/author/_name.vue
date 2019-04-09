@@ -22,10 +22,10 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state =>
-        state.MainNavMenu.blog.blogText +
+        state.Navigation.blog.blogText +
         ' | ' +
-        state.MainNavMenu.blog.authorText,
-      authorText: state => state.MainNavMenu.blog.authorText
+        state.Navigation.blog.authorText,
+      authorText: state => state.Navigation.blog.authorText
     })
   },
   async asyncData({ store, params, env, payload }) {

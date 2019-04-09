@@ -21,12 +21,12 @@ export default {
   computed: mapState({
     appOwner: state => state.GlobalData.appOwner,
     currentPage: state =>
-      state.MainNavMenu.blog.blogText +
+      state.Navigation.blog.blogText +
       ' | ' +
-      state.MainNavMenu.blog.blogItems[0].text,
+      state.Navigation.blog.blogItems[0].text,
     blogMetadata: state => state.BlogMetadata.blogMetadata,
-    pageTitle: state => state.MainNavMenu.blog.blogText,
-    currentHref: state => state.MainNavMenu.blog.blogItems[0].href
+    pageTitle: state => state.Navigation.blog.blogText,
+    currentHref: state => state.Navigation.blog.blogItems[0].href
   }),
   async asyncData({ store, params, env, payload }) {
     if (payload) {

@@ -65,20 +65,20 @@ export default {
     sidebarVisibility: {
       // getter
       get() {
-        return this.$store.state.MainNavMenu.sidebarVisible
+        return this.$store.state.Navigation.sidebarVisible
       },
       // setter
       set(value) {
-        this.$store.commit('MainNavMenu/setSidebarVisibility', value)
+        this.$store.commit('Navigation/setSidebarVisibility', value)
       }
     },
     ...mapState({
-      blogText: state => state.MainNavMenu.blog.blogText,
-      aboutText: state => state.MainNavMenu.about.aboutText,
-      aboutPath: state => state.MainNavMenu.about.aboutPath,
-      legalText: state => state.MainNavMenu.legal.legalText,
-      legalPath: state => state.MainNavMenu.legal.legalPath,
-      contactText: state => state.MainNavMenu.contact.contactText
+      blogText: state => state.Navigation.blog.blogText,
+      aboutText: state => state.Navigation.about.aboutText,
+      aboutPath: state => state.Navigation.about.aboutPath,
+      legalText: state => state.Navigation.legal.legalText,
+      legalPath: state => state.Navigation.legal.legalPath,
+      contactText: state => state.Navigation.contact.contactText
     })
   }
 }
