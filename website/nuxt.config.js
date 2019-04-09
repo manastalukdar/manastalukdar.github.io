@@ -31,8 +31,8 @@ module.exports = {
   },
 
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     // title: pkg.name,
     meta: [
@@ -56,6 +56,10 @@ module.exports = {
       {
         name: 'google-site-verification',
         content: 'fkepJA8wLesbvVtlowW987jJEqJ6-hQp3OA5d4Rw9x0'
+      },
+      {
+        name: 'msvalidate.01',
+        content: '83A10E52E92EB2D251C39288B8437120'
       },
       {
         hid: 'author',
@@ -125,21 +129,21 @@ module.exports = {
   },
 
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   loading: { color: '#fff' },
 
   /*
-  ** Global CSS
-  */
+   ** Global CSS
+   */
   css: [
     '~/assets/style/app.styl',
     '@fortawesome/fontawesome-svg-core/styles.css'
   ],
 
   /*
-  ** Plugins to load before mounting the App
-  */
+   ** Plugins to load before mounting the App
+   */
   plugins: [
     '@/plugins/vuetify',
     '@/plugins/fontawesome.js',
@@ -149,8 +153,8 @@ module.exports = {
   ],
 
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     './modules/helper',
@@ -160,15 +164,15 @@ module.exports = {
     '@nuxtjs/sitemap'
   ],
   /*
-  ** Axios module configuration
-  */
+   ** Axios module configuration
+   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     dir: 'dist',
     transpile: ['vuetify/lib'],
@@ -180,8 +184,8 @@ module.exports = {
     },
 
     /*
-    ** You can extend webpack config here
-    */
+     ** You can extend webpack config here
+     */
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
