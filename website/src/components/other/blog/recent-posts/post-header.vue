@@ -3,15 +3,14 @@
     <v-flex xs12>
       <v-layout row justify-center wrap>
         <nuxt-link
-          :to="{
-            name: 'blog-year-month-day-post',
-            params: {
-              year: postLinkSlugs.year,
-              month: postLinkSlugs.month,
-              day: postLinkSlugs.day,
-              post: postLinkSlugs.post
-            }
-          }"
+          :to="
+            getBlogPostRoute(
+              postLinkSlugs.year,
+              postLinkSlugs.month,
+              postLinkSlugs.day,
+              postLinkSlugs.post
+            )
+          "
         >
           {{ postMetadata.title }}
         </nuxt-link>
@@ -24,6 +23,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   props: {
     postMetadata: {
@@ -40,6 +40,25 @@ export default {
       const day = items[2]
       const post = this.postMetadata['url-slug']
       return { year: year, month: month, day: day, post: post }
+    },
+    ...mapState({
+      dynamicBlogPostRoute: state =>
+        state.MainNavMenu.blog.dynamicItems.blogPost.href
+    })
+  },
+  methods: {
+    getBlogPostRoute(year, month, day, post) {
+      return (
+        this.dynamicBlogPostRoute +
+        year +
+        '/' +
+        month +
+        '/' +
+        day +
+        '/' +
+        post +
+        '/'
+      )
     }
   }
 }

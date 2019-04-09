@@ -7,29 +7,27 @@
           hover
           class="pa-3"
           nuxt
-          :to="{
-            name: 'blog-year-month-day-post',
-            params: {
-              year: postLinkSlugs.year,
-              month: postLinkSlugs.month,
-              day: postLinkSlugs.day,
-              post: postLinkSlugs.post
-            }
-          }"
+          :to="
+            getBlogPostRoute(
+              postLinkSlugs.year,
+              postLinkSlugs.month,
+              postLinkSlugs.day,
+              postLinkSlugs.post
+            )
+          "
         >
           <postHeader :post-metadata="postMetadata" />
           <p />
           {{ postMetadata.excerpt }}&nbsp;
           <nuxt-link
-            :to="{
-              name: 'blog-year-month-day-post',
-              params: {
-                year: postLinkSlugs.year,
-                month: postLinkSlugs.month,
-                day: postLinkSlugs.day,
-                post: postLinkSlugs.post
-              }
-            }"
+            :to="
+              getBlogPostRoute(
+                postLinkSlugs.year,
+                postLinkSlugs.month,
+                postLinkSlugs.day,
+                postLinkSlugs.post
+              )
+            "
           >
             <span>...read more</span>
           </nuxt-link>
@@ -40,6 +38,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import postHeader from './post-header.vue'
 export default {
   components: {
@@ -63,6 +62,25 @@ export default {
     },
     cardColor() {
       return this.$store.getters['GlobalData/getCardColor']
+    },
+    ...mapState({
+      dynamicBlogPostRoute: state =>
+        state.MainNavMenu.blog.dynamicItems.blogPost.href
+    })
+  },
+  methods: {
+    getBlogPostRoute(year, month, day, post) {
+      return (
+        this.dynamicBlogPostRoute +
+        year +
+        '/' +
+        month +
+        '/' +
+        day +
+        '/' +
+        post +
+        '/'
+      )
     }
   }
 }

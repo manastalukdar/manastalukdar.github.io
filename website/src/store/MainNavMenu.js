@@ -35,7 +35,24 @@ const state = () => ({
         icon: 'mdi-archive',
         text: 'Archive'
       }
-    ]
+    ],
+    dynamicItems: {
+      category: {
+        href: '/blog/category/'
+      },
+      tag: {
+        href: '/blog/tag/'
+      },
+      author: {
+        href: '/blog/author/'
+      },
+      postFormat: {
+        href: '/blog/post-format/'
+      },
+      blogPost: {
+        href: '/blog/'
+      }
+    }
   },
   about: {
     aboutText: 'About',
