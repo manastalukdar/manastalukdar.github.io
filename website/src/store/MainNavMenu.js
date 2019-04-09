@@ -12,25 +12,25 @@ const state = () => ({
     postFormatText: 'Post Format',
     blogItems: [
       {
-        href: '/blog/posts',
+        href: '/blog/posts/',
         target: '_blank',
         icon: 'mdi-newspaper',
         text: 'Posts'
       },
       {
-        href: '/blog/categories',
+        href: '/blog/categories/',
         target: '_blank',
         icon: 'mdi-domain',
         text: 'Categories'
       },
       {
-        href: '/blog/tags',
+        href: '/blog/tags/',
         target: '_blank',
         icon: 'mdi-tag-multiple',
         text: 'Tags'
       },
       {
-        href: '/blog/archive',
+        href: '/blog/archive/',
         target: '_blank',
         icon: 'mdi-archive',
         text: 'Archive'
@@ -41,7 +41,7 @@ const state = () => ({
     aboutText: 'About',
     aboutItems: [
       {
-        href: '/about/resume',
+        href: '/about/resume/',
         target: '_blank',
         icon: 'mdi-file-document-box',
         text: 'Resume'
@@ -50,12 +50,16 @@ const state = () => ({
   },
   legal: {
     legalText: 'Legal',
-    legalPath: '/legal'
+    legalPath: '/legal/'
   },
   contact: {
     contactText: 'Contact',
     subHeaderTextSocialMedia: { text: 'Social Media' },
-    contactForm: { text: 'Form', icon: 'mdi-email-box', href: '/contact/form' },
+    contactForm: {
+      text: 'Form',
+      icon: 'mdi-email-box',
+      href: '/contact/form/'
+    },
     socialMediaItems: [
       {
         href: 'https://www.linkedin.com/in/manastalukdar/',

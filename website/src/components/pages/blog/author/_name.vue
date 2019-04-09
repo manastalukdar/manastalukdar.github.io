@@ -71,7 +71,7 @@ export default {
     const title =
       this.currentPage + ' | ' + this.authorName + ' || ' + this.appOwner
     const description = 'Blog posts by author ' + this.authorName
-    const url = this.baseUrl + '/blog/category/' + this.authorUrlSlug
+    const url = this.baseUrl + '/blog/category/' + this.authorUrlSlug + '/'
     return {
       title: title,
       meta: [

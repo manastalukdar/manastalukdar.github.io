@@ -61,7 +61,7 @@ export default {
     const title =
       this.currentPage + ' | ' + this.yearName + ' || ' + this.appOwner
     const description = 'Blog posts on year ' + this.yearName
-    const url = this.baseUrl + '/blog/' + this.yearUrlSlug
+    const url = this.baseUrl + '/blog/' + this.yearUrlSlug + '/'
     return {
       title: title,
       meta: [

@@ -73,7 +73,7 @@ export default {
     const title =
       this.currentPage + ' | ' + this.categoryName + ' || ' + this.appOwner
     const description = 'Blog posts in category ' + this.categoryName
-    const url = this.baseUrl + '/blog/category/' + this.categoryUrlSlug
+    const url = this.baseUrl + '/blog/category/' + this.categoryUrlSlug + '/'
     return {
       title: title,
       meta: [

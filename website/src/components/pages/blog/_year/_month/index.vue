@@ -64,7 +64,7 @@ export default {
     const title =
       this.currentPage + ' | ' + this.monthName + ' || ' + this.appOwner
     const description = 'Blog posts on month ' + this.monthName
-    const url = this.baseUrl + '/blog/' + this.monthUrlSlug
+    const url = this.baseUrl + '/blog/' + this.monthUrlSlug + '/'
     return {
       title: title,
       meta: [

@@ -79,7 +79,8 @@ export default {
       '/' +
       params.day +
       '/' +
-      params.post
+      params.post +
+      '/'
     if (payload) {
       const fileContent = await import('./src/static/blogdata/' + payload.path)
       const res = fm(fileContent.default)
