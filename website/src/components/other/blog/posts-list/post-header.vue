@@ -32,12 +32,7 @@
       <v-layout row justify-center wrap>
         Categories:&nbsp;
         <div v-for="item in postMetadata.categories" :key="item['name']">
-          <nuxt-link
-            :to="{
-              name: 'blog-category-name',
-              params: { name: item['url-slug'] }
-            }"
-          >
+          <nuxt-link :to="getCategoryRoute(item['url-slug'])">
             <span>{{ item['name'] }}</span>
           </nuxt-link>
           &nbsp;
@@ -70,6 +65,11 @@ export default {
       return this.$store.getters['BlogMetadata/getPostFormatIcon'](
         this.postMetadata['post-format'].name
       )
+    }
+  },
+  methods: {
+    getCategoryRoute(slug) {
+      return '/blog/category/' + slug + '/'
     }
   }
 }
