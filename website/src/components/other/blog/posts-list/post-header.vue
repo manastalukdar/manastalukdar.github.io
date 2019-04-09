@@ -62,11 +62,11 @@ export default {
     },
     ...mapState({
       dynamicCategoryRoute: state =>
-        state.MainNavMenu.blog.dynamicItems.category.href,
-      dynamicTagRoute: state => state.MainNavMenu.blog.dynamicItems.tag.href,
+        state.Navigation.blog.dynamicItems.category.href,
+      dynamicTagRoute: state => state.Navigation.blog.dynamicItems.tag.href,
       dynamicAuthorRoute: state =>
-        state.MainNavMenu.blog.dynamicItems.author.href,
-      aboutItems: state => state.MainNavMenu.about.aboutItems,
+        state.Navigation.blog.dynamicItems.author.href,
+      aboutItems: state => state.Navigation.about.aboutItems,
       appOwner: state => state.GlobalData.appOwner,
       blogMetadata: state => state.BlogMetadata.blogMetadata
     })

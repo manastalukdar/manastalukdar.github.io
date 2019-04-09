@@ -26,7 +26,7 @@ export default {
   },
   data: () => ({}),
   computed: mapState({
-    aboutText: state => state.MainNavMenu.about.aboutText
+    aboutText: state => state.Navigation.about.aboutText
   })
 }
 </script>

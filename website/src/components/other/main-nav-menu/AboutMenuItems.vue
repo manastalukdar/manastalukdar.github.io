@@ -14,7 +14,7 @@ import { mapState } from 'vuex'
 export default {
   data: () => ({}),
   computed: mapState({
-    aboutItems: state => state.MainNavMenu.about.aboutItems
+    aboutItems: state => state.Navigation.about.aboutItems
   })
 }
 </script>

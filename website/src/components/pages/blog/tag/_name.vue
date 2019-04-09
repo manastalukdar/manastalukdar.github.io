@@ -22,10 +22,8 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state =>
-        state.MainNavMenu.blog.blogText +
-        ' | ' +
-        state.MainNavMenu.blog.tagText,
-      tagText: state => state.MainNavMenu.blog.tagText
+        state.Navigation.blog.blogText + ' | ' + state.Navigation.blog.tagText,
+      tagText: state => state.Navigation.blog.tagText
     })
   },
   async asyncData({ store, params, env, payload }) {

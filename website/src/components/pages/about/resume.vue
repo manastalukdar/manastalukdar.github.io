@@ -20,10 +20,10 @@ export default {
   computed: mapState({
     appOwner: state => state.GlobalData.appOwner,
     currentPage: state =>
-      state.MainNavMenu.about.aboutText +
+      state.Navigation.about.aboutText +
       ' | ' +
-      state.MainNavMenu.about.aboutItems[0].text,
-    currentHref: state => state.MainNavMenu.about.aboutItems[0].href
+      state.Navigation.about.aboutItems[0].text,
+    currentHref: state => state.Navigation.about.aboutItems[0].href
   }),
   asyncData({ store, params, env, payload }) {
     return {

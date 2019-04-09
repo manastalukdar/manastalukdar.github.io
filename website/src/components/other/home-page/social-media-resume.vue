@@ -37,8 +37,8 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState({
-      socialMediaItems: state => state.MainNavMenu.contact.socialMediaItems,
-      aboutItems: state => state.MainNavMenu.about.aboutItems
+      socialMediaItems: state => state.Navigation.contact.socialMediaItems,
+      aboutItems: state => state.Navigation.about.aboutItems
     }),
     cardColor() {
       return this.$store.getters['GlobalData/getCardColor']

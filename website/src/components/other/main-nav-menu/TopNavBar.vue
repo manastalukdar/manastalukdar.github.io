@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      flipSidebarVisibility: 'MainNavMenu/flipSidebarVisibility',
+      flipSidebarVisibility: 'Navigation/flipSidebarVisibility',
       flipThemeMode: 'GlobalData/flipThemeMode'
     })
   }

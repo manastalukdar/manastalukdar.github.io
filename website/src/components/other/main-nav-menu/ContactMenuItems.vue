@@ -28,9 +28,9 @@ export default {
   data: () => ({}),
   computed: mapState({
     subHeaderTextSocialMedia: state =>
-      state.MainNavMenu.contact.subHeaderTextSocialMedia,
-    contactForm: state => state.MainNavMenu.contact.contactForm,
-    socialMediaItems: state => state.MainNavMenu.contact.socialMediaItems
+      state.Navigation.contact.subHeaderTextSocialMedia,
+    contactForm: state => state.Navigation.contact.contactForm,
+    socialMediaItems: state => state.Navigation.contact.socialMediaItems
   })
 }
 </script>

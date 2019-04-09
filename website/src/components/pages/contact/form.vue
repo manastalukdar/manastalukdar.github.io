@@ -80,10 +80,10 @@ export default {
   computed: mapState({
     appOwner: state => state.GlobalData.appOwner,
     currentPage: state =>
-      state.MainNavMenu.contact.contactText +
+      state.Navigation.contact.contactText +
       ' | ' +
-      state.MainNavMenu.contact.contactForm.text,
-    currentHref: state => state.MainNavMenu.contact.contactForm.href
+      state.Navigation.contact.contactForm.text,
+    currentHref: state => state.Navigation.contact.contactForm.href
   }),
   asyncData({ store, params, env, payload }) {
     return {

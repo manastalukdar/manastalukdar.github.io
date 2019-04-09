@@ -21,8 +21,8 @@ export default {
   },
   computed: mapState({
     appOwner: state => state.GlobalData.appOwner,
-    currentPage: state => state.MainNavMenu.legal.legalText,
-    currentHref: state => state.MainNavMenu.legal.legalPath
+    currentPage: state => state.Navigation.legal.legalText,
+    currentHref: state => state.Navigation.legal.legalPath
   }),
   asyncData({ store, params, env, payload }) {
     return {

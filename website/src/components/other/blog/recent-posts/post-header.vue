@@ -43,7 +43,7 @@ export default {
     },
     ...mapState({
       dynamicBlogPostRoute: state =>
-        state.MainNavMenu.blog.dynamicItems.blogPost.href
+        state.Navigation.blog.dynamicItems.blogPost.href
     })
   },
   methods: {

@@ -17,8 +17,8 @@ import { mapState } from 'vuex'
 export default {
   data: () => ({}),
   computed: mapState({
-    legalText: state => state.MainNavMenu.legal.legalText,
-    legalPath: state => state.MainNavMenu.legal.legalPath
+    legalText: state => state.Navigation.legal.legalText,
+    legalPath: state => state.Navigation.legal.legalPath
   })
 }
 </script>

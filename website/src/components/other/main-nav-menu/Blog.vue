@@ -22,7 +22,7 @@ export default {
   },
   data: () => ({}),
   computed: mapState({
-    blogText: state => state.MainNavMenu.blog.blogText
+    blogText: state => state.Navigation.blog.blogText
   })
 }
 </script>
