@@ -269,6 +269,9 @@ module.exports = {
     cacheTime: 1000 * 60 * 15, // 15 mins
     generate: true,
     gzip: true,
+    filter({ routes }) {
+      return routes.map(route => (route.url = `${route.url}/`))
+    },
     routes() {
       getRoutes.functions.generateRoutes()
       getRoutes.properties.sitemapRoutes.push(baseUrl + sitemapPath)
