@@ -1,6 +1,6 @@
 #### Reading
 
-- **Distributed systems for fun and profit**: I recently finish re-reading this (free and open source) [eBook](http://book.mixu.net/distsys/) on distributed systems. It is authored by a fellow engineer in the industry. I think this e-book, while slightly dated, outlines some of the core conceptual aspects of distributed systems in a very concise form, that other literature has done so or expanded upon in forms many times larger.
+- **Distributed systems for fun and profit**: I recently finish reading this (free and open source) [eBook](http://book.mixu.net/distsys/) on distributed systems. It is authored by a fellow engineer in the industry. I think this e-book, while slightly dated, outlines some of the core conceptual aspects of distributed systems in a very concise form, that other literature has done so or expanded upon in forms many times larger.
 
 #### Work
 
