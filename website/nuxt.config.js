@@ -16,7 +16,8 @@ const sitemapPath = '/sitemap.xml'
 const faviconPath = '/favicon.ico'
 
 const siteName = siteOwner
-const siteDescription = siteOwner + ' - personal website, blog, resume.'
+const siteDescription =
+  'I am a software engineering manager experienced in building and running high performing teams by hiring and retaining top talent. My interests are in cloud computing and distributed systems and current core competencies are in large scale system design and people, project management.'
 
 module.exports = {
   mode: 'universal',
