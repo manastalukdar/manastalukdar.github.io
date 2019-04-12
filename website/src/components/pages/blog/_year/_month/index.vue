@@ -41,7 +41,7 @@ export default {
           to: '/'
         },
         {
-          text: 'Blog',
+          text: 'Blog Posts',
           disabled: false,
           to: this.blogPostsHref
         },
