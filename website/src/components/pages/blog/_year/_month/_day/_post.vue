@@ -46,7 +46,7 @@ export default {
           nuxt: true
         },
         {
-          text: 'Blog',
+          text: 'Blog Posts',
           disabled: false,
           to: this.blogPostsHref,
           nuxt: true
