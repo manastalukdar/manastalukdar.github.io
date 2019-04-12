@@ -1,6 +1,5 @@
 // initial state
 const state = () => ({
-  isHomePage: false,
   sidebarVisible: false,
   blog: {
     blogText: 'Blog',
@@ -98,8 +97,7 @@ const state = () => ({
         text: 'Twitter'
       }
     ]
-  },
-  breadcrumbs: []
+  }
 })
 
 // getters
@@ -112,12 +110,6 @@ const actions = {
   },
   setSidebarVisibility({ commit }, value) {
     commit('setSidebarVisibility', value)
-  },
-  setBreadcrumbs({ commit }, value) {
-    commit('setBreadcrumbs', value)
-  },
-  setHome({ commit }, value) {
-    commit('setHome', value)
   }
 }
 
@@ -128,12 +120,6 @@ const mutations = {
   },
   setSidebarVisibility(state, value) {
     state.sidebarVisible = value
-  },
-  setBreadcrumbs(state, value) {
-    state.breadcrumbs = value
-  },
-  setHome(state, value) {
-    state.isHome = value
   }
 }
 

@@ -18,21 +18,18 @@
 import { mapState } from 'vuex'
 import MainNavMenuNavigationDrawer from '../other/main-nav-menu/NavigationDrawer.vue'
 import MainNavMenuTopNavBar from '../other/main-nav-menu/TopNavBar.vue'
-import Breadcrumbs from '../other/breadcrumbs.vue'
 import Footer from '../other/footer.vue'
 export default {
   /* name: 'App', */
   components: {
     MainNavMenuNavigationDrawer,
     MainNavMenuTopNavBar,
-    Breadcrumbs,
     Footer
   },
   computed: {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
-      darkMode: state => state.GlobalData.darkMode,
-      isHome: state => state.Navigation.isHome
+      darkMode: state => state.GlobalData.darkMode
     })
   },
   head() {

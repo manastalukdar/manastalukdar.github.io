@@ -1,11 +1,10 @@
 <template>
   <v-container>
     <!--fluid-->
-    <Breadcrumbs />
+
     <v-layout pa-2>
       <aboutBlurb />
     </v-layout>
-
     <v-layout pa-2>
       <socialMediaAndResumeLinks />
     </v-layout>
@@ -60,16 +59,6 @@ export default {
     })
   },
   async asyncData({ store, params, env, payload }) {
-    store.dispatch('Navigation/setHome', true)
-    const breadcrumbs = [
-      {
-        text: 'Home',
-        disabled: true,
-        href: '/'
-      }
-    ]
-    await store.dispatch('Navigation/setBreadcrumbs', breadcrumbs)
-    console.log(store.state.Navigation.breadcrumbs)
     if (payload) {
       return {
         blogMetadata: payload

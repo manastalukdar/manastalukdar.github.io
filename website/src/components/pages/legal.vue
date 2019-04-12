@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <p />
     <v-layout wrap>
       <v-flex xs12>
         This a personal website and has nothing to do with my employers, past
@@ -13,10 +15,26 @@
 
 <script>
 import { mapState } from 'vuex'
+import breadcrumbs from '../other/breadcrumbs'
 export default {
+  components: {
+    breadcrumbs
+  },
   data: function() {
     return {
-      description: 'Legal disclaimer.'
+      description: 'Legal disclaimer.',
+      breadcrumbs: [
+        {
+          text: 'Home',
+          disabled: false,
+          href: '/'
+        },
+        {
+          text: 'Legal',
+          disabled: true,
+          href: '/Legal/' // currentHref
+        }
+      ]
     }
   },
   computed: mapState({

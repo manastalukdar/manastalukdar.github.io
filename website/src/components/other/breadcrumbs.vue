@@ -15,12 +15,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
-  computed: {
-    ...mapState({
-      breadcrumbs: state => state.Navigation.breadcrumbs
-    })
+  props: {
+    breadcrumbs: {
+      type: Array,
+      required: true,
+      default: () => []
+    }
   }
 }
 </script>
