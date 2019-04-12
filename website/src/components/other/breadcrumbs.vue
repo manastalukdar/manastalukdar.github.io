@@ -1,0 +1,26 @@
+<template>
+  <v-layout wrap app>
+    <v-flex xs12>
+      <v-card>
+        <div>
+          <v-breadcrumbs
+            :items="breadcrumbs"
+            divider=">"
+            justify-center
+          ></v-breadcrumbs>
+        </div>
+      </v-card>
+    </v-flex>
+  </v-layout>
+</template>
+
+<script>
+import { mapState } from 'vuex'
+export default {
+  computed: {
+    ...mapState({
+      breadcrumbs: state => state.Navigation.breadcrumbs
+    })
+  }
+}
+</script>
