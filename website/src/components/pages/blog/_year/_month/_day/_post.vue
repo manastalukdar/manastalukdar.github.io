@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <p />
     <v-layout wrap>
       <v-flex xs12>
         <post
@@ -16,9 +18,11 @@
 <script>
 import { mapState } from 'vuex'
 import axios from 'axios'
+import breadcrumbs from '../../../../../other/breadcrumbs'
 import post from '../../../../../other/blog/single-post/post.vue'
 export default {
   components: {
+    breadcrumbs,
     post
   },
   data() {
@@ -30,8 +34,31 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state => state.Navigation.blog.blogText + ' | ',
-      currentHref: state => state.Navigation.contact.contactForm.href
-    })
+      blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
+      blogBaseHref: state => state.Navigation.blog.dynamicItems.blogBase.href
+    }),
+    breadcrumbs: function() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          nuxt: true
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogPostsHref,
+          nuxt: true
+        },
+        {
+          text: this.postMetadata.meta.title,
+          disabled: false,
+          to: this.postId,
+          nuxt: true
+        }
+      ]
+    }
   },
   async asyncData({ store, params, env, payload }) {
     const hljs = require('highlight.js') // https://highlightjs.org/
@@ -72,7 +99,7 @@ export default {
         }
       })
     const postIdTemp =
-      'blog/' +
+      '/blog/' +
       params.year +
       '/' +
       params.month +
@@ -175,11 +202,6 @@ export default {
           hid: 'description',
           name: 'description',
           content: description
-        },
-        {
-          hid: 'title',
-          name: 'title',
-          content: title
         },
         {
           hid: 'keywords',

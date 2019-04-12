@@ -22,26 +22,30 @@ export default {
   },
   data: function() {
     return {
-      description: 'Legal disclaimer.',
-      breadcrumbs: [
+      description: 'Legal disclaimer.'
+    }
+  },
+  computed: {
+    ...mapState({
+      appOwner: state => state.GlobalData.appOwner,
+      currentPage: state => state.Navigation.legal.legalText,
+      currentHref: state => state.Navigation.legal.legalPath
+    }),
+    breadcrumbs: function() {
+      return [
         {
           text: 'Home',
           disabled: false,
-          href: '/'
+          to: '/'
         },
         {
           text: 'Legal',
-          disabled: true,
-          href: '/Legal/' // currentHref
+          disabled: false,
+          to: this.currentHref
         }
       ]
     }
   },
-  computed: mapState({
-    appOwner: state => state.GlobalData.appOwner,
-    currentPage: state => state.Navigation.legal.legalText,
-    currentHref: state => state.Navigation.legal.legalPath
-  }),
   asyncData({ store, params, env, payload }) {
     return {
       baseUrl: env.baseURL
@@ -57,11 +61,6 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.description
-        },
-        {
-          hid: 'title',
-          name: 'title',
-          content: title
         },
         {
           hid: 'apple-mobile-web-app-title',

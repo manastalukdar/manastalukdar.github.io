@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <p />
     <v-layout text-xs-justify wrap>
       <v-flex xs12>
         <v-layout row justify-center headline>
@@ -13,21 +15,39 @@
 
 <script>
 import { mapState } from 'vuex'
+import breadcrumbs from '../../other/breadcrumbs'
 import postsList from '../../other/blog/posts-list/list.vue'
 export default {
   components: {
+    breadcrumbs,
     postsList
   },
-  computed: mapState({
-    appOwner: state => state.GlobalData.appOwner,
-    currentPage: state =>
-      state.Navigation.blog.blogText +
-      ' | ' +
-      state.Navigation.blog.blogItems[0].text,
-    blogMetadata: state => state.BlogMetadata.blogMetadata,
-    pageTitle: state => state.Navigation.blog.blogText,
-    currentHref: state => state.Navigation.blog.blogItems[0].href
-  }),
+  computed: {
+    ...mapState({
+      appOwner: state => state.GlobalData.appOwner,
+      currentPage: state =>
+        state.Navigation.blog.blogText +
+        ' | ' +
+        state.Navigation.blog.blogItems[0].text,
+      blogMetadata: state => state.BlogMetadata.blogMetadata,
+      pageTitle: state => state.Navigation.blog.blogText,
+      currentHref: state => state.Navigation.blog.blogItems[0].href
+    }),
+    breadcrumbs: function() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/'
+        },
+        {
+          text: 'Blog Posts',
+          disabled: false,
+          to: this.currentHref
+        }
+      ]
+    }
+  },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
       return {
@@ -52,11 +72,6 @@ export default {
           hid: 'description',
           name: 'description',
           content: description
-        },
-        {
-          hid: 'title',
-          name: 'title',
-          content: title
         },
         {
           hid: 'apple-mobile-web-app-title',

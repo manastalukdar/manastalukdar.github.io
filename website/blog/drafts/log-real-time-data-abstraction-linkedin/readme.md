@@ -19,7 +19,6 @@ url-slug: log-real-time-data-abstraction-linkedin
 first-published-on: 2019-04-08
 last-updated-on: 2019-04-08
 meta:
- title: Summary of LinkedIn Engineering Blog Post on Logs
  description: "Summary of LinkedIn Engineering Blog Post on Logs."
 excerpt: "Summary of LinkedIn Engineering blog post discussing how to use logs for data integration, real time processing, and system building."
 ---

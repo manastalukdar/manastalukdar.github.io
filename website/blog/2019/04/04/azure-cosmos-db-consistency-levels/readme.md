@@ -19,7 +19,6 @@ url-slug: azure-cosmos-db-consistency-levels
 first-published-on: 2019-04-04
 last-updated-on: 2019-04-04
 meta:
- title: Azure Cosmos DB and Consistency Levels
  description: "Azure Cosmos DB talk mentioning the different consistency levels used in the globally distributed database service."
 excerpt: "Azure Cosmos DB talk mentioning the different consistency levels used in the globally distributed database service."
 ---

@@ -20,7 +20,6 @@ url-slug: performance-under-load-adaptive-concurrency-limits-netflix
 first-published-on: 2019-04-04
 last-updated-on: 2019-04-04
 meta:
- title: Performance Under Load - Adaptive Concurrency Limits at Netflix
  description: "Adaptive concurrency limits at Netflix for performance under load."
 excerpt: "Adaptive concurrency limits at Netflix for performance under load."
 ---

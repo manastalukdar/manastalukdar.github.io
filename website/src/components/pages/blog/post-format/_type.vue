@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <p />
     <v-layout text-xs-justify wrap>
       <v-flex xs12>
         <v-layout row justify-center class="headline">
@@ -13,9 +15,11 @@
 
 <script>
 import { mapState } from 'vuex'
+import breadcrumbs from '../../../other/breadcrumbs'
 import postsList from '../../../other/blog/posts-list/list.vue'
 export default {
   components: {
+    breadcrumbs,
     postsList
   },
   computed: {
@@ -25,8 +29,30 @@ export default {
         state.Navigation.blog.blogText +
         ' | ' +
         state.Navigation.blog.postFormatText,
-      postFormatText: state => state.Navigation.blog.postFormatText
-    })
+      postFormatText: state => state.Navigation.blog.postFormatText,
+      blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
+      blogDynamicItemsPostFormat: state =>
+        state.Navigation.blog.dynamicItems.postFormat.href
+    }),
+    breadcrumbs: function() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/'
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogPostsHref
+        },
+        {
+          text: 'Blog Posts by Post-Format',
+          disabled: false,
+          to: this.blogDynamicItemsPostFormat + this.postFormatType + '/'
+        }
+      ]
+    }
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
@@ -65,7 +91,8 @@ export default {
     const title =
       this.currentPage + ' | ' + this.postFormatType + ' || ' + this.appOwner
     const description = 'Blog posts of format ' + this.postFormatType
-    const url = this.baseUrl + '/blog/post-format/' + this.postFormatType + '/'
+    const url =
+      this.baseUrl + this.blogDynamicItemsPostFormat + this.postFormatType + '/'
     return {
       title: title,
       meta: [
@@ -73,11 +100,6 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'Blog posts of format ' + this.postFormatType
-        },
-        {
-          hid: 'title',
-          name: 'title',
-          content: title
         },
         {
           hid: 'apple-mobile-web-app-title',

@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <p />
     <v-layout text-xs-center wrap>
       <v-flex xs12>
         <v-form
@@ -62,7 +64,11 @@
 
 <script>
 import { mapState } from 'vuex'
+import breadcrumbs from '../../other/breadcrumbs'
 export default {
+  components: {
+    breadcrumbs
+  },
   data: () => ({
     name: undefined,
     email: undefined,
@@ -77,14 +83,30 @@ export default {
     },
     description: 'Contact Form.'
   }),
-  computed: mapState({
-    appOwner: state => state.GlobalData.appOwner,
-    currentPage: state =>
-      state.Navigation.contact.contactText +
-      ' | ' +
-      state.Navigation.contact.contactForm.text,
-    currentHref: state => state.Navigation.contact.contactForm.href
-  }),
+  computed: {
+    ...mapState({
+      appOwner: state => state.GlobalData.appOwner,
+      currentPage: state =>
+        state.Navigation.contact.contactText +
+        ' | ' +
+        state.Navigation.contact.contactForm.text,
+      currentHref: state => state.Navigation.contact.contactForm.href
+    }),
+    breadcrumbs: function() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/'
+        },
+        {
+          text: 'Contact Form',
+          disabled: false,
+          to: this.currentHref
+        }
+      ]
+    }
+  },
   asyncData({ store, params, env, payload }) {
     return {
       baseUrl: env.baseURL
@@ -100,11 +122,6 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.description
-        },
-        {
-          hid: 'title',
-          name: 'title',
-          content: title
         },
         {
           hid: 'apple-mobile-web-app-title',
