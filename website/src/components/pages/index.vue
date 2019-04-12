@@ -71,12 +71,6 @@ export default {
     return {
       title: this.appOwner
     }
-  },
-  beforeMount() {
-    this.$store.dispatch('Navigation/setHome', true)
-  },
-  beforeDestroy() {
-    this.$store.dispatch('Navigation/setHome', false)
   }
 }
 </script>
