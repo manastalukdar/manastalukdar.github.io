@@ -6,7 +6,7 @@
           <v-breadcrumbs
             :items="breadcrumbs"
             divider=">"
-            justify-center
+            class="justify-center"
           ></v-breadcrumbs>
         </div>
       </v-card>

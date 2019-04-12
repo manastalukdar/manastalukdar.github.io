@@ -17,7 +17,6 @@ url-slug: rc-majumdar-ashoka-downfall-mauryan-empire
 first-published-on: 2019-04-05
 last-updated-on: 2019-04-05
 meta:
- title: RC Majumdar on Ashoka and the downfall of the Mauryan empire
  description: "RC Majumdar on Ashoka and the downfall of the Mauryan empire."
 excerpt: "RC Majumdar makes no bones about the root cause behind the downfall of the mighty Mauryan Empire. The cause of course being the overt renunciation of military might by Ashoka. Let the master himself speak"
 ---

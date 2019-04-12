@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <p />
     <v-layout text-xs-justify wrap>
       <v-flex xs12>
         <v-layout row justify-center class="headline">
@@ -13,9 +15,11 @@
 
 <script>
 import { mapState } from 'vuex'
+import breadcrumbs from '../../../other/breadcrumbs'
 import postsList from '../../../other/blog/posts-list/list.vue'
 export default {
   components: {
+    breadcrumbs,
     postsList
   },
   computed: {
@@ -25,8 +29,30 @@ export default {
         state.Navigation.blog.blogText +
         ' | ' +
         state.Navigation.blog.authorText,
-      authorText: state => state.Navigation.blog.authorText
-    })
+      authorText: state => state.Navigation.blog.authorText,
+      blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
+      blogDynamicItemsAuthor: state =>
+        state.Navigation.blog.dynamicItems.author.href
+    }),
+    breadcrumbs: function() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/'
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogPostsHref
+        },
+        {
+          text: 'Blog Posts by Author',
+          disabled: false,
+          to: this.blogDynamicItemsAuthor + this.authorUrlSlug + '/'
+        }
+      ]
+    }
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
@@ -71,7 +97,8 @@ export default {
     const title =
       this.currentPage + ' | ' + this.authorName + ' || ' + this.appOwner
     const description = 'Blog posts by author ' + this.authorName
-    const url = this.baseUrl + '/blog/category/' + this.authorUrlSlug + '/'
+    const url =
+      this.baseUrl + this.blogDynamicItemsAuthor + this.authorUrlSlug + '/'
     return {
       title: title,
       meta: [
@@ -79,11 +106,6 @@ export default {
           hid: 'description',
           name: 'description',
           content: description
-        },
-        {
-          hid: 'title',
-          name: 'title',
-          content: title
         },
         {
           hid: 'apple-mobile-web-app-title',

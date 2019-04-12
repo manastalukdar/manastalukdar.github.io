@@ -1,5 +1,7 @@
 <template>
   <v-container>
+    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <p />
     <v-layout text-xs-justify wrap>
       <v-flex xs12>
         <v-layout row justify-center class="headline">
@@ -13,9 +15,11 @@
 
 <script>
 import { mapState } from 'vuex'
+import breadcrumbs from '../../../../../other/breadcrumbs'
 import postsList from '../../../../../other/blog/posts-list/list.vue'
 export default {
   components: {
+    breadcrumbs,
     postsList
   },
   computed: {
@@ -23,8 +27,29 @@ export default {
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state =>
         state.Navigation.blog.blogText + ' | ' + state.Navigation.blog.dayText,
-      dayText: state => state.Navigation.blog.dayText
-    })
+      dayText: state => state.Navigation.blog.dayText,
+      blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
+      blogBaseHref: state => state.Navigation.blog.dynamicItems.blogBase.href
+    }),
+    breadcrumbs: function() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/'
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogPostsHref
+        },
+        {
+          text: 'Blog Posts by Day',
+          disabled: false,
+          to: this.blogBaseHref + this.dayUrlSlug + '/'
+        }
+      ]
+    }
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
@@ -63,7 +88,7 @@ export default {
     const title =
       this.currentPage + ' | ' + this.dayName + ' || ' + this.appOwner
     const description = 'Blog posts on day ' + this.dayName
-    const url = this.baseUrl + '/blog/' + this.dayUrlSlug + '/'
+    const url = this.baseUrl + this.blogBaseHref + this.dayUrlSlug + '/'
     return {
       title: title,
       meta: [
@@ -71,11 +96,6 @@ export default {
           hid: 'description',
           name: 'description',
           content: description
-        },
-        {
-          hid: 'title',
-          name: 'title',
-          content: title
         },
         {
           hid: 'apple-mobile-web-app-title',

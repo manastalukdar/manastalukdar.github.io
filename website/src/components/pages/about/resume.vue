@@ -1,30 +1,54 @@
 <template light>
-  <v-card class="resume-wrapper">
-    <no-ssr>
-      <iframe
-        id="resumeBox"
-        name="resumeBox"
-        frameborder="0"
-        scrolling="no"
-        src="https://manastalukdar.github.io/resume-cv"
-      >
-        <p>iframes are not supported by your browser.</p>
-      </iframe>
-    </no-ssr>
-  </v-card>
+  <v-container fluid>
+    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <p />
+    <v-card class="resume-wrapper">
+      <no-ssr>
+        <iframe
+          id="resumeBox"
+          name="resumeBox"
+          frameborder="0"
+          scrolling="no"
+          src="https://manastalukdar.github.io/resume-cv"
+        >
+          <p>iframes are not supported by your browser.</p>
+        </iframe>
+      </no-ssr>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import breadcrumbs from '../../other/breadcrumbs'
 export default {
-  computed: mapState({
-    appOwner: state => state.GlobalData.appOwner,
-    currentPage: state =>
-      state.Navigation.about.aboutText +
-      ' | ' +
-      state.Navigation.about.aboutItems[0].text,
-    currentHref: state => state.Navigation.about.aboutItems[0].href
-  }),
+  components: {
+    breadcrumbs
+  },
+  computed: {
+    ...mapState({
+      appOwner: state => state.GlobalData.appOwner,
+      currentPage: state =>
+        state.Navigation.about.aboutText +
+        ' | ' +
+        state.Navigation.about.aboutItems[0].text,
+      currentHref: state => state.Navigation.about.aboutItems[0].href
+    }),
+    breadcrumbs: function() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/'
+        },
+        {
+          text: 'Resume',
+          disabled: false,
+          to: this.currentHref
+        }
+      ]
+    }
+  },
   asyncData({ store, params, env, payload }) {
     return {
       baseUrl: env.baseURL
@@ -41,11 +65,6 @@ export default {
           hid: 'description',
           name: 'description',
           content: description
-        },
-        {
-          hid: 'title',
-          name: 'title',
-          content: title
         },
         {
           hid: 'apple-mobile-web-app-title',

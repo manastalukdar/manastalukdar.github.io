@@ -37,6 +37,9 @@ const state = () => ({
       }
     ],
     dynamicItems: {
+      blogBase: {
+        href: '/blog/'
+      },
       category: {
         href: '/blog/category/'
       },

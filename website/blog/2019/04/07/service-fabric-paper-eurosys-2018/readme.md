@@ -17,7 +17,6 @@ url-slug: service-fabric-paper-eurosys-2018
 first-published-on: 2019-04-07
 last-updated-on: 2019-04-07
 meta:
- title: Service Fabric Paper from EuroSys 2018
  description: "Service Fabric Paper from EuroSys 2018"
 excerpt: "Service Fabric Paper from EuroSys 2018"
 ---
