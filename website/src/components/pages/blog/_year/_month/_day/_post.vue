@@ -52,7 +52,7 @@ export default {
           nuxt: true
         },
         {
-          text: this.postMetadata.meta.title,
+          text: this.postMetadata.title,
           disabled: false,
           to: this.postId,
           nuxt: true
@@ -173,7 +173,7 @@ export default {
       this.$route.params.post
     ) */
     const title =
-      this.currentPage + this.postMetadata.meta.title + ' || ' + this.appOwner
+      this.currentPage + this.postMetadata.title + ' || ' + this.appOwner
     const description = this.postMetadata.meta.description
     const keywordsArray = []
     const categoriesArray = []
