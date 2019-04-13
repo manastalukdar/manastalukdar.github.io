@@ -100,7 +100,16 @@ const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByTag)) {
       const route = '/blog/tag/' + key + '/'
-      properties.tags.push({ tag: key, count: value.length })
+      const tagName = value[0].tags.filter(tag => {
+        if (tag['url-slug'] === key) {
+          return tag.name
+        }
+      })
+      properties.tags.push({
+        name: tagName[0].name,
+        slug: key,
+        count: value.length
+      })
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
@@ -125,7 +134,16 @@ const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByCategories)) {
       const route = '/blog/category/' + key + '/'
-      properties.categories.push({ category: key, count: value.length })
+      const catName = value[0].categories.filter(category => {
+        if (category['url-slug'] === key) {
+          return category.name
+        }
+      })
+      properties.categories.push({
+        name: catName[0].name,
+        slug: key,
+        count: value.length
+      })
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value

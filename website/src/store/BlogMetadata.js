@@ -28,11 +28,16 @@ const getters = {
       })
       return acc
     }, {})
-    const tags = []
+    const items = []
     for (const [key, value] of Object.entries(groupedByTags)) {
-      tags.push({ tag: key, count: value.length })
+      const tagName = value[0].tags.filter(tag => {
+        if (tag['url-slug'] === key) {
+          return tag.name
+        }
+      })
+      items.push({ name: tagName[0].name, slug: key, count: value.length })
     }
-    return tags
+    return items
   },
 
   getCategories: state => {
@@ -46,11 +51,16 @@ const getters = {
       })
       return acc
     }, {})
-    const tags = []
+    const items = []
     for (const [key, value] of Object.entries(groupedByCategories)) {
-      tags.push({ category: key, count: value.length })
+      const catName = value[0].categories.filter(category => {
+        if (category['url-slug'] === key) {
+          return category.name
+        }
+      })
+      items.push({ name: catName[0].name, slug: key, count: value.length })
     }
-    return tags
+    return items
   },
 
   getPostsForTag: state => tag => {
