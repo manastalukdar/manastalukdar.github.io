@@ -22,7 +22,11 @@
           </v-card-title>
           <v-data-table :headers="headers" :items="categories" :search="search">
             <template v-slot:items="props">
-              <td>{{ props.item.category }}</td>
+              <td>
+                <nuxt-link :to="getLink([props.item.category])">{{
+                  props.item.category
+                }}</nuxt-link>
+              </td>
               <td class="text-xs-right">{{ props.item.count }}</td>
             </template>
             <v-alert
@@ -72,7 +76,9 @@ export default {
       pageTitle: state => state.Navigation.blog.blogItems[1].text,
       blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
       currentHref: state => state.Navigation.blog.blogItems[1].href,
-      categoriesText: state => state.Navigation.blog.blogItems[1].text
+      categoriesText: state => state.Navigation.blog.blogItems[1].text,
+      blogDynamicItemsCategory: state =>
+        state.Navigation.blog.dynamicItems.category.href
     }),
     breadcrumbs: function() {
       return [
@@ -118,6 +124,11 @@ export default {
         baseUrl: env.baseURL,
         categories: categories
       }
+    }
+  },
+  methods: {
+    getLink(category) {
+      return this.blogDynamicItemsCategory + category + '/'
     }
   },
   head() {
