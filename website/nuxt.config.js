@@ -17,7 +17,7 @@ const faviconPath = '/favicon.ico'
 
 const siteName = siteOwner
 const siteDescription =
-  'I am a software engineering manager experienced in building and running high performing teams by hiring and retaining top talent. My interests are in cloud computing and distributed systems and current core competencies are in large scale system design and people, project management.'
+  'Manas Talukdar is a software engineering manager experienced in building and running high performing teams by hiring and retaining top talent. Manas has recent experience and interest in cloud computing and distributed systems and his current core competencies are in large scale system design and people, project management.'
 
 module.exports = {
   mode: 'universal',
@@ -42,7 +42,7 @@ module.exports = {
       {
         hid: 'keywords',
         name: 'keywords',
-        content: siteOwner + ', blog, resume'
+        content: siteOwner + ', website, blog, resume'
       },
       {
         hid: 'description',
