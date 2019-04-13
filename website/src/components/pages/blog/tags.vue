@@ -59,7 +59,7 @@ export default {
           text: 'Tag',
           align: 'left',
           sortable: true,
-          value: 'tag'
+          value: 'name'
         },
         { text: 'Number of posts', align: 'right', value: 'count' }
       ]

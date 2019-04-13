@@ -59,7 +59,7 @@ export default {
           text: 'Category',
           align: 'left',
           sortable: true,
-          value: 'category'
+          value: 'name'
         },
         { text: 'Number of posts', align: 'right', value: 'count' }
       ]
