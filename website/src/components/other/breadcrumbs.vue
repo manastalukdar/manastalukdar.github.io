@@ -1,7 +1,7 @@
 <template>
   <v-layout wrap app>
     <v-flex xs12>
-      <v-card>
+      <v-card raised elevation="8">
         <div>
           <v-breadcrumbs
             :items="breadcrumbs"
