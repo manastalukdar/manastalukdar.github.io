@@ -23,8 +23,8 @@
           <v-data-table :headers="headers" :items="tags" :search="search">
             <template v-slot:items="props">
               <td>
-                <nuxt-link :to="getLink([props.item.tag])">{{
-                  props.item.tag
+                <nuxt-link :to="getLink([props.item.slug])">{{
+                  props.item.name
                 }}</nuxt-link>
               </td>
               <td class="text-xs-right">{{ props.item.count }}</td>
@@ -126,8 +126,8 @@ export default {
     }
   },
   methods: {
-    getLink(tag) {
-      return this.blogDynamicItemsTag + tag + '/'
+    getLink(tagSlug) {
+      return this.blogDynamicItemsTag + tagSlug + '/'
     }
   },
   head() {
