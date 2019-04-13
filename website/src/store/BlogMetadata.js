@@ -16,6 +16,43 @@ const getters = {
       )
     })
   },
+
+  getTags: state => {
+    const groupedByTags = state.blogMetadata.reduce(function(acc, curr) {
+      curr.tags.forEach(function(item) {
+        if (acc[item['url-slug']]) {
+          acc[item['url-slug']].push(curr)
+        } else {
+          acc[item['url-slug']] = [curr]
+        }
+      })
+      return acc
+    }, {})
+    const tags = []
+    for (const [key, value] of Object.entries(groupedByTags)) {
+      tags.push({ tag: key, count: value.length })
+    }
+    return tags
+  },
+
+  getCategories: state => {
+    const groupedByCategories = state.blogMetadata.reduce(function(acc, curr) {
+      curr.categories.forEach(function(item) {
+        if (acc[item['url-slug']]) {
+          acc[item['url-slug']].push(curr)
+        } else {
+          acc[item['url-slug']] = [curr]
+        }
+      })
+      return acc
+    }, {})
+    const tags = []
+    for (const [key, value] of Object.entries(groupedByCategories)) {
+      tags.push({ category: key, count: value.length })
+    }
+    return tags
+  },
+
   getPostsForTag: state => tag => {
     const groupedByTags = state.blogMetadata.reduce(function(acc, curr) {
       curr.tags.forEach(function(item) {

@@ -80,7 +80,7 @@ const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByAuthor)) {
       const route = '/blog/author/' + key + '/'
-      properties.authors.push({ key: value.length })
+      properties.authors.push({ author: key, count: value.length })
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
@@ -100,13 +100,18 @@ const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByTag)) {
       const route = '/blog/tag/' + key + '/'
-      properties.tags.push({ key: value.length })
+      properties.tags.push({ tag: key, count: value.length })
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
       })
       properties.sitemapRoutes.push(route)
     }
+
+    properties.nuxtGenerateRoutes.push({
+      route: '/blog/tags/',
+      payload: properties.tags
+    })
 
     const groupedByCategories = blogMetadata.reduce(function(acc, curr) {
       curr.categories.forEach(function(item) {
@@ -120,13 +125,18 @@ const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByCategories)) {
       const route = '/blog/category/' + key + '/'
-      properties.categories.push({ key: value.length })
+      properties.categories.push({ category: key, count: value.length })
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
       })
       properties.sitemapRoutes.push(route)
     }
+
+    properties.nuxtGenerateRoutes.push({
+      route: '/blog/categories/',
+      payload: properties.categories
+    })
 
     const groupedByYear = blogMetadata.reduce(function(acc, curr) {
       const year = curr['first-published-on'].split('-')[0]
