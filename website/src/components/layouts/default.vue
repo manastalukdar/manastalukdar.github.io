@@ -85,4 +85,16 @@ export default {
 /*.theme--light a:visited {
   color: #797a33;
 }*/
+
+p {
+  margin-top: 16px;
+}
+video {
+  width: 100%;
+  max-height: 100%;
+  padding: 2em;
+}
+.table-of-contents {
+  margin: 2em;
+}
 </style>

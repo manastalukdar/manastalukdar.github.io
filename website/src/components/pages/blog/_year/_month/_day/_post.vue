@@ -65,6 +65,7 @@ export default {
     const fm = require('front-matter')
     const md = require('markdown-it')({
       html: true,
+      xhtmlOut: true,
       linkify: true,
       typographer: true,
       highlight: function(str, lang) {
@@ -98,6 +99,12 @@ export default {
           }
         }
       })
+      .use(require('markdown-it-anchor'), {
+        permalink: true,
+        permalinkBefore: true,
+        permalinkSymbol: '' // §
+      })
+      .use(require('markdown-it-toc-done-right'))
     const postIdTemp =
       '/blog/' +
       params.year +
