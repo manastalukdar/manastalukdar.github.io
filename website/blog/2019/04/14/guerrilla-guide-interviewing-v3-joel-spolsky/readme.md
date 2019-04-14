@@ -6,6 +6,7 @@ tags:
  - Software Engineer Interview
  - Hiring
  - Recruiting
+ - Joel Spolsky
 categories:
  - Technology
 authors:
