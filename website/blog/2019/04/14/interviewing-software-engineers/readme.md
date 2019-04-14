@@ -89,7 +89,7 @@ With the trend in the industry from monolith to microservices, System Design has
 
 1. Different architectures for SaaS products/web services – pros and cons of different approaches. For example: what if UI logic and business logic is in same back end server vs. in different servers, etc.
 2. Depending on the candidate, sometimes this discussion veers into topics involving scalability, resiliency (including API resilience patterns) and security.
-3. If the candidate has relevant industry experience, there may be questions around data consistency models, linearalizability, synchronous vs. asynchronous processing patterns, latency, throughput, etc.
+3. If the candidate has relevant industry experience, there may be questions around data consistency models, linearizability, synchronous vs. asynchronous processing patterns, latency, throughput, etc.
 4. A new grad candidate with no experience in distributed computing may get an object modeling question with expectation of not just data models, but also API design.
 
 ## Experienced Candidates
