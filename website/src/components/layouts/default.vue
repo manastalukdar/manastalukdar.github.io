@@ -97,4 +97,12 @@ video {
 .table-of-contents {
   margin: 2em;
 }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
 </style>
