@@ -10,6 +10,9 @@ tags:
  - OSIsoft Cloud Services
  - OSIsoft Edge Data Store
  - Conference
+ - Psychology
+ - Evolutionary Psychology 
+ - Behavioral Psychology 
 categories:
  - Technology
 authors:
@@ -48,7 +51,7 @@ One of the [keynotes](https://www.osisoft.com/Presentations/DCP-Midstream---Enab
 
 ## Mark Jeffries Keynote - The Art of Business Influence
 
-I enjoyed the [keynote by Mark Jeffries](https://www.osisoft.com/Presentations/Keynote-Presentation--The-Art-of-Business-Influence--Mark-Jeffries/) in "The Art of Business Influence". His talk was perhaps geared towards sales and marketing folks, but I thought there were points applicable to pretty much anyone, be it in their personal or professional lives. Some of the main points from his presentation are captured below.
+I enjoyed the [keynote by Mark Jeffries](https://www.osisoft.com/Presentations/Keynote-Presentation--The-Art-of-Business-Influence--Mark-Jeffries/) in "The Art of Business Influence". His talk was perhaps geared towards sales and marketing folks, but I thought there were points applicable to pretty much anyone, be it in their personal or professional lives. His talk drew material from the fields of evolutionary and behavioral psychology. Some of the main points from his presentation are captured below.
 
 Each person has three jobs:
 
