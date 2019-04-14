@@ -105,6 +105,7 @@ export default {
         permalinkSymbol: '' // §
       })
       .use(require('markdown-it-toc-done-right'))
+      .use(require('markdown-it-footnote'))
     const postIdTemp =
       '/blog/' +
       params.year +

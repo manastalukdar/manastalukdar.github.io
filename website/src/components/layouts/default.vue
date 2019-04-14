@@ -105,4 +105,12 @@ img {
   margin-right: auto;
   padding: 1em;
 }
+h2,
+h3 {
+  margin: 1em;
+}
+.footnotes-sep {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
 </style>
