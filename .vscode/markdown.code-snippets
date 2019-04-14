@@ -52,5 +52,12 @@
 			"<iframe frameborder=0 src=\"\"></iframe>",
 			":::"
 		]
+	},
+	"table-of-contents": {
+		"scope": "markdown",
+		"prefix": "table-of-contents",
+		"body": [
+			"${toc}"
+		]
 	}
 }
