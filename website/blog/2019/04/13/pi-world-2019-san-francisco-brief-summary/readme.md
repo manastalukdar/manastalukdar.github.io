@@ -23,7 +23,7 @@ url-slug: pi-world-2019-san-francisco-brief-summary
 first-published-on: 2019-04-13
 last-updated-on: 2019-04-13
 meta:
- description: "PI World 2019 in San Francisco had a certain focus on cloud and edge. Customer were very interested in the edge solutions and the keynote demo helped drive some of that interest."
+ description: "PI World 2019 in San Francisco had a certain focus on cloud and edge. Customer were very interested in solutions for both domains and the keynote demo helped drive some of that interest."
 excerpt: "I was at PI World 2019 in San Francisco last week. It was hectic, but also quite interesting seeing the industrial software domain veer towards cloud and edge."
 ---
 
