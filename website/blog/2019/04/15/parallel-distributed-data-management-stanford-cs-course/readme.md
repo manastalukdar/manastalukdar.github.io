@@ -7,6 +7,7 @@ tags:
  - Stanford
  - Computer Science
  - Cloud Computing
+ - Learning
 categories:
  - Technology
 authors:
