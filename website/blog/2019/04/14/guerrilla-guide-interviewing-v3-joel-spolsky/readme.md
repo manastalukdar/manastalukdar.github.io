@@ -14,8 +14,8 @@ authors:
 post-format: link
 title: The Guerrilla Guide to Interviewing (version 3.0) by Joel Spolsky
 url-slug: guerrilla-guide-interviewing-v3-joel-spolsky
-first-published-on: 2019-04-14
-last-updated-on: 2019-04-14
+first-published-on: 2019-04-14 00:15 am
+last-updated-on: 2019-04-14 00:15 am
 meta:
  description: "The Guerrilla Guide to Interviewing version 3.0 by Joel Spolsky."
 excerpt: "The Guerrilla Guide to Interviewing (version 3.0) by Joel Spolsky."

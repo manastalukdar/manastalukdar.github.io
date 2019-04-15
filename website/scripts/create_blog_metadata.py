@@ -13,6 +13,7 @@ import shutil
 import re
 
 from datetime import date, datetime
+from dateutil import parser
 
 POSTS_LIST_FILE_JSON = "website/src/static/blogdata/metadata/blog_metadata.json"
 POSTS_DIST_FOLDER = "website/src/static/blogdata"
@@ -52,6 +53,10 @@ def create_posts_list(files):
       post['authors'] = newAuthors
       newPostFormat = get_data_with_url_slug(post['post-format'])
       post['post-format'] = newPostFormat
+      newPublishedDate = parser.parse(str(post['first-published-on']))
+      post['first-published-on'] = newPublishedDate
+      newUpdatedDate = parser.parse(str(post['last-updated-on']))
+      post['last-updated-on'] = newUpdatedDate
       data_all.append(post.metadata)
   print(f"Total posts: {count}")
   data_all.sort(key=extract_time, reverse=True)

@@ -280,7 +280,7 @@ module.exports = {
   redirect: [
     {
       // https://stackoverflow.com/questions/54346345/nuxt-js-force-trailing-slash-at-the-end-of-all-urls
-      from: '^.*(?<!/)$',
+      from: '^.*(?<!/)$', // ^.*(?<!\.(png|jpg))$
       to: (from, req) => req.url + '/'
     }
   ],

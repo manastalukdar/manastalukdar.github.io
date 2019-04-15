@@ -40,6 +40,7 @@
     "markdown-it-html5-embed": "^1.0.0",
     "markdown-it-mathjax": "^2.0.0",
     "markdown-it-toc-done-right": "^3.0.1",
+    "moment": "^2.24.0",
     "nuxt": "^2.5.1",
     "vue-async-computed": "^3.6.1",
     "vue-disqus": "^3.0.5",

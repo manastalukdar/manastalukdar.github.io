@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import moment from 'moment'
 import blogMetadata from '../src/static/blogdata/metadata/blog_metadata.json'
 
 const properties = {
@@ -38,9 +39,10 @@ const functions = {
     })
 
     blogMetadata.map(postmetadata => {
+      const momentObj = moment(postmetadata['first-published-on'])
       const route =
         '/blog/' +
-        postmetadata['first-published-on'].replace(/-/g, '/') +
+        momentObj.format('YYYY-MM-DD').replace(/-/g, '/') +
         '/' +
         postmetadata['url-slug'] +
         '/'
@@ -178,7 +180,8 @@ const functions = {
     })
 
     const groupedByYear = blogMetadata.reduce(function(acc, curr) {
-      const year = curr['first-published-on'].split('-')[0]
+      const momentObj = moment(curr['first-published-on'])
+      const year = momentObj.format('YYYY')
       if (acc[year]) {
         acc[year].push(curr)
       } else {
@@ -196,8 +199,9 @@ const functions = {
     }
 
     const groupedByMonth = blogMetadata.reduce(function(acc, curr) {
-      const year = curr['first-published-on'].split('-')[0]
-      const month = curr['first-published-on'].split('-')[1]
+      const momentObj = moment(curr['first-published-on'])
+      const year = momentObj.format('YYYY')
+      const month = momentObj.format('MM')
       const key = year + '-' + month
       if (acc[key]) {
         acc[key].push(curr)
@@ -218,9 +222,10 @@ const functions = {
     }
 
     const groupedByDay = blogMetadata.reduce(function(acc, curr) {
-      const year = curr['first-published-on'].split('-')[0]
-      const month = curr['first-published-on'].split('-')[1]
-      const day = curr['first-published-on'].split('-')[2]
+      const momentObj = moment(curr['first-published-on'])
+      const year = momentObj.format('YYYY')
+      const month = momentObj.format('MM')
+      const day = momentObj.format('DD')
       const key = year + '-' + month + '-' + day
       if (acc[key]) {
         acc[key].push(curr)
