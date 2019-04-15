@@ -92,3 +92,11 @@ As an example consider a replicated "arithmetic service", which has a number as 
 2. Active-passive mode: single master execute the transformations and log out the _result_, say "1", "3", "6", etc.
 
 It should be obvious that ordering is key for ensuring consistency between replicas. Reordering an addition and multiplication will yield a different result.
+
+The distributed log can be seen as the data structure which models the problem of consensus. A log, after all, represents a series of decisions on the "next" value to append.
+
+Log is not apparent in Paxos, where it is accomplished using an extension of the protocol called "multi-paxos", which models the log as a series of consensus problems, one for each slot in the log.
+
+In other protocols such as ZAB, RAFT, [Viewstamped Replication](http://pmg.csail.mit.edu/papers/vr-revisited.pdf), log is more prominent, as these protocols directly model the problem of maintaining a distributed, consistent log.
+
+
