@@ -15,8 +15,8 @@ authors:
 post-format: standard
 title: Interviewing Software Engineers
 url-slug: interviewing-software-engineers
-first-published-on: 2019-04-14
-last-updated-on: 2019-04-14
+first-published-on: 2019-04-14 1:20 pm
+last-updated-on: 2019-04-14 1:20 pm
 meta:
  description: "Methodology for interviewing and hiring high calibre software engineers."
 excerpt: "I have been interviewing software engineer candidates, both new grads and experienced candidates, for many years now. Over the years I have settled down on a pattern of questions that have resulted in hiring excellent software engineers with a high degree of probability."

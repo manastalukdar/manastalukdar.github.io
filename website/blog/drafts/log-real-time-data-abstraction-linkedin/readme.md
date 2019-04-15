@@ -85,9 +85,9 @@ The distributed systems literature commonly distinguishes two broad approaches t
 
 ![Primary-Backup and State-Machine models](https://content.linkedin.com/content/dam/engineering/en-us/blog/migrated/active_and_passive_arch.png)
 
-An example consider a replicated "arithmetic service", which has a number as its state and applies arithmetic operations to this value.
+As an example consider a replicated "arithmetic service", which has a number as its state and applies arithmetic operations to this value.
 
 1. Active-active mode: Log out the transformations to apply: "+1", "*2", "-4", etc. Each replica would apply these transformations and hence go through the same set of values.
 2. Active-passive mode: single master execute the transformations and log out the _result_, say "1", "3", "6", etc.
 
-It should be obvious that ordering is key for ensuring consistency between replicas.
+It should be obvious that ordering is key for ensuring consistency between replicas. Reordering an addition and multiplication will yield a different result.

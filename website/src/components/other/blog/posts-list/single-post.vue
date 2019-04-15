@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import { mapState } from 'vuex'
 import postHeader from './post-header.vue'
 export default {
@@ -53,10 +54,10 @@ export default {
   },
   computed: {
     postLinkSlugs: function() {
-      const items = this.postMetadata['first-published-on'].split('-')
-      const year = items[0]
-      const month = items[1]
-      const day = items[2]
+      const momentObj = moment(this.postMetadata['first-published-on'])
+      const year = momentObj.format('YYYY')
+      const month = momentObj.format('MM')
+      const day = momentObj.format('DD')
       const post = this.postMetadata['url-slug']
       return { year: year, month: month, day: day, post: post }
     },
