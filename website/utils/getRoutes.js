@@ -19,6 +19,7 @@ const functions = {
     properties.tags = []
     properties.categories = []
     properties.authors = []
+    properties.postFormats = []
   },
   setBaseUrl(baseUrl) {
     properties.baseUrl = baseUrl
@@ -60,12 +61,23 @@ const functions = {
     })
     for (const [key, value] of Object.entries(groupedByPostFormat)) {
       const route = '/blog/post-format/' + key + '/'
+      const postFormatName = value[0]['post-format'].name
+      properties.postFormats.push({
+        name: postFormatName,
+        slug: key,
+        count: value.length
+      })
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
       })
       properties.sitemapRoutes.push(route)
     }
+
+    properties.nuxtGenerateRoutes.push({
+      route: '/blog/post-formats/',
+      payload: properties.postFormats
+    })
 
     // https://stackoverflow.com/questions/55450096/how-to-groupby-in-lodash-for-each-item-in-a-nested-array
     const groupedByAuthor = blogMetadata.reduce(function(acc, curr) {
@@ -80,7 +92,16 @@ const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByAuthor)) {
       const route = '/blog/author/' + key + '/'
-      properties.authors.push({ author: key, count: value.length })
+      const authorName = value[0].authors.filter(author => {
+        if (author['url-slug'] === key) {
+          return author.name
+        }
+      })
+      properties.authors.push({
+        name: authorName[0].name,
+        slug: key,
+        count: value.length
+      })
       properties.nuxtGenerateRoutes.push({
         route: route,
         payload: value
