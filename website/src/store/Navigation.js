@@ -30,7 +30,7 @@ const state = () => ({
         text: 'Tags'
       },
       {
-        href: '/blog/postformats/',
+        href: '/blog/post-formats/',
         target: '_blank',
         icon: 'mdi-format-list-bulleted-type',
         text: 'Post Formats'
