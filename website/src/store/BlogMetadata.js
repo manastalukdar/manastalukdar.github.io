@@ -17,6 +17,20 @@ const getters = {
     })
   },
 
+  getPostFormats: state => {
+    const groupedByPostFormat = _.groupBy(state.blogMetadata, function(
+      postmetadata
+    ) {
+      return postmetadata['post-format']['url-slug']
+    })
+    const items = []
+    for (const [key, value] of Object.entries(groupedByPostFormat)) {
+      const postFormatName = value[0]['post-format'].name
+      items.push({ name: postFormatName, slug: key, count: value.length })
+    }
+    return items
+  },
+
   getTags: state => {
     const groupedByTags = state.blogMetadata.reduce(function(acc, curr) {
       curr.tags.forEach(function(item) {
