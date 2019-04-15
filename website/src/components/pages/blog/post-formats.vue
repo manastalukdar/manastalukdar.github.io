@@ -29,7 +29,8 @@
               <td>
                 <nuxt-link :to="getLink([props.item.slug])">{{
                   props.item.name
-                }}</nuxt-link>
+                }}</nuxt-link
+                >&nbsp;<v-icon>{{ getPostFormatIcon(props.item.name) }}</v-icon>
               </td>
               <td class="text-xs-right">{{ props.item.count }}</td>
             </template>
@@ -133,6 +134,9 @@ export default {
   methods: {
     getLink(postFormatsSlug) {
       return this.blogDynamicItemsPostFormats + postFormatsSlug + '/'
+    },
+    getPostFormatIcon(name) {
+      return this.$store.getters['BlogMetadata/getPostFormatIcon'](name)
     }
   },
   head() {
