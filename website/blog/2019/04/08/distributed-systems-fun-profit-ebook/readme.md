@@ -7,6 +7,7 @@ tags:
  - Technical Literature
  - Cloud Computing
  - Reading
+ - Software Engineering
 categories:
  - Technology
 authors:

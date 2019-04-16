@@ -7,6 +7,7 @@ tags:
  - Conference Paper
  - Service Fabric
  - Microsoft Azure
+ - Software Engineering
 categories:
  - Technology
 authors:

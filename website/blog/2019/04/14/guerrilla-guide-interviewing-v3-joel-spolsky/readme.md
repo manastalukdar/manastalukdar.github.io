@@ -7,6 +7,7 @@ tags:
  - Hiring
  - Recruiting
  - Joel Spolsky
+ - Software Engineering
 categories:
  - Technology
 authors:

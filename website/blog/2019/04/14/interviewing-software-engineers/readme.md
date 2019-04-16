@@ -8,6 +8,7 @@ tags:
  - Engineering Leadership
  - Hiring
  - Recruiting
+ - Software Engineering
 categories:
  - Technology
 authors:
