@@ -9,6 +9,7 @@ tags:
  - Real-Time Data
  - Stream Processing
  - LinkedIn Engineering
+ - Learning
  - Software Engineering
 categories:
  - Technology
@@ -24,7 +25,7 @@ meta:
 excerpt: "Summary of LinkedIn Engineering blog post discussing how to use logs for data integration, real time processing, and system building."
 ---
 
-**Note**: The content below is from the [original blog post](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying). This post contains notes as I read through the original post and extracted key points. All credit goes entirely to the original author and this post here is merely an effort in summarizing his post.
+**Note**: The content below is from the [original blog post](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying). This post contains notes as I read through the original post and extracted key points. All credit unequivocally goes entirely to the original author and this post here is merely an effort in learning from and summarizing his post.
 
 # The Log: What every software engineer should know about real-time data's unifying abstraction
 
@@ -92,3 +93,11 @@ As an example consider a replicated "arithmetic service", which has a number as 
 2. Active-passive mode: single master execute the transformations and log out the _result_, say "1", "3", "6", etc.
 
 It should be obvious that ordering is key for ensuring consistency between replicas. Reordering an addition and multiplication will yield a different result.
+
+The distributed log can be seen as the data structure which models the problem of consensus. A log, after all, represents a series of decisions on the "next" value to append.
+
+Log is not apparent in Paxos, where it is accomplished using an extension of the protocol called "multi-paxos", which models the log as a series of consensus problems, one for each slot in the log.
+
+In other protocols such as ZAB, RAFT, [Viewstamped Replication](http://pmg.csail.mit.edu/papers/vr-revisited.pdf), log is more prominent, as these protocols directly model the problem of maintaining a distributed, consistent log.
+
+Computer systems rarely need to decide a single value, they almost always handle a sequence of requests. So a log, rather than a simple single-value register, is the more natural abstraction.
