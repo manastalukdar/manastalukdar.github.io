@@ -17,7 +17,7 @@ post-format: standard
 title: Interviewing Software Engineers
 url-slug: interviewing-software-engineers
 first-published-on: 2019-04-14 1:20 pm
-last-updated-on: 2019-04-14 1:20 pm
+last-updated-on: 2019-04-15 5:30 pm
 meta:
  description: "Methodology for interviewing and hiring high calibre software engineers."
 excerpt: "I have been interviewing software engineer candidates, both new grads and experienced candidates, for many years now. Over the years I have settled down on a pattern of questions that have resulted in hiring excellent software engineers with a high degree of probability."
@@ -33,7 +33,7 @@ I think there are broadly 3 types of software engineers:
 2. The situation cracker.
 3. The incompetent.
 
-Obviously we never want to hire the incompetent and it should be fairly easy to weed them out. So, the goal of interviewing candidates for a software engineering position is to ideally always hire the heavy hitter. But the heavy hitting candidates are few and the competition for them is intense. So there are times, when we may want to find the right kind of situation cracker candidate. The issue with situation crackers is that if you hire the wrong type, given that they are in my observation prone to political proclivities, they can cause runtime problems in a team or organization. So I believe we should look for the the type of situation cracker candidate, who demonstrates strong technical skills and who may ideally have certain personality traits^[Speak up, convey opinion and even disagree, but focus on getting work done.]. These types of situation crackers, again in my observation, are focussed more on getting work done rather than indulge in disruptive machinations. It is also my belief, not without reason, that the technically strong situation cracker, with the right mentoring, can ramp up to be a heavy hitter.
+Obviously we never want to hire the incompetent and it should be fairly easy to weed them out. So, the goal of interviewing candidates for a software engineering position is to ideally always hire the heavy hitter. But the heavy hitting candidates are few and the competition for them is intense. So there are times, when we may want to find the right kind of situation cracker candidate. The issue with situation crackers is that if you hire the wrong type, given that they are in my observation prone to political proclivities, they can cause runtime problems in a team or organization. So I believe we should look for the the type of situation cracker candidate, who demonstrates strong technical skills and who may ideally have certain personality traits^[Speak up, convey opinion and even disagree, but focus on getting work done.]. These types of situation crackers, again in my observation, are focussed more on getting work done rather than indulge in disruptive machinations. It is also my belief, not without reason, that the technically strong situation cracker, with the right mentoring, can ramp up to be a heavy hitter. It goes without saying that these categories may have a certain overlap and the boundaries between the top two can sometimes appear to be nebulous.
 
 I have been interviewing software engineering candidates, both new grads (B.S., M.S., PhD) and those with industry experience, for many years now. Over the years I have settled down on a pattern of questions that have resulted in hiring excellent software engineers with a high degree of probability. Given that I meticulously maintain records of every single candidate I have ever interviewed along with my detailed notes and feedback I have submitted to the recruiting team, it was a relatively straight-forward process to mine that data and obtain patterns of questions that worked for finding the top candidates.
 
@@ -74,9 +74,9 @@ In general, for the technical portion of the interview, I like to follow the fol
 
 ### Data Structures and Algorithms
 
-Since the last few years there has been a strong trend in the industry towards asking data structures and algorithms questions that largely follow the LeetCode pattern. It is interesting that this trend was originally started, for the most part, by the CTCI book, and has since moved on to LeetCode. I know of places that provide a LeetCode-type, question and will fail the candidate if s/he fails to provide compilable code (on the whiteboard) with all edge-cases covered. I do not follow this process. I think it is important to ask the candidate data structures and algorithms question, but with the following points in mind:
+Since the last few years there has been a strong trend in the industry towards asking data structures and algorithms questions that largely follow the LeetCode pattern. It is interesting that this trend was originally started, for the most part, by the CTCI book, and has since moved on to LeetCode. I know of places that provide a LeetCode-type question and will fail the candidate if s/he fails to provide compilable code (on the whiteboard) with all edge-cases covered. I do not follow this process. I think it is important to ask the candidate data structures and algorithms question, but with the following points in mind:
 
-1. Candidate should have the option of using either the whiteboard or a laptop with their IDE of choice.
+1. Candidate should have the option of using either the whiteboard, or a laptop with their IDE of choice.
 2. If a candidate chooses to use a Laptop with an IDE, I expect them to have compilable code.
 3. Candidate should be free to ask and/or look up method signatures and/or language semantics. If they use an IDE on a laptop, they should be able to use auto-complete, intellisense, etc. I test candidates on logical thinking ability, not on memorization of programming language semantics.
 4. The correct algorithm is more important than having every single edge case covered.
@@ -90,8 +90,8 @@ With the trend in the industry from monolith to microservices, System Design has
 
 1. Different architectures for SaaS products/web services – pros and cons of different approaches. For example: what if UI logic and business logic is in same back end server vs. in different servers, etc.
 2. Depending on the candidate, sometimes this discussion veers into topics involving scalability, resiliency (including API resilience patterns) and security.
-3. If the candidate has relevant industry experience, there may be questions around data consistency models, linearizability, synchronous vs. asynchronous processing patterns, latency, throughput, etc.
-4. A new grad candidate with no experience in distributed computing may get an object modeling question with expectation of not just data models, but also API design.
+3. If the candidate has relevant industry experience, there may be questions around data consistency models, linearizability, synchronous vs. asynchronous processing patterns, low latency and high throughput architectural patterns and the pros and cons, etc.
+4. A new grad candidate with no experience in distributed computing may get an object modeling question with expectation of not just data models but also API design including discussions involving abstraction patterns for storage and access layers.
 
 ## Experienced Candidates
 
@@ -122,6 +122,6 @@ In general, I look for the following attributes in a candidate:
 5. Other
    1. Teamwork: How well will the candidate work in a team? How well will candidate communicate technical information with others?
    2. Culture: How will the candidate fit into the company culture?
-   3. Multiplier: Will the candidate add value to the team, org, company by inspiring and motivating others, by going that extra mile? Will candidate take his/her team from A- to A+?
+   3. Multiplier: Will the candidate add value to the team, organization, company by inspiring and motivating others, by going that extra mile? Will candidate take his/her team from A- to A+?
 
 The methodology I have discussed here has worked out quite well for me over the years. I hope that perhaps it may be useful to others as well.
