@@ -13,6 +13,18 @@
 
     <v-layout wrap row ma-2>
       <v-flex xs12>
+        <socialSharing
+          :url="url"
+          :title="postMetadata.title"
+          :description="postMetadata.description"
+          :quote="postMetadata.excerpt"
+          :hashtags="hashtags"
+        />
+      </v-flex>
+    </v-layout>
+
+    <v-layout wrap row ma-2>
+      <v-flex xs12>
         <comments :post-id="postId" :url="url" />
       </v-flex>
     </v-layout>
@@ -21,10 +33,12 @@
 
 <script>
 import postHeader from './post-header.vue'
+import socialSharing from './social-sharing.vue'
 import comments from './comments.vue'
 export default {
   components: {
     postHeader,
+    socialSharing,
     comments
   },
   props: {
@@ -52,6 +66,22 @@ export default {
   computed: {
     cardColor() {
       return this.$store.getters['GlobalData/getCardColor']
+    },
+    hashtags() {
+      const hashtagsArray = []
+      this.postMetadata.categories.forEach(category => {
+        const noSpecialCharNoSpaces = category.name
+          .replace('[^a-zA-Z0-9]+', '')
+          .replace(/\s+/g, '')
+        hashtagsArray.push(noSpecialCharNoSpaces)
+      })
+      this.postMetadata.tags.forEach(tag => {
+        const noSpecialCharNoSpaces = tag.name
+          .replace('[^a-zA-Z0-9]+', '')
+          .replace(/\s+/g, '')
+        hashtagsArray.push(noSpecialCharNoSpaces)
+      })
+      return hashtagsArray.join()
     }
   }
 }

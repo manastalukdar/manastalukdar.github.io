@@ -47,6 +47,7 @@
     "vue-lazyload": "^1.2.6",
     "vue-material-design-icons": "^3.1.0",
     "vue-pdf": "^4.0.6",
+    "vue-social-sharing": "^2.4.3",
     "vuetify": "^1.5.7",
     "vuetify-loader": "^1.2.0"
   },
