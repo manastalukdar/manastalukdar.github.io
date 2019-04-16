@@ -145,7 +145,8 @@ module.exports = {
     '@/plugins/fontawesome.js',
     '@/plugins/materialdesignicons.js',
     '@plugins/vueAsyncComputed.js',
-    '~/plugins/disqus'
+    '~/plugins/disqus',
+    '~/plugins/socialsharing'
   ],
 
   /*
