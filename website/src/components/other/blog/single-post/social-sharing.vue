@@ -2,7 +2,7 @@
   <v-layout wrap>
     <v-flex xs12>
       <v-card :color="cardColor" raised elevation="8" class="pa-4">
-        <v-layout class="socialSharing" align-center justify-space-around row>
+        <v-layout class="socialSharing" justify-center row wrap>
           <social-sharing
             v-cloak
             :url="url"
@@ -13,18 +13,24 @@
             :twitter-user="twitterUser"
             inline-template
           >
-            <div>
+            <div class="socialSharingItems">
               <network network="email">
-                <a><i class="mdi mdi-email mdi-24px"></i></a> </network
-              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a><i class="socialSharingItem mdi mdi-email mdi-24px"></i></a>
+              </network>
               <network network="linkedin">
-                <a><i class="mdi mdi-linkedin mdi-24px"></i></a> </network
-              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a
+                  ><i class="socialSharingItem mdi mdi-linkedin mdi-24px"></i
+                ></a>
+              </network>
               <network network="twitter">
-                <a><i class="mdi mdi-twitter mdi-24px"></i></a> </network
-              >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a
+                  ><i class="socialSharingItem mdi mdi-twitter mdi-24px"></i
+                ></a>
+              </network>
               <network network="facebook">
-                <a><i class="mdi mdi-facebook mdi-24px"></i></a>
+                <a
+                  ><i class="socialSharingItem mdi mdi-facebook mdi-24px"></i
+                ></a>
               </network>
             </div>
           </social-sharing>
@@ -82,5 +88,13 @@ export default {
 }
 .theme--light .socialSharing a {
   color: rgba(0, 0, 0, 0.54) !important;
+}
+.socialSharingItems {
+  display: flex;
+  justify-content: center;
+}
+.socialSharingItem {
+  margin-left: 1em;
+  margin-right: 1em;
 }
 </style>
