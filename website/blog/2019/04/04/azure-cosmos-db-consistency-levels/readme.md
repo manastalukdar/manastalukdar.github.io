@@ -9,6 +9,7 @@ tags:
  - Microsoft Azure
  - Leslie Lamport
  - Cosmos DB
+ - Software Engineering
 categories:
  - Technology
 authors:
