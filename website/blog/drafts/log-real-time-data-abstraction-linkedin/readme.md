@@ -24,7 +24,7 @@ meta:
 excerpt: "Summary of LinkedIn Engineering blog post discussing how to use logs for data integration, real time processing, and system building."
 ---
 
-**Note**: The content below is from the [original blog post](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying). This post contains notes as I read through the original post and extracted key points. All credit goes entirely to the original author and this post here is merely an effort in summarizing his post.
+**Note**: The content below is from the [original blog post](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying). This post contains notes as I read through the original post and extracted key points. All credit unequivocally goes entirely to the original author and this post here is merely an effort in learning from and summarizing his post.
 
 # The Log: What every software engineer should know about real-time data's unifying abstraction
 
@@ -99,4 +99,4 @@ Log is not apparent in Paxos, where it is accomplished using an extension of the
 
 In other protocols such as ZAB, RAFT, [Viewstamped Replication](http://pmg.csail.mit.edu/papers/vr-revisited.pdf), log is more prominent, as these protocols directly model the problem of maintaining a distributed, consistent log.
 
-
+Computer systems rarely need to decide a single value, they almost always handle a sequence of requests. So a log, rather than a simple single-value register, is the more natural abstraction.
