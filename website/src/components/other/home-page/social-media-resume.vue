@@ -4,7 +4,7 @@
       <v-card :color="cardColor" class="pa-3" raised elevation="8">
         <v-flex xs12>
           <v-list>
-            <v-layout row justify-center>
+            <v-layout row justify-center wrap>
               <v-list-tile
                 v-for="item in socialMediaItems"
                 :key="item.text"
@@ -20,7 +20,7 @@
         </v-flex>
         <v-flex xs12>
           <v-list>
-            <v-layout row justify-center>
+            <v-layout row justify-center wrap>
               <v-list-tile :key="aboutItems[0].text" :to="aboutItems[0].href">
                 <v-list-tile-title v-text="aboutItems[0].text" />
               </v-list-tile>
