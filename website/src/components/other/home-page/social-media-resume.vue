@@ -11,9 +11,7 @@
                 :href="item.href"
                 :target="item.target"
               >
-                <v-list-tile-avatar>
-                  <v-icon>{{ item.icon }}</v-icon>
-                </v-list-tile-avatar>
+                <v-icon>{{ item.icon }}</v-icon>
               </v-list-tile>
             </v-layout>
           </v-list>
