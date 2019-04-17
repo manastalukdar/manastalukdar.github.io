@@ -5,7 +5,7 @@ tags:
  - Engineering Leadership
  - Engineering Management
 categories:
- - Technical
+ - Technology
 authors:
  - "Manas Talukdar"
 post-format: standard
