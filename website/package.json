@@ -48,6 +48,7 @@
     "vue-material-design-icons": "^3.1.0",
     "vue-pdf": "^4.0.6",
     "vue-social-sharing": "^2.4.3",
+    "vue-tweet-embed": "^2.2.1",
     "vuetify": "^1.5.7",
     "vuetify-loader": "^1.2.0"
   },

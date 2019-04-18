@@ -29,3 +29,5 @@ The goal of this post is to capture some of the key points from their post, that
 Initial release of the feature was through a minimum viable product (MVP), using that release to collect feedback and iterate.
 
 Success of feature was measured by adoption and usage.
+
+Effort involved cross team(s) collaboration.

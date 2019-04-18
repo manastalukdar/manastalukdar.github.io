@@ -26,19 +26,19 @@ ${toc}
 
 A senior software engineer is expected to be highly technically competent from both coding and system design perspective.
 
-S/he should exhibit proclivity for learning and knowledge sharing targeting inculcation of technical information that goes beyond a day-to-day getting-work-done and is geared towards a broader conceptual understanding of domain knowledge.
+S/he should exhibit proclivity for learning and knowledge sharing targeting inculcation of technical information that goes beyond the day-to-day grind and is geared towards a broader conceptual understanding of domain knowledge.
 
-## Ability to take on end-to-end feature development
+## Ability to Take on End-to-End Feature Development
 
 S/he should be able to take ownership of feature development from being able to write design documents to writing code that actually implements the feature.
 
-## Be The Go-To Technical Expert
+## Be the Go-To Technical Expert
 
 S/he should be the go-to person for technical questions within the team. Even if s/he does not have the answer all the time, s/he should be knowledgeable enough to point the person in the right direction.
 
 ## Mentor Junior Developers
 
-S/he should be able to mentor junior developers and help them technically ramp up and become productive developers.
+S/he should be able to mentor junior developers and help them ramp up technically.
 
 ## Collaborate Across Teams
 
