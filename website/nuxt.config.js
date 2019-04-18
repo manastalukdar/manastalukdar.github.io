@@ -2,6 +2,7 @@ import { Feed } from 'feed'
 const fs = require('fs')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const getRoutes = require('./utils/getRoutes.js')
+// const ampify = require('./plugins/ampify')
 
 const baseUrl =
   process.env.NODE_ENV === 'production'
@@ -299,4 +300,24 @@ module.exports = {
       return getRoutes.properties.nuxtGenerateRoutes
     }
   }
+
+  /*
+   ** Hooks configuration
+   * https://toor.co/blog/amp-pages-using-nuxt-js/
+   *
+  hooks: {
+    // This hook is called before saving the html to flat file
+    'generate:page': page => {
+      if (/^/gi.test(page.route)) {
+        page.html = ampify(page.html)
+      }
+    },
+    // This hook is called before serving the html to the browser
+    'render:route': (url, page, { req, res }) => {
+      if (/^/gi.test(url)) {
+        page.html = ampify(page.html)
+      }
+    }
+  }
+  */
 }
