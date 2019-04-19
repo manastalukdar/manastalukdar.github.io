@@ -89,14 +89,21 @@ export default {
       this.currentPage + ' | ' + this.dayName + ' || ' + this.appOwner
     const description = 'Blog posts on day ' + this.dayName
     const url = this.baseUrl + this.blogBaseHref + this.dayUrlSlug + '/'
-    const breadcrumbsStructuredData = this.breadcrumbs.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      item: {
-        '@id': this.baseUrl + item.to,
-        name: item.text
-      }
-    }))
+    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
+      (item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@id': this.baseUrl + item.to,
+          name: item.text
+        }
+      })
+    )
+    const breadcrumbsStructuredData = {
+      '@context': 'http://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbsStructuredDataArray
+    }
     return {
       title: title,
       meta: [
