@@ -50,6 +50,11 @@ export default {
     interests,
     recentUpdates
   },
+  data() {
+    return {
+      currentHref: '/'
+    }
+  },
   computed: {
     ...mapState({
       socialMediaItems: state => state.Navigation.contact.socialMediaItems,
@@ -61,15 +66,41 @@ export default {
   async asyncData({ store, params, env, payload }) {
     if (payload) {
       return {
+        baseUrl: env.baseURL,
         blogMetadata: payload
       }
-    } else if (store.state.BlogMetadata.blogMetadata.length === 0) {
-      await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+    } else {
+      if (store.state.BlogMetadata.blogMetadata.length === 0) {
+        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+      }
+      return {
+        baseUrl: env.baseURL
+      }
     }
   },
   head() {
+    const url = this.baseUrl + this.currentHref
+    const structuredData = {
+      '@context': 'http://schema.org',
+      '@type': 'Person',
+      name: this.appOwner,
+      url: url,
+      sameAs: [
+        this.socialMediaItems[0].href,
+        this.socialMediaItems[1].href,
+        this.socialMediaItems[2].href
+      ]
+    }
     return {
-      title: this.appOwner
+      title: this.appOwner,
+      link: [{ rel: 'canonical', href: url }],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          innerHTML: JSON.stringify(structuredData),
+          type: 'application/ld+json'
+        }
+      ]
     }
   }
 }

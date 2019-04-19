@@ -94,7 +94,7 @@ const state = () => ({
         text: 'LinkedIn'
       },
       {
-        href: 'https://github.com/manastalukdar',
+        href: 'https://github.com/manastalukdar/',
         target: '_blank',
         icon: 'mdi-github-circle',
         text: 'GitHub'

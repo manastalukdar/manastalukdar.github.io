@@ -202,7 +202,27 @@ export default {
     const keywords = keywordsArray.join()
     const tags = tagsArray.join()
     const category = categoriesArray[0]
+    const author = authorsArray[0]
     // const category = this.postMetadata.categories[0].name
+
+    const datePublished = this.postMetadata['first-published-on']
+    const dateModified = this.postMetadata['last-updated-on']
+    const headline = this.postMetadata.title
+    const articleBody = this.postMetadata.excerpt + ' ...'
+    const structuredData = {
+      '@context': 'http://schema.org',
+      '@type': 'BlogPosting',
+      datePublished: datePublished,
+      dateModified: dateModified,
+      headline: headline,
+      description: description,
+      articleBody: articleBody,
+      keywords: keywords,
+      author: {
+        '@type': 'Person',
+        name: author
+      }
+    }
     return {
       title: title,
       meta: [
@@ -256,7 +276,14 @@ export default {
           content: tags
         }
       ],
-      link: [{ rel: 'canonical', href: this.url }]
+      link: [{ rel: 'canonical', href: this.url }],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          innerHTML: JSON.stringify(structuredData),
+          type: 'application/ld+json'
+        }
+      ]
     }
   }
 }
