@@ -88,7 +88,10 @@ export default {
       sameAs: [
         this.socialMediaItems[0].href,
         this.socialMediaItems[1].href,
-        this.socialMediaItems[2].href
+        this.socialMediaItems[2].href,
+        'https://www.facebook.com/manas.talukdar',
+        'https://www.instagram.com/manastalukdar/',
+        'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA'
       ]
     }
     return {
