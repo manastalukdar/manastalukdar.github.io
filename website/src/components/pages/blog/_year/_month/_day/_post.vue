@@ -217,6 +217,7 @@ export default {
       headline: headline,
       description: description,
       articleBody: articleBody,
+      genre: category,
       keywords: keywords,
       author: {
         '@type': 'Person',
@@ -227,8 +228,12 @@ export default {
         '@id': this.url
       },
       publisher: {
-        '@type': 'Person',
-        name: author
+        '@type': 'Organization',
+        name: this.appOwner + ' - Personal Website',
+        logo: {
+          '@type': 'ImageObject',
+          url: this.baseURL + '/favicon.ico'
+        }
       },
       image: this.baseURL + '/favicon.ico'
     }
