@@ -221,7 +221,16 @@ export default {
       author: {
         '@type': 'Person',
         name: author
-      }
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': this.url
+      },
+      publisher: {
+        '@type': 'Person',
+        name: author
+      },
+      image: this.baseURL + '/favicon.ico'
     }
     return {
       title: title,
