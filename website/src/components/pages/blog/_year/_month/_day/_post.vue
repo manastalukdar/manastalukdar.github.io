@@ -123,7 +123,7 @@ export default {
       return {
         postContent: md.render(res.body),
         postMetadata: payload,
-        baseURL: env.baseURL,
+        baseUrl: env.baseURL,
         postId: postIdTemp,
         url: env.baseURL + postIdTemp
       }
@@ -167,7 +167,7 @@ export default {
       return {
         postContent: md.render(res.body),
         postMetadata: postMetadata,
-        baseURL: env.baseURL,
+        baseUrl: env.baseURL,
         postId: postIdTemp,
         url: env.baseURL + '/' + postIdTemp
       }
@@ -187,6 +187,7 @@ export default {
     const categoriesArray = []
     const tagsArray = []
     const authorsArray = []
+    const authorsStructuredData = []
     this.postMetadata.categories.forEach(category => {
       categoriesArray.push(category.name)
       keywordsArray.push(category.name)
@@ -198,12 +199,14 @@ export default {
     this.postMetadata.authors.forEach(author => {
       authorsArray.push(author.name)
       keywordsArray.push(author.name)
+      authorsStructuredData.push({
+        '@type': 'Person',
+        name: author.name
+      })
     })
     const keywords = keywordsArray.join()
     const tags = tagsArray.join()
     const category = categoriesArray[0]
-    const author = authorsArray[0]
-    // const category = this.postMetadata.categories[0].name
 
     const datePublished = this.postMetadata['first-published-on']
     const dateModified = this.postMetadata['last-updated-on']
@@ -219,10 +222,7 @@ export default {
       articleBody: articleBody,
       genre: category,
       keywords: keywords,
-      author: {
-        '@type': 'Person',
-        name: author
-      },
+      author: authorsStructuredData,
       mainEntityOfPage: {
         '@type': 'WebPage',
         '@id': this.url
@@ -232,11 +232,19 @@ export default {
         name: this.appOwner + ' - Personal Website',
         logo: {
           '@type': 'ImageObject',
-          url: this.baseURL + '/favicon.ico'
+          url: this.baseUrl + '/favicon.ico'
         }
       },
-      image: this.baseURL + '/favicon.ico'
+      image: this.baseUrl + '/favicon.ico'
     }
+    const breadcrumbsStructuredData = this.breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@id': this.baseUrl + item.to,
+        name: item.text
+      }
+    }))
     return {
       title: title,
       meta: [
@@ -295,6 +303,10 @@ export default {
       script: [
         {
           innerHTML: JSON.stringify(structuredData),
+          type: 'application/ld+json'
+        },
+        {
+          innerHTML: JSON.stringify(breadcrumbsStructuredData),
           type: 'application/ld+json'
         }
       ]

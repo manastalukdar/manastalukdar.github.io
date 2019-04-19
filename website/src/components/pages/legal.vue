@@ -54,6 +54,14 @@ export default {
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
     const url = this.baseUrl + this.currentHref
+    const breadcrumbsStructuredData = this.breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@id': this.baseUrl + item.to,
+        name: item.text
+      }
+    }))
     return {
       title: title,
       meta: [
@@ -86,7 +94,14 @@ export default {
           content: this.description
         }
       ],
-      link: [{ rel: 'canonical', href: url }]
+      link: [{ rel: 'canonical', href: url }],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          innerHTML: JSON.stringify(breadcrumbsStructuredData),
+          type: 'application/ld+json'
+        }
+      ]
     }
   }
 }

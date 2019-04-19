@@ -95,6 +95,14 @@ export default {
       this.currentPage + ' | ' + this.tagName + ' || ' + this.appOwner
     const description = 'Blog posts with tag ' + this.tagName
     const url = this.baseUrl + this.blogDynamicItemsTag + this.tagUrlSlug + '/'
+    const breadcrumbsStructuredData = this.breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@id': this.baseUrl + item.to,
+        name: item.text
+      }
+    }))
     return {
       title: title,
       meta: [
@@ -127,7 +135,14 @@ export default {
           content: description
         }
       ],
-      link: [{ rel: 'canonical', href: url }]
+      link: [{ rel: 'canonical', href: url }],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          innerHTML: JSON.stringify(breadcrumbsStructuredData),
+          type: 'application/ld+json'
+        }
+      ]
     }
   }
 }
