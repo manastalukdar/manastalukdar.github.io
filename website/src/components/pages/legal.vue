@@ -54,14 +54,21 @@ export default {
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
     const url = this.baseUrl + this.currentHref
-    const breadcrumbsStructuredData = this.breadcrumbs.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      item: {
-        '@id': this.baseUrl + item.to,
-        name: item.text
-      }
-    }))
+    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
+      (item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@id': this.baseUrl + item.to,
+          name: item.text
+        }
+      })
+    )
+    const breadcrumbsStructuredData = {
+      '@context': 'http://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbsStructuredDataArray
+    }
     return {
       title: title,
       meta: [
