@@ -117,7 +117,8 @@ module.exports = {
         type: 'application/rss+xml',
         title: siteOwner + ' - blog',
         href: baseUrl + feedFileName
-      }
+      },
+      { rel: 'manifest', href: 'manifest.json' }
     ]
   },
 
