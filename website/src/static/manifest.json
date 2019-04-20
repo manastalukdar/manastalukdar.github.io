@@ -1,6 +1,9 @@
 {
     "short_name": "mt",
     "name": "Manas Talukdar",
+    "start_url": "/",
+    "background_color": "#303030",
+    "theme_color": "#263238",
     "icons": [
       {
         "src": "/images/icon-192.png",
