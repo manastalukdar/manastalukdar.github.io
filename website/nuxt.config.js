@@ -18,7 +18,7 @@ const faviconPath = '/favicon.ico'
 
 const siteName = siteOwner
 const siteDescription =
-  'Manas Talukdar is a software engineering manager experienced in building and running high performing teams by hiring and retaining top talent. Manas has recent experience and interest in cloud computing and distributed systems and his current core competencies are in large scale system design and people, project management.'
+  'Manas Talukdar is a software engineering manager in cloud computing and distributed systems, experienced in building and running high performing teams by hiring and retaining top talent. His current core competencies are in large scale system design and people, project management.'
 
 module.exports = {
   mode: 'universal',
