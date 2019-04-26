@@ -26,7 +26,7 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state =>
-        state.Navigation.blog.blogText + ' | ' + state.Navigation.blog.yearText,
+        state.Navigation.blog.yearText + ' | ' + state.Navigation.blog.blogText,
       yearText: state => state.Navigation.blog.yearText,
       blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
       blogBaseHref: state => state.Navigation.blog.dynamicItems.blogBase.href
@@ -82,7 +82,7 @@ export default {
   },
   head() {
     const title =
-      this.currentPage + ' | ' + this.yearName + ' || ' + this.appOwner
+      this.yearName + ' | ' + this.currentPage + ' || ' + this.appOwner
     const description = 'Blog posts on year ' + this.yearName
     const url = this.baseUrl + this.blogBaseHref + this.yearUrlSlug + '/'
     const breadcrumbsStructuredDataArray = this.breadcrumbs.map(

@@ -26,9 +26,9 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state =>
-        state.Navigation.blog.blogText +
+        state.Navigation.blog.categoryText +
         ' | ' +
-        state.Navigation.blog.categoryText,
+        state.Navigation.blog.blogText,
       categoryText: state => state.Navigation.blog.categoryText,
       blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
       blogDynamicItemsCategory: state =>
@@ -97,7 +97,7 @@ export default {
   },
   head() {
     const title =
-      this.currentPage + ' | ' + this.categoryName + ' || ' + this.appOwner
+      this.categoryName + ' | ' + this.currentPage + ' || ' + this.appOwner
     const description = 'Blog posts in category ' + this.categoryName
     const url =
       this.baseUrl + this.blogDynamicItemsCategory + this.categoryUrlSlug + '/'

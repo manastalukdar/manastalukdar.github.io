@@ -26,7 +26,7 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state =>
-        state.Navigation.blog.blogText + ' | ' + state.Navigation.blog.dayText,
+        state.Navigation.blog.dayText + ' | ' + state.Navigation.blog.blogText,
       dayText: state => state.Navigation.blog.dayText,
       blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
       blogBaseHref: state => state.Navigation.blog.dynamicItems.blogBase.href
@@ -86,7 +86,7 @@ export default {
   },
   head() {
     const title =
-      this.currentPage + ' | ' + this.dayName + ' || ' + this.appOwner
+      this.dayName + ' | ' + this.currentPage + ' || ' + this.appOwner
     const description = 'Blog posts on day ' + this.dayName
     const url = this.baseUrl + this.blogBaseHref + this.dayUrlSlug + '/'
     const breadcrumbsStructuredDataArray = this.breadcrumbs.map(

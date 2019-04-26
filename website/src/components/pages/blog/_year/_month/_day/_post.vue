@@ -33,7 +33,7 @@ export default {
   computed: {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
-      currentPage: state => state.Navigation.blog.blogText + ' | ',
+      currentPage: state => state.Navigation.blog.blogText,
       blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
       blogBaseHref: state => state.Navigation.blog.dynamicItems.blogBase.href
     }),
@@ -181,7 +181,11 @@ export default {
       this.$route.params.post
     ) */
     const title =
-      this.currentPage + this.postMetadata.title + ' || ' + this.appOwner
+      this.postMetadata.title +
+      ' | ' +
+      this.currentPage +
+      ' || ' +
+      this.appOwner
     const description = this.postMetadata.meta.description
     const keywordsArray = []
     const categoriesArray = []

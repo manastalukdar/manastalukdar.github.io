@@ -26,9 +26,9 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state =>
-        state.Navigation.blog.blogText +
+        state.Navigation.blog.postFormatText +
         ' | ' +
-        state.Navigation.blog.postFormatText,
+        state.Navigation.blog.blogText,
       postFormatText: state => state.Navigation.blog.postFormatText,
       blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
       blogDynamicItemsPostFormat: state =>
@@ -89,7 +89,7 @@ export default {
   },
   head() {
     const title =
-      this.currentPage + ' | ' + this.postFormatType + ' || ' + this.appOwner
+      this.postFormatType + ' | ' + this.currentPage + ' || ' + this.appOwner
     const description = 'Blog posts of format ' + this.postFormatType
     const url =
       this.baseUrl + this.blogDynamicItemsPostFormat + this.postFormatType + '/'

@@ -26,9 +26,9 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state =>
-        state.Navigation.blog.blogText +
+        state.Navigation.blog.authorText +
         ' | ' +
-        state.Navigation.blog.authorText,
+        state.Navigation.blog.blogText,
       authorText: state => state.Navigation.blog.authorText,
       blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
       blogDynamicItemsAuthor: state =>
@@ -95,7 +95,7 @@ export default {
   },
   head() {
     const title =
-      this.currentPage + ' | ' + this.authorName + ' || ' + this.appOwner
+      this.authorName + ' | ' + this.currentPage + ' || ' + this.appOwner
     const description = 'Blog posts by author ' + this.authorName
     const url =
       this.baseUrl + this.blogDynamicItemsAuthor + this.authorUrlSlug + '/'
