@@ -29,9 +29,9 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state =>
-        state.Navigation.about.aboutText +
+        state.Navigation.about.aboutItems[0].text +
         ' | ' +
-        state.Navigation.about.aboutItems[0].text,
+        state.Navigation.about.aboutText,
       currentHref: state => state.Navigation.about.aboutItems[0].href
     }),
     breadcrumbs: function() {

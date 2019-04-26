@@ -78,9 +78,9 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state =>
-        state.Navigation.blog.blogText +
+        state.Navigation.blog.blogItems[4].text +
         ' | ' +
-        state.Navigation.blog.blogItems[4].text,
+        state.Navigation.blog.blogText,
       blogMetadata: state => state.BlogMetadata.blogMetadata,
       pageTitle: state => state.Navigation.blog.blogItems[4].text,
       blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
