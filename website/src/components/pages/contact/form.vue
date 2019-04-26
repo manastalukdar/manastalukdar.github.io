@@ -87,7 +87,7 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state =>
-        state.Navigation.contact.contactForm.Text +
+        state.Navigation.contact.contactForm.text +
         ' | ' +
         state.Navigation.contact.contactText,
       currentHref: state => state.Navigation.contact.contactForm.href
