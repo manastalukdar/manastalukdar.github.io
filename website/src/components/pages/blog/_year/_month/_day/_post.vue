@@ -236,10 +236,10 @@ export default {
         name: this.appOwner + ' - Personal Website',
         logo: {
           '@type': 'ImageObject',
-          url: this.baseUrl + '/favicon.ico'
+          url: this.baseUrl + '/images/android-chrome-512x512.png'
         }
       },
-      image: this.baseUrl + '/favicon.ico'
+      image: this.baseUrl + '/images/android-chrome-512x512.png'
     }
     const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
       (item, index) => ({
