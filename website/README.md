@@ -56,3 +56,11 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+### Update nuget packages
+
+```
+npm update
+```
+
+As of npm@2.6.1, the npm update will only inspect top-level packages. Prior versions of npm would also recursively inspect all dependencies. To get the old behavior, use npm --depth 9999 update. [ref](https://docs.npmjs.com/cli/update.html)
