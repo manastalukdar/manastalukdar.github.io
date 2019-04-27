@@ -3,7 +3,6 @@ published: true
 tags:
  - Software Engineering
  - Engineering Leadership
- - Engineering Management
 categories:
  - Technology
 authors:
