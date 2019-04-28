@@ -7,6 +7,7 @@ tags:
  - Agile Methodology
  - Continuous Integration
  - Git
+ - Gitflow
 categories:
  - Technology
 authors:
@@ -18,7 +19,7 @@ first-published-on: 2019-04-28 04:15 pm
 last-updated-on: 2019-04-28 04:15 pm
 meta:
  description: "An implementation of continuous integration using Git branching and pull requests."
-excerpt: "I like to follow the GitFlow branching model with slight variations."
+excerpt: "I like to follow the Gitflow branching model with slight variations."
 ---
 
 # Continuous Integration using Git Branching and Pull Requests
@@ -27,7 +28,7 @@ ${toc}
 
 ## Source branching model
 
-I like to follow the GitFlow branching model \[[ref](http://nvie.com/posts/a-successful-git-branching-model/)\] with slight variations.
+I like to follow the Gitflow branching model \[[ref](http://nvie.com/posts/a-successful-git-branching-model/)\] with slight variations.
 
 ### Main branches
 
@@ -61,7 +62,7 @@ May branch off from `master`. Must merge back into `develop` and `master`. Branc
 
 ### Diagram
 
-![GitFlow](http://nvie.com/img/git-model@2x.png)
+![Gitflow](http://nvie.com/img/git-model@2x.png)
 
 ## Making changes
 
@@ -93,7 +94,7 @@ May branch off from `master`. Must merge back into `develop` and `master`. Branc
 ### Method 2
 
 1. Create feature branch locally
-    - Using GitFlow (command line or your Git Client UI of choice).
+    - Using Gitflow (command line or your Git Client UI of choice).
     - Using raw git commands (feel free to, but option above is easier).
 1. Make changes and commits into new local feature branch.
 1. Push new local feature branch to remote origin.
