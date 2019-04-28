@@ -5,7 +5,6 @@ tags:
  - Project Management
  - Software Engineering
  - Agile Methodology
- - Scrum
  - Continuous Integration
  - Git
 categories:
