@@ -29,5 +29,6 @@
       ],
       "eslint.autoFixOnSave": true,
       "editor.formatOnSave": false,
-      "vetur.validation.template": false
+      "vetur.validation.template": false,
+      "markdown.extension.print.onFileSave": false
 }
