@@ -19,7 +19,7 @@ first-published-on: 2019-04-28 04:15 pm
 last-updated-on: 2019-04-28 04:15 pm
 meta:
  description: "An implementation of continuous integration using Git branching and pull requests."
-excerpt: ""
+excerpt: "I like to follow the GitFlow branching model with slight variations."
 ---
 
 # Continuous Integration using Git Branching and Pull Requests
