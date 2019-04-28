@@ -14,7 +14,7 @@ post-format: standard
 title: Development Methodology
 url-slug: development-methodology
 first-published-on: 2019-04-28 01:15 pm
-last-updated-on: 2019-04-28 01:15 pm
+last-updated-on: 2019-04-28 01:45 pm
 meta:
  description: "An exposition of the software development methodology in engineering teams I run."
 excerpt: "Software Engineering teams I run follow agile development process, specifically scrum, or a close variation of it."
@@ -58,7 +58,7 @@ I like to use two types of backlog items:
 - Product backlog item: Maps to a parent feature.
 - Bug
 
-The team maintains a backlog with any team member being able to create backlog items. The person creating the backlog item needs to enter a description, an acceptance criteria and assign in to the right area path. Additionally s/he needs to notify me, the Engineering Manager, that this new backlog item has been created. I then verify that the work defined is appropriate and made any edits if needed.
+The team maintains a backlog with any team member being able to create backlog items. The person creating the backlog item needs to enter a description, an acceptance criteria and assign it to the right area path. Additionally s/he needs to notify me, the Engineering Manager, that this new backlog item has been created. I then verify that the work defined is appropriate and make any edits if needed. I will also make sure that the backlog item has a parent feature, if it is not a bug.
 
 ## Work Item States
 
@@ -124,7 +124,7 @@ Sometimes a "Approve WI" task may be created. This will typically be assigned to
 
 ## During the Course of the Sprint
 
-It is the responsibility of the owner of a backlog item to make sure all child tasks are done and closed out before the end of the sprint, and then also close out the backlog items itself.
+It is the responsibility of the owner of a backlog item to make sure all child tasks are done and closed out before the end of the sprint, and then also close out the backlog item itself.
 
 It is the responsibility of the assignee of a task to update the remaining hours diligently so that the sprint burn-down chart accurately reflects the work-in-progress and the work details correctly displays the remaining work in hours per developer.
 
