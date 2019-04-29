@@ -21,6 +21,8 @@ excerpt: "Open WinDbg and go to File > Attach to a Process. Select the process f
 
 # Working with Memory Dumps on Windows using WinDbg
 
+${toc}
+
 ## Getting a Memory Dump
 
 - Open WinDbg and go to File > Attach to a Process. Select the process from the list and hit OK.
