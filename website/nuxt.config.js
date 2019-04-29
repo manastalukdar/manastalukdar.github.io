@@ -157,18 +157,6 @@ module.exports = {
   ],
 
   /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: [
-    '@/plugins/vuetify',
-    '@/plugins/fontawesome.js',
-    '@/plugins/materialdesignicons.js',
-    '@plugins/vueAsyncComputed.js',
-    '~/plugins/disqus',
-    '~/plugins/socialsharing'
-  ],
-
-  /*
    ** Nuxt.js modules
    */
   modules: [
@@ -180,6 +168,19 @@ module.exports = {
     '@nuxtjs/redirect-module',
     '@nuxtjs/sitemap'
   ],
+
+  /*
+   ** Plugins to load before mounting the App
+   */
+  plugins: [
+    '@/plugins/vuetify',
+    '@/plugins/fontawesome.js',
+    '@/plugins/materialdesignicons.js',
+    '@plugins/vueAsyncComputed.js',
+    '~/plugins/disqus',
+    '~/plugins/socialsharing'
+  ],
+
   /*
    ** Axios module configuration
    */
@@ -287,7 +288,12 @@ module.exports = {
     generate: true,
     gzip: true,
     filter({ routes }) {
-      return routes.map(route => (route.url = `${route.url}/`))
+      return routes.map(route => {
+        if (!route.url.endsWith('.xml') && !route.url.endsWith('/')) {
+          route.url = `${route.url}/`
+        }
+        return route
+      })
     },
     routes() {
       getRoutes.functions.generateRoutes()
@@ -300,7 +306,7 @@ module.exports = {
   redirect: [
     {
       // https://stackoverflow.com/questions/54346345/nuxt-js-force-trailing-slash-at-the-end-of-all-urls
-      from: '^.*(?<!/)$', // ^.*(?<!\.(png|jpg))$
+      from: '^.*(?<!/)$', // ^.*(?<!\.(png|jpg))$    ^.*(?<!/)$
       to: (from, req) => req.url + '/'
     }
   ],
