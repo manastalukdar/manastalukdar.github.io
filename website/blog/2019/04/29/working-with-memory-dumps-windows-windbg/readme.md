@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 tags:
  - Memory Dumps
  - Debugging
@@ -12,8 +12,8 @@ authors:
 post-format: standard
 title: Working with Memory Dumps on Windows using WinDbg
 url-slug: working-with-memory-dumps-windows-windbg
-first-published-on: 2019-04-28 08:00 pm
-last-updated-on: 2019-04-28 08:00 pm
+first-published-on: 2019-04-29 10:55 am
+last-updated-on: 2019-04-29 10:55 am
 meta:
  description: "Some steps on getting and analyzing memory dumps on Windows using WinDbg."
 excerpt: "Open WinDbg and go to File > Attach to a Process. Select the process from the list and hit OK."

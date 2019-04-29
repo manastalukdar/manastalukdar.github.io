@@ -12,7 +12,7 @@ authors:
 post-format: standard
 title: Git vs. Team Foundation Version Control
 url-slug: git-vs-team-foundation-version-control
-first-published-on: 2019-04-29 10:55 am
+first-published-on: 2019-04-29 10:50 am
 last-updated-on: 2019-04-29 10:55 am
 meta:
  description: "A comparison of Git vs. Team Foundation Version Control with motivations for moving to Git."
