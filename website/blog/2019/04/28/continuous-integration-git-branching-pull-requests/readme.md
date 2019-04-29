@@ -1,8 +1,6 @@
 ---
 published: true
 tags:
- - Engineering Leadership
- - Project Management
  - Software Engineering
  - Agile Methodology
  - Continuous Integration

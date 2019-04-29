@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 tags:
  - Git
  - Team Foundation Version Control
@@ -12,14 +12,14 @@ authors:
 post-format: standard
 title: Git vs. Team Foundation Version Control
 url-slug: git-vs-team-foundation-version-control
-first-published-on: 2019-03-20 00:00 am
-last-updated-on: 2019-03-20 00:00 pm
+first-published-on: 2019-04-29 10:55 am
+last-updated-on: 2019-04-29 10:55 am
 meta:
  description: "A comparison of Git vs. Team Foundation Version Control with motivations for moving to Git."
 excerpt: "The primary motivation for moving to Git is the far better support for branching and merging."
 ---
 
-**Note**: Some years back I had written up some reasons for moving to Git. Looking through some of my old notes I ran into the write-up and decided to make a blog post out of it.
+**Note**: Some years back I had written up reasons for moving to Git. Looking through some of my old notes I ran into the write-up and decided to make a blog post out of it.
 
 # Git vs. Team Foundation Version Control
 
