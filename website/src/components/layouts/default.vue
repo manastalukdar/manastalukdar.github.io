@@ -114,13 +114,14 @@ h3 {
   margin-bottom: 2em;
 }
 pre {
-  margin: 1.5em;
+  margin: 2em;
 }
 pre code {
   margin: 0em;
   padding: 1em;
 }
 code {
-  margin: 0.2em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
 }
 </style>
