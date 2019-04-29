@@ -326,15 +326,7 @@ export default {
 }
 </script>
 
-<style scoped>
-pre {
-  margin: 2em;
-}
-code {
-  margin: 0em;
-  padding: 1em;
-}
-</style>
+<style scoped></style>
 <style>
 blockquote {
   padding: 10px 20px;

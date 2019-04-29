@@ -113,4 +113,14 @@ h3 {
   margin-top: 2em;
   margin-bottom: 2em;
 }
+pre {
+  margin: 1.5em;
+}
+pre code {
+  margin: 0em;
+  padding: 1em;
+}
+code {
+  margin: 0.2em;
+}
 </style>
