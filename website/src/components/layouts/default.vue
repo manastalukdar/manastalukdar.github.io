@@ -115,6 +115,16 @@ h3 {
 }
 pre {
   margin: 2em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+}
+@media all and (orientation: landscape) {
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: justify;
+  }
 }
 pre code {
   margin: 0em;
@@ -123,5 +133,66 @@ pre code {
 code {
   margin-left: 0.25em;
   margin-right: 0.25em;
+}
+/*
+Generic Styling, for Desktops/Laptops
+*/
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  /*white-space: nowrap;
+  width: 100%;
+  max-height: 100%;*/
+}
+th {
+  /*background: #333;
+  color: white;*/
+  font-weight: bold;
+}
+td,
+th {
+  padding: 6px;
+  border: 1px solid #ccc;
+  text-align: left;
+  /*white-space: pre-wrap;
+  word-wrap: break-word;*/
+}
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Force table to not be like tables anymore */
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    max-width: 100%;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    /*border-bottom: 1px solid #eee;*/
+    position: relative;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .blogPostContent a {
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
 }
 </style>
