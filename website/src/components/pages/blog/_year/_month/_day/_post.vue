@@ -327,31 +327,3 @@ export default {
 </script>
 
 <style scoped></style>
-<style>
-blockquote {
-  padding: 10px 20px;
-  margin: 0 0 20px;
-  font-size: 16px;
-  font-weight: 300;
-  border-left: 2px solid #eee;
-}
-.iframe-container {
-  position: relative;
-  padding-bottom: 56.25%; /* set the aspect ratio here as (height / width) * 100% */
-  margin: 2em;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  align-content: center;
-}
-.iframe-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-  margin: auto;
-}
-</style>
