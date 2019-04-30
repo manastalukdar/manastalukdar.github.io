@@ -10,7 +10,6 @@ const baseUrl =
     : 'http://localhost:3000'
 
 const staticDir = './src/static'
-const staticOldDir = './src/staticOld'
 const feedFileName = '/blogfeed.xml'
 const feedPath = staticDir + feedFileName
 const siteOwner = 'Manas Talukdar'
@@ -46,7 +45,7 @@ module.exports = {
 
   // https://pwa.nuxtjs.org/modules/icon.html
   icon: {
-    iconSrc: staticOldDir + '/images/android-chrome-512x512.png',
+    iconSrc: staticDir + '/images/android-chrome-512x512.png',
     targetDir: staticDir + '/generatedIcons'
   },
 
