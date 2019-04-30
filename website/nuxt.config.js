@@ -32,6 +32,23 @@ module.exports = {
     // ...
   },
 
+  // https://pwa.nuxtjs.org/modules/manifest.html
+  manifest: {
+    short_name: 'MTalukdar',
+    name: 'Manas Talukdar',
+    start_url: '/',
+    background_color: '#303030',
+    theme_color: '#263238',
+    display: 'standalone',
+    lang: 'en'
+  },
+
+  // https://pwa.nuxtjs.org/modules/icon.html
+  icon: {
+    iconSrc: staticDir + '/images/android-chrome-192x192.png',
+    targetDir: staticDir + '/generatedIcons'
+  },
+
   /*
    ** Headers of the page
    */
@@ -118,7 +135,7 @@ module.exports = {
         title: siteOwner + ' - blog',
         href: baseUrl + feedFileName
       },
-      { rel: 'manifest', href: 'manifest.json' },
+      //{ rel: 'manifest', href: 'manifest.json' },
       {
         rel: 'icon',
         type: 'image/png',
