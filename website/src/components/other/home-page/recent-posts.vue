@@ -7,6 +7,7 @@
         raised
         elevation="8"
         style="height:100%"
+        :to="blogItems[0].href"
       >
         <recentPosts
           :items-to-display="itemsToDisplay"
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import recentPosts from '../blog/recent-posts/list.vue'
 export default {
   components: {
@@ -36,7 +38,10 @@ export default {
   computed: {
     cardColor() {
       return this.$store.getters['GlobalData/getCardColor']
-    }
+    },
+    ...mapState({
+      blogItems: state => state.Navigation.blog.blogItems
+    })
   }
 }
 </script>
