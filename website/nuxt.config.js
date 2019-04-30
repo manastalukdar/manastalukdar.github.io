@@ -276,6 +276,10 @@ module.exports = {
   },
 
   router: {
+    // https://nuxtjs.org/api/configuration-router#scrollbehavior
+    scrollBehavior: function(to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    },
     extendRoutes(routes, resolve) {
       routes.push({
         name: 'custom',
