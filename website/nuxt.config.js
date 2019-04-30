@@ -300,7 +300,7 @@ module.exports = {
   },
 
   sitemap: {
-    path: staticDir + sitemapPath,
+    path: '.' + sitemapPath,
     hostname: baseUrl,
     cacheTime: 1000 * 60 * 15, // 15 mins
     gzip: true,
