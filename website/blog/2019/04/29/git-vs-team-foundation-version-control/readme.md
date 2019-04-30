@@ -88,7 +88,7 @@ May branch off from master. Must merge back into develop and master. Branch nami
 
 I Highly recommend [this](http://nvie.com/posts/a-successful-git-branching-model/) article.
 
-![alt text](http://nvie.com/img/git-model@2x.png)
+![Gitflow](http://nvie.com/img/git-model@2x.png)
 
 ## 4. How to accomplish some TFVC Tasks in Git
 

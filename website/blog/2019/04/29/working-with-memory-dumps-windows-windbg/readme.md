@@ -53,5 +53,5 @@ spellcast!CreateInstance+0x7f79d:
 
 ## References
 
-- <https://github.com/Windower/Issues/wiki/Creating-crash-dumps-with-Windbg>
-- <https://www.codeproject.com/Articles/6084/Windows-Debuggers-Part-A-WinDbg-Tutorial>
+- [Creating crash dumps with Windbg](https://github.com/Windower/Issues/wiki/Creating-crash-dumps-with-Windbg)
+- [Windows Debuggers: Part 1: A WinDbg Tutorial](https://www.codeproject.com/Articles/6084/Windows-Debuggers-Part-A-WinDbg-Tutorial)
