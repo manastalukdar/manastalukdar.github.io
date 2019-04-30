@@ -5,6 +5,7 @@
         {{ pageTitle }}
       </v-layout>
     </v-flex>
+    <p />
     <v-flex xs12 py-2>
       <div v-for="post in posts" :key="post['name']">
         <singlePost :post-metadata="post" />
