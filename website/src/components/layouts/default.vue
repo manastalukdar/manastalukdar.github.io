@@ -165,25 +165,18 @@ blockquote {
 /*
 Generic Styling, for Desktops/Laptops
 */
-table {
+.blogPostContent table {
   border-collapse: collapse;
   table-layout: fixed;
-  /*white-space: nowrap;
-  width: 100%;
-  max-height: 100%;*/
 }
-th {
-  /*background: #333;
-  color: white;*/
+.blogPostContent th {
   font-weight: bold;
 }
-td,
-th {
+.blogPostContent td,
+.blogPostContent th {
   padding: 6px;
   border: 1px solid #ccc;
   text-align: left;
-  /*white-space: pre-wrap;
-  word-wrap: break-word;*/
 }
 
 /*
@@ -194,7 +187,7 @@ and also iPads specifically.
 @media only screen and (max-width: 760px),
   (min-device-width: 768px) and (max-device-width: 1024px) {
   /* Force table to not be like tables anymore */
-  table,
+  .blogPostContent table,
   thead,
   tbody,
   th,
@@ -204,14 +197,13 @@ and also iPads specifically.
     max-width: 100%;
   }
 
-  tr {
+  .blogPostContent tr {
     border: 1px solid #ccc;
   }
 
-  td {
+  .blogPostContent td {
     /* Behave  like a "row" */
     border: none;
-    /*border-bottom: 1px solid #eee;*/
     position: relative;
     white-space: pre-wrap;
     word-wrap: break-word;
