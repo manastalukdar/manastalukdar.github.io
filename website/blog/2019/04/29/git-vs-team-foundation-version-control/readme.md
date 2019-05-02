@@ -13,7 +13,7 @@ post-format: standard
 title: Git vs. Team Foundation Version Control
 url-slug: git-vs-team-foundation-version-control
 first-published-on: 2019-04-29 10:50 am
-last-updated-on: 2019-04-29 10:55 am
+last-updated-on: 2019-05-02 12:47 pm
 meta:
  description: "A comparison of Git vs. Team Foundation Version Control with motivations for moving to Git."
 excerpt: "The primary motivation for moving to Git is the far better support for branching and merging."
@@ -25,11 +25,11 @@ excerpt: "The primary motivation for moving to Git is the far better support for
 
 ${toc}
 
-## 1. Overview
+## Overview
 
 The primary motivation for moving to Git is the far better support for branching and merging. Specifically, the GitFlow branching model (section 3 below) will help manage parallel and distributed development, especially for a distributed team. Git is very widely used and is gradually becoming a source control branching standard. Furthermore, while merging in Git is no silver bullet and we still must do our due diligence, it is reported to be much better than in Team Foundation Version Control (TFVC) (section 2.3, 2.4 and 2.5 below).
 
-## 2. A summary of Git vs TFVC
+## A summary of Git vs TFVC
 
 | Sl. No. | Concept | Git | TFVC | Winner | Comments |
 |---------|---------|-----|------|--------|----------|
@@ -52,11 +52,11 @@ The primary motivation for moving to Git is the far better support for branching
 | 17 | Annotate | N/A | Native | TFVC | <http://weblogs.asp.net/joelvarty/tfs-who-edited-this-text-annotations-in-source-control> |
 | 18 | Checkin locks | N/A | Native | TFVC | <https://msdn.microsoft.com/en-us/library/ms181419.aspx> |
 
-## 3. Proposal for new branching framework
+## Proposal for new branching framework
 
 The GitFlow branching model is proposed \[[ref](http://nvie.com/posts/a-successful-git-branching-model/)\]. (Diagram at the end of this section)
 
-### 3.1 Main branches
+### Main branches
 
 There are two main branches (each of infinite timeline):
 
@@ -73,16 +73,16 @@ Then there are three types of supporting branches:
 - Release branches
 - Hotfix branches
 
-### 3.2 Feature branches
+### Feature branches
 
 May branch off from develop. Must merge back into develop. Branch naming
 convention: anything except master, develop, release-\*, or hotfix-\*.
 
-### 3.3 Release branches
+### Release branches
 
 May branch off from develop. Must merge back into develop and master. Branch naming convention: release-\*.
 
-### 3.4 Hotfix branches
+### Hotfix branches
 
 May branch off from master. Must merge back into develop and master. Branch naming convention: hotfix-\*.
 
@@ -90,9 +90,9 @@ I Highly recommend [this](http://nvie.com/posts/a-successful-git-branching-model
 
 ![Gitflow](http://nvie.com/img/git-model@2x.png)
 
-## 4. How to accomplish some TFVC Tasks in Git
+## How to accomplish some TFVC Tasks in Git
 
-### 4.1 Common actions
+### Common actions
 
 First clone the remote repository (repo). Now log in using the correct
 credentials (if you are prompted).
@@ -109,28 +109,28 @@ To check history, go to the branch and select view history from the context menu
 
 To compare files across different commits, either use the web UI (VSO) or use another 3^rd^ part client called Git Extensions. No VS support here.
 
-### 4.2 Some TFVC actions not natively available in Git
+### Some TFVC actions not natively available in Git
 
-#### 4.2.1 Check-in policies
+#### Check-in policies
 
 This is available in VSO Git on a per-branch and per pull request [basis](https://blogs.msdn.microsoft.com/buckh/2016/03/20/gated-checkin-for-git-using-branch-policies-to-run-a-build-in-vsts-and-tfs/). So, we absolutely need to enable this for the master and develop branches.
 
 Enforcing a comment for every commit is enabled by default on VSO. For [linking](https://visualstudio.uservoice.com/forums/330519-team-services/suggestions/4038344-associate-a-git-commit-with-a-work-item) every commit to a backlog item, either the \#ID [mention](http://www.codewrecks.com/blog/index.php/2013/01/31/associate-work-items-to-check-in-in-a-tf-service-git-enabled-repository/) in the commit comment can be used, or the VS “commit changes” UI can be [used](https://blogs.msdn.microsoft.com/visualstudioalm/2016/03/02/linking-work-items-to-git-branches-commits-and-pull-requests/) (similar to TFVC). For enforcing this, a plugin for custom check-in policy can be [written](http://almsports.net/tfs-server-side-check-in-policy-for-git-repositories/1025/).
 
-#### 4.2.2 Code Reviews
+#### Code Reviews
 
 This can be availed using Pull Requests. There is no direct equivalent of the VS TFVC code review feature. 3rd part tools like Gerrit are available.
 
-#### 4.2.3 Shelvesets
+#### Shelvesets
 
 There is no direct equivalent in Git. The closest alternative is to create a temporary branch, especially if others need to get to it. More details
 [here](http://stackoverflow.com/questions/3069979/whats-the-git-equivalent-of-tfs-commands-shelve-unshelve-cherry-pick).
 
-#### 4.2.4 Gated Builds
+#### Gated Builds
 
 Use pull requests and set up a build to trigger on every pull request being submitted.
 
-## 5. Further reading
+## Further reading
 
 - <http://www.richard-banks.org/2014/02/tfs-internals-how-does-tfs-store-git.html>
 - <https://msdn.microsoft.com/Library/vs/alm/code/overview#tfvc_or_git_details>
