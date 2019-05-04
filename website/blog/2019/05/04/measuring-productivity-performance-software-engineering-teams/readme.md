@@ -13,7 +13,7 @@ post-format: standard
 title: Measuring Productivity and Performance of Software Engineering Teams
 url-slug: measuring-productivity-performance-software-engineering-teams
 first-published-on: 2019-05-04 01:15 pm
-last-updated-on: 2019-05-04 01:15 pm
+last-updated-on: 2019-05-04 01:19 pm
 meta:
  description: "A data-driven methodology for measuring productivity and performance of software engineering teams."
 excerpt: "A key facet of running software engineering teams is being able to measure team performance over time."
@@ -55,7 +55,7 @@ This metrics has two measurements. For both of them, positive number indicates i
 
 Linear regression analysis is done over the project data.
 
-#### Average delta change per sprint (in percentage)
+#### Average Delta Change per Sprint (in percentage)
 
 This is a calculated value over the project data.
 
