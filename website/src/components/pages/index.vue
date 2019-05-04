@@ -5,8 +5,19 @@
     <v-layout pa-2>
       <aboutBlurb />
     </v-layout>
-    <v-layout pa-2>
-      <socialMediaAndResumeLinks />
+
+    <v-layout row wrap>
+      <v-flex sm6>
+        <v-layout pa-2 column style="height:100%">
+          <featured />
+        </v-layout>
+      </v-flex>
+
+      <v-flex sm6>
+        <v-layout pa-2 column style="height:100%">
+          <socialMediaAndResumeLinks />
+        </v-layout>
+      </v-flex>
     </v-layout>
 
     <v-layout row wrap>
@@ -35,6 +46,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import featured from '../other/home-page/featured.vue'
 import socialMediaAndResumeLinks from '../other/home-page/social-media-resume.vue'
 import aboutBlurb from '../other/home-page/about-blurb.vue'
 import highlights from '../other/home-page/highlights.vue'
@@ -43,6 +55,7 @@ import interests from '../other/home-page/interests.vue'
 import recentUpdates from '../other/home-page/recent-updates.vue'
 export default {
   components: {
+    featured,
     socialMediaAndResumeLinks,
     aboutBlurb,
     highlights,
