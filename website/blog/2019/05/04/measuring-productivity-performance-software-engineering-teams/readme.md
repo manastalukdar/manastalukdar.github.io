@@ -13,7 +13,7 @@ post-format: standard
 title: Measuring Productivity and Performance of Software Engineering Teams
 url-slug: measuring-productivity-performance-software-engineering-teams
 first-published-on: 2019-05-04 01:15 pm
-last-updated-on: 2019-05-04 01:19 pm
+last-updated-on: 2019-05-04 01:35 pm
 meta:
  description: "A data-driven methodology for measuring productivity and performance of software engineering teams."
 excerpt: "A key facet of running software engineering teams is being able to measure team performance over time."
@@ -25,13 +25,13 @@ ${toc}
 
 A key facet of running software engineering teams is being able to measure team productivity and performance over time. This allows for gauging how a team is doing and whether any course correction is needed. It is also a means for measuring effectiveness of the Engineering Manager.
 
-The first step for measuring performance is to establish key performance indicators (KPI), or productivity metrics. In my teams, I like to use the following KPIs.
+The first step for measuring performance is to establish key performance indicators (KPI), or productivity metrics. If the team already uses an Agile development process, that can help in figuring out these metrics. In my teams, I like to use the following KPIs.
 
 ## Metrics
 
 ### Sprint Velocity
 
-This is the total effort points done as part of the sprint. The key here is that we should only take into account effort points for sprint backlog items that have been explicitly marked as "Done" (or Completed), before the end of the sprint. There can be three ways of measuring sprint velocity
+This is the total effort points done as part of the sprint. The key here is that we should only take into account effort points for sprint backlog items that have been explicitly marked as "Done" (or Completed), before the end of the sprint. There can be three ways of measuring sprint velocity.
 
 1. Absolute - This is the absolutely value of the sum of effort points for all "Done" sprint backlog items.
 2. Average value
