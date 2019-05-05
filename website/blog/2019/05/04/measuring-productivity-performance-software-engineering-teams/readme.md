@@ -39,13 +39,13 @@ This is the total effort points done as part of the sprint. The key here is that
    2. Find the absolute value of the sum of effort points for all "Done" sprint backlog items for each sprint within the established limits.
    3. Sum up all the absolute values from previous step.
    4. Divide the sum from previous step by the number of sprints within the established limits.
-3. Sliding window average - As the name suggests, this is also an average measurement of a certain window size, but the calculate is based on a sliding window algorithm. The sliding window average has the advantage of minimizing any potential variability from:
+3. Sliding window average - As the name suggests, this is also an average measurement of a certain window size, but the calculation is based on a sliding window algorithm. The sliding window average has the advantage of minimizing any potential variability from:
    1. Team members taking time-off, extended or otherwise, planned or unplanned.
    2. Unforeseen and/or out-of-control impediments.
 
 ### Unfinished or Closed Late items
 
-This is the number of sprint backlog items that are either not completed ot closed out after the sprint end date.
+This is the number of sprint backlog items that are either not completed, or closed out after the sprint end date.
 
 ### Sprint Velocity Trend
 
