@@ -74,7 +74,16 @@ export default {
       aboutItems: state => state.Navigation.about.aboutItems,
       appOwner: state => state.GlobalData.appOwner,
       blogMetadata: state => state.BlogMetadata.blogMetadata
-    })
+    }),
+    breadcrumbs: function() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/'
+        }
+      ]
+    }
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
@@ -93,6 +102,21 @@ export default {
   },
   head() {
     const url = this.baseUrl + this.currentHref
+    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
+      (item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@id': this.baseUrl + item.to,
+          name: item.text
+        }
+      })
+    )
+    const breadcrumbsStructuredData = {
+      '@context': 'http://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbsStructuredDataArray
+    }
     const structuredData = {
       '@context': 'http://schema.org',
       '@type': 'Person',
@@ -114,6 +138,10 @@ export default {
       script: [
         {
           innerHTML: JSON.stringify(structuredData),
+          type: 'application/ld+json'
+        },
+        {
+          innerHTML: JSON.stringify(breadcrumbsStructuredData),
           type: 'application/ld+json'
         }
       ]
