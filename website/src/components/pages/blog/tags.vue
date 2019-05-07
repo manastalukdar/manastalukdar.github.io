@@ -4,8 +4,10 @@
     <p />
     <v-layout text-xs-justify wrap>
       <v-flex xs12>
-        <v-layout row justify-center headline>
-          {{ pageTitle }}
+        <v-layout row justify-center>
+          <h1>
+            {{ pageTitle }}
+          </h1>
         </v-layout>
       </v-flex>
       <v-flex xs12>

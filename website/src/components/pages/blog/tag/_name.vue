@@ -4,8 +4,8 @@
     <p />
     <v-layout text-xs-justify wrap>
       <v-flex xs12>
-        <v-layout row justify-center class="headline">
-          {{ tagText }}:&nbsp; {{ tagName }}
+        <v-layout row justify-center>
+          <h1>{{ tagText }}:&nbsp; {{ tagName }}</h1>
         </v-layout>
       </v-flex>
       <postsList :posts-list="blogMetadata" />
