@@ -13,7 +13,7 @@ post-format: standard
 title: Measuring Productivity and Performance of Software Engineering Teams
 url-slug: measuring-productivity-performance-software-engineering-teams
 first-published-on: 2019-05-04 01:15 pm
-last-updated-on: 2019-05-04 01:35 pm
+last-updated-on: 2019-05-07 06:22 pm
 meta:
  description: "A data-driven methodology for measuring productivity and performance of software engineering teams."
 excerpt: "A key facet of running software engineering teams is being able to measure team performance over time."
@@ -58,6 +58,8 @@ Linear regression analysis is done over the project data.
 #### Average Delta Change per Sprint (in percentage)
 
 This is a calculated value over the project data.
+
+If the number of developers in the team is constant over time, I do not believe it is realistic to have a positive average delta change per sprint forever. That would basically indicate that a team will double their velocity every _n_ sprints given a constant number of developers. I think it can be expected that a team might have a factor of magnitude increase in Sprint Velocity as they reach the upper limit of their performance threshold for a certain number of developers. It is however important that once that threshold is reached, there is no downwards trend. In other words, it is reasonable to expect that the slope of the linear regression analysis should be positive. The only exception to this rule may be a scenario where the end-points for the linear regression analysis end up including sprints where there were serious unforeseen impediments such as developer attrition, unplanned time-off, etc.
 
 ## Methodology
 
