@@ -13,7 +13,7 @@ post-format: standard
 title: Measuring Productivity and Performance of Software Engineering Teams
 url-slug: measuring-productivity-performance-software-engineering-teams
 first-published-on: 2019-05-04 01:15 pm
-last-updated-on: 2019-05-07 06:22 pm
+last-updated-on: 2019-05-09 05:20 pm
 meta:
  description: "A data-driven methodology for measuring productivity and performance of software engineering teams."
 excerpt: "A key facet of running software engineering teams is being able to measure team performance over time."
@@ -45,7 +45,11 @@ This is the total effort points done as part of the sprint. The key here is that
 
 ### Unfinished or Closed Late items
 
-This is the number of sprint backlog items that are either not completed, or closed out after the sprint end date.
+This is the number of sprint backlog items that are either not completed, or closed out after the sprint end date. This metrics is a measure of:
+
+1. Sprint planning effectiveness. Value of 0 implies 100% effectiveness, i.e., all planned items were completed.
+2. Percentage of committed items completed. Value of 0 indicates 100% of committed items were completed.
+3. Items rolled over to next sprint. Value of 0 implies 0.
 
 ### Sprint Velocity Trend
 
