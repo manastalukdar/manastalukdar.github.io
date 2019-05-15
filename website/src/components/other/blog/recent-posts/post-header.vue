@@ -2,18 +2,20 @@
   <v-layout wrap class="text-xs-center">
     <v-flex xs12>
       <v-layout row justify-center wrap>
-        <nuxt-link
-          :to="
-            getBlogPostRoute(
-              postLinkSlugs.year,
-              postLinkSlugs.month,
-              postLinkSlugs.day,
-              postLinkSlugs.post
-            )
-          "
-        >
-          {{ postMetadata.title }}
-        </nuxt-link>
+        <NoSsr>
+          <nuxt-link
+            :to="
+              getBlogPostRoute(
+                postLinkSlugs.year,
+                postLinkSlugs.month,
+                postLinkSlugs.day,
+                postLinkSlugs.post
+              )
+            "
+          >
+            {{ postMetadata.title }}
+          </nuxt-link>
+        </NoSsr>
       </v-layout>
       <!--<v-layout row justify-center wrap>
         Published: {{ postMetadata["first-published-on"] }}
