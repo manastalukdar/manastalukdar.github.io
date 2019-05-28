@@ -1,6 +1,6 @@
 #### Reading
 
-- **Distributed systems for fun and profit**: I recently read this (free and open source) [eBook](http://book.mixu.net/distsys/) on distributed systems. It is authored by a fellow engineer in the industry. I think this eBook, while slightly dated, outlines some of the core conceptual aspects of distributed systems in a very concise form, that other literature has done so or expanded upon in forms many times larger.
+- **Production-Ready Microservices**: I recently read the book, [Production-Ready Microservices](http://shop.oreilly.com/product/0636920053675.do). This book has some good pointers on what it takes to run "operations for live services". It is authored by an ex-Uber employee. Chapters 5 and 6 are specially relevant to Operations. Even if things like Service Operations is not the focus, it still makes for an interesting read from a Distributed Systems perspective, specifically what it takes to run a distributed systems service in production.
 
 #### Work
 
