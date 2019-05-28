@@ -5,6 +5,10 @@ tags:
  - Cloud Computing
  - Service Operations
  - Microservices
+ - Book
+ - Reading
+ - Software Engineering
+ - Technical Literature
 categories:
  - Technology
 authors:
