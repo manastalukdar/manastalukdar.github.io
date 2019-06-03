@@ -20,7 +20,7 @@ const siteName = siteOwner
 const siteDescription =
   'Manas Talukdar is a software engineering manager in cloud computing and distributed systems, experienced in building and running high performing teams.'
 
-module.exports = {
+export default {
   mode: 'universal',
 
   helper: {
