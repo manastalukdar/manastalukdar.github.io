@@ -12,15 +12,17 @@
     </v-layout>
 
     <v-layout wrap row ma-2>
-      <v-flex xs12>
-        <socialSharing
-          :url="url"
-          :title="postMetadata.title"
-          :description="postMetadata.description"
-          :quote="postMetadata.excerpt"
-          :hashtags="hashtags"
-        />
-      </v-flex>
+      <no-ssr>
+        <v-flex xs12>
+          <socialSharing
+            :url="url"
+            :title="postMetadata.title"
+            :description="postMetadata.description"
+            :quote="postMetadata.excerpt"
+            :hashtags="hashtags"
+          />
+        </v-flex>
+      </no-ssr>
     </v-layout>
 
     <v-layout wrap row ma-2>

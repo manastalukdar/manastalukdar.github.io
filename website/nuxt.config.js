@@ -195,7 +195,10 @@ module.exports = {
     '@/plugins/materialdesignicons.js',
     '@plugins/vueAsyncComputed.js',
     '~/plugins/disqus',
-    '~/plugins/socialsharing'
+    {
+      src: '~/plugins/socialsharing',
+      ssr: false
+    }
   ],
 
   /*
