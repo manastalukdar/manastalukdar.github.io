@@ -8,4 +8,4 @@
 
 #### Other
 
-- **Learning Russian**: I have started learning Russian recently. Growing up I read a lot of Russian literature (English translations). Works of Chekhov, Tolstoy, Gorky, Dostoevsky, Sholokhov, etc. I grew up forming this picture of Russia and the Russian people through my readings. I always wanted to be able to speak Russian and perhaps someday visit the country itself. While I still have not visited Russia yet, I figured this is as good a time as any to start learning the language.
+- **Learning Russian**: I have started learning Russian recently. Growing up I read a lot of Russian literature (English translations). Works of Chekhov, Tolstoy, Gorky, Dostoevsky, Sholokhov, etc. I grew up forming a picture of Russia and the Russian people through my readings. I always wanted to be able to speak Russian and perhaps someday visit the country itself. While I still have not visited Russia yet, I figured this is as good a time as any to start learning the language.
