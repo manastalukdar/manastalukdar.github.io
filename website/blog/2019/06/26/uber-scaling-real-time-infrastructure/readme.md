@@ -23,5 +23,5 @@ excerpt: "Conference talk on Uber scaling its real-time infrastructure."
 # How Uber scaled its Real Time Infrastructure to Trillion events per day
 
 ::: iframe-container
-<iframe frameborder=0 src="https://www.youtube.com/watch?v=K-fI2BeTLkk"></iframe>
+<iframe frameborder=0 src="https://www.youtube.com/embed/K-fI2BeTLkk"></iframe>
 :::
