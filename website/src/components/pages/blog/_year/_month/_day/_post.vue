@@ -78,12 +78,6 @@ export default {
         return '' // use external default escaping
       }
     })
-      /* .use(require('markdown-it-highlightjs'), {
-        opts: {
-          auto: true,
-          code: true
-        }
-      }) */
       .use(require('markdown-it-mathjax')())
       .use(require('markdown-it-html5-embed'), {
         html5embed: {
