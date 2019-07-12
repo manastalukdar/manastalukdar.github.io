@@ -170,7 +170,8 @@ export default {
    */
   css: [
     '~/assets/style/app.styl',
-    '@fortawesome/fontawesome-svg-core/styles.css'
+    '@fortawesome/fontawesome-svg-core/styles.css',
+    { src: '~/node_modules/highlight.js/styles/vs.css', lang: 'css' }
   ],
 
   /*
@@ -183,7 +184,8 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
     '@nuxtjs/redirect-module',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/markdownit'
   ],
 
   /*
@@ -303,6 +305,13 @@ export default {
   googleAnalytics: {
     id: 'UA-118888630-1',
     dev: false
+  },
+
+  markdownit: {
+    injected: true,
+    use: [
+      // 'markdown-it-highlightjs'
+    ]
   },
 
   sitemap: {
