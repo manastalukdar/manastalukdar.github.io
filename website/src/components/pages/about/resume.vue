@@ -34,7 +34,7 @@ export default {
         state.Navigation.about.aboutText,
       currentHref: state => state.Navigation.about.aboutItems[0].href
     }),
-    breadcrumbs: function() {
+    breadcrumbs() {
       return [
         {
           text: 'Home',
@@ -74,7 +74,7 @@ export default {
       itemListElement: breadcrumbsStructuredDataArray
     }
     return {
-      title: title,
+      title,
       meta: [
         {
           hid: 'description',

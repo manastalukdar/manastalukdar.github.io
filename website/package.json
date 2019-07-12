@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@mdi/font": "^3.7.95",
-    "@nuxtjs/eslint-config": "^0.0.1",
+    "@nuxtjs/eslint-config": "^1.0.1",
     "@vue/test-utils": "^1.0.0-beta.27",
     "autoprefixer": "^9.6.1",
     "babel-core": "7.0.0-bridge.0",
@@ -62,7 +62,7 @@
     "babel-jest": "^24.8.0",
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
-    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard": "^13.0.1",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.2.1",
     "eslint-plugin-import": "^2.18.0",

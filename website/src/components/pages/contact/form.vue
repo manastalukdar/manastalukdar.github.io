@@ -92,7 +92,7 @@ export default {
         state.Navigation.contact.contactText,
       currentHref: state => state.Navigation.contact.contactForm.href
     }),
-    breadcrumbs: function() {
+    breadcrumbs() {
       return [
         {
           text: 'Home',
@@ -131,7 +131,7 @@ export default {
       itemListElement: breadcrumbsStructuredDataArray
     }
     return {
-      title: title,
+      title,
       meta: [
         {
           hid: 'description',

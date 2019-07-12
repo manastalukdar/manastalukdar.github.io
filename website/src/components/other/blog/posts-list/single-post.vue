@@ -53,13 +53,13 @@ export default {
     }
   },
   computed: {
-    postLinkSlugs: function() {
+    postLinkSlugs() {
       const momentObj = moment(this.postMetadata['first-published-on'])
       const year = momentObj.format('YYYY')
       const month = momentObj.format('MM')
       const day = momentObj.format('DD')
       const post = this.postMetadata['url-slug']
-      return { year: year, month: month, day: day, post: post }
+      return { year, month, day, post }
     },
     cardColor() {
       return this.$store.getters['GlobalData/getCardColor']

@@ -37,7 +37,7 @@ export default {
       blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
       blogBaseHref: state => state.Navigation.blog.dynamicItems.blogBase.href
     }),
-    breadcrumbs: function() {
+    breadcrumbs() {
       return [
         {
           text: 'Home',
@@ -68,7 +68,7 @@ export default {
       xhtmlOut: true,
       linkify: true,
       typographer: true,
-      highlight: function(str, lang) {
+      highlight(str, lang) {
         if (lang && hljs.getLanguage(lang)) {
           try {
             return hljs.highlight(lang, str).value
@@ -86,7 +86,7 @@ export default {
         }
       })
       .use(require('markdown-it-container'), 'iframe-container', {
-        render: function(tokens, idx) {
+        render(tokens, idx) {
           if (tokens[idx].nesting === 1) {
             // const textToProcess = tokens[idx].info
             // const m = textToProcess.match(/\(.*\)/)
@@ -166,7 +166,7 @@ export default {
       const res = fm(fileContent.data)
       return {
         postContent: md.render(res.body),
-        postMetadata: postMetadata,
+        postMetadata,
         baseUrl: env.baseURL,
         postId: postIdTemp,
         url: env.baseURL + '/' + postIdTemp
@@ -219,13 +219,13 @@ export default {
     const structuredData = {
       '@context': 'http://schema.org',
       '@type': 'BlogPosting',
-      datePublished: datePublished,
-      dateModified: dateModified,
-      headline: headline,
-      description: description,
-      articleBody: articleBody,
+      datePublished,
+      dateModified,
+      headline,
+      description,
+      articleBody,
       genre: category,
-      keywords: keywords,
+      keywords,
       author: authorsStructuredData,
       mainEntityOfPage: {
         '@type': 'WebPage',
@@ -257,7 +257,7 @@ export default {
       itemListElement: breadcrumbsStructuredDataArray
     }
     return {
-      title: title,
+      title,
       meta: [
         {
           hid: 'description',

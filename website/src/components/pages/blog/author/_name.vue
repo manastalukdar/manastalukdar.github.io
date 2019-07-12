@@ -34,7 +34,7 @@ export default {
       blogDynamicItemsAuthor: state =>
         state.Navigation.blog.dynamicItems.author.href
     }),
-    breadcrumbs: function() {
+    breadcrumbs() {
       return [
         {
           text: 'Home',
@@ -115,7 +115,7 @@ export default {
       itemListElement: breadcrumbsStructuredDataArray
     }
     return {
-      title: title,
+      title,
       meta: [
         {
           hid: 'description',

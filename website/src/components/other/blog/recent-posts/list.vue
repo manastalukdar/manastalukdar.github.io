@@ -36,7 +36,7 @@ export default {
     pageTitle: 'Recent Posts'
   }),
   computed: {
-    posts: function() {
+    posts() {
       return this.postsList.slice(0, this.itemsToDisplay)
     }
   }

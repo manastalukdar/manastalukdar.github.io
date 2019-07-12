@@ -69,7 +69,7 @@ export default {
       default: ''
     }
   },
-  data: function() {
+  data() {
     return {
       twitterUser: 'ManasTalukdar'
     }

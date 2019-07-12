@@ -31,7 +31,7 @@ export default {
       blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
       blogDynamicItemsTag: state => state.Navigation.blog.dynamicItems.tag.href
     }),
-    breadcrumbs: function() {
+    breadcrumbs() {
       return [
         {
           text: 'Home',
@@ -111,7 +111,7 @@ export default {
       itemListElement: breadcrumbsStructuredDataArray
     }
     return {
-      title: title,
+      title,
       meta: [
         {
           hid: 'description',
