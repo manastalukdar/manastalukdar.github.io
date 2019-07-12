@@ -61,7 +61,7 @@
 		"scope": "markdown",
 		"prefix": "table-of-contents",
 		"body": [
-			"${toc}"
+			"\\${toc}"
 		]
 	}
 }
