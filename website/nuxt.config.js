@@ -184,8 +184,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
     '@nuxtjs/redirect-module',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/sitemap'
   ],
 
   /*
@@ -305,11 +304,6 @@ export default {
   googleAnalytics: {
     id: 'UA-118888630-1',
     dev: false
-  },
-
-  markdownit: {
-    injected: true,
-    use: []
   },
 
   sitemap: {
