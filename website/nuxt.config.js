@@ -309,9 +309,7 @@ export default {
 
   markdownit: {
     injected: true,
-    use: [
-      // 'markdown-it-highlightjs'
-    ]
+    use: []
   },
 
   sitemap: {

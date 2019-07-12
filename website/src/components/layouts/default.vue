@@ -133,6 +133,7 @@ pre code {
 code {
   margin-left: 0.25em;
   margin-right: 0.25em;
+  color: #383636;
 }
 
 blockquote {
