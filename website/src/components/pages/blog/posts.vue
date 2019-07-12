@@ -35,7 +35,7 @@ export default {
       pageTitle: state => state.Navigation.blog.blogText,
       currentHref: state => state.Navigation.blog.blogItems[0].href
     }),
-    breadcrumbs: function() {
+    breadcrumbs() {
       return [
         {
           text: 'Home',
@@ -83,7 +83,7 @@ export default {
       itemListElement: breadcrumbsStructuredDataArray
     }
     return {
-      title: title,
+      title,
       meta: [
         {
           hid: 'description',

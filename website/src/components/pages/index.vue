@@ -75,7 +75,7 @@ export default {
       appOwner: state => state.GlobalData.appOwner,
       blogMetadata: state => state.BlogMetadata.blogMetadata
     }),
-    breadcrumbs: function() {
+    breadcrumbs() {
       return [
         {
           text: 'Home',
@@ -121,7 +121,7 @@ export default {
       '@context': 'http://schema.org',
       '@type': 'Person',
       name: this.appOwner,
-      url: url,
+      url,
       sameAs: [
         this.socialMediaItems[0].href,
         this.socialMediaItems[1].href,

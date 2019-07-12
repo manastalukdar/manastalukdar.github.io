@@ -81,7 +81,7 @@ export default {
       tagsText: state => state.Navigation.blog.blogItems[2].text,
       blogDynamicItemsTag: state => state.Navigation.blog.dynamicItems.tag.href
     }),
-    breadcrumbs: function() {
+    breadcrumbs() {
       return [
         {
           text: 'Home',
@@ -123,7 +123,7 @@ export default {
       }
       return {
         baseUrl: env.baseURL,
-        tags: tags
+        tags
       }
     }
   },
@@ -152,7 +152,7 @@ export default {
       itemListElement: breadcrumbsStructuredDataArray
     }
     return {
-      title: title,
+      title,
       meta: [
         {
           hid: 'description',

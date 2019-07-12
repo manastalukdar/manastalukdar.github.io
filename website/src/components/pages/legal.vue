@@ -20,7 +20,7 @@ export default {
   components: {
     breadcrumbs
   },
-  data: function() {
+  data() {
     return {
       description: 'Legal disclaimer.'
     }
@@ -31,7 +31,7 @@ export default {
       currentPage: state => state.Navigation.legal.legalText,
       currentHref: state => state.Navigation.legal.legalPath
     }),
-    breadcrumbs: function() {
+    breadcrumbs() {
       return [
         {
           text: 'Home',
@@ -70,7 +70,7 @@ export default {
       itemListElement: breadcrumbsStructuredDataArray
     }
     return {
-      title: title,
+      title,
       meta: [
         {
           hid: 'description',

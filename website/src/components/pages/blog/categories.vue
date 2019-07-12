@@ -82,7 +82,7 @@ export default {
       blogDynamicItemsCategory: state =>
         state.Navigation.blog.dynamicItems.category.href
     }),
-    breadcrumbs: function() {
+    breadcrumbs() {
       return [
         {
           text: 'Home',
@@ -124,7 +124,7 @@ export default {
       }
       return {
         baseUrl: env.baseURL,
-        categories: categories
+        categories
       }
     }
   },
@@ -153,7 +153,7 @@ export default {
       itemListElement: breadcrumbsStructuredDataArray
     }
     return {
-      title: title,
+      title,
       meta: [
         {
           hid: 'description',
