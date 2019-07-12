@@ -135,7 +135,7 @@ export default {
         title: siteOwner + ' - blog',
         href: baseUrl + feedFileName
       },
-      //{ rel: 'manifest', href: 'manifest.json' },
+      // { rel: 'manifest', href: 'manifest.json' },
       {
         rel: 'icon',
         type: 'image/png',
