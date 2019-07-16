@@ -171,7 +171,7 @@ export default {
   css: [
     '~/assets/style/app.styl',
     '@fortawesome/fontawesome-svg-core/styles.css',
-    { src: '~/node_modules/highlight.js/styles/vs.css', lang: 'css' }
+    { src: '~/node_modules/highlight.js/styles/atom-one-light.css', lang: 'css' }
   ],
 
   /*
