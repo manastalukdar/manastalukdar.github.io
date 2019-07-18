@@ -47,7 +47,7 @@ const functions = {
         postmetadata['url-slug'] +
         '/'
       properties.nuxtGenerateRoutes.push({
-        route: route,
+        route,
         payload: postmetadata
       })
       properties.sitemapRoutes.push(route)
@@ -70,7 +70,7 @@ const functions = {
         count: value.length
       })
       properties.nuxtGenerateRoutes.push({
-        route: route,
+        route,
         payload: value
       })
       properties.sitemapRoutes.push(route)
@@ -105,7 +105,7 @@ const functions = {
         count: value.length
       })
       properties.nuxtGenerateRoutes.push({
-        route: route,
+        route,
         payload: value
       })
       properties.sitemapRoutes.push(route)
@@ -134,7 +134,7 @@ const functions = {
         count: value.length
       })
       properties.nuxtGenerateRoutes.push({
-        route: route,
+        route,
         payload: value
       })
       properties.sitemapRoutes.push(route)
@@ -168,7 +168,7 @@ const functions = {
         count: value.length
       })
       properties.nuxtGenerateRoutes.push({
-        route: route,
+        route,
         payload: value
       })
       properties.sitemapRoutes.push(route)
@@ -192,7 +192,7 @@ const functions = {
     for (const [key, value] of Object.entries(groupedByYear)) {
       const route = '/blog/' + key + '/'
       properties.nuxtGenerateRoutes.push({
-        route: route,
+        route,
         payload: value
       })
       properties.sitemapRoutes.push(route)
@@ -215,7 +215,7 @@ const functions = {
       const month = key.split('-')[1]
       const route = '/blog/' + year + '/' + month + '/'
       properties.nuxtGenerateRoutes.push({
-        route: route,
+        route,
         payload: value
       })
       properties.sitemapRoutes.push(route)
@@ -240,7 +240,7 @@ const functions = {
       const day = key.split('-')[2]
       const route = '/blog/' + year + '/' + month + '/' + day + '/'
       properties.nuxtGenerateRoutes.push({
-        route: route,
+        route,
         payload: value
       })
       properties.sitemapRoutes.push(route)
