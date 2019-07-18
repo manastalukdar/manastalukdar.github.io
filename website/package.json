@@ -49,15 +49,15 @@
     "vue-pdf": "^4.0.7",
     "vue-social-sharing": "^2.4.5",
     "vue-tweet-embed": "^2.3.0",
-    "vuetify": "^1.5.16",
-    "vuetify-loader": "^1.2.2"
+    "vuetify": "^2.0.0-beta.8"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.4",
     "@mdi/font": "^3.7.95",
     "@nuxtjs/eslint-config": "^1.0.1",
-    "@vue/test-utils": "^1.0.0-beta.27",
+    "@nuxtjs/vuetify": "^1.0.0-beta.7",
+    "@vue/test-utils": "^1.0.0-beta.29",
     "autoprefixer": "^9.6.1",
-    "@babel/core": "^7.5.4",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
     "eslint": "^6.0.1",

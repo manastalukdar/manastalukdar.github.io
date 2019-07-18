@@ -1,6 +1,6 @@
 import { Feed } from 'feed'
 const fs = require('fs')
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+//const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const getRoutes = require('./utils/getRoutes.js')
 // const ampify = require('./plugins/ampify')
 
@@ -169,7 +169,7 @@ export default {
    ** Global CSS
    */
   css: [
-    '~/assets/style/app.styl',
+    // '~/assets/style/app.styl',
     '@fortawesome/fontawesome-svg-core/styles.css',
     { src: '~/node_modules/highlight.js/styles/atom-one-light.css', lang: 'css' }
   ],
@@ -214,13 +214,17 @@ export default {
    */
   build: {
     dir: 'dist',
-    transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
+    //transpile: ['vuetify/lib'],
+    //plugins: [new VuetifyLoaderPlugin()],
     loaders: {
       stylus: {
-        import: ['~assets/style/variables.styl']
+        // import: ['~assets/style/variables.styl']
       }
     },
+
+    devModules: [
+      '@nuxtjs/vuetify'
+    ],
 
     /*
      ** You can extend webpack config here
@@ -300,6 +304,12 @@ export default {
       href: faviconPath
     }
   ],
+
+  /*
+  vuetify: {
+
+  },
+  */
 
   googleAnalytics: {
     id: 'UA-118888630-1',

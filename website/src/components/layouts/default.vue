@@ -1,5 +1,5 @@
 <template>
-  <v-app :dark="darkMode">
+  <v-app>
     <MainNavMenuTopNavBar />
     <MainNavMenuNavigationDrawer />
 
@@ -31,6 +31,9 @@ export default {
       appOwner: state => state.GlobalData.appOwner,
       darkMode: state => state.GlobalData.darkMode
     })
+  },
+  created() {
+    this.$vuetify.theme.dark = true
   },
   head() {
     return {
