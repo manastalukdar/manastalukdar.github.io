@@ -9,41 +9,41 @@
   >
     <v-list>
       <v-list-group no-action>
-        <v-list-tile slot="activator">
-          <v-list-tile-action>
+        <v-list-item slot="activator">
+          <v-list-item-action>
             <v-icon>
               mdi-blogger
             </v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title> {{ blogText }} </v-list-tile-title>
-        </v-list-tile>
+          </v-list-item-action>
+          <v-list-item-title> {{ blogText }} </v-list-item-title>
+        </v-list-item>
         <BlogMenuItems />
       </v-list-group>
 
       <v-list-group no-action>
-        <v-list-tile slot="activator">
-          <v-list-tile-action>
+        <v-list-item slot="activator">
+          <v-list-item-action>
             <v-icon>mdi-information</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title> {{ aboutText }} </v-list-tile-title>
-        </v-list-tile>
+          </v-list-item-action>
+          <v-list-item-title> {{ aboutText }} </v-list-item-title>
+        </v-list-item>
         <AboutMenuItems />
       </v-list-group>
 
-      <v-list-tile nuxt :to="legalPath">
-        <v-list-tile-action>
+      <v-list-item nuxt :to="legalPath">
+        <v-list-item-action>
           <v-icon>mdi-gavel</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-title> {{ legalText }} </v-list-tile-title>
-      </v-list-tile>
+        </v-list-item-action>
+        <v-list-item-title> {{ legalText }} </v-list-item-title>
+      </v-list-item>
 
       <v-list-group no-action>
-        <v-list-tile slot="activator">
-          <v-list-tile-action>
+        <v-list-item slot="activator">
+          <v-list-item-action>
             <v-icon>mdi-contact-mail</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title> {{ contactText }} </v-list-tile-title>
-        </v-list-tile>
+          </v-list-item-action>
+          <v-list-item-title> {{ contactText }} </v-list-item-title>
+        </v-list-item>
         <ContactMenuItems />
       </v-list-group>
     </v-list>

@@ -33,7 +33,7 @@ export default {
     })
   },
   created() {
-    this.$vuetify.theme.dark = true
+    // this.$vuetify.theme.dark = true
   },
   head() {
     return {
@@ -88,6 +88,10 @@ export default {
 /*.theme--light a:visited {
   color: #797a33;
 }*/
+
+.v-content {
+  padding: 65px 0px 65px !important;
+}
 
 p {
   margin-top: 16px;

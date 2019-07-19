@@ -1,6 +1,6 @@
 <template>
-  <v-footer app height="auto">
-    <v-card class="flex py-3" flat tile :color="headerAndFooterColor">
+  <v-footer app height="auto" :color="headerAndFooterColor">
+    <v-card class="flex py-3" text tile flat :color="headerAndFooterColor">
       <v-layout row class="justify-center">
         <v-flex xs6 text-xs-left style="margin-left: 1em; margin-right: 1em">
           &copy;&nbsp; {{ copyrightStartYear }} —

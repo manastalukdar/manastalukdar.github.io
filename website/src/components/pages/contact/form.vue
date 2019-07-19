@@ -15,7 +15,7 @@
             name="name"
             :rules="[rules.length(2)]"
             :counter="2"
-            box
+            filled
             color="light"
             label="Name"
             type="text"
@@ -24,7 +24,7 @@
             v-model="email"
             name="email"
             :rules="[rules.email]"
-            box
+            filled
             color="light"
             label="Email address"
             type="email"
@@ -35,13 +35,13 @@
             auto-grow
             :rules="[rules.length(5)]"
             :counter="5"
-            box
+            filled
             color="light"
             label="Message"
           />
           <v-divider />
           <v-card-actions>
-            <v-btn flat @click="$refs.form.reset()">
+            <v-btn text @click="$refs.form.reset()">
               Clear
             </v-btn>
             <v-spacer />

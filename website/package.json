@@ -48,8 +48,7 @@
     "vue-material-design-icons": "^3.3.1",
     "vue-pdf": "^4.0.7",
     "vue-social-sharing": "^2.4.5",
-    "vue-tweet-embed": "^2.3.0",
-    "vuetify": "^2.0.0-beta.8"
+    "vue-tweet-embed": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
@@ -72,6 +71,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.2.3",
+    "eslint-plugin-nuxt": "^0.4.3",
     "file-loader": "^4.0.0",
     "jest": "^24.8.0",
     "material-design-icons-iconfont": "^5.0.1",
