@@ -1,7 +1,7 @@
 <template>
   <v-layout wrap>
     <v-flex xs12>
-      <v-card :color="cardColor" raised elevation="8" class="pa-4">
+      <v-card color="cardColor" raised elevation="8" class="pa-4">
         <v-layout class="socialSharing" justify-center row wrap>
           <social-sharing
             v-cloak
@@ -72,11 +72,6 @@ export default {
   data() {
     return {
       twitterUser: 'ManasTalukdar'
-    }
-  },
-  computed: {
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
     }
   }
 }

@@ -312,10 +312,9 @@ export default {
       dark: true,
       themes: {
         dark: {
-          backgroundDark: colors.blueGrey.darken2, // #252a33,
-          headerAndFooterColorDark: colors.blue.darken3,
-          headerAndFooterColorLight: colors.blue.lighten4,
-          cardColorDark: colors.blueGrey.darken4,
+          background: colors.blueGrey.darken2, // #252a33,
+          headerAndFooterColor: colors.blue.darken3,
+          cardColor: colors.blueGrey.darken4,
           primary: colors.teal.lighten3, // blue.darken2
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
@@ -323,14 +322,24 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
+        },
+        light: {
+          headerAndFooterColor: colors.blue.lighten4,
+          cardColor: colors.shades.white,
         }
       },
       options: {
+        customProperties: true,
         themeCache: () => {
           return new LRU({
             max: 10,
             maxAge: 1000 * 60 * 60 // 1 hour
           })
+        },
+        minifyTheme: function (css) {
+          return process.env.NODE_ENV === 'production'
+            ? css.replace(/[\s|\r\n|\r|\n]/g, '')
+            : css
         }
       }
     }

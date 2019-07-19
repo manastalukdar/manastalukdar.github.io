@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar :color="headerAndFooterColor" app>
+  <v-app-bar color="headerAndFooterColor" app>
     <v-app-bar-nav-icon class="hidden-sm-and-up">
       <nuxt-link to="/" tag="span" style="cursor: pointer"
         ><v-icon>mdi-home</v-icon></nuxt-link
@@ -54,7 +54,6 @@ export default {
       // getter
       get() {
         return this.$store.state.GlobalData.darkMode
-        // this.$vuetify.theme.dark
       },
       // setter
       set(value) {
@@ -63,16 +62,16 @@ export default {
     },
     ...mapState({
       appTitle: state => state.GlobalData.appTitle
-    }),
-    headerAndFooterColor() {
-      return this.$store.getters['GlobalData/getHeaderAndFooterColor']
-    }
+    })
   },
   methods: {
     ...mapActions({
-      flipSidebarVisibility: 'Navigation/flipSidebarVisibility',
-      flipThemeMode: 'GlobalData/flipThemeMode'
-    })
+      flipSidebarVisibility: 'Navigation/flipSidebarVisibility'
+    }),
+    flipThemeMode() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      this.$store.commit('GlobalData/flipThemeMode')
+    }
   }
 }
 </script>

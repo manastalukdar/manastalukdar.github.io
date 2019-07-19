@@ -2,7 +2,7 @@
   <v-layout column wrap>
     <v-flex xs12>
       <v-card
-        :color="cardColor"
+        color="cardColor"
         class="pa-3"
         raised
         elevation="8"
@@ -32,11 +32,6 @@ export default {
       const fileContent = await import('./highlights.md')
       const res = fm(fileContent.default)
       return md.render(res.body)
-    }
-  },
-  computed: {
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
     }
   }
 }

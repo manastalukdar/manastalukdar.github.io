@@ -109,9 +109,6 @@ export default {
           to: this.currentHref
         }
       ]
-    },
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
     }
   },
   async asyncData({ store, params, env, payload }) {
