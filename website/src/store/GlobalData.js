@@ -4,8 +4,7 @@ const state = () => ({
   appOwner: 'Manas Talukdar',
   copyrightStartYear: '2018',
   copyrightEndYear: new Date().getFullYear(),
-  currentPageName: '',
-  darkMode: true
+  currentPageName: ''
 })
 
 // getters
@@ -15,9 +14,6 @@ const getters = {}
 const actions = {
   setCurrentPageName({ commit }, name) {
     commit('currentPageName', name)
-  },
-  flipThemeMode({ commit }) {
-    commit('flipThemeMode')
   }
 }
 
@@ -25,9 +21,6 @@ const actions = {
 const mutations = {
   setCurrentPageName(state, name) {
     state.currentPageName = name
-  },
-  flipThemeMode(state) {
-    state.darkMode = !state.darkMode
   }
 }
 
