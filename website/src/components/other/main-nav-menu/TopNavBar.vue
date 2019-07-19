@@ -54,6 +54,7 @@ export default {
       // getter
       get() {
         return this.$store.state.GlobalData.darkMode
+        // this.$vuetify.theme.dark
       },
       // setter
       set(value) {
