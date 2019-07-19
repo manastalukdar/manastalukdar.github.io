@@ -28,8 +28,7 @@ export default {
   },
   computed: {
     ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      darkMode: state => state.GlobalData.darkMode
+      appOwner: state => state.GlobalData.appOwner
     })
   },
   mounted() {

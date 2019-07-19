@@ -50,16 +50,6 @@ export default {
   },
   data: () => ({}),
   computed: {
-    darkMode: {
-      // getter
-      get() {
-        return this.$store.state.GlobalData.darkMode
-      },
-      // setter
-      set(value) {
-        this.$store.commit('GlobalData/setThemeMode', value)
-      }
-    },
     ...mapState({
       appTitle: state => state.GlobalData.appTitle
     })
@@ -70,7 +60,6 @@ export default {
     }),
     flipThemeMode() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
-      this.$store.commit('GlobalData/flipThemeMode')
     }
   }
 }
