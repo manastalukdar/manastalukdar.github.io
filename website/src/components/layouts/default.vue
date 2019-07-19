@@ -90,10 +90,6 @@ export default {
   color: #797a33;
 }*/
 
-.v-content {
-  padding: 65px 0px 65px !important;
-}
-
 p {
   margin-top: 16px;
 }
@@ -141,7 +137,6 @@ pre code {
 code {
   margin-left: 0.25em;
   margin-right: 0.25em;
-  color: #383636;
 }
 
 blockquote {
