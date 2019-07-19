@@ -32,7 +32,7 @@ export default {
       darkMode: state => state.GlobalData.darkMode
     })
   },
-  created() {
+  mounted() {
     // this.$vuetify.theme.dark = true
   },
   head() {

@@ -22,14 +22,23 @@
               hide-details
             ></v-text-field>
           </v-card-title>
-          <v-data-table :headers="headers" :items="tags" :search="search">
+          <v-data-table
+            :headers="headers"
+            :items="tags"
+            :search="search"
+            :items-per-page="5"
+          >
             <template v-slot:items="props">
-              <td>
-                <nuxt-link :to="getLink([props.item.slug])">{{
-                  props.item.name
-                }}</nuxt-link>
-              </td>
-              <td class="text-xs-right">{{ props.item.count }}</td>
+              <tbody>
+                <tr v-for="item in props" :key="item.slug">
+                  <td>
+                    <nuxt-link :to="getLink([item.slug])">{{
+                      item.name
+                    }}</nuxt-link>
+                  </td>
+                  <td class="text-xs-right">{{ item.count }}</td>
+                </tr>
+              </tbody>
             </template>
             <v-alert
               v-slot:no-results
@@ -129,6 +138,7 @@ export default {
   },
   methods: {
     getLink(tagSlug) {
+      console.log(this.blogDynamicItemsTag + tagSlug + '/')
       return this.blogDynamicItemsTag + tagSlug + '/'
     }
   },
