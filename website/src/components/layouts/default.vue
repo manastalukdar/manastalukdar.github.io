@@ -57,8 +57,9 @@ export default {
   background-color: #252a33 !important; // : var(--v-accent-lighten2)
 }
 */
+
 .theme--dark .v-navigation-drawer {
-  background-color: #263238; /* var(--v-cardColorDark) */
+  background-color: #263238; /* var(--v-cardColor) */
 }
 .theme--dark .v-list {
   background: #263238;

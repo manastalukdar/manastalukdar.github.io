@@ -2,7 +2,7 @@
   <v-layout column wrap>
     <v-layout wrap row ma-2>
       <v-flex xs12>
-        <v-card :color="cardColor" raised elevation="8" class="pa-4">
+        <v-card color="cardColor" raised elevation="8" class="pa-4">
           <postHeader :post-metadata="postMetadata" />
           <p />
           <!-- eslint-disable-next-line vue/no-v-html -->
@@ -66,9 +66,6 @@ export default {
     }
   },
   computed: {
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
-    },
     hashtags() {
       const hashtagsArray = []
       this.postMetadata.categories.forEach(category => {

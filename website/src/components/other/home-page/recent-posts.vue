@@ -2,7 +2,7 @@
   <v-layout column wrap>
     <v-flex xs12>
       <v-card
-        :color="cardColor"
+        color="cardColor"
         class="pa-3"
         raised
         elevation="8"
@@ -36,9 +36,6 @@ export default {
     itemsToDisplay: 5
   }),
   computed: {
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
-    },
     ...mapState({
       blogItems: state => state.Navigation.blog.blogItems
     })

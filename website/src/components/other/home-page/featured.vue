@@ -2,7 +2,7 @@
   <v-layout column wrap>
     <v-flex xs12>
       <v-card
-        :color="cardColor"
+        color="cardColor"
         class="pa-3"
         raised
         elevation="8"
@@ -23,11 +23,5 @@
 </template>
 
 <script>
-export default {
-  computed: {
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
-    }
-  }
-}
+export default {}
 </script>

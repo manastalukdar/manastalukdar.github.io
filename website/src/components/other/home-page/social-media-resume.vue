@@ -1,7 +1,7 @@
 <template>
   <v-layout wrap>
     <v-flex xs12>
-      <v-card :color="cardColor" class="pa-3" raised elevation="8">
+      <v-card color="cardColor" class="pa-3" raised elevation="8">
         <v-flex xs12>
           <v-list>
             <v-layout row justify-center>
@@ -42,10 +42,7 @@ export default {
     ...mapState({
       socialMediaItems: state => state.Navigation.contact.socialMediaItems,
       aboutItems: state => state.Navigation.about.aboutItems
-    }),
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
-    }
+    })
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <v-footer app height="auto" :color="headerAndFooterColor">
-    <v-card class="flex py-3" text tile flat :color="headerAndFooterColor">
+  <v-footer app height="auto" color="headerAndFooterColor">
+    <v-card class="flex py-3" text tile flat color="headerAndFooterColor">
       <v-layout row class="justify-center">
         <v-flex xs6 text-xs-left style="margin-left: 1em; margin-right: 1em">
           &copy;&nbsp; {{ copyrightStartYear }} —
@@ -35,10 +35,7 @@ export default {
       appOwner: state => state.GlobalData.appOwner,
       copyrightStartYear: state => state.GlobalData.copyrightStartYear,
       copyrightEndYear: state => state.GlobalData.copyrightEndYear
-    }),
-    headerAndFooterColor() {
-      return this.$store.getters['GlobalData/getHeaderAndFooterColor']
-    }
+    })
   }
 }
 </script>

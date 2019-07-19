@@ -3,7 +3,7 @@
     <v-layout wrap>
       <v-flex xs12>
         <v-card
-          :color="cardColor"
+          color="cardColor"
           hover
           class="pa-3"
           nuxt
@@ -60,9 +60,6 @@ export default {
       const day = momentObj.format('DD')
       const post = this.postMetadata['url-slug']
       return { year, month, day, post }
-    },
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
     },
     ...mapState({
       dynamicBlogPostRoute: state =>
