@@ -1,7 +1,6 @@
 import { Feed } from 'feed'
 const colors = require('vuetify/es5/util/colors').default
 const fs = require('fs')
-// const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const getRoutes = require('./utils/getRoutes.js')
 // const ampify = require('./plugins/ampify')
 
@@ -170,7 +169,6 @@ export default {
    ** Global CSS
    */
   css: [
-    // '~/assets/style/app.styl',
     '~/assets/style/app.sass',
     '@fortawesome/fontawesome-svg-core/styles.css',
     { src: '~/node_modules/highlight.js/styles/atom-one-light.css', lang: 'css' }
@@ -195,7 +193,6 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    // '@/plugins/vuetify',
     '@/plugins/fontawesome.js',
     '@/plugins/materialdesignicons.js',
     '@plugins/vueAsyncComputed.js',
@@ -218,12 +215,8 @@ export default {
    */
   build: {
     dir: 'dist',
-    // transpile: ['vuetify/lib'],
-    // plugins: [new VuetifyLoaderPlugin()],
     loaders: {
-      stylus: {
-        // import: ['~assets/style/variables.styl']
-      }
+      stylus: {}
     },
 
     /*
