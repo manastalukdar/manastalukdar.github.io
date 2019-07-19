@@ -1,9 +1,9 @@
 <template>
-  <v-toolbar :color="headerAndFooterColor" app>
-    <v-toolbar-side-icon class="hidden-sm-and-up">
+  <v-app-bar :color="headerAndFooterColor" app>
+    <v-app-bar-nav-icon class="hidden-sm-and-up">
       <nuxt-link to="/" tag="span" style="cursor: pointer"
         ><v-icon>mdi-home</v-icon></nuxt-link
-      ></v-toolbar-side-icon
+      ></v-app-bar-nav-icon
     >
     <v-toolbar-title class="hidden-xs-only headline">
       <nuxt-link to="/" tag="span" style="cursor: pointer">
@@ -11,7 +11,7 @@
       </nuxt-link>
     </v-toolbar-title>
     <v-spacer />
-    <v-btn flat icon @click="flipThemeMode">
+    <v-btn text icon @click="flipThemeMode">
       <v-icon>mdi-invert-colors</v-icon>
     </v-btn>
     <v-toolbar-items class="hidden-sm-and-down">
@@ -21,10 +21,18 @@
       <MainNavMenuContact />
     </v-toolbar-items>
 
+    <!--
     <v-menu class="hidden-md-and-up">
-      <v-toolbar-side-icon slot="activator" @click="flipSidebarVisibility" />
+      <template v-slot:activator="{ on }">
+        <v-app-bar-nav-icon @click="flipSidebarVisibility" v-on="on" />
+      </template>
     </v-menu>
-  </v-toolbar>
+    -->
+
+    <v-btn text icon class="hidden-md-and-up" @click="flipSidebarVisibility">
+      <v-icon>mdi-menu</v-icon>
+    </v-btn>
+  </v-app-bar>
 </template>
 
 <script>

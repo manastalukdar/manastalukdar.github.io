@@ -1,6 +1,7 @@
 import { Feed } from 'feed'
+const colors = require('vuetify/es5/util/colors').default
 const fs = require('fs')
-//const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+// const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const getRoutes = require('./utils/getRoutes.js')
 // const ampify = require('./plugins/ampify')
 
@@ -170,6 +171,7 @@ export default {
    */
   css: [
     // '~/assets/style/app.styl',
+    '~/assets/style/app.sass',
     '@fortawesome/fontawesome-svg-core/styles.css',
     { src: '~/node_modules/highlight.js/styles/atom-one-light.css', lang: 'css' }
   ],
@@ -187,11 +189,13 @@ export default {
     '@nuxtjs/sitemap'
   ],
 
+  devModules: ['@nuxtjs/vuetify'],
+
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/vuetify',
+    // '@/plugins/vuetify',
     '@/plugins/fontawesome.js',
     '@/plugins/materialdesignicons.js',
     '@plugins/vueAsyncComputed.js',
@@ -214,17 +218,13 @@ export default {
    */
   build: {
     dir: 'dist',
-    //transpile: ['vuetify/lib'],
-    //plugins: [new VuetifyLoaderPlugin()],
+    // transpile: ['vuetify/lib'],
+    // plugins: [new VuetifyLoaderPlugin()],
     loaders: {
       stylus: {
         // import: ['~assets/style/variables.styl']
       }
     },
-
-    devModules: [
-      '@nuxtjs/vuetify'
-    ],
 
     /*
      ** You can extend webpack config here
@@ -305,11 +305,36 @@ export default {
     }
   ],
 
-  /*
   vuetify: {
-
+    treeShake: true,
+    customVariables: ['~/assets/style/variables.sass'],
+    theme: {
+      dark: true,
+      themes: {
+        dark: {
+          backgroundDark: colors.blueGrey.darken2, // #252a33,
+          headerAndFooterColorDark: colors.blue.darken3,
+          headerAndFooterColorLight: colors.blue.lighten4,
+          cardColorDark: colors.blueGrey.darken4,
+          primary: colors.teal.lighten3, // blue.darken2
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        }
+      },
+      options: {
+        themeCache: () => {
+          return new LRU({
+            max: 10,
+            maxAge: 1000 * 60 * 60 // 1 hour
+          })
+        }
+      }
+    }
   },
-  */
 
   googleAnalytics: {
     id: 'UA-118888630-1',

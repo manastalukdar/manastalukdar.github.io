@@ -4,24 +4,24 @@
       <v-card :color="cardColor" class="pa-3" raised elevation="8">
         <v-flex xs12>
           <v-list>
-            <v-layout row justify-center wrap>
-              <v-list-tile
+            <v-layout column justify-center wrap>
+              <v-list-item
                 v-for="item in socialMediaItems"
                 :key="item.text"
                 :href="item.href"
                 :target="item.target"
               >
                 <v-icon>{{ item.icon }}</v-icon>
-              </v-list-tile>
+              </v-list-item>
             </v-layout>
           </v-list>
         </v-flex>
         <v-flex xs12>
           <v-list>
             <v-layout row justify-center wrap>
-              <v-list-tile :key="aboutItems[0].text" :to="aboutItems[0].href">
-                <v-list-tile-title v-text="aboutItems[0].text" />
-              </v-list-tile>
+              <v-list-item :key="aboutItems[0].text" :to="aboutItems[0].href">
+                <v-list-item-title v-text="aboutItems[0].text" />
+              </v-list-item>
             </v-layout>
           </v-list>
         </v-flex>
