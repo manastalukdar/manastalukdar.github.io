@@ -34,5 +34,6 @@
       "eslint.autoFixOnSave": true,
       "editor.formatOnSave": false,
       "vetur.validation.template": false,
+      "eslint.workingDirectories": ["../website/src"],
       "markdown.extension.print.onFileSave": false
 }
