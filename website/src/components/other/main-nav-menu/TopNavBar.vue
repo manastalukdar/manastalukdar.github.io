@@ -21,14 +21,6 @@
       <MainNavMenuContact />
     </v-toolbar-items>
 
-    <!--
-    <v-menu class="hidden-md-and-up">
-      <template v-slot:activator="{ on }">
-        <v-app-bar-nav-icon @click="flipSidebarVisibility" v-on="on" />
-      </template>
-    </v-menu>
-    -->
-
     <v-btn text icon class="hidden-md-and-up" @click="flipSidebarVisibility">
       <v-icon>mdi-menu</v-icon>
     </v-btn>
