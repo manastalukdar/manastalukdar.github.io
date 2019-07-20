@@ -7,7 +7,7 @@
     :disable-resize-watcher="true"
     :disable-route-watcher="true"
   >
-    <v-list>
+    <v-list nav dense>
       <v-list-group no-action>
         <v-list-item slot="activator">
           <v-list-item-action>
