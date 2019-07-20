@@ -300,7 +300,7 @@ export default {
 
   vuetify: {
     treeShake: true,
-    customVariables: ['~/assets/style/variables.sass'],
+    customVariables: ['~/assets/style/variables.scss'],
     theme: {
       dark: true,
       themes: {
