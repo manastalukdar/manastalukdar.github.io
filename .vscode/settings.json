@@ -34,6 +34,8 @@
       "eslint.autoFixOnSave": true,
       "editor.formatOnSave": false,
       "vetur.validation.template": false,
-      "eslint.workingDirectories": ["../website/src"],
+      "eslint.workingDirectories": [
+        { "directory": "./website", "changeProcessCWD": true }
+      ],
       "markdown.extension.print.onFileSave": false
 }
