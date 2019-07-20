@@ -30,12 +30,14 @@
         <AboutMenuItems />
       </v-list-group>
 
-      <v-list-item nuxt :to="legalPath">
-        <v-list-item-action>
-          <v-icon>mdi-gavel</v-icon>
-        </v-list-item-action>
-        <v-list-item-title> {{ legalText }} </v-list-item-title>
-      </v-list-item>
+      <div class="px-2">
+        <v-list-item nuxt :to="legalPath">
+          <v-list-item-action>
+            <v-icon>mdi-gavel</v-icon>
+          </v-list-item-action>
+          <v-list-item-title> {{ legalText }} </v-list-item-title>
+        </v-list-item>
+      </div>
 
       <v-list-group no-action>
         <v-list-item slot="activator">
