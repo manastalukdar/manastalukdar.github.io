@@ -308,7 +308,7 @@ export default {
           background: colors.blueGrey.darken2, // #252a33,
           headerAndFooterColor: colors.blue.darken3,
           cardColor: colors.blueGrey.darken4,
-          primary: colors.teal.lighten3, // blue.darken2
+          primary: colors.teal.lighten3 // blue.darken2
           /* accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
