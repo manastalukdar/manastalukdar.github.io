@@ -308,7 +308,7 @@ export default {
       dark: true,
       themes: {
         dark: {
-          background: colors.blueGrey.darken2, // #252a33,
+          background: colors.blueGrey.darken2, // #141e24
           headerAndFooterColor: colors.blue.darken3,
           cardColor: colors.blueGrey.darken4,
           primary: colors.teal.lighten3 // blue.darken2
