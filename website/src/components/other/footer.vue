@@ -8,8 +8,6 @@
         </v-flex>
         <v-flex xs6 text-xs-right style="margin-left: 1em; margin-right: 1em">
           Built with
-          <a href="https://vuejs.org/" target="_blank">Vue.js</a>
-          and
           <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>
           &nbsp;||&nbsp;
           <a href="/sitemap.xml" target="_blank">{{ siteMapText }}</a
@@ -28,7 +26,7 @@ export default {
     siteMapText: 'sitemap',
     blogFeedtext: 'feed',
     builtWithText:
-      'Built with <a href="https://vuejs.org/" target="_blank">Vue.js</a> and <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>'
+      'Built with <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>'
   }),
   computed: {
     ...mapState({
