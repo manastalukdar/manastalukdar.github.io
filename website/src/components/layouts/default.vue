@@ -5,8 +5,10 @@
 
     <v-content>
       <transition name="fade">
-        <!-- component matched by the route will render here -->
-        <nuxt />
+        <v-container class="content-body">
+          <!-- component matched by the route will render here -->
+          <nuxt />
+        </v-container>
       </transition>
     </v-content>
 
