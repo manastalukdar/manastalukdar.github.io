@@ -10,7 +10,7 @@ $body-font-family: roboto;
 $code-color: #383636;
 $v-content-padding: 65px 0px 65px;
 
-// https://stackoverflow.com/questions/57130910/how-do-i-apply-css-to-all-elements-except-when-first-child-is-of-certain-id/57131276#57131276
-.content-body>:not(#container-resume) {
+// https://stackoverflow.com/questions/57130910/how-do-i-apply-css-to-all-elements-except-when-first-child-is-of-certain-id/
+.content-body {
   max-width: 1050px;
 }

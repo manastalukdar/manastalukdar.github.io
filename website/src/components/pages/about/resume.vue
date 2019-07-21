@@ -54,6 +54,31 @@ export default {
       baseUrl: env.baseURL
     }
   },
+  mounted() {
+    this.fixParentContainerWidthOnMount()
+  },
+  destroyed() {
+    this.fixParentContainerWidthOnDestroy()
+  },
+  methods: {
+    fixParentContainerWidthOnMount() {
+      const cr = document.getElementById('container-resume')
+      const parent = cr.parentElement
+      if (parent.className.includes('content-body')) {
+        parent.classList.remove('content-body')
+      }
+    },
+    fixParentContainerWidthOnDestroy() {
+      const cr = document.getElementById('container-resume')
+      const parent = cr.parentElement
+      if (
+        parent.className.includes('container') &&
+        !parent.className.includes('content-body')
+      ) {
+        parent.classList.add('content-body')
+      }
+    }
+  },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
     const description = 'Manas Talukdar resume'
