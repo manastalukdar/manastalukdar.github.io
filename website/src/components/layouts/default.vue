@@ -55,7 +55,7 @@ export default {
 }
 /*
 .application .theme--dark .v-content {
-  background-color: #252a33 !important; // : var(--v-accent-lighten2)
+  background-color: #141e24 !important; // : var(--v-accent-lighten2)
 }
 */
 
