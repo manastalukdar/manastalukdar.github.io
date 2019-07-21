@@ -1,5 +1,5 @@
 <template light>
-  <v-container fluid>
+  <v-container id="container-resume" fluid>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
     <v-card class="resume-wrapper">
