@@ -1,17 +1,15 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12>
-      <v-layout row justify-center title>
-        {{ pageTitle }}
-      </v-layout>
-    </v-flex>
+  <v-col cols="12">
+    <v-row class="title" justify="center">
+      {{ pageTitle }}
+    </v-row>
     <p />
-    <v-flex xs12 py-2>
+    <v-row justify="center">
       <div v-for="post in posts" :key="post['name']">
         <singlePost :post-metadata="post" />
       </div>
-    </v-flex>
-  </v-layout>
+    </v-row>
+  </v-col>
 </template>
 
 <script>

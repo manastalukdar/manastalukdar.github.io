@@ -1,6 +1,6 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12 py-2>
+  <v-row>
+    <v-col class="py-2" cols="12">
       <v-data-iterator
         :items="postsList"
         :items-per-page.sync="itemsPerPage"
@@ -13,8 +13,8 @@
           <!--<hr>-->
         </template>
       </v-data-iterator>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

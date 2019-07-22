@@ -1,6 +1,6 @@
 <template>
-  <v-layout wrap app>
-    <v-flex xs12>
+  <v-row class="app">
+    <v-col cols="12">
       <v-card raised elevation="8">
         <div>
           <v-breadcrumbs
@@ -10,8 +10,8 @@
           ></v-breadcrumbs>
         </div>
       </v-card>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

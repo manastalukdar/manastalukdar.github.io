@@ -1,19 +1,19 @@
 <template>
-  <v-layout column wrap>
-    <v-layout wrap row ma-2>
-      <v-flex xs12>
+  <v-row>
+    <v-row class="ma-2">
+      <v-col cols="12">
         <v-card color="cardColor" raised elevation="8" class="pa-4">
           <postHeader :post-metadata="postMetadata" />
           <p />
           <!-- eslint-disable-next-line vue/no-v-html -->
           <div class="blogPostContent" v-html="postContent" />
         </v-card>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
 
-    <v-layout wrap row ma-2>
+    <v-row class="ma-2">
       <no-ssr>
-        <v-flex xs12>
+        <v-col cols="12">
           <socialSharing
             :url="url"
             :title="postMetadata.title"
@@ -21,16 +21,16 @@
             :quote="postMetadata.excerpt"
             :hashtags="hashtags"
           />
-        </v-flex>
+        </v-col>
       </no-ssr>
-    </v-layout>
+    </v-row>
 
-    <v-layout wrap row ma-2>
-      <v-flex xs12>
+    <v-row class="ma-2">
+      <v-col cols="12">
         <comments :post-id="postId" :url="url" />
-      </v-flex>
-    </v-layout>
-  </v-layout>
+      </v-col>
+    </v-row>
+  </v-row>
 </template>
 
 <script>

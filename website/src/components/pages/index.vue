@@ -2,45 +2,45 @@
   <v-container>
     <!--fluid-->
 
-    <v-layout row pa-2>
+    <v-row class="px-2">
       <aboutBlurb />
-    </v-layout>
+    </v-row>
 
-    <v-layout row wrap>
-      <v-flex sm6>
-        <v-layout pa-2 column style="height:100%">
+    <v-row class="px-2">
+      <v-col sm="6">
+        <v-row style="height:100%">
           <featured />
-        </v-layout>
-      </v-flex>
+        </v-row>
+      </v-col>
 
-      <v-flex sm6>
-        <v-layout pa-2 column style="height:100%">
+      <v-col sm="6">
+        <v-row style="height:100%">
           <socialMediaAndResumeLinks />
-        </v-layout>
-      </v-flex>
-    </v-layout>
+        </v-row>
+      </v-col>
+    </v-row>
 
-    <v-layout row wrap>
-      <v-flex sm6>
-        <v-layout pa-2 column style="height:100%">
+    <v-row class="px-2">
+      <v-col sm="6">
+        <v-row style="height:100%">
           <highlights />
-        </v-layout>
-      </v-flex>
+        </v-row>
+      </v-col>
 
-      <v-flex sm6>
-        <v-layout pa-2 column style="height:100%">
+      <v-col sm="6">
+        <v-row style="height:100%">
           <recentPostsHomePage :posts-list="blogMetadata" />
-        </v-layout>
-      </v-flex>
-    </v-layout>
+        </v-row>
+      </v-col>
+    </v-row>
 
-    <v-layout row pa-2>
+    <v-row class="px-2">
       <interests />
-    </v-layout>
+    </v-row>
 
-    <v-layout row pa-2>
+    <v-row class="px-2">
       <recentUpdates />
-    </v-layout>
+    </v-row>
   </v-container>
 </template>
 
