@@ -1,7 +1,7 @@
 <template>
-  <v-col>
+  <div class="py-2">
     <postHeader :post-metadata="postMetadata" />
-  </v-col>
+  </div>
 </template>
 
 <script>
