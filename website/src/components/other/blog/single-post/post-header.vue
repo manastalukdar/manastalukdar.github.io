@@ -7,7 +7,7 @@
             {{ postMetadata.title }}
           </p>
         </div>
-        <div xs2 class="text-xs-right align-left ml-2">
+        <div xs2 class="text-right align-left ml-2">
           <p>
             <v-icon>{{ postFormatIcon }}</v-icon>
           </p>
