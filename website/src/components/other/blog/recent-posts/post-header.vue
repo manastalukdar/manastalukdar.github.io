@@ -1,27 +1,20 @@
 <template>
-  <v-layout wrap class="text-center">
-    <v-flex xs12>
-      <v-layout row justify-center wrap>
-        <NoSsr>
-          <nuxt-link
-            :to="
-              getBlogPostRoute(
-                postLinkSlugs.year,
-                postLinkSlugs.month,
-                postLinkSlugs.day,
-                postLinkSlugs.post
-              )
-            "
-          >
-            {{ postMetadata.title }}
-          </nuxt-link>
-        </NoSsr>
-      </v-layout>
-      <!--<v-layout row justify-center wrap>
-        Published: {{ postMetadata["first-published-on"] }}
-      </v-layout>-->
-    </v-flex>
-  </v-layout>
+  <v-cols cols="12" class="text-center" justify="center">
+    <NoSsr>
+      <nuxt-link
+        :to="
+          getBlogPostRoute(
+            postLinkSlugs.year,
+            postLinkSlugs.month,
+            postLinkSlugs.day,
+            postLinkSlugs.post
+          )
+        "
+      >
+        {{ postMetadata.title }}
+      </nuxt-link>
+    </NoSsr>
+  </v-cols>
 </template>
 
 <script>

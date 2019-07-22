@@ -15,7 +15,8 @@ module.exports = {
     "prettier/vue"
   ],
   plugins: [
-    'prettier'
+    'prettier',
+    'vuetify'
   ],
   // add your custom rules here
   rules: {
@@ -25,7 +26,10 @@ module.exports = {
     ],
    "vue/component-name-in-template-casing": ["error", "PascalCase"],
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    'vuetify/no-deprecated-classes': 'error',
+    'vuetify/grid-unknown-attributes': 'error',
+    'vuetify/no-legacy-grid': 'error'
   },
   globals: {
     $nuxt: true

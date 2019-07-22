@@ -1,40 +1,36 @@
 <template>
-  <v-container>
-    <v-layout wrap>
-      <v-flex xs12>
-        <v-card
-          color="cardColor"
-          hover
-          class="pa-3"
-          nuxt
-          :to="
-            getBlogPostRoute(
-              postLinkSlugs.year,
-              postLinkSlugs.month,
-              postLinkSlugs.day,
-              postLinkSlugs.post
-            )
-          "
-        >
-          <postHeader :post-metadata="postMetadata" />
-          <p />
-          {{ postMetadata.excerpt }}&nbsp;
-          <nuxt-link
-            :to="
-              getBlogPostRoute(
-                postLinkSlugs.year,
-                postLinkSlugs.month,
-                postLinkSlugs.day,
-                postLinkSlugs.post
-              )
-            "
-          >
-            <span>...read more</span>
-          </nuxt-link>
-        </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <v-col cols="12">
+    <v-card
+      color="cardColor"
+      hover
+      class="pa-3"
+      nuxt
+      :to="
+        getBlogPostRoute(
+          postLinkSlugs.year,
+          postLinkSlugs.month,
+          postLinkSlugs.day,
+          postLinkSlugs.post
+        )
+      "
+    >
+      <postHeader :post-metadata="postMetadata" />
+      <p />
+      {{ postMetadata.excerpt }}&nbsp;
+      <nuxt-link
+        :to="
+          getBlogPostRoute(
+            postLinkSlugs.year,
+            postLinkSlugs.month,
+            postLinkSlugs.day,
+            postLinkSlugs.post
+          )
+        "
+      >
+        <span>...read more</span>
+      </nuxt-link>
+    </v-card>
+  </v-col>
 </template>
 
 <script>

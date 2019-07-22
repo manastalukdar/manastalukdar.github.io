@@ -10,7 +10,7 @@
         {{ appTitle }}
       </nuxt-link>
     </v-toolbar-title>
-    <v-spacer />
+    <div class="flex-grow-1"></div>
     <v-btn text icon @click="flipThemeMode">
       <v-icon>mdi-invert-colors</v-icon>
     </v-btn>

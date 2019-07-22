@@ -1,12 +1,12 @@
 <template>
   <v-container>
-    <v-layout text-center wrap>
-      <v-flex xs12>
-        <v-layout justify-center>
+    <v-row class="text-center">
+      <v-col cols="12">
+        <v-row justify="center">
           Not Found (404)
-        </v-layout>
-      </v-flex>
-    </v-layout>
+        </v-row>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

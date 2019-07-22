@@ -1,6 +1,6 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12>
+  <v-row>
+    <v-col cols="12">
       <v-card color="cardColor" raised elevation="8" class="pa-4">
         <div class="comments">
           <vue-disqus
@@ -10,8 +10,8 @@
           />
         </div>
       </v-card>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

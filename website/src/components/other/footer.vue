@@ -1,20 +1,20 @@
 <template>
   <v-footer app height="auto" color="headerAndFooterColor">
-    <v-card class="flex py-3" text tile flat color="headerAndFooterColor">
-      <v-layout row class="justify-center">
-        <v-flex xs6 text-left style="margin-left: 1em; margin-right: 1em">
+    <v-card class="flex py-1" text tile flat color="headerAndFooterColor">
+      <v-row class="justify-end">
+        <v-col class="text-left" style="margin-left: 1em; margin-right: 1em">
           &copy;&nbsp; {{ copyrightStartYear }} —
           {{ copyrightEndYear }} &nbsp;<strong> {{ appOwner }} </strong>
-        </v-flex>
-        <v-flex xs6 text-right style="margin-left: 1em; margin-right: 1em">
+        </v-col>
+        <v-col class="text-right" style="margin-left: 1em; margin-right: 1em">
           Built with
           <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>
           &nbsp;||&nbsp;
           <a href="/sitemap.xml" target="_blank">{{ siteMapText }}</a
           >&nbsp;||&nbsp;
           <a href="/blogfeed.xml" target="_blank">{{ blogFeedtext }}</a>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-card>
   </v-footer>
 </template>

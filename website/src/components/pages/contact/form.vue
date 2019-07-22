@@ -2,8 +2,8 @@
   <v-container>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
-    <v-layout text-center wrap>
-      <v-flex xs12>
+    <v-row class="text-center">
+      <v-col cols="12">
         <v-form
           ref="form"
           v-model="form"
@@ -44,7 +44,7 @@
             <v-btn text @click="$refs.form.reset()">
               Clear
             </v-btn>
-            <v-spacer />
+            <div class="flex-grow-1"></div>
             <v-btn
               :disabled="!form"
               :loading="isLoading"
@@ -57,8 +57,8 @@
             </v-btn>
           </v-card-actions>
         </v-form>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

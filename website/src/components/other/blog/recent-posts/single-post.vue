@@ -1,10 +1,7 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12>
-      <postHeader :post-metadata="postMetadata" />
-      <p />
-    </v-flex>
-  </v-layout>
+  <v-col cols="12">
+    <postHeader :post-metadata="postMetadata" />
+  </v-col>
 </template>
 
 <script>
