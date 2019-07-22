@@ -2,7 +2,7 @@
   <v-container>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
-    <v-layout text-xs-center wrap>
+    <v-layout text-center wrap>
       <v-flex xs12>
         <v-form
           ref="form"

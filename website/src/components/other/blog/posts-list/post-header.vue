@@ -1,8 +1,8 @@
 <template>
-  <v-layout wrap class="text-xs-center">
+  <v-layout wrap class="text-center">
     <v-flex xs12>
       <v-layout row justify-center title>
-        <div class="text-xs-center align-right mr-2">
+        <div class="text-center align-right mr-2">
           <p>
             {{ postMetadata.title }}
           </p>

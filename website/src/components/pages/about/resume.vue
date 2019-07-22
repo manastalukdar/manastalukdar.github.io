@@ -63,19 +63,23 @@ export default {
   methods: {
     fixParentContainerWidthOnMount() {
       const cr = document.getElementById('container-resume')
-      const parent = cr.parentElement
-      if (parent.className.includes('content-body')) {
-        parent.classList.remove('content-body')
+      if (cr != null) {
+        const parent = cr.parentElement
+        if (parent.className.includes('content-body')) {
+          parent.classList.remove('content-body')
+        }
       }
     },
     fixParentContainerWidthOnDestroy() {
       const cr = document.getElementById('container-resume')
-      const parent = cr.parentElement
-      if (
-        parent.className.includes('container') &&
-        !parent.className.includes('content-body')
-      ) {
-        parent.classList.add('content-body')
+      if (cr != null) {
+        const parent = cr.parentElement
+        if (
+          parent.className.includes('container') &&
+          !parent.className.includes('content-body')
+        ) {
+          parent.classList.add('content-body')
+        }
       }
     }
   },
