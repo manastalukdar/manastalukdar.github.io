@@ -62,9 +62,11 @@ export default {
 .theme--dark .v-navigation-drawer {
   background-color: #263238; /* var(--v-cardColor) */
 }
+/*
 .theme--dark .v-list {
   background: #263238;
 }
+*/
 .theme--dark a {
   color: #42b983;
 }

@@ -7,11 +7,11 @@
       elevation="8"
       style="height:100%"
     >
-      <v-row class="title" justify="center">
+      <v-row class="title px-3" justify="center">
         <span>Featured</span>
       </v-row>
       <p />
-      <v-row justify="center">
+      <v-row class="px-3" justify="center">
         <nuxt-link to="/blog/tag/engineering-leadership/">
           Blog Posts on Engineering Leadership
         </nuxt-link>
