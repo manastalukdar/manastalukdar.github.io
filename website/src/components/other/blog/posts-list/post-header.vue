@@ -7,7 +7,7 @@
             {{ postMetadata.title }}
           </p>
         </div>
-        <div xs2 class="text-xs-right align-left ml-2">
+        <div xs2 class="text-right align-left ml-2">
           <p>
             <v-icon>{{ postFormatIcon }}</v-icon>
           </p>
@@ -24,7 +24,7 @@
         </div>
         &nbsp; || Published: {{ postMetadata['first-published-on'] }}
       </v-layout>
-      <v-layout row justify-center wrap>
+      <v-layout justify="center">
         Categories:&nbsp;
         <div v-for="item in postMetadata.categories" :key="item['name']">
           <nuxt-link :to="getCategoryRoute(item['url-slug'])">

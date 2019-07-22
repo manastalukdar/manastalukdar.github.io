@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-card class="pa-3" raised elevation="8" color="cardColor">
         <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="text-xs-justify" v-html="aboutBlurb" />
+        <div class="text-justify" v-html="aboutBlurb" />
       </v-card>
     </v-flex>
   </v-layout>

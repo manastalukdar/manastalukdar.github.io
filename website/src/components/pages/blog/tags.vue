@@ -2,7 +2,7 @@
   <v-container>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
-    <v-layout text-xs-justify wrap>
+    <v-layout text-justify wrap>
       <v-flex xs12>
         <v-layout row justify-center>
           <h1>
@@ -36,7 +36,7 @@
                       item.name
                     }}</nuxt-link>
                   </td>
-                  <td class="text-xs-right">{{ item.count }}</td>
+                  <td class="text-right">{{ item.count }}</td>
                 </tr>
               </tbody>
             </template>
