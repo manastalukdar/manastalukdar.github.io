@@ -2,7 +2,7 @@
   <v-container>
     <!--fluid-->
 
-    <v-layout pa-2>
+    <v-layout row pa-2>
       <aboutBlurb />
     </v-layout>
 
@@ -34,11 +34,11 @@
       </v-flex>
     </v-layout>
 
-    <v-layout pa-2>
+    <v-layout row pa-2>
       <interests />
     </v-layout>
 
-    <v-layout pa-2>
+    <v-layout row pa-2>
       <recentUpdates />
     </v-layout>
   </v-container>

@@ -23,7 +23,7 @@
               <v-list-item
                 :key="aboutItems[0].text"
                 :to="aboutItems[0].href"
-                class="text-xs-center"
+                class="text-center"
               >
                 <v-list-item-title v-text="aboutItems[0].text" />
               </v-list-item>
