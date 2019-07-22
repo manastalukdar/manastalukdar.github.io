@@ -1,15 +1,18 @@
 <template>
-  <v-col>
+  <div class="px-3">
     <v-row class="title" justify="center">
       {{ pageTitle }}
     </v-row>
     <p />
-    <v-row justify="center">
-      <v-row v-for="post in posts" :key="post['name']" class="px-2">
-        <singlePost :post-metadata="post" />
-      </v-row>
+    <v-row
+      v-for="post in posts"
+      :key="post['name']"
+      class="px-2"
+      justify="center"
+    >
+      <singlePost :post-metadata="post" />
     </v-row>
-  </v-col>
+  </div>
 </template>
 
 <script>

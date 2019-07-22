@@ -1,5 +1,5 @@
 <template>
-  <v-row class="text-center" justify="center">
+  <div class="text-center" justify="center">
     <NoSsr>
       <nuxt-link
         :to="
@@ -14,7 +14,7 @@
         {{ postMetadata.title }}
       </nuxt-link>
     </NoSsr>
-  </v-row>
+  </div>
 </template>
 
 <script>

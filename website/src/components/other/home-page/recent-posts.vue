@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12">
+  <v-container>
     <v-card
       color="cardColor"
       class="pa-3"
@@ -10,7 +10,7 @@
     >
       <recentPosts :items-to-display="itemsToDisplay" :posts-list="postsList" />
     </v-card>
-  </v-col>
+  </v-container>
 </template>
 
 <script>
