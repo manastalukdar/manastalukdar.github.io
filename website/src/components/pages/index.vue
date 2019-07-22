@@ -7,13 +7,13 @@
     </v-row>
 
     <v-row class="px-2">
-      <v-col sm="6">
+      <v-col sm="6" class="d-flex" cols="12">
         <v-row style="height:100%;">
           <featured />
         </v-row>
       </v-col>
 
-      <v-col sm="6">
+      <v-col sm="6" class="d-flex" cols="12">
         <v-row style="height:100%">
           <socialMediaAndResumeLinks />
         </v-row>
@@ -21,13 +21,13 @@
     </v-row>
 
     <v-row class="px-2">
-      <v-col sm="6">
+      <v-col sm="6" class="d-flex" cols="12">
         <v-row style="height:100%">
           <highlights />
         </v-row>
       </v-col>
 
-      <v-col sm="6">
+      <v-col sm="6" class="d-flex" cols="12">
         <v-row style="height:100%">
           <recentPostsHomePage :posts-list="blogMetadata" />
         </v-row>
