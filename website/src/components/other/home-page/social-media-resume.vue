@@ -18,7 +18,10 @@
           :to="aboutItems[0].href"
           class="text-center"
         >
-          <v-list-item-title v-text="aboutItems[0].text" />
+          <v-list-item-title
+            class="font-weight-medium"
+            v-text="aboutItems[0].text"
+          />
         </v-list-item>
       </v-row>
     </v-card>
