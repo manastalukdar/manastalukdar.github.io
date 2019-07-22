@@ -8,7 +8,7 @@
 
     <v-row class="px-2">
       <v-col sm="6">
-        <v-row style="height:100%">
+        <v-row style="height:100%;">
           <featured />
         </v-row>
       </v-col>

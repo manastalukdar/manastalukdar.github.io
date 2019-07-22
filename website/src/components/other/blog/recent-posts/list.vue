@@ -1,13 +1,13 @@
 <template>
-  <v-col cols="12">
+  <v-col>
     <v-row class="title" justify="center">
       {{ pageTitle }}
     </v-row>
     <p />
     <v-row justify="center">
-      <div v-for="post in posts" :key="post['name']">
+      <v-row v-for="post in posts" :key="post['name']" class="px-2">
         <singlePost :post-metadata="post" />
-      </div>
+      </v-row>
     </v-row>
   </v-col>
 </template>

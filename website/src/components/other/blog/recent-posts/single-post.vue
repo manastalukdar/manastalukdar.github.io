@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12">
+  <v-col>
     <postHeader :post-metadata="postMetadata" />
   </v-col>
 </template>

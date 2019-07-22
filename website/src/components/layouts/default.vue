@@ -5,7 +5,7 @@
 
     <v-content>
       <transition name="fade">
-        <v-container class="content-body">
+        <v-container class="content-body pa-6">
           <!-- component matched by the route will render here -->
           <nuxt />
         </v-container>

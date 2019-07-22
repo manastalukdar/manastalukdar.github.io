@@ -3,14 +3,12 @@
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
     <v-row>
-      <v-col cols="12">
-        <post
-          :post-metadata="postMetadata"
-          :post-content="postContent"
-          :url="url"
-          :post-id="postId"
-        />
-      </v-col>
+      <post
+        :post-metadata="postMetadata"
+        :post-content="postContent"
+        :url="url"
+        :post-id="postId"
+      />
     </v-row>
   </v-container>
 </template>
