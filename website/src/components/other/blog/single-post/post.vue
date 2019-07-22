@@ -1,7 +1,7 @@
 <template>
-  <v-row>
-    <v-row class="ma-2">
-      <v-col cols="12">
+  <v-col>
+    <v-row>
+      <v-col>
         <v-card color="cardColor" raised elevation="8" class="pa-4">
           <postHeader :post-metadata="postMetadata" />
           <p />
@@ -11,9 +11,9 @@
       </v-col>
     </v-row>
 
-    <v-row class="ma-2">
+    <v-row>
       <no-ssr>
-        <v-col cols="12">
+        <v-col>
           <socialSharing
             :url="url"
             :title="postMetadata.title"
@@ -25,12 +25,12 @@
       </no-ssr>
     </v-row>
 
-    <v-row class="ma-2">
-      <v-col cols="12">
+    <v-row>
+      <v-col>
         <comments :post-id="postId" :url="url" />
       </v-col>
     </v-row>
-  </v-row>
+  </v-col>
 </template>
 
 <script>
