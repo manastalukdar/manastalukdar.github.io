@@ -169,7 +169,7 @@ export default {
    ** Global CSS
    */
   css: [
-    '~/assets/style/app.scss',
+    '~/src/assets/style/app.scss',
     '@fortawesome/fontawesome-svg-core/styles.css',
     { src: '~/node_modules/highlight.js/styles/atom-one-light.css', lang: 'css' }
   ],
@@ -268,7 +268,7 @@ export default {
   },
 
   dir: {
-    assets: './assets',
+    assets: './src/assets',
     layouts: './src/components/layouts',
     middleware: './src/middleware',
     pages: './src/components/pages',
@@ -300,7 +300,7 @@ export default {
 
   vuetify: {
     treeShake: true,
-    customVariables: ['~/assets/style/variables.scss'],
+    customVariables: ['~/src/assets/style/variables.scss'],
     icons: {
       iconfont: 'mdi'
     },
