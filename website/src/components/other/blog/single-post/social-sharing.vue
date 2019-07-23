@@ -1,43 +1,35 @@
 <template>
-  <v-row>
-    <v-col cols="12">
-      <v-card color="cardColor" raised elevation="8" class="pa-4">
-        <v-row class="socialSharing" justify="center">
-          <social-sharing
-            v-cloak
-            :url="url"
-            :title="title"
-            :description="description"
-            :quote="quote"
-            :hashtags="hashtags"
-            :twitter-user="twitterUser"
-            inline-template
-          >
-            <div class="socialSharingItems">
-              <network network="email">
-                <a><i class="socialSharingItem mdi mdi-email mdi-24px"></i></a>
-              </network>
-              <network network="linkedin">
-                <a
-                  ><i class="socialSharingItem mdi mdi-linkedin mdi-24px"></i
-                ></a>
-              </network>
-              <network network="twitter">
-                <a
-                  ><i class="socialSharingItem mdi mdi-twitter mdi-24px"></i
-                ></a>
-              </network>
-              <network network="facebook">
-                <a
-                  ><i class="socialSharingItem mdi mdi-facebook mdi-24px"></i
-                ></a>
-              </network>
-            </div>
-          </social-sharing>
-        </v-row>
-      </v-card>
-    </v-col>
-  </v-row>
+  <v-col class="px-0 pt-5">
+    <v-card color="cardColor" raised elevation="8" class="py-4">
+      <div class="socialSharing" justify="center">
+        <social-sharing
+          v-cloak
+          :url="url"
+          :title="title"
+          :description="description"
+          :quote="quote"
+          :hashtags="hashtags"
+          :twitter-user="twitterUser"
+          inline-template
+        >
+          <div class="socialSharingItems">
+            <network network="email">
+              <a><i class="socialSharingItem mdi mdi-email mdi-24px"></i></a>
+            </network>
+            <network network="linkedin">
+              <a><i class="socialSharingItem mdi mdi-linkedin mdi-24px"></i></a>
+            </network>
+            <network network="twitter">
+              <a><i class="socialSharingItem mdi mdi-twitter mdi-24px"></i></a>
+            </network>
+            <network network="facebook">
+              <a><i class="socialSharingItem mdi mdi-facebook mdi-24px"></i></a>
+            </network>
+          </div>
+        </social-sharing>
+      </div>
+    </v-card>
+  </v-col>
 </template>
 
 <script>
