@@ -11,7 +11,7 @@
       </nuxt-link>
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
-    <v-btn text icon @click="flipThemeMode">
+    <v-btn disabled text icon @click="flipThemeMode">
       <v-icon>mdi-invert-colors</v-icon>
     </v-btn>
     <v-toolbar-items class="hidden-sm-and-down">
