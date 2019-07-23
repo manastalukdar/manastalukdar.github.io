@@ -1,6 +1,13 @@
 <template>
-  <v-footer app height="auto" color="headerAndFooterColor">
-    <v-card class="flex py-1" text tile flat color="headerAndFooterColor">
+  <v-footer app height="auto" padless>
+    <v-card
+      class="flex py-1"
+      text
+      tile
+      flat
+      width="100%"
+      color="headerAndFooterColor"
+    >
       <v-row class="justify-end">
         <v-col class="text-left" style="margin-left: 1em; margin-right: 1em">
           &copy;&nbsp; {{ copyrightStartYear }} —
