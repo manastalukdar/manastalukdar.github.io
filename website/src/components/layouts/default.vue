@@ -4,12 +4,12 @@
     <MainNavMenuNavigationDrawer />
 
     <v-content>
-      <transition name="fade">
-        <v-container class="content-body pa-6">
+      <v-container class="content-body pa-6">
+        <transition name="fade">
           <!-- component matched by the route will render here -->
           <nuxt />
-        </v-container>
-      </transition>
+        </transition>
+      </v-container>
     </v-content>
 
     <Footer />
@@ -22,6 +22,10 @@ import MainNavMenuNavigationDrawer from '../other/main-nav-menu/NavigationDrawer
 import MainNavMenuTopNavBar from '../other/main-nav-menu/TopNavBar.vue'
 import Footer from '../other/footer.vue'
 export default {
+  pageTransition: {
+    name: 'fade',
+    mode: 'out-in'
+  },
   /* name: 'App', */
   components: {
     MainNavMenuNavigationDrawer,

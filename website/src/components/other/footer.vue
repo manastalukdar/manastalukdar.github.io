@@ -23,8 +23,8 @@
 import { mapState } from 'vuex'
 export default {
   data: () => ({
-    siteMapText: 'sitemap',
-    blogFeedtext: 'feed',
+    siteMapText: 'Sitemap',
+    blogFeedtext: 'Blog Feed',
     builtWithText:
       'Built with <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>'
   }),
