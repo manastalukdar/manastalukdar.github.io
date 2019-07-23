@@ -12,7 +12,7 @@
       </v-row>
       <p />
       <!--eslint-disable-next-line vue/no-v-html-->
-      <div v-html="highlights" />
+      <div class="pb-2" v-html="highlights" />
     </v-card>
   </v-col>
 </template>
