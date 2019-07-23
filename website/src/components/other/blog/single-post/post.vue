@@ -1,30 +1,32 @@
 <template>
-  <v-col>
-    <v-row>
-      <v-card color="cardColor" raised elevation="8" class="py-4 px-6">
-        <postHeader :post-metadata="postMetadata" />
-        <p />
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="blogPostContent col" v-html="postContent" />
-      </v-card>
-    </v-row>
+  <v-container>
+    <v-col>
+      <v-row>
+        <v-card color="cardColor" raised elevation="8" class="py-4 px-6">
+          <postHeader :post-metadata="postMetadata" />
+          <p />
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <div class="blogPostContent col" v-html="postContent" />
+        </v-card>
+      </v-row>
 
-    <v-row>
-      <no-ssr>
-        <socialSharing
-          :url="url"
-          :title="postMetadata.title"
-          :description="postMetadata.description"
-          :quote="postMetadata.excerpt"
-          :hashtags="hashtags"
-        />
-      </no-ssr>
-    </v-row>
+      <v-row>
+        <no-ssr>
+          <socialSharing
+            :url="url"
+            :title="postMetadata.title"
+            :description="postMetadata.description"
+            :quote="postMetadata.excerpt"
+            :hashtags="hashtags"
+          />
+        </no-ssr>
+      </v-row>
 
-    <v-row>
-      <comments :post-id="postId" :url="url" />
-    </v-row>
-  </v-col>
+      <v-row>
+        <comments :post-id="postId" :url="url" />
+      </v-row>
+    </v-col>
+  </v-container>
 </template>
 
 <script>
