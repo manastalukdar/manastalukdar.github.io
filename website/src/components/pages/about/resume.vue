@@ -1,5 +1,5 @@
 <template light>
-  <v-container fluid>
+  <v-container id="container-resume" fluid>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
     <v-card class="resume-wrapper">
@@ -52,6 +52,35 @@ export default {
   asyncData({ store, params, env, payload }) {
     return {
       baseUrl: env.baseURL
+    }
+  },
+  mounted() {
+    this.fixParentContainerWidthOnMount()
+  },
+  destroyed() {
+    this.fixParentContainerWidthOnDestroy()
+  },
+  methods: {
+    fixParentContainerWidthOnMount() {
+      const cr = document.getElementById('container-resume')
+      if (cr != null) {
+        const parent = cr.parentElement
+        if (parent.className.includes('content-body')) {
+          parent.classList.remove('content-body')
+        }
+      }
+    },
+    fixParentContainerWidthOnDestroy() {
+      const cr = document.getElementById('container-resume')
+      if (cr != null) {
+        const parent = cr.parentElement
+        if (
+          parent.className.includes('container') &&
+          !parent.className.includes('content-body')
+        ) {
+          parent.classList.add('content-body')
+        }
+      }
     }
   },
   head() {

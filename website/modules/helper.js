@@ -4,7 +4,9 @@
 const functions = {
   aboutBlurbText: async () => {
     const fm = require('front-matter')
-    const aboutBlurbTextRaw = await import('./src/components/other/home-page/about-blurb.md')
+    const aboutBlurbTextRaw = await import(
+      './src/components/other/home-page/about-blurb.md'
+    )
     const res = fm(aboutBlurbTextRaw.default)
     return res.body
   }

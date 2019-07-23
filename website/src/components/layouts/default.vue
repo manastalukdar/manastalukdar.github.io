@@ -1,13 +1,15 @@
 <template>
-  <v-app :dark="darkMode">
+  <v-app>
     <MainNavMenuTopNavBar />
     <MainNavMenuNavigationDrawer />
 
     <v-content>
-      <transition name="fade">
-        <!-- component matched by the route will render here -->
-        <nuxt />
-      </transition>
+      <v-container class="content-body px-6 py-3">
+        <transition name="fade">
+          <!-- component matched by the route will render here -->
+          <nuxt />
+        </transition>
+      </v-container>
     </v-content>
 
     <Footer />
@@ -20,6 +22,10 @@ import MainNavMenuNavigationDrawer from '../other/main-nav-menu/NavigationDrawer
 import MainNavMenuTopNavBar from '../other/main-nav-menu/TopNavBar.vue'
 import Footer from '../other/footer.vue'
 export default {
+  pageTransition: {
+    name: 'fade',
+    mode: 'out-in'
+  },
   /* name: 'App', */
   components: {
     MainNavMenuNavigationDrawer,
@@ -28,9 +34,11 @@ export default {
   },
   computed: {
     ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      darkMode: state => state.GlobalData.darkMode
+      appOwner: state => state.GlobalData.appOwner
     })
+  },
+  mounted() {
+    // this.$vuetify.theme.dark = true
   },
   head() {
     return {
@@ -51,15 +59,14 @@ export default {
 }
 /*
 .application .theme--dark .v-content {
-  background-color: #252a33 !important; // : var(--v-accent-lighten2)
+  background-color: #141e24 !important; // : var(--v-accent-lighten2)
 }
 */
+
 .theme--dark .v-navigation-drawer {
-  background-color: #263238; /* var(--v-cardColorDark) */
+  background-color: #263238; /* var(--v-cardColor) */
 }
-.theme--dark .v-list {
-  background: #263238;
-}
+
 .theme--dark a {
   color: #42b983;
 }
@@ -133,7 +140,6 @@ pre code {
 code {
   margin-left: 0.25em;
   margin-right: 0.25em;
-  color: #383636;
 }
 
 blockquote {

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <v-list-tile v-for="item in aboutItems" :key="item.text" :to="item.href">
-      <v-list-tile-avatar>
+    <v-list-item v-for="item in aboutItems" :key="item.text" :to="item.href">
+      <v-list-item-avatar>
         <v-icon>{{ item.icon }}</v-icon>
-      </v-list-tile-avatar>
-      <v-list-tile-title v-text="item.text" />
-    </v-list-tile>
+      </v-list-item-avatar>
+      <v-list-item-title v-text="item.text" />
+    </v-list-item>
   </div>
 </template>
 

@@ -1,10 +1,7 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12>
-      <postHeader :post-metadata="postMetadata" />
-      <p />
-    </v-flex>
-  </v-layout>
+  <div class="py-2">
+    <postHeader :post-metadata="postMetadata" />
+  </div>
 </template>
 
 <script>

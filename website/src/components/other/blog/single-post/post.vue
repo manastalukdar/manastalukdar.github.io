@@ -1,19 +1,17 @@
 <template>
-  <v-layout column wrap>
-    <v-layout wrap row ma-2>
-      <v-flex xs12>
-        <v-card :color="cardColor" raised elevation="8" class="pa-4">
+  <v-container>
+    <v-col>
+      <v-row>
+        <v-card color="cardColor" raised elevation="8" class="py-4 px-6">
           <postHeader :post-metadata="postMetadata" />
           <p />
           <!-- eslint-disable-next-line vue/no-v-html -->
-          <div class="blogPostContent" v-html="postContent" />
+          <div class="blogPostContent col" v-html="postContent" />
         </v-card>
-      </v-flex>
-    </v-layout>
+      </v-row>
 
-    <v-layout wrap row ma-2>
-      <no-ssr>
-        <v-flex xs12>
+      <v-row>
+        <no-ssr>
           <socialSharing
             :url="url"
             :title="postMetadata.title"
@@ -21,16 +19,14 @@
             :quote="postMetadata.excerpt"
             :hashtags="hashtags"
           />
-        </v-flex>
-      </no-ssr>
-    </v-layout>
+        </no-ssr>
+      </v-row>
 
-    <v-layout wrap row ma-2>
-      <v-flex xs12>
+      <v-row>
         <comments :post-id="postId" :url="url" />
-      </v-flex>
-    </v-layout>
-  </v-layout>
+      </v-row>
+    </v-col>
+  </v-container>
 </template>
 
 <script>
@@ -66,9 +62,6 @@ export default {
     }
   },
   computed: {
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
-    },
     hashtags() {
       const hashtagsArray = []
       this.postMetadata.categories.forEach(category => {

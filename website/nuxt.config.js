@@ -1,6 +1,6 @@
 import { Feed } from 'feed'
+const colors = require('vuetify/es5/util/colors').default
 const fs = require('fs')
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const getRoutes = require('./utils/getRoutes.js')
 // const ampify = require('./plugins/ampify')
 
@@ -169,7 +169,7 @@ export default {
    ** Global CSS
    */
   css: [
-    '~/assets/style/app.styl',
+    '~/src/assets/style/app.scss',
     '@fortawesome/fontawesome-svg-core/styles.css',
     { src: '~/node_modules/highlight.js/styles/atom-one-light.css', lang: 'css' }
   ],
@@ -187,14 +187,16 @@ export default {
     '@nuxtjs/sitemap'
   ],
 
+  devModules: ['@nuxtjs/vuetify'],
+
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/vuetify',
     '@/plugins/fontawesome.js',
     '@/plugins/materialdesignicons.js',
     '@plugins/vueAsyncComputed.js',
+    '~/plugins/vuetify-theme-cache.js',
     '~/plugins/disqus',
     {
       src: '~/plugins/socialsharing',
@@ -214,12 +216,8 @@ export default {
    */
   build: {
     dir: 'dist',
-    transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
     loaders: {
-      stylus: {
-        import: ['~assets/style/variables.styl']
-      }
+      stylus: {}
     },
 
     /*
@@ -271,7 +269,7 @@ export default {
   },
 
   dir: {
-    assets: './assets',
+    assets: './src/assets',
     layouts: './src/components/layouts',
     middleware: './src/middleware',
     pages: './src/components/pages',
@@ -300,6 +298,43 @@ export default {
       href: faviconPath
     }
   ],
+
+  vuetify: {
+    treeShake: true,
+    customVariables: ['~/src/assets/style/variables.scss'],
+    icons: {
+      iconfont: 'mdi'
+    },
+    theme: {
+      dark: true,
+      themes: {
+        dark: {
+          background: colors.blueGrey.darken2, // #141e24
+          headerAndFooterColor: colors.blue.darken3,
+          cardColor: colors.blueGrey.darken4,
+          primary: colors.teal.lighten3 // blue.darken2
+          /* accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3 */
+        },
+        light: {
+          headerAndFooterColor: colors.blue.lighten4,
+          cardColor: colors.shades.white,
+        }
+      },
+      options: {
+        customProperties: true,
+        minifyTheme: function (css) {
+          return process.env.NODE_ENV === 'production'
+            ? css.replace(/[\s|\r\n|\r|\n]/g, '')
+            : css
+        }
+      }
+    }
+  },
 
   googleAnalytics: {
     id: 'UA-118888630-1',

@@ -2,18 +2,18 @@
   <v-container>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
-    <v-layout text-xs-justify wrap>
-      <v-flex xs12>
-        <v-layout row justify-center>
+    <v-row class="text-justify">
+      <v-col cols="12">
+        <v-row justify="center">
           <h1>
             {{ pageTitle }}
           </h1>
-        </v-layout>
-      </v-flex>
-      <v-flex xs12>
-        <v-card class="ma-3 pa-2" raised elevation="8">
+        </v-row>
+      </v-col>
+      <v-col cols="12">
+        <v-card class="my-3 pa-2" raised elevation="8">
           <v-card-title>
-            <v-spacer></v-spacer>
+            <div class="flex-grow-1"></div>
             <v-text-field
               v-model="search"
               append-icon="search"
@@ -22,14 +22,23 @@
               hide-details
             ></v-text-field>
           </v-card-title>
-          <v-data-table :headers="headers" :items="tags" :search="search">
+          <v-data-table
+            :headers="headers"
+            :items="tags"
+            :search="search"
+            :items-per-page="5"
+          >
             <template v-slot:items="props">
-              <td>
-                <nuxt-link :to="getLink([props.item.slug])">{{
-                  props.item.name
-                }}</nuxt-link>
-              </td>
-              <td class="text-xs-right">{{ props.item.count }}</td>
+              <tbody>
+                <tr v-for="item in props" :key="item.slug">
+                  <td>
+                    <nuxt-link :to="getLink([item.slug])">{{
+                      item.name
+                    }}</nuxt-link>
+                  </td>
+                  <td class="text-right">{{ item.count }}</td>
+                </tr>
+              </tbody>
             </template>
             <v-alert
               v-slot:no-results
@@ -41,8 +50,8 @@
             </v-alert>
           </v-data-table>
         </v-card>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -99,9 +108,6 @@ export default {
           to: this.currentHref
         }
       ]
-    },
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
     }
   },
   async asyncData({ store, params, env, payload }) {

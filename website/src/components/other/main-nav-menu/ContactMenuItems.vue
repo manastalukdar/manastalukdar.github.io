@@ -1,24 +1,24 @@
 <template>
   <div>
-    <v-list-tile :to="contactForm.href">
-      <v-list-tile-avatar>
+    <v-list-item :to="contactForm.href">
+      <v-list-item-avatar>
         <v-icon>{{ contactForm.icon }}</v-icon>
-      </v-list-tile-avatar>
-      <v-list-tile-title v-text="contactForm.text" />
-    </v-list-tile>
+      </v-list-item-avatar>
+      <v-list-item-title v-text="contactForm.text" />
+    </v-list-item>
     <v-divider />
     <v-subheader v-text="subHeaderTextSocialMedia.text" />
-    <v-list-tile
+    <v-list-item
       v-for="item in socialMediaItems"
       :key="item.text"
       :href="item.href"
       :target="item.target"
     >
-      <v-list-tile-avatar>
+      <v-list-item-avatar>
         <v-icon>{{ item.icon }}</v-icon>
-      </v-list-tile-avatar>
-      <v-list-tile-title v-text="item.text" />
-    </v-list-tile>
+      </v-list-item-avatar>
+      <v-list-item-title v-text="item.text" />
+    </v-list-item>
   </div>
 </template>
 

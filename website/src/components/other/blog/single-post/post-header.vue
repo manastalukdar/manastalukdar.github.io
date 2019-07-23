@@ -1,20 +1,20 @@
 <template>
-  <v-layout wrap class="text-xs-center">
-    <v-flex xs12>
-      <v-layout row justify-center title>
-        <div class="text-xs-center align-right mr-2">
+  <v-row class="text-center">
+    <v-col cols="12">
+      <v-row class="title" justify="center">
+        <div class="text-center align-right mr-2">
           <p>
             {{ postMetadata.title }}
           </p>
         </div>
-        <div xs2 class="text-xs-right align-left ml-2">
+        <div xs2 class="text-right align-left ml-2">
           <p>
             <v-icon>{{ postFormatIcon }}</v-icon>
           </p>
         </div>
         <p />
-      </v-layout>
-      <v-layout row justify-center wrap>
+      </v-row>
+      <v-row justify="center">
         Authors:&nbsp;
         <div v-for="item in postMetadata.authors" :key="item['name']">
           <nuxt-link :to="getAuthorRoute(item['url-slug'])">
@@ -24,8 +24,8 @@
         </div>
         &nbsp; || Published: {{ postMetadata['first-published-on'] }} ||
         Updated: {{ postMetadata['last-updated-on'] }}
-      </v-layout>
-      <v-layout row justify-center wrap>
+      </v-row>
+      <v-row justify="center">
         Categories:&nbsp;
         <div v-for="item in postMetadata.categories" :key="item['name']">
           <nuxt-link :to="getCategoryRoute(item['url-slug'])">
@@ -46,9 +46,9 @@
         >
           {{ postMetadata['post-format'].name }}
         </nuxt-link>
-      </v-layout>
-    </v-flex>
-  </v-layout>
+      </v-row>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

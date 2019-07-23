@@ -2,14 +2,14 @@
   <v-container>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
-    <v-layout text-xs-justify wrap>
-      <v-flex xs12>
-        <v-layout row justify-center>
+    <v-row class="text-justify">
+      <v-col cols="12">
+        <v-row justify="center">
           <h1>{{ authorText }}:&nbsp; {{ authorName }}</h1>
-        </v-layout>
-      </v-flex>
+        </v-row>
+      </v-col>
       <postsList :posts-list="blogMetadata" />
-    </v-layout>
+    </v-row>
   </v-container>
 </template>
 
