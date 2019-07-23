@@ -2,14 +2,14 @@
   <v-container>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
-    <v-layout wrap>
-      <v-flex xs12>
+    <v-row>
+      <v-col cols="12">
         This a personal website and has nothing to do with my employers, past
         and present. Any content here does not constitute endorsement or
         guarantees of anything. I hold the right to determine exclusions to this
         disclaimer. My resume provided via this site being an obvious exclusion.
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

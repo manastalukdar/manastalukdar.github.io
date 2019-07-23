@@ -1,10 +1,10 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12 py-2>
+  <v-row>
+    <v-col class="py-2" cols="12">
       <v-data-iterator
         :items="postsList"
-        :rows-per-page-items="rowsPerPageItems"
-        :pagination.sync="pagination"
+        :items-per-page.sync="itemsPerPage"
+        :footer-props="{ itemsPerPageOptions }"
         row
         wrap
       >
@@ -13,8 +13,8 @@
           <!--<hr>-->
         </template>
       </v-data-iterator>
-    </v-flex>
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -31,17 +31,8 @@ export default {
     }
   },
   data: () => ({
-    rowsPerPageItems: [5, 10],
-    pagination: {
-      rowsPerPage: 5
-    }
-  }),
-  computed: {
-    pages() {
-      return this.pagination.itemsPerPage
-        ? Math.ceil(this.postsList.length / this.pagination.itemsPerPage)
-        : 0
-    }
-  }
+    itemsPerPageOptions: [5, 10],
+    itemsPerPage: 5
+  })
 }
 </script>

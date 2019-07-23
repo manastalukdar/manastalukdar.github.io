@@ -2,8 +2,8 @@
   <v-container>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
-    <v-layout text-xs-center wrap>
-      <v-flex xs12>
+    <v-row class="text-center">
+      <v-col cols="12">
         <v-form
           ref="form"
           v-model="form"
@@ -15,7 +15,7 @@
             name="name"
             :rules="[rules.length(2)]"
             :counter="2"
-            box
+            filled
             color="light"
             label="Name"
             type="text"
@@ -24,7 +24,7 @@
             v-model="email"
             name="email"
             :rules="[rules.email]"
-            box
+            filled
             color="light"
             label="Email address"
             type="email"
@@ -35,16 +35,16 @@
             auto-grow
             :rules="[rules.length(5)]"
             :counter="5"
-            box
+            filled
             color="light"
             label="Message"
           />
           <v-divider />
           <v-card-actions>
-            <v-btn flat @click="$refs.form.reset()">
+            <v-btn text @click="$refs.form.reset()">
               Clear
             </v-btn>
-            <v-spacer />
+            <div class="flex-grow-1"></div>
             <v-btn
               :disabled="!form"
               :loading="isLoading"
@@ -57,8 +57,8 @@
             </v-btn>
           </v-card-actions>
         </v-form>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

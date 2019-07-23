@@ -1,22 +1,20 @@
 <template>
-  <v-layout column wrap>
-    <v-flex xs12>
-      <v-card
-        :color="cardColor"
-        class="pa-3"
-        raised
-        elevation="8"
-        style="height:100%"
-      >
-        <v-layout row justify-center title>
-          <span>Highlights</span>
-        </v-layout>
-        <p />
-        <!--eslint-disable-next-line vue/no-v-html-->
-        <div v-html="highlights" />
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-col cols="12">
+    <v-card
+      color="cardColor"
+      class="pa-3"
+      raised
+      elevation="8"
+      style="height:100%"
+    >
+      <v-row class="title" justify="center">
+        <span>Highlights</span>
+      </v-row>
+      <p />
+      <!--eslint-disable-next-line vue/no-v-html-->
+      <div class="pb-2" v-html="highlights" />
+    </v-card>
+  </v-col>
 </template>
 
 <script>
@@ -32,11 +30,6 @@ export default {
       const fileContent = await import('./highlights.md')
       const res = fm(fileContent.default)
       return md.render(res.body)
-    }
-  },
-  computed: {
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
     }
   }
 }

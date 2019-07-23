@@ -1,17 +1,15 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12>
-      <v-card :color="cardColor" raised elevation="8" class="pa-4">
-        <div class="comments">
-          <vue-disqus
-            :shortname="disqusShortname"
-            :identifier="postId"
-            :url="url"
-          />
-        </div>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-col cols="12" class="px-0">
+    <v-card color="cardColor" raised elevation="8" class="pa-4">
+      <div class="comments">
+        <vue-disqus
+          :shortname="disqusShortname"
+          :identifier="postId"
+          :url="url"
+        />
+      </div>
+    </v-card>
+  </v-col>
 </template>
 
 <script>
@@ -31,11 +29,6 @@ export default {
   data() {
     return {
       disqusShortname: 'manastalukdar'
-    }
-  },
-  computed: {
-    cardColor() {
-      return this.$store.getters['GlobalData/getCardColor']
     }
   }
 }

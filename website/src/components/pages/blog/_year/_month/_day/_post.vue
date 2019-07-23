@@ -2,16 +2,14 @@
   <v-container>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
-    <v-layout wrap>
-      <v-flex xs12>
-        <post
-          :post-metadata="postMetadata"
-          :post-content="postContent"
-          :url="url"
-          :post-id="postId"
-        />
-      </v-flex>
-    </v-layout>
+    <v-row>
+      <post
+        :post-metadata="postMetadata"
+        :post-content="postContent"
+        :url="url"
+        :post-id="postId"
+      />
+    </v-row>
   </v-container>
 </template>
 

@@ -1,17 +1,18 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12>
-      <v-layout row justify-center title>
-        {{ pageTitle }}
-      </v-layout>
-    </v-flex>
+  <div class="px-3">
+    <v-row class="title" justify="center">
+      {{ pageTitle }}
+    </v-row>
     <p />
-    <v-flex xs12 py-2>
-      <div v-for="post in posts" :key="post['name']">
-        <singlePost :post-metadata="post" />
-      </div>
-    </v-flex>
-  </v-layout>
+    <v-row
+      v-for="post in posts"
+      :key="post['name']"
+      class="px-2"
+      justify="center"
+    >
+      <singlePost :post-metadata="post" />
+    </v-row>
+  </div>
 </template>
 
 <script>
