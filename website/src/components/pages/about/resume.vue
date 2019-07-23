@@ -1,4 +1,4 @@
-<template light>
+<template>
   <v-container id="container-resume" fluid>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
@@ -71,14 +71,13 @@ export default {
       }
     },
     fixParentContainerWidthOnDestroy() {
-      const cr = document.getElementById('container-resume')
+      const cr = document.getElementById('content-body-container')
       if (cr != null) {
-        const parent = cr.parentElement
         if (
-          parent.className.includes('container') &&
-          !parent.className.includes('content-body')
+          cr.className.includes('container') &&
+          !cr.className.includes('content-body')
         ) {
-          parent.classList.add('content-body')
+          cr.classList.add('content-body')
         }
       }
     }
