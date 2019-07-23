@@ -11,7 +11,7 @@
         <span>Featured</span>
       </v-row>
       <p />
-      <v-row class="px-3" justify="center">
+      <v-row class="px-3 pb-3" justify="center">
         <nuxt-link to="/blog/tag/engineering-leadership/">
           Blog Posts on Engineering Leadership
         </nuxt-link>
