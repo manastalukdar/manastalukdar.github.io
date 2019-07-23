@@ -1,6 +1,8 @@
 <template>
   <v-container>
-    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <v-row>
+      <breadcrumbs :breadcrumbs="breadcrumbs" />
+    </v-row>
     <p />
     <v-row>
       <post

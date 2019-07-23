@@ -1,34 +1,28 @@
 <template>
   <v-col>
     <v-row>
-      <v-col>
-        <v-card color="cardColor" raised elevation="8" class="py-4 px-6">
-          <postHeader :post-metadata="postMetadata" />
-          <p />
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <div class="blogPostContent" v-html="postContent" />
-        </v-card>
-      </v-col>
+      <v-card color="cardColor" raised elevation="8" class="py-4 px-6">
+        <postHeader :post-metadata="postMetadata" />
+        <p />
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div class="blogPostContent col" v-html="postContent" />
+      </v-card>
     </v-row>
 
     <v-row>
       <no-ssr>
-        <v-col>
-          <socialSharing
-            :url="url"
-            :title="postMetadata.title"
-            :description="postMetadata.description"
-            :quote="postMetadata.excerpt"
-            :hashtags="hashtags"
-          />
-        </v-col>
+        <socialSharing
+          :url="url"
+          :title="postMetadata.title"
+          :description="postMetadata.description"
+          :quote="postMetadata.excerpt"
+          :hashtags="hashtags"
+        />
       </no-ssr>
     </v-row>
 
     <v-row>
-      <v-col>
-        <comments :post-id="postId" :url="url" />
-      </v-col>
+      <comments :post-id="postId" :url="url" />
     </v-row>
   </v-col>
 </template>

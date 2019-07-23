@@ -16,19 +16,21 @@
     >
       <postHeader :post-metadata="postMetadata" />
       <p />
-      {{ postMetadata.excerpt }}&nbsp;
-      <nuxt-link
-        :to="
-          getBlogPostRoute(
-            postLinkSlugs.year,
-            postLinkSlugs.month,
-            postLinkSlugs.day,
-            postLinkSlugs.post
-          )
-        "
-      >
-        <span>...read more</span>
-      </nuxt-link>
+      <div class="col">
+        {{ postMetadata.excerpt }}&nbsp;
+        <nuxt-link
+          :to="
+            getBlogPostRoute(
+              postLinkSlugs.year,
+              postLinkSlugs.month,
+              postLinkSlugs.day,
+              postLinkSlugs.post
+            )
+          "
+        >
+          <span>...read more</span>
+        </nuxt-link>
+      </div>
     </v-card>
   </v-col>
 </template>
