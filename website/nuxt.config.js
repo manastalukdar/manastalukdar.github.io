@@ -196,6 +196,7 @@ export default {
     '@/plugins/fontawesome.js',
     '@/plugins/materialdesignicons.js',
     '@plugins/vueAsyncComputed.js',
+    '~/plugins/vuetify-theme-cache.js',
     '~/plugins/disqus',
     {
       src: '~/plugins/socialsharing',
@@ -326,12 +327,6 @@ export default {
       },
       options: {
         customProperties: true,
-        themeCache: () => {
-          return new LRU({
-            max: 10,
-            maxAge: 1000 * 60 * 60 // 1 hour
-          })
-        },
         minifyTheme: function (css) {
           return process.env.NODE_ENV === 'production'
             ? css.replace(/[\s|\r\n|\r|\n]/g, '')
