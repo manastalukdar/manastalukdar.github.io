@@ -4,7 +4,7 @@
     <MainNavMenuNavigationDrawer />
 
     <v-content>
-      <v-container class="content-body pa-6">
+      <v-container class="content-body px-6 py-3">
         <transition name="fade">
           <!-- component matched by the route will render here -->
           <nuxt />
