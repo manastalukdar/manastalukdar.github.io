@@ -12,7 +12,7 @@
       </v-row>
       <p />
       <!--eslint-disable-next-line vue/no-v-html-->
-      <div v-html="recent" />
+      <div class="px-2 pb-2" v-html="recent" />
     </v-card>
   </v-col>
 </template>
