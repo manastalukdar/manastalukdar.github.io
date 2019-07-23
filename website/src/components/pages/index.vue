@@ -1,7 +1,5 @@
 <template>
   <v-container>
-    <!--fluid-->
-
     <v-row class="px-2">
       <aboutBlurb />
     </v-row>
