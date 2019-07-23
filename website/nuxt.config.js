@@ -1,5 +1,5 @@
 import { Feed } from 'feed'
-const colors = require('vuetify/es5/util/colors').default
+import colors from 'vuetify/lib/util/colors'
 const fs = require('fs')
 const getRoutes = require('./utils/getRoutes.js')
 // const ampify = require('./plugins/ampify')
