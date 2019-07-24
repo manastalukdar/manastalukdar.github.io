@@ -8,7 +8,7 @@ tags:
  - Transaction Log
  - Real-Time Data
  - Stream Processing
- - LinkedIn Engineering
+ - LinkedIn
  - Learning
  - Software Engineering
 categories:
