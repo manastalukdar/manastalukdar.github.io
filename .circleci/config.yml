@@ -55,7 +55,7 @@ jobs:
             cp tmp/blogdata website/src/static/blogdata -r
             cd website
             npm install
-            sudo npm run nuxt-generate
+            sudo npm run generate
             cd ..
             cp website/dist tmp -r
       
