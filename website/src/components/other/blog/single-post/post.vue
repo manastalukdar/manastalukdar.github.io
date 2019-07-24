@@ -2,7 +2,7 @@
   <v-container>
     <v-col>
       <v-row>
-        <v-card color="cardColor" raised elevation="8" class="py-4 px-6">
+        <v-card color="cardColor" raised elevation="8" class="py-4 px-6 col-12">
           <postHeader :post-metadata="postMetadata" />
           <p />
           <!-- eslint-disable-next-line vue/no-v-html -->
