@@ -20,6 +20,4 @@ meta:
 excerpt: "QCon talk on scaling infrastructure engineering at Slack."
 ---
 
-# Scaling Infrastructure Engineering at Slack - QCon Talk
-
 QCon [talk](https://www.infoq.com/presentations/slack-scaling-infrastructure/) on scaling infrastructure engineering at Slack.
