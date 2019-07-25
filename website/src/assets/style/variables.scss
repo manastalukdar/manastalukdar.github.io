@@ -15,17 +15,34 @@ $v-content-padding: 65px 0px 65px;
   max-width: 1050px;
 }
 
-.v-data-footer {
-  justify-content: center;
-}
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
 
-.v-data-footer__select {
-  margin-right: 0px;
-}
+  .v-data-footer {
+    justify-content: center;
+  }
 
-.v-data-footer__pagination {
-  margin-top: 0px;
-  margin-right: 24px;
-  margin-bottom: 0px;
-  margin-left: 24px;
+  .v-data-footer__select {
+    margin-right: 0px;
+  }
+
+  .v-data-footer__select .v-input {
+    margin-top: 13px;
+    margin-right: 0px;
+    margin-bottom: 13px;
+    margin-left: 14px;
+  }
+
+  .v-data-footer__pagination {
+    margin-top: 0px;
+    margin-right: 14px;
+    margin-bottom: 0px;
+    margin-left: 14px;
+  }
+
 }
