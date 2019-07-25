@@ -2,16 +2,11 @@
   <v-row class="text-center">
     <v-col cols="12">
       <v-row class="title" justify="center">
-        <div class="text-center align-right mr-2">
-          <p>
-            {{ postMetadata.title }}
-          </p>
-        </div>
-        <div xs2 class="text-right align-left ml-2">
-          <p>
-            <v-icon>{{ postFormatIcon }}</v-icon>
-          </p>
-        </div>
+        <v-col class="text-center pl-10 align-center">
+          {{ postMetadata.title }}
+          &nbsp;&nbsp;
+          <v-icon>{{ postFormatIcon }}</v-icon>
+        </v-col>
         <p />
       </v-row>
       <v-row justify="center">
