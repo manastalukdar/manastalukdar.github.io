@@ -16,7 +16,7 @@
     >
       <postHeader :post-metadata="postMetadata" />
       <p />
-      <div class="col">
+      <div class="col text-left">
         {{ postMetadata.excerpt }}&nbsp;
         <nuxt-link
           :to="
