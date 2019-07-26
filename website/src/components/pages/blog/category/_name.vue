@@ -30,7 +30,7 @@ export default {
         ' | ' +
         state.Navigation.blog.blogText,
       categoryText: state => state.Navigation.blog.categoryText,
-      blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
+      blogHref: state => state.Navigation.blog.blogItems[0].href,
       blogDynamicItemsCategory: state =>
         state.Navigation.blog.dynamicItems.category.href
     }),
@@ -42,9 +42,9 @@ export default {
           to: '/'
         },
         {
-          text: 'Blog Posts',
+          text: 'Blog',
           disabled: false,
-          to: this.blogPostsHref
+          to: this.blogHref
         },
         {
           text: 'Blog Posts by Category',

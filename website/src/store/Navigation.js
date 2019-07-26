@@ -12,10 +12,10 @@ const state = () => ({
     postFormatText: 'Post Format',
     blogItems: [
       {
-        href: '/blog/posts/',
+        href: '/blog/',
         target: '_blank',
         icon: 'mdi-newspaper',
-        text: 'Posts'
+        text: 'Blog'
       },
       {
         href: '/blog/categories/',

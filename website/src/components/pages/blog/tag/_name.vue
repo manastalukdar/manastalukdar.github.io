@@ -28,7 +28,7 @@ export default {
       currentPage: state =>
         state.Navigation.blog.tagText + ' | ' + state.Navigation.blog.blogText,
       tagText: state => state.Navigation.blog.tagText,
-      blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
+      blogHref: state => state.Navigation.blog.blogItems[0].href,
       blogDynamicItemsTag: state => state.Navigation.blog.dynamicItems.tag.href
     }),
     breadcrumbs() {
@@ -39,9 +39,9 @@ export default {
           to: '/'
         },
         {
-          text: 'Blog Posts',
+          text: 'Blog',
           disabled: false,
-          to: this.blogPostsHref
+          to: this.blogHref
         },
         {
           text: 'Blog Posts by Tag',

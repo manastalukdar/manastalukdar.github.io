@@ -32,7 +32,7 @@ export default {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
       currentPage: state => state.Navigation.blog.blogText,
-      blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
+      blogHref: state => state.Navigation.blog.blogItems[0].href,
       blogBaseHref: state => state.Navigation.blog.dynamicItems.blogBase.href
     }),
     breadcrumbs() {
@@ -44,9 +44,9 @@ export default {
           nuxt: true
         },
         {
-          text: 'Blog Posts',
+          text: 'Blog',
           disabled: false,
-          to: this.blogPostsHref,
+          to: this.blogHref,
           nuxt: true
         },
         {

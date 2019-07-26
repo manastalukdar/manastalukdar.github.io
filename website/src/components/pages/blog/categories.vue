@@ -76,7 +76,7 @@ export default {
         state.Navigation.blog.blogText,
       blogMetadata: state => state.BlogMetadata.blogMetadata,
       pageTitle: state => state.Navigation.blog.blogItems[1].text,
-      blogPostsHref: state => state.Navigation.blog.blogItems[0].href,
+      blogHref: state => state.Navigation.blog.blogItems[0].href,
       currentHref: state => state.Navigation.blog.blogItems[1].href,
       categoriesText: state => state.Navigation.blog.blogItems[1].text,
       blogDynamicItemsCategory: state =>
@@ -90,9 +90,9 @@ export default {
           to: '/'
         },
         {
-          text: 'Blog Posts',
+          text: 'Blog',
           disabled: false,
-          to: this.blogPostsHref
+          to: this.blogHref
         },
         {
           text: this.categoriesText,
