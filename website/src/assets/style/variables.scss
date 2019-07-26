@@ -44,5 +44,14 @@ and also iPads specifically.
     margin-bottom: 0px;
     margin-left: 14px;
   }
+}
 
+pre {
+  overflow-x: auto;
+  overflow-wrap: normal;
+  white-space: pre;
+}
+code[class^="language-"] {
+  overflow-wrap: normal;
+  white-space: pre !important;
 }
