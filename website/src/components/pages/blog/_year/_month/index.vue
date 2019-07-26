@@ -14,10 +14,19 @@
 </template>
 
 <script>
+import moment from 'moment'
 import { mapState } from 'vuex'
 import breadcrumbs from '../../../../other/breadcrumbs'
 import postsList from '../../../../other/blog/posts-list/list.vue'
 export default {
+  validate({ params }) {
+    // Must be a number and must be a year and a month
+    return (
+      /^\d+$/.test(params.month) &&
+      moment(params.year, 'YYYY', true).isValid() &&
+      moment(params.month, 'MM', true).isValid()
+    )
+  },
   components: {
     breadcrumbs,
     postsList
