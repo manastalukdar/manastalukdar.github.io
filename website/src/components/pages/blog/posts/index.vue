@@ -17,8 +17,8 @@
 
 <script>
 import { mapState } from 'vuex'
-import breadcrumbs from '../../other/breadcrumbs'
-import postsList from '../../other/blog/posts-list/list.vue'
+import breadcrumbs from '../../../other/breadcrumbs'
+import postsList from '../../../other/blog/posts-list/list.vue'
 export default {
   components: {
     breadcrumbs,
