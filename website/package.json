@@ -80,8 +80,6 @@
     "nodemon": "^1.19.1",
     "prettier": "^1.18.2",
     "raw-loader": "^3.0.0",
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1",
     "vue-jest": "^3.0.4"
   }
 }
