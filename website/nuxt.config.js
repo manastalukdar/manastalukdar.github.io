@@ -184,10 +184,9 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/google-analytics',
     '@nuxtjs/redirect-module',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/vuetify'
   ],
-
-  devModules: ['@nuxtjs/vuetify'],
 
   /*
    ** Plugins to load before mounting the App

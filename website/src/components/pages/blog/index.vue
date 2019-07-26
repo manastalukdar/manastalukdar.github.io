@@ -27,7 +27,7 @@ export default {
   computed: {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
-      currentPage: state => state.Navigation.blog.blogText,
+      currentPage: state => state.Navigation.blog.blogItems[0].text,
       blogMetadata: state => state.BlogMetadata.blogMetadata,
       pageTitle: state => state.Navigation.blog.blogText,
       currentHref: state => state.Navigation.blog.blogItems[0].href
