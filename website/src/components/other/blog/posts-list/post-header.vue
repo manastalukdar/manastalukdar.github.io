@@ -4,7 +4,7 @@
       <v-row class="title" justify="center">
         <v-col class="text-center align-center">
           {{ postMetadata.title }}
-          &nbsp;&nbsp;
+          &nbsp;
           <v-icon>{{ postFormatIcon }}</v-icon>
         </v-col>
         <p />
