@@ -305,7 +305,7 @@ export default {
       iconfont: 'mdi'
     },
     theme: {
-      dark: false,
+      dark: true,
       themes: {
         dark: {
           background: colors.blueGrey.darken2, // #141e24
