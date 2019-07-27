@@ -2,7 +2,7 @@
   <v-row class="text-center">
     <v-col cols="12">
       <v-row class="title" justify="center">
-        <v-col class="text-center pl-10 align-center">
+        <v-col class="text-center align-center">
           {{ postMetadata.title }}
           &nbsp;&nbsp;
           <v-icon>{{ postFormatIcon }}</v-icon>
