@@ -16,7 +16,7 @@ post-format: standard
 title: Interviewing Software Engineers
 url-slug: interviewing-software-engineers
 first-published-on: 2019-04-14 1:20 pm
-last-updated-on: 2019-07-26 10:24 pm
+last-updated-on: 2019-07-26 10:36 pm
 meta:
  description: "Methodology for interviewing and hiring high calibre software engineers."
 excerpt: "I have been interviewing software engineer candidates, both new grads and experienced candidates, for many years now. Over the years I have settled down on a pattern of questions that have resulted in hiring excellent software engineers with a high degree of probability."
@@ -106,6 +106,8 @@ I probe for these characteristics in a candidate by:
 - Asking them questions on a topic that most likely they have never worked on. The idea here is to foster a discussion and observe how effectively the candidate can catch on to something that may not be very familiar with.
 
 ## Sense of Ownership
+
+Candidate should exhibit a sense of ownership and pride over their work. They should feel passionate about the work they have previously done and will potentially do in their new workplace. Questions on their previous projects and scenario based behavioral questions are useful to get an idea.
 
 ## Tenacity
 
