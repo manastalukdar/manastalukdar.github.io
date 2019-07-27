@@ -97,12 +97,14 @@ export default {
         {
           text: 'Home',
           disabled: false,
-          to: '/'
+          to: '/',
+          exact: true
         },
         {
           text: 'Contact Form',
           disabled: false,
-          to: this.currentHref
+          to: this.currentHref,
+          exact: true
         }
       ]
     }

@@ -96,17 +96,20 @@ export default {
         {
           text: 'Home',
           disabled: false,
-          to: '/'
+          to: '/',
+          exact: true
         },
         {
           text: 'Blog',
           disabled: false,
-          to: this.blogHref
+          to: this.blogHref,
+          exact: true
         },
         {
           text: this.archiveText,
           disabled: false,
-          to: this.currentHref
+          to: this.currentHref,
+          exact: true
         }
       ]
     }

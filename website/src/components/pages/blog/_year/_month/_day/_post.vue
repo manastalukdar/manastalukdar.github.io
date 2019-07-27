@@ -41,19 +41,22 @@ export default {
           text: 'Home',
           disabled: false,
           to: '/',
-          nuxt: true
+          nuxt: true,
+          exact: true
         },
         {
           text: 'Blog',
           disabled: false,
           to: this.blogHref,
-          nuxt: true
+          nuxt: true,
+          exact: true
         },
         {
           text: this.postMetadata.title,
           disabled: false,
           to: this.postId,
-          nuxt: true
+          nuxt: true,
+          exact: true
         }
       ]
     }

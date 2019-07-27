@@ -47,17 +47,20 @@ export default {
         {
           text: 'Home',
           disabled: false,
-          to: '/'
+          to: '/',
+          exact: true
         },
         {
           text: 'Blog',
           disabled: false,
-          to: this.blogHref
+          to: this.blogHref,
+          exact: true
         },
         {
           text: 'Blog Posts by Month',
           disabled: false,
-          to: this.blogBaseHref + this.monthUrlSlug + '/'
+          to: this.blogBaseHref + this.monthUrlSlug + '/',
+          exact: true
         }
       ]
     }

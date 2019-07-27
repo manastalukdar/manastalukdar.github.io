@@ -39,17 +39,20 @@ export default {
         {
           text: 'Home',
           disabled: false,
-          to: '/'
+          to: '/',
+          exact: true
         },
         {
           text: 'Blog',
           disabled: false,
-          to: this.blogHref
+          to: this.blogHref,
+          exact: true
         },
         {
           text: 'Blog Posts by Category',
           disabled: false,
-          to: this.blogDynamicItemsCategory + this.categoryUrlSlug + '/'
+          to: this.blogDynamicItemsCategory + this.categoryUrlSlug + '/',
+          exact: true
         }
       ]
     }

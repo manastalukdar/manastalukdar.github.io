@@ -36,12 +36,14 @@ export default {
         {
           text: 'Home',
           disabled: false,
-          to: '/'
+          to: '/',
+          exact: true
         },
         {
           text: 'Legal',
           disabled: false,
-          to: this.currentHref
+          to: this.currentHref,
+          exact: true
         }
       ]
     }

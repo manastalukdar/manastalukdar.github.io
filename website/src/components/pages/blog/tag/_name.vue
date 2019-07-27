@@ -36,17 +36,20 @@ export default {
         {
           text: 'Home',
           disabled: false,
-          to: '/'
+          to: '/',
+          exact: true
         },
         {
           text: 'Blog',
           disabled: false,
-          to: this.blogHref
+          to: this.blogHref,
+          exact: true
         },
         {
           text: 'Blog Posts by Tag',
           disabled: false,
-          to: this.blogDynamicItemsTag + this.tagUrlSlug + '/'
+          to: this.blogDynamicItemsTag + this.tagUrlSlug + '/',
+          exact: true
         }
       ]
     }
