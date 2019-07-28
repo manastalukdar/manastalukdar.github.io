@@ -18,6 +18,7 @@ import { mapState } from 'vuex'
 import axios from 'axios'
 import breadcrumbs from '../../../../../other/breadcrumbs'
 import post from '../../../../../other/blog/single-post/post.vue'
+const markdownRenderHelpers = require('../../../../../../../utils/markdownRenderHelpers.js')
 export default {
   components: {
     breadcrumbs,
@@ -107,6 +108,7 @@ export default {
       })
       .use(require('markdown-it-toc-done-right'))
       .use(require('markdown-it-footnote'))
+    markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
     const postIdTemp =
       '/blog/' +
       params.year +

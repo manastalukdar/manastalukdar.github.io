@@ -24,6 +24,8 @@ const md = require('markdown-it')({
   linkify: true,
   typographer: true
 })
+const markdownRenderHelpers = require('../../../../utils/markdownRenderHelpers.js')
+markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
 export default {
   asyncComputed: {
     async recent() {
