@@ -23,3 +23,8 @@ excerpt: "Some problem need a variation of the sliding window algorithm that inv
 ${toc}
 
 Some problem need a variation of the [sliding window algorithm](/blog/2019/07/12/sliding-window-algorithm/) that involves keeping track of certain data. We will look at this variation using an example problem.
+
+References:
+
+https://jeremyaguilon.me/blog/a_collection_of_whiteboard_interview_templates
+https://jeremyaguilon.me/blog/visualizing_four_key_interview_algorithms
