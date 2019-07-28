@@ -38,14 +38,21 @@
 			"post-format: standard aside gallery link image quote status video audio chat",
 			"title: Getting Started",
 			"url-slug: getting-started",
-			"first-published-on: 2019-03-20 00:00 am",
-			"last-updated-on: 2019-03-20 00:00 pm",
+			"first-published-on: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+			"last-updated-on: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
 			"meta:",
 			" description: \"Getting started post.\"",
 			"excerpt: \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt\"",
 			"---",
 			"",
 			"# Title"
+		]
+	},
+	"Current DateTime": {
+		"scope": "markdown",
+		"prefix": "current-datetime",
+		"body": [
+			"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND"
 		]
 	},
 	"iframe-container embed": {

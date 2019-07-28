@@ -14,13 +14,11 @@ post-format: aside
 title: LinkedIn Migrating to Microsoft Azure
 url-slug: linkedin-migrating-to-microsoft-azure
 first-published-on: 2019-07-24 04:45 pm
-last-updated-on: 2019-07-24 06:07 pm
+last-updated-on: 2019-07-27 18:20
 meta:
  description: "Some thoughts on LinkedIn migrating to Microsoft Azure."
 excerpt: "I think most of us in the industry knew this was going to happen at some point, in some scale. LinkedIn truly has been a pioneer in the open-source distributed systems space."
 ---
-
-# LinkedIn Migrating to Microsoft Azure
 
 I think most of us in the industry knew [this](https://venturebeat.com/2019/07/23/linkedin-is-migrating-to-microsoft-azure/) was going to happen at some point, in some scale.
 
