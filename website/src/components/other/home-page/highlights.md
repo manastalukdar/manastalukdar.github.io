@@ -1,4 +1,4 @@
-- Bootstrapped multiple projects from ideation to product. Determined scope and road-map with stakeholders (including customers) and build teams that consistency delivered on committed milestones.
+- Bootstrapped multiple projects from ideation to product. Determined scope and road-map with stakeholders (including customers) and built teams that consistency delivered on committed milestones.
 
 - Created high-value engineering team that developed product which spawned v-next series of enterprise solutions.
 
