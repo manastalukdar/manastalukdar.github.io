@@ -19,13 +19,13 @@
     </v-row>
 
     <v-row class="px-2">
-      <v-col sm="6" class="d-flex py-0" cols="12">
+      <v-col md="6" class="d-flex py-0" cols="12">
         <v-row style="height:100%">
           <highlights />
         </v-row>
       </v-col>
 
-      <v-col sm="6" class="d-flex py-0" cols="12">
+      <v-col md="6" class="d-flex py-0" cols="12">
         <v-row style="height:100%">
           <recentPostsHomePage :posts-list="blogMetadata" />
         </v-row>
