@@ -16,7 +16,7 @@ post-format: standard
 title: Interviewing Software Engineers
 url-slug: interviewing-software-engineers
 first-published-on: 2019-04-14 1:20 pm
-last-updated-on: 2019-07-26 10:49 pm
+last-updated-on: 2019-07-29 13:49
 meta:
  description: "Methodology for interviewing and hiring high calibre software engineers."
 excerpt: "I have been interviewing software engineer candidates, both new grads and experienced candidates, for many years. Over time I have settled down on a pattern of questions that probe for certain key traits that has resulted in hiring excellent software engineers."
@@ -109,27 +109,29 @@ I probe for these characteristics in a candidate by:
 - Asking them questions on new developments in the industry related to their background.
 - Asking them questions on a topic that most likely they have never worked on. The idea here is to foster a discussion and observe how effectively the candidate can catch on to something that may not be very familiar with.
 
-### Sense of Ownership
-
-Candidate should exhibit a sense of ownership and pride over their work. They should feel passionate about the work they have previously done and will potentially do in their new workplace. Questions on their previous projects and scenario based behavioral questions are useful to get an idea.
-
 ### Tenacity
 
 I test for this attribute by observing how a candidate solves a relatively difficult problem, be it a coding or a system design problem. Some candidates just give up, but there are those who keep at it and try different approaches and try to break down the problem into more manageable parts.
 
-### Teamwork
+### Other
+
+#### Sense of Ownership
+
+Candidate should exhibit a sense of ownership and pride over their work. They should feel passionate about the work they have previously done and will potentially do in their new workplace. Questions on their previous projects and scenario based behavioral questions are useful to get an idea.
+
+#### Teamwork
 
 Candidate should show the ability to work successfully in a team. I probe for this by asking questions on previous work and also from scenario based questions.
 
-### Culture Fit
+#### Culture Fit
 
 Candidate should have some degree of alignment with the company culture. Scenario based behavioral questions help gauge this.
 
-### Multiplier
+#### Multiplier
 
 Candidate, specially if interviewing for an experienced developer position, should show the likelihood of elevating the team. At the very least, candidate if hired, should not pull the team down for whatever reason.
 
-### Systematic and Methodical Approach
+#### Systematic and Methodical Approach
 
 Software engineering, specially while debugging and troubleshooting problems, requires a [methodical approach](https://www.ribbonfarm.com/2009/08/31/how-to-think-like-hercule-poirot/), not quite unlike [being a detective](http://tulosconsultancy.in/blog/order-and-method/). To get a sense of whether the candidate has any sort of proclivity for [order and method](https://www.youtube.com/watch?v=5bGl_v0asbg), sometimes, if the candidate has either done exceptionally well or particularly bad in the interview, I may ask them how they go about a project, like for instance how did they prepare for this interview.
 
@@ -151,11 +153,12 @@ The successful candidate would have demonstrated the following skills:
       2. Ability to write clean, abstracted code. [**must**]
    3. System design skills. [**must**]
 3. Inquisitiveness [**necessary**] and ability to learn new things [**must**].
-4. Has a sense of ownership and feels passionate about previous work.
-5. Tenacity [**good to have**]
-6. Teamwork [**necessary**]
-7. Culture Fit [**necessary**]
-8. Multiplier (or, Bar Raiser) [**good to have**]
+4. Tenacity [**good to have**]
+5. Other
+   1. Has a sense of ownership and feels passionate about previous work.
+   2. Teamwork [**necessary**]
+   3. Culture Fit [**necessary**]
+   4. Multiplier (or, Bar Raiser) [**good to have**]
 
 The degree to which the above skills would have to be demonstrated in order for a candidate to be successful varies between a new grad and someone with industry experience.
 
@@ -166,10 +169,11 @@ To summarize, I look for the following markers in a candidate interviewing for a
 1. Good communicator.
 2. Baseline acceptability of technical competence.
 3. Generally inquisitive and more importantly has the ability to learn new concepts and apply these concepts in new or existing projects while working alone or in a team.
-4. Sense of ownership. Does candidate feel passionate about previous work? Will s/he take ownership of the work they might do at their new workplace? Will s/he go the extra miles to get something done?
-5. Tenacity. Is the candidate going to just give up if s/he runs into a difficult problem? How does the candidate tackle difficult problems - break down into parts, logically reason through seemingly insurmountable issues, etc.?
-6. Teamwork. How well will the candidate work in a team? How well will candidate communicate technical information with others?
-7. Culture fit. How will the candidate fit into the company culture?
-8. Multiplier. Will the candidate add value to the team, organization, company by inspiring and motivating others, by going that extra mile? Will candidate take his/her team from A- to A+?
+4. Tenacity. Is the candidate going to just give up if s/he runs into a difficult problem? How does the candidate tackle difficult problems - break down into parts, logically reason through seemingly insurmountable issues, etc.?
+5. Other
+   1. Sense of ownership. Does candidate feel passionate about previous work? Will s/he take ownership of the work they might do at their new workplace? Will s/he go the extra miles to get something done?
+   2. Teamwork. How well will the candidate work in a team? How well will candidate communicate technical information with others?
+   3. Culture fit. How will the candidate fit into the company culture?
+   4. Multiplier. Will the candidate add value to the team, organization, company by inspiring and motivating others, by going that extra mile? Will candidate take his/her team from A- to A+?
 
 The methodology I have discussed here has worked out quite well for me over the years. I hope that perhaps it may be useful to others as well.
