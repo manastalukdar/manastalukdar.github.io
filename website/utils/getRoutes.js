@@ -34,7 +34,7 @@ const functions = {
     })
 
     properties.nuxtGenerateRoutes.push({
-      route: '/blog/posts/',
+      route: '/blog/',
       payload: blogMetadata
     })
 
