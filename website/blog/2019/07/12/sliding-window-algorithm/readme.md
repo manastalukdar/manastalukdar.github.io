@@ -82,5 +82,5 @@ Some problems need a variation of the sliding window algorithm that involves kee
 
 ## References and Further Reading
 
-[A Collection of Whiteboard Interview Templates - Jeremy Aguilon](https://jeremyaguilon.me/blog/a_collection_of_whiteboard_interview_templates)
-[Visualizing Four Key Technical Interview Algorithms - Jeremy Aguilon](https://jeremyaguilon.me/blog/visualizing_four_key_interview_algorithms)
+1. [A Collection of Whiteboard Interview Templates - Jeremy Aguilon](https://jeremyaguilon.me/blog/a_collection_of_whiteboard_interview_templates)
+2. [Visualizing Four Key Technical Interview Algorithms - Jeremy Aguilon](https://jeremyaguilon.me/blog/visualizing_four_key_interview_algorithms)
