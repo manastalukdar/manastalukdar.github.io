@@ -12,7 +12,7 @@ post-format: standard
 title: Sliding Window Algorithm
 url-slug: sliding-window-algorithm
 first-published-on: 2019-07-12 01:45 pm
-last-updated-on: 2019-07-12 01:45 pm
+last-updated-on: 2019-07-28 22:26
 meta:
  description: "An exposition of the sliding window algorithm."
 excerpt: "The best way to understand the sliding window algorithm is to work with an example. Say we have an array of integers,"
@@ -22,7 +22,7 @@ excerpt: "The best way to understand the sliding window algorithm is to work wit
 
 ${toc}
 
-## Algorithm
+## Basic Algorithm
 
 The best way to understand the sliding window algorithm is to work with an example. Say we have an array of integers, `[1, 2, 3, 4, 5, 6, 7, 8]`. If we have to calculate the sum of a sub-array of 3 elements from the array, as we move from left to right, the sliding window approach wil work as follows:
 
@@ -45,7 +45,7 @@ Sum of sub-array [2, 3, 4]
   = 9
 ```
 
-## Code Sample
+### Code Sample
 
 Let us see how we can implement this algorithm in Java.
 
@@ -68,10 +68,19 @@ public static int[] findSum_slidingWindow(int k, int[] arr) {
 }
 ```
 
-## Time Complexity
+### Time Complexity
 
 The time complexity of the is O(N).
 
-## Space Complexity
+### Space Complexity
 
 The algorithm runs in constant space. So the space complexity is O(1).
+
+## Variation - Keeping Track of Data
+
+Some problems need a variation of the sliding window algorithm that involves keeping track of certain data. Let us look at this variation using an example problem.
+
+## References and Further Reading
+
+[A Collection of Whiteboard Interview Templates - Jeremy Aguilon](https://jeremyaguilon.me/blog/a_collection_of_whiteboard_interview_templates)
+[Visualizing Four Key Technical Interview Algorithms - Jeremy Aguilon](https://jeremyaguilon.me/blog/visualizing_four_key_interview_algorithms)
