@@ -16,7 +16,7 @@ post-format: standard
 title: Interviewing Software Engineers
 url-slug: interviewing-software-engineers
 first-published-on: 2019-04-14 1:20 pm
-last-updated-on: 2019-07-29 13:49
+last-updated-on: 2019-07-29 14:01
 meta:
  description: "Methodology for interviewing and hiring high calibre software engineers."
 excerpt: "I have been interviewing software engineer candidates, both new grads and experienced candidates, for many years. Over time I have settled down on a pattern of questions that probe for certain key traits that has resulted in hiring excellent software engineers."
@@ -155,7 +155,7 @@ The successful candidate would have demonstrated the following skills:
 3. Inquisitiveness [**necessary**] and ability to learn new things [**must**].
 4. Tenacity [**good to have**]
 5. Other
-   1. Has a sense of ownership and feels passionate about previous work.
+   1. Has a sense of ownership and feels passionate about previous work. [**necessary**]
    2. Teamwork [**necessary**]
    3. Culture Fit [**necessary**]
    4. Multiplier (or, Bar Raiser) [**good to have**]
