@@ -29,7 +29,7 @@ jobs:
             python3 -m pip install -r website/scripts/python-requirements.txt
             python3 website/scripts/create_blog_metadata.py
             mkdir -p tmp/
-            cp website/src/static/blogdata tmp -r
+            cp website/static/blogdata tmp -r
             find tmp
       
       - persist_to_workspace:
@@ -52,7 +52,7 @@ jobs:
 
       - run:
           command: |
-            cp tmp/blogdata website/src/static/blogdata -r
+            cp tmp/blogdata website/static/blogdata -r
             cd website
             npm install
             sudo npm run generate
