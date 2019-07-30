@@ -28,7 +28,7 @@ export default {
     }
   },
   data: () => ({
-    itemsToDisplay: 6
+    itemsToDisplay: 8
   }),
   computed: {
     ...mapState({
