@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import moment from 'moment'
-import blogMetadata from '../src/static/blogdata/metadata/blog_metadata.json'
+import blogMetadata from '../static/blogdata/metadata/blog_metadata.json'
 
 const properties = {
   sitemapRoutes: [],

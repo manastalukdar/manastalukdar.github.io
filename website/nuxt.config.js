@@ -9,7 +9,7 @@ const baseUrl =
     ? 'https://manastalukdar.github.io'
     : 'http://localhost:3000'
 
-const staticDir = './src/static'
+const staticDir = './static'
 const feedFileName = '/blogfeed.xml'
 const feedPath = staticDir + feedFileName
 const siteOwner = 'Manas Talukdar'
@@ -169,7 +169,7 @@ export default {
    ** Global CSS
    */
   css: [
-    '~/src/assets/style/app.scss',
+    '~/assets/style/app.scss',
     '@fortawesome/fontawesome-svg-core/styles.css',
     { src: '~/node_modules/highlight.js/styles/atom-one-light.css', lang: 'css' }
   ],
@@ -267,6 +267,7 @@ export default {
     }
   },
 
+  /*
   dir: {
     assets: './src/assets',
     layouts: './src/components/layouts',
@@ -275,6 +276,7 @@ export default {
     static: staticDir,
     store: './src/store'
   },
+  */
 
   router: {
     // https://nuxtjs.org/api/configuration-router#scrollbehavior
@@ -285,7 +287,7 @@ export default {
       routes.push({
         name: 'custom',
         path: '*',
-        component: resolve(__dirname, 'src/components/pages/404.vue')
+        component: resolve(__dirname, 'pages/404.vue')
       })
     }
   },
@@ -300,7 +302,7 @@ export default {
 
   vuetify: {
     treeShake: true,
-    customVariables: ['~/src/assets/style/variables.scss'],
+    customVariables: ['~/assets/style/variables.scss'],
     icons: {
       iconfont: 'mdi'
     },

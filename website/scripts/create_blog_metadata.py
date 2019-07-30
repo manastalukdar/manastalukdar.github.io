@@ -15,8 +15,8 @@ import re
 from datetime import date, datetime
 from dateutil import parser
 
-POSTS_LIST_FILE_JSON = "website/src/static/blogdata/metadata/blog_metadata.json"
-POSTS_DIST_FOLDER = "website/src/static/blogdata"
+POSTS_LIST_FILE_JSON = "website/static/blogdata/metadata/blog_metadata.json"
+POSTS_DIST_FOLDER = "website/static/blogdata"
 POSTS_FOLDER = "website/blog"
 
 POST_PATH_STRING = "path"
