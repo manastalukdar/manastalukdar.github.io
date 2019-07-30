@@ -102,6 +102,6 @@ sw.*
 
 **/sitemap.xml*
 
-website/src/static/blogdata/*
+website/static/blogdata/
 
-website/src/static/*feed.xml
+website/static/*feed.xml
