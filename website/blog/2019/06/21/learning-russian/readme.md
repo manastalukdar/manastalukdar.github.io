@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 tags:
  - Learning
  - Language
@@ -12,7 +12,7 @@ post-format: aside
 title: Learning Russian
 url-slug: learning-russian
 first-published-on: 2019-06-21 11:00 am
-last-updated-on: 2019-07-27 18:26
+last-updated-on: 2019-07-30 15:38
 meta:
  description: "Blog post on starting to learn Russian and the resources being used for this project."
 excerpt: "I have started learning Russian recently. Growing up I read a lot of Russian literature (English translations)."
