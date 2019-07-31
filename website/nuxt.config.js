@@ -169,6 +169,7 @@ export default {
    ** Global CSS
    */
   css: [
+    '~/assets/style/print-blog-post.css',
     '~/assets/style/app.scss',
     '@fortawesome/fontawesome-svg-core/styles.css',
     { src: '~/node_modules/highlight.js/styles/atom-one-light.css', lang: 'css' }
