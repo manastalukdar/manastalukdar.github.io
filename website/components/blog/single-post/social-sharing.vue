@@ -29,7 +29,7 @@
         </social-sharing>
       </div>
       <div class="printButton col pt-2" justify="center">
-        <v-btn text @click="printjs"><v-icon>mdi-printer</v-icon></v-btn>
+        <v-icon @click="print">mdi-printer</v-icon>
       </div>
     </v-card>
   </v-col>
@@ -67,37 +67,19 @@ export default {
   data() {
     return {
       twitterUser: 'ManasTalukdar',
-      printd: '',
       cssTextPrintMe: '',
       printjsCall() {}
     }
   },
   mounted() {
-    this.initPrintd()
-    this.initPrintjs()
+    this.initPrintJs()
   },
   methods: {
     print() {
-      this.printd.print(document.getElementById('printMe'), this.cssTextPrintMe)
-    },
-    printjs() {
       this.printjsCall('printMe', 'html')
     },
-    initPrintd() {
-      const { Printd } = require('printd')
-      const options = {
-        parent: document.getElementById('content-body-container')
-      }
-      this.cssTextPrintMe = `
-        #single-post-header {
-          text-align: center;
-        }
-      `
-      this.printd = new Printd(options)
-    },
-    initPrintjs() {
+    initPrintJs() {
       this.printjsCall = require('print-js')
-      console.log(this.printjsCall)
     }
   }
 }
