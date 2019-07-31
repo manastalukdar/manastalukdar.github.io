@@ -76,7 +76,12 @@ export default {
   },
   methods: {
     print() {
-      this.printjsCall('printMe', 'html')
+      this.printjsCall({
+        printable: 'printMe',
+        type: 'html',
+        style:
+          '#single-post-header {text-align: center; justify-content: center;} .row {display: flex; flex-wrap: wrap; flex: 1 1 auto;} .col {flex-basis: 0; flex-grow: 1; max-width: 100%} .col-12 {flex: 0 0 100%}'
+      })
     },
     initPrintJs() {
       this.printjsCall = require('print-js')

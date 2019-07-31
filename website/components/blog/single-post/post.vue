@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-col id="printMe">
-      <v-row>
+    <v-col>
+      <v-row id="printMe">
         <v-card color="cardColor" raised elevation="8" class="py-4 px-6 col-12">
           <postHeader :post-metadata="postMetadata" />
           <p />
