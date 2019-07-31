@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-col>
+    <v-col id="printMe">
       <v-row>
         <v-card color="cardColor" raised elevation="8" class="py-4 px-6 col-12">
           <postHeader :post-metadata="postMetadata" />
@@ -82,4 +82,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.printButton {
+  display: flex;
+  justify-content: center;
+}
+</style>

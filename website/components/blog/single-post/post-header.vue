@@ -1,5 +1,5 @@
 <template>
-  <v-row class="text-center">
+  <v-row id="single-post-header" class="text-center">
     <v-col cols="12">
       <v-row class="title" justify="center">
         <v-col class="text-center align-center">
