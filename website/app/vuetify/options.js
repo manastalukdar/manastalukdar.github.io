@@ -22,7 +22,8 @@ export default {
         headerAndFooterColor: colors.blue.lighten4,
         cardColor: colors.shades.white
       }
-    },
+    }
+    /*,
     options: {
       customProperties: true,
       minifyTheme(css) {
@@ -31,5 +32,6 @@ export default {
           : css
       }
     }
+    */
   }
 }
