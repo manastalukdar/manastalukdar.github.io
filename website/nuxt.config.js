@@ -1,5 +1,4 @@
 import { Feed } from 'feed'
-import colors from 'vuetify/lib/util/colors'
 const fs = require('fs')
 const getRoutes = require('./utils/getRoutes.js')
 // const ampify = require('./plugins/ampify')
@@ -268,17 +267,6 @@ export default {
     }
   },
 
-  /*
-  dir: {
-    assets: './src/assets',
-    layouts: './src/components/layouts',
-    middleware: './src/middleware',
-    pages: './src/components/pages',
-    static: staticDir,
-    store: './src/store'
-  },
-  */
-
   router: {
     // https://nuxtjs.org/api/configuration-router#scrollbehavior
     scrollBehavior: function(to, from, savedPosition) {
@@ -306,35 +294,6 @@ export default {
     customVariables: ['~/assets/style/variables.scss'],
     icons: {
       iconfont: 'mdi'
-    },
-    theme: {
-      dark: true,
-      themes: {
-        dark: {
-          background: colors.blueGrey.darken2, // #141e24
-          headerAndFooterColor: colors.blue.darken3,
-          cardColor: colors.blueGrey.darken4,
-          primary: colors.teal.lighten3 // blue.darken2
-          /* accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3 */
-        },
-        light: {
-          headerAndFooterColor: colors.blue.lighten4,
-          cardColor: colors.shades.white,
-        }
-      },
-      options: {
-        customProperties: true,
-        minifyTheme: function (css) {
-          return process.env.NODE_ENV === 'production'
-            ? css.replace(/[\s|\r\n|\r|\n]/g, '')
-            : css
-        }
-      }
     }
   },
 
