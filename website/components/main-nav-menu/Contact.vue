@@ -8,7 +8,7 @@
         </v-icon>
       </v-btn>
     </template>
-    <v-list dense>
+    <v-list color="headerAndFooterColor" dense>
       <ContactMenuItems />
     </v-list>
   </v-menu>
