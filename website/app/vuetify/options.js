@@ -8,7 +8,7 @@ export default {
     themes: {
       dark: {
         background: colors.blueGrey.darken2, // #141e24
-        headerAndFooterColor: colors.blue.darken3,
+        headerAndFooterColor: colors.lightBlue.darken4,
         cardColor: colors.blueGrey.darken4,
         primary: colors.teal.lighten3 // blue.darken2
         /* accent: colors.grey.darken3,
