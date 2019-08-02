@@ -12,7 +12,7 @@ post-format: standard
 title: Sliding Window Algorithm
 url-slug: sliding-window-algorithm
 first-published-on: 2019-07-12 01:45 pm
-last-updated-on: 2019-07-28 22:26
+last-updated-on: 2019-08-01 17:14
 meta:
  description: "An exposition of the sliding window algorithm."
 excerpt: "The best way to understand the sliding window algorithm is to work with an example. Say we have an array of integers,"
@@ -82,5 +82,6 @@ Some problems need a variation of the sliding window algorithm that involves kee
 
 ## References and Further Reading
 
-1. [A Collection of Whiteboard Interview Templates - Jeremy Aguilon](https://jeremyaguilon.me/blog/a_collection_of_whiteboard_interview_templates)
-2. [Visualizing Four Key Technical Interview Algorithms - Jeremy Aguilon](https://jeremyaguilon.me/blog/visualizing_four_key_interview_algorithms)
+1. [Window Sliding Technique](https://www.geeksforgeeks.org/window-sliding-technique/)
+2. [A Collection of Whiteboard Interview Templates - Jeremy Aguilon](https://jeremyaguilon.me/blog/a_collection_of_whiteboard_interview_templates)
+3. [Visualizing Four Key Technical Interview Algorithms - Jeremy Aguilon](https://jeremyaguilon.me/blog/visualizing_four_key_interview_algorithms)
