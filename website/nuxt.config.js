@@ -94,7 +94,7 @@ export default {
         hid: 'og-image',
         name: 'og:image',
         property: 'og:image',
-        content: baseUrl + faviconPath
+        content: baseUrl + '/images/android-chrome-192x192.png'
       },
       {
         hid: 'og-type',
