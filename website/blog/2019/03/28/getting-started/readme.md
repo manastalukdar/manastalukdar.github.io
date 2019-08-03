@@ -3,6 +3,7 @@ published: true
 tags:
   - Vue.js
   - Nuxt.js
+  - Vuetify.js
   - Personal Website
   - Blog
 categories:
@@ -20,4 +21,4 @@ meta:
 excerpt: "Welcome to my blog. I recently built this website (with blog). I learnt Vue.js and Nuxt.js for this project and it was a lot of fun."
 ---
 
-Welcome to my blog. I recently built this website, with blog. I learnt [Vue.js](https://vuejs.org/) and [Nuxt.js](https://nuxtjs.org/)](https://nuxtjs.org/) for this project and it was a lot of fun. The UI components for this site uses the material design based [Vuetify.js](https://vuetifyjs.com/) framework. This is an evolving website. The code and backlog for this project is available [on GitHub](https://github.com/manastalukdar/manastalukdar.github.io). At some point I hope to write posts elaborating the design and implementation details behind the website.
+Welcome to my blog. I recently built this website, with blog. I learnt [Vue.js](https://vuejs.org/) and [Nuxt.js](https://nuxtjs.org/) for this project and it was a lot of fun. The UI components for this site uses the material design based [Vuetify.js](https://vuetifyjs.com/) framework. This is an evolving website. The code and backlog for this project is available [on GitHub](https://github.com/manastalukdar/manastalukdar.github.io). At some point I hope to write posts elaborating the design and implementation details behind the website.
