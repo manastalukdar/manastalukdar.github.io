@@ -170,7 +170,6 @@ export default {
   css: [
     '~/assets/style/print-blog-post.css',
     '~/assets/style/app.scss',
-    '@fortawesome/fontawesome-svg-core/styles.css',
     { src: '~/node_modules/highlight.js/styles/atom-one-light.css', lang: 'css' }
   ],
 
@@ -192,7 +191,6 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/fontawesome.js',
     '@/plugins/materialdesignicons.js',
     '@plugins/vueAsyncComputed.js',
     '~/plugins/vuetify-theme-cache.js',
