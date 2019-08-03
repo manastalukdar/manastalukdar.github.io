@@ -57,14 +57,9 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
-/*
-.application .theme--dark .v-content {
-  background-color: #141e24 !important; // : var(--v-accent-lighten2)
-}
-*/
 
-.theme--dark .v-navigation-drawer {
-  background-color: #263238; /* var(--v-cardColor) */
+.theme--dark.v-application {
+  background-color: var(--v-background-lighten1) !important;
 }
 
 .theme--dark a {
