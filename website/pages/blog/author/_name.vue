@@ -2,9 +2,9 @@
   <v-container>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
-    <v-row class="text-center text-justify">
+    <v-row class="text-justify">
       <v-col cols="12">
-        <v-row justify="center">
+        <v-row class="text-center" justify="center">
           <h1>{{ authorText }}:&nbsp; {{ authorName }}</h1>
         </v-row>
       </v-col>
