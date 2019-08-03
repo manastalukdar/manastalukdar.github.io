@@ -2,7 +2,7 @@
   <v-container>
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
-    <v-row class="text-justify">
+    <v-row class="text-center text-justify">
       <v-col cols="12">
         <v-row justify="center">
           <h1>{{ categoryText }}:&nbsp; {{ categoryName }}</h1>
