@@ -25,7 +25,7 @@ export default {
     },
     options: {
       customProperties: true
-    /*
+      /*
       minifyTheme(css) {
         return process.env.NODE_ENV === 'production'
           ? css.replace(/[\s|\r\n|\r|\n]/g, '')
