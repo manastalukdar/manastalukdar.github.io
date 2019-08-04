@@ -11,7 +11,7 @@
         </v-row>
       </v-col>
       <v-col cols="12">
-        <v-card class="my-3 pa-2" raised elevation="8">
+        <v-card class="my-3 pa-2" color="cardColor" raised elevation="8">
           <v-card-title>
             <div class="flex-grow-1"></div>
             <v-text-field

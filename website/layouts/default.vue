@@ -62,6 +62,10 @@ export default {
   background-color: var(--v-background-lighten1) !important;
 }
 
+.theme--dark.v-data-table {
+  background-color: var(--v-cardColor) !important;
+}
+
 .theme--dark a {
   color: #42b983;
 }
