@@ -18,3 +18,9 @@
 .col-12 {
   flex: 0 0 100%
 }
+
+html {
+  font-family: roboto;
+  line-height: 1.8;
+  font-size: 15px
+}

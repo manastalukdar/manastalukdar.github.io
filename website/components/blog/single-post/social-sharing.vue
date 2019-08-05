@@ -80,7 +80,7 @@ export default {
         printable: 'printMe',
         type: 'html',
         style:
-          '#single-post-header {text-align: center; justify-content: center;} .row {display: flex; flex-wrap: wrap; flex: 1 1 auto;} .col {flex-basis: 0; flex-grow: 1; max-width: 100%} .col-12 {flex: 0 0 100%}'
+          '#single-post-header {text-align: center; justify-content: center !important;} .row {display: flex; flex-wrap: wrap; flex: 1 1 auto;} .col {flex-basis: 0; flex-grow: 1; max-width: 100%} .col-12 {flex: 0 0 100%} html {font-family: roboto; line-height: 1.8; font-size: 15px}'
       })
     },
     initPrintJs() {
