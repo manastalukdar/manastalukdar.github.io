@@ -1,4 +1,4 @@
-- Bootstrapped multiple projects from ideation to product. Determined scope and drove road-map with cross-functional stakeholders, including customers. Built and managed teams that consistently delivered on committed milestones through agile software development processes. Instituted engineering best practices.
+- Bootstrapped multiple projects from ideation to product. Determined scope and drove road-map with stakeholders, including customers. Built and managed teams that consistently delivered on committed milestones through agile software development processes. Instituted engineering best practices.
 
 - Created high-value engineering team that developed high-visibility product which spawned vNext series of enterprise solutions.
 
