@@ -6,6 +6,6 @@
 
 - Worked throughout the stack, from using front-end frameworks to develop modern web apps to back-end development including storage, access layers, API and middleware SDK. Focus and interest primarily in the back-end, specifically in distributed systems and cloud computing.
 
-- Extensive experience in working very closely with customers for driving product adoption across multiple releases.
+- Extensive experience in working very closely with customers to drive product adoption across multiple releases.
 
 - Sharp focus on operational excellence to ensure customer success and satisfy SLA requirements.
