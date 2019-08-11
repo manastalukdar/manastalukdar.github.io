@@ -4,7 +4,7 @@
 
 #### Work
 
-- **Cloud Services**: I currently manage a team working on large-scale distributed Platform-as-a-Service (PaaS) and Software-as-a-Service (SaaS) metadata solutions for storage and analysis of high-throughput streaming process data to enable asset management using context for industrial applications.
+- **Cloud Services**: I currently manage a team working on large-scale distributed Platform-as-a-Service (PaaS) and Software-as-a-Service (SaaS) metadata solutions for storage and analysis of high-throughput streaming data to enable asset management using context for industrial applications.
 
 #### Other
 
