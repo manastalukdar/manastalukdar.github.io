@@ -28,9 +28,9 @@
             :search="search"
             :items-per-page="5"
           >
-            <template v-slot:items="props">
+            <template v-slot:body="{ items }">
               <tbody>
-                <tr v-for="item in props" :key="item.slug">
+                <tr v-for="item in items" :key="item.slug">
                   <td>
                     <nuxt-link :to="getLink([item.slug])">{{
                       item.name

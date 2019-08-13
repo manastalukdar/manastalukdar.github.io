@@ -23,13 +23,17 @@
             ></v-text-field>
           </v-card-title>
           <v-data-table :headers="headers" :items="categories" :search="search">
-            <template v-slot:items="props">
-              <td>
-                <nuxt-link :to="getLink([props.item.slug])">{{
-                  props.item.name
-                }}</nuxt-link>
-              </td>
-              <td class="text-right">{{ props.item.count }}</td>
+            <template v-slot:body="{ items }">
+              <tbody>
+                <tr v-for="item in items" :key="item.slug">
+                  <td>
+                    <nuxt-link :to="getLink([item.slug])">{{
+                      item.name
+                    }}</nuxt-link>
+                  </td>
+                  <td class="text-right">{{ item.count }}</td>
+                </tr>
+              </tbody>
             </template>
             <v-alert
               v-slot:no-results

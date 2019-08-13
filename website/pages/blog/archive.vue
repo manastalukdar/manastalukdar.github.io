@@ -26,19 +26,21 @@
             :headers="headers"
             :items="blogMetadata"
             :search="search"
+            :items-per-page="5"
           >
-            <template v-slot:items="props">
-              <td>
-                <nuxt-link
-                  :to="
-                    getLink(
-                      props.item['first-published-on'],
-                      props.item['url-slug']
-                    )
-                  "
-                  >{{ props.item.title }}</nuxt-link
-                >
-              </td>
+            <template v-slot:body="{ items }">
+              <tbody>
+                <tr v-for="item in items" :key="item.slug">
+                  <td>
+                    <nuxt-link
+                      :to="
+                        getLink(item['first-published-on'], item['url-slug'])
+                      "
+                      >{{ item.title }}</nuxt-link
+                    >
+                  </td>
+                </tr>
+              </tbody>
             </template>
             <v-alert
               v-slot:no-results
