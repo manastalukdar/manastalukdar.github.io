@@ -1,6 +1,6 @@
 - Bootstrapped multiple projects from ideation to product. Determined scope and drove road-map with stakeholders, including customers. Built and managed teams that consistently delivered on committed milestones. Instilled software engineering best practices.
 
-- Created high-value engineering team that developed high-visibility product which spawned vNext series of enterprise software solutions.
+- Created high-value engineering team that developed high-visibility large-scale distributed data platform product which spawned vNext series of enterprise software solutions.
 
 - Successfully completed research project and developed prototype of a large-scale distributed data store for processing billions of streams from millions of industrial devices and IoT sensors, that I subsequently took to product stage as Engineering Manager.
 
