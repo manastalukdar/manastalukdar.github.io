@@ -11,7 +11,7 @@
       </v-row>
 
       <v-row>
-        <no-ssr>
+        <client-only>
           <socialSharing
             :url="url"
             :title="postMetadata.title"
@@ -19,7 +19,7 @@
             :quote="postMetadata.excerpt"
             :hashtags="hashtags"
           />
-        </no-ssr>
+        </client-only>
       </v-row>
 
       <v-row>

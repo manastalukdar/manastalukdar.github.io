@@ -3,7 +3,7 @@
     <breadcrumbs :breadcrumbs="breadcrumbs" />
     <p />
     <v-card class="resume-wrapper">
-      <no-ssr>
+      <client-only>
         <iframe
           id="resumeBox"
           name="resumeBox"
@@ -13,7 +13,7 @@
         >
           <p>iframes are not supported by your browser.</p>
         </iframe>
-      </no-ssr>
+      </client-only>
     </v-card>
   </v-container>
 </template>
