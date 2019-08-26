@@ -1,16 +1,16 @@
 // assets/variables.scss
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap");
-// Montserrat, Lato
+@import url("https://fonts.googleapis.com/css?family=Maven+Pro&display=swap");
+// Open+Sans|Roboto|Montserrat, Lato, Nunito Sans, Raleway, Lora, Maven Pro, PT Sans, Carlito
 
 @import '~vuetify/src/styles/styles.sass';
 
 // The variables you want to modify
 $font-size-root: 15px;
-$line-height-root: 1.8;
+$line-height-root: 1.6;
 // For updating SASS lists
 // $material-light: map-merge($material-light, ( cards: blue ));
 // $btn-border-radius: 10px;
-$body-font-family: "Roboto";
+$body-font-family: "Maven Pro";
 $code-color: #383636;
 $v-content-padding: 65px 0px 65px;
 
