@@ -7,7 +7,7 @@
           :key="item.text"
           :href="item.href"
           :target="item.target"
-          class="col px-2 justify-center"
+          class="col-4 px-2 justify-center"
         >
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item>

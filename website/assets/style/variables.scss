@@ -1,4 +1,7 @@
 // assets/variables.scss
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap");
+// Montserrat, Lato
+
 @import '~vuetify/src/styles/styles.sass';
 
 // The variables you want to modify
@@ -7,7 +10,7 @@ $line-height-root: 1.8;
 // For updating SASS lists
 // $material-light: map-merge($material-light, ( cards: blue ));
 // $btn-border-radius: 10px;
-$body-font-family: roboto;
+$body-font-family: "Roboto";
 $code-color: #383636;
 $v-content-padding: 65px 0px 65px;
 
