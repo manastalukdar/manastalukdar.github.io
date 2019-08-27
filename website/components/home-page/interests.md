@@ -6,6 +6,6 @@
 
 - **Technology**: I am naturally inquisitive, I am passionate about technology and I enjoy learning. I am always on the lookout for any new development in the industry that I could learn out of inquisitiveness, personal interest or potentially apply at work if relevant.
 
-- **Building, creating**:  I love building, creating things and I am a methodical, meticulous person. I have a 5-year diploma in Fine Arts and Crafts, which aligns with my creative inclinations. My career in Software Engineering allows me to utilize my natural proclivities to create solutions that empowers users and drives customer success.
+- **Building, creating**:  I am a methodical, meticulous person and I love building, creating things. I have a 5-year diploma in Fine Arts and Crafts, which aligns with my creative inclinations. My career in Software Engineering allows me to utilize my natural proclivities to create solutions that empowers users and drives customer success.
 
 - **Hiking**: I love nature and like to go on hikes around the San Francisco Bay Area. I particularly enjoy the redwood forests in California.
