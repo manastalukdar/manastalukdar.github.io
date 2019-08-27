@@ -1,5 +1,5 @@
 // assets/variables.scss
-@import url("https://fonts.googleapis.com/css?family=Maven+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Maven+Pro|Roboto&display=swap");
 // Open+Sans|Roboto|Montserrat, Lato, Nunito Sans, Raleway, Lora, Maven Pro, PT Sans, Carlito
 
 @import '~vuetify/src/styles/styles.sass';
@@ -10,7 +10,7 @@ $line-height-root: 1.8;
 // For updating SASS lists
 // $material-light: map-merge($material-light, ( cards: blue ));
 // $btn-border-radius: 10px;
-$body-font-family: "Maven Pro", sans-serif;
+$body-font-family: "Maven Pro", Roboto, "Helvetica Neue", sans-serif;
 $code-color: #383636;
 $v-content-padding: 65px 0px 65px;
 

@@ -126,7 +126,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css?family=Maven+Pro:300,400,500,700|Material+Icons'
+          'https://fonts.googleapis.com/css?family=Material+Icons'
       },
       {
         rel: 'alternate',
