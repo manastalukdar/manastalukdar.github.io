@@ -108,6 +108,7 @@ export default {
       })
       .use(require('markdown-it-toc-done-right'))
       .use(require('markdown-it-footnote'))
+      .use(require('markdown-it-plantuml'))
     markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
     const postIdTemp =
       '/blog/' +

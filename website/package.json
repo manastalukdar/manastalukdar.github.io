@@ -34,6 +34,7 @@
     "markdown-it-footnote": "^3.0.2",
     "markdown-it-html5-embed": "^1.0.0",
     "markdown-it-mathjax": "^2.0.0",
+    "markdown-it-plantuml": "^1.4.1",
     "markdown-it-toc-done-right": "3.0.1",
     "moment": "^2.24.0",
     "nuxt": "^2.9.1",
