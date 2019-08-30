@@ -110,9 +110,9 @@ export default {
       })
       .use(markdownItTocDoneRight)
       .use(require('markdown-it-footnote'))
-      .use(require('markdown-it-plantuml'))
     markdownRenderHelpers.default.functions.getPlantUmlFencedRender(md)
     markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
+    // md.use(require('markdown-it-plantuml'))
     const postIdTemp =
       '/blog/' +
       params.year +

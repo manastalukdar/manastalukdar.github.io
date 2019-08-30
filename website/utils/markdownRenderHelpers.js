@@ -1,3 +1,4 @@
+import markdownItPlantUml from './markdown-it-text-uml/index.js'
 const functions = {
   getTargetBlankLinkRender(md) {
     // https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md#renderer
@@ -36,6 +37,7 @@ const functions = {
   },
 
   getPlantUmlFencedRender(md) {
+    markdownItPlantUml.umlPlugin(md)
     const defaultRender =
       md.renderer.rules.fence ||
       function(tokens, idx, options, env, slf) {
@@ -46,17 +48,13 @@ const functions = {
       const token = tokens[idx]
       const info = token.info ? md.utils.unescapeAll(token.info).trim() : ''
       let langName = ''
-      // let highlighted
-      // let i
-      // let tmpAttrs
-      // let tmpToken
 
       if (info) {
         langName = info.split(/\s+/g)[0]
       }
 
       if (langName === 'plantuml') {
-        return token.content
+        // return token.content
       }
 
       return defaultRender(tokens, idx, options, env, slf)
