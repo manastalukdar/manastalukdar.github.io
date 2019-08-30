@@ -16,6 +16,8 @@
 <script>
 import { mapState } from 'vuex'
 import axios from 'axios'
+import markdownItAnchor from 'markdown-it-anchor'
+import markdownItTocDoneRight from 'markdown-it-toc-done-right'
 import breadcrumbs from '../../../../../components/breadcrumbs'
 import post from '../../../../../components/blog/single-post/post.vue'
 const markdownRenderHelpers = require('../../../../../utils/markdownRenderHelpers.js')
@@ -101,14 +103,15 @@ export default {
           }
         }
       })
-      .use(require('markdown-it-anchor'), {
+      .use(markdownItAnchor, {
         permalink: true,
         permalinkBefore: true,
         permalinkSymbol: '' // §
       })
-      .use(require('markdown-it-toc-done-right'))
+      .use(markdownItTocDoneRight)
       .use(require('markdown-it-footnote'))
       .use(require('markdown-it-plantuml'))
+    markdownRenderHelpers.default.functions.getPlantUmlFencedRender(md)
     markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
     const postIdTemp =
       '/blog/' +

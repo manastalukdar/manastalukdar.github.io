@@ -37,5 +37,6 @@
       "eslint.workingDirectories": [
         { "directory": "./website", "changeProcessCWD": true }
       ],
-      "markdown.extension.print.onFileSave": false
+      "markdown.extension.print.onFileSave": false,
+      "markdown.extension.toc.orderedList": true
 }
