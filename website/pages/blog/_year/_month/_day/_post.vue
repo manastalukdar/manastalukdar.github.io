@@ -13,6 +13,25 @@
   </v-container>
 </template>
 
+<style>
+/*
+body {
+  scroll-behavior: smooth;
+}
+
+.blogPostContent ol {
+  counter-reset: list-item;
+}
+.blogPostContent li {
+  display: block;
+  counter-increment: list-item;
+}
+.blogPostContent li:before {
+  content: counters(list-item, '.') ' ';
+}
+*/
+</style>
+
 <script>
 import { mapState } from 'vuex'
 import axios from 'axios'
