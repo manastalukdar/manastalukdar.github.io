@@ -24,10 +24,12 @@ function umlPlugin(md, options) {
 
   options = options || {}
 
-  // const umlType = options.umlType || 'plantuml'
-  const openMarker = options.openMarker || '@startuml'
+  const umlType = options.umlType || 'plantuml'
+  // const openMarker = options.openMarker || '@startuml'
+  const openMarker = options.openMarker || '```' + umlType
   const openChar = openMarker.charCodeAt(0)
-  const closeMarker = options.closeMarker || '@enduml'
+  // const closeMarker = options.closeMarker || '@enduml'
+  const closeMarker = options.closeMarker || '```'
   const closeChar = closeMarker.charCodeAt(0)
   const render = options.render || md.renderer.rules.image
   const generateSource = options.generateSource || generateSourceDefault

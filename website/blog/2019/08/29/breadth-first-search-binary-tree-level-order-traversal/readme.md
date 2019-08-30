@@ -77,7 +77,7 @@ frame "Solution" {
     ]
     note left of 12_1
     Queue:
-    Level Size: 1
+    Queue Size: 1
     end note
 }
 
@@ -107,7 +107,7 @@ frame "Solution" {
     ]
     note left of 12_1
     Queue:
-    Level Size: 1
+    Queue Size: 1
     end note
     () root --> 12_1
 }
@@ -145,7 +145,7 @@ frame "Solution" {
     ]
     note left of 12_1
     Queue:
-    Level Size: 1
+    Queue Size: 1
     end note
     12_1 . 7_1
     7_1 . 1_1
@@ -190,7 +190,7 @@ frame "Solution" {
     ]
     note left of 7_1
     Queue:
-    Level Size: 2
+    Queue Size: 2
     end note
     7_1 . 1_1
     component 12_2 #lightgreen [
@@ -245,7 +245,7 @@ frame "Solution" {
     ]
     note left of 7_1
     Queue:
-    Level Size: 2
+    Queue Size: 2
     end note
     7_1 . 1_1
     1_1 . 9_1
@@ -310,7 +310,7 @@ frame "Solution" {
     ]
     note left of 9_1
     Queue:
-    Level Size: 3
+    Queue Size: 3
     end note
     9_1 . 10_1
     10_1 . 5_1
@@ -364,7 +364,7 @@ frame "BinaryTree" {
 frame "Solution" {
     note left of () Queue
     Queue:
-    Level Size: 3
+    Queue Size: 3
     end note
     component 12_2 #lightgreen [
         12

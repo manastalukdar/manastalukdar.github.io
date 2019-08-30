@@ -38,7 +38,7 @@ const functions = {
 
   getPlantUmlFencedRender(md) {
     markdownItPlantUml.umlPlugin(md)
-    const defaultRender =
+    /* const defaultRender =
       md.renderer.rules.fence ||
       function(tokens, idx, options, env, slf) {
         return slf.renderToken(tokens, idx, options)
@@ -58,7 +58,7 @@ const functions = {
       }
 
       return defaultRender(tokens, idx, options, env, slf)
-    }
+    } */
   }
 }
 
