@@ -222,10 +222,6 @@ and also iPads specifically.
     word-break: break-all;
     word-wrap: break-word;
   }
-
-  /* code[class^='language-'] {
-    width: auto !important;
-  } */
 }
 
 /*
