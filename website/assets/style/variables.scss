@@ -51,21 +51,11 @@ and also iPads specifically.
 }
 
 pre {
-  //overflow-x: auto;
-  //overflow-wrap: normal;
   overflow: auto;
-  //white-space: pre;
-  //word-wrap: normal;
-  //word-spacing: normal;
-  // word-break: normal;
 }
 code[class^="language-"] {
-  // overflow-wrap: normal;
   overflow: auto;
   white-space: pre !important;
-  /* word-wrap: normal;
-  word-spacing: normal;
-  word-break: normal; */
   width: 100%;
 }
 
