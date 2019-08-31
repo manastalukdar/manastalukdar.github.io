@@ -10,7 +10,9 @@ export default {
         background: '#141e24', // #141e24
         headerAndFooterColor: colors.blueGrey.darken3,
         cardColor: colors.blueGrey.darken4,
-        primary: colors.teal.lighten3 // blue.darken2
+        primary: colors.teal.lighten3, // blue.darken2
+        backToTopBackground: colors.blueGrey.darken2,
+        backToTopText: colors.blue.lighten1
         /* accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
@@ -20,7 +22,9 @@ export default {
       },
       light: {
         headerAndFooterColor: colors.blue.lighten4,
-        cardColor: colors.shades.white
+        cardColor: colors.shades.white,
+        backToTopBackground: colors.grey.lighten2,
+        backToTopText: colors.red
       }
     },
     options: {
@@ -29,7 +33,7 @@ export default {
         return process.env.NODE_ENV === 'production'
           ? css.replace(/(?<!v-application)[\s|\r\n|\r|\n]/g, '')
           : css
-      },
+      }
     }
   }
 }

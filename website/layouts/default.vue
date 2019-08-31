@@ -18,6 +18,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { addBackToTop } from 'vanilla-back-to-top'
 import MainNavMenuNavigationDrawer from '../components/main-nav-menu/NavigationDrawer.vue'
 import MainNavMenuTopNavBar from '../components/main-nav-menu/TopNavBar.vue'
 import Footer from '../components/footer.vue'
@@ -39,6 +40,10 @@ export default {
   },
   mounted() {
     // this.$vuetify.theme.dark = true
+    addBackToTop({
+      diameter: 40,
+      zIndex: 3
+    })
   },
   head() {
     return {
@@ -49,6 +54,11 @@ export default {
 </script>
 
 <style>
+#back-to-top {
+  background: var(--v-backToTopBackground-base);
+  color: var(--v-backToTopText-base);
+  bottom: 70px;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
