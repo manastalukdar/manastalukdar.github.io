@@ -1,4 +1,3 @@
-import markdownItPlantUml from './markdown-it-text-uml/index.js'
 const functions = {
   getTargetBlankLinkRender(md) {
     // https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md#renderer
@@ -34,31 +33,6 @@ const functions = {
       // pass token to default renderer.
       return defaultRender(tokens, idx, options, env, self)
     }
-  },
-
-  getPlantUmlFencedRender(md) {
-    markdownItPlantUml.umlPlugin(md)
-    /* const defaultRender =
-      md.renderer.rules.fence ||
-      function(tokens, idx, options, env, slf) {
-        return slf.renderToken(tokens, idx, options)
-      }
-
-    md.renderer.rules.fence = function(tokens, idx, options, env, slf) {
-      const token = tokens[idx]
-      const info = token.info ? md.utils.unescapeAll(token.info).trim() : ''
-      let langName = ''
-
-      if (info) {
-        langName = info.split(/\s+/g)[0]
-      }
-
-      if (langName === 'plantuml') {
-        // return token.content
-      }
-
-      return defaultRender(tokens, idx, options, env, slf)
-    } */
   }
 }
 

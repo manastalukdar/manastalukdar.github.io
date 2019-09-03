@@ -113,7 +113,6 @@ export default {
       .use(markdownItTocDoneRight)
       .use(require('markdown-it-footnote'))
       .use(markdownItTextualUml)
-    // markdownRenderHelpers.default.functions.getPlantUmlFencedRender(md)
     markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
     const postIdTemp =
       '/blog/' +
