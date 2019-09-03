@@ -18,9 +18,13 @@ import { mapState } from 'vuex'
 import axios from 'axios'
 import markdownItAnchor from 'markdown-it-anchor'
 import markdownItTocDoneRight from 'markdown-it-toc-done-right'
+import markdownItTextualUml from 'markdown-it-textual-uml'
 import breadcrumbs from '../../../../../components/breadcrumbs'
 import post from '../../../../../components/blog/single-post/post.vue'
+const hljs = require('highlight.js') // https://highlightjs.org/
+const fm = require('front-matter')
 const markdownRenderHelpers = require('../../../../../utils/markdownRenderHelpers.js')
+let mermaid = null
 export default {
   components: {
     breadcrumbs,
@@ -65,8 +69,6 @@ export default {
     }
   },
   async asyncData({ store, params, env, payload }) {
-    const hljs = require('highlight.js') // https://highlightjs.org/
-    const fm = require('front-matter')
     const md = require('markdown-it')({
       html: true,
       xhtmlOut: true,
@@ -110,9 +112,9 @@ export default {
       })
       .use(markdownItTocDoneRight)
       .use(require('markdown-it-footnote'))
-    markdownRenderHelpers.default.functions.getPlantUmlFencedRender(md)
+      .use(markdownItTextualUml)
+    // markdownRenderHelpers.default.functions.getPlantUmlFencedRender(md)
     markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
-    // md.use(require('markdown-it-plantuml'))
     const postIdTemp =
       '/blog/' +
       params.year +
@@ -179,6 +181,15 @@ export default {
         url: env.baseURL + '/' + postIdTemp
       }
     }
+  },
+  mounted() {
+    if (mermaid == null) {
+      mermaid = require('mermaid')
+    }
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'forest'
+    })
   },
   head() {
     /* const postMetadata = this.$store.getters['BlogMetadata/getPostMetadata'](

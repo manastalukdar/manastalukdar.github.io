@@ -15,7 +15,7 @@ post-format: standard
 title: Breadth First Search Algorithm for Level Order Traversal of a Binary Tree
 url-slug: breadth-first-search-binary-tree-level-order-traversal
 first-published-on: 2019-08-29 13:33
-last-updated-on: 2019-08-29 13:33
+last-updated-on: 2019-09-03 00:53
 meta:
  description: "A discussion of the Breadth First Search algorithm using the example of level order traversal for a binary tree."
 excerpt: "Breadth First Search is a traversal/search algorithm for trees and graphs. We will use the example of a binary tree to discuss this algorithm."
@@ -32,12 +32,10 @@ Breadth First Search (BFS) is a traversal/search algorithm for trees and graphs.
 Let us consider the following example:
 
 ```plantuml
-@startuml
 digraph example2 {
     12 -> 7 -> 9;
     12 -> 1 -> { 10, 5 };
 }
-@enduml
 ```
 
 For this binary tree we are expected to return a nested array as follows:
@@ -70,7 +68,6 @@ Here are the steps of our algorithm:
 This algorithm can be better understood using the visual representation below.
 
 ```plantuml
-@startuml
 frame "Solution" {
     component 12_1 #lightblue [
         12
@@ -94,13 +91,11 @@ frame "BinaryTree" {
     component [10] #lightblue
     component [5] #lightblue
 }
-@enduml
 ```
 
 **Step 1 of 7:** Start by pushing the root to the queue.
 
 ```plantuml
-@startuml
 frame "Solution" {
     component 12_1 [
         12
@@ -126,13 +121,11 @@ frame "BinaryTree" {
     component [10] #lightblue
     component [5] #lightblue
 }
-@enduml
 ```
 
 **Step 2 of 7:** Count the items of the queue (queueSize = 1). They are all in the first level. Since the queueSize is "1" there will be one item in the first level.
 
 ```plantuml
-@startuml
 frame "Solution" {
     component 12_1 [
         12
@@ -174,13 +167,11 @@ frame "BinaryTree" {
     component [10] #lightblue
     component [5] #lightblue
 }
-@enduml
 ```
 
 **Step 3 of 7:** Move the "one" item to the the output array representing the first level of the tree and push its children to the queue.
 
 ```plantuml
-@startuml
 frame "Solution" {
     component 7_1 [
         7
@@ -220,13 +211,11 @@ frame "BinaryTree" {
     component [10] #lightblue
     component [5] #lightblue
 }
-@enduml
 ```
 
 **Step 4 of 7:** Count the items of the queue (queueSize = 2). They are all in the second level. Since the queueSize is "2" there will be two items in the second level.
 
 ```plantuml
-@startuml
 frame "Solution" {
     component 7_1 [
         7
@@ -291,13 +280,11 @@ frame "BinaryTree" {
     component [10] #lightblue
     component [5] #lightblue
 }
-@enduml
 ```
 
 **Step 5 of 7:** Move the "two" items to the the output array representing the second level and push their children to the queue in the same order.
 
 ```plantuml
-@startuml
 frame "Solution" {
     component 9_1 [
         9
@@ -354,13 +341,11 @@ frame "BinaryTree" {
     component [7] #lightblue
     component [1] #lightblue
 }
-@enduml
 ```
 
 **Step 6 of 7:** Count the items of the queue (queueSize = 3). They are all in the third level. Since the queueSize is "3" there will be three items in the third level.
 
 ```plantuml
-@startuml
 frame "Solution" {
     note left of () Queue
     Queue:
@@ -416,7 +401,6 @@ frame "BinaryTree" {
     component [7] #lightblue
     component [1] #lightblue
 }
-@enduml
 ```
 
 **Step 7 of 7:** Move the "three" items to the the output array representing third level.

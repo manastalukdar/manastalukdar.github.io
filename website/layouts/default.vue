@@ -121,6 +121,22 @@ img {
   margin-right: auto;
   padding: 1em;
 }
+#mermaid {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+svg[id^='mermaid-'] {
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 h2,
 h3,
 h4,
