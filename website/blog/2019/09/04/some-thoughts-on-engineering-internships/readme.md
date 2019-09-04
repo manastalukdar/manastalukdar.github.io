@@ -12,7 +12,7 @@ post-format: standard
 title: Some Thoughts on Engineering Internships
 url-slug: some-thoughts-on-engineering-internships
 first-published-on: 2019-09-04 10:57
-last-updated-on: 2019-09-04 10:57
+last-updated-on: 2019-09-04 11:10
 meta:
  description: "Some thoughts on engineering internships from an Engineering Manager perspective."
 excerpt: "Effort should be made so that the intern is able to work on end-to-end project(s) that they can take from start to completion."
@@ -32,8 +32,8 @@ excerpt: "Effort should be made so that the intern is able to work on end-to-end
 7. Guidance should be provided to the intern on (this should be orchestrated at a broader company, or organization level):
    1. Resume preparation.
    2. LinkedIn profile creation, updating, etc.
-   3. Interviewing as new grads can also be considered. Some things that can be covered in such a session could include:
-      1. Tech interview preparation.
+   3. Interviewing as new grads. Some things that can be covered could include:
+      1. Technical interview preparation. Resources, study plan, etc.
       2. Behavioral interview preparation.
       3. What does it take for a new grad candidate to be successful during a tech interview, in the tech industry in general, and at this company specifically.
 8. At the end of the internship, the EM should
