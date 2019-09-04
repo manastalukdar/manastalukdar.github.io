@@ -1,42 +1,42 @@
 {
-    "cSpell.words": [
-      "Gitflow",
-      "Jeffries",
-      "Leet",
-      "Microservices",
-      "Paxos",
-      "Talukdar",
-      "Talukdar's",
-      "civilizational",
-      "linearizability",
-      "microservice",
-      "observability",
-      "runbooks",
-      "serializable",
-      "transformational",
-      "walkthrough"
-    ],
-    "python.linting.pylintEnabled": true,
-    "eslint.validate": [
-        {
-            "language": "vue",
-            "autoFix": true
-          },
-          {
-            "language": "html",
-            "autoFix": true
-          },
-          {
-            "language": "javascript",
-            "autoFix": true
-          }
-      ],
-      "eslint.autoFixOnSave": true,
-      "editor.formatOnSave": false,
-      "vetur.validation.template": false,
-      "eslint.workingDirectories": [
-        { "directory": "./website", "changeProcessCWD": true }
-      ],
-      "markdown.extension.print.onFileSave": false,
-      "markdown.extension.toc.orderedList": true
+  "cSpell.words": [
+    "Gitflow",
+    "Jeffries",
+    "Leet",
+    "Microservices",
+    "Paxos",
+    "Talukdar",
+    "Talukdar's",
+    "civilizational",
+    "linearizability",
+    "microservice",
+    "observability",
+    "runbooks",
+    "serializable",
+    "transformational",
+    "walkthrough"
+  ],
+  "python.linting.pylintEnabled": true,
+  "eslint.validate": [{
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    }
+  ],
+  "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": true,
+  "vetur.validation.template": false,
+  "eslint.workingDirectories": [{
+    "directory": "./website",
+    "changeProcessCWD": true
+  }],
+  "markdown.extension.print.onFileSave": false,
+  "markdown.extension.toc.orderedList": true
 }
