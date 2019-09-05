@@ -257,8 +257,13 @@ and also iPads specifically.
 /*
 * https://gist.github.com/patik/89ee6092c72a9e39950445c01598517a
 * https://stackoverflow.com/questions/48029165/is-there-a-way-to-make-the-headings-sections-and-subsections-numbering-in-markd
+* https://codepen.io/X-Raym/pen/dBprG
 */
-.blogPostContent h1 {
+/*.blogPostContent h1 {
+  counter-reset: h2counter;
+}*/
+
+.blogPostContent {
   counter-reset: h2counter;
 }
 .blogPostContent h2 {
