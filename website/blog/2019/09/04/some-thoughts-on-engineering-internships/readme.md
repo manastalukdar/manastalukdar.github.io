@@ -12,7 +12,7 @@ post-format: standard
 title: Some Thoughts on Engineering Internships
 url-slug: some-thoughts-on-engineering-internships
 first-published-on: 2019-09-04 10:57
-last-updated-on: 2019-09-04 21:31
+last-updated-on: 2019-09-04 22:54
 meta:
  description: "Some thoughts on engineering internships from an Engineering Manager perspective."
 excerpt: "The goal for an engineering internship should be that the intern can accomplish something that s/he can put on their resume and would be"
