@@ -213,6 +213,10 @@ Generic Styling, for Desktops/Laptops
   text-align: left;
 }
 
+.blogPostContent h1 {
+  display: none;
+}
+
 /*
 Max width before this PARTICULAR table gets nasty
 This query will take effect for any screen smaller than 760px

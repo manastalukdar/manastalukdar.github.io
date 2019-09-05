@@ -110,7 +110,9 @@ export default {
         permalinkBefore: true,
         permalinkSymbol: '' // §
       })
-      .use(markdownItTocDoneRight)
+      .use(markdownItTocDoneRight, {
+        level: 2
+      })
       .use(require('markdown-it-footnote'))
       .use(markdownItTextualUml)
     markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)

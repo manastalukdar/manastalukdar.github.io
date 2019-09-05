@@ -38,5 +38,6 @@
     "changeProcessCWD": true
   }],
   "markdown.extension.print.onFileSave": false,
-  "markdown.extension.toc.orderedList": true
+  "markdown.extension.toc.orderedList": true,
+  "markdown.extension.toc.levels": "2..6"
 }

@@ -1,7 +1,7 @@
 <template>
   <v-row id="single-post-header" class="text-center">
     <v-col cols="12">
-      <v-row class="title" justify="center">
+      <v-row class="headline" justify="center">
         <v-col class="text-center align-center">
           {{ postMetadata.title }}
           &nbsp;
@@ -13,9 +13,8 @@
         Authors:&nbsp;
         <div v-for="item in postMetadata.authors" :key="item['name']">
           <nuxt-link :to="getAuthorRoute(item['url-slug'])">
-            <span>{{ item['name'] }}</span>
-          </nuxt-link>
-          &nbsp;
+            <span>{{ item['name'] }}</span> </nuxt-link
+          >&nbsp;
         </div>
         &nbsp; || Published: {{ postMetadata['first-published-on'] }} ||
         Updated: {{ postMetadata['last-updated-on'] }}
@@ -24,23 +23,20 @@
         Categories:&nbsp;
         <div v-for="item in postMetadata.categories" :key="item['name']">
           <nuxt-link :to="getCategoryRoute(item['url-slug'])">
-            <span>{{ item['name'] }}</span>
-          </nuxt-link>
-          &nbsp;
+            <span>{{ item['name'] }}</span> </nuxt-link
+          >&nbsp;
         </div>
         &nbsp;|| Tags:&nbsp;
         <div v-for="item in postMetadata.tags" :key="item['name']">
           <nuxt-link :to="getTagRoute(item['url-slug'])">
-            <span>{{ item['name'] }}</span>
-          </nuxt-link>
-          &nbsp;
+            <span>{{ item['name'] }}</span> </nuxt-link
+          >&nbsp;
         </div>
         &nbsp;|| Post-format:&nbsp;
         <nuxt-link
           :to="getPostFormatRoute(postMetadata['post-format']['url-slug'])"
+          >{{ postMetadata['post-format'].name }}</nuxt-link
         >
-          {{ postMetadata['post-format'].name }}
-        </nuxt-link>
       </v-row>
     </v-col>
   </v-row>
