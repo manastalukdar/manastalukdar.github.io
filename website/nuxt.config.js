@@ -1,12 +1,14 @@
-import { Feed } from 'feed'
+import {
+  Feed
+} from 'feed'
 const fs = require('fs')
 const getRoutes = require('./utils/getRoutes.js')
 // const ampify = require('./plugins/ampify')
 
 const baseUrl =
-  process.env.NODE_ENV === 'production'
-    ? 'https://manastalukdar.github.io'
-    : 'http://localhost:3000'
+  process.env.NODE_ENV === 'production' ?
+  'https://manastalukdar.github.io' :
+  'http://localhost:3000'
 
 const staticDir = './static'
 const feedFileName = '/blogfeed.xml'
@@ -53,9 +55,13 @@ export default {
    */
   head: {
     // title: pkg.name,
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    meta: [{
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
       {
         hid: 'keywords',
         name: 'keywords',
@@ -121,13 +127,32 @@ export default {
         content: siteDescription
       }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: faviconPath },
+    link: [{
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: faviconPath
+      },
       {
         rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Maven+Pro|Roboto|Material+Icons'
+        href: 'https://fonts.googleapis.com/css?family=Maven+Pro|Roboto|Material+Icons'
       },
+      /*{
+        rel: 'stylesheet',
+        name: 'highlightjs-default',
+        href: '/styles/default.css',
+        disabled: true
+      },
+      {
+        rel: 'stylesheet',
+        name: 'highlightjs-light',
+        href: '/styles/atom-one-light.css',
+        disabled: true
+      },
+      {
+        rel: 'stylesheet',
+        name: 'highlightjs-dark',
+        href: '/styles/atom-one-dark.css',
+      },*/
       {
         rel: 'alternate',
         type: 'application/rss+xml',
@@ -162,7 +187,9 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: {
+    color: '#fff'
+  },
 
   /*
    ** Global CSS
@@ -170,7 +197,10 @@ export default {
   css: [
     '~/assets/style/print-blog-post.css',
     '~/assets/style/app.scss',
-    { src: '~/node_modules/highlight.js/styles/atom-one-light.css', lang: 'css' }
+    {
+      src: '~/node_modules/highlight.js/styles/atom-one-dark.css',
+      lang: 'css'
+    }
   ],
 
   /*
@@ -242,8 +272,7 @@ export default {
         title: siteOwner + ' - blog',
         link: baseUrl + feedFileName,
         description: 'Syndication feed for blog.',
-        copyright:
-          'All rights reserved ' + new Date().getFullYear() + ' ' + siteOwner,
+        copyright: 'All rights reserved ' + new Date().getFullYear() + ' ' + siteOwner,
         author: {
           name: siteOwner,
           link: baseUrl
@@ -275,13 +304,11 @@ export default {
     }
   },
 
-  link: [
-    {
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: faviconPath
-    }
-  ],
+  link: [{
+    rel: 'icon',
+    type: 'image/x-icon',
+    href: faviconPath
+  }],
 
   vuetify: {
     treeShake: true,
@@ -301,7 +328,9 @@ export default {
     hostname: baseUrl,
     cacheTime: 1000 * 60 * 15, // 15 mins
     gzip: true,
-    filter({ routes }) {
+    filter({
+      routes
+    }) {
       return routes.map(route => {
         if (!route.url.endsWith('.xml') && !route.url.endsWith('/')) {
           route.url = `${route.url}/`
@@ -317,13 +346,11 @@ export default {
     }
   },
 
-  redirect: [
-    {
-      // https://stackoverflow.com/questions/54346345/nuxt-js-force-trailing-slash-at-the-end-of-all-urls
-      from: '^.*(?<!/)$', // ^.*(?<!\.(png|jpg))$    ^.*(?<!/)$
-      to: (from, req) => req.url + '/'
-    }
-  ],
+  redirect: [{
+    // https://stackoverflow.com/questions/54346345/nuxt-js-force-trailing-slash-at-the-end-of-all-urls
+    from: '^.*(?<!/)$', // ^.*(?<!\.(png|jpg))$    ^.*(?<!/)$
+    to: (from, req) => req.url + '/'
+  }],
 
   render: {
     static: {
@@ -333,7 +360,7 @@ export default {
 
   generate: {
     dir: 'dist',
-    routes: function() {
+    routes: function () {
       getRoutes.functions.generateRoutes()
       return getRoutes.properties.nuxtGenerateRoutes
     }

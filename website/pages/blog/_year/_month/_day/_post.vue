@@ -77,7 +77,14 @@ export default {
       highlight(str, lang) {
         if (lang && hljs.getLanguage(lang)) {
           try {
-            return hljs.highlight(lang, str).value
+            const langClass = 'language-' + lang
+            return (
+              '<pre class=><code class="' +
+              langClass +
+              ' hljs">' +
+              hljs.highlight(lang, str, true).value +
+              '</code></pre>'
+            )
             // eslint-disable-next-line no-empty
           } catch (__) {}
         }

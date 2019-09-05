@@ -1,10 +1,10 @@
 <template>
   <v-app-bar color="headerAndFooterColor" app>
     <v-app-bar-nav-icon class="hidden-sm-and-up">
-      <nuxt-link to="/" tag="span" style="cursor: pointer"
-        ><v-icon>mdi-home</v-icon></nuxt-link
-      ></v-app-bar-nav-icon
-    >
+      <nuxt-link to="/" tag="span" style="cursor: pointer">
+        <v-icon>mdi-home</v-icon>
+      </nuxt-link>
+    </v-app-bar-nav-icon>
     <v-toolbar-title class="hidden-xs-only headline">
       <nuxt-link to="/" tag="span" style="cursor: pointer">
         {{ appTitle }}
@@ -53,6 +53,21 @@ export default {
     flipThemeMode() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
       // console.log(this.$vuetify.theme.currentTheme)
+      /* if (this.$vuetify.theme.isDark) {
+        document.head.querySelector(
+          'link[name=highlightjs-light]'
+        ).disabled = true
+        document.head
+          .querySelector('link[name=highlightjs-dark]')
+          .removeAttribute('disabled')
+      } else {
+        document.head.querySelector(
+          'link[name=highlightjs-dark]'
+        ).disabled = true
+        document.head
+          .querySelector('link[name=highlightjs-light]')
+          .removeAttribute('disabled')
+      } */
     }
   }
 }

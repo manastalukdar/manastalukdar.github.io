@@ -10,7 +10,11 @@ $line-height-root: 1.8;
 // For updating SASS lists
 // $material-light: map-merge($material-light, ( cards: blue ));
 // $btn-border-radius: 10px;
-$body-font-family: "Maven Pro", Roboto, "Helvetica Neue", "Segoe UI", sans-serif;
+$body-font-family: "Maven Pro",
+Roboto,
+"Helvetica Neue",
+"Segoe UI",
+sans-serif;
 $code-color: #383636;
 $v-content-padding: 65px 0px 65px;
 
@@ -25,7 +29,7 @@ This query will take effect for any screen smaller than 760px
 and also iPads specifically.
 */
 @media only screen and (max-width: 760px),
-  (min-device-width: 768px) and (max-device-width: 1024px) {
+(min-device-width: 768px) and (max-device-width: 1024px) {
 
   .v-data-footer {
     justify-content: center;
@@ -53,13 +57,17 @@ and also iPads specifically.
 pre {
   overflow: auto;
 }
+
 code[class^="language-"] {
   overflow: auto;
   white-space: pre !important;
   width: 100%;
+  font: normal 11.5pt Consolas, Monaco, monospace !important;
+  line-height: 1.5 !important;
 }
 
-.footnote-ref, .footnote-backref {
+.footnote-ref,
+.footnote-backref {
   font-weight: bold;
 }
 
