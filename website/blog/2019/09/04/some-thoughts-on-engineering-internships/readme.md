@@ -12,7 +12,7 @@ post-format: standard
 title: Some Thoughts on Engineering Internships
 url-slug: some-thoughts-on-engineering-internships
 first-published-on: 2019-09-04 10:57
-last-updated-on: 2019-09-04 11:10
+last-updated-on: 2019-09-04 19:01
 meta:
  description: "Some thoughts on engineering internships from an Engineering Manager perspective."
 excerpt: "Effort should be made so that the intern is able to work on end-to-end project(s) that they can take from start to completion."
@@ -22,10 +22,10 @@ excerpt: "Effort should be made so that the intern is able to work on end-to-end
 
 1. Effort should be made so that the intern is able to work on end-to-end project(s) that they can take from start to completion.
 2. The goal should be that the intern can accomplish something that s/he can put on their resume and would be a value-addition for their career.
-3. Assigning a technical mentor to the intern from the same team should be compulsory. This is an opportunity for the intern to get a helping hand and also for the mentor to get some mentoring and leadership experience. The EM should have a discussion with the mentor at the very beginning or perhaps even before the intern starts, on possible projects for the intern.
-4. The Engineering Manager (EM) should get regular feedback from the assigned mentor as well as the intern so any course corrections can be done sooner rather than later.
+3. Assigning a technical mentor to the intern from the same team should be compulsory. This is an opportunity for the intern to get a helping hand and also for the mentor to get some mentoring and leadership experience. The Engineering Manager (EM) should have a discussion with the mentor at the very beginning or perhaps even before the intern starts, on possible projects for the intern.
+4. The EM should get regular feedback from the assigned mentor as well as the intern so any course corrections can be done sooner rather than later.
 5. The EM during the beginning of the internship should have a frank discussion and set expectations with the intern. These expectations should cover:
-   1. What does the intern hopes to get out of the internship.
+   1. What the intern hopes to get out of the internship.
    2. What the EM hopes the intern will gain from the internship.
    3. What the intern and his EM can agree on for the internship to be deemed successful.
 6. Midway through the internship, an evaluation should be done to find out if things are still on track.
