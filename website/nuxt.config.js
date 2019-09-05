@@ -198,7 +198,7 @@ export default {
     '~/assets/style/print-blog-post.css',
     '~/assets/style/app.scss',
     {
-      src: '~/node_modules/highlight.js/styles/atom-one-dark.css',
+      src: '~/node_modules/highlight.js/styles/atom-one-light.css',
       lang: 'css'
     }
   ],
