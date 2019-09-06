@@ -6,9 +6,9 @@
       </nuxt-link>
     </v-app-bar-nav-icon>
     <v-toolbar-title class="hidden-xs-only headline">
-      <nuxt-link to="/" tag="span" style="cursor: pointer">
-        {{ appTitle }}
-      </nuxt-link>
+      <nuxt-link to="/" tag="span" style="cursor: pointer">{{
+        appTitle
+      }}</nuxt-link>
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <v-btn text icon @click="flipThemeMode">
@@ -46,6 +46,9 @@ export default {
       appTitle: state => state.GlobalData.appTitle
     })
   },
+  mounted() {
+    this.setCorrectHJsStyle()
+  },
   methods: {
     ...mapActions({
       flipSidebarVisibility: 'Navigation/flipSidebarVisibility'
@@ -53,7 +56,10 @@ export default {
     flipThemeMode() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
       // console.log(this.$vuetify.theme.currentTheme)
-      /* if (this.$vuetify.theme.isDark) {
+      this.setCorrectHJsStyle()
+    },
+    setCorrectHJsStyle() {
+      if (this.$vuetify.theme.isDark) {
         document.head.querySelector(
           'link[name=highlightjs-light]'
         ).disabled = true
@@ -67,7 +73,7 @@ export default {
         document.head
           .querySelector('link[name=highlightjs-light]')
           .removeAttribute('disabled')
-      } */
+      }
     }
   }
 }

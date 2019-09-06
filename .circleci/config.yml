@@ -7,14 +7,14 @@ defaults: &defaults
   working_directory: /tmp
 
 version: 2.1
-jobs:  
+jobs:
   generate_blog_metadata: # python script
     <<: *defaults
-    docker:      
+    docker:
       - image: circleci/python:3.7.2
 
     working_directory: ~/repo
-        
+
     steps:
       - checkout
 
@@ -31,19 +31,19 @@ jobs:
             mkdir -p tmp/
             cp website/static/blogdata tmp -r
             find tmp
-      
+
       - persist_to_workspace:
           root: tmp
-          paths: 
+          paths:
             - blogdata
-      
+
   generate_website: # node
     <<: *defaults
-    docker:      
+    docker:
       - image: circleci/node:11.13.0
 
     working_directory: ~/repo
-        
+
     steps:
       - checkout
 
@@ -55,17 +55,18 @@ jobs:
             cp tmp/blogdata website/static/blogdata -r
             cd website
             npm install
+            npm run getHighlightJsStyleSheets
             sudo npm run generate
             cd ..
             cp website/dist tmp -r
-      
+
       - run:
           name: Install and configure dependencies
           command: |
             sudo npm install -g --silent gh-pages@2.0.1
             sudo git config user.email "manas.talukdar@gmail.com"
             sudo git config user.name "circle-ci-build"
-      
+
       - add_ssh_keys:
           fingerprints:
             - "5e:7e:51:39:c2:4e:ee:84:0f:1d:e5:4d:4a:f6:6e:7f"
@@ -77,12 +78,12 @@ jobs:
 workflows:
   build:
     jobs:
-      - generate_blog_metadata:        
+      - generate_blog_metadata:
           filters:
             branches:
               only:
                 - source
-      - generate_website:        
+      - generate_website:
           filters:
             branches:
               only:

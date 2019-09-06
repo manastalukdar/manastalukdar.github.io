@@ -13,7 +13,7 @@ post-format: standard
 title: Working with Memory Dumps on Windows using WinDbg
 url-slug: working-with-memory-dumps-windows-windbg
 first-published-on: 2019-04-29 10:55 am
-last-updated-on: 2019-04-29 10:55 am
+last-updated-on: 2019-09-06 00:38
 meta:
  description: "Some steps on getting and analyzing memory dumps on Windows using WinDbg."
 excerpt: "Open WinDbg and go to File > Attach to a Process. Select the process from the list and hit OK."
@@ -29,7 +29,7 @@ ${toc}
 - At this point the process will hang. In WinDbg hit F5 to let the process continue, try not to take too long as it can cause you to disconnect.
 - If you see "BUSY Debuggee is running..." at the bottom of the command window in WinDbg, the process is running. Whenever you don't see that, or the process hangs, return to WinDbg and hit F5 again. This might happen a few times when the process loads DLLs, it's nothing to be alarmed about, just skip through them. The window will read something like this:
 
-```text
+```plaintext
 (71f0.7068): Access violation - code c0000005 (first chance)
 First chance exceptions are reported before any exception handling.
 This exception may be expected and handled.

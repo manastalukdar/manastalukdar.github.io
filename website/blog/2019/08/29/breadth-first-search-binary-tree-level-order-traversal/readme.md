@@ -15,7 +15,7 @@ post-format: standard
 title: Breadth First Search Algorithm for Level Order Traversal of a Binary Tree
 url-slug: breadth-first-search-binary-tree-level-order-traversal
 first-published-on: 2019-08-29 13:33
-last-updated-on: 2019-09-03 00:53
+last-updated-on: 2019-09-06 00:38
 meta:
  description: "A discussion of the Breadth First Search algorithm using the example of level order traversal for a binary tree."
 excerpt: "Breadth First Search is a traversal/search algorithm for trees and graphs. We will use the example of a binary tree to discuss this algorithm."
@@ -40,7 +40,7 @@ digraph example2 {
 
 For this binary tree we are expected to return a nested array as follows:
 
-```text
+```plaintext
 Level Order Traversal:  
     [[12],
     [7,1],

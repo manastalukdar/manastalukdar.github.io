@@ -141,7 +141,7 @@ export default {
         name: 'highlightjs-default',
         href: '/styles/default.css',
         disabled: true
-      },
+      },*/
       {
         rel: 'stylesheet',
         name: 'highlightjs-light',
@@ -152,7 +152,7 @@ export default {
         rel: 'stylesheet',
         name: 'highlightjs-dark',
         href: '/styles/atom-one-dark.css',
-      },*/
+      },
       {
         rel: 'alternate',
         type: 'application/rss+xml',
@@ -197,10 +197,10 @@ export default {
   css: [
     '~/assets/style/print-blog-post.css',
     '~/assets/style/app.scss',
-    {
+    /*{
       src: '~/node_modules/highlight.js/styles/atom-one-light.css',
       lang: 'css'
-    }
+    }*/
   ],
 
   /*

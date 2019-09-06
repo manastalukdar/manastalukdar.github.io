@@ -12,7 +12,7 @@ post-format: standard
 title: Sliding Window Algorithm
 url-slug: sliding-window-algorithm
 first-published-on: 2019-07-12 01:45 pm
-last-updated-on: 2019-08-01 17:14
+last-updated-on: 2019-09-06 00:38
 meta:
  description: "An exposition of the sliding window algorithm."
 excerpt: "The best way to understand the sliding window algorithm is to work with an example. Say we have an array of integers,"
@@ -35,7 +35,7 @@ The best way to understand the sliding window algorithm is to work with an examp
 
 When we move on to the next sub-array, we slide the window to the right by one element. Considering sub-array [1, 2, 3] and [2, 3, 4], to get to [2, 3, 4], we removed 1 and added 4 into the original sub-array [1, 2, 3]. So, if we are to reuse the `sum` from the previous sub-array of [1, 2, 3], we will have to subtract the element going out of the window and add the element now being included in the sliding window.
 
-```text
+```plaintext
 Sum of sub-array [1, 2, 3] = 1+2+3 = 6.
 Sum of sub-array [2, 3, 4]
   = (Sum of previous sub-array - outgoing element at the extreme left)
