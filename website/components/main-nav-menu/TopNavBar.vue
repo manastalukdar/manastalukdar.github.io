@@ -6,9 +6,9 @@
       </nuxt-link>
     </v-app-bar-nav-icon>
     <v-toolbar-title class="hidden-xs-only headline">
-      <nuxt-link to="/" tag="span" style="cursor: pointer">{{
-        appTitle
-      }}</nuxt-link>
+      <nuxt-link to="/" tag="span" style="cursor: pointer">
+        {{ appTitle }}
+      </nuxt-link>
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <v-btn text icon @click="flipThemeMode">
@@ -60,20 +60,18 @@ export default {
     },
     setCorrectHJsStyle() {
       if (this.$vuetify.theme.isDark) {
-        document.head.querySelector(
-          'link[name=highlightjs-light]'
-        ).disabled = true
-        document.head
-          .querySelector('link[name=highlightjs-dark]')
-          .removeAttribute('disabled')
+        this.setCorrectHJsStyleBase('dark', 'light')
       } else {
-        document.head.querySelector(
-          'link[name=highlightjs-dark]'
-        ).disabled = true
-        document.head
-          .querySelector('link[name=highlightjs-light]')
-          .removeAttribute('disabled')
+        this.setCorrectHJsStyleBase('light', 'dark')
       }
+    },
+    setCorrectHJsStyleBase(styleToEnable, styleToDisable) {
+      document.head
+        .querySelector('link[name=highlightjs-' + styleToEnable + ']')
+        .removeAttribute('disabled')
+      document.head.querySelector(
+        'link[name=highlightjs-' + styleToDisable + ']'
+      ).disabled = true
     }
   }
 }
