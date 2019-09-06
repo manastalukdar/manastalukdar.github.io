@@ -6,9 +6,9 @@
       </nuxt-link>
     </v-app-bar-nav-icon>
     <v-toolbar-title class="hidden-xs-only headline">
-      <nuxt-link to="/" tag="span" style="cursor: pointer">
-        {{ appTitle }}
-      </nuxt-link>
+      <nuxt-link to="/" tag="span" style="cursor: pointer">{{
+        appTitle
+      }}</nuxt-link>
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <v-btn text icon @click="flipThemeMode">
@@ -75,19 +75,23 @@ export default {
           fileName = 'atom-one-light.css'
           break
       }
-      const head = document.getElementsByTagName('head')[0]
-      const elementToEnable = document.createElement('link')
-      elementToEnable.rel = 'stylesheet'
-      elementToEnable.id = 'highlightjs-' + styleToEnable
-      elementToEnable.href = '/styles/' + fileName
-      head.appendChild(elementToEnable)
+      const elementToEnable = document.getElementById(
+        'highlightjs-' + styleToEnable
+      )
+      if (elementToEnable == null) {
+        const head = document.getElementsByTagName('head')[0]
+        const elementToCreate = document.createElement('link')
+        elementToCreate.rel = 'stylesheet'
+        elementToCreate.id = 'highlightjs-' + styleToEnable
+        elementToCreate.href = '/styles/' + fileName
+        head.appendChild(elementToCreate)
+      }
       const elementToDisable = document.getElementById(
         'highlightjs-' + styleToDisable
       )
       if (elementToDisable != null) {
         elementToDisable.remove()
       }
-      console.log(elementToEnable)
     }
   }
 }
