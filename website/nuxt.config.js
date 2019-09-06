@@ -137,17 +137,6 @@ export default {
         href: 'https://fonts.googleapis.com/css?family=Maven+Pro|Roboto|Material+Icons'
       },
       {
-        rel: 'stylesheet',
-        name: 'highlightjs-light',
-        href: '/styles/atom-one-light.css',
-        disabled: true
-      },
-      {
-        rel: 'stylesheet',
-        name: 'highlightjs-dark',
-        href: '/styles/atom-one-dark.css',
-      },
-      {
         rel: 'alternate',
         type: 'application/rss+xml',
         title: siteOwner + ' - blog',

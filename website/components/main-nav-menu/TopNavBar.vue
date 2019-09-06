@@ -66,12 +66,28 @@ export default {
       }
     },
     setCorrectHJsStyleBase(styleToEnable, styleToDisable) {
-      document.head
-        .querySelector('link[name=highlightjs-' + styleToEnable + ']')
-        .removeAttribute('disabled')
-      document.head.querySelector(
-        'link[name=highlightjs-' + styleToDisable + ']'
-      ).disabled = true
+      let fileName = null
+      switch (styleToEnable) {
+        case `dark`:
+          fileName = 'atom-one-dark.css'
+          break
+        case 'light':
+          fileName = 'atom-one-light.css'
+          break
+      }
+      const head = document.getElementsByTagName('head')[0]
+      const elementToEnable = document.createElement('link')
+      elementToEnable.rel = 'stylesheet'
+      elementToEnable.id = 'highlightjs-' + styleToEnable
+      elementToEnable.href = '/styles/' + fileName
+      head.appendChild(elementToEnable)
+      const elementToDisable = document.getElementById(
+        'highlightjs-' + styleToDisable
+      )
+      if (elementToDisable != null) {
+        elementToDisable.remove()
+      }
+      console.log(elementToEnable)
     }
   }
 }

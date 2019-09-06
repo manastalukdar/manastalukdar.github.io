@@ -79,16 +79,22 @@ export default {
           try {
             const langClass = 'language-' + lang
             return (
-              '<pre class=><code class="' +
+              '<pre><code class="' +
               langClass +
               ' hljs">' +
               hljs.highlight(lang, str, true).value +
               '</code></pre>'
             )
+            // return hljs.highlight(lang, str).value
             // eslint-disable-next-line no-empty
           } catch (__) {}
         }
-        return '' // use external default escaping
+        return (
+          '<pre><code class="hljs">' +
+          md.utils.escapeHtml(str) +
+          '</code></pre>'
+        )
+        // return '' // use external default escaping
       }
     })
       .use(require('markdown-it-mathjax')())
