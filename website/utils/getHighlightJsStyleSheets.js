@@ -7,7 +7,7 @@ if (!fs.existsSync(stylesDir)) {
   fs.mkdirSync(stylesDir)
 }
 
-const styles = ['default.css', 'atom-one-light.css', 'atom-one-dark.css']
+const styles = ['atom-one-light.css', 'atom-one-dark.css']
 
 styles.forEach(element => {
   fs.copyFile(
