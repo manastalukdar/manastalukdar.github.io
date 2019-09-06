@@ -136,12 +136,6 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Maven+Pro|Roboto|Material+Icons'
       },
-      /*{
-        rel: 'stylesheet',
-        name: 'highlightjs-default',
-        href: '/styles/default.css',
-        disabled: true
-      },*/
       {
         rel: 'stylesheet',
         name: 'highlightjs-light',
@@ -196,11 +190,7 @@ export default {
    */
   css: [
     '~/assets/style/print-blog-post.css',
-    '~/assets/style/app.scss',
-    /*{
-      src: '~/node_modules/highlight.js/styles/atom-one-light.css',
-      lang: 'css'
-    }*/
+    '~/assets/style/app.scss'
   ],
 
   /*
