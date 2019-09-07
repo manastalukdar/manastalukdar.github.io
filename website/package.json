@@ -18,7 +18,6 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.6.0",
-    "@nuxtjs/google-analytics": "^2.2.0",
     "@nuxtjs/markdownit": "^1.2.6",
     "@nuxtjs/pwa": "^3.0.0-beta.16",
     "@nuxtjs/redirect-module": "^0.3.1",
@@ -42,6 +41,7 @@
     "nuxt": "^2.9.2",
     "print-js": "^1.0.61",
     "vanilla-back-to-top": "^7.2.0",
+    "vue-analytics": "^5.17.2",
     "vue-async-computed": "^3.7.0",
     "vue-disqus": "^3.0.5",
     "vue-lazyload": "^1.3.2",

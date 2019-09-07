@@ -190,7 +190,6 @@ export default {
     './modules/helper',
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/google-analytics',
     '@nuxtjs/redirect-module',
     '@nuxtjs/sitemap',
     '@nuxtjs/vuetify'
@@ -204,6 +203,7 @@ export default {
     '@plugins/vueAsyncComputed.js',
     '~/plugins/vuetify-theme-cache.js',
     '~/plugins/disqus',
+    '~/plugins/vueAnalytics.js',
     {
       src: '~/plugins/socialsharing',
       ssr: false
@@ -295,11 +295,6 @@ export default {
     icons: {
       iconfont: 'mdi'
     }
-  },
-
-  googleAnalytics: {
-    id: 'UA-118888630-1',
-    dev: false
   },
 
   sitemap: {
