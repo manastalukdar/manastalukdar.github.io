@@ -79,20 +79,18 @@ export default {
           try {
             const langClass = 'language-' + lang
             return (
-              '<pre><code class="' +
+              '<pre><div class="' +
               langClass +
               ' hljs">' +
               hljs.highlight(lang, str, true).value +
-              '</code></pre>'
+              '</div></pre>'
             )
             // return hljs.highlight(lang, str).value
             // eslint-disable-next-line no-empty
           } catch (__) {}
         }
         return (
-          '<pre><code class="hljs">' +
-          md.utils.escapeHtml(str) +
-          '</code></pre>'
+          '<pre><div class="hljs">' + md.utils.escapeHtml(str) + '</div></pre>'
         )
         // return '' // use external default escaping
       }
