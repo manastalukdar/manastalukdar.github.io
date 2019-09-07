@@ -58,4 +58,4 @@ Guidance should be provided to the intern on (this should be orchestrated at a b
 At the end of the internship, the EM should:
 
 1. Solicit feedback from both the intern and his/her mentor for each other.
-2. Revisit the talking points from the discussion with the intern during their start and determine if the internship was successful. The intern should also provide feedback to the EM on whether he/she considers the internship to have been a success and what s/he go out of it.
+2. Revisit the talking points from the discussion with the intern during their start and determine if the internship was successful. The intern should also provide feedback to the EM on whether s/he considers the internship to have been a success and what s/he go out of it.
