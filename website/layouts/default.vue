@@ -169,6 +169,11 @@ code {
   margin-right: 0.25em;
 }
 
+code {
+  background-color: var(--v-codeBackgroundColor-base) !important;
+  color: var(--v-codeTextColor-base) !important;
+}
+
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;

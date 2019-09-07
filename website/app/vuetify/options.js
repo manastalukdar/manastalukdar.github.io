@@ -12,7 +12,9 @@ export default {
         cardColor: colors.blueGrey.darken4,
         primary: colors.teal.lighten3, // blue.darken2
         backToTopBackground: colors.blueGrey.darken2,
-        backToTopText: colors.blue.lighten1
+        backToTopText: colors.blue.lighten1,
+        codeBackgroundColor: '#282c34',
+        codeTextColor: '#abb2bf'
         /* accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
@@ -24,7 +26,9 @@ export default {
         headerAndFooterColor: colors.blue.lighten4,
         cardColor: colors.shades.white,
         backToTopBackground: colors.grey.lighten2,
-        backToTopText: colors.red
+        backToTopText: colors.red,
+        codeBackgroundColor: '#f5f5f5',
+        codeTextColor: '#383636'
       }
     },
     options: {
