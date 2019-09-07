@@ -1,8 +1,9 @@
 module.exports = {
-  root: true,
+  root: false,
   env: {
     browser: true,
-    node: true
+    node: true,
+    es6: true
   },
   parserOptions: {
     parser: 'babel-eslint'
@@ -21,10 +22,9 @@ module.exports = {
   // add your custom rules here
   rules: {
     "prettier/prettier": ["error", {
-     "endOfLine":"auto"
-     }
-    ],
-   "vue/component-name-in-template-casing": ["error", "PascalCase"],
+      "endOfLine": "auto"
+    }],
+    "vue/component-name-in-template-casing": ["error", "PascalCase"],
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     'vuetify/no-deprecated-classes': 'error',
