@@ -12,7 +12,7 @@ post-format: standard
 title: Some Thoughts on Engineering Internships
 url-slug: some-thoughts-on-engineering-internships
 first-published-on: 2019-09-04 10:57
-last-updated-on: 2019-09-04 22:54
+last-updated-on: 2019-09-06 23:23
 meta:
  description: "Some thoughts on engineering internships from an Engineering Manager perspective."
 excerpt: "The goal for an engineering internship should be that the intern can accomplish something that s/he can put on their resume and would be"
@@ -57,5 +57,5 @@ Guidance should be provided to the intern on (this should be orchestrated at a b
 
 At the end of the internship, the EM should:
 
-1. Solicit feedback from both the intern and his/her mentor for each other.
+1. Solicit formal feedback from both the intern and his/her mentor for each other.
 2. Revisit the talking points from the discussion with the intern during their start and determine if the internship was successful. The intern should also provide feedback to the EM on whether s/he considers the internship to have been a success and what s/he go out of it.
