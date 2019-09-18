@@ -5,31 +5,26 @@
     </v-row>
 
     <v-row class="px-2">
-      <v-col sm="6" class="d-flex py-0" cols="12">
+      <v-col md="6" class="d-flex py-0" cols="12">
         <v-row style="height:100%;">
-          <featured />
+          <recentPostsHomePage :posts-list="blogMetadata" />
         </v-row>
       </v-col>
 
-      <v-col sm="6" class="d-flex py-0" cols="12">
-        <v-row style="height:100%">
-          <socialMediaAndResumeLinks />
+      <v-col md="6" class="d-flex py-0" cols="12">
+        <v-row class="justify-center" style="width:100%;">
+          <v-row class="d-flex px-0 py-0 col-12">
+            <socialMediaAndResumeLinks />
+          </v-row>
+          <v-row class="d-flex px-0 py-0 col-12">
+            <featured />
+          </v-row>
         </v-row>
       </v-col>
     </v-row>
 
     <v-row class="px-2">
-      <v-col md="6" class="d-flex py-0" cols="12">
-        <v-row style="height:100%">
-          <highlights />
-        </v-row>
-      </v-col>
-
-      <v-col md="6" class="d-flex py-0" cols="12">
-        <v-row style="height:100%">
-          <recentPostsHomePage :posts-list="blogMetadata" />
-        </v-row>
-      </v-col>
+      <highlights />
     </v-row>
 
     <v-row class="px-2">
