@@ -12,14 +12,12 @@
       </v-col>
 
       <v-col sm="6" class="py-0 d-flex flex-column" cols="12">
-        <div class="flex-fill">
-          <v-row class="px-0 col-12 mx-0">
-            <socialMediaAndResumeLinks />
-          </v-row>
-          <v-row class="px-0 col-12 mx-0 fill-height">
-            <featured />
-          </v-row>
-        </div>
+        <v-row>
+          <socialMediaAndResumeLinks />
+        </v-row>
+        <v-row class="flex-grow-1">
+          <featured />
+        </v-row>
       </v-col>
     </v-row>
 
