@@ -6,6 +6,6 @@
 
 - Worked throughout the stack, from using front-end frameworks to develop modern web apps, to back-end development, including storage, access layers, API and middleware SDK. Focus and interest primarily in the back-end, specifically in distributed systems and cloud computing.
 
-- Software engineering polyglot. Very comfortable in C# and Java. Comfortable in Python, Javascript, Typescript. Learning Go. Worked with C, C++, in academic projects and early on in career.
+- Software engineering polyglot. Very comfortable in C# and Java. Comfortable in Python, Javascript, Typescript. Learning Go. Worked with C, C++ in academic projects and early on in career.
 
 - Sharp focus on operational excellence to ensure customer success and satisfy SLA requirements.
