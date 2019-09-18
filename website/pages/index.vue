@@ -5,20 +5,18 @@
     </v-row>
 
     <v-row class="px-2">
-      <v-col md="6" class="d-flex py-0" cols="12">
-        <v-row style="height:100%;">
+      <v-col sm="6" class="d-flex py-0" cols="12">
+        <v-row class="fill-height">
           <recentPostsHomePage :posts-list="blogMetadata" />
         </v-row>
       </v-col>
 
-      <v-col md="6" class="d-flex py-0" cols="12">
-        <v-row class="justify-center" style="width:100%;">
-          <v-row class="d-flex px-0 py-0 col-12">
-            <socialMediaAndResumeLinks />
-          </v-row>
-          <v-row class="d-flex px-0 py-0 col-12">
-            <featured />
-          </v-row>
+      <v-col sm="6" class="py-0" cols="12">
+        <v-row class="px-0 col-12 mx-0">
+          <socialMediaAndResumeLinks />
+        </v-row>
+        <v-row class="px-0 col-12 mx-0">
+          <featured />
         </v-row>
       </v-col>
     </v-row>

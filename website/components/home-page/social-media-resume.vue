@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12">
+  <v-col cols="12" class="px-0 py-0">
     <v-card color="cardColor" class="pa-3" raised elevation="8">
       <v-row class="pa-3" justify="center">
         <v-list-item
