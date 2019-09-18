@@ -4,7 +4,7 @@
 
 - **Building and running high performing engineering teams**: I am interested and experienced in building high performing engineering teams by hiring and retaining top talent. I follow an agile data driven approach to project management for timely and consistent delivery of results. This includes close collaboration with cross-functional stakeholders and mining project metadata to drive team velocity. My team management philosophy is based on a mentoring and coaching approach to drive individual career growth for my team members. At the end of the day, I find it gratifying to see someone I hired, mentored and coached, ramp up to become a productive software engineer, build something as part of my team or a greater organization, that provides value to users and drives customer success.
 
-- **Technology**: I am naturally inquisitive, I am passionate about technology and I enjoy learning. I am always on the lookout for any new development in the industry that I could learn out of inquisitiveness, personal interest or potentially apply at work if relevant.
+- **Technology**: I am naturally inquisitive, I am passionate about technology and I enjoy learning. I am always on the lookout for any new development in the industry that I could learn out of personal interest or potentially apply at work if relevant.
 
 - **Building, creating**:  I am a methodical, meticulous person and I love building, creating things. I have a 5-year diploma in Fine Arts and Crafts, which aligns with my creative inclinations. My career in Software Engineering allows me to utilize my natural proclivities to create solutions that empowers users and drives customer success.
 
