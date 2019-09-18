@@ -12,7 +12,7 @@
       </v-col>
 
       <v-col sm="6" class="py-0 d-flex flex-column" cols="12">
-        <v-row>
+        <v-row class="flex-grow-0">
           <socialMediaAndResumeLinks />
         </v-row>
         <v-row class="flex-grow-1">
