@@ -12,7 +12,7 @@ post-format: standard
 title: Growing and Developing Software Engineering Teams
 url-slug: growing-developing-software-engineering-teams
 first-published-on: 2019-09-19 22:33
-last-updated-on: 2019-09-19 22:52
+last-updated-on: 2019-09-20 09:35
 meta:
  description: "An exposition of some mechanisms to grow and develop software engineering teams."
 excerpt: "A big aspect of Engineering Leadership is growing and developing teams. This is a multi-faceted task that involves a multitude of things."
@@ -142,7 +142,7 @@ Getting a group of people from diverse background to work together is imperative
   - Praise and reward: The EM should give credit to developers for (consistently) delivering on work and reward them appropriately be it through compensation, promotion or additional responsibilities.
   - Do not micromanage: People usually do not work very well if they feel that there is always someone breathing down their neck.
 
-I believe something that is common to most people in the tech industry is our love for technology. The EM should strive to reinforce this common feature and ensure that people within the team work together to deliver on committed work. When two or more people work together to get work done on something they all love and enjoy, that goes a long way in building trust and comradery.
+I believe something that is common to most people in the tech industry is our love for technology. The EM should strive to reinforce this common feature and ensure that people within the team work together to deliver on commitments. When two or more people together accomplish something they all love and enjoy, that goes a long way in building trust and comradery.
 
 ### Team Activities
 
@@ -156,6 +156,7 @@ Regular One-on-One (1-1) should be scheduled between the EM and each employee. T
 
 - Keep track of the employee's progress with their yearly/quarterly goals.
 - Provide the employee an opportunity to speak on anything on their mind.
+- Provide feedback to the employee, either related to something that are doing well and should continue doing, or something that needs course correction.
 - Have a frank conversation with the employee about the team health from their perspective.
 - Ask the employee for feedback on anything the EM could do to help him/her or the team.
 
