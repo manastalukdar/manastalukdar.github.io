@@ -12,7 +12,7 @@ post-format: standard
 title: Growing and Developing Software Engineering Teams
 url-slug: growing-developing-software-engineering-teams
 first-published-on: 2019-09-19 22:33
-last-updated-on: 2019-09-20 09:35
+last-updated-on: 2019-09-20 10:02
 meta:
  description: "An exposition of some mechanisms to grow and develop software engineering teams."
 excerpt: "A big aspect of Engineering Leadership is growing and developing teams. This is a multi-faceted task that involves a multitude of things."
@@ -139,7 +139,7 @@ Getting a group of people from diverse background to work together is imperative
   - Listening.
   - Respecting others' opinions.
 - Applies to EM:
-  - Praise and reward: The EM should give credit to developers for (consistently) delivering on work and reward them appropriately be it through compensation, promotion or additional responsibilities.
+  - Praise and reward: The EM should give credit to developers^[This can take the shape of public acknowledgement of their efforts during sprint reviews or other meetings potentially involving stakeholders. Or, giving them the opportunity to represent the team in certain forums.] for (consistently) delivering on work and reward them appropriately be it through compensation, promotion or additional responsibilities.
   - Do not micromanage: People usually do not work very well if they feel that there is always someone breathing down their neck.
 
 I believe something that is common to most people in the tech industry is our love for technology. The EM should strive to reinforce this common feature and ensure that people within the team work together to deliver on commitments. When two or more people together accomplish something they all love and enjoy, that goes a long way in building trust and comradery.
