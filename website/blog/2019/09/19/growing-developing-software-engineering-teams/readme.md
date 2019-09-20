@@ -175,4 +175,4 @@ The questions being asked as part of this official feedback should vary dependin
 - Results
 - Scope for improvements
 
-This whole process should ideally be orchestrated using the company HR software. The formal feedback process may be initially at a tri/bi-annual basis.
+This whole process should ideally be orchestrated using the company HR software. The formal feedback process may be initiated at a tri/bi-annual basis.
