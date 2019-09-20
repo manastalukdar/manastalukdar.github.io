@@ -123,9 +123,9 @@ The goals should be measurable and very clear expectation should be set, in disc
 I like to break down goals for my employees into the following broad categories:
 
 - **Leadership:** This could be mentoring a new grad hire. Or, taking end-to-end ownership of a feature development.
-- **Learning:** Involves taking any online/offline classes that is aligned with what the EM would be identified as a gap that needs to be addressed. Or, perhaps attending a technical conference.
+- **Learning:** Involves taking any online/offline classes that should be aligned with what the EM would have identified as a gap that needs to be addressed. Or, perhaps attending a technical conference.
 - **Recruiting:** This is going on campus visits, taking phone screens or doing on-site interviews.
-- **Other:** This is a catch-all for anything that does not fall in the previous categories. Could be something like perhaps going on a customer visit, maybe working on a side project^[Generally has to be aligned with the business needs of the company], or getting interaction with stakeholders.
+- **Other:** This is a catch-all for anything that does not fall in the previous categories. Could be something like perhaps going on a customer visit, maybe working on a side project^[Generally has to be aligned with the business needs of the company], or getting (more) interaction with stakeholders.
 
 ## Team Building
 
