@@ -63,15 +63,15 @@ This ties in very closely with the _Identifying and Addressing Gaps_ section abo
 - The strengths and scope-for-improvements for each employee. The EM should take this into account when assigning work to developers and also when developing goals and career growth plans for each employee.
 - Succession plans within the team. For example, the EM should have a good idea about who could take on the role of the _Technical Lead_ in case the current developer in that role moves on to something else. Once again, as in the previous point, when developing goals and career growth plans for each employee, the EM should take into account **where each employee currently stands and where s/he needs/wants to be**.
 
-## Mentoring and Coaching
+## Coaching and Mentoring
 
-This is one of the most important aspects of growing teams. It is critically important to ensure both new hires and extant employees get the mentoring and coaching they need to be successful in their job. The EM has a pivotal role to play in this regard.
+This is one of the most important aspects of growing teams. It is critically important to ensure both new hires and extant employees get the coaching and mentoring they need to be successful in their job. The EM has a pivotal role to play in this regard.
 
 ### Onboarding Plan for New Employees
 
 The EM should establish an on-boarding plan for all new hires. The goal of this plan should be to:
 
-- Provide the employee a technical overview of the team
+- Provide the employee a overview of the team^[Ideally, the team should have a wiki with a _Getting Started_ page.]
   - Projects
   - Source code
   - CI/CD pipelines
@@ -118,7 +118,7 @@ These goals should align with:
 
 The goals should be measurable and very clear expectation should be set, in discussion with each employee, as regards what constitutes successful completion for each goal.
 
-OKRs are a common methodology for setting and tracking goals.
+[OKR](https://en.wikipedia.org/wiki/OKR) is a common methodology for setting and tracking goals.
 
 I like to break down goals for my employees into the following broad categories:
 
