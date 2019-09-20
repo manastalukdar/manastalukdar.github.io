@@ -71,13 +71,15 @@ This is one of the most important aspects of growing teams. It is critically imp
 
 The EM should establish an on-boarding plan for all new hires. The goal of this plan should be to:
 
-- Provide the employee a overview of the team^[Ideally, the team should have a wiki with a _Getting Started_ page.]
+- Ease the employee into the company logistics and culture. Many companies have formal orientation programs (usually a 1-2 days or a week long class) conducted at the company level for new hires across different orgs.
+- Onboard the employee into the team logistics. Recurring meetings, 1-1 with EM, hardware and software, etc.
+- Provide the employee a technical overview of the team^[Ideally, the team should have an actively maintained wiki with a _Getting Started_ page.]
   - Projects
   - Source code
   - CI/CD pipelines
   - Test infrastructure
   - Dependencies, etc.
-- Provide the employee any learning resources if needed. This may include anything specific to the ecosystem of the product the company and/or team works on.
+- Provide the employee any learning resources if needed. This may include anything specific to the ecosystem of the products and services the company and/or team works on.
 - Assign a technical mentor to the employee. This should be mandatory for all new grad hires. This is an opportunity for the new employee to get a helping hand as s/he ramps up and for the mentor to get some leadership experience. The EM may consider tieing this into a yearly/quarterly goal for the mentor.
 
 ### Helping Current Employees
