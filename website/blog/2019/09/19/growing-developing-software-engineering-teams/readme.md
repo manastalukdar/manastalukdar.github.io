@@ -12,7 +12,7 @@ post-format: standard
 title: Growing and Developing Software Engineering Teams
 url-slug: growing-developing-software-engineering-teams
 first-published-on: 2019-09-19 22:33
-last-updated-on: 2019-09-19 22:33
+last-updated-on: 2019-09-19 22:52
 meta:
  description: "An exposition of some mechanisms to grow and develop software engineering teams."
 excerpt: "A big aspect of Engineering Leadership is growing and developing teams. This is a multi-faceted task that involves a multitude of things."
@@ -100,7 +100,7 @@ The EM should work with each employee to come up with a plan for their professio
 
 While it is important that developers do not get compartmentalized into specific portions of the project, the EM should ensure that each developer gets to work on things that they find interesting. This is specially true for the high performers, who often need to feel challenged. The EM when assigning work items should take into account areas of interest for each developer.
 
-The EM may also use delegation of responsibility to some employees as a means to help them gain some project management and leadership experience. This could be getting an employee to sometimes run daily standups, getting an employee to represent the team in some meeting, making a presentation to stakeholders, etc.
+The EM may also use **delegation of responsibility** to some employees as a means to help them gain some project management and leadership experience. This could be getting an employee to sometimes run daily standups, getting an employee to represent the team in some meeting, making a presentation to stakeholders, etc. In particular, the EM should call upon the senior employees to take on some of the mentoring of the new hires.
 
 ### Creating a Career Progression Plan
 
@@ -129,7 +129,7 @@ I like to break down goals for my employees into the following broad categories:
 
 ## Team Building
 
-It is the EM's responsibility to create and manage a coherent, efficient and productive team. Part of that is **establishing a set of values within the team**. These values should be aligned with the company and org values and culture. While I have a certain set of values I strive to establish within my teams, I will not discuss them in this post.
+It is the EM's responsibility to create and manage a coherent, efficient and productive team. Part of that is **establishing a set of values within the team**. These values should be aligned with the company and org values and culture. While I have a certain set of values I strive to establish within my teams, perhaps we will discuss them in a different post.
 
 ### Building Trust
 
@@ -150,6 +150,8 @@ The EM should organize team events every so often, org logistics permitting. Thi
 
 ## Getting and Giving Feedback
 
+### One-on-One
+
 Regular One-on-One (1-1) should be scheduled between the EM and each employee. The 1-1 should me a mechanism for the EM to:
 
 - Keep track of the employee's progress with their yearly/quarterly goals.
@@ -157,4 +159,20 @@ Regular One-on-One (1-1) should be scheduled between the EM and each employee. T
 - Have a frank conversation with the employee about the team health from their perspective.
 - Ask the employee for feedback on anything the EM could do to help him/her or the team.
 
-The 1-1 should really be one of the primary mechanisms for the EM to keep his/her hand on the team's pulse. the EM should take notes on the conversations during these 1-1 and follow up on action items if any.
+The 1-1 should really be one of the primary mechanisms for the EM to keep his/her hand on the team's pulse. The EM should take notes on the conversations during these 1-1 and follow up on action items if any.
+
+### Formal Feedback Solicitation
+
+The EM should explore soliciting official feedback from multiple people for himself/herself and each team member. The list of people providing feedback should be determined based on:
+
+- Inputs from the person getting feedback.
+- Inputs from their manager.
+- Who each employee works and interacts with.
+
+The questions being asked as part of this official feedback should vary depending on the career position of the persons getting and giving feedback. The EM may at his/her discretion and that of the org's policy collate this feedback and present it to each employee in a summarized form. generally, I like to collate this into three categories:
+
+- Behaviors
+- Results
+- Scope for improvements
+
+This whole process should ideally be orchestrated using the company HR software. The formal feedback process may be initially at a tri/bi-annual basis.
