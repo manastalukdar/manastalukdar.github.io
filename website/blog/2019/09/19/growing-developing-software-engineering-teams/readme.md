@@ -65,7 +65,7 @@ This ties in very closely with the _Identifying and Addressing Gaps_ section abo
 
 ## Coaching and Mentoring
 
-This is one of the most important aspects of growing teams. It is critically important to ensure both new hires and extant employees get the coaching and mentoring they need to be successful in their job. The EM has a pivotal role to play in this regard.
+This is one of the most important aspects of growing teams. It is critically important to ensure both new hires and current employees get the coaching and mentoring they need to be successful in their job. The EM has a pivotal role to play in this regard.
 
 ### Onboarding Plan for New Employees
 
@@ -82,11 +82,11 @@ The EM should establish an on-boarding plan for all new hires. The goal of this 
 
 ### Helping Current Employees
 
-It is not just new hires but extant employees who may sometimes need mentoring or coaching. For example, an employee may be struggling to understand the details of a work item and expects very precise step-by-step elaboration. The EM should coach this developer so that she is able to deal with ambiguity and cultivates the ability to see the bigger picture and ask the right questions. Perhaps an employee is up for promotion but needs to exhibit [certain traits](https://manastalukdar.github.io/blog/2019/04/17/attributes-senior-level-software-engineer/) in order to be promoted to a more senior position. The EM should then mentor this employee and ensure s/he has a definitive plan in order to fulfill the needed criteria for getting that promotion. Another scenario may that an employee could have transferred from a different team working in a very different tech stack and perhaps with a different team culture^[Generally teams within the same org have cultural commonalities, but this is also possible.]. The EM should then help this employee ease into the team culture and also identify learning resources that could help him/her gain the knowledge necessary to be successful.
+It is not just new hires but current employees who may sometimes need mentoring or coaching. For example, an employee may be struggling to understand the details of a work item and expects very precise step-by-step elaboration. The EM should coach this developer so that she is able to deal with ambiguity and cultivates the ability to see the bigger picture and ask the right questions. Perhaps an employee is up for promotion but needs to exhibit [certain traits](https://manastalukdar.github.io/blog/2019/04/17/attributes-senior-level-software-engineer/) in order to be promoted to a more senior position. The EM should then mentor this employee and ensure s/he has a definitive plan in order to fulfill the needed criteria for getting that promotion. Another scenario may that an employee could have transferred from a different team working in a very different tech stack and perhaps with a different team culture^[Generally teams within the same org have cultural commonalities, but this is also possible.]. The EM should then help this employee ease into the team culture and also identify learning resources that could help him/her gain the knowledge necessary to be successful.
 
 ### Formal Learning Plan
 
-As we have discussed above, it can become necessary for both new and extant employees to utilize learning resources in order to acquire domain knowledge necessary for their job. The EM should work with the employee to put in place a learning plan and set very clear expectations of timelines and outcomes. The EM should identify the right learning tools depending on the employee's needs. This could be on-the-job learning, online/offline classes. If the employee has a mentor (in case of new grad hires), the EM should discuss this plan with him/her.
+As we have discussed above, it can become necessary for both new hires and current employees to utilize learning resources in order to acquire domain knowledge necessary for their job. The EM should work with the employee to put in place a learning plan and set very clear expectations of timelines and outcomes. The EM should identify the right learning tools depending on the employee's needs. This could be on-the-job learning, online/offline classes. If the employee has a mentor (in case of new grad hires), the EM should discuss this plan with him/her.
 
 ## Career Progression
 
