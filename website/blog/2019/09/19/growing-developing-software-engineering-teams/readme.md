@@ -35,7 +35,7 @@ It is the responsibility of the EM to identity gaps within the team.
 For the team as a whole this can take the following forms:
 
 - Gap in certain domain expertise. Perhaps the team lacks someone who could take ownership of DevOps. Or, maybe the team does not have anyone who could bring in prior industry experience with microservices.
-- Gap in experience level. Maybe there are too many new grad hires in the team^[Which should not have happened in the first place.]. Maybe the team has mostly highly experiences developers^[Which might not necessarily be a bad thing.].
+- Gap in experience level. Maybe there are too many new grad hires in the team^[Which should not have happened in the first place.]. Maybe the team has mostly highly experienced developers^[Which might not necessarily be a bad thing.].
 
 For individual employees this can be:
 
