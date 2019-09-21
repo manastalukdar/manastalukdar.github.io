@@ -16,7 +16,7 @@ post-format: standard
 title: Interviewing Software Engineers
 url-slug: interviewing-software-engineers
 first-published-on: 2019-04-14 1:20 pm
-last-updated-on: 2019-07-29 14:01
+last-updated-on: 2019-09-20 18:36
 meta:
  description: "Methodology for interviewing and hiring high calibre software engineers."
 excerpt: "I have been interviewing software engineer candidates, both new grads and experienced candidates, for many years. Over time I have settled down on a pattern of questions that probe for certain key traits that has resulted in hiring excellent software engineers."
@@ -137,7 +137,7 @@ Software engineering, specially while debugging and troubleshooting problems, re
 
 ## Experienced Candidates
 
-For experienced candidates, I go through their resume and based on their background, and the requisition requirement, I create a set of technical questions and problems. Obviously, a candidate with industry experience is almost always held to a higher standard than a new grad. But, by and large, the skills they are tested for broadly follow the same aforementioned patterns.
+For experienced candidates, I go through their resume and based on their background, and the requisition requirement, I create a set of technical questions and problems. These questions are more aligned with real-world problems rather than being a run-of-the-mill data structures and algorithms problem^[In other words, LeetCode gatekeeping.]. While it is fair to expect all candidates to have their fundamentals right, I believe  with experienced candidates it is a better use of everyone's time if s/he is interviewed more on real software engineering problems. Obviously, a candidate with industry experience is almost always held to a higher standard than a new grad. But, by and large, the skills they are tested for broadly follow the same aforementioned patterns.
 
 ## The Successful Candidate
 
