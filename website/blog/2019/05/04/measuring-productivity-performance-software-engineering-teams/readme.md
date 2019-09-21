@@ -13,7 +13,7 @@ post-format: standard
 title: Measuring Productivity and Performance of Software Engineering Teams
 url-slug: measuring-productivity-performance-software-engineering-teams
 first-published-on: 2019-05-04 01:15 pm
-last-updated-on: 2019-05-09 06:25 pm
+last-updated-on: 2019-09-20 18:50
 meta:
  description: "A data-driven methodology for measuring productivity and performance of software engineering teams."
 excerpt: "A key facet of running software engineering teams is being able to measure team performance over time."
@@ -82,6 +82,10 @@ I will however caution that while it may be very tempting to use this sort of an
 ## Estimation
 
 Analyzing team productivity also has the added advantage of leading to better estimation. So, it becomes a fairly easy task to provide ETA's to stakeholders. This process can also be used, as I do, for driving workload planning and estimation for not just sprints, for also for features, epics and even programs.
+
+## Goals as Performance Measurement
+
+All team members should also have yearly and quarterly goals. These goals should ideally map to larger team and org goals. Needless to say, having quantifiable goals using mechanisms like [OKR](https://en.wikipedia.org/wiki/OKR) can also help in measuring performance.
 
 ## Summary
 
