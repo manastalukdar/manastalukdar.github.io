@@ -5,15 +5,26 @@
         <span>Featured</span>
       </v-row>
       <p />
-      <v-row class="px-6 pb-6" justify="center">
-        <nuxt-link to="/blog/tag/engineering-leadership/"
-          >Blog Posts on Engineering Leadership</nuxt-link
-        >
-      </v-row>
+      <!--eslint-disable-next-line vue/no-v-html-->
+      <div class="px-3 pb-2 justify-center" v-html="featured" />
     </v-card>
   </v-col>
 </template>
 
 <script>
-export default {}
+const fm = require('front-matter')
+const md = require('markdown-it')({
+  html: true,
+  linkify: true,
+  typographer: true
+})
+export default {
+  asyncComputed: {
+    async featured() {
+      const fileContent = await import('./featured.md')
+      const res = fm(fileContent.default)
+      return md.render(res.body)
+    }
+  }
+}
 </script>

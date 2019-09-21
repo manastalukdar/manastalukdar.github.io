@@ -9,5 +9,3 @@
 - Software engineering polyglot. Very comfortable in C# and Java. Comfortable in Python, Javascript, Typescript. Learning Go. Worked with C, C++ in academic projects and early on in career.
 
 - Sharp focus on operational excellence to ensure customer success and satisfy SLA requirements.
-
-- Selected blog posts on Engineering Leadership: [Growing Teams](/blog/2019/09/19/growing-developing-software-engineering-teams/), [Engineering Internships](/blog/2019/09/04/some-thoughts-on-engineering-internships/), [Interviewing Software Engineers](/blog/2019/04/14/interviewing-software-engineers/), [Attributes of a Senior Software Engineer](/blog/2019/04/17/attributes-senior-level-software-engineer/), [Development Methodology](/blog/2019/04/28/development-methodology/).

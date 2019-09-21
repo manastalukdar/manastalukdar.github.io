@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12">
-    <v-card color="cardColor" class="pa-3" raised elevation="8">
+    <v-card color="cardColor" class="pa-3 fill-height" raised elevation="8">
       <v-row class="pa-3" justify="center">
         <v-list-item
           v-for="item in socialMediaItems"
