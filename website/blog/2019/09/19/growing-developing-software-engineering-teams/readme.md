@@ -12,7 +12,7 @@ post-format: standard
 title: Growing and Developing Software Engineering Teams
 url-slug: growing-developing-software-engineering-teams
 first-published-on: 2019-09-19 22:33
-last-updated-on: 2019-09-20 10:02
+last-updated-on: 2019-09-21 17:54
 meta:
  description: "An exposition of some mechanisms to grow and develop software engineering teams."
 excerpt: "A big aspect of Engineering Leadership is growing and developing teams. This is a multi-faceted task that involves a multitude of things."
@@ -24,7 +24,7 @@ ${toc}
 
 A big aspect of Engineering Leadership is growing and developing teams. This is a multi-faceted task that involves a multitude of things. This article will discuss my approach as an Engineering Manager.
 
-## Setting Expectations
+## Well Defined Roles and Setting Clear Expectations
 
 I think it is very important to have **well defined roles** within a team and **set very clear expectations** of these roles with each developer in the team depending on his/her role. So for instance, the contours of a role and the expectations from a _Software Developer I_ are different from that of a _Staff Software Developer_. This should be a conversation that the Engineering Manager (EM) has with each employee. This should also be taken into account when developing quarterly/yearly goals and career progression plans, as we will discuss below.
 
