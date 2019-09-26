@@ -40,7 +40,7 @@
     "moment": "^2.24.0",
     "nuxt": "^2.9.2",
     "print-js": "^1.0.61",
-    "vanilla-back-to-top": "^7.2.0",
+    "vanilla-back-to-top": "^7.2.1",
     "vue-analytics": "^5.17.2",
     "vue-async-computed": "^3.7.0",
     "vue-disqus": "^3.0.5",
@@ -51,7 +51,7 @@
     "vue-tweet-embed": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/core": "^7.6.2",
     "@mdi/font": "^4.4.95",
     "@nuxtjs/eslint-config": "^1.1.2",
     "@nuxtjs/vuetify": "^1.8.5",
@@ -64,7 +64,7 @@
     "eslint-config-prettier": "^6.3.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^3.0.0",
+    "eslint-loader": "^3.0.1",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jest": "^22.17.0",
     "eslint-plugin-node": "^10.0.0",
