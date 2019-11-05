@@ -14,7 +14,7 @@ post-format: standard
 title: Development Methodology
 url-slug: development-methodology
 first-published-on: 2019-04-28 01:15 pm
-last-updated-on: 2019-04-30 06:36 pm
+last-updated-on: 2019-11-04 23:18
 meta:
  description: "An exposition of the software development methodology in engineering teams I run."
 excerpt: "Software Engineering teams I run follow agile development process, specifically scrum, or a close variation of it."
@@ -28,7 +28,7 @@ Software Engineering teams I run follow agile development process, specifically 
 
 ## Area Paths
 
-I like to have the following area paths defined, with adaptations for a team and/or project as needed:
+I like to have the following area paths (or tags) defined, with adaptations for a team and/or project as needed:
 
 - Core
 - CI-CD
@@ -46,7 +46,7 @@ I like to have the following area paths defined, with adaptations for a team and
 There are essentially three types of work items I like to use:
 
 - Epics: Maps to very high-level definitions, usually aligned with customer requirements. Such as health monitoring, data egress, search, etc.
-- Features: One of more features are created for each Epics.
+- Features: One of more features are created for each Epic.
 - Backlog Items: One or more backlog items are created for each Feature.
 
 Epics are managed at the Program level, features and backlog items at the team/project level. I work with program and product management to manage the features. Program management works with me to manage the Epics.
@@ -129,3 +129,7 @@ It is the responsibility of the owner of a backlog item to make sure all child t
 It is the responsibility of the assignee of a task to update the remaining hours diligently so that the sprint burn-down chart accurately reflects the work-in-progress and the work details correctly displays the remaining work in hours per developer.
 
 I keep a close eye on the sprint backlog to make sure that the burn-down looks fine and that no developer is overloaded or falling behind in terms of the capacity and work remaining in hours. If necessary, I orchestrate any load balancing so that as a team we can deliver on all committed items at the end of the sprint.
+
+## Summary
+
+At the end of the day, the process defined above is a framework. Adaptations have to be made based on team, company culture, etc. It is key that the process should not hinder the people. Rather, processes should facilitate empowering and helping people. The EMs role is to adapt the process to facilitate and ensure team productivity.
