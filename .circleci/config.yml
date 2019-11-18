@@ -40,7 +40,7 @@ jobs:
   generate_website: # node
     <<: *defaults
     docker:
-      - image: circleci/node:13.1.0
+      - image: circleci/node:11.13.0
 
     working_directory: ~/repo
 
@@ -49,10 +49,6 @@ jobs:
 
       - attach_workspace:
           at: ~/repo/tmp
-
-      - run:
-          command: |
-            sudo apt-get install g++ build-essential
 
       - run:
           command: |
