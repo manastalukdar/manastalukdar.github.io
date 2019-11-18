@@ -52,7 +52,7 @@ jobs:
 
       - run:
           command: |
-            sudo apt-get install g++ build-essentials
+            sudo apt-get install g++ build-essential
 
       - run:
           command: |
