@@ -29,6 +29,35 @@ export default {
     breadcrumbs,
     postsList
   },
+  async asyncData({ store, params, env, payload }) {
+    if (payload) {
+      return {
+        yearUrlSlug: params.year,
+        baseUrl: env.baseURL,
+        blogMetadata: payload,
+        yearName: params.year
+      }
+    } else {
+      if (store.state.BlogMetadata.blogMetadata.length === 0) {
+        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+      }
+      const posts = store.getters['BlogMetadata/getPostsForYear'](params.year)
+      if (posts === undefined) {
+        return {
+          yearUrlSlug: params.year,
+          baseUrl: env.baseURL,
+          blogMetadata: [],
+          yearName: ''
+        }
+      }
+      return {
+        yearUrlSlug: params.year,
+        baseUrl: env.baseURL,
+        blogMetadata: posts,
+        yearName: params.year
+      }
+    }
+  },
   computed: {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
@@ -59,35 +88,6 @@ export default {
           exact: true
         }
       ]
-    }
-  },
-  async asyncData({ store, params, env, payload }) {
-    if (payload) {
-      return {
-        yearUrlSlug: params.year,
-        baseUrl: env.baseURL,
-        blogMetadata: payload,
-        yearName: params.year
-      }
-    } else {
-      if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
-      }
-      const posts = store.getters['BlogMetadata/getPostsForYear'](params.year)
-      if (posts === undefined) {
-        return {
-          yearUrlSlug: params.year,
-          baseUrl: env.baseURL,
-          blogMetadata: [],
-          yearName: ''
-        }
-      }
-      return {
-        yearUrlSlug: params.year,
-        baseUrl: env.baseURL,
-        blogMetadata: posts,
-        yearName: params.year
-      }
     }
   },
   head() {

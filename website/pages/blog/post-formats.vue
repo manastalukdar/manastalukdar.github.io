@@ -64,6 +64,29 @@ export default {
   components: {
     breadcrumbs
   },
+  async asyncData({ store, params, env, payload }) {
+    if (payload) {
+      return {
+        baseUrl: env.baseURL,
+        postFormats: payload
+      }
+    } else {
+      if (store.state.BlogMetadata.blogMetadata.length === 0) {
+        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+      }
+      const postFormats = store.getters['BlogMetadata/getPostFormats']
+      if (postFormats === undefined) {
+        return {
+          baseUrl: env.baseURL,
+          postFormats: []
+        }
+      }
+      return {
+        baseUrl: env.baseURL,
+        postFormats
+      }
+    }
+  },
   data() {
     return {
       search: '',
@@ -114,29 +137,6 @@ export default {
           exact: true
         }
       ]
-    }
-  },
-  async asyncData({ store, params, env, payload }) {
-    if (payload) {
-      return {
-        baseUrl: env.baseURL,
-        postFormats: payload
-      }
-    } else {
-      if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
-      }
-      const postFormats = store.getters['BlogMetadata/getPostFormats']
-      if (postFormats === undefined) {
-        return {
-          baseUrl: env.baseURL,
-          postFormats: []
-        }
-      }
-      return {
-        baseUrl: env.baseURL,
-        postFormats
-      }
     }
   },
   methods: {

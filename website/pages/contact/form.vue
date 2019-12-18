@@ -69,6 +69,11 @@ export default {
   components: {
     breadcrumbs
   },
+  asyncData({ store, params, env, payload }) {
+    return {
+      baseUrl: env.baseURL
+    }
+  },
   data: () => ({
     name: undefined,
     email: undefined,
@@ -109,9 +114,9 @@ export default {
       ]
     }
   },
-  asyncData({ store, params, env, payload }) {
-    return {
-      baseUrl: env.baseURL
+  methods: {
+    submit() {
+      this.$v.$touch()
     }
   },
   head() {
@@ -172,11 +177,6 @@ export default {
           type: 'application/ld+json'
         }
       ]
-    }
-  },
-  methods: {
-    submit() {
-      this.$v.$touch()
     }
   }
 }

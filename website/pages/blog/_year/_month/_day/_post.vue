@@ -30,44 +30,6 @@ export default {
     breadcrumbs,
     post
   },
-  data() {
-    return {
-      postContent: ''
-    }
-  },
-  computed: {
-    ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state => state.Navigation.blog.blogText,
-      blogHref: state => state.Navigation.blog.blogItems[0].href,
-      blogBaseHref: state => state.Navigation.blog.dynamicItems.blogBase.href
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          nuxt: true,
-          exact: true
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          nuxt: true,
-          exact: true
-        },
-        {
-          text: this.postMetadata.title,
-          disabled: false,
-          to: this.postId,
-          nuxt: true,
-          exact: true
-        }
-      ]
-    }
-  },
   async asyncData({ store, params, env, payload }) {
     const md = require('markdown-it')({
       html: true,
@@ -192,6 +154,44 @@ export default {
         postId: postIdTemp,
         url: env.baseURL + '/' + postIdTemp
       }
+    }
+  },
+  data() {
+    return {
+      postContent: ''
+    }
+  },
+  computed: {
+    ...mapState({
+      appOwner: state => state.GlobalData.appOwner,
+      currentPage: state => state.Navigation.blog.blogText,
+      blogHref: state => state.Navigation.blog.blogItems[0].href,
+      blogBaseHref: state => state.Navigation.blog.dynamicItems.blogBase.href
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          nuxt: true,
+          exact: true
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          nuxt: true,
+          exact: true
+        },
+        {
+          text: this.postMetadata.title,
+          disabled: false,
+          to: this.postId,
+          nuxt: true,
+          exact: true
+        }
+      ]
     }
   },
   mounted() {

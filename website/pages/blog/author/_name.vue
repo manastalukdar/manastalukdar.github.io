@@ -22,41 +22,6 @@ export default {
     breadcrumbs,
     postsList
   },
-  computed: {
-    ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state =>
-        state.Navigation.blog.authorText +
-        ' | ' +
-        state.Navigation.blog.blogText,
-      authorText: state => state.Navigation.blog.authorText,
-      blogHref: state => state.Navigation.blog.blogItems[0].href,
-      blogDynamicItemsAuthor: state =>
-        state.Navigation.blog.dynamicItems.author.href
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true
-        },
-        {
-          text: 'Blog Posts by Author',
-          disabled: false,
-          to: this.blogDynamicItemsAuthor + this.authorUrlSlug + '/',
-          exact: true
-        }
-      ]
-    }
-  },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
       const authName = payload[0].authors.filter(author => {
@@ -94,6 +59,41 @@ export default {
         blogMetadata: posts,
         authorName: authName[0].name
       }
+    }
+  },
+  computed: {
+    ...mapState({
+      appOwner: state => state.GlobalData.appOwner,
+      currentPage: state =>
+        state.Navigation.blog.authorText +
+        ' | ' +
+        state.Navigation.blog.blogText,
+      authorText: state => state.Navigation.blog.authorText,
+      blogHref: state => state.Navigation.blog.blogItems[0].href,
+      blogDynamicItemsAuthor: state =>
+        state.Navigation.blog.dynamicItems.author.href
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true
+        },
+        {
+          text: 'Blog Posts by Author',
+          disabled: false,
+          to: this.blogDynamicItemsAuthor + this.authorUrlSlug + '/',
+          exact: true
+        }
+      ]
     }
   },
   head() {

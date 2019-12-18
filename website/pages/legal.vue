@@ -20,6 +20,11 @@ export default {
   components: {
     breadcrumbs
   },
+  asyncData({ store, params, env, payload }) {
+    return {
+      baseUrl: env.baseURL
+    }
+  },
   data() {
     return {
       description: 'Legal disclaimer.'
@@ -46,11 +51,6 @@ export default {
           exact: true
         }
       ]
-    }
-  },
-  asyncData({ store, params, env, payload }) {
-    return {
-      baseUrl: env.baseURL
     }
   },
   head() {

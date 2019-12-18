@@ -24,6 +24,19 @@ export default {
     breadcrumbs,
     postsList
   },
+  async asyncData({ store, params, env, payload }) {
+    if (payload) {
+      return {
+        baseUrl: env.baseURL,
+        blogMetadata: payload
+      }
+    } else if (store.state.BlogMetadata.blogMetadata.length === 0) {
+      await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+      return {
+        baseUrl: env.baseURL
+      }
+    }
+  },
   computed: {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
@@ -45,19 +58,6 @@ export default {
           to: this.currentHref
         }
       ]
-    }
-  },
-  async asyncData({ store, params, env, payload }) {
-    if (payload) {
-      return {
-        baseUrl: env.baseURL,
-        blogMetadata: payload
-      }
-    } else if (store.state.BlogMetadata.blogMetadata.length === 0) {
-      await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
-      return {
-        baseUrl: env.baseURL
-      }
     }
   },
   head() {

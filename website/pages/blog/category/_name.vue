@@ -22,41 +22,6 @@ export default {
     breadcrumbs,
     postsList
   },
-  computed: {
-    ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state =>
-        state.Navigation.blog.categoryText +
-        ' | ' +
-        state.Navigation.blog.blogText,
-      categoryText: state => state.Navigation.blog.categoryText,
-      blogHref: state => state.Navigation.blog.blogItems[0].href,
-      blogDynamicItemsCategory: state =>
-        state.Navigation.blog.dynamicItems.category.href
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true
-        },
-        {
-          text: 'Blog Posts by Category',
-          disabled: false,
-          to: this.blogDynamicItemsCategory + this.categoryUrlSlug + '/',
-          exact: true
-        }
-      ]
-    }
-  },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
       const catName = payload[0].categories.filter(category => {
@@ -96,6 +61,41 @@ export default {
         blogMetadata: posts,
         categoryName: catName[0].name
       }
+    }
+  },
+  computed: {
+    ...mapState({
+      appOwner: state => state.GlobalData.appOwner,
+      currentPage: state =>
+        state.Navigation.blog.categoryText +
+        ' | ' +
+        state.Navigation.blog.blogText,
+      categoryText: state => state.Navigation.blog.categoryText,
+      blogHref: state => state.Navigation.blog.blogItems[0].href,
+      blogDynamicItemsCategory: state =>
+        state.Navigation.blog.dynamicItems.category.href
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true
+        },
+        {
+          text: 'Blog Posts by Category',
+          disabled: false,
+          to: this.blogDynamicItemsCategory + this.categoryUrlSlug + '/',
+          exact: true
+        }
+      ]
     }
   },
   head() {

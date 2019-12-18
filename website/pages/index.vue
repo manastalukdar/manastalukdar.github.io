@@ -54,6 +54,21 @@ export default {
     interests,
     recentUpdates
   },
+  async asyncData({ store, params, env, payload }) {
+    if (payload) {
+      return {
+        baseUrl: env.baseURL,
+        blogMetadata: payload
+      }
+    } else {
+      if (store.state.BlogMetadata.blogMetadata.length === 0) {
+        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+      }
+      return {
+        baseUrl: env.baseURL
+      }
+    }
+  },
   data() {
     return {
       currentHref: '/'
@@ -74,21 +89,6 @@ export default {
           to: '/'
         }
       ]
-    }
-  },
-  async asyncData({ store, params, env, payload }) {
-    if (payload) {
-      return {
-        baseUrl: env.baseURL,
-        blogMetadata: payload
-      }
-    } else {
-      if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
-      }
-      return {
-        baseUrl: env.baseURL
-      }
     }
   },
   head() {

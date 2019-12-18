@@ -25,6 +25,11 @@ export default {
   components: {
     breadcrumbs
   },
+  asyncData({ store, params, env, payload }) {
+    return {
+      baseUrl: env.baseURL
+    }
+  },
   computed: {
     ...mapState({
       appOwner: state => state.GlobalData.appOwner,
@@ -47,11 +52,6 @@ export default {
           to: this.currentHref
         }
       ]
-    }
-  },
-  asyncData({ store, params, env, payload }) {
-    return {
-      baseUrl: env.baseURL
     }
   },
   mounted() {

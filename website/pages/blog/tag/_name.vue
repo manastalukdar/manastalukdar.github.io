@@ -22,38 +22,6 @@ export default {
     breadcrumbs,
     postsList
   },
-  computed: {
-    ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state =>
-        state.Navigation.blog.tagText + ' | ' + state.Navigation.blog.blogText,
-      tagText: state => state.Navigation.blog.tagText,
-      blogHref: state => state.Navigation.blog.blogItems[0].href,
-      blogDynamicItemsTag: state => state.Navigation.blog.dynamicItems.tag.href
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true
-        },
-        {
-          text: 'Blog Posts by Tag',
-          disabled: false,
-          to: this.blogDynamicItemsTag + this.tagUrlSlug + '/',
-          exact: true
-        }
-      ]
-    }
-  },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
       const tagNameTemp = payload[0].tags.filter(tag => {
@@ -91,6 +59,38 @@ export default {
         blogMetadata: posts,
         tagName: tagNameTemp[0].name
       }
+    }
+  },
+  computed: {
+    ...mapState({
+      appOwner: state => state.GlobalData.appOwner,
+      currentPage: state =>
+        state.Navigation.blog.tagText + ' | ' + state.Navigation.blog.blogText,
+      tagText: state => state.Navigation.blog.tagText,
+      blogHref: state => state.Navigation.blog.blogItems[0].href,
+      blogDynamicItemsTag: state => state.Navigation.blog.dynamicItems.tag.href
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true
+        },
+        {
+          text: 'Blog Posts by Tag',
+          disabled: false,
+          to: this.blogDynamicItemsTag + this.tagUrlSlug + '/',
+          exact: true
+        }
+      ]
     }
   },
   head() {
