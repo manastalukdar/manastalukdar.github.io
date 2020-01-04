@@ -12,7 +12,7 @@ post-format: standard
 title: Area Champions in Software Engineering Teams
 url-slug: area-champions-software-engineering-teams
 first-published-on: 2019-05-01 12:56 pm
-last-updated-on: 2019-05-01 01:10 pm
+last-updated-on: 2020-01-04 12:54
 meta:
  description: "A methodology for keeping software engineers interested and engaged, preventing compartmentalization and spreading knowledge across the team."
 excerpt: "An important goal in running software engineering teams is ensuring software engineers remain interested and engaged in their work."
@@ -32,14 +32,15 @@ My approach to solving this problem is by a methodology I like to call "Area Cha
 
 ## The Areas
 
-I form broadly four areas within my engineering teams (with adaptations for a team/project as needed):
+I form broadly following areas within my engineering teams (with adaptations for a team/project as needed):
 
 1. Security
 2. Ops - Depending on the team/project, sometimes this is broken down into the sub-areas.
    1. Service Ops
    2. Dev Ops
 3. Reliability (QA, profiling/performance, etc.)
-4. Core functionality - Depending on the team/project sometimes this is broken down into multiple areas.
+4. Observability (Health, diagnostics, monitoring, etc.)
+5. Core functionality - Depending on the team/project sometimes this is broken down into multiple areas.
 
 ## Rotating Role
 
