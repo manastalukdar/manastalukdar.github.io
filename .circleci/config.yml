@@ -72,6 +72,10 @@ jobs:
             - "5e:7e:51:39:c2:4e:ee:84:0f:1d:e5:4d:4a:f6:6e:7f"
 
       - run:
+          name: Set Permissions
+          command: sudo chown -R $USER:$USER /usr/local/lib/node_modules/
+
+      - run:
           name: Deploy docs to gh-pages branch
           command: gh-pages --no-history --dotfiles --dist tmp/dist --branch master --message "Circle CI Updates [ci skip]"
 
