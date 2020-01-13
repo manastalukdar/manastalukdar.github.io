@@ -77,7 +77,7 @@ jobs:
 
       - run:
           name: Deploy docs to gh-pages branch
-          command: gh-pages --no-history --dotfiles --dist tmp/dist --branch master --message "Circle CI Updates [ci skip]"
+          command: sudo gh-pages --no-history --dotfiles --dist tmp/dist --branch master --message "Circle CI Updates [ci skip]"
 
 workflows:
   build:
