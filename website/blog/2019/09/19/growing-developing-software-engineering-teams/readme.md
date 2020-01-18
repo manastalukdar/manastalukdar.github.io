@@ -12,7 +12,7 @@ post-format: standard
 title: Growing and Developing Software Engineering Teams
 url-slug: growing-developing-software-engineering-teams
 first-published-on: 2019-09-19 22:33
-last-updated-on: 2019-09-21 17:54
+last-updated-on: 2020-01-17 18:54
 meta:
  description: "An exposition of some mechanisms to grow and develop software engineering teams."
 excerpt: "A big aspect of Engineering Leadership is growing and developing teams. This is a multi-faceted task that involves a multitude of things."
@@ -74,11 +74,11 @@ The EM should establish an on-boarding plan for all new hires. The goal of this 
 - Ease the employee into the company logistics and culture. Many companies have formal orientation programs (usually a 1-2 days or a week long class) conducted at the company level for new hires across different orgs.
 - Onboard the employee into the team logistics. Recurring meetings, 1-1 with EM, hardware and software, etc.
 - Provide the employee a technical overview of the team^[Ideally, the team should have an actively maintained wiki with a _Getting Started_ page.]
-  - Projects
-  - Source code
-  - CI/CD pipelines
-  - Test infrastructure
-  - Dependencies, etc.
+    - Projects
+    - Source code
+    - CI/CD pipelines
+    - Test infrastructure
+    - Dependencies, etc.
 - Provide the employee any learning resources if needed. This may include anything specific to the ecosystem of the products and services the company and/or team works on.
 - Assign a technical mentor to the employee. This should be mandatory for all new grad hires. This is an opportunity for the new employee to get a helping hand as s/he ramps up and for the mentor to get some leadership experience. The EM may consider tieing this into a yearly/quarterly goal for the mentor.
 
@@ -92,11 +92,13 @@ As we have discussed above, it can become necessary for both new hires and curre
 
 ## Career Progression
 
-The EM should work with each employee to come up with a plan for their professional growth aand career progression. This generally involves:
+The EM should work with each employee to come up with a plan for their professional growth and career progression. This generally involves:
 
 - Having a conversation with each employee about their interest and career goals.
 - Making a determination of each employee's current position is and where s/he wants and/or needs to be.
 - Working with each employee to come up with a career progression plan.
+
+Advancing employees in their careers also helps to build a pipeline. While it is ideal to be able to retain high performers, there are no guarantees. Sometimes employees choose to leave, for personal or professional reasons. It is very important that the EM builds **a pipeline of capable employees** who can take over roles if other employees leave.
 
 ### Aligning Work with Interest
 
@@ -138,11 +140,11 @@ It is the EM's responsibility to create and manage a coherent, efficient and pro
 Getting a group of people from diverse background to work together is imperative for being a successful EM. Building trust between employees and between the employees and their EM is crucial to accomplish this. I think the following are important mechanisms to build trust.
 
 - Applies to all team members:
-  - Listening.
-  - Respecting others' opinions.
+    - Listening.
+    - Respecting others' opinions.
 - Applies to EM:
-  - Praise and reward: The EM should give credit to developers^[This can take the shape of public acknowledgement of their efforts during sprint reviews or other meetings potentially involving stakeholders. Or, giving them the opportunity to represent the team in certain forums.] for (consistently) delivering on work and reward them appropriately be it through compensation, promotion or additional responsibilities.
-  - Do not micromanage: People usually do not work very well if they feel that there is always someone breathing down their neck.
+    - Praise and reward: The EM should give credit to developers^[This can take the shape of public acknowledgement of their efforts during sprint reviews or other meetings potentially involving stakeholders. Or, giving them the opportunity to represent the team in certain forums.] for (consistently) delivering on work and reward them appropriately be it through compensation, promotion or additional responsibilities.
+    - Do not micromanage: People usually do not work very well if they feel that there is always someone breathing down their neck.
 
 I believe something that is common to most people in the tech industry is our love for technology. The EM should strive to reinforce this common feature and ensure that people within the team work together to deliver on commitments. When two or more people together accomplish something they all love and enjoy, that goes a long way in building trust and comradery.
 
