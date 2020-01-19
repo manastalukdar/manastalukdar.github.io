@@ -2,7 +2,8 @@ import {
   Feed
 } from 'feed'
 const fs = require('fs')
-const getRoutes = require('./utils/getRoutes.js')
+// const getRoutes = require('./utils/getRoutes.js')
+import * as getRoutes from './utils/getRoutes.js'
 // const ampify = require('./plugins/ampify')
 
 const baseUrl =
@@ -191,7 +192,10 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/redirect-module',
-    '@nuxtjs/sitemap',
+    '@nuxtjs/sitemap'
+  ],
+
+  buildModules: [
     '@nuxtjs/vuetify'
   ],
 
@@ -291,6 +295,7 @@ export default {
 
   vuetify: {
     treeShake: true,
+    optionsPath: './vuetify.options.js',
     customVariables: ['~/assets/style/variables.scss'],
     icons: {
       iconfont: 'mdi'

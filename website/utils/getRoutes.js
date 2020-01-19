@@ -2,7 +2,7 @@ import _ from 'lodash'
 import moment from 'moment'
 import blogMetadata from '../static/blogdata/metadata/blog_metadata.json'
 
-const properties = {
+export const properties = {
   sitemapRoutes: [],
   nuxtGenerateRoutes: [],
   feedItems: [],
@@ -12,7 +12,7 @@ const properties = {
   baseUrl: ''
 }
 
-const functions = {
+export const functions = {
   initializeProperties() {
     properties.sitemapRoutes = []
     properties.nuxtGenerateRoutes = []
@@ -248,7 +248,7 @@ const functions = {
   }
 }
 
-const helperFunctions = {
+export const helperFunctions = {
   getFeedItem(postMetadata, route) {
     const authors = []
     postMetadata.authors.forEach(function(author) {
@@ -268,10 +268,4 @@ const helperFunctions = {
 
     return item
   }
-}
-
-module.exports = {
-  properties,
-  functions,
-  helperFunctions
 }
