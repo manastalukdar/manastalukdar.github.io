@@ -2,7 +2,6 @@ import {
   Feed
 } from 'feed'
 const fs = require('fs')
-// const getRoutes = require('./utils/getRoutes.js')
 import * as getRoutes from './utils/getRoutes.js'
 // const ampify = require('./plugins/ampify')
 
@@ -341,6 +340,12 @@ export default {
     dir: 'dist',
     routes: function () {
       getRoutes.functions.generateRoutes()
+      /*fs.writeFile("./output.logfile", JSON.stringify(getRoutes.properties.nuxtGenerateRoutes), function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("The file was saved!");
+      });*/
       return getRoutes.properties.nuxtGenerateRoutes
     }
   }
