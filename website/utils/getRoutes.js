@@ -26,7 +26,7 @@ export const functions = {
     properties.baseUrl = baseUrl
   },
   generateRoutes() {
-    this.initializeProperties()
+    functions.initializeProperties()
 
     properties.nuxtGenerateRoutes.push({
       route: '/',
