@@ -4,7 +4,7 @@
 
 #### Work
 
-- **AI, ML Platform**: Managing a team building multi-cloud, distributed data infrastructure platform for large-scale AI applications.
+- **AI, ML Platform**: I currently manage and lead a highly technical team of software engineers building a multi-cloud, distributed data infrastructure platform for large-scale AI applications.
 
 #### Other
 
