@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
 import MainNavMenuBlog from './Blog.vue'
 import MainNavMenuAbout from './About.vue'
 import MainNavMenuLegal from './Legal.vue'
 import MainNavMenuContact from './Contact.vue'
+import { mapState, mapActions } from 'vuex'
 export default {
   components: {
     MainNavMenuBlog,

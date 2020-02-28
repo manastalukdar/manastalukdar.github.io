@@ -18,13 +18,13 @@
 </template>
 
 <script>
+const markdownRenderHelpers = require('../../utils/markdownRenderHelpers.js')
 const fm = require('front-matter')
 const md = require('markdown-it')({
   html: true,
   linkify: true,
   typographer: true
 })
-const markdownRenderHelpers = require('../../utils/markdownRenderHelpers.js')
 markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
 export default {
   asyncComputed: {

@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = exports = {
   root: false,
   env: {
     browser: true,

@@ -17,11 +17,11 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { addBackToTop } from 'vanilla-back-to-top'
 import MainNavMenuNavigationDrawer from '../components/main-nav-menu/NavigationDrawer.vue'
 import MainNavMenuTopNavBar from '../components/main-nav-menu/TopNavBar.vue'
 import Footer from '../components/footer.vue'
+import { mapState } from 'vuex'
+import { addBackToTop } from 'vanilla-back-to-top'
 export default {
   pageTransition: {
     name: 'fade',

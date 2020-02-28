@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import recentPosts from '../blog/recent-posts/list.vue'
+import { mapState } from 'vuex'
 export default {
   components: {
     recentPosts

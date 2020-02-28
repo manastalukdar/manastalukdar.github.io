@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import BlogMenuItems from './BlogMenuItems.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {

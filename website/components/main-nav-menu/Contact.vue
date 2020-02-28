@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import ContactMenuItems from './ContactMenuItems.vue'
+import { mapState } from 'vuex'
 export default {
   components: {
     ContactMenuItems

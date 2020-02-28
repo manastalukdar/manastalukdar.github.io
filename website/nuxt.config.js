@@ -2,7 +2,7 @@ import {
   Feed
 } from 'feed'
 const fs = require('fs')
-const getRoutes = require('./utils/getRoutes.js')
+import * as getRoutes from './utils/getRoutes.js'
 // const ampify = require('./plugins/ampify')
 
 const baseUrl =
@@ -191,7 +191,10 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/redirect-module',
-    '@nuxtjs/sitemap',
+    '@nuxtjs/sitemap'
+  ],
+
+  buildModules: [
     '@nuxtjs/vuetify'
   ],
 
@@ -291,6 +294,7 @@ export default {
 
   vuetify: {
     treeShake: true,
+    optionsPath: './vuetify.options.js',
     customVariables: ['~/assets/style/variables.scss'],
     icons: {
       iconfont: 'mdi'
@@ -336,6 +340,12 @@ export default {
     dir: 'dist',
     routes: function () {
       getRoutes.functions.generateRoutes()
+      /*fs.writeFile("./output.logfile", JSON.stringify(getRoutes.properties.nuxtGenerateRoutes), function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("The file was saved!");
+      });*/
       return getRoutes.properties.nuxtGenerateRoutes
     }
   }

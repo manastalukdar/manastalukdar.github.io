@@ -1,6 +1,4 @@
-// app/vuetify/options.js
-
-import colors from 'vuetify/lib/util/colors'
+import colors from 'vuetify/es5/util/colors'
 
 export default {
   theme: {
@@ -26,7 +24,7 @@ export default {
         headerAndFooterColor: colors.blue.lighten4,
         cardColor: colors.shades.white,
         backToTopBackground: colors.grey.lighten2,
-        backToTopText: colors.red,
+        backToTopText: colors.red.base,
         codeBackgroundColor: '#f5f5f5',
         codeTextColor: '#383636'
       }
