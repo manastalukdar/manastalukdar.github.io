@@ -54,10 +54,10 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import BlogMenuItems from './BlogMenuItems.vue'
 import AboutMenuItems from './AboutMenuItems.vue'
 import ContactMenuItems from './ContactMenuItems.vue'
+import { mapState } from 'vuex'
 export default {
   components: {
     BlogMenuItems,

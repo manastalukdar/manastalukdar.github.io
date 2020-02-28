@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import breadcrumbs from '../../components/breadcrumbs'
 import postsList from '../../components/blog/posts-list/list.vue'
+import { mapState } from 'vuex'
 export default {
   components: {
     breadcrumbs,

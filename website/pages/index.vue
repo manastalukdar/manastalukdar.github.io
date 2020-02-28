@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import featured from '../components/home-page/featured.vue'
 import socialMediaAndResumeLinks from '../components/home-page/social-media-resume.vue'
 import aboutBlurb from '../components/home-page/about-blurb.vue'
@@ -44,6 +43,7 @@ import highlights from '../components/home-page/highlights.vue'
 import recentPostsHomePage from '../components/home-page/recent-posts.vue'
 import interests from '../components/home-page/interests.vue'
 import recentUpdates from '../components/home-page/recent-updates.vue'
+import { mapState } from 'vuex'
 export default {
   components: {
     featured,

@@ -58,8 +58,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import breadcrumbs from '../../components/breadcrumbs'
+import { mapState } from 'vuex'
 export default {
   components: {
     breadcrumbs

@@ -14,16 +14,16 @@
 </template>
 
 <script>
+import breadcrumbs from '../../../../../components/breadcrumbs'
+import post from '../../../../../components/blog/single-post/post.vue'
 import { mapState } from 'vuex'
 import axios from 'axios'
 import markdownItAnchor from 'markdown-it-anchor'
 import markdownItTocDoneRight from 'markdown-it-toc-done-right'
 import markdownItTextualUml from 'markdown-it-textual-uml'
-import breadcrumbs from '../../../../../components/breadcrumbs'
-import post from '../../../../../components/blog/single-post/post.vue'
+const markdownRenderHelpers = require('../../../../../utils/markdownRenderHelpers.js')
 const hljs = require('highlight.js') // https://highlightjs.org/
 const fm = require('front-matter')
-const markdownRenderHelpers = require('../../../../../utils/markdownRenderHelpers.js')
 let mermaid = null
 export default {
   components: {

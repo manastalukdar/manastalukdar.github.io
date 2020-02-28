@@ -36,9 +36,9 @@
 </template>
 
 <script>
+import postHeader from './post-header.vue'
 import moment from 'moment'
 import { mapState } from 'vuex'
-import postHeader from './post-header.vue'
 export default {
   components: {
     postHeader

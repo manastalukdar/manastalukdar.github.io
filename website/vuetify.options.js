@@ -24,7 +24,7 @@ export default {
         headerAndFooterColor: colors.blue.lighten4,
         cardColor: colors.shades.white,
         backToTopBackground: colors.grey.lighten2,
-        backToTopText: colors.red,
+        backToTopText: colors.red.base,
         codeBackgroundColor: '#f5f5f5',
         codeTextColor: '#383636'
       }

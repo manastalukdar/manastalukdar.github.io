@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import AboutMenuItems from './AboutMenuItems.vue'
+import { mapState } from 'vuex'
 export default {
   components: {
     AboutMenuItems
