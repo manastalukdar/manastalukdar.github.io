@@ -14,11 +14,16 @@
           {{ copyrightEndYear }} &nbsp;<strong> {{ appOwner }} </strong>
         </v-col>
         <v-col class="text-right" style="margin-left: 1em; margin-right: 1em">
-          Built with
+          <a
+            href="https://github.com/manastalukdar/manastalukdar.github.io/"
+            target="_blank"
+            >Built</a
+          >
+          with
           <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>
           &nbsp;||&nbsp;
-          <a href="/sitemap.xml" target="_blank">{{ siteMapText }}</a
-          >&nbsp;||&nbsp;
+          <a href="/sitemap.xml" target="_blank">{{ siteMapText }}</a>
+          &nbsp;||&nbsp;
           <a href="/blogfeed.xml" target="_blank">{{ blogFeedtext }}</a>
         </v-col>
       </v-row>
