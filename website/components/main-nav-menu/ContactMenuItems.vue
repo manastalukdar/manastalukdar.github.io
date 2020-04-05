@@ -27,10 +27,10 @@ import { mapState } from 'vuex'
 export default {
   data: () => ({}),
   computed: mapState({
-    subHeaderTextSocialMedia: state =>
+    subHeaderTextSocialMedia: (state) =>
       state.Navigation.contact.subHeaderTextSocialMedia,
-    contactForm: state => state.Navigation.contact.contactForm,
-    socialMediaItems: state => state.Navigation.contact.socialMediaItems
-  })
+    contactForm: (state) => state.Navigation.contact.contactForm,
+    socialMediaItems: (state) => state.Navigation.contact.socialMediaItems,
+  }),
 }
 </script>

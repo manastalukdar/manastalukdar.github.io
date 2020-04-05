@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import featured from '../components/home-page/featured.vue'
 import socialMediaAndResumeLinks from '../components/home-page/social-media-resume.vue'
 import aboutBlurb from '../components/home-page/about-blurb.vue'
@@ -43,7 +44,6 @@ import highlights from '../components/home-page/highlights.vue'
 import recentPostsHomePage from '../components/home-page/recent-posts.vue'
 import interests from '../components/home-page/interests.vue'
 import recentUpdates from '../components/home-page/recent-updates.vue'
-import { mapState } from 'vuex'
 export default {
   components: {
     featured,
@@ -52,44 +52,44 @@ export default {
     highlights,
     recentPostsHomePage,
     interests,
-    recentUpdates
+    recentUpdates,
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
       return {
         baseUrl: env.baseURL,
-        blogMetadata: payload
+        blogMetadata: payload,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
         await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
       }
       return {
-        baseUrl: env.baseURL
+        baseUrl: env.baseURL,
       }
     }
   },
   data() {
     return {
-      currentHref: '/'
+      currentHref: '/',
     }
   },
   computed: {
     ...mapState({
-      socialMediaItems: state => state.Navigation.contact.socialMediaItems,
-      aboutItems: state => state.Navigation.about.aboutItems,
-      appOwner: state => state.GlobalData.appOwner,
-      blogMetadata: state => state.BlogMetadata.blogMetadata
+      socialMediaItems: (state) => state.Navigation.contact.socialMediaItems,
+      aboutItems: (state) => state.Navigation.about.aboutItems,
+      appOwner: (state) => state.GlobalData.appOwner,
+      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
     }),
     breadcrumbs() {
       return [
         {
           text: 'Home',
           disabled: false,
-          to: '/'
-        }
+          to: '/',
+        },
       ]
-    }
+    },
   },
   head() {
     const url = this.baseUrl + this.currentHref
@@ -99,14 +99,14 @@ export default {
         position: index + 1,
         item: {
           '@id': this.baseUrl + item.to,
-          name: item.text
-        }
+          name: item.text,
+        },
       })
     )
     const breadcrumbsStructuredData = {
       '@context': 'http://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray
+      itemListElement: breadcrumbsStructuredDataArray,
     }
     const structuredData = {
       '@context': 'http://schema.org',
@@ -119,8 +119,8 @@ export default {
         this.socialMediaItems[2].href,
         'https://www.facebook.com/manas.talukdar',
         'https://www.instagram.com/manastalukdar/',
-        'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA'
-      ]
+        'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA',
+      ],
     }
     return {
       title: this.appOwner,
@@ -129,15 +129,15 @@ export default {
       script: [
         {
           innerHTML: JSON.stringify(structuredData),
-          type: 'application/ld+json'
+          type: 'application/ld+json',
         },
         {
           innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json'
-        }
-      ]
+          type: 'application/ld+json',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

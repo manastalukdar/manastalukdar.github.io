@@ -18,19 +18,19 @@ export default {
     postId: {
       type: String,
       required: true,
-      default: ''
+      default: '',
     },
     url: {
       type: String,
       required: true,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
-      disqusShortname: 'manastalukdar'
+      disqusShortname: 'manastalukdar',
     }
-  }
+  },
 }
 </script>
 

@@ -8,15 +8,15 @@
 import postHeader from './post-header.vue'
 export default {
   components: {
-    postHeader
+    postHeader,
   },
   props: {
     postMetadata: {
       type: Object,
       required: true,
-      default: () => {}
-    }
-  }
+      default: () => {},
+    },
+  },
 }
 </script>
 

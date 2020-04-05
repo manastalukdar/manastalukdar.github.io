@@ -15,53 +15,53 @@ const state = () => ({
         href: '/blog/',
         target: '_blank',
         icon: 'mdi-newspaper',
-        text: 'Blog'
+        text: 'Blog',
       },
       {
         href: '/blog/categories/',
         target: '_blank',
         icon: 'mdi-domain',
-        text: 'Categories'
+        text: 'Categories',
       },
       {
         href: '/blog/tags/',
         target: '_blank',
         icon: 'mdi-tag-multiple',
-        text: 'Tags'
+        text: 'Tags',
       },
       {
         href: '/blog/post-formats/',
         target: '_blank',
         icon: 'mdi-format-list-bulleted-type',
-        text: 'Post Formats'
+        text: 'Post Formats',
       },
       {
         href: '/blog/archive/',
         target: '_blank',
         icon: 'mdi-archive',
-        text: 'Archive'
-      }
+        text: 'Archive',
+      },
     ],
     dynamicItems: {
       blogBase: {
-        href: '/blog/'
+        href: '/blog/',
       },
       category: {
-        href: '/blog/category/'
+        href: '/blog/category/',
       },
       tag: {
-        href: '/blog/tag/'
+        href: '/blog/tag/',
       },
       author: {
-        href: '/blog/author/'
+        href: '/blog/author/',
       },
       postFormat: {
-        href: '/blog/post-format/'
+        href: '/blog/post-format/',
       },
       blogPost: {
-        href: '/blog/'
-      }
-    }
+        href: '/blog/',
+      },
+    },
   },
   about: {
     aboutText: 'About',
@@ -70,13 +70,13 @@ const state = () => ({
         href: '/about/resume/',
         target: '_blank',
         icon: 'mdi-file-document-box',
-        text: 'Resume'
-      }
-    ]
+        text: 'Resume',
+      },
+    ],
   },
   legal: {
     legalText: 'Legal',
-    legalPath: '/legal/'
+    legalPath: '/legal/',
   },
   contact: {
     contactText: 'Contact',
@@ -84,29 +84,29 @@ const state = () => ({
     contactForm: {
       text: 'Form',
       icon: 'mdi-email-box',
-      href: '/contact/form/'
+      href: '/contact/form/',
     },
     socialMediaItems: [
       {
         href: 'https://www.linkedin.com/in/manastalukdar/',
         target: '_blank',
         icon: 'mdi-linkedin',
-        text: 'LinkedIn'
+        text: 'LinkedIn',
       },
       {
         href: 'https://github.com/manastalukdar/',
         target: '_blank',
-        icon: 'mdi-github-circle',
-        text: 'GitHub'
+        icon: 'mdi-github',
+        text: 'GitHub',
       },
       {
         href: 'https://www.twitter.com/manastalukdar/',
         target: '_blank',
         icon: 'mdi-twitter',
-        text: 'Twitter'
-      }
-    ]
-  }
+        text: 'Twitter',
+      },
+    ],
+  },
 })
 
 // getters
@@ -119,7 +119,7 @@ const actions = {
   },
   setSidebarVisibility({ commit }, value) {
     commit('setSidebarVisibility', value)
-  }
+  },
 }
 
 // mutations
@@ -129,7 +129,7 @@ const mutations = {
   },
   setSidebarVisibility(state, value) {
     state.sidebarVisible = value
-  }
+  },
 }
 
 export default {
@@ -137,5 +137,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 }

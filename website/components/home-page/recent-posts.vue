@@ -5,7 +5,7 @@
       class="pa-3"
       raised
       elevation="8"
-      style="height:100%"
+      style="height: 100%;"
       :to="blogItems[0].href"
     >
       <recentPosts :items-to-display="itemsToDisplay" :posts-list="postsList" />
@@ -14,26 +14,26 @@
 </template>
 
 <script>
-import recentPosts from '../blog/recent-posts/list.vue'
 import { mapState } from 'vuex'
+import recentPosts from '../blog/recent-posts/list.vue'
 export default {
   components: {
-    recentPosts
+    recentPosts,
   },
   props: {
     postsList: {
       type: Array,
       required: true,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   data: () => ({
-    itemsToDisplay: 5
+    itemsToDisplay: 5,
   }),
   computed: {
     ...mapState({
-      blogItems: state => state.Navigation.blog.blogItems
-    })
-  }
+      blogItems: (state) => state.Navigation.blog.blogItems,
+    }),
+  },
 }
 </script>

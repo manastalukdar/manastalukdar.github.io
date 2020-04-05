@@ -21,18 +21,18 @@
 import singlePost from './single-post.vue'
 export default {
   components: {
-    singlePost
+    singlePost,
   },
   props: {
     postsList: {
       type: Array,
       required: true,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   data: () => ({
     itemsPerPageOptions: [5, 10],
-    itemsPerPage: 5
-  })
+    itemsPerPage: 5,
+  }),
 }
 </script>

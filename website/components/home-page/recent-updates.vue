@@ -5,7 +5,7 @@
       class="pa-3"
       raised
       elevation="8"
-      style="height:100%"
+      style="height: 100%;"
     >
       <v-row class="title" justify="center">
         <span>Recent</span>
@@ -18,13 +18,13 @@
 </template>
 
 <script>
-const markdownRenderHelpers = require('../../utils/markdownRenderHelpers.js')
 const fm = require('front-matter')
 const md = require('markdown-it')({
   html: true,
   linkify: true,
-  typographer: true
+  typographer: true,
 })
+const markdownRenderHelpers = require('../../utils/markdownRenderHelpers.js')
 markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
 export default {
   asyncComputed: {
@@ -32,7 +32,7 @@ export default {
       const fileContent = await import('./recent-updates.md')
       const res = fm(fileContent.default)
       return md.render(res.body)
-    }
-  }
+    },
+  },
 }
 </script>

@@ -36,19 +36,19 @@
 </template>
 
 <script>
-import postHeader from './post-header.vue'
 import moment from 'moment'
 import { mapState } from 'vuex'
+import postHeader from './post-header.vue'
 export default {
   components: {
-    postHeader
+    postHeader,
   },
   props: {
     postMetadata: {
       type: Object,
       required: true,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   computed: {
     postLinkSlugs() {
@@ -60,9 +60,9 @@ export default {
       return { year, month, day, post }
     },
     ...mapState({
-      dynamicBlogPostRoute: state =>
-        state.Navigation.blog.dynamicItems.blogPost.href
-    })
+      dynamicBlogPostRoute: (state) =>
+        state.Navigation.blog.dynamicItems.blogPost.href,
+    }),
   },
   methods: {
     getBlogPostRoute(year, month, day, post) {
@@ -77,8 +77,8 @@ export default {
         post +
         '/'
       )
-    }
-  }
+    },
+  },
 }
 </script>
 

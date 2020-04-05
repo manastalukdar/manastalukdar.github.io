@@ -19,40 +19,40 @@
 </template>
 
 <script>
-import breadcrumbs from '../../components/breadcrumbs'
 import { mapState } from 'vuex'
+import breadcrumbs from '../../components/breadcrumbs'
 export default {
   components: {
-    breadcrumbs
+    breadcrumbs,
   },
   asyncData({ store, params, env, payload }) {
     return {
-      baseUrl: env.baseURL
+      baseUrl: env.baseURL,
     }
   },
   computed: {
     ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state =>
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
         state.Navigation.about.aboutItems[0].text +
         ' | ' +
         state.Navigation.about.aboutText,
-      currentHref: state => state.Navigation.about.aboutItems[0].href
+      currentHref: (state) => state.Navigation.about.aboutItems[0].href,
     }),
     breadcrumbs() {
       return [
         {
           text: 'Home',
           disabled: false,
-          to: '/'
+          to: '/',
         },
         {
           text: 'Resume',
           disabled: false,
-          to: this.currentHref
-        }
+          to: this.currentHref,
+        },
       ]
-    }
+    },
   },
   mounted() {
     this.fixParentContainerWidthOnMount()
@@ -80,7 +80,7 @@ export default {
           cr.classList.add('content-body')
         }
       }
-    }
+    },
   },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
@@ -92,14 +92,14 @@ export default {
         position: index + 1,
         item: {
           '@id': this.baseUrl + item.to,
-          name: item.text
-        }
+          name: item.text,
+        },
       })
     )
     const breadcrumbsStructuredData = {
       '@context': 'http://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray
+      itemListElement: breadcrumbsStructuredDataArray,
     }
     return {
       title,
@@ -107,42 +107,42 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: description
+          content: description,
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-title',
           name: 'og-title',
           property: 'og-title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-url',
           name: 'og-url',
           property: 'og-url',
-          content: url
+          content: url,
         },
         {
           hid: 'og-description',
           name: 'og-description',
           property: 'og-description',
-          content: description
-        }
+          content: description,
+        },
       ],
       link: [{ rel: 'canonical', href: url }],
       __dangerouslyDisableSanitizers: ['script'],
       script: [
         {
           innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json'
-        }
-      ]
+          type: 'application/ld+json',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

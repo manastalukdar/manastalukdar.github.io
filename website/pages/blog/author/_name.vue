@@ -14,17 +14,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import breadcrumbs from '../../../components/breadcrumbs'
 import postsList from '../../../components/blog/posts-list/list.vue'
-import { mapState } from 'vuex'
 export default {
   components: {
     breadcrumbs,
-    postsList
+    postsList,
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
-      const authName = payload[0].authors.filter(author => {
+      const authName = payload[0].authors.filter((author) => {
         if (author['url-slug'] === params.name) {
           return author.name
         }
@@ -33,7 +33,7 @@ export default {
         authorUrlSlug: params.name,
         baseUrl: env.baseURL,
         blogMetadata: payload,
-        authorName: authName[0].name
+        authorName: authName[0].name,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
@@ -45,10 +45,10 @@ export default {
           authorUrlSlug: params.name,
           baseUrl: env.baseURL,
           blogMetadata: [],
-          authorName: ''
+          authorName: '',
         }
       }
-      const authName = posts[0].authors.filter(author => {
+      const authName = posts[0].authors.filter((author) => {
         if (author['url-slug'] === params.name) {
           return author.name
         }
@@ -57,21 +57,21 @@ export default {
         authorUrlSlug: params.name,
         baseUrl: env.baseURL,
         blogMetadata: posts,
-        authorName: authName[0].name
+        authorName: authName[0].name,
       }
     }
   },
   computed: {
     ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state =>
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
         state.Navigation.blog.authorText +
         ' | ' +
         state.Navigation.blog.blogText,
-      authorText: state => state.Navigation.blog.authorText,
-      blogHref: state => state.Navigation.blog.blogItems[0].href,
-      blogDynamicItemsAuthor: state =>
-        state.Navigation.blog.dynamicItems.author.href
+      authorText: (state) => state.Navigation.blog.authorText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogDynamicItemsAuthor: (state) =>
+        state.Navigation.blog.dynamicItems.author.href,
     }),
     breadcrumbs() {
       return [
@@ -79,22 +79,22 @@ export default {
           text: 'Home',
           disabled: false,
           to: '/',
-          exact: true
+          exact: true,
         },
         {
           text: 'Blog',
           disabled: false,
           to: this.blogHref,
-          exact: true
+          exact: true,
         },
         {
           text: 'Blog Posts by Author',
           disabled: false,
           to: this.blogDynamicItemsAuthor + this.authorUrlSlug + '/',
-          exact: true
-        }
+          exact: true,
+        },
       ]
-    }
+    },
   },
   head() {
     const title =
@@ -108,14 +108,14 @@ export default {
         position: index + 1,
         item: {
           '@id': this.baseUrl + item.to,
-          name: item.text
-        }
+          name: item.text,
+        },
       })
     )
     const breadcrumbsStructuredData = {
       '@context': 'http://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray
+      itemListElement: breadcrumbsStructuredDataArray,
     }
     return {
       title,
@@ -123,42 +123,42 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: description
+          content: description,
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-title',
           name: 'og:title',
           property: 'og:title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-url',
           name: 'og:url',
           property: 'og:url',
-          content: url
+          content: url,
         },
         {
           hid: 'og-description',
           name: 'og:description',
           property: 'og:description',
-          content: description
-        }
+          content: description,
+        },
       ],
       link: [{ rel: 'canonical', href: url }],
       __dangerouslyDisableSanitizers: ['script'],
       script: [
         {
           innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json'
-        }
-      ]
+          type: 'application/ld+json',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

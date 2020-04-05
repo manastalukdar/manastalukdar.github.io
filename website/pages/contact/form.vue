@@ -63,15 +63,15 @@
 </template>
 
 <script>
-import breadcrumbs from '../../components/breadcrumbs'
 import { mapState } from 'vuex'
+import breadcrumbs from '../../components/breadcrumbs'
 export default {
   components: {
-    breadcrumbs
+    breadcrumbs,
   },
   asyncData({ store, params, env, payload }) {
     return {
-      baseUrl: env.baseURL
+      baseUrl: env.baseURL,
     }
   },
   data: () => ({
@@ -81,21 +81,21 @@ export default {
     form: false,
     isLoading: false,
     rules: {
-      email: v => (v || '').match(/@/) || 'Please enter a valid email',
-      length: len => v =>
+      email: (v) => (v || '').match(/@/) || 'Please enter a valid email',
+      length: (len) => (v) =>
         (v || '').length >= len || `Invalid character length, required ${len}`,
-      required: v => !!v || 'This field is required'
+      required: (v) => !!v || 'This field is required',
     },
-    description: 'Contact Form.'
+    description: 'Contact Form.',
   }),
   computed: {
     ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state =>
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
         state.Navigation.contact.contactForm.text +
         ' | ' +
         state.Navigation.contact.contactText,
-      currentHref: state => state.Navigation.contact.contactForm.href
+      currentHref: (state) => state.Navigation.contact.contactForm.href,
     }),
     breadcrumbs() {
       return [
@@ -103,21 +103,21 @@ export default {
           text: 'Home',
           disabled: false,
           to: '/',
-          exact: true
+          exact: true,
         },
         {
           text: 'Contact Form',
           disabled: false,
           to: this.currentHref,
-          exact: true
-        }
+          exact: true,
+        },
       ]
-    }
+    },
   },
   methods: {
     submit() {
       this.$v.$touch()
-    }
+    },
   },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
@@ -128,14 +128,14 @@ export default {
         position: index + 1,
         item: {
           '@id': this.baseUrl + item.to,
-          name: item.text
-        }
+          name: item.text,
+        },
       })
     )
     const breadcrumbsStructuredData = {
       '@context': 'http://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray
+      itemListElement: breadcrumbsStructuredDataArray,
     }
     return {
       title,
@@ -143,42 +143,42 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.description
+          content: this.description,
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-title',
           name: 'og:title',
           property: 'og:title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-url',
           name: 'og:url',
           property: 'og:url',
-          content: url
+          content: url,
         },
         {
           hid: 'og-description',
           name: 'og:description',
           property: 'og:description',
-          content: this.description
-        }
+          content: this.description,
+        },
       ],
       link: [{ rel: 'canonical', href: url }],
       __dangerouslyDisableSanitizers: ['script'],
       script: [
         {
           innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json'
-        }
-      ]
+          type: 'application/ld+json',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

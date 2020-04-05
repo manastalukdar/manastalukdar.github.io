@@ -14,21 +14,21 @@
 </template>
 
 <script>
-import breadcrumbs from '../../../../../components/breadcrumbs'
-import post from '../../../../../components/blog/single-post/post.vue'
 import { mapState } from 'vuex'
 import axios from 'axios'
 import markdownItAnchor from 'markdown-it-anchor'
 import markdownItTocDoneRight from 'markdown-it-toc-done-right'
 import markdownItTextualUml from 'markdown-it-textual-uml'
-const markdownRenderHelpers = require('../../../../../utils/markdownRenderHelpers.js')
+import post from '../../../../../components/blog/single-post/post.vue'
+import breadcrumbs from '../../../../../components/breadcrumbs'
 const hljs = require('highlight.js') // https://highlightjs.org/
 const fm = require('front-matter')
+const markdownRenderHelpers = require('../../../../../utils/markdownRenderHelpers.js')
 let mermaid = null
 export default {
   components: {
     breadcrumbs,
-    post
+    post,
   },
   async asyncData({ store, params, env, payload }) {
     const md = require('markdown-it')({
@@ -55,14 +55,14 @@ export default {
           '<pre><div class="hljs">' + md.utils.escapeHtml(str) + '</div></pre>'
         )
         // return '' // use external default escaping
-      }
+      },
     })
       .use(require('markdown-it-mathjax')())
       .use(require('markdown-it-html5-embed'), {
         html5embed: {
           useImageSyntax: true, // Enables video/audio embed with ![]() syntax (default)
-          useLinkSyntax: false // Enables video/audio embed with []() syntax
-        }
+          useLinkSyntax: false, // Enables video/audio embed with []() syntax
+        },
       })
       .use(require('markdown-it-container'), 'iframe-container', {
         render(tokens, idx) {
@@ -76,15 +76,15 @@ export default {
             // closing tag
             return '</div>\n'
           }
-        }
+        },
       })
       .use(markdownItAnchor, {
         permalink: true,
         permalinkBefore: true,
-        permalinkSymbol: '' // §
+        permalinkSymbol: '', // §
       })
       .use(markdownItTocDoneRight, {
-        level: 2
+        level: 2,
       })
       .use(require('markdown-it-footnote'))
       .use(markdownItTextualUml)
@@ -108,7 +108,7 @@ export default {
         postMetadata: payload,
         baseUrl: env.baseURL,
         postId: postIdTemp,
-        url: env.baseURL + postIdTemp
+        url: env.baseURL + postIdTemp,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
@@ -122,7 +122,7 @@ export default {
       )
       const fileContent = await axios
         .get(env.baseURL + '/blogdata/' + postMetadata.path)
-        .catch(function(error) {
+        .catch(function (error) {
           if (error.response) {
             // The request was made and the server responded with a status code
             // that falls out of the range of 2xx
@@ -152,21 +152,21 @@ export default {
         postMetadata,
         baseUrl: env.baseURL,
         postId: postIdTemp,
-        url: env.baseURL + '/' + postIdTemp
+        url: env.baseURL + '/' + postIdTemp,
       }
     }
   },
   data() {
     return {
-      postContent: ''
+      postContent: '',
     }
   },
   computed: {
     ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state => state.Navigation.blog.blogText,
-      blogHref: state => state.Navigation.blog.blogItems[0].href,
-      blogBaseHref: state => state.Navigation.blog.dynamicItems.blogBase.href
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) => state.Navigation.blog.blogText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogBaseHref: (state) => state.Navigation.blog.dynamicItems.blogBase.href,
     }),
     breadcrumbs() {
       return [
@@ -175,24 +175,24 @@ export default {
           disabled: false,
           to: '/',
           nuxt: true,
-          exact: true
+          exact: true,
         },
         {
           text: 'Blog',
           disabled: false,
           to: this.blogHref,
           nuxt: true,
-          exact: true
+          exact: true,
         },
         {
           text: this.postMetadata.title,
           disabled: false,
           to: this.postId,
           nuxt: true,
-          exact: true
-        }
+          exact: true,
+        },
       ]
-    }
+    },
   },
   mounted() {
     if (mermaid == null) {
@@ -200,7 +200,7 @@ export default {
     }
     mermaid.initialize({
       startOnLoad: true,
-      theme: 'forest'
+      theme: 'forest',
     })
   },
   head() {
@@ -222,20 +222,20 @@ export default {
     const tagsArray = []
     const authorsArray = []
     const authorsStructuredData = []
-    this.postMetadata.categories.forEach(category => {
+    this.postMetadata.categories.forEach((category) => {
       categoriesArray.push(category.name)
       keywordsArray.push(category.name)
     })
-    this.postMetadata.tags.forEach(tag => {
+    this.postMetadata.tags.forEach((tag) => {
       tagsArray.push(tag.name)
       keywordsArray.push(tag.name)
     })
-    this.postMetadata.authors.forEach(author => {
+    this.postMetadata.authors.forEach((author) => {
       authorsArray.push(author.name)
       keywordsArray.push(author.name)
       authorsStructuredData.push({
         '@type': 'Person',
-        name: author.name
+        name: author.name,
       })
     })
     const keywords = keywordsArray.join()
@@ -259,17 +259,17 @@ export default {
       author: authorsStructuredData,
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': this.url
+        '@id': this.url,
       },
       publisher: {
         '@type': 'Organization',
         name: this.appOwner + ' - Personal Website',
         logo: {
           '@type': 'ImageObject',
-          url: this.baseUrl + '/images/android-chrome-512x512.png'
-        }
+          url: this.baseUrl + '/images/android-chrome-512x512.png',
+        },
       },
-      image: this.baseUrl + '/images/android-chrome-512x512.png'
+      image: this.baseUrl + '/images/android-chrome-512x512.png',
     }
     const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
       (item, index) => ({
@@ -277,14 +277,14 @@ export default {
         position: index + 1,
         item: {
           '@id': this.baseUrl + item.to,
-          name: item.text
-        }
+          name: item.text,
+        },
       })
     )
     const breadcrumbsStructuredData = {
       '@context': 'http://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray
+      itemListElement: breadcrumbsStructuredDataArray,
     }
     return {
       title,
@@ -292,67 +292,67 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: description
+          content: description,
         },
         {
           hid: 'keywords',
           name: 'keywords',
-          content: keywords
+          content: keywords,
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-title',
           name: 'og:title',
           property: 'og:title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-url',
           name: 'og:url',
           property: 'og:url',
-          content: this.url
+          content: this.url,
         },
         {
           hid: 'og-description',
           name: 'og:description',
           property: 'og:description',
-          content: description
+          content: description,
         },
         {
           hid: 'og-type',
           name: 'og:type',
           property: 'og:type',
-          content: 'article'
+          content: 'article',
         },
         {
           name: 'og:article:section',
           property: 'og:article:section',
-          content: category
+          content: category,
         },
         {
           name: 'og:article:tag',
           property: 'og:article:tag',
-          content: tags
-        }
+          content: tags,
+        },
       ],
       link: [{ rel: 'canonical', href: this.url }],
       __dangerouslyDisableSanitizers: ['script'],
       script: [
         {
           innerHTML: JSON.stringify(structuredData),
-          type: 'application/ld+json'
+          type: 'application/ld+json',
         },
         {
           innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json'
-        }
-      ]
+          type: 'application/ld+json',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

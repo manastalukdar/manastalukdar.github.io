@@ -33,10 +33,10 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState({
-      socialMediaItems: state => state.Navigation.contact.socialMediaItems,
-      aboutItems: state => state.Navigation.about.aboutItems
-    })
-  }
+      socialMediaItems: (state) => state.Navigation.contact.socialMediaItems,
+      aboutItems: (state) => state.Navigation.about.aboutItems,
+    }),
+  },
 }
 </script>
 

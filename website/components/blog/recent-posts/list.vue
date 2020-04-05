@@ -19,27 +19,27 @@
 import singlePost from './single-post.vue'
 export default {
   components: {
-    singlePost
+    singlePost,
   },
   props: {
     postsList: {
       type: Array,
       required: true,
-      default: () => []
+      default: () => [],
     },
     itemsToDisplay: {
       type: Number,
       required: true,
-      default: 5
-    }
+      default: 5,
+    },
   },
   data: () => ({
-    pageTitle: 'Recent Posts'
+    pageTitle: 'Recent Posts',
   }),
   computed: {
     posts() {
       return this.postsList.slice(0, this.itemsToDisplay)
-    }
-  }
+    },
+  },
 }
 </script>

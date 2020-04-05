@@ -17,39 +17,39 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { addBackToTop } from 'vanilla-back-to-top'
 import MainNavMenuNavigationDrawer from '../components/main-nav-menu/NavigationDrawer.vue'
 import MainNavMenuTopNavBar from '../components/main-nav-menu/TopNavBar.vue'
 import Footer from '../components/footer.vue'
-import { mapState } from 'vuex'
-import { addBackToTop } from 'vanilla-back-to-top'
 export default {
   pageTransition: {
     name: 'fade',
-    mode: 'out-in'
+    mode: 'out-in',
   },
   /* name: 'App', */
   components: {
     MainNavMenuNavigationDrawer,
     MainNavMenuTopNavBar,
-    Footer
+    Footer,
   },
   computed: {
     ...mapState({
-      appOwner: state => state.GlobalData.appOwner
-    })
+      appOwner: (state) => state.GlobalData.appOwner,
+    }),
   },
   mounted() {
     // this.$vuetify.theme.dark = true
     addBackToTop({
       diameter: 40,
-      zIndex: 3
+      zIndex: 3,
     })
   },
   head() {
     return {
-      title: this.appOwner
+      title: this.appOwner,
     }
-  }
+  },
 }
 </script>
 

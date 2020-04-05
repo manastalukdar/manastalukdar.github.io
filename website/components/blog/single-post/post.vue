@@ -37,48 +37,48 @@ export default {
   components: {
     postHeader,
     socialSharing,
-    comments
+    comments,
   },
   props: {
     postMetadata: {
       type: Object,
       required: true,
-      default: () => {}
+      default: () => {},
     },
     postContent: {
       type: String,
       required: true,
-      default: ''
+      default: '',
     },
     url: {
       type: String,
       required: true,
-      default: ''
+      default: '',
     },
     postId: {
       type: String,
       required: true,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     hashtags() {
       const hashtagsArray = []
-      this.postMetadata.categories.forEach(category => {
+      this.postMetadata.categories.forEach((category) => {
         const noSpecialCharNoSpaces = category.name
           .replace('[^a-zA-Z0-9]+', '')
           .replace(/\s+/g, '')
         hashtagsArray.push(noSpecialCharNoSpaces)
       })
-      this.postMetadata.tags.forEach(tag => {
+      this.postMetadata.tags.forEach((tag) => {
         const noSpecialCharNoSpaces = tag.name
           .replace('[^a-zA-Z0-9]+', '')
           .replace(/\s+/g, '')
         hashtagsArray.push(noSpecialCharNoSpaces)
       })
       return hashtagsArray.join()
-    }
-  }
+    },
+  },
 }
 </script>
 

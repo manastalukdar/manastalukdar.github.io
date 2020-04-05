@@ -25,8 +25,8 @@ export default {
     postMetadata: {
       type: Object,
       required: true,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   computed: {
     postLinkSlugs() {
@@ -38,9 +38,9 @@ export default {
       return { year, month, day, post }
     },
     ...mapState({
-      dynamicBlogPostRoute: state =>
-        state.Navigation.blog.dynamicItems.blogPost.href
-    })
+      dynamicBlogPostRoute: (state) =>
+        state.Navigation.blog.dynamicItems.blogPost.href,
+    }),
   },
   methods: {
     getBlogPostRoute(year, month, day, post) {
@@ -55,7 +55,7 @@ export default {
         post +
         '/'
       )
-    }
-  }
+    },
+  },
 }
 </script>

@@ -51,17 +51,17 @@
 </template>
 
 <script>
-import breadcrumbs from '../../components/breadcrumbs'
 import { mapState } from 'vuex'
+import breadcrumbs from '../../components/breadcrumbs'
 export default {
   components: {
-    breadcrumbs
+    breadcrumbs,
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
       return {
         baseUrl: env.baseURL,
-        categories: payload
+        categories: payload,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
@@ -71,12 +71,12 @@ export default {
       if (categories === undefined) {
         return {
           baseUrl: env.baseURL,
-          categories: []
+          categories: [],
         }
       }
       return {
         baseUrl: env.baseURL,
-        categories
+        categories,
       }
     }
   },
@@ -88,26 +88,26 @@ export default {
           text: 'Category',
           align: 'left',
           sortable: true,
-          value: 'name'
+          value: 'name',
         },
-        { text: 'Number of posts', align: 'right', value: 'count' }
-      ]
+        { text: 'Number of posts', align: 'right', value: 'count' },
+      ],
     }
   },
   computed: {
     ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state =>
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
         state.Navigation.blog.blogItems[1].text +
         ' | ' +
         state.Navigation.blog.blogText,
-      blogMetadata: state => state.BlogMetadata.blogMetadata,
-      pageTitle: state => state.Navigation.blog.blogItems[1].text,
-      blogHref: state => state.Navigation.blog.blogItems[0].href,
-      currentHref: state => state.Navigation.blog.blogItems[1].href,
-      categoriesText: state => state.Navigation.blog.blogItems[1].text,
-      blogDynamicItemsCategory: state =>
-        state.Navigation.blog.dynamicItems.category.href
+      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
+      pageTitle: (state) => state.Navigation.blog.blogItems[1].text,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      currentHref: (state) => state.Navigation.blog.blogItems[1].href,
+      categoriesText: (state) => state.Navigation.blog.blogItems[1].text,
+      blogDynamicItemsCategory: (state) =>
+        state.Navigation.blog.dynamicItems.category.href,
     }),
     breadcrumbs() {
       return [
@@ -115,27 +115,27 @@ export default {
           text: 'Home',
           disabled: false,
           to: '/',
-          exact: true
+          exact: true,
         },
         {
           text: 'Blog',
           disabled: false,
           to: this.blogHref,
-          exact: true
+          exact: true,
         },
         {
           text: this.categoriesText,
           disabled: false,
           to: this.currentHref,
-          exact: true
-        }
+          exact: true,
+        },
       ]
-    }
+    },
   },
   methods: {
     getLink(categorySlug) {
       return this.blogDynamicItemsCategory + categorySlug + '/'
-    }
+    },
   },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
@@ -147,14 +147,14 @@ export default {
         position: index + 1,
         item: {
           '@id': this.baseUrl + item.to,
-          name: item.text
-        }
+          name: item.text,
+        },
       })
     )
     const breadcrumbsStructuredData = {
       '@context': 'http://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray
+      itemListElement: breadcrumbsStructuredDataArray,
     }
     return {
       title,
@@ -162,42 +162,42 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: description
+          content: description,
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-title',
           name: 'og:title',
           property: 'og:title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-url',
           name: 'og:url',
           property: 'og:url',
-          content: url
+          content: url,
         },
         {
           hid: 'og-description',
           name: 'og:description',
           property: 'og:description',
-          content: description
-        }
+          content: description,
+        },
       ],
       link: [{ rel: 'canonical', href: url }],
       __dangerouslyDisableSanitizers: ['script'],
       script: [
         {
           innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json'
-        }
-      ]
+          type: 'application/ld+json',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

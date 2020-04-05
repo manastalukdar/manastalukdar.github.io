@@ -54,15 +54,15 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import BlogMenuItems from './BlogMenuItems.vue'
 import AboutMenuItems from './AboutMenuItems.vue'
 import ContactMenuItems from './ContactMenuItems.vue'
-import { mapState } from 'vuex'
 export default {
   components: {
     BlogMenuItems,
     AboutMenuItems,
-    ContactMenuItems
+    ContactMenuItems,
   },
   computed: {
     sidebarVisibility: {
@@ -73,17 +73,17 @@ export default {
       // setter
       set(value) {
         this.$store.commit('Navigation/setSidebarVisibility', value)
-      }
+      },
     },
     ...mapState({
-      blogText: state => state.Navigation.blog.blogText,
-      aboutText: state => state.Navigation.about.aboutText,
-      aboutPath: state => state.Navigation.about.aboutPath,
-      legalText: state => state.Navigation.legal.legalText,
-      legalPath: state => state.Navigation.legal.legalPath,
-      contactText: state => state.Navigation.contact.contactText
-    })
-  }
+      blogText: (state) => state.Navigation.blog.blogText,
+      aboutText: (state) => state.Navigation.about.aboutText,
+      aboutPath: (state) => state.Navigation.about.aboutPath,
+      legalText: (state) => state.Navigation.legal.legalText,
+      legalPath: (state) => state.Navigation.legal.legalPath,
+      contactText: (state) => state.Navigation.contact.contactText,
+    }),
+  },
 }
 </script>
 

@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import breadcrumbs from '../../../components/breadcrumbs'
-import postsList from '../../../components/blog/posts-list/list.vue'
 import moment from 'moment'
 import { mapState } from 'vuex'
+import breadcrumbs from '../../../components/breadcrumbs'
+import postsList from '../../../components/blog/posts-list/list.vue'
 export default {
   validate({ params }) {
     // Must be a number and must be a year
@@ -27,7 +27,7 @@ export default {
   },
   components: {
     breadcrumbs,
-    postsList
+    postsList,
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
@@ -35,7 +35,7 @@ export default {
         yearUrlSlug: params.year,
         baseUrl: env.baseURL,
         blogMetadata: payload,
-        yearName: params.year
+        yearName: params.year,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
@@ -47,25 +47,25 @@ export default {
           yearUrlSlug: params.year,
           baseUrl: env.baseURL,
           blogMetadata: [],
-          yearName: ''
+          yearName: '',
         }
       }
       return {
         yearUrlSlug: params.year,
         baseUrl: env.baseURL,
         blogMetadata: posts,
-        yearName: params.year
+        yearName: params.year,
       }
     }
   },
   computed: {
     ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state =>
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
         state.Navigation.blog.yearText + ' | ' + state.Navigation.blog.blogText,
-      yearText: state => state.Navigation.blog.yearText,
-      blogHref: state => state.Navigation.blog.blogItems[0].href,
-      blogBaseHref: state => state.Navigation.blog.dynamicItems.blogBase.href
+      yearText: (state) => state.Navigation.blog.yearText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogBaseHref: (state) => state.Navigation.blog.dynamicItems.blogBase.href,
     }),
     breadcrumbs() {
       return [
@@ -73,22 +73,22 @@ export default {
           text: 'Home',
           disabled: false,
           to: '/',
-          exact: true
+          exact: true,
         },
         {
           text: 'Blog',
           disabled: false,
           to: this.blogHref,
-          exact: true
+          exact: true,
         },
         {
           text: 'Blog Posts by Year',
           disabled: false,
           to: this.blogBaseHref + this.yearUrlSlug + '/',
-          exact: true
-        }
+          exact: true,
+        },
       ]
-    }
+    },
   },
   head() {
     const title =
@@ -101,14 +101,14 @@ export default {
         position: index + 1,
         item: {
           '@id': this.baseUrl + item.to,
-          name: item.text
-        }
+          name: item.text,
+        },
       })
     )
     const breadcrumbsStructuredData = {
       '@context': 'http://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray
+      itemListElement: breadcrumbsStructuredDataArray,
     }
     return {
       title,
@@ -116,42 +116,42 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: description
+          content: description,
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-title',
           name: 'og:title',
           property: 'og:title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-url',
           name: 'og:url',
           property: 'og:url',
-          content: url
+          content: url,
         },
         {
           hid: 'og-description',
           name: 'og:description',
           property: 'og:description',
-          content: description
-        }
+          content: description,
+        },
       ],
       link: [{ rel: 'canonical', href: url }],
       __dangerouslyDisableSanitizers: ['script'],
       script: [
         {
           innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json'
-        }
-      ]
+          type: 'application/ld+json',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

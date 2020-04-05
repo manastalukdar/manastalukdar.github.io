@@ -4,7 +4,7 @@ const state = () => ({
   appOwner: 'Manas Talukdar',
   copyrightStartYear: '2018',
   copyrightEndYear: new Date().getFullYear(),
-  currentPageName: ''
+  currentPageName: '',
 })
 
 // getters
@@ -14,14 +14,14 @@ const getters = {}
 const actions = {
   setCurrentPageName({ commit }, name) {
     commit('currentPageName', name)
-  }
+  },
 }
 
 // mutations
 const mutations = {
   setCurrentPageName(state, name) {
     state.currentPageName = name
-  }
+  },
 }
 
 export default {
@@ -29,5 +29,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 }

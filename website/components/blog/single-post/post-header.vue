@@ -49,8 +49,8 @@ export default {
     postMetadata: {
       type: Object,
       required: true,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   computed: {
     postFormatIcon() {
@@ -59,14 +59,14 @@ export default {
       )
     },
     ...mapState({
-      dynamicCategoryRoute: state =>
+      dynamicCategoryRoute: (state) =>
         state.Navigation.blog.dynamicItems.category.href,
-      dynamicTagRoute: state => state.Navigation.blog.dynamicItems.tag.href,
-      dynamicAuthorRoute: state =>
+      dynamicTagRoute: (state) => state.Navigation.blog.dynamicItems.tag.href,
+      dynamicAuthorRoute: (state) =>
         state.Navigation.blog.dynamicItems.author.href,
-      dynamicPostFormatRoute: state =>
-        state.Navigation.blog.dynamicItems.postFormat.href
-    })
+      dynamicPostFormatRoute: (state) =>
+        state.Navigation.blog.dynamicItems.postFormat.href,
+    }),
   },
   methods: {
     getCategoryRoute(slug) {
@@ -80,8 +80,8 @@ export default {
     },
     getPostFormatRoute(slug) {
       return this.dynamicPostFormatRoute + slug + '/'
-    }
-  }
+    },
+  },
 }
 </script>
 

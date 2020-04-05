@@ -5,7 +5,7 @@
         :aria-label="legalText"
         text
         :to="legalPath"
-        style="min-width: 48px"
+        style="min-width: 48px;"
         v-on="on"
       >
         <span class="hidden-sm-and-down mr-1" v-text="legalText" />
@@ -19,8 +19,8 @@ import { mapState } from 'vuex'
 export default {
   data: () => ({}),
   computed: mapState({
-    legalText: state => state.Navigation.legal.legalText,
-    legalPath: state => state.Navigation.legal.legalPath
-  })
+    legalText: (state) => state.Navigation.legal.legalText,
+    legalPath: (state) => state.Navigation.legal.legalPath,
+  }),
 }
 </script>

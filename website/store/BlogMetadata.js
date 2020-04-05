@@ -4,13 +4,13 @@ import moment from 'moment'
 
 // initial state
 const state = () => ({
-  blogMetadata: []
+  blogMetadata: [],
 })
 
 // getters
 const getters = {
-  getPostMetadata: state => (year, month, date, slug) => {
-    return _.find(state.blogMetadata, function(post) {
+  getPostMetadata: (state) => (year, month, date, slug) => {
+    return _.find(state.blogMetadata, function (post) {
       const momentObj = moment(post['first-published-on'])
       return (
         momentObj.format('YYYY') === year &&
@@ -21,8 +21,8 @@ const getters = {
     })
   },
 
-  getPostFormats: state => {
-    const groupedByPostFormat = _.groupBy(state.blogMetadata, function(
+  getPostFormats: (state) => {
+    const groupedByPostFormat = _.groupBy(state.blogMetadata, function (
       postmetadata
     ) {
       return postmetadata['post-format']['url-slug']
@@ -35,9 +35,9 @@ const getters = {
     return items
   },
 
-  getTags: state => {
-    const groupedByTags = state.blogMetadata.reduce(function(acc, curr) {
-      curr.tags.forEach(function(item) {
+  getTags: (state) => {
+    const groupedByTags = state.blogMetadata.reduce(function (acc, curr) {
+      curr.tags.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
         } else {
@@ -48,7 +48,7 @@ const getters = {
     }, {})
     const items = []
     for (const [key, value] of Object.entries(groupedByTags)) {
-      const tagName = value[0].tags.filter(tag => {
+      const tagName = value[0].tags.filter((tag) => {
         if (tag['url-slug'] === key) {
           return tag.name
         }
@@ -58,9 +58,9 @@ const getters = {
     return items
   },
 
-  getCategories: state => {
-    const groupedByCategories = state.blogMetadata.reduce(function(acc, curr) {
-      curr.categories.forEach(function(item) {
+  getCategories: (state) => {
+    const groupedByCategories = state.blogMetadata.reduce(function (acc, curr) {
+      curr.categories.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
         } else {
@@ -71,7 +71,7 @@ const getters = {
     }, {})
     const items = []
     for (const [key, value] of Object.entries(groupedByCategories)) {
-      const catName = value[0].categories.filter(category => {
+      const catName = value[0].categories.filter((category) => {
         if (category['url-slug'] === key) {
           return category.name
         }
@@ -81,9 +81,9 @@ const getters = {
     return items
   },
 
-  getPostsForTag: state => tag => {
-    const groupedByTags = state.blogMetadata.reduce(function(acc, curr) {
-      curr.tags.forEach(function(item) {
+  getPostsForTag: (state) => (tag) => {
+    const groupedByTags = state.blogMetadata.reduce(function (acc, curr) {
+      curr.tags.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
         } else {
@@ -98,9 +98,9 @@ const getters = {
       }
     }
   },
-  getPostsForCategory: state => category => {
-    const groupedByCategories = state.blogMetadata.reduce(function(acc, curr) {
-      curr.categories.forEach(function(item) {
+  getPostsForCategory: (state) => (category) => {
+    const groupedByCategories = state.blogMetadata.reduce(function (acc, curr) {
+      curr.categories.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
         } else {
@@ -115,9 +115,9 @@ const getters = {
       }
     }
   },
-  getPostsForAuthor: state => author => {
-    const groupedByAuthor = state.blogMetadata.reduce(function(acc, curr) {
-      curr.authors.forEach(function(item) {
+  getPostsForAuthor: (state) => (author) => {
+    const groupedByAuthor = state.blogMetadata.reduce(function (acc, curr) {
+      curr.authors.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
         } else {
@@ -132,8 +132,8 @@ const getters = {
       }
     }
   },
-  getPostsForPostFormat: state => postFormat => {
-    const groupedByPostFormat = _.groupBy(state.blogMetadata, function(
+  getPostsForPostFormat: (state) => (postFormat) => {
+    const groupedByPostFormat = _.groupBy(state.blogMetadata, function (
       postmetadata
     ) {
       return postmetadata['post-format']['url-slug']
@@ -144,8 +144,8 @@ const getters = {
       }
     }
   },
-  getPostsForYear: state => year => {
-    const groupedByYear = state.blogMetadata.reduce(function(acc, curr) {
+  getPostsForYear: (state) => (year) => {
+    const groupedByYear = state.blogMetadata.reduce(function (acc, curr) {
       const momentObj = moment(curr['first-published-on'])
       const yearCurr = momentObj.format('YYYY')
       const key = yearCurr
@@ -162,8 +162,8 @@ const getters = {
       }
     }
   },
-  getPostsForMonth: state => (year, month) => {
-    const groupedByMonth = state.blogMetadata.reduce(function(acc, curr) {
+  getPostsForMonth: (state) => (year, month) => {
+    const groupedByMonth = state.blogMetadata.reduce(function (acc, curr) {
       const momentObj = moment(curr['first-published-on'])
       const yearCurr = momentObj.format('YYYY')
       const monthCurr = momentObj.format('MM')
@@ -181,8 +181,8 @@ const getters = {
       }
     }
   },
-  getPostsForDay: state => (year, month, day) => {
-    const groupedByDay = state.blogMetadata.reduce(function(acc, curr) {
+  getPostsForDay: (state) => (year, month, day) => {
+    const groupedByDay = state.blogMetadata.reduce(function (acc, curr) {
       const momentObj = moment(curr['first-published-on'])
       const yearCurr = momentObj.format('YYYY')
       const monthCurr = momentObj.format('MM')
@@ -201,7 +201,7 @@ const getters = {
       }
     }
   },
-  getPostFormatIcon: state => postFormatType => {
+  getPostFormatIcon: (state) => (postFormatType) => {
     if (postFormatType === 'standard') {
       return 'mdi-pin'
     } else if (postFormatType === 'aside') {
@@ -223,7 +223,7 @@ const getters = {
     } else if (postFormatType === 'chat') {
       return 'chat'
     }
-  }
+  },
 }
 
 // actions
@@ -231,7 +231,7 @@ const actions = {
   async getBlogMetadata({ commit }, baseURL) {
     const { data } = await axios
       .get(baseURL + '/blogdata/metadata/blog_metadata.json')
-      .catch(function(error) {
+      .catch(function (error) {
         if (error.response) {
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
@@ -256,14 +256,14 @@ const actions = {
         console.log(error.config)
       })
     commit('setBlogMetadata', data)
-  }
+  },
 }
 
 // mutations
 const mutations = {
   setBlogMetadata(state, data) {
     state.blogMetadata = data
-  }
+  },
 }
 
 export default {
@@ -271,5 +271,5 @@ export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 }

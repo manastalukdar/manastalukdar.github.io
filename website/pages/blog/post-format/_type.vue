@@ -14,13 +14,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import breadcrumbs from '../../../components/breadcrumbs'
 import postsList from '../../../components/blog/posts-list/list.vue'
-import { mapState } from 'vuex'
 export default {
   components: {
     breadcrumbs,
-    postsList
+    postsList,
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
@@ -29,7 +29,7 @@ export default {
         postFormatUrlSlug: params.type,
         baseUrl: env.baseURL,
         blogMetadata: payload,
-        postFormatType: postFormatTypeTemp
+        postFormatType: postFormatTypeTemp,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
@@ -43,7 +43,7 @@ export default {
           postFormatUrlSlug: params.type,
           baseUrl: env.baseURL,
           blogMetadata: [],
-          authorName: ''
+          authorName: '',
         }
       }
       const postFormatTypeTemp = posts[0]['post-format'].name
@@ -51,21 +51,21 @@ export default {
         postFormatUrlSlug: params.type,
         baseUrl: env.baseURL,
         blogMetadata: posts,
-        postFormatType: postFormatTypeTemp
+        postFormatType: postFormatTypeTemp,
       }
     }
   },
   computed: {
     ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state =>
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
         state.Navigation.blog.postFormatText +
         ' | ' +
         state.Navigation.blog.blogText,
-      postFormatText: state => state.Navigation.blog.postFormatText,
-      blogHref: state => state.Navigation.blog.blogItems[0].href,
-      blogDynamicItemsPostFormat: state =>
-        state.Navigation.blog.dynamicItems.postFormat.href
+      postFormatText: (state) => state.Navigation.blog.postFormatText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogDynamicItemsPostFormat: (state) =>
+        state.Navigation.blog.dynamicItems.postFormat.href,
     }),
     breadcrumbs() {
       return [
@@ -73,22 +73,22 @@ export default {
           text: 'Home',
           disabled: false,
           to: '/',
-          exact: true
+          exact: true,
         },
         {
           text: 'Blog',
           disabled: false,
           to: this.blogHref,
-          exact: true
+          exact: true,
         },
         {
           text: 'Blog Posts by Post-Format',
           disabled: false,
           to: this.blogDynamicItemsPostFormat + this.postFormatType + '/',
-          exact: true
-        }
+          exact: true,
+        },
       ]
-    }
+    },
   },
   head() {
     const title =
@@ -102,14 +102,14 @@ export default {
         position: index + 1,
         item: {
           '@id': this.baseUrl + item.to,
-          name: item.text
-        }
+          name: item.text,
+        },
       })
     )
     const breadcrumbsStructuredData = {
       '@context': 'http://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray
+      itemListElement: breadcrumbsStructuredDataArray,
     }
     return {
       title,
@@ -117,42 +117,42 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Blog posts of format ' + this.postFormatType
+          content: 'Blog posts of format ' + this.postFormatType,
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-title',
           name: 'og:title',
           property: 'og:title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-url',
           name: 'og:url',
           property: 'og:url',
-          content: url
+          content: url,
         },
         {
           hid: 'og-description',
           name: ':description',
           property: 'og:description',
-          content: description
-        }
+          content: description,
+        },
       ],
       link: [{ rel: 'canonical', href: url }],
       __dangerouslyDisableSanitizers: ['script'],
       script: [
         {
           innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json'
-        }
-      ]
+          type: 'application/ld+json',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

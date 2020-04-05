@@ -12,7 +12,7 @@ const fm = require('front-matter')
 const md = require('markdown-it')({
   html: true,
   linkify: true,
-  typographer: true
+  typographer: true,
 })
 export default {
   asyncComputed: {
@@ -20,7 +20,7 @@ export default {
       const fileContent = await import('./about-blurb.md')
       const res = fm(fileContent.default)
       return md.render(res.body)
-    }
-  }
+    },
+  },
 }
 </script>

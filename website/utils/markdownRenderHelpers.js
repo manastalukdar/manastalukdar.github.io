@@ -4,11 +4,11 @@ const functions = {
     // Remember old renderer, if overridden, or proxy to default renderer
     const defaultRender =
       md.renderer.rules.link_open ||
-      function(tokens, idx, options, env, self) {
+      function (tokens, idx, options, env, self) {
         return self.renderToken(tokens, idx, options)
       }
 
-    md.renderer.rules.link_open = function(tokens, idx, options, env, self) {
+    md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
       // If you are sure other plugins can't add `target` - drop check below
       const aIndex = tokens[idx].attrIndex('target')
 
@@ -33,9 +33,9 @@ const functions = {
       // pass token to default renderer.
       return defaultRender(tokens, idx, options, env, self)
     }
-  }
+  },
 }
 
 export default {
-  functions
+  functions,
 }

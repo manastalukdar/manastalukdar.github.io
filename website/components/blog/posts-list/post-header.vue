@@ -46,8 +46,8 @@ export default {
     postMetadata: {
       type: Object,
       required: true,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   computed: {
     postFormatIcon() {
@@ -56,15 +56,15 @@ export default {
       )
     },
     ...mapState({
-      dynamicCategoryRoute: state =>
+      dynamicCategoryRoute: (state) =>
         state.Navigation.blog.dynamicItems.category.href,
-      dynamicTagRoute: state => state.Navigation.blog.dynamicItems.tag.href,
-      dynamicAuthorRoute: state =>
+      dynamicTagRoute: (state) => state.Navigation.blog.dynamicItems.tag.href,
+      dynamicAuthorRoute: (state) =>
         state.Navigation.blog.dynamicItems.author.href,
-      aboutItems: state => state.Navigation.about.aboutItems,
-      appOwner: state => state.GlobalData.appOwner,
-      blogMetadata: state => state.BlogMetadata.blogMetadata
-    })
+      aboutItems: (state) => state.Navigation.about.aboutItems,
+      appOwner: (state) => state.GlobalData.appOwner,
+      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
+    }),
   },
   methods: {
     getCategoryRoute(slug) {
@@ -75,8 +75,8 @@ export default {
     },
     getAuthorRoute(slug) {
       return this.dynamicAuthorRoute + slug + '/'
-    }
-  }
+    },
+  },
 }
 </script>
 

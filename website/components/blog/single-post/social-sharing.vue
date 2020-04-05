@@ -14,16 +14,22 @@
         >
           <div class="socialSharingItems">
             <network network="email">
-              <a><i class="socialSharingItem mdi mdi-email mdi-24px"></i></a>
+              <a><em class="socialSharingItem mdi mdi-email mdi-24px"></em></a>
             </network>
             <network network="linkedin">
-              <a><i class="socialSharingItem mdi mdi-linkedin mdi-24px"></i></a>
+              <a
+                ><em class="socialSharingItem mdi mdi-linkedin mdi-24px"></em
+              ></a>
             </network>
             <network network="twitter">
-              <a><i class="socialSharingItem mdi mdi-twitter mdi-24px"></i></a>
+              <a
+                ><em class="socialSharingItem mdi mdi-twitter mdi-24px"></em
+              ></a>
             </network>
             <network network="facebook">
-              <a><i class="socialSharingItem mdi mdi-facebook mdi-24px"></i></a>
+              <a
+                ><em class="socialSharingItem mdi mdi-facebook mdi-24px"></em
+              ></a>
             </network>
           </div>
         </social-sharing>
@@ -41,34 +47,34 @@ export default {
     url: {
       type: String,
       required: true,
-      default: ''
+      default: '',
     },
     title: {
       type: String,
       required: true,
-      default: ''
+      default: '',
     },
     description: {
       type: String,
       required: true,
-      default: ''
+      default: '',
     },
     quote: {
       type: String,
       required: true,
-      default: ''
+      default: '',
     },
     hashtags: {
       type: String,
       required: true,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
       twitterUser: 'ManasTalukdar',
       cssTextPrintMe: '',
-      printjsCall() {}
+      printjsCall() {},
     }
   },
   mounted() {
@@ -80,13 +86,13 @@ export default {
         printable: 'printMe',
         type: 'html',
         style:
-          '#single-post-header {text-align: center; justify-content: center !important;} .row {display: flex; flex-wrap: wrap; flex: 1 1 auto;} .col {flex-basis: 0; flex-grow: 1; max-width: 100%} .col-12 {flex: 0 0 100%} html {font-family: "Maven Pro", sans-serif; line-height: 1.8; font-size: 15px}'
+          '#single-post-header {text-align: center; justify-content: center !important;} .row {display: flex; flex-wrap: wrap; flex: 1 1 auto;} .col {flex-basis: 0; flex-grow: 1; max-width: 100%} .col-12 {flex: 0 0 100%} html {font-family: "Maven Pro", sans-serif; line-height: 1.8; font-size: 15px}',
       })
     },
     initPrintJs() {
       this.printjsCall = require('print-js')
-    }
-  }
+    },
+  },
 }
 </script>
 

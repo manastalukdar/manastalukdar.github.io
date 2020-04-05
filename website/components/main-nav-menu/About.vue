@@ -1,7 +1,7 @@
 <template>
   <v-menu attach bottom left offset-y max-height="500">
     <template v-slot:activator="{ on }">
-      <v-btn :aria-label="aboutText" text style="min-width: 48px" v-on="on">
+      <v-btn :aria-label="aboutText" text style="min-width: 48px;" v-on="on">
         <span class="hidden-sm-and-down mr-1" v-text="aboutText" />
         <v-icon>
           arrow_drop_down
@@ -15,15 +15,15 @@
 </template>
 
 <script>
-import AboutMenuItems from './AboutMenuItems.vue'
 import { mapState } from 'vuex'
+import AboutMenuItems from './AboutMenuItems.vue'
 export default {
   components: {
-    AboutMenuItems
+    AboutMenuItems,
   },
   data: () => ({}),
   computed: mapState({
-    aboutText: state => state.Navigation.about.aboutText
-  })
+    aboutText: (state) => state.Navigation.about.aboutText,
+  }),
 }
 </script>

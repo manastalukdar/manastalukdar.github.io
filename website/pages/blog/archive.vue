@@ -58,25 +58,25 @@
 </template>
 
 <script>
-import breadcrumbs from '../../components/breadcrumbs'
 import moment from 'moment'
 import { mapState } from 'vuex'
+import breadcrumbs from '../../components/breadcrumbs'
 export default {
   components: {
-    breadcrumbs
+    breadcrumbs,
   },
   async asyncData({ store, params, env, payload }) {
     if (payload) {
       return {
         baseUrl: env.baseURL,
-        blogMetadata: payload
+        blogMetadata: payload,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
         await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
       }
       return {
-        baseUrl: env.baseURL
+        baseUrl: env.baseURL,
       }
     }
   },
@@ -88,25 +88,25 @@ export default {
           text: 'Post Title',
           align: 'left',
           sortable: true,
-          value: 'title'
-        }
-      ]
+          value: 'title',
+        },
+      ],
     }
   },
   computed: {
     ...mapState({
-      appOwner: state => state.GlobalData.appOwner,
-      currentPage: state =>
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
         state.Navigation.blog.blogItems[4].text +
         ' | ' +
         state.Navigation.blog.blogText,
-      blogMetadata: state => state.BlogMetadata.blogMetadata,
-      pageTitle: state => state.Navigation.blog.blogItems[4].text,
-      blogHref: state => state.Navigation.blog.blogItems[0].href,
-      currentHref: state => state.Navigation.blog.blogItems[4].href,
-      archiveText: state => state.Navigation.blog.blogItems[4].text,
-      blogDynamicItemsBlogPost: state =>
-        state.Navigation.blog.dynamicItems.blogPost.href
+      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
+      pageTitle: (state) => state.Navigation.blog.blogItems[4].text,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      currentHref: (state) => state.Navigation.blog.blogItems[4].href,
+      archiveText: (state) => state.Navigation.blog.blogItems[4].text,
+      blogDynamicItemsBlogPost: (state) =>
+        state.Navigation.blog.dynamicItems.blogPost.href,
     }),
     breadcrumbs() {
       return [
@@ -114,22 +114,22 @@ export default {
           text: 'Home',
           disabled: false,
           to: '/',
-          exact: true
+          exact: true,
         },
         {
           text: 'Blog',
           disabled: false,
           to: this.blogHref,
-          exact: true
+          exact: true,
         },
         {
           text: this.archiveText,
           disabled: false,
           to: this.currentHref,
-          exact: true
-        }
+          exact: true,
+        },
       ]
-    }
+    },
   },
   methods: {
     getLink(firstPublishedOn, postSlug) {
@@ -148,7 +148,7 @@ export default {
         postSlug +
         '/'
       )
-    }
+    },
   },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
@@ -160,14 +160,14 @@ export default {
         position: index + 1,
         item: {
           '@id': this.baseUrl + item.to,
-          name: item.text
-        }
+          name: item.text,
+        },
       })
     )
     const breadcrumbsStructuredData = {
       '@context': 'http://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray
+      itemListElement: breadcrumbsStructuredDataArray,
     }
     return {
       title,
@@ -175,42 +175,42 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: description
+          content: description,
         },
         {
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-title',
           name: 'og:title',
           property: 'og:title',
-          content: title
+          content: title,
         },
         {
           hid: 'og-url',
           name: 'og:url',
           property: 'og:url',
-          content: url
+          content: url,
         },
         {
           hid: 'og-description',
           name: 'og:description',
           property: 'og:description',
-          content: description
-        }
+          content: description,
+        },
       ],
       link: [{ rel: 'canonical', href: url }],
       __dangerouslyDisableSanitizers: ['script'],
       script: [
         {
           innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json'
-        }
-      ]
+          type: 'application/ld+json',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

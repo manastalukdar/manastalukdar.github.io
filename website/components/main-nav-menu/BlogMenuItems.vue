@@ -14,7 +14,7 @@ import { mapState } from 'vuex'
 export default {
   data: () => ({}),
   computed: mapState({
-    blogItems: state => state.Navigation.blog.blogItems
-  })
+    blogItems: (state) => state.Navigation.blog.blogItems,
+  }),
 }
 </script>
