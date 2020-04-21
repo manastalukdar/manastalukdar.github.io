@@ -69,7 +69,7 @@ const state = () => ({
       {
         href: '/about/resume/',
         target: '_blank',
-        icon: 'mdi-file-document-box',
+        icon: 'mdi-file-document',
         text: 'Resume',
       },
     ],
