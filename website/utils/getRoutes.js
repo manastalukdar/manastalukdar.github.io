@@ -9,7 +9,7 @@ export const properties = {
   tags: [],
   categories: [],
   authors: [],
-  baseUrl: ''
+  baseUrl: '',
 }
 
 export const functions = {
@@ -30,15 +30,15 @@ export const functions = {
 
     properties.nuxtGenerateRoutes.push({
       route: '/',
-      payload: blogMetadata
+      payload: blogMetadata,
     })
 
     properties.nuxtGenerateRoutes.push({
       route: '/blog/',
-      payload: blogMetadata
+      payload: blogMetadata,
     })
 
-    blogMetadata.map(postmetadata => {
+    blogMetadata.map((postmetadata) => {
       const momentObj = moment(postmetadata['first-published-on'])
       const route =
         '/blog/' +
@@ -48,7 +48,7 @@ export const functions = {
         '/'
       properties.nuxtGenerateRoutes.push({
         route,
-        payload: postmetadata
+        payload: postmetadata,
       })
       properties.sitemapRoutes.push(route)
       if (properties.feedItems.length < 10) {
@@ -58,7 +58,9 @@ export const functions = {
       }
     })
 
-    const groupedByPostFormat = _.groupBy(blogMetadata, function(postmetadata) {
+    const groupedByPostFormat = _.groupBy(blogMetadata, function (
+      postmetadata
+    ) {
       return postmetadata['post-format']['url-slug']
     })
     for (const [key, value] of Object.entries(groupedByPostFormat)) {
@@ -67,23 +69,23 @@ export const functions = {
       properties.postFormats.push({
         name: postFormatName,
         slug: key,
-        count: value.length
+        count: value.length,
       })
       properties.nuxtGenerateRoutes.push({
         route,
-        payload: value
+        payload: value,
       })
       properties.sitemapRoutes.push(route)
     }
 
     properties.nuxtGenerateRoutes.push({
       route: '/blog/post-formats/',
-      payload: properties.postFormats
+      payload: properties.postFormats,
     })
 
     // https://stackoverflow.com/questions/55450096/how-to-groupby-in-lodash-for-each-item-in-a-nested-array
-    const groupedByAuthor = blogMetadata.reduce(function(acc, curr) {
-      curr.authors.forEach(function(item) {
+    const groupedByAuthor = blogMetadata.reduce(function (acc, curr) {
+      curr.authors.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
         } else {
@@ -94,7 +96,7 @@ export const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByAuthor)) {
       const route = '/blog/author/' + key + '/'
-      const authorName = value[0].authors.filter(author => {
+      const authorName = value[0].authors.filter((author) => {
         if (author['url-slug'] === key) {
           return author.name
         }
@@ -102,17 +104,17 @@ export const functions = {
       properties.authors.push({
         name: authorName[0].name,
         slug: key,
-        count: value.length
+        count: value.length,
       })
       properties.nuxtGenerateRoutes.push({
         route,
-        payload: value
+        payload: value,
       })
       properties.sitemapRoutes.push(route)
     }
 
-    const groupedByTag = blogMetadata.reduce(function(acc, curr) {
-      curr.tags.forEach(function(item) {
+    const groupedByTag = blogMetadata.reduce(function (acc, curr) {
+      curr.tags.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
         } else {
@@ -123,7 +125,7 @@ export const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByTag)) {
       const route = '/blog/tag/' + key + '/'
-      const tagName = value[0].tags.filter(tag => {
+      const tagName = value[0].tags.filter((tag) => {
         if (tag['url-slug'] === key) {
           return tag.name
         }
@@ -131,22 +133,22 @@ export const functions = {
       properties.tags.push({
         name: tagName[0].name,
         slug: key,
-        count: value.length
+        count: value.length,
       })
       properties.nuxtGenerateRoutes.push({
         route,
-        payload: value
+        payload: value,
       })
       properties.sitemapRoutes.push(route)
     }
 
     properties.nuxtGenerateRoutes.push({
       route: '/blog/tags/',
-      payload: properties.tags
+      payload: properties.tags,
     })
 
-    const groupedByCategories = blogMetadata.reduce(function(acc, curr) {
-      curr.categories.forEach(function(item) {
+    const groupedByCategories = blogMetadata.reduce(function (acc, curr) {
+      curr.categories.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
         } else {
@@ -157,7 +159,7 @@ export const functions = {
     }, {})
     for (const [key, value] of Object.entries(groupedByCategories)) {
       const route = '/blog/category/' + key + '/'
-      const catName = value[0].categories.filter(category => {
+      const catName = value[0].categories.filter((category) => {
         if (category['url-slug'] === key) {
           return category.name
         }
@@ -165,21 +167,21 @@ export const functions = {
       properties.categories.push({
         name: catName[0].name,
         slug: key,
-        count: value.length
+        count: value.length,
       })
       properties.nuxtGenerateRoutes.push({
         route,
-        payload: value
+        payload: value,
       })
       properties.sitemapRoutes.push(route)
     }
 
     properties.nuxtGenerateRoutes.push({
       route: '/blog/categories/',
-      payload: properties.categories
+      payload: properties.categories,
     })
 
-    const groupedByYear = blogMetadata.reduce(function(acc, curr) {
+    const groupedByYear = blogMetadata.reduce(function (acc, curr) {
       const momentObj = moment(curr['first-published-on'])
       const year = momentObj.format('YYYY')
       if (acc[year]) {
@@ -193,12 +195,12 @@ export const functions = {
       const route = '/blog/' + key + '/'
       properties.nuxtGenerateRoutes.push({
         route,
-        payload: value
+        payload: value,
       })
       properties.sitemapRoutes.push(route)
     }
 
-    const groupedByMonth = blogMetadata.reduce(function(acc, curr) {
+    const groupedByMonth = blogMetadata.reduce(function (acc, curr) {
       const momentObj = moment(curr['first-published-on'])
       const year = momentObj.format('YYYY')
       const month = momentObj.format('MM')
@@ -216,12 +218,12 @@ export const functions = {
       const route = '/blog/' + year + '/' + month + '/'
       properties.nuxtGenerateRoutes.push({
         route,
-        payload: value
+        payload: value,
       })
       properties.sitemapRoutes.push(route)
     }
 
-    const groupedByDay = blogMetadata.reduce(function(acc, curr) {
+    const groupedByDay = blogMetadata.reduce(function (acc, curr) {
       const momentObj = moment(curr['first-published-on'])
       const year = momentObj.format('YYYY')
       const month = momentObj.format('MM')
@@ -241,19 +243,19 @@ export const functions = {
       const route = '/blog/' + year + '/' + month + '/' + day + '/'
       properties.nuxtGenerateRoutes.push({
         route,
-        payload: value
+        payload: value,
       })
       properties.sitemapRoutes.push(route)
     }
-  }
+  },
 }
 
 export const helperFunctions = {
   getFeedItem(postMetadata, route) {
     const authors = []
-    postMetadata.authors.forEach(function(author) {
+    postMetadata.authors.forEach(function (author) {
       authors.push({
-        name: author.name
+        name: author.name,
       })
     })
     const item = {
@@ -263,9 +265,9 @@ export const helperFunctions = {
       description: postMetadata.meta.description,
       content: postMetadata.excerpt + ' ...read more',
       date: new Date(postMetadata['first-published-on']),
-      author: authors
+      author: authors,
     }
 
     return item
-  }
+  },
 }

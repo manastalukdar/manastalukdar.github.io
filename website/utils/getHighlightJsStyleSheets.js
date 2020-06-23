@@ -9,11 +9,11 @@ if (!fs.existsSync(stylesDir)) {
 
 const styles = ['atom-one-light.css', 'atom-one-dark.css']
 
-styles.forEach(element => {
+styles.forEach((element) => {
   fs.copyFile(
     path.join(__dirname, '../node_modules/highlight.js/styles/', element),
     path.join(stylesDir, element),
-    err => {
+    (err) => {
       if (err) throw err
       console.log(element + ': source was copied to destination')
     }

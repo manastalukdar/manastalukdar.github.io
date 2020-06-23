@@ -32,7 +32,6 @@
   "markdown.extension.toc.levels": "2..6",
   "standard.enable": false,
   "python.linting.enabled": true,
-  "python.pythonPath": "C:\\Program Files\\Python38\\python.exe",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }
