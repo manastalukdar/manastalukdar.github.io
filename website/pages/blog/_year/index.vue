@@ -29,30 +29,30 @@ export default {
     breadcrumbs,
     postsList,
   },
-  async asyncData({ store, params, env, payload }) {
+  async asyncData({ store, params, $config, payload }) {
     if (payload) {
       return {
         yearUrlSlug: params.year,
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         blogMetadata: payload,
         yearName: params.year,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+        await store.dispatch('BlogMetadata/getBlogMetadata', [$config.baseURL])
       }
       const posts = store.getters['BlogMetadata/getPostsForYear'](params.year)
       if (posts === undefined) {
         return {
           yearUrlSlug: params.year,
-          baseUrl: env.baseURL,
+          baseUrl: $config.baseURL,
           blogMetadata: [],
           yearName: '',
         }
       }
       return {
         yearUrlSlug: params.year,
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         blogMetadata: posts,
         yearName: params.year,
       }

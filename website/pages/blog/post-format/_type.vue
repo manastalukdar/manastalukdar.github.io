@@ -22,18 +22,18 @@ export default {
     breadcrumbs,
     postsList,
   },
-  async asyncData({ store, params, env, payload }) {
+  async asyncData({ store, params, $config, payload }) {
     if (payload) {
       const postFormatTypeTemp = payload[0]['post-format'].name
       return {
         postFormatUrlSlug: params.type,
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         blogMetadata: payload,
         postFormatType: postFormatTypeTemp,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+        await store.dispatch('BlogMetadata/getBlogMetadata', [$config.baseURL])
       }
       const posts = store.getters['BlogMetadata/getPostsForPostFormat'](
         params.type
@@ -41,7 +41,7 @@ export default {
       if (posts === undefined) {
         return {
           postFormatUrlSlug: params.type,
-          baseUrl: env.baseURL,
+          baseUrl: $config.baseURL,
           blogMetadata: [],
           authorName: '',
         }
@@ -49,7 +49,7 @@ export default {
       const postFormatTypeTemp = posts[0]['post-format'].name
       return {
         postFormatUrlSlug: params.type,
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         blogMetadata: posts,
         postFormatType: postFormatTypeTemp,
       }

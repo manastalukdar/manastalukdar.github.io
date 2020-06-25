@@ -64,25 +64,25 @@ export default {
   components: {
     breadcrumbs,
   },
-  async asyncData({ store, params, env, payload }) {
+  async asyncData({ store, params, $config, payload }) {
     if (payload) {
       return {
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         postFormats: payload,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+        await store.dispatch('BlogMetadata/getBlogMetadata', [$config.baseURL])
       }
       const postFormats = store.getters['BlogMetadata/getPostFormats']
       if (postFormats === undefined) {
         return {
-          baseUrl: env.baseURL,
+          baseUrl: $config.baseURL,
           postFormats: [],
         }
       }
       return {
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         postFormats,
       }
     }

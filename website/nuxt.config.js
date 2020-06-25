@@ -165,7 +165,7 @@ export default {
     ]
   },
 
-  env: {
+  publicRuntimeConfig: {
     baseURL: baseUrl
   },
 

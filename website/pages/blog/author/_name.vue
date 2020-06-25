@@ -22,7 +22,7 @@ export default {
     breadcrumbs,
     postsList,
   },
-  async asyncData({ store, params, env, payload }) {
+  async asyncData({ store, params, $config, payload }) {
     if (payload) {
       const authName = payload[0].authors.filter((author) => {
         if (author['url-slug'] === params.name) {
@@ -31,19 +31,19 @@ export default {
       })
       return {
         authorUrlSlug: params.name,
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         blogMetadata: payload,
         authorName: authName[0].name,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+        await store.dispatch('BlogMetadata/getBlogMetadata', [$config.baseURL])
       }
       const posts = store.getters['BlogMetadata/getPostsForAuthor'](params.name)
       if (posts === undefined) {
         return {
           authorUrlSlug: params.name,
-          baseUrl: env.baseURL,
+          baseUrl: $config.baseURL,
           blogMetadata: [],
           authorName: '',
         }
@@ -55,7 +55,7 @@ export default {
       })
       return {
         authorUrlSlug: params.name,
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         blogMetadata: posts,
         authorName: authName[0].name,
       }

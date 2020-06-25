@@ -30,7 +30,7 @@ export default {
     breadcrumbs,
     post,
   },
-  async asyncData({ store, params, env, payload }) {
+  async asyncData({ store, params, $config, payload }) {
     const md = require('markdown-it')({
       html: true,
       xhtmlOut: true,
@@ -106,13 +106,13 @@ export default {
       return {
         postContent: md.render(res.body),
         postMetadata: payload,
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         postId: postIdTemp,
-        url: env.baseURL + postIdTemp,
+        url: $config.baseURL + postIdTemp,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+        await store.dispatch('BlogMetadata/getBlogMetadata', [$config.baseURL])
       }
       const postMetadata = store.getters['BlogMetadata/getPostMetadata'](
         params.year,
@@ -121,7 +121,7 @@ export default {
         params.post
       )
       const fileContent = await axios
-        .get(env.baseURL + '/blogdata/' + postMetadata.path)
+        .get($config.baseURL + '/blogdata/' + postMetadata.path)
         .catch(function (error) {
           if (error.response) {
             // The request was made and the server responded with a status code
@@ -150,9 +150,9 @@ export default {
       return {
         postContent: md.render(res.body),
         postMetadata,
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         postId: postIdTemp,
-        url: env.baseURL + '/' + postIdTemp,
+        url: $config.baseURL + '/' + postIdTemp,
       }
     }
   },

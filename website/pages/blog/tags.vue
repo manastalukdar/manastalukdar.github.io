@@ -62,25 +62,25 @@ export default {
   components: {
     breadcrumbs,
   },
-  async asyncData({ store, params, env, payload }) {
+  async asyncData({ store, params, $config, payload }) {
     if (payload) {
       return {
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         tags: payload,
       }
     } else {
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [env.baseURL])
+        await store.dispatch('BlogMetadata/getBlogMetadata', [$config.baseURL])
       }
       const tags = store.getters['BlogMetadata/getTags']
       if (tags === undefined) {
         return {
-          baseUrl: env.baseURL,
+          baseUrl: $config.baseURL,
           tags: [],
         }
       }
       return {
-        baseUrl: env.baseURL,
+        baseUrl: $config.baseURL,
         tags,
       }
     }

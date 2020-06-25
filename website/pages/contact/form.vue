@@ -69,9 +69,9 @@ export default {
   components: {
     breadcrumbs,
   },
-  asyncData({ store, params, env, payload }) {
+  asyncData({ store, params, $config, payload }) {
     return {
-      baseUrl: env.baseURL,
+      baseUrl: $config.baseURL,
     }
   },
   data: () => ({
