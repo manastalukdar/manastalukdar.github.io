@@ -22,6 +22,7 @@ const siteDescription =
   'Manas Talukdar is a software engineering manager in cloud computing and distributed systems, experienced in building and running high performing teams.'
 
 export default {
+  target: 'static',
   mode: 'universal',
 
   helper: {
@@ -337,6 +338,7 @@ export default {
   },
 
   generate: {
+    crawler: false,
     dir: 'dist',
     routes: function () {
       getRoutes.functions.generateRoutes()
