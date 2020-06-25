@@ -24,6 +24,7 @@ const siteDescription =
 export default {
   target: 'static',
   mode: 'universal',
+  telemetry: false,
 
   helper: {
     aboutBlurbText: ''
