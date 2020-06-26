@@ -83,10 +83,10 @@ workflows:
             branches:
               only:
                 - source
-      - generate_website:
-          filters:
-            branches:
-              only:
-                - source
-          requires:
-            - generate_blog_metadata
+      # - generate_website:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - source
+      #     requires:
+      #       - generate_blog_metadata

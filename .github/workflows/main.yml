@@ -1,4 +1,4 @@
-name: build
+name: build-deploy
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ on:
       - source
 jobs:
   build:
-    name: Build
+    name: Build, Deploy
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -33,3 +33,11 @@ jobs:
         run: npm run getHighlightJsStyleSheets
       - working-directory: website
         run: sudo npm run static
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website/dist
+          publish_branch:  gh-pages  # default: gh-pages
+          keep_files: false # default: false
+          commit_message: "GitHub CI Updates [ci skip]"
