@@ -27,7 +27,9 @@ jobs:
         with:
           node-version: '14'
       - run: node --version
-      - run: cd website
-      - run: npm install
-      - run: npm run getHighlightJsStyleSheets
-      - run: sudo npm run static
+      - working-directory: website
+        run: npm install
+      - working-directory: website
+        run: npm run getHighlightJsStyleSheets
+      - working-directory: website
+        run: sudo npm run static
