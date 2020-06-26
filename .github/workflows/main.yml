@@ -1,0 +1,33 @@
+name: build
+on:
+  push:
+    branches:
+      - source
+  pull_request:
+    branches:
+      - source
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+          python-version: "3.8"
+          architecture: "x64"
+      - run: python --version
+      - run: pip install -r website/scripts/python-requirements.txt
+      - run: python website/scripts/create_blog_metadata.py
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - run: node -version
+      - run: cd website
+      - run: npm install
+      - run: npm run getHighlightJsStyleSheets
+      - run: sudo npm run static
