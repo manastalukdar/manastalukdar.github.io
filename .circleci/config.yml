@@ -56,7 +56,7 @@ jobs:
             cd website
             npm install
             npm run getHighlightJsStyleSheets
-            sudo npm run static
+            sudo npm run generate
             cd ..
             cp website/dist tmp -r
 

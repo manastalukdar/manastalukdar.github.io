@@ -32,7 +32,7 @@ jobs:
       - working-directory: website
         run: npm run getHighlightJsStyleSheets
       - working-directory: website
-        run: sudo npm run static
++        run: sudo npm run generate
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
