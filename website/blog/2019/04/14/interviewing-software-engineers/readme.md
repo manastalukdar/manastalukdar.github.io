@@ -16,7 +16,7 @@ post-format: standard
 title: Interviewing Software Engineers
 url-slug: interviewing-software-engineers
 first-published-on: 2019-04-14 1:20 pm
-last-updated-on: 2019-09-20 18:36
+last-updated-on: 2020-08-20 01:09
 meta:
  description: "Methodology for interviewing and hiring high calibre software engineers."
 excerpt: "I have been interviewing software engineer candidates, both new grads and experienced candidates, for many years. Over time I have settled down on a pattern of questions that probe for certain key traits that has resulted in hiring excellent software engineers."
@@ -130,6 +130,10 @@ Candidate should have some degree of alignment with the company culture. Scenari
 #### Multiplier
 
 Candidate, specially if interviewing for an experienced developer position, should show the likelihood of elevating the team. At the very least, candidate if hired, should not pull the team down for whatever reason.
+
+#### Autonomy
+
+This is encapsulated by other attributes such as, **_ability to learn new things_**, **_Sense of ownership_**. Needless to say, for experienced candidates we should expect a high degree of autonomy once they get past the initial on-boarding and ramp-up phase.
 
 #### Systematic and Methodical Approach
 
