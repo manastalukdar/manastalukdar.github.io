@@ -18,9 +18,9 @@
     "getHighlightJsStyleSheets": "node utils/getHighlightJsStyleSheets.js"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.12.1",
+    "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/markdownit": "^1.2.10",
-    "@nuxtjs/pwa": "^3.0.1",
+    "@nuxtjs/pwa": "^3.0.2",
     "@nuxtjs/redirect-module": "^0.3.1",
     "@nuxtjs/sitemap": "^2.4.0",
     "cross-env": "^7.0.2",
@@ -39,7 +39,7 @@
     "markdown-it-toc-done-right": "^4.1.0",
     "mermaid": "^8.7.0",
     "moment": "^2.27.0",
-    "nuxt": "^2.14.3",
+    "nuxt": "^2.14.4",
     "print-js": "^1.0.63",
     "vanilla-back-to-top": "^7.2.1",
     "vue-analytics": "^5.22.1",
@@ -53,11 +53,11 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.1",
+    "@babel/core": "^7.11.4",
     "@mdi/font": "^5.5.55",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/vuetify": "^1.11.2",
-    "@vue/test-utils": "^1.0.4",
+    "@vue/test-utils": "^1.0.5",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
@@ -77,14 +77,14 @@
     "eslint-plugin-vue": "^6.2.2",
     "eslint-plugin-vuetify": "^1.0.0-beta.7",
     "file-loader": "^6.0.0",
-    "jest": "^26.4.0",
+    "jest": "^26.4.2",
     "material-design-icons-iconfont": "^5.0.1",
     "minimist": ">=1.2.5",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.1",
     "raw-loader": "^4.0.1",
     "vue-jest": "^3.0.6",
     "lodash": ">=4.17.20",
-    "jpeg-js": ">=0.4.1",
+    "jpeg-js": ">=0.4.2",
     "dot-prop": ">=5.2.0"
   }
 }
