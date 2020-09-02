@@ -35,6 +35,13 @@ export default {
     // ...
   },
 
+  pwa: {
+    icon: {
+      source: staticDir + '/images/android-chrome-512x512.png',
+      targetDir: staticDir + '/generatedIcons'
+    }
+  },
+
   // https://pwa.nuxtjs.org/modules/manifest.html
   manifest: {
     short_name: 'MTalukdar',
@@ -44,12 +51,6 @@ export default {
     theme_color: '#263238',
     display: 'standalone',
     lang: 'en'
-  },
-
-  // https://pwa.nuxtjs.org/modules/icon.html
-  icon: {
-    iconSrc: staticDir + '/images/android-chrome-512x512.png',
-    targetDir: staticDir + '/generatedIcons'
   },
 
   /*

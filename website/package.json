@@ -52,8 +52,8 @@
     "vue-tweet-embed": "^2.4.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.4",
+    "@babel/cli": "^7.11.5",
+    "@babel/core": "^7.11.5",
     "@mdi/font": "^5.5.55",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/vuetify": "^1.11.2",
@@ -61,7 +61,7 @@
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
-    "eslint": "^7.7.0",
+    "eslint": "^7.8.1",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
@@ -76,15 +76,17 @@
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.2.2",
     "eslint-plugin-vuetify": "^1.0.0-beta.7",
-    "file-loader": "^6.0.0",
+    "file-loader": "^6.1.0",
     "jest": "^26.4.2",
-    "material-design-icons-iconfont": "^5.0.1",
+    "material-design-icons-iconfont": "^6.0.1",
     "minimist": ">=1.2.5",
     "prettier": "^2.1.1",
     "raw-loader": "^4.0.1",
     "vue-jest": "^3.0.6",
     "lodash": ">=4.17.20",
     "jpeg-js": ">=0.4.2",
-    "dot-prop": ">=5.2.0"
+    "dot-prop": ">=5.2.0",
+    "vue": "^2.6.12",
+    "vue-template-compiler": "^2.6.12"
   }
 }
