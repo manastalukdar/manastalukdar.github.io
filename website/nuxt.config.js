@@ -165,12 +165,12 @@ export default {
       },
       {
         rel: 'preload',
-        href: 'atom-one-dark.css',
+        href: '/styles/atom-one-dark.css',
         as: 'style'
       },
       {
         rel: 'preload',
-        href: 'atom-one-light.css',
+        href: '/styles/atom-one-light.css',
         as: 'style'
       }
     ]
