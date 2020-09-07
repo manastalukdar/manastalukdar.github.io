@@ -162,6 +162,16 @@ export default {
         rel: 'apple-touch-icon',
         sizes: '180x180',
         href: '/images/apple-touch-icon.png'
+      },
+      {
+        rel: 'preload',
+        href="atom-one-dark.css",
+        as="style"
+      },
+      {
+        rel: 'preload',
+        href="atom-one-light.css",
+        as="style"
       }
     ]
   },
