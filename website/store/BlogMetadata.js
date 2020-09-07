@@ -1,5 +1,5 @@
 import axios from 'axios'
-import _ from 'lodash'
+import { find, groupBy } from 'lodash/core'
 const dayjs = require('dayjs')
 
 // initial state
@@ -10,7 +10,7 @@ const state = () => ({
 // getters
 const getters = {
   getPostMetadata: (state) => (year, month, date, slug) => {
-    return _.find(state.blogMetadata, function (post) {
+    return find(state.blogMetadata, function (post) {
       const dayjsObj = dayjs(post['first-published-on'])
       return (
         dayjsObj.format('YYYY') === year &&
@@ -22,7 +22,7 @@ const getters = {
   },
 
   getPostFormats: (state) => {
-    const groupedByPostFormat = _.groupBy(state.blogMetadata, function (
+    const groupedByPostFormat = groupBy(state.blogMetadata, function (
       postmetadata
     ) {
       return postmetadata['post-format']['url-slug']
@@ -133,7 +133,7 @@ const getters = {
     }
   },
   getPostsForPostFormat: (state) => (postFormat) => {
-    const groupedByPostFormat = _.groupBy(state.blogMetadata, function (
+    const groupedByPostFormat = groupBy(state.blogMetadata, function (
       postmetadata
     ) {
       return postmetadata['post-format']['url-slug']

@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import { groupBy } from 'lodash'
 import blogMetadata from '../static/blogdata/metadata/blog_metadata.json'
 const dayjs = require('dayjs')
 
@@ -58,9 +58,7 @@ export const functions = {
       }
     })
 
-    const groupedByPostFormat = _.groupBy(blogMetadata, function (
-      postmetadata
-    ) {
+    const groupedByPostFormat = groupBy(blogMetadata, function (postmetadata) {
       return postmetadata['post-format']['url-slug']
     })
     for (const [key, value] of Object.entries(groupedByPostFormat)) {
