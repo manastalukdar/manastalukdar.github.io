@@ -14,15 +14,17 @@
 </template>
 
 <script>
-import moment from 'moment'
 import { mapState } from 'vuex'
 import breadcrumbs from '../../../components/breadcrumbs'
 import postsList from '../../../components/blog/posts-list/list.vue'
+const dayjs = require('dayjs')
+const customParseFormat = require('dayjs/plugin/customParseFormat')
+dayjs.extend(customParseFormat)
 export default {
   validate({ params }) {
     // Must be a number and must be a year
     return (
-      /^\d+$/.test(params.year) && moment(params.year, 'YYYY', true).isValid()
+      /^\d+$/.test(params.year) && dayjs(params.year, 'YYYY', true).isValid()
     )
   },
   components: {

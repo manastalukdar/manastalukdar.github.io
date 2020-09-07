@@ -1,12 +1,12 @@
 <template>
   <v-app-bar color="headerAndFooterColor" app>
     <v-app-bar-nav-icon class="hidden-sm-and-up">
-      <nuxt-link to="/" tag="span" style="cursor: pointer;">
+      <nuxt-link to="/" tag="span" style="cursor: pointer">
         <v-icon>mdi-home</v-icon>
       </nuxt-link>
     </v-app-bar-nav-icon>
     <v-toolbar-title class="hidden-xs-only headline">
-      <nuxt-link to="/" tag="span" style="cursor: pointer;">{{
+      <nuxt-link to="/" tag="span" style="cursor: pointer">{{
         appTitle
       }}</nuxt-link>
     </v-toolbar-title>

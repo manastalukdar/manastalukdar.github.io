@@ -1,6 +1,6 @@
 import _ from 'lodash'
-import moment from 'moment'
 import blogMetadata from '../static/blogdata/metadata/blog_metadata.json'
+const dayjs = require('dayjs')
 
 export const properties = {
   sitemapRoutes: [],
@@ -39,10 +39,10 @@ export const functions = {
     })
 
     blogMetadata.map((postmetadata) => {
-      const momentObj = moment(postmetadata['first-published-on'])
+      const dayjsObj = dayjs(postmetadata['first-published-on'])
       const route =
         '/blog/' +
-        momentObj.format('YYYY-MM-DD').replace(/-/g, '/') +
+        dayjsObj.format('YYYY-MM-DD').replace(/-/g, '/') +
         '/' +
         postmetadata['url-slug'] +
         '/'
@@ -182,8 +182,8 @@ export const functions = {
     })
 
     const groupedByYear = blogMetadata.reduce(function (acc, curr) {
-      const momentObj = moment(curr['first-published-on'])
-      const year = momentObj.format('YYYY')
+      const dayjsObj = dayjs(curr['first-published-on'])
+      const year = dayjsObj.format('YYYY')
       if (acc[year]) {
         acc[year].push(curr)
       } else {
@@ -201,9 +201,9 @@ export const functions = {
     }
 
     const groupedByMonth = blogMetadata.reduce(function (acc, curr) {
-      const momentObj = moment(curr['first-published-on'])
-      const year = momentObj.format('YYYY')
-      const month = momentObj.format('MM')
+      const dayjsObj = dayjs(curr['first-published-on'])
+      const year = dayjsObj.format('YYYY')
+      const month = dayjsObj.format('MM')
       const key = year + '-' + month
       if (acc[key]) {
         acc[key].push(curr)
@@ -224,10 +224,10 @@ export const functions = {
     }
 
     const groupedByDay = blogMetadata.reduce(function (acc, curr) {
-      const momentObj = moment(curr['first-published-on'])
-      const year = momentObj.format('YYYY')
-      const month = momentObj.format('MM')
-      const day = momentObj.format('DD')
+      const dayjsObj = dayjs(curr['first-published-on'])
+      const year = dayjsObj.format('YYYY')
+      const month = dayjsObj.format('MM')
+      const day = dayjsObj.format('DD')
       const key = year + '-' + month + '-' + day
       if (acc[key]) {
         acc[key].push(curr)

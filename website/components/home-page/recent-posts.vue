@@ -5,7 +5,7 @@
       class="pa-3"
       raised
       elevation="8"
-      style="height: 100%;"
+      style="height: 100%"
       :to="blogItems[0].href"
     >
       <recentPosts :items-to-display="itemsToDisplay" :posts-list="postsList" />

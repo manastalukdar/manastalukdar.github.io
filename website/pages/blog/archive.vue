@@ -58,9 +58,9 @@
 </template>
 
 <script>
-import moment from 'moment'
 import { mapState } from 'vuex'
 import breadcrumbs from '../../components/breadcrumbs'
+const dayjs = require('dayjs')
 export default {
   components: {
     breadcrumbs,
@@ -133,10 +133,10 @@ export default {
   },
   methods: {
     getLink(firstPublishedOn, postSlug) {
-      const momentObj = moment(firstPublishedOn)
-      const yearSlug = momentObj.format('YYYY')
-      const monthSlug = momentObj.format('MM')
-      const dateSlug = momentObj.format('DD')
+      const dayjsObj = dayjs(firstPublishedOn)
+      const yearSlug = dayjsObj.format('YYYY')
+      const monthSlug = dayjsObj.format('MM')
+      const dateSlug = dayjsObj.format('DD')
       return (
         this.blogDynamicItemsBlogPost +
         yearSlug +

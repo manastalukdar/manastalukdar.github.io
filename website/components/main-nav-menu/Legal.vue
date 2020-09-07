@@ -5,7 +5,7 @@
         :aria-label="legalText"
         text
         :to="legalPath"
-        style="min-width: 48px;"
+        style="min-width: 48px"
         v-on="on"
       >
         <span class="hidden-sm-and-down mr-1" v-text="legalText" />

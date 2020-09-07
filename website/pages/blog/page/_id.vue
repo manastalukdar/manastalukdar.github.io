@@ -1,7 +1,5 @@
 <template>
-  <v-container>
-    Under Construction
-  </v-container>
+  <v-container> Under Construction </v-container>
 </template>
 
 <script>

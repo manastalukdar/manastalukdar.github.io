@@ -5,7 +5,7 @@
       class="pa-3"
       raised
       elevation="8"
-      style="height: 100%;"
+      style="height: 100%"
     >
       <v-row class="title" justify="center">
         <span>Interests</span>

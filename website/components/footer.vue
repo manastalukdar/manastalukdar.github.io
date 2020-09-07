@@ -9,11 +9,11 @@
       color="headerAndFooterColor"
     >
       <v-row class="justify-end">
-        <v-col class="text-left" style="margin-left: 1em; margin-right: 1em;">
+        <v-col class="text-left" style="margin-left: 1em; margin-right: 1em">
           &copy;&nbsp; {{ copyrightStartYear }} —
           {{ copyrightEndYear }} &nbsp;<strong> {{ appOwner }} </strong>
         </v-col>
-        <v-col class="text-right" style="margin-left: 1em; margin-right: 1em;">
+        <v-col class="text-right" style="margin-left: 1em; margin-right: 1em">
           <a
             href="https://github.com/manastalukdar/manastalukdar.github.io/"
             target="_blank"

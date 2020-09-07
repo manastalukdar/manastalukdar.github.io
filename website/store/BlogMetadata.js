@@ -1,6 +1,6 @@
 import axios from 'axios'
 import _ from 'lodash'
-import moment from 'moment'
+const dayjs = require('dayjs')
 
 // initial state
 const state = () => ({
@@ -11,11 +11,11 @@ const state = () => ({
 const getters = {
   getPostMetadata: (state) => (year, month, date, slug) => {
     return _.find(state.blogMetadata, function (post) {
-      const momentObj = moment(post['first-published-on'])
+      const dayjsObj = dayjs(post['first-published-on'])
       return (
-        momentObj.format('YYYY') === year &&
-        momentObj.format('MM') === month &&
-        momentObj.format('DD') === date &&
+        dayjsObj.format('YYYY') === year &&
+        dayjsObj.format('MM') === month &&
+        dayjsObj.format('DD') === date &&
         post['url-slug'] === slug
       )
     })
@@ -146,8 +146,8 @@ const getters = {
   },
   getPostsForYear: (state) => (year) => {
     const groupedByYear = state.blogMetadata.reduce(function (acc, curr) {
-      const momentObj = moment(curr['first-published-on'])
-      const yearCurr = momentObj.format('YYYY')
+      const dayjsObj = dayjs(curr['first-published-on'])
+      const yearCurr = dayjsObj.format('YYYY')
       const key = yearCurr
       if (acc[key]) {
         acc[key].push(curr)
@@ -164,9 +164,9 @@ const getters = {
   },
   getPostsForMonth: (state) => (year, month) => {
     const groupedByMonth = state.blogMetadata.reduce(function (acc, curr) {
-      const momentObj = moment(curr['first-published-on'])
-      const yearCurr = momentObj.format('YYYY')
-      const monthCurr = momentObj.format('MM')
+      const dayjsObj = dayjs(curr['first-published-on'])
+      const yearCurr = dayjsObj.format('YYYY')
+      const monthCurr = dayjsObj.format('MM')
       const key = yearCurr + '-' + monthCurr
       if (acc[key]) {
         acc[key].push(curr)
@@ -183,10 +183,10 @@ const getters = {
   },
   getPostsForDay: (state) => (year, month, day) => {
     const groupedByDay = state.blogMetadata.reduce(function (acc, curr) {
-      const momentObj = moment(curr['first-published-on'])
-      const yearCurr = momentObj.format('YYYY')
-      const monthCurr = momentObj.format('MM')
-      const dayCurr = momentObj.format('DD')
+      const dayjsObj = dayjs(curr['first-published-on'])
+      const yearCurr = dayjsObj.format('YYYY')
+      const monthCurr = dayjsObj.format('MM')
+      const dayCurr = dayjsObj.format('DD')
       const key = yearCurr + '-' + monthCurr + '-' + dayCurr
       if (acc[key]) {
         acc[key].push(curr)

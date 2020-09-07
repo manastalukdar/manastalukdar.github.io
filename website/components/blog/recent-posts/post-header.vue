@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import moment from 'moment'
 import { mapState } from 'vuex'
+const dayjs = require('dayjs')
 export default {
   props: {
     postMetadata: {
@@ -30,10 +30,10 @@ export default {
   },
   computed: {
     postLinkSlugs() {
-      const momentObj = moment(this.postMetadata['first-published-on'])
-      const year = momentObj.format('YYYY')
-      const month = momentObj.format('MM')
-      const day = momentObj.format('DD')
+      const dayjsObj = dayjs(this.postMetadata['first-published-on'])
+      const year = dayjsObj.format('YYYY')
+      const month = dayjsObj.format('MM')
+      const day = dayjsObj.format('DD')
       const post = this.postMetadata['url-slug']
       return { year, month, day, post }
     },

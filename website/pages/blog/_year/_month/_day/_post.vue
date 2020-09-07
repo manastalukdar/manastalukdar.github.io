@@ -21,7 +21,29 @@ import markdownItTocDoneRight from 'markdown-it-toc-done-right'
 import markdownItTextualUml from 'markdown-it-textual-uml'
 import post from '../../../../../components/blog/single-post/post.vue'
 import breadcrumbs from '../../../../../components/breadcrumbs'
-const hljs = require('highlight.js') // https://highlightjs.org/
+const hljs = require('highlight.js/lib/core') // https://highlightjs.org/
+hljs.registerLanguage('java', require('highlight.js/lib/languages/java'))
+hljs.registerLanguage(
+  'javascript',
+  require('highlight.js/lib/languages/javascript')
+)
+hljs.registerLanguage('css', require('highlight.js/lib/languages/css'))
+hljs.registerLanguage('python', require('highlight.js/lib/languages/python'))
+hljs.registerLanguage('csharp', require('highlight.js/lib/languages/csharp'))
+hljs.registerLanguage('shell', require('highlight.js/lib/languages/shell'))
+hljs.registerLanguage(
+  'powershell',
+  require('highlight.js/lib/languages/powershell')
+)
+hljs.registerLanguage(
+  'markdown',
+  require('highlight.js/lib/languages/markdown')
+)
+hljs.registerLanguage(
+  'plaintext',
+  require('highlight.js/lib/languages/plaintext')
+)
+hljs.registerLanguage('yaml', require('highlight.js/lib/languages/yaml'))
 const fm = require('front-matter')
 const markdownRenderHelpers = require('../../../../../utils/markdownRenderHelpers.js')
 let mermaid = null

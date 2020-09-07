@@ -12,9 +12,7 @@
       <v-list-group no-action>
         <v-list-item slot="activator">
           <v-list-item-action>
-            <v-icon>
-              mdi-blogger
-            </v-icon>
+            <v-icon> mdi-blogger </v-icon>
           </v-list-item-action>
           <v-list-item-title> {{ blogText }} </v-list-item-title>
         </v-list-item>
