@@ -1,6 +1,7 @@
 import axios from 'axios'
-import { find, groupBy } from 'lodash/core'
 const dayjs = require('dayjs')
+const find = require('lodash/find')
+const groupBy = require('lodash/groupBy')
 
 // initial state
 const state = () => ({
