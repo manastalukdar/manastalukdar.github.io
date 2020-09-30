@@ -28,7 +28,7 @@
             :search="search"
             :items-per-page="5"
           >
-            <template v-slot:body="{ items }">
+            <template #body="{ items }">
               <tbody>
                 <tr v-for="item in items" :key="item.slug">
                   <td>
@@ -42,14 +42,11 @@
                 </tr>
               </tbody>
             </template>
-            <v-alert
-              v-slot:no-results
-              :value="true"
-              color="error"
-              icon="warning"
-            >
-              Your search for "{{ search }}" found no results.
-            </v-alert>
+            <template #no-results :value="true" color="error" icon="warning">
+              <v-alert>
+                Your search for "{{ search }}" found no results.
+              </v-alert>
+            </template>
           </v-data-table>
         </v-card>
       </v-col>

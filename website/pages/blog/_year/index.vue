@@ -21,15 +21,15 @@ const dayjs = require('dayjs')
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 export default {
+  components: {
+    breadcrumbs,
+    postsList,
+  },
   validate({ params }) {
     // Must be a number and must be a year
     return (
       /^\d+$/.test(params.year) && dayjs(params.year, 'YYYY', true).isValid()
     )
-  },
-  components: {
-    breadcrumbs,
-    postsList,
   },
   async asyncData({ store, params, $config, payload }) {
     if (payload) {

@@ -6,9 +6,8 @@
       <client-only>
         <iframe
           id="resumeBox"
+          title="resume"
           name="resumeBox"
-          frameborder="0"
-          scrolling="no"
           src="https://manastalukdar.github.io/resume-cv"
         >
           <p>iframes are not supported by your browser.</p>
