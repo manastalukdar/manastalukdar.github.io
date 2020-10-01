@@ -183,48 +183,6 @@ export default {
       postContent: '',
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) => state.Navigation.blog.blogText,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      blogBaseHref: (state) => state.Navigation.blog.dynamicItems.blogBase.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          nuxt: true,
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          nuxt: true,
-          exact: true,
-        },
-        {
-          text: this.postMetadata.title,
-          disabled: false,
-          to: this.postId,
-          nuxt: true,
-          exact: true,
-        },
-      ]
-    },
-  },
-  mounted() {
-    if (mermaid == null) {
-      mermaid = require('mermaid')
-    }
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'forest',
-    })
-  },
   head() {
     /* const postMetadata = this.$store.getters['BlogMetadata/getPostMetadata'](
       this.$route.params.year,
@@ -374,6 +332,48 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) => state.Navigation.blog.blogText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogBaseHref: (state) => state.Navigation.blog.dynamicItems.blogBase.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          nuxt: true,
+          exact: true,
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          nuxt: true,
+          exact: true,
+        },
+        {
+          text: this.postMetadata.title,
+          disabled: false,
+          to: this.postId,
+          nuxt: true,
+          exact: true,
+        },
+      ]
+    },
+  },
+  mounted() {
+    if (mermaid == null) {
+      mermaid = require('mermaid')
+    }
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'forest',
+    })
   },
 }
 </script>

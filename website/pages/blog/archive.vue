@@ -90,63 +90,6 @@ export default {
       ],
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.blog.blogItems[4].text +
-        ' | ' +
-        state.Navigation.blog.blogText,
-      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
-      pageTitle: (state) => state.Navigation.blog.blogItems[4].text,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      currentHref: (state) => state.Navigation.blog.blogItems[4].href,
-      archiveText: (state) => state.Navigation.blog.blogItems[4].text,
-      blogDynamicItemsBlogPost: (state) =>
-        state.Navigation.blog.dynamicItems.blogPost.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true,
-        },
-        {
-          text: this.archiveText,
-          disabled: false,
-          to: this.currentHref,
-          exact: true,
-        },
-      ]
-    },
-  },
-  methods: {
-    getLink(firstPublishedOn, postSlug) {
-      const dayjsObj = dayjs(firstPublishedOn)
-      const yearSlug = dayjsObj.format('YYYY')
-      const monthSlug = dayjsObj.format('MM')
-      const dateSlug = dayjsObj.format('DD')
-      return (
-        this.blogDynamicItemsBlogPost +
-        yearSlug +
-        '/' +
-        monthSlug +
-        '/' +
-        dateSlug +
-        '/' +
-        postSlug +
-        '/'
-      )
-    },
-  },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
     const description = 'List of all blog posts.'
@@ -207,6 +150,63 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.blog.blogItems[4].text +
+        ' | ' +
+        state.Navigation.blog.blogText,
+      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
+      pageTitle: (state) => state.Navigation.blog.blogItems[4].text,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      currentHref: (state) => state.Navigation.blog.blogItems[4].href,
+      archiveText: (state) => state.Navigation.blog.blogItems[4].text,
+      blogDynamicItemsBlogPost: (state) =>
+        state.Navigation.blog.dynamicItems.blogPost.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true,
+        },
+        {
+          text: this.archiveText,
+          disabled: false,
+          to: this.currentHref,
+          exact: true,
+        },
+      ]
+    },
+  },
+  methods: {
+    getLink(firstPublishedOn, postSlug) {
+      const dayjsObj = dayjs(firstPublishedOn)
+      const yearSlug = dayjsObj.format('YYYY')
+      const monthSlug = dayjsObj.format('MM')
+      const dateSlug = dayjsObj.format('DD')
+      return (
+        this.blogDynamicItemsBlogPost +
+        yearSlug +
+        '/' +
+        monthSlug +
+        '/' +
+        dateSlug +
+        '/' +
+        postSlug +
+        '/'
+      )
+    },
   },
 }
 </script>

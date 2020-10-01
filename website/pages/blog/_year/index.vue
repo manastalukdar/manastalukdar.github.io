@@ -60,38 +60,6 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.blog.yearText + ' | ' + state.Navigation.blog.blogText,
-      yearText: (state) => state.Navigation.blog.yearText,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      blogBaseHref: (state) => state.Navigation.blog.dynamicItems.blogBase.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true,
-        },
-        {
-          text: 'Blog Posts by Year',
-          disabled: false,
-          to: this.blogBaseHref + this.yearUrlSlug + '/',
-          exact: true,
-        },
-      ]
-    },
-  },
   head() {
     const title =
       this.yearName + ' | ' + this.currentPage + ' || ' + this.appOwner
@@ -153,6 +121,38 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.blog.yearText + ' | ' + state.Navigation.blog.blogText,
+      yearText: (state) => state.Navigation.blog.yearText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogBaseHref: (state) => state.Navigation.blog.dynamicItems.blogBase.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true,
+        },
+        {
+          text: 'Blog Posts by Year',
+          disabled: false,
+          to: this.blogBaseHref + this.yearUrlSlug + '/',
+          exact: true,
+        },
+      ]
+    },
   },
 }
 </script>

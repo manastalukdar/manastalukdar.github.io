@@ -61,41 +61,6 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.blog.authorText +
-        ' | ' +
-        state.Navigation.blog.blogText,
-      authorText: (state) => state.Navigation.blog.authorText,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      blogDynamicItemsAuthor: (state) =>
-        state.Navigation.blog.dynamicItems.author.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true,
-        },
-        {
-          text: 'Blog Posts by Author',
-          disabled: false,
-          to: this.blogDynamicItemsAuthor + this.authorUrlSlug + '/',
-          exact: true,
-        },
-      ]
-    },
-  },
   head() {
     const title =
       this.authorName + ' | ' + this.currentPage + ' || ' + this.appOwner
@@ -158,6 +123,41 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.blog.authorText +
+        ' | ' +
+        state.Navigation.blog.blogText,
+      authorText: (state) => state.Navigation.blog.authorText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogDynamicItemsAuthor: (state) =>
+        state.Navigation.blog.dynamicItems.author.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true,
+        },
+        {
+          text: 'Blog Posts by Author',
+          disabled: false,
+          to: this.blogDynamicItemsAuthor + this.authorUrlSlug + '/',
+          exact: true,
+        },
+      ]
+    },
   },
 }
 </script>

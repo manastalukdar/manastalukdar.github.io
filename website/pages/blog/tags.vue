@@ -111,6 +111,67 @@ export default {
       blogDynamicItemsTag: (state) =>
         state.Navigation.blog.dynamicItems.tag.href,
     }),
+    head() {
+      const title = this.currentPage + ' || ' + this.appOwner
+      const description = 'List of all tags from blog.'
+      const url = this.baseUrl + this.currentHref
+      const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
+        (item, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          item: {
+            '@id': this.baseUrl + item.to,
+            name: item.text,
+          },
+        })
+      )
+      const breadcrumbsStructuredData = {
+        '@context': 'http://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbsStructuredDataArray,
+      }
+      return {
+        title,
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: description,
+          },
+          {
+            hid: 'apple-mobile-web-app-title',
+            name: 'apple-mobile-web-app-title',
+            content: title,
+          },
+          {
+            hid: 'og-title',
+            name: 'og:title',
+            property: 'og:title',
+            content: title,
+          },
+          {
+            hid: 'og-url',
+            name: 'og:url',
+            property: 'og:url',
+            content: url,
+          },
+          {
+            hid: 'og-description',
+            name: 'og:description',
+            property: 'og:description',
+            content: description,
+          },
+        ],
+        link: [{ rel: 'canonical', href: url }],
+        __dangerouslyDisableSanitizers: ['script'],
+        script: [
+          {
+            innerHTML: JSON.stringify(breadcrumbsStructuredData),
+            type: 'application/ld+json',
+          },
+        ],
+      }
+    },
     breadcrumbs() {
       return [
         {
@@ -138,67 +199,6 @@ export default {
     getLink(tagSlug) {
       return this.blogDynamicItemsTag + tagSlug + '/'
     },
-  },
-  head() {
-    const title = this.currentPage + ' || ' + this.appOwner
-    const description = 'List of all tags from blog.'
-    const url = this.baseUrl + this.currentHref
-    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
-      (item, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        item: {
-          '@id': this.baseUrl + item.to,
-          name: item.text,
-        },
-      })
-    )
-    const breadcrumbsStructuredData = {
-      '@context': 'http://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray,
-    }
-    return {
-      title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: description,
-        },
-        {
-          hid: 'apple-mobile-web-app-title',
-          name: 'apple-mobile-web-app-title',
-          content: title,
-        },
-        {
-          hid: 'og-title',
-          name: 'og:title',
-          property: 'og:title',
-          content: title,
-        },
-        {
-          hid: 'og-url',
-          name: 'og:url',
-          property: 'og:url',
-          content: url,
-        },
-        {
-          hid: 'og-description',
-          name: 'og:description',
-          property: 'og:description',
-          content: description,
-        },
-      ],
-      link: [{ rel: 'canonical', href: url }],
-      __dangerouslyDisableSanitizers: ['script'],
-      script: [
-        {
-          innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json',
-        },
-      ],
-    }
   },
 }
 </script>

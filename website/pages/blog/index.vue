@@ -37,29 +37,6 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) => state.Navigation.blog.blogItems[0].text,
-      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
-      pageTitle: (state) => state.Navigation.blog.blogText,
-      currentHref: (state) => state.Navigation.blog.blogItems[0].href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.currentHref,
-        },
-      ]
-    },
-  },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
     const description = 'Reflections on software engineering and other matters.'
@@ -120,6 +97,29 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) => state.Navigation.blog.blogItems[0].text,
+      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
+      pageTitle: (state) => state.Navigation.blog.blogText,
+      currentHref: (state) => state.Navigation.blog.blogItems[0].href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.currentHref,
+        },
+      ]
+    },
   },
 }
 </script>

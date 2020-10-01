@@ -33,6 +33,11 @@ export default {
     MainNavMenuTopNavBar,
     Footer,
   },
+  head() {
+    return {
+      title: this.appOwner,
+    }
+  },
   computed: {
     ...mapState({
       appOwner: (state) => state.GlobalData.appOwner,
@@ -44,11 +49,6 @@ export default {
       diameter: 40,
       zIndex: 3,
     })
-  },
-  head() {
-    return {
-      title: this.appOwner,
-    }
   },
 }
 </script>

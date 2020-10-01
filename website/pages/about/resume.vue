@@ -29,58 +29,6 @@ export default {
       baseUrl: $config.baseURL,
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.about.aboutItems[0].text +
-        ' | ' +
-        state.Navigation.about.aboutText,
-      currentHref: (state) => state.Navigation.about.aboutItems[0].href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-        },
-        {
-          text: 'Resume',
-          disabled: false,
-          to: this.currentHref,
-        },
-      ]
-    },
-  },
-  mounted() {
-    this.fixParentContainerWidthOnMount()
-  },
-  destroyed() {
-    this.fixParentContainerWidthOnDestroy()
-  },
-  methods: {
-    fixParentContainerWidthOnMount() {
-      const cr = document.getElementById('container-resume')
-      if (cr != null) {
-        const parent = cr.parentElement
-        if (parent.className.includes('content-body')) {
-          parent.classList.remove('content-body')
-        }
-      }
-    },
-    fixParentContainerWidthOnDestroy() {
-      const cr = document.getElementById('content-body-container')
-      if (cr != null) {
-        if (
-          cr.className.includes('container') &&
-          !cr.className.includes('content-body')
-        ) {
-          cr.classList.add('content-body')
-        }
-      }
-    },
-  },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
     const description = 'Manas Talukdar resume'
@@ -141,6 +89,58 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.about.aboutItems[0].text +
+        ' | ' +
+        state.Navigation.about.aboutText,
+      currentHref: (state) => state.Navigation.about.aboutItems[0].href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+        },
+        {
+          text: 'Resume',
+          disabled: false,
+          to: this.currentHref,
+        },
+      ]
+    },
+  },
+  mounted() {
+    this.fixParentContainerWidthOnMount()
+  },
+  destroyed() {
+    this.fixParentContainerWidthOnDestroy()
+  },
+  methods: {
+    fixParentContainerWidthOnMount() {
+      const cr = document.getElementById('container-resume')
+      if (cr != null) {
+        const parent = cr.parentElement
+        if (parent.className.includes('content-body')) {
+          parent.classList.remove('content-body')
+        }
+      }
+    },
+    fixParentContainerWidthOnDestroy() {
+      const cr = document.getElementById('content-body-container')
+      if (cr != null) {
+        if (
+          cr.className.includes('container') &&
+          !cr.className.includes('content-body')
+        ) {
+          cr.classList.add('content-body')
+        }
+      }
+    },
   },
 }
 </script>

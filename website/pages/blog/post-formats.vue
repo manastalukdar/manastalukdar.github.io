@@ -98,52 +98,6 @@ export default {
       ],
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.blog.blogItems[3].text +
-        ' | ' +
-        state.Navigation.blog.blogText,
-      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
-      pageTitle: (state) => state.Navigation.blog.blogItems[3].text,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      currentHref: (state) => state.Navigation.blog.blogItems[3].href,
-      postFormatsText: (state) => state.Navigation.blog.blogItems[3].text,
-      blogDynamicItemsPostFormats: (state) =>
-        state.Navigation.blog.dynamicItems.postFormat.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true,
-        },
-        {
-          text: this.postFormatsText,
-          disabled: false,
-          to: this.currentHref,
-          exact: true,
-        },
-      ]
-    },
-  },
-  methods: {
-    getLink(postFormatsSlug) {
-      return this.blogDynamicItemsPostFormats + postFormatsSlug + '/'
-    },
-    getPostFormatIcon(name) {
-      return this.$store.getters['BlogMetadata/getPostFormatIcon'](name)
-    },
-  },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
     const description = 'List of all post formats from blog.'
@@ -204,6 +158,52 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.blog.blogItems[3].text +
+        ' | ' +
+        state.Navigation.blog.blogText,
+      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
+      pageTitle: (state) => state.Navigation.blog.blogItems[3].text,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      currentHref: (state) => state.Navigation.blog.blogItems[3].href,
+      postFormatsText: (state) => state.Navigation.blog.blogItems[3].text,
+      blogDynamicItemsPostFormats: (state) =>
+        state.Navigation.blog.dynamicItems.postFormat.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true,
+        },
+        {
+          text: this.postFormatsText,
+          disabled: false,
+          to: this.currentHref,
+          exact: true,
+        },
+      ]
+    },
+  },
+  methods: {
+    getLink(postFormatsSlug) {
+      return this.blogDynamicItemsPostFormats + postFormatsSlug + '/'
+    },
+    getPostFormatIcon(name) {
+      return this.$store.getters['BlogMetadata/getPostFormatIcon'](name)
+    },
   },
 }
 </script>

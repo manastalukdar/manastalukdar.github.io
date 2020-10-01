@@ -55,41 +55,6 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.blog.postFormatText +
-        ' | ' +
-        state.Navigation.blog.blogText,
-      postFormatText: (state) => state.Navigation.blog.postFormatText,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      blogDynamicItemsPostFormat: (state) =>
-        state.Navigation.blog.dynamicItems.postFormat.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true,
-        },
-        {
-          text: 'Blog Posts by Post-Format',
-          disabled: false,
-          to: this.blogDynamicItemsPostFormat + this.postFormatType + '/',
-          exact: true,
-        },
-      ]
-    },
-  },
   head() {
     const title =
       this.postFormatType + ' | ' + this.currentPage + ' || ' + this.appOwner
@@ -152,6 +117,41 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.blog.postFormatText +
+        ' | ' +
+        state.Navigation.blog.blogText,
+      postFormatText: (state) => state.Navigation.blog.postFormatText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogDynamicItemsPostFormat: (state) =>
+        state.Navigation.blog.dynamicItems.postFormat.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true,
+        },
+        {
+          text: 'Blog Posts by Post-Format',
+          disabled: false,
+          to: this.blogDynamicItemsPostFormat + this.postFormatType + '/',
+          exact: true,
+        },
+      ]
+    },
   },
 }
 </script>

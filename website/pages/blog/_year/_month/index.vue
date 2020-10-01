@@ -65,40 +65,6 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.blog.monthText +
-        ' | ' +
-        state.Navigation.blog.blogText,
-      monthText: (state) => state.Navigation.blog.monthText,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      blogBaseHref: (state) => state.Navigation.blog.dynamicItems.blogBase.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true,
-        },
-        {
-          text: 'Blog Posts by Month',
-          disabled: false,
-          to: this.blogBaseHref + this.monthUrlSlug + '/',
-          exact: true,
-        },
-      ]
-    },
-  },
   head() {
     const title =
       this.monthName + ' | ' + this.currentPage + ' || ' + this.appOwner
@@ -160,6 +126,40 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.blog.monthText +
+        ' | ' +
+        state.Navigation.blog.blogText,
+      monthText: (state) => state.Navigation.blog.monthText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogBaseHref: (state) => state.Navigation.blog.dynamicItems.blogBase.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true,
+        },
+        {
+          text: 'Blog Posts by Month',
+          disabled: false,
+          to: this.blogBaseHref + this.monthUrlSlug + '/',
+          exact: true,
+        },
+      ]
+    },
   },
 }
 </script>

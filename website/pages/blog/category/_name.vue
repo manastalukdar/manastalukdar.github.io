@@ -63,41 +63,6 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.blog.categoryText +
-        ' | ' +
-        state.Navigation.blog.blogText,
-      categoryText: (state) => state.Navigation.blog.categoryText,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      blogDynamicItemsCategory: (state) =>
-        state.Navigation.blog.dynamicItems.category.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true,
-        },
-        {
-          text: 'Blog Posts by Category',
-          disabled: false,
-          to: this.blogDynamicItemsCategory + this.categoryUrlSlug + '/',
-          exact: true,
-        },
-      ]
-    },
-  },
   head() {
     const title =
       this.categoryName + ' | ' + this.currentPage + ' || ' + this.appOwner
@@ -160,6 +125,41 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.blog.categoryText +
+        ' | ' +
+        state.Navigation.blog.blogText,
+      categoryText: (state) => state.Navigation.blog.categoryText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogDynamicItemsCategory: (state) =>
+        state.Navigation.blog.dynamicItems.category.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true,
+        },
+        {
+          text: 'Blog Posts by Category',
+          disabled: false,
+          to: this.blogDynamicItemsCategory + this.categoryUrlSlug + '/',
+          exact: true,
+        },
+      ]
+    },
   },
 }
 </script>

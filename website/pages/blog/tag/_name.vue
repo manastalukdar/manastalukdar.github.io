@@ -61,39 +61,6 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.blog.tagText + ' | ' + state.Navigation.blog.blogText,
-      tagText: (state) => state.Navigation.blog.tagText,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      blogDynamicItemsTag: (state) =>
-        state.Navigation.blog.dynamicItems.tag.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true,
-        },
-        {
-          text: 'Blog Posts by Tag',
-          disabled: false,
-          to: this.blogDynamicItemsTag + this.tagUrlSlug + '/',
-          exact: true,
-        },
-      ]
-    },
-  },
   head() {
     const title =
       this.tagName + ' | ' + this.currentPage + ' || ' + this.appOwner
@@ -155,6 +122,39 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.blog.tagText + ' | ' + state.Navigation.blog.blogText,
+      tagText: (state) => state.Navigation.blog.tagText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogDynamicItemsTag: (state) =>
+        state.Navigation.blog.dynamicItems.tag.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true,
+        },
+        {
+          text: 'Blog Posts by Tag',
+          disabled: false,
+          to: this.blogDynamicItemsTag + this.tagUrlSlug + '/',
+          exact: true,
+        },
+      ]
+    },
   },
 }
 </script>

@@ -86,37 +86,6 @@ export default {
     },
     description: 'Contact Form.',
   }),
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.contact.contactForm.text +
-        ' | ' +
-        state.Navigation.contact.contactText,
-      currentHref: (state) => state.Navigation.contact.contactForm.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Contact Form',
-          disabled: false,
-          to: this.currentHref,
-          exact: true,
-        },
-      ]
-    },
-  },
-  methods: {
-    submit() {
-      this.$v.$touch()
-    },
-  },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
     const url = this.baseUrl + this.currentHref
@@ -176,6 +145,37 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.contact.contactForm.text +
+        ' | ' +
+        state.Navigation.contact.contactText,
+      currentHref: (state) => state.Navigation.contact.contactForm.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Contact Form',
+          disabled: false,
+          to: this.currentHref,
+          exact: true,
+        },
+      ]
+    },
+  },
+  methods: {
+    submit() {
+      this.$v.$touch()
+    },
   },
 }
 </script>

@@ -8,7 +8,7 @@
         row
         wrap
       >
-        <template v-slot:item="props">
+        <template #item="props">
           <singlePost :post-metadata="props.item" />
           <!--<hr>-->
         </template>

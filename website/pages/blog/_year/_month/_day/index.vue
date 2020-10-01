@@ -67,38 +67,6 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.blog.dayText + ' | ' + state.Navigation.blog.blogText,
-      dayText: (state) => state.Navigation.blog.dayText,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      blogBaseHref: (state) => state.Navigation.blog.dynamicItems.blogBase.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true,
-        },
-        {
-          text: 'Blog Posts by Day',
-          disabled: false,
-          to: this.blogBaseHref + this.dayUrlSlug + '/',
-          exact: true,
-        },
-      ]
-    },
-  },
   head() {
     const title =
       this.dayName + ' | ' + this.currentPage + ' || ' + this.appOwner
@@ -160,6 +128,38 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.blog.dayText + ' | ' + state.Navigation.blog.blogText,
+      dayText: (state) => state.Navigation.blog.dayText,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      blogBaseHref: (state) => state.Navigation.blog.dynamicItems.blogBase.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true,
+        },
+        {
+          text: 'Blog Posts by Day',
+          disabled: false,
+          to: this.blogBaseHref + this.dayUrlSlug + '/',
+          exact: true,
+        },
+      ]
+    },
   },
 }
 </script>

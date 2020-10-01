@@ -30,29 +30,6 @@ export default {
       description: 'Legal disclaimer.',
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) => state.Navigation.legal.legalText,
-      currentHref: (state) => state.Navigation.legal.legalPath,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Legal',
-          disabled: false,
-          to: this.currentHref,
-          exact: true,
-        },
-      ]
-    },
-  },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
     const url = this.baseUrl + this.currentHref
@@ -112,6 +89,29 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) => state.Navigation.legal.legalText,
+      currentHref: (state) => state.Navigation.legal.legalPath,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Legal',
+          disabled: false,
+          to: this.currentHref,
+          exact: true,
+        },
+      ]
+    },
   },
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <v-menu attach bottom left offset-y max-height="500">
-    <template v-slot:activator="{ on }">
+    <template #activator="{ on }">
       <v-btn
         :aria-label="legalText"
         text

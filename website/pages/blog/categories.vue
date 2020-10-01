@@ -91,49 +91,6 @@ export default {
       ],
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.blog.blogItems[1].text +
-        ' | ' +
-        state.Navigation.blog.blogText,
-      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
-      pageTitle: (state) => state.Navigation.blog.blogItems[1].text,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      currentHref: (state) => state.Navigation.blog.blogItems[1].href,
-      categoriesText: (state) => state.Navigation.blog.blogItems[1].text,
-      blogDynamicItemsCategory: (state) =>
-        state.Navigation.blog.dynamicItems.category.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true,
-        },
-        {
-          text: this.categoriesText,
-          disabled: false,
-          to: this.currentHref,
-          exact: true,
-        },
-      ]
-    },
-  },
-  methods: {
-    getLink(categorySlug) {
-      return this.blogDynamicItemsCategory + categorySlug + '/'
-    },
-  },
   head() {
     const title = this.currentPage + ' || ' + this.appOwner
     const description = 'List of all categories from blog.'
@@ -194,6 +151,49 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      appOwner: (state) => state.GlobalData.appOwner,
+      currentPage: (state) =>
+        state.Navigation.blog.blogItems[1].text +
+        ' | ' +
+        state.Navigation.blog.blogText,
+      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
+      pageTitle: (state) => state.Navigation.blog.blogItems[1].text,
+      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
+      currentHref: (state) => state.Navigation.blog.blogItems[1].href,
+      categoriesText: (state) => state.Navigation.blog.blogItems[1].text,
+      blogDynamicItemsCategory: (state) =>
+        state.Navigation.blog.dynamicItems.category.href,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+          exact: true,
+        },
+        {
+          text: 'Blog',
+          disabled: false,
+          to: this.blogHref,
+          exact: true,
+        },
+        {
+          text: this.categoriesText,
+          disabled: false,
+          to: this.currentHref,
+          exact: true,
+        },
+      ]
+    },
+  },
+  methods: {
+    getLink(categorySlug) {
+      return this.blogDynamicItemsCategory + categorySlug + '/'
+    },
   },
 }
 </script>

@@ -74,23 +74,6 @@ export default {
       currentHref: '/',
     }
   },
-  computed: {
-    ...mapState({
-      socialMediaItems: (state) => state.Navigation.contact.socialMediaItems,
-      aboutItems: (state) => state.Navigation.about.aboutItems,
-      appOwner: (state) => state.GlobalData.appOwner,
-      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-        },
-      ]
-    },
-  },
   head() {
     const url = this.baseUrl + this.currentHref
     const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
@@ -137,6 +120,23 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    ...mapState({
+      socialMediaItems: (state) => state.Navigation.contact.socialMediaItems,
+      aboutItems: (state) => state.Navigation.about.aboutItems,
+      appOwner: (state) => state.GlobalData.appOwner,
+      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
+    }),
+    breadcrumbs() {
+      return [
+        {
+          text: 'Home',
+          disabled: false,
+          to: '/',
+        },
+      ]
+    },
   },
 }
 </script>
