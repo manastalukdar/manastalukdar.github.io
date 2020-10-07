@@ -16,7 +16,7 @@ post-format: standard
 title: Interviewing Software Engineers
 url-slug: interviewing-software-engineers
 first-published-on: 2019-04-14 1:20 pm
-last-updated-on: 2020-08-20 01:09
+last-updated-on: 2020-10-06 19:28
 meta:
  description: "Methodology for interviewing and hiring high calibre software engineers."
 excerpt: "I have been interviewing software engineer candidates, both new grads and experienced candidates, for many years. Over time I have settled down on a pattern of questions that probe for certain key traits that has resulted in hiring excellent software engineers."
@@ -38,9 +38,7 @@ I have been interviewing software engineering candidates, both new grads (B.S., 
 
 It is pertinent to mention that I often get candidates who are not from a Computer Science background, i.e., their degrees may be in Electrical, Mechanical, Chemical Engineering, or perhaps in Physics, or BioChemistry, etc. Many of these candidates are straight out of school and so I believe it is important to make a distinction between them, and candidates who have graduated with a Computer Science or in some cases Computer Engineering degree. The distinction arises primarily due to the fact that the former pool of candidates, specially the new grads, almost always have had no exposure to Data Structures and Algorithms coursework, either in school or on their own. The relevance of this distinction and its application in my interviewing process is addressed later in this post.
 
-## Key Traits
-
-The key traits that I look for in a candidate are discussed.
+## Behavioral Skills
 
 ### Communication Skills
 
@@ -49,10 +47,10 @@ The first thing I have a candidate do is pick any project from their resume and 
 1. How well can the candidate communicate their previous accomplishments?
 2. How passionate is the candidate about their work?
 3. If it was a team project:
-     1. What was the candidate's individual contribution in the project?
-     2. Is the candidate focussing on the "we" vs. the "I"?
-     3. How well do they work in a team?
-     4. How do they perceive work done by the team vs. work done by themselves individually?
+   1. What was the candidate's individual contribution in the project?
+   2. Is the candidate focussing on the "we" vs. the "I"?
+   3. How well do they work in a team?
+   4. How do they perceive work done by the team vs. work done by themselves individually?
 4. How much information can the candidate convey in as precise and concise a form?
 5. How good is the candidate in technical communication?
 6. If the project is in an area that I, as the interviewer, do not possess knowledge of, how well can the candidate help me understand the new information?
@@ -61,7 +59,73 @@ I have follow-up questions that lead into a conversation for another 3-4 minutes
 
 One important goal of this round is to help the candidate become comfortable before we dive into the more technical evaluations.
 
-### Technical Competency
+### Context on Job Switch
+
+- Why are you looking for a new job?
+- Company
+  - How did you hear about this company?
+  - Why this company?
+  - What do you know about this company?
+- What are your looking for in next job? What are you looking for in terms of career growth?
+
+### Inquisitiveness and Ability to Learn New Things 
+
+In the tech industry it is fairly common for technologies to rise and fall and skills to become redundant. So, it is important that a good Software Engineer should:
+
+- Be inquisitive about new developments in the industry irrespective of whether these new developments are being used or planned on being used by the higher-ups at their workplace. 
+- Have the ability to learn new technologies in reasonably quick time and find the resources needed to really understand these technologies to be able to make informed decisions about their pros and cons, etc. 
+
+You may probe for these characteristics in a candidate by:
+
+- Asking them questions on new developments in the industry related to their background.
+- Asking them questions on a topic that most likely they have never worked on. The idea here is to foster a discussion and observe how effectively the candidate can catch on to something that they may not be very familiar with.
+- Observe how candidate is able to use hints to make progress with the technical problem.
+
+### Unafraid and Has the Ability to Dive Deep
+
+Candidate should:
+
+- Be curious and unafraid to dive (deep) into portions of the code / project they may not be familiar with.
+- Have the ability to learn new technologies and apply new ideas.
+
+You may probe for these characteristics by:
+
+- Asking them questions on something they is not directly related to their immediate domain. Does candidate seem "afraid" or "defensive" or are they curious and ask the right questions?
+- Observe how candidate is able to use hints to make progress with the technical problem.
+
+### Tenacity
+
+Observe how a candidate solves a relatively difficult problem, be it a coding or a system design problem. Some candidates just give up, but there are those who keep at it and try different approaches and try to break down the problem into more manageable parts.
+
+### Sense of Ownership
+
+Candidate should exhibit a sense of ownership and pride over their work. They should feel passionate about the work they have previously done and will potentially do in their new workplace. Questions on their previous projects and scenario based behavioral questions are useful to get an idea.
+
+### Teamwork
+
+Candidate should show the ability to work successfully in a team. You may probe for this by asking questions on previous work and also from scenario-based questions.
+
+### Culture Fit
+
+Candidate should have some degree of alignment with the company and team / group culture. Scenario based behavioral questions help gauge this.
+
+### Multiplier
+
+Candidate, especially if interviewing for an experienced developer position, should show the likelihood of elevating the team. At the very least, candidate if hired, should not pull the team down for whatever reason.
+
+### Autonomy
+
+This is encapsulated by other attributes such as, ability to learn new things, sense of ownership. Needless to say, for experienced candidates we should expect a high degree of autonomy once they get past the initial on-boarding and ramp-up phase.
+
+- Is candidate able to utilize your hints and make progress?
+- Will candidate be able to work with minimal hand-holding?
+- Will candidate NOT need any spoon-feeding?
+
+### Systematic and Methodical Approach
+
+Software engineering, specially while debugging and troubleshooting problems, requires a [methodical approach](https://www.ribbonfarm.com/2009/08/31/how-to-think-like-hercule-poirot/), not quite unlike [being a detective](http://tulosconsultancy.in/blog/order-and-method/). To get a sense of whether the candidate has any sort of proclivity for [order and method](https://www.youtube.com/watch?v=5bGl_v0asbg), a good approach could be to observe how a candidate breaks down a more difficult problem into smaller, manageable pieces. Sometimes, if the candidate has either done exceptionally well or particularly bad in the interview, I may ask them how they go about a project, like for instance how did they prepare for this interview.
+
+## Technical Competency
 
 For the technical portion of the interview, I like to follow the following question patterns. Not all candidates get all questions, which in part is determined by the candidate's background.
 
@@ -75,7 +139,7 @@ For the technical portion of the interview, I like to follow the following quest
 8. Write a program in language of choice for a data structure and algorithms problem (easy to moderate difficulty), including doing time and space complexity analysis. CS grads are expected to get the complexity analysis right.
 9. A medium to hard level data structures and algorithms problem, if there is time, maybe on dynamic programming or graphs.
 
-#### Data Structures and Algorithms
+### Data Structures and Algorithms
 
 Since the last few years there has been a strong trend in the industry towards asking data structures and algorithms questions that largely follow the LeetCode pattern. It is interesting that this trend was originally started, for the most part, by the book "Cracking the Coding Interview", and has since moved on to LeetCode. I know of places that provide a LeetCode-type question and will fail the candidate if s/he fails to provide compilable code (on the whiteboard) with all edge-cases covered. I do not follow this process. I think it is important to ask the candidate data structures and algorithms question, but with the following points in mind:
 
@@ -88,7 +152,7 @@ Since the last few years there has been a strong trend in the industry towards a
 7. I start with an easy problem and then move to a moderately difficult one, and then if there is time, to a hard problem. The more the difficulty level of the problem, the lower the expectation of having fully working code. However, getting the correct algorithm is imperative in all cases.
 8. For the more difficult problems, candidate should show ability to break down the problems into manageable parts.
 
-#### System Design
+### System Design
 
 With the trend in the industry from monolith to microservices, System Design has generally come to denote large scale distributed system design. However, system design may also include object modelling. Generally, I have questions around following topics.
 
@@ -96,48 +160,6 @@ With the trend in the industry from monolith to microservices, System Design has
 2. Depending on the candidate, sometimes this discussion veers into topics involving scalability, resiliency (including API resilience patterns) and security.
 3. If the candidate has relevant industry experience, there may be questions around data consistency models, linearizability, synchronous vs. asynchronous processing patterns, low latency and high throughput architectural patterns and the pros and cons, etc.
 4. A new grad candidate with no experience in distributed computing may get an object modeling question with expectation of not just data models but also API design including discussions involving abstraction patterns for storage and access layers.
-
-### Inquisitiveness and Ability to Learn New Things
-
-In the tech industry it is fairly common for technologies to rise and fall and and skills to become redundant. So, it is important that a good Software Engineer should:
-
-1. Be inquisitive about new developments in the industry irrespective of whether these new developments are being used or planned on being used by the higher-ups at their workplace.
-2. Have the ability to learn new technologies in reasonably quick time and find the resources needed to really understand these technologies to be able to make informed decisions about their pros and cons, etc.
-
-I probe for these characteristics in a candidate by:
-
-- Asking them questions on new developments in the industry related to their background.
-- Asking them questions on a topic that most likely they have never worked on. The idea here is to foster a discussion and observe how effectively the candidate can catch on to something that may not be very familiar with.
-
-### Tenacity
-
-I test for this attribute by observing how a candidate solves a relatively difficult problem, be it a coding or a system design problem. Some candidates just give up, but there are those who keep at it and try different approaches and try to break down the problem into more manageable parts.
-
-### Other
-
-#### Sense of Ownership
-
-Candidate should exhibit a sense of ownership and pride over their work. They should feel passionate about the work they have previously done and will potentially do in their new workplace. Questions on their previous projects and scenario based behavioral questions are useful to get an idea.
-
-#### Teamwork
-
-Candidate should show the ability to work successfully in a team. I probe for this by asking questions on previous work and also from scenario based questions.
-
-#### Culture Fit
-
-Candidate should have some degree of alignment with the company culture. Scenario based behavioral questions help gauge this.
-
-#### Multiplier
-
-Candidate, specially if interviewing for an experienced developer position, should show the likelihood of elevating the team. At the very least, candidate if hired, should not pull the team down for whatever reason.
-
-#### Autonomy
-
-This is encapsulated by other attributes such as, **_ability to learn new things_**, **_Sense of ownership_**. Needless to say, for experienced candidates we should expect a high degree of autonomy once they get past the initial on-boarding and ramp-up phase.
-
-#### Systematic and Methodical Approach
-
-Software engineering, specially while debugging and troubleshooting problems, requires a [methodical approach](https://www.ribbonfarm.com/2009/08/31/how-to-think-like-hercule-poirot/), not quite unlike [being a detective](http://tulosconsultancy.in/blog/order-and-method/). To get a sense of whether the candidate has any sort of proclivity for [order and method](https://www.youtube.com/watch?v=5bGl_v0asbg), sometimes, if the candidate has either done exceptionally well or particularly bad in the interview, I may ask them how they go about a project, like for instance how did they prepare for this interview.
 
 ## Experienced Candidates
 
