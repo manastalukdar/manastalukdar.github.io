@@ -21,7 +21,7 @@
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/markdownit": "^1.2.10",
-    "@nuxtjs/pwa": "^3.1.0",
+    "@nuxtjs/pwa": "^3.1.2",
     "@nuxtjs/redirect-module": "^0.3.1",
     "@nuxtjs/sitemap": "^2.4.0",
     "cross-env": "^7.0.2",
@@ -39,7 +39,7 @@
     "markdown-it-mathjax": "^2.0.0",
     "markdown-it-textual-uml": "^0.1.3",
     "markdown-it-toc-done-right": "^4.1.0",
-    "mermaid": "^8.8.1",
+    "mermaid": "^8.8.2",
     "nuxt": "^2.14.6",
     "print-js": "^1.4.0",
     "vanilla-back-to-top": "^7.2.1",
@@ -48,7 +48,7 @@
     "vue-lazyload": "^1.3.3",
     "vue-material-design-icons": "^4.9.0",
     "vue-pdf": "^4.1.0",
-    "vue-social-sharing": "^3.0.1",
+    "vue-social-sharing": "^3.0.2",
     "vue-tweet-embed": "^2.4.0"
   },
   "devDependencies": {
@@ -85,7 +85,7 @@
     "vue-jest": "^3.0.7",
     "lodash": ">=4.17.20",
     "jpeg-js": ">=0.4.2",
-    "dot-prop": ">=5.3.0",
+    "dot-prop": ">=6.0.0",
     "vue": "^2.6.12",
     "vue-template-compiler": "^2.6.12"
   }
