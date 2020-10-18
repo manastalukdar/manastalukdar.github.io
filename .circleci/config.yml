@@ -51,6 +51,7 @@ jobs:
           at: ~/repo/tmp
 
       - run:
+          name: Run npm generate
           command: |
             cp tmp/blogdata website/static/blogdata -r
             cd website
@@ -60,20 +61,20 @@ jobs:
             cd ..
             cp website/dist tmp -r
 
-      - run:
-          name: Install and configure dependencies
-          command: |
-            sudo npm install -g --silent gh-pages@2.0.1
-            sudo git config user.email "manas.talukdar@gmail.com"
-            sudo git config user.name "circle-ci-build"
+      # - run:
+      #     name: Install and configure dependencies
+      #     command: |
+      #       sudo npm install -g --silent gh-pages@2.0.1
+      #       sudo git config user.email "manas.talukdar@gmail.com"
+      #       sudo git config user.name "circle-ci-build"
 
-      - add_ssh_keys:
-          fingerprints:
-            - "5e:7e:51:39:c2:4e:ee:84:0f:1d:e5:4d:4a:f6:6e:7f"
+      # - add_ssh_keys:
+      #     fingerprints:
+      #       - "5e:7e:51:39:c2:4e:ee:84:0f:1d:e5:4d:4a:f6:6e:7f"
 
-      - run:
-          name: Deploy docs to gh-pages branch
-          command: gh-pages --dotfiles --dist tmp/dist --branch master --message "Circle CI Updates [ci skip]"
+      # - run:
+      #     name: Deploy docs to gh-pages branch
+      #     command: gh-pages --dotfiles --dist tmp/dist --branch master --message "Circle CI Updates [ci skip]"
 
 workflows:
   build:
@@ -83,10 +84,10 @@ workflows:
             branches:
               only:
                 - source
-      # - generate_website:
-      #     filters:
-      #       branches:
-      #         only:
-      #           - source
-      #     requires:
-      #       - generate_blog_metadata
+      - generate_website:
+          filters:
+            branches:
+              only:
+                - source
+          requires:
+            - generate_blog_metadata
