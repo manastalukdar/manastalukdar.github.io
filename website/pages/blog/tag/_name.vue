@@ -28,6 +28,7 @@ export default {
         if (tag['url-slug'] === params.name) {
           return tag.name
         }
+        return null
       })
       return {
         tagUrlSlug: params.name,
@@ -52,6 +53,7 @@ export default {
         if (tag['url-slug'] === params.name) {
           return tag.name
         }
+        return null
       })
       return {
         tagUrlSlug: params.name,

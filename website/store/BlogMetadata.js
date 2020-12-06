@@ -10,8 +10,8 @@ const state = () => ({
 
 // getters
 const getters = {
-  getPostMetadata: (state) => (year, month, date, slug) => {
-    return find(state.blogMetadata, function (post) {
+  getPostMetadata: (statePassed) => (year, month, date, slug) => {
+    return find(statePassed.blogMetadata, function (post) {
       const dayjsObj = dayjs(post['first-published-on'])
       return (
         dayjsObj.format('YYYY') === year &&
@@ -22,12 +22,13 @@ const getters = {
     })
   },
 
-  getPostFormats: (state) => {
-    const groupedByPostFormat = groupBy(state.blogMetadata, function (
-      postmetadata
-    ) {
-      return postmetadata['post-format']['url-slug']
-    })
+  getPostFormats: (statePassed) => {
+    const groupedByPostFormat = groupBy(
+      statePassed.blogMetadata,
+      function (postmetadata) {
+        return postmetadata['post-format']['url-slug']
+      }
+    )
     const items = []
     for (const [key, value] of Object.entries(groupedByPostFormat)) {
       const postFormatName = value[0]['post-format'].name
@@ -36,8 +37,8 @@ const getters = {
     return items
   },
 
-  getTags: (state) => {
-    const groupedByTags = state.blogMetadata.reduce(function (acc, curr) {
+  getTags: (statePassed) => {
+    const groupedByTags = statePassed.blogMetadata.reduce(function (acc, curr) {
       curr.tags.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
@@ -53,14 +54,18 @@ const getters = {
         if (tag['url-slug'] === key) {
           return tag.name
         }
+        return null
       })
       items.push({ name: tagName[0].name, slug: key, count: value.length })
     }
     return items
   },
 
-  getCategories: (state) => {
-    const groupedByCategories = state.blogMetadata.reduce(function (acc, curr) {
+  getCategories: (statePassed) => {
+    const groupedByCategories = statePassed.blogMetadata.reduce(function (
+      acc,
+      curr
+    ) {
       curr.categories.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
@@ -69,21 +74,23 @@ const getters = {
         }
       })
       return acc
-    }, {})
+    },
+    {})
     const items = []
     for (const [key, value] of Object.entries(groupedByCategories)) {
       const catName = value[0].categories.filter((category) => {
         if (category['url-slug'] === key) {
           return category.name
         }
+        return null
       })
       items.push({ name: catName[0].name, slug: key, count: value.length })
     }
     return items
   },
 
-  getPostsForTag: (state) => (tag) => {
-    const groupedByTags = state.blogMetadata.reduce(function (acc, curr) {
+  getPostsForTag: (statePassed) => (tag) => {
+    const groupedByTags = statePassed.blogMetadata.reduce(function (acc, curr) {
       curr.tags.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
@@ -99,8 +106,11 @@ const getters = {
       }
     }
   },
-  getPostsForCategory: (state) => (category) => {
-    const groupedByCategories = state.blogMetadata.reduce(function (acc, curr) {
+  getPostsForCategory: (statePassed) => (category) => {
+    const groupedByCategories = statePassed.blogMetadata.reduce(function (
+      acc,
+      curr
+    ) {
       curr.categories.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
@@ -109,15 +119,19 @@ const getters = {
         }
       })
       return acc
-    }, {})
+    },
+    {})
     for (const [key, value] of Object.entries(groupedByCategories)) {
       if (key === category) {
         return value
       }
     }
   },
-  getPostsForAuthor: (state) => (author) => {
-    const groupedByAuthor = state.blogMetadata.reduce(function (acc, curr) {
+  getPostsForAuthor: (statePassed) => (author) => {
+    const groupedByAuthor = statePassed.blogMetadata.reduce(function (
+      acc,
+      curr
+    ) {
       curr.authors.forEach(function (item) {
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
@@ -126,27 +140,29 @@ const getters = {
         }
       })
       return acc
-    }, {})
+    },
+    {})
     for (const [key, value] of Object.entries(groupedByAuthor)) {
       if (key === author) {
         return value
       }
     }
   },
-  getPostsForPostFormat: (state) => (postFormat) => {
-    const groupedByPostFormat = groupBy(state.blogMetadata, function (
-      postmetadata
-    ) {
-      return postmetadata['post-format']['url-slug']
-    })
+  getPostsForPostFormat: (statePassed) => (postFormat) => {
+    const groupedByPostFormat = groupBy(
+      statePassed.blogMetadata,
+      function (postmetadata) {
+        return postmetadata['post-format']['url-slug']
+      }
+    )
     for (const [key, value] of Object.entries(groupedByPostFormat)) {
       if (key === postFormat) {
         return value
       }
     }
   },
-  getPostsForYear: (state) => (year) => {
-    const groupedByYear = state.blogMetadata.reduce(function (acc, curr) {
+  getPostsForYear: (statePassed) => (year) => {
+    const groupedByYear = statePassed.blogMetadata.reduce(function (acc, curr) {
       const dayjsObj = dayjs(curr['first-published-on'])
       const yearCurr = dayjsObj.format('YYYY')
       const key = yearCurr
@@ -163,8 +179,11 @@ const getters = {
       }
     }
   },
-  getPostsForMonth: (state) => (year, month) => {
-    const groupedByMonth = state.blogMetadata.reduce(function (acc, curr) {
+  getPostsForMonth: (statePassed) => (year, month) => {
+    const groupedByMonth = statePassed.blogMetadata.reduce(function (
+      acc,
+      curr
+    ) {
       const dayjsObj = dayjs(curr['first-published-on'])
       const yearCurr = dayjsObj.format('YYYY')
       const monthCurr = dayjsObj.format('MM')
@@ -175,15 +194,16 @@ const getters = {
         acc[key] = [curr]
       }
       return acc
-    }, {})
+    },
+    {})
     for (const [key, value] of Object.entries(groupedByMonth)) {
       if (key === year + '-' + month) {
         return value
       }
     }
   },
-  getPostsForDay: (state) => (year, month, day) => {
-    const groupedByDay = state.blogMetadata.reduce(function (acc, curr) {
+  getPostsForDay: (statePassed) => (year, month, day) => {
+    const groupedByDay = statePassed.blogMetadata.reduce(function (acc, curr) {
       const dayjsObj = dayjs(curr['first-published-on'])
       const yearCurr = dayjsObj.format('YYYY')
       const monthCurr = dayjsObj.format('MM')
@@ -202,7 +222,7 @@ const getters = {
       }
     }
   },
-  getPostFormatIcon: (state) => (postFormatType) => {
+  getPostFormatIcon: (statePassed) => (postFormatType) => {
     if (postFormatType === 'standard') {
       return 'mdi-pin'
     } else if (postFormatType === 'aside') {
