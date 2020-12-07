@@ -28,7 +28,7 @@ export default {
         if (author['url-slug'] === params.name) {
           return author.name
         }
-        return null
+        return ''
       })
       return {
         authorUrlSlug: params.name,
@@ -53,7 +53,7 @@ export default {
         if (author['url-slug'] === params.name) {
           return author.name
         }
-        return null
+        return ''
       })
       return {
         authorUrlSlug: params.name,

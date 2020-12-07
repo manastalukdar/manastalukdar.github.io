@@ -28,7 +28,7 @@ export default {
         if (category['url-slug'] === params.name) {
           return category.name
         }
-        return null
+        return ''
       })
       return {
         categoryUrlSlug: params.name,
@@ -55,7 +55,7 @@ export default {
         if (category['url-slug'] === params.name) {
           return category.name
         }
-        return null
+        return ''
       })
       return {
         categoryUrlSlug: params.name,

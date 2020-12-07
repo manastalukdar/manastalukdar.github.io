@@ -54,7 +54,7 @@ const getters = {
         if (tag['url-slug'] === key) {
           return tag.name
         }
-        return null
+        return ''
       })
       items.push({ name: tagName[0].name, slug: key, count: value.length })
     }
@@ -82,7 +82,7 @@ const getters = {
         if (category['url-slug'] === key) {
           return category.name
         }
-        return null
+        return ''
       })
       items.push({ name: catName[0].name, slug: key, count: value.length })
     }
