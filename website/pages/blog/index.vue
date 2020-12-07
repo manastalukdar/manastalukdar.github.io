@@ -10,7 +10,9 @@
           </h1>
         </v-row>
       </v-col>
-      <postsList :posts-list="blogMetadata" />
+      <client-only>
+        <postsList :posts-list="blogMetadata" />
+      </client-only>
     </v-row>
   </v-container>
 </template>

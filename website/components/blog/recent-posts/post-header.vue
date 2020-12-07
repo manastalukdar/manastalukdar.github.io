@@ -1,6 +1,6 @@
 <template>
   <div class="text-center" justify="center">
-    <NoSsr>
+    <client-only>
       <nuxt-link
         :to="
           getBlogPostRoute(
@@ -13,7 +13,7 @@
       >
         {{ postMetadata.title }}
       </nuxt-link>
-    </NoSsr>
+    </client-only>
   </div>
 </template>
 
