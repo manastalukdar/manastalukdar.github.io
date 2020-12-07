@@ -334,7 +334,9 @@ export default {
       })
     },
     routes() {
-      getRoutes.functions.generateRoutes()
+      if (getRoutes.properties.sitemapRoutes.length == 0) {
+        getRoutes.functions.generateRoutes()
+      }
       getRoutes.properties.sitemapRoutes.push(baseUrl + sitemapPath)
       getRoutes.properties.sitemapRoutes.push(baseUrl + feedFileName)
       return getRoutes.properties.sitemapRoutes
