@@ -122,6 +122,7 @@ export default {
       params.post +
       '/'
     if (payload) {
+      // static page mode
       const fileContent = await import('~/static/blogdata/' + payload.path)
       const res = fm(fileContent.default)
       // console.log(res.attributes)
@@ -133,6 +134,7 @@ export default {
         url: $config.baseURL + postIdTemp,
       }
     } else {
+      // server mode
       if (store.state.BlogMetadata.blogMetadata.length === 0) {
         await store.dispatch('BlogMetadata/getBlogMetadata', [$config.baseURL])
       }
@@ -202,9 +204,9 @@ export default {
     const tagsArray = []
     const authorsArray = []
     const authorsStructuredData = []
-    this.postMetadata.categories.forEach((category) => {
-      categoriesArray.push(category.name)
-      keywordsArray.push(category.name)
+    this.postMetadata.categories.forEach((cat) => {
+      categoriesArray.push(cat.name)
+      keywordsArray.push(cat.name)
     })
     this.postMetadata.tags.forEach((tag) => {
       tagsArray.push(tag.name)

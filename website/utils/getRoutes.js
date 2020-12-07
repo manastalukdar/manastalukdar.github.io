@@ -38,7 +38,7 @@ export const functions = {
       payload: blogMetadata,
     })
 
-    blogMetadata.map((postmetadata) => {
+    blogMetadata.forEach((postmetadata) => {
       const dayjsObj = dayjs(postmetadata['first-published-on'])
       const route =
         '/blog/' +
