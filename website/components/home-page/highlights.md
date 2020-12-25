@@ -1,4 +1,4 @@
-- Grew current team from 6 to 12 engineers within a year. Continuing to drive further _growth across organization_.
+- Fueled rapid growth of multiple teams by formulating strategies and processes for hiring. As part of org leadership instituted frameworks to maintain high bar and streamline growth.
 
 - Bootstrapped multiple projects from ideation to product. Determined scope and drove road-map with stakeholders, including customers. _Built, managed and grew multiple teams_ that consistently delivered on committed milestones. Instilled software engineering best practices.
 
