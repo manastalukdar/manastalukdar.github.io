@@ -97,6 +97,8 @@ export const functions = {
       const authorName = value[0].authors.filter((author) => {
         if (author['url-slug'] === key) {
           return author.name
+        } else {
+          return ''
         }
       })
       properties.authors.push({
@@ -126,6 +128,8 @@ export const functions = {
       const tagName = value[0].tags.filter((tag) => {
         if (tag['url-slug'] === key) {
           return tag.name
+        } else {
+          return ''
         }
       })
       properties.tags.push({
@@ -160,6 +164,8 @@ export const functions = {
       const catName = value[0].categories.filter((category) => {
         if (category['url-slug'] === key) {
           return category.name
+        } else {
+          return ''
         }
       })
       properties.categories.push({
