@@ -12,7 +12,7 @@ post-format: standard
 title: Growing and Developing Software Engineering Teams
 url-slug: growing-developing-software-engineering-teams
 first-published-on: 2019-09-19 22:33
-last-updated-on: 2020-01-17 18:54
+last-updated-on: 2020-12-26 14:07
 meta:
  description: "An exposition of some mechanisms to grow and develop software engineering teams."
 excerpt: "A big aspect of Engineering Leadership is growing and developing teams. This is a multi-faceted task that involves a multitude of things."
@@ -40,7 +40,7 @@ For the team as a whole this can take the following forms:
 For individual employees this can be:
 
 - Lack of industry experience for a new grad hire.
-- Lack of know-how in a certain tech stack. Maybe an employee has worked with on-premises software before and has not has exposure to cloud and distributed systems.
+- Lack of know-how in a certain tech stack. Maybe an employee has worked with on-premises software before and has not had exposure to cloud and distributed systems.
 
 Subsequently, the EM should identify means to address these gaps, for both teams and individual employees.
 
@@ -51,9 +51,9 @@ For the team this could mean hiring developers, helping current developers learn
 A big part of an Engineering Manager role is hiring new employees. This involves:
 
 - Identifying gaps and needs (discussed above).
-- Working with the recruiting organization to develop a hiring plan.
+- Working with the Talent Acquisition organization to develop a hiring plan.
 - Developing a methodology for interviewing software engineers. I have discussed this in details in an earlier [blog post](https://manastalukdar.github.io/blog/2019/04/14/interviewing-software-engineers/).
-- Identifying individuals who could take on phone screening and on-site interviewing responsibilities.
+- Identifying individuals who could take on phone screening and on-site interviewing responsibilities. If there are not enough people, then EM should develop a road-map to train developers to take on these responsibilities.
 
 ## Talent Management
 
@@ -61,7 +61,7 @@ This ties in very closely with the _Identifying and Addressing Gaps_ section abo
 
 - Any existing gaps within the team, either on the team as a whole or for individual employees.
 - The strengths and scope-for-improvements for each employee. The EM should take this into account when assigning work to developers and also when developing goals and career growth plans for each employee.
-- Succession plans within the team. For example, the EM should have a good idea about who could take on the role of the _Technical Lead_ in case the current developer in that role moves on to something else. Once again, as in the previous point, when developing goals and career growth plans for each employee, the EM should take into account **where each employee currently stands and where s/he needs/wants to be**.
+- Succession plans within the team. For example, the EM should have a good idea about who could take on the role of the _Technical Lead_ in case the current developer in that role moves on to something else. Once again, as in the previous point, when developing goals and career growth plans for each employee, the EM should take into account **where each employee currently stands and where s/he needs/wants to be**. In general, while we do not want employees to leave, particular the top performing ones, in my opinion, the EM should assume that even the best developers in the team will leave and the EM's goal should be to have a pipeline in place so any disruption from team members leaving is minimized.
 
 ## Coaching and Mentoring
 
@@ -74,11 +74,12 @@ The EM should establish an on-boarding plan for all new hires. The goal of this 
 - Ease the employee into the company logistics and culture. Many companies have formal orientation programs (usually a 1-2 days or a week long class) conducted at the company level for new hires across different orgs.
 - Onboard the employee into the team logistics. Recurring meetings, 1-1 with EM, hardware and software, etc.
 - Provide the employee a technical overview of the team^[Ideally, the team should have an actively maintained wiki with a _Getting Started_ page.]
-    - Projects
-    - Source code
-    - CI/CD pipelines
-    - Test infrastructure
-    - Dependencies, etc.
+  - Technology stack
+  - Projects
+  - Source code
+  - CI/CD pipelines
+  - Test infrastructure
+  - Dependencies, etc.
 - Provide the employee any learning resources if needed. This may include anything specific to the ecosystem of the products and services the company and/or team works on.
 - Assign a technical mentor to the employee. This should be mandatory for all new grad hires. This is an opportunity for the new employee to get a helping hand as s/he ramps up and for the mentor to get some leadership experience. The EM may consider tieing this into a yearly/quarterly goal for the mentor.
 
@@ -98,7 +99,7 @@ The EM should work with each employee to come up with a plan for their professio
 - Making a determination of each employee's current position is and where s/he wants and/or needs to be.
 - Working with each employee to come up with a career progression plan.
 
-Advancing employees in their careers also helps to build a pipeline. While it is ideal to be able to retain high performers, there are no guarantees. Sometimes employees choose to leave, for personal or professional reasons. It is very important that the EM builds **a pipeline of capable employees** who can take over roles if other employees leave.
+Advancing employees in their careers also helps to build a pipeline. As we have discussed earlier, while it is ideal to be able to retain high performers, there are no guarantees. Sometimes employees choose to leave, for personal or professional reasons. It is very important that the EM builds **a pipeline of capable employees** who can take over roles if other employees leave.
 
 ### Aligning Work with Interest
 
@@ -140,11 +141,11 @@ It is the EM's responsibility to create and manage a coherent, efficient and pro
 Getting a group of people from diverse background to work together is imperative for being a successful EM. Building trust between employees and between the employees and their EM is crucial to accomplish this. I think the following are important mechanisms to build trust.
 
 - Applies to all team members:
-    - Listening.
-    - Respecting others' opinions.
+  - Listening.
+  - Respecting others' opinions.
 - Applies to EM:
-    - Praise and reward: The EM should give credit to developers^[This can take the shape of public acknowledgement of their efforts during sprint reviews or other meetings potentially involving stakeholders. Or, giving them the opportunity to represent the team in certain forums.] for (consistently) delivering on work and reward them appropriately be it through compensation, promotion or additional responsibilities.
-    - Do not micromanage: People usually do not work very well if they feel that there is always someone breathing down their neck.
+  - Praise and reward: The EM should give credit to developers^[This can take the shape of public acknowledgement of their efforts during sprint reviews or other meetings potentially involving stakeholders. Or, giving them the opportunity to represent the team in certain forums.] for (consistently) delivering on work and reward them appropriately be it through compensation, promotion or additional responsibilities.
+  - Do not micromanage: People usually do not work very well if they feel that there is always someone breathing down their neck.
 
 I believe something that is common to most people in the tech industry is our love for technology. The EM should strive to reinforce this common feature and ensure that people within the team work together to deliver on commitments. When two or more people together accomplish something they all love and enjoy, that goes a long way in building trust and comradery.
 
@@ -174,7 +175,7 @@ The EM should explore soliciting official feedback from multiple people for hims
 - Inputs from their manager.
 - Who each employee works and interacts with.
 
-The questions being asked as part of this official feedback should vary depending on the career position of the persons getting and giving feedback. The EM may at his/her discretion and that of the org's policy collate this feedback and present it to each employee in a summarized form. generally, I like to collate this into three categories:
+The questions being asked as part of this official feedback should vary depending on the career position of the persons receiving and giving feedback. The EM may at his/her discretion and that of the org's policy collate this feedback and present it to each employee in a summarized form. generally, I like to collate this into three categories:
 
 - Behaviors
 - Results
