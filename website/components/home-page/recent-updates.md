@@ -4,9 +4,8 @@
 
 #### Work
 
-- **AI, ML Platform**: I currently manage and lead a highly technical team of software engineers building a multi-cloud, distributed data infrastructure platform for large-scale AI applications.
+- **AI, ML Platform**: I am currently managing and growing a highly technical team of software engineers building a multi-cloud, distributed data infrastructure platform for large-scale AI/ML applications.
 
 #### Other
 
-- **Learning Go, gRPC, Protocol Buffers**: I am currently working on a personal hobby project based on Go, gRPC, Protocol Buffers. More than anything else, I am using the project as a medium to learn these technologies. More to follow as and when I have built something usable.
 - **Markdown-it Parser Plugin**: Developed a new Markdown-it [plugin](https://github.com/manastalukdar/markdown-it-textual-uml) to create uml diagrams from text, based on offerings such as plantuml, mermaid, etc.
