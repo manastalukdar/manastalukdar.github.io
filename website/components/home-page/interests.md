@@ -8,7 +8,7 @@
 
 - **Measuring and improving engineering productivity**: I have developed mechanisms to measure productivity for engineers and teams by mining data from sources such as GitHub, Jira, AzureDevops, Git, etc. I believe in a data driven approach for performance and these mechanisms have helped improve engineering productivity by identifying areas for improvements and providing actionable follow-up steps.
 
-- **Technology**: I am naturally inquisitive, I am passionate about technology and I enjoy learning. I am always on the lookout for any new development in the industry that I could learn out of personal interest or potentially apply at work if relevant.
+- **Technology**: I am naturally inquisitive, I am passionate about technology. I enjoy learning and I love to work on challenging problems. I am always on the lookout for any new development in the industry that I could learn out of personal interest or potentially apply at work if relevant.
 
 - **Building, creating**:  I am a methodical, meticulous person and I love building, creating things. I have a 5-year diploma in Fine Arts and Crafts, which aligns with my creative inclinations. My career in Software Engineering allows me to utilize my natural proclivities to create solutions that empowers users and drives customer success.
 
