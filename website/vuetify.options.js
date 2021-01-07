@@ -21,7 +21,7 @@ export default {
           success: colors.green.accent3 */
       },
       light: {
-        headerAndFooterColor: colors.blue.lighten4,
+        headerAndFooterColor: colors.grey.lighten2,
         cardColor: colors.shades.white,
         backToTopBackground: colors.grey.lighten2,
         backToTopText: colors.red.base,
