@@ -15,6 +15,8 @@ jobs:
       matrix:
         os: [ubuntu-latest]
     steps:
+      - name: Extract Branch Name
+        run: echo "BRANCH=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
@@ -35,6 +37,7 @@ jobs:
         run: sudo npm run generate
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: env.BRANCH == 'master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./website/dist
