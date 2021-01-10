@@ -17,7 +17,7 @@
 Some text
 
 [![Actions Status](https://github.com/manastalukdar/manastalukdar.github.io/workflows/build-deploy/badge.svg)](https://github.com/manastalukdar/manastalukdar.github.io/actions)
-[![GitHub Super-Linter](https://github.com/manastalukdar/manastalukdar.github.io/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![GitHub Super-Linter](https://github.com/manastalukdar/manastalukdar.github.io/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/manastalukdar/manastalukdar.github.io/actions)
 [![CircleCI](https://circleci.com/gh/manastalukdar/manastalukdar.github.io/tree/source.svg?style=svg)](https://circleci.com/gh/manastalukdar/manastalukdar.github.io/tree/source)
 [![Dependency Status](https://david-dm.org/manastalukdar/manastalukdar.github.io.svg?path=website)](https://david-dm.org/manastalukdar/manastalukdar.github.io?path=website)
 [![devDependencies Status](https://david-dm.org/manastalukdar/manastalukdar.github.io/dev-status.svg?path=website)](https://david-dm.org/manastalukdar/manastalukdar.github.io?path=website&type=dev)
