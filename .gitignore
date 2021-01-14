@@ -109,4 +109,4 @@ website/static/*feed.xml
 website/static/styles/
 
 # scala
-.metals 
+.metals

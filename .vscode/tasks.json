@@ -1,37 +1,41 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Delete css folder",
-            "command": "rm -rf css",
-            "windows": {
-                "command": "rd",
-                "args": ["/s", "/q", "css"]
-            }
-        },
-        {
-            "label": "Delete fonts folder",
-            "command": "rm -rf fonts",
-            "windows": {
-                "command": "rd /s /q fonts"
-            }
-        },
-        {
-            "label": "Delete img folder",
-            "command": "rm -rf img",
-            "windows": {
-                "command": "rd /s /q img"
-            }
-        },
-        {
-            "label": "Delete js folder",
-            "command": "rm -rf js",
-            "windows": {
-                "command": "rd /s /q js"
-            }
-        }/*,
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Delete css folder",
+      "command": "rm -rf css",
+      "windows": {
+        "command": "rd",
+        "args": [
+          "/s",
+          "/q",
+          "css"
+        ]
+      }
+    },
+    {
+      "label": "Delete fonts folder",
+      "command": "rm -rf fonts",
+      "windows": {
+        "command": "rd /s /q fonts"
+      }
+    },
+    {
+      "label": "Delete img folder",
+      "command": "rm -rf img",
+      "windows": {
+        "command": "rd /s /q img"
+      }
+    },
+    {
+      "label": "Delete js folder",
+      "command": "rm -rf js",
+      "windows": {
+        "command": "rd /s /q js"
+      }
+    } /*,
         {
             "type": "npm",
             "script": "build",
@@ -39,10 +43,10 @@
             "problemMatcher": [],
             "dependsOn": ["Delete css folder", "Delete fonts folder", "Delete img folder", "Delete js folder"]
         }*/,
-        {
-            "label": "create-blog-metadata",
-            "type": "shell",
-            "command": "python ${workspaceFolder}/website/scripts/create_blog_metadata.py"
-        }
-    ]
+    {
+      "label": "create-blog-metadata",
+      "type": "shell",
+      "command": "python ${workspaceFolder}/website/scripts/create_blog_metadata.py"
+    }
+  ]
 }
