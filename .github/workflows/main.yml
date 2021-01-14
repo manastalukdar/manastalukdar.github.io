@@ -41,7 +41,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./website/dist
-          publish_branch:  master  # default: gh-pages
+          publish_branch:  main  # default: gh-pages
           keep_files: false # default: false
           force_orphan: true
           commit_message: "GitHub CI Updates [ci skip]"
