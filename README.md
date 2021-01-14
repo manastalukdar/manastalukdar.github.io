@@ -67,4 +67,4 @@
 
 ## License
 
-[MIT](https://github.com/manastalukdar/manastalukdar.github.io/blob/master/LICENSE)
+[MIT](https://github.com/manastalukdar/manastalukdar.github.io/blob/source/LICENSE)
