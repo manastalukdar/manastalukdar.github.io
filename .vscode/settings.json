@@ -23,6 +23,12 @@
     "walkthrough"
   ],
   "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
   "editor.formatOnSave": false,
   "vetur.validation.template": false,
   "eslint.workingDirectories": [{
@@ -32,8 +38,6 @@
   "markdown.extension.print.onFileSave": false,
   "markdown.extension.toc.orderedList": true,
   "markdown.extension.toc.levels": "2..6",
-  "standard.enable": false,
-  "python.linting.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
