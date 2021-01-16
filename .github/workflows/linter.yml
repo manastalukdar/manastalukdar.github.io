@@ -54,3 +54,8 @@ jobs:
           JAVASCRIPT_DEFAULT_STYLE: prettier
           LINTER_RULES_PATH: "."
           EDITORCONFIG_FILE_NAME: .editorconfig
+          MARKDOWN_CONFIG_FILE: .markdownlint.json
+          VALIDATE_PYTHON_BLACK: false
+          VALIDATE_PYTHON_FLAKE8: false
+          VALIDATE_PYTHON_ISORT: false
+          VALIDATE_PYTHON_PYLINT: true
