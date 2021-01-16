@@ -29,6 +29,7 @@ jobs:
         with:
           node-version: '15'
       - run: node --version
+      - run: npm --version
       - working-directory: website
         run: npm install
       - working-directory: website
