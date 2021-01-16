@@ -1,14 +1,12 @@
-import {
-  Feed
-} from 'feed'
+import { Feed } from 'feed'
 const fs = require('fs')
 import * as getRoutes from './utils/getRoutes.js'
 // const ampify = require('./plugins/ampify')
 
 const baseUrl =
-  process.env.NODE_ENV === 'production' ?
-  'https://manastalukdar.github.io' :
-  'http://localhost:3000'
+  process.env.NODE_ENV === 'production'
+    ? 'https://manastalukdar.github.io'
+    : 'http://localhost:3000'
 
 const staticDir = './static'
 const feedFileName = '/blogfeed.xml'
@@ -26,7 +24,7 @@ export default {
   telemetry: false,
 
   helper: {
-    aboutBlurbText: ''
+    aboutBlurbText: '',
   },
 
   // https://pwa.nuxtjs.org/modules/meta.html
@@ -37,8 +35,8 @@ export default {
   pwa: {
     icon: {
       source: staticDir + '/images/android-chrome-512x512.png',
-      targetDir: staticDir + '/generatedIcons'
-    }
+      targetDir: staticDir + '/generatedIcons',
+    },
   },
 
   // https://pwa.nuxtjs.org/modules/manifest.html
@@ -49,7 +47,7 @@ export default {
     background_color: '#303030',
     theme_color: '#263238',
     display: 'standalone',
-    lang: 'en'
+    lang: 'en',
   },
 
   /*
@@ -57,137 +55,137 @@ export default {
    */
   head: {
     // title: pkg.name,
-    meta: [{
-        charset: 'utf-8'
+    meta: [
+      {
+        charset: 'utf-8',
       },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
+        content: 'width=device-width, initial-scale=1',
       },
       {
         hid: 'keywords',
         name: 'keywords',
-        content: siteOwner + ', website, blog, resume'
+        content: siteOwner + ', website, blog, resume',
       },
       {
         hid: 'description',
         name: 'description',
-        content: siteDescription
+        content: siteDescription,
       },
       {
         name: 'google-site-verification',
-        content: 'fkepJA8wLesbvVtlowW987jJEqJ6-hQp3OA5d4Rw9x0'
+        content: 'fkepJA8wLesbvVtlowW987jJEqJ6-hQp3OA5d4Rw9x0',
       },
       {
         name: 'msvalidate.01',
-        content: '83A10E52E92EB2D251C39288B8437120'
+        content: '83A10E52E92EB2D251C39288B8437120',
       },
       {
         hid: 'author',
         name: 'author',
-        content: siteOwner
+        content: siteOwner,
       },
       {
         hid: 'apple-mobile-web-app-title',
         name: 'apple-mobile-web-app-title',
-        content: siteOwner
+        content: siteOwner,
       },
       {
         hid: 'og-site_name',
         name: 'og:site_name',
         property: 'og:site_name',
-        content: siteName
+        content: siteName,
       },
       {
         hid: 'og-image',
         name: 'og:image',
         property: 'og:image',
-        content: baseUrl + '/images/android-chrome-192x192.png'
+        content: baseUrl + '/images/android-chrome-192x192.png',
       },
       {
         hid: 'og-type',
         name: 'og:type',
         property: 'og:type',
-        content: 'website'
+        content: 'website',
       },
       {
         hid: 'og-title',
         name: 'og:title',
         property: 'og:title',
-        content: siteOwner
+        content: siteOwner,
       },
       {
         hid: 'og-url',
         name: 'og:url',
         property: 'og:url',
-        content: baseUrl
+        content: baseUrl,
       },
       {
         hid: 'og-description',
         name: 'og:description',
         property: 'og:description',
-        content: siteDescription
-      }
+        content: siteDescription,
+      },
     ],
-    link: [{
+    link: [
+      {
         rel: 'icon',
         type: 'image/x-icon',
-        href: faviconPath
+        href: faviconPath,
       },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Maven+Pro|Roboto|Material+Icons'
+        href:
+          'https://fonts.googleapis.com/css?family=Maven+Pro|Roboto|Material+Icons',
       },
       {
         rel: 'alternate',
         type: 'application/rss+xml',
         title: siteOwner + ' - blog',
-        href: baseUrl + feedFileName
+        href: baseUrl + feedFileName,
       },
       // { rel: 'manifest', href: 'manifest.json' },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: '/images/favicon-16x16.png'
+        href: '/images/favicon-16x16.png',
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/images/favicon-32x32.png'
+        href: '/images/favicon-32x32.png',
       },
       {
         rel: 'apple-touch-icon',
         sizes: '180x180',
-        href: '/images/apple-touch-icon.png'
+        href: '/images/apple-touch-icon.png',
       },
       {
         rel: 'preload',
         href: '/styles/atom-one-dark.css',
-        as: 'style'
-      }
-    ]
+        as: 'style',
+      },
+    ],
   },
 
   publicRuntimeConfig: {
-    baseURL: baseUrl
+    baseURL: baseUrl,
   },
 
   /*
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#fff'
+    color: '#fff',
   },
 
   /*
    ** Global CSS
    */
-  css: [
-    '~/assets/style/print-blog-post.css',
-    '~/assets/style/app.scss'
-  ],
+  css: ['~/assets/style/print-blog-post.css', '~/assets/style/app.scss'],
 
   /*
    ** Nuxt.js modules
@@ -199,12 +197,10 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/redirect-module',
     '@nuxtjs/sitemap',
-    '@nuxtjs/google-gtag'
+    '@nuxtjs/google-gtag',
   ],
 
-  buildModules: [
-    '@nuxtjs/vuetify'
-  ],
+  buildModules: ['@nuxtjs/vuetify'],
 
   /*
    ** Plugins to load before mounting the App
@@ -216,8 +212,8 @@ export default {
     '~/plugins/disqus',
     {
       src: '~/plugins/socialsharing',
-      ssr: false
-    }
+      ssr: false,
+    },
   ],
 
   'google-gtag': {
@@ -243,7 +239,7 @@ export default {
   build: {
     dir: 'dist',
     loaders: {
-      stylus: {}
+      stylus: {},
     },
 
     /*
@@ -256,12 +252,12 @@ export default {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         })
       }
       config.module.rules.push({
         test: /\.md$/,
-        loader: ['raw-loader']
+        loader: ['raw-loader'],
       })
 
       // feed generation
@@ -271,26 +267,27 @@ export default {
         title: siteOwner + ' - blog',
         link: baseUrl + feedFileName,
         description: 'Syndication feed for blog.',
-        copyright: 'All rights reserved ' + new Date().getFullYear() + ' ' + siteOwner,
+        copyright:
+          'All rights reserved ' + new Date().getFullYear() + ' ' + siteOwner,
         author: {
           name: siteOwner,
-          link: baseUrl
-        }
+          link: baseUrl,
+        },
       })
-      getRoutes.properties.feedItems.forEach(item => {
+      getRoutes.properties.feedItems.forEach((item) => {
         feed.addItem(item)
       })
-      getRoutes.properties.categories.forEach(category => {
+      getRoutes.properties.categories.forEach((category) => {
         feed.addCategory(category)
       })
       feed.addContributor({
         name: siteOwner,
-        link: baseUrl
+        link: baseUrl,
       })
-      fs.writeFile(feedPath, feed.rss2(), err => {
+      fs.writeFile(feedPath, feed.rss2(), (err) => {
         if (err) throw err
       })
-    }
+    },
   },
 
   router: {
@@ -298,24 +295,26 @@ export default {
       routes.push({
         name: 'custom',
         path: '*',
-        component: resolve(__dirname, 'pages/404.vue')
+        component: resolve(__dirname, 'pages/404.vue'),
       })
-    }
+    },
   },
 
-  link: [{
-    rel: 'icon',
-    type: 'image/x-icon',
-    href: faviconPath
-  }],
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: faviconPath,
+    },
+  ],
 
   vuetify: {
     treeShake: true,
     optionsPath: './vuetify.options.js',
     customVariables: ['~/assets/style/variables.scss'],
     icons: {
-      iconfont: 'mdi'
-    }
+      iconfont: 'mdi',
+    },
   },
 
   sitemap: {
@@ -323,10 +322,8 @@ export default {
     hostname: baseUrl,
     cacheTime: 1000 * 60 * 15, // 15 mins
     gzip: true,
-    filter({
-      routes
-    }) {
-      return routes.map(route => {
+    filter({ routes }) {
+      return routes.map((route) => {
         if (!route.url.endsWith('.xml') && !route.url.endsWith('/')) {
           route.url = `${route.url}/`
         }
@@ -340,19 +337,21 @@ export default {
       getRoutes.properties.sitemapRoutes.push(baseUrl + sitemapPath)
       getRoutes.properties.sitemapRoutes.push(baseUrl + feedFileName)
       return getRoutes.properties.sitemapRoutes
-    }
+    },
   },
 
-  redirect: [{
-    // https://stackoverflow.com/questions/54346345/nuxt-js-force-trailing-slash-at-the-end-of-all-urls
-    from: '^.*(?<!/)$', // ^.*(?<!\.(png|jpg))$    ^.*(?<!/)$
-    to: (from, req) => req.url + '/'
-  }],
+  redirect: [
+    {
+      // https://stackoverflow.com/questions/54346345/nuxt-js-force-trailing-slash-at-the-end-of-all-urls
+      from: '^.*(?<!/)$', // ^.*(?<!\.(png|jpg))$    ^.*(?<!/)$
+      to: (from, req) => req.url + '/',
+    },
+  ],
 
   render: {
     static: {
-      maxAge: 1000 * 60 * 60 * 24 * 7
-    }
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    },
   },
 
   generate: {
@@ -367,8 +366,8 @@ export default {
         console.log("The file was saved!");
       });*/
       return getRoutes.properties.nuxtGenerateRoutes
-    }
-  }
+    },
+  },
 
   /*
    ** Hooks configuration

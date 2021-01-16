@@ -12,7 +12,7 @@ export default {
         backToTopBackground: colors.blueGrey.darken2,
         backToTopText: colors.blue.lighten1,
         codeBackgroundColor: '#282c34',
-        codeTextColor: '#abb2bf'
+        codeTextColor: '#abb2bf',
         /* accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
@@ -26,8 +26,8 @@ export default {
         backToTopBackground: colors.grey.lighten2,
         backToTopText: colors.red.base,
         codeBackgroundColor: '#f5f5f5',
-        codeTextColor: '#383636'
-      }
+        codeTextColor: '#383636',
+      },
     },
     options: {
       customProperties: true,
@@ -35,7 +35,7 @@ export default {
         return process.env.NODE_ENV === 'production'
           ? css.replace(/(?<!v-application)[\s|\r\n|\r|\n]/g, '')
           : css
-      }
-    }
-  }
+      },
+    },
+  },
 }
