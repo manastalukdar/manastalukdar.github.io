@@ -51,3 +51,7 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FILTER_REGEX_EXCLUDE: .*website/.*.md
+          EDITORCONFIG_FILE_NAME: .editorconfig
+          JAVASCRIPT_DEFAULT_STYLE: prettier
+          JAVASCRIPT_ES_CONFIG_FILE: .website/.eslintrc.js
+          MARKDOWN_CONFIG_FILE: .markdownlint.json
