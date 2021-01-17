@@ -36,10 +36,6 @@ jobs:
       - working-directory: website
         run: npm run getHighlightJsStyleSheets
       - working-directory: website
-        run: npm uninstall fibers
-      - working-directory: website
-        run: npm install fibers
-      - working-directory: website
         run: npm run generate
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
