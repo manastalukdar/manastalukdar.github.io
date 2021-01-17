@@ -18,8 +18,8 @@
     "getHighlightJsStyleSheets": "node utils/getHighlightJsStyleSheets.js"
   },
   "engines": {
-    "node": ">=15.6.0",
-    "npm": ">=7.4.0"
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
