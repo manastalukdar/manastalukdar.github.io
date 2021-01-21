@@ -1,5 +1,5 @@
 <template>
-  <div class="py-3">
+  <div class="py-4">
     <postHeader :post-metadata="postMetadata" />
   </div>
 </template>
