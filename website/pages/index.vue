@@ -11,11 +11,11 @@
         </v-row>
       </v-col>
 
-      <v-col sm="6" class="py-0 d-flex flex-column" cols="12">
-        <v-row class="flex-grow-0 py-2">
+      <v-col sm="6" class="py-2 d-flex flex-column" cols="12">
+        <v-row class="flex-grow-0 pb-2">
           <socialMediaAndResumeLinks />
         </v-row>
-        <v-row class="flex-grow-1 py-2">
+        <v-row class="flex-grow-1 pt-2">
           <featured />
         </v-row>
       </v-col>

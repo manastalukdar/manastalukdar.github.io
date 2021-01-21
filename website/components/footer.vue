@@ -1,7 +1,7 @@
 <template>
   <v-footer app height="auto" padless>
     <v-card
-      class="flex py-1"
+      class="flex py-4"
       text
       tile
       flat
