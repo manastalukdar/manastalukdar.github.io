@@ -4,7 +4,7 @@
     <p />
     <v-row class="text-justify">
       <v-col cols="12">
-        <v-row class="text-center" justify="center">
+        <v-row class="text-center py-2" justify="center">
           <h1>{{ authorText }}:&nbsp; {{ authorName }}</h1>
         </v-row>
       </v-col>

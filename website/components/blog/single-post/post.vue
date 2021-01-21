@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-col>
-      <v-row id="printMe">
-        <v-card color="cardColor" raised elevation="8" class="py-4 px-6 col-12">
+      <v-row id="printMe" class="py-3">
+        <v-card color="cardColor" raised elevation="8" class="py-6 px-6 col-12">
           <postHeader :post-metadata="postMetadata" />
           <p />
           <!-- eslint-disable-next-line vue/no-v-html -->
@@ -10,7 +10,7 @@
         </v-card>
       </v-row>
 
-      <v-row>
+      <v-row class="py-3">
         <client-only>
           <socialSharing
             :url="url"
@@ -22,7 +22,7 @@
         </client-only>
       </v-row>
 
-      <v-row>
+      <v-row class="py-3">
         <comments :post-id="postId" :url="url" />
       </v-row>
     </v-col>

@@ -1,35 +1,35 @@
 <template>
   <v-container>
-    <v-row class="px-2">
+    <v-row class="px-2 pb-2">
       <aboutBlurb />
     </v-row>
 
-    <v-row class="px-2">
-      <v-col sm="6" class="py-0" cols="12">
+    <v-row class="px-2 py-2">
+      <v-col sm="6" class="py-2" cols="12">
         <v-row class="fill-height">
           <recentPostsHomePage :posts-list="blogMetadata" />
         </v-row>
       </v-col>
 
       <v-col sm="6" class="py-0 d-flex flex-column" cols="12">
-        <v-row class="flex-grow-0">
+        <v-row class="flex-grow-0 py-2">
           <socialMediaAndResumeLinks />
         </v-row>
-        <v-row class="flex-grow-1">
+        <v-row class="flex-grow-1 py-2">
           <featured />
         </v-row>
       </v-col>
     </v-row>
 
-    <v-row class="px-2">
+    <v-row class="px-2 py-2">
       <highlights />
     </v-row>
 
-    <v-row class="px-2">
+    <v-row class="px-2 py-2">
       <interests />
     </v-row>
 
-    <v-row class="px-2">
+    <v-row class="px-2 py-2">
       <recentUpdates />
     </v-row>
   </v-container>

@@ -1,5 +1,5 @@
 <template>
-  <div class="px-3">
+  <div class="px-3 py-3">
     <v-row class="title" justify="center">
       {{ pageTitle }}
     </v-row>

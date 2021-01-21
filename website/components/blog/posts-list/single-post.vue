@@ -3,7 +3,7 @@
     <v-card
       color="cardColor"
       hover
-      class="py-3 px-5"
+      class="py-5 px-5"
       nuxt
       :to="
         getBlogPostRoute(

@@ -3,14 +3,14 @@
     <MainNavMenuTopNavBar />
     <MainNavMenuNavigationDrawer />
 
-    <v-content>
+    <v-main>
       <v-container id="content-body-container" class="content-body pa-3">
         <transition name="fade">
           <!-- component matched by the route will render here -->
           <nuxt />
         </transition>
       </v-container>
-    </v-content>
+    </v-main>
 
     <Footer />
   </v-app>

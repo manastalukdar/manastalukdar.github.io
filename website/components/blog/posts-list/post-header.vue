@@ -1,7 +1,7 @@
 <template>
   <v-row class="text-center">
     <v-col cols="12">
-      <v-row class="title" justify="center">
+      <v-row class="title px-3 py-3" justify="center">
         <v-col class="text-center align-center">
           {{ postMetadata.title }}
           &nbsp;
@@ -9,7 +9,7 @@
         </v-col>
         <p />
       </v-row>
-      <v-row justify="center">
+      <v-row class="px-3 py-3" justify="center">
         Authors:&nbsp;
         <div v-for="item in postMetadata.authors" :key="item['name']">
           <nuxt-link :to="getAuthorRoute(item['url-slug'])">
@@ -17,9 +17,9 @@
           </nuxt-link>
           &nbsp;
         </div>
-        &nbsp; || Published: {{ postMetadata['first-published-on'] }}
+        || Published: {{ postMetadata['first-published-on'] }}
       </v-row>
-      <v-row justify="center">
+      <v-row class="px-3" justify="center">
         Categories:&nbsp;
         <div v-for="item in postMetadata.categories" :key="item['name']">
           <nuxt-link :to="getCategoryRoute(item['url-slug'])">
@@ -27,7 +27,7 @@
           </nuxt-link>
           &nbsp;
         </div>
-        &nbsp;|| Tags:&nbsp;
+        || Tags:&nbsp;
         <div v-for="item in postMetadata.tags" :key="item['name']">
           <nuxt-link :to="getTagRoute(item['url-slug'])">
             <span>{{ item['name'] }}</span>

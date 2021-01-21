@@ -7,7 +7,7 @@
       elevation="8"
       style="height: 100%"
     >
-      <v-row class="title" justify="center">
+      <v-row class="title px-3 py-3" justify="center">
         <span>Recent</span>
       </v-row>
       <p />
