@@ -242,6 +242,11 @@ export default {
       stylus: {},
     },
 
+    // hideNothingWarning
+    postcss: {
+      plugins: {}
+    },
+
     /*
      ** You can extend webpack config here
      */

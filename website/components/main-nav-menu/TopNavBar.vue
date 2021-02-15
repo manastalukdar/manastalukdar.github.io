@@ -1,14 +1,18 @@
 <template>
   <v-app-bar color="headerAndFooterColor" app>
     <v-app-bar-nav-icon class="hidden-sm-and-up">
-      <nuxt-link to="/" tag="span" style="cursor: pointer">
-        <v-icon>mdi-home</v-icon>
+      <nuxt-link v-slot="{ navigate }" to="/" custom style="cursor: pointer">
+        <span role="link" @click="navigate" @keypress.enter="navigate"
+          ><v-icon>mdi-home</v-icon></span
+        >
       </nuxt-link>
     </v-app-bar-nav-icon>
     <v-toolbar-title class="hidden-xs-only headline">
-      <nuxt-link to="/" tag="span" style="cursor: pointer">{{
-        appTitle
-      }}</nuxt-link>
+      <nuxt-link v-slot="{ navigate }" to="/" custom style="cursor: pointer">
+        <span role="link" @click="navigate" @keypress.enter="navigate">{{
+          appTitle
+        }}</span>
+      </nuxt-link>
     </v-toolbar-title>
     <div class="flex-grow-1"></div>
     <v-btn text icon @click="flipThemeMode">
