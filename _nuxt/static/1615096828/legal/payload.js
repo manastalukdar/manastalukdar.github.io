@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/legal", {data:[{baseUrl:"https:\u002F\u002Fmanastalukdar.github.io"}],fetch:{},mutations:[]});

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[65],{971:function(n,e,o){n.exports=o.p+"img/design-thinking-agile.1659ee1.jpg"}}]);

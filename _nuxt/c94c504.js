@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[69],{985:function(n,o,e){n.exports=e.p+"img/sprint-velocity-linear-regression.2f83b0a.png"}}]);

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[67],{973:function(n,o,w){n.exports=w.p+"img/penny-press.8dc9a70.jpg"}}]);

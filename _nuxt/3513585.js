@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[66],{972:function(n,o,t){n.exports=t.p+"img/mindset-shifts-for-organizational-transformation.a84d464.jpg"}}]);
