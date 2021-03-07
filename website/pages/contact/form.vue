@@ -42,7 +42,7 @@
           <v-divider />
           <v-card-actions>
             <v-btn text @click="$refs.form.reset()"> Clear </v-btn>
-            <div class="flex-grow-1"></div>
+            <div class="flex-grow-1" />
             <v-btn
               :disabled="!form"
               :loading="isLoading"

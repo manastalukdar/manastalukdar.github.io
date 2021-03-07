@@ -44,5 +44,6 @@
   "files.watcherExclude": {
     "**/target": true
   },
-  "c3.rootPackage": ""
+  "c3.rootPackage": "",
+  "vetur.validation.interpolation": false
 }

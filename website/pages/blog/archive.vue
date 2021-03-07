@@ -13,14 +13,14 @@
       <v-col cols="12">
         <v-card class="my-3 pa-2" color="cardColor" raised elevation="8">
           <v-card-title>
-            <div class="flex-grow-1"></div>
+            <div class="flex-grow-1" />
             <v-text-field
               v-model="search"
               append-icon="search"
               label="Search"
               single-line
               hide-details
-            ></v-text-field>
+            />
           </v-card-title>
           <v-data-table
             :headers="headers"
@@ -36,8 +36,9 @@
                       :to="
                         getLink(item['first-published-on'], item['url-slug'])
                       "
-                      >{{ item.title }}</nuxt-link
                     >
+                      {{ item.title }}
+                    </nuxt-link>
                   </td>
                 </tr>
               </tbody>

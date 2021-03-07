@@ -7,14 +7,14 @@
         >
       </nuxt-link>
     </v-app-bar-nav-icon>
-    <v-toolbar-title class="hidden-xs-only headline">
+    <v-toolbar-title class="hidden-xs-only text-h5">
       <nuxt-link v-slot="{ navigate }" to="/" custom style="cursor: pointer">
         <span role="link" @click="navigate" @keypress.enter="navigate">{{
           appTitle
         }}</span>
       </nuxt-link>
     </v-toolbar-title>
-    <div class="flex-grow-1"></div>
+    <div class="flex-grow-1" />
     <v-btn text icon @click="flipThemeMode">
       <v-icon>mdi-invert-colors</v-icon>
     </v-btn>

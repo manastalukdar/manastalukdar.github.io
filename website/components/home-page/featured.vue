@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12">
     <v-card color="cardColor" class="pa-3 fill-height" raised elevation="8">
-      <v-row class="title px-3 py-3" justify="center">
+      <v-row class="text-h6 px-3 py-3" justify="center">
         <span>Featured</span>
       </v-row>
       <p />

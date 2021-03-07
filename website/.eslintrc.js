@@ -13,9 +13,7 @@ module.exports = exports = {
     'prettier',
     'standard',
     'plugin:prettier/recommended',
-    'plugin:vue/recommended',
-    'eslint:recommended',
-    'prettier/vue',
+    'eslint:recommended'
   ],
   plugins: ['prettier', 'vuetify'],
   // add your custom rules here
