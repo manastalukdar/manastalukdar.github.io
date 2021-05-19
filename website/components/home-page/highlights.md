@@ -1,6 +1,6 @@
 - Fueled rapid growth of multiple teams by formulating strategies and processes around hiring. Developed successful cross-departmental collaborations to _scale multiple software teams_ across organization. As part of _org leadership_ instituted frameworks to maintain high bar and _streamline growth_. Experienced in hiring and mentoring engineers, _identifying and developing leaders_. Trained in management methodologies from UC Berkeley Center for Executive Education.
 
-- _More than 13 years of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
+- _More than 14 years of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
 
 - _Successful collaborations_ with users, executives, product management, services and support, etc. Gathered requirements, identified new product opportunities, managed backlogs and road-maps. _Drove adoption_ across multiple releases. Proven track record in delivering projects that involved learning new technologies.
 
