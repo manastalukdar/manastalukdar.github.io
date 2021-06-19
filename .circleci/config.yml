@@ -55,7 +55,7 @@ jobs:
           command: |
             cp tmp/blogdata website/static/blogdata -r
             cd website
-            npm install
+            npm install --legacy-peer-deps
             npm run getHighlightJsStyleSheets
             sudo npm run generate
             cd ..

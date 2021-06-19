@@ -66,7 +66,8 @@ export default {
               '<pre><div class="' +
               langClass +
               ' hljs">' +
-              hljs.highlight(lang, str, true).value +
+              hljs.highlight(str, { language: lang, ignoreIllegals: true })
+                .value +
               '</div></pre>'
             )
             // return hljs.highlight(lang, str).value
@@ -101,9 +102,9 @@ export default {
         },
       })
       .use(markdownItAnchor, {
-        permalink: true,
-        permalinkBefore: true,
-        permalinkSymbol: '', // §
+        permalink: markdownItAnchor.permalink.headerLink(),
+        // permalinkBefore: true,
+        // permalinkSymbol: '', // §
       })
       .use(markdownItTocDoneRight, {
         level: 2,
