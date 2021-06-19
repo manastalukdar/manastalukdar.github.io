@@ -42,7 +42,7 @@
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-html5-embed": "^1.0.0",
     "markdown-it-mathjax": "^2.0.0",
-    "markdown-it-textual-uml": "^0.1.7",
+    "markdown-it-textual-uml": "^0.1.8",
     "markdown-it-toc-done-right": "^4.2.0",
     "mermaid": "^8.10.2",
     "nuxt": "^2.15.7",
