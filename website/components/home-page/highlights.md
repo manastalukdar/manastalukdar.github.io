@@ -12,7 +12,7 @@
 
 - As individual contributor, developed on-prem middleware as well as large enterprise scale, multi-tenant, distributed, micro-services based cloud applications. Developed both front-end UI and back-end infrastructure for PaaS and SaaS products, with focus on back-end. Architected and developed several automated product test, release and delivery systems. Worked throughout the stack, from using front-end frameworks to develop modern web apps, to back-end development, including storage, access layers, API and middleware SDK. Focus and interest primarily in the back-end, specifically in distributed systems and cloud computing.
 
-- _Software engineering polyglot_. Very comfortable with C# and Java. Comfortable with Python, Javascript, Typescript. Learning Go. Worked with C, C++ in academic projects and early on in career.
+- _Software engineering polyglot_. Very comfortable with Java, C# and Python. ComfortableJavascript, Typescript. Learning Go. Worked with C, C++ in academic projects and early on in career.
 
 - _Sharp focus on operational excellence_ to ensure customer success and satisfy SLA requirements.
 
