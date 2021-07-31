@@ -1,4 +1,4 @@
-- Recently grew a team of 6 to a group of ~20 engineers across 3 teams establishing a Data Infrastructure group within Platform Engineering department. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
+- Recently established the Data org within Platform engineering department. Grew a team of 6 to an org of ~20 engineers across 3 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
 
 - Fueled rapid growth of multiple teams by formulating strategies and processes around hiring. Developed successful cross-departmental collaborations to _scale multiple software teams_ across organization. As part of _org leadership_ instituted frameworks to maintain high bar and _streamline growth_. Experienced in hiring and mentoring engineers, _identifying and developing leaders_. Trained in management methodologies from UC Berkeley Center for Executive Education.
 
