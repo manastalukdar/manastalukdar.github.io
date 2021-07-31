@@ -40,7 +40,7 @@ jobs:
   generate_website: # node
     <<: *defaults
     docker:
-      - image: circleci/node:16.5.0
+      - image: circleci/node:16.6.0
 
     working_directory: ~/repo
 
