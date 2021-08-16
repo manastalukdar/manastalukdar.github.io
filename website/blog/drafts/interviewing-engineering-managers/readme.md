@@ -16,11 +16,11 @@ post-format: standard
 title: Interviewing Engineering Managers
 url-slug: interviewing-engineering-managers
 first-published-on: 2020-08-30 01:47
-last-updated-on: 2020-08-30 01:47
+last-updated-on: 2021-08-15 17:39
 meta:
  description: "Attributes and Signals to probe for when interviewing engineering managers."
 excerpt: "Attributes and Signals to probe for when interviewing engineering managers."
----
+---2021-08-15 17:39
 
 # Interviewing Engineering Managers
 
