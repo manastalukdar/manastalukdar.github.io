@@ -20,7 +20,7 @@ last-updated-on: 2021-08-15 17:39
 meta:
  description: "Attributes and Signals to probe for when interviewing engineering managers."
 excerpt: "Attributes and Signals to probe for when interviewing engineering managers."
----2021-08-15 17:39
+---
 
 # Interviewing Engineering Managers
 
