@@ -18,4 +18,8 @@ meta:
 excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
 ---
 
-# Technical Lead vs Engineering Manager
+# Roles and Responsibilities - Technical Lead and Engineering Manager
+
+## Elsewhere
+
+- <http://www.engineeringladders.com/TechLead-EngineeringManager.html>
