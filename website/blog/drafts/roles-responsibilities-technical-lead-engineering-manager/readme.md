@@ -9,8 +9,8 @@ categories:
 authors:
  - "Manas Talukdar"
 post-format: standard
-title: Technical Lead vs Engineering Manager
-url-slug: technical-lead-vs-engineering-manager
+title: Roles and Responsibilities - Technical Lead and Engineering Manager
+url-slug: roles-responsibilities-technical-lead-engineering-manager
 first-published-on: 2021-08-15 14:07
 last-updated-on: 2021-08-15 14:07
 meta:
