@@ -61,7 +61,7 @@
   "devDependencies": {
     "@babel/cli": "^7.15.4",
     "@babel/core": "^7.15.5",
-    "@mdi/font": "^5.9.55",
+    "@mdi/font": "^6.0.0",
     "@nuxtjs/eslint-config": "^6.0.1",
     "@nuxtjs/vuetify": "^1.12.1",
     "@vue/eslint-config-prettier": "^6.0.0",
