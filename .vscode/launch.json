@@ -17,6 +17,13 @@
       "name": "Launch Chrome against localhost",
       "url": "http://localhost:8080",
       "webRoot": "${workspaceFolder}/website"
+    },
+    {
+      "name": "Python Launch Program",
+      "type": "python",
+      "request": "launch",
+      "program": "${fileDirname}/${fileBasename}",
+      "console": "integratedTerminal"
     }
   ]
 }

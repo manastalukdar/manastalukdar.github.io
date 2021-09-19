@@ -6,17 +6,16 @@ categories:
  - Technology
  - Musings
 authors:
- - "Manas Talukdar
+ - "Manas Talukdar"
 post-format: standard
 title: Side Projects for Engineering Teams
 url-slug: side-projects-engineering-teams
 first-published-on: 2021-09-18 17:09
 last-updated-on: 2021-09-19 15:22
 meta:
- description: "Side Projects for Engineering Teams"
+ description: "Side Projects for Engineering Teams."
 excerpt: "An important part of engineering leadership, specifically people leadership, is providing opportunities for team members to remain interested and engaged. While it is inevitable"
 ---
-
 # Side Projects for Engineering Teams
 
 An important part of engineering leadership, specifically people leadership, is providing opportunities for team members to remain interested and engaged. While it is inevitable that people will leave, it is good to ensure that they will some day look back at the time spent in the team as being interesting and advancing for their career. Among other things, this includes introducing 10-20% project time for developers to work on side-projects^[If I am not mistaken, this side project time was first introduced by Google back in the day.] not necessarily directly related to any product road-map deliverables, but of course related to the company's technology ecosystem. This will provide a good opportunity for folks to work on some interesting things outside of the core deliverables and help keep them engaged. It is however necessary to put some structure around this with requirements such as the side-project needed proper definition, tracking time spent, prior approval, etc. Following is how I go about the side-projects for my teams.
