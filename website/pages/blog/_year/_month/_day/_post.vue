@@ -19,6 +19,7 @@ import axios from 'axios'
 import markdownItAnchor from 'markdown-it-anchor'
 import markdownItTocDoneRight from 'markdown-it-toc-done-right'
 import markdownItTextualUml from 'markdown-it-textual-uml'
+import mermaid from 'mermaid/dist/mermaid.js'
 import post from '../../../../../components/blog/single-post/post.vue'
 import breadcrumbs from '../../../../../components/breadcrumbs'
 const hljs = require('highlight.js/lib/core') // https://highlightjs.org/
@@ -46,7 +47,7 @@ hljs.registerLanguage(
 hljs.registerLanguage('yaml', require('highlight.js/lib/languages/yaml'))
 const fm = require('front-matter')
 const markdownRenderHelpers = require('../../../../../utils/markdownRenderHelpers.js')
-let mermaid = null
+// let mermaid = null
 export default {
   components: {
     breadcrumbs,
@@ -370,9 +371,9 @@ export default {
     },
   },
   mounted() {
-    if (mermaid == null) {
-      mermaid = require('mermaid')
-    }
+    // if (mermaid == null) {
+    //   mermaid = require('mermaid')
+    // }
     mermaid.initialize({
       startOnLoad: true,
       theme: 'forest',
