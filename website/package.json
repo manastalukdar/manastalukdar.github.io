@@ -62,7 +62,7 @@
     "@babel/cli": "^7.15.7",
     "@babel/core": "^7.15.8",
     "@mdi/font": "^6.4.95",
-    "@nuxtjs/eslint-config": "^7.0.0",
+    "@nuxtjs/eslint-config": "^8.0.0",
     "@nuxtjs/vuetify": "^1.12.1",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/test-utils": "^1.2.2",
