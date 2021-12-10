@@ -44,7 +44,7 @@
     "markdown-it-mathjax": "^2.0.0",
     "markdown-it-textual-uml": "^0.1.9",
     "markdown-it-toc-done-right": "^4.2.0",
-    "mermaid": "^8.13.3",
+    "mermaid": "^8.13.4",
     "nuxt": "^2.15.8",
     "prettier-eslint-cli": "^5.0.1",
     "print-js": "^1.6.0",
