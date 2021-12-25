@@ -189,7 +189,7 @@ export default defineNuxtConfig({
   /*
    ** Global CSS
    */
-  css: ['~/assets/style/print-blog-post.css', '~/assets/style/app.scss'],
+  css: ['@/assets/style/print-blog-post.css', '@/assets/style/app.scss'],
 
   /*
    ** Nuxt.js modules
@@ -359,11 +359,11 @@ export default defineNuxtConfig({
     },
   ],
 
-  /*render: {
+  render: {
     static: {
       maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
     }
-  },*/
+  },
 
   generate: {
     crawler: false,
