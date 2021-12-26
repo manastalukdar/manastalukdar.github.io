@@ -13,7 +13,7 @@ url-slug: feature-store-for-ml-kth
 first-published-on: 2021-12-25 19:27
 last-updated-on: 2021-12-25 19:58
 meta:
- description: "Getting started post."
+ description: "Feature Store for ML is a knowledge repository, blog and feature store comparison website."
 excerpt: "Feature Store for ML is a knowledge repository, blog and feature store comparison website maintained by the distributed computing research group from the"
 ---
 
