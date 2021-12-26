@@ -2,6 +2,7 @@
 published: true
 tags:
  - Machine Learning
+ - Reading
 categories:
  - Technology
 authors:
