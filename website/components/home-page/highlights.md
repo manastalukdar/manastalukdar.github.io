@@ -1,10 +1,12 @@
-- Recently established the Data org within Platform engineering department. Grew a team of 6 to an org of ~20 engineers across 3 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
-
-- Fueled rapid growth of multiple teams by formulating strategies and processes around hiring. Developed successful cross-departmental collaborations to _scale multiple software teams_ across engineering department. As part of _deparment leadership_ instituted frameworks to maintain high bar and _streamline growth_. Experienced in hiring and mentoring engineers, _identifying and developing leaders_. Trained in management methodologies from UC Berkeley Center for Executive Education.
-
 - _More than 14 years of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
 
-- _Successful collaborations_ with users, executives, product management, services and support, etc. Gathered requirements, identified new product opportunities, managed backlogs and road-maps. _Drove adoption_ across multiple releases. Proven track record in delivering projects that involved learning new technologies.
+- Recently established the Data org within Platform engineering department. Grew a team of 6 to an org of ~20 engineers across 3 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
+
+- Fueled rapid growth of multiple teams by formulating strategies and processes around hiring. Developed successful cross-departmental collaborations to _scale multiple software teams_ across engineering department. As part of _department leadership_ instituted frameworks and best practices to maintain high bar and _streamline rapid growth_ across multiple teams. Experienced in hiring and mentoring engineers, _identifying and developing leaders_. Trained in management methodologies from UC Berkeley Center for Executive Education.
+
+- Excellent communication skills. _Successful collaborations_ with with cross-functional stakeholders including users, executives, product management, services and support, etc. Gathered requirements, identified new product opportunities, managed backlogs and road-maps. _Drove adoption_ across multiple releases. Proven track record in delivering projects that involved learning new technologies.
+
+- Skilled in Agile methodologies, measuring and improving engineering productivity.
 
 - Bootstrapped multiple projects from ideation to product. Determined scope and drove road-map with stakeholders, including customers. _Built, managed and grew multiple teams_ that consistently delivered on committed milestones. Instilled software engineering best practices.
 
