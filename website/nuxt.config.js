@@ -17,7 +17,7 @@ const faviconPath = '/favicon.ico'
 
 const siteName = siteOwner
 const siteDescription =
-  'Manas Talukdar is a senior engineering manager in large-scale distributed systems, experienced in growing organizations and running high performing teams.'
+  'Manas Talukdar is a senior engineering manager in distributed systems and AI/ML platforms, experienced in growing organizations and running high performing teams.'
 
 export default {
   target: 'static',
