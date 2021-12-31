@@ -36,7 +36,7 @@
     "highlight.js": "^11.2.0",
     "lodash": "^4.17.21",
     "lru-cache": "^6.0.0",
-    "markdown-it": "^12.2.0",
+    "markdown-it": "^12.3.0",
     "markdown-it-anchor": "^8.4.1",
     "markdown-it-container": "^3.0.0",
     "markdown-it-footnote": "^3.0.3",
