@@ -1,3 +1,0 @@
-User-agent: *
-Allow:
-Sitemap: https://manastalukdar.github.io/sitemap.xml
