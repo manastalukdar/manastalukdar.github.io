@@ -2,7 +2,7 @@
 
 - Recently established the Data org within Platform engineering department. Grew a team of 6 to an org of ~20 engineers across 3 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
 
-- _Fueled rapid growth of multiple teams_ by formulating strategies and processes around hiring. As part of _department leadership_ instituted frameworks and best practices to maintain high bar and streamline growth. Developed successful cross-departmental collaborations to _scale multiple software teams_ across engineering department. Experienced in hiring and mentoring engineers, _identifying and developing leaders_. Trained in management methodologies from UC Berkeley Center for Executive Education.
+- Experienced in hiring and mentoring engineers, _identifying and developing leaders_. Trained in management methodologies from UC Berkeley Center for Executive Education. _Fueled rapid growth of multiple teams_ by formulating strategies and processes around hiring. As part of _department leadership_ instituted frameworks and best practices to maintain high bar and streamline growth. Developed successful cross-departmental collaborations to _scale multiple software teams_ across engineering department.
 
 - Excellent communication skills. _Successful collaborations_ with with cross-functional stakeholders including users, executives, product management, services and support, etc. Gathered requirements, identified new product opportunities, managed backlogs and road-maps. _Drove adoption_ across multiple releases. Proven track record in delivering projects that involved learning new technologies.
 
