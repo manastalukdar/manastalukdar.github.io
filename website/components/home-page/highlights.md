@@ -2,13 +2,13 @@
 
 - Recently established the Data org within Platform engineering department. Grew a team of 6 to an org of ~20 engineers across 3 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
 
-- Fueled rapid growth of multiple teams by formulating strategies and processes around hiring. Developed successful cross-departmental collaborations to _scale multiple software teams_ across engineering department. As part of _department leadership_ instituted frameworks and best practices to maintain high bar and _streamline rapid growth_ across multiple teams. Experienced in hiring and mentoring engineers, _identifying and developing leaders_. Trained in management methodologies from UC Berkeley Center for Executive Education.
+- _Fueled rapid growth of multiple teams_ by formulating strategies and processes around hiring. As part of _department leadership_ instituted frameworks and best practices to maintain high bar and streamline growth. Developed successful cross-departmental collaborations to _scale multiple software teams_ across engineering department. Experienced in hiring and mentoring engineers, _identifying and developing leaders_. Trained in management methodologies from UC Berkeley Center for Executive Education.
 
 - Excellent communication skills. _Successful collaborations_ with with cross-functional stakeholders including users, executives, product management, services and support, etc. Gathered requirements, identified new product opportunities, managed backlogs and road-maps. _Drove adoption_ across multiple releases. Proven track record in delivering projects that involved learning new technologies.
 
 - Skilled in Agile methodologies, measuring and improving engineering productivity.
 
-- Bootstrapped multiple projects from ideation to product. Determined scope and drove road-map with stakeholders, including customers. _Built, managed and grew multiple teams_ that consistently delivered on committed milestones. Instilled software engineering best practices.
+- _Bootstrapped multiple projects from ideation to prototype to product_. Determined scope and drove road-map with stakeholders, including customers. _Built, managed and grew multiple teams_ that consistently delivered on committed milestones. Instilled software engineering best practices.
 
 - Early in Engineering Manager role, created high-value engineering team that developed high-visibility, _large-scale distributed data platform_ product which spawned next-generation series of enterprise software solutions.
 
