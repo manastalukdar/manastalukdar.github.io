@@ -26,6 +26,8 @@ excerpt: "Attributes and Signals to probe for when interviewing engineering mana
 
 ${toc}
 
+## Overview
+
 This post described a framework for interviewing engineering managers through multiple rounds. This framework is based on:
 
 - my own experiences both as an individual contributor and later on in engineering management / leadership,
