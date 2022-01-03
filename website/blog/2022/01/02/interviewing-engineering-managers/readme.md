@@ -28,7 +28,7 @@ ${toc}
 
 ## Overview
 
-This post described a framework for interviewing engineering managers through multiple rounds. This framework is based on:
+This post describes a framework for interviewing engineering managers through multiple rounds. This framework is based on:
 
 - my own experiences both as an individual contributor and later on in engineering management / leadership,
 - observations in the industry,
