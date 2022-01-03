@@ -53,7 +53,7 @@ At this time, I have broken down the interview into 3 rounds, but I think there 
 ### Context on Job Switch [Round 3]
 
 - Why are you looking for a new job?
-- Why <this company> and what do you know about <this company>?
+- Why `<this company>` and what do you know about `<this company>`?
 - What are your looking for in next job? What are you looking for in terms of career growth?
 
 ### Inquisitiveness, Ability to Learn New Things and Generally Always Looking to Improve [Round 3]
