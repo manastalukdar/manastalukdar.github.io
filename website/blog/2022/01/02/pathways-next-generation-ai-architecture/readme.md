@@ -9,7 +9,7 @@ categories:
 authors:
  - "Manas Talukdar"
 post-format: link
-title: Introducing Pathways: A next-generation AI architecture
+title: "Introducing Pathways: A next-generation AI architecture"
 url-slug: pathways-next-generation-ai-architecture
 first-published-on: 2022-01-02 18:44
 last-updated-on: 2022-01-02 18:44
