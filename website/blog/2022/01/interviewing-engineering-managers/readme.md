@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 tags:
  - Interviewing
  - Technical Interviews
@@ -15,8 +15,8 @@ authors:
 post-format: standard
 title: Interviewing Engineering Managers
 url-slug: interviewing-engineering-managers
-first-published-on: 2020-08-30 01:47
-last-updated-on: 2021-08-15 17:39
+first-published-on: 2022-01-02 17:09
+last-updated-on: 2022-01-02 17:09
 meta:
  description: "Attributes and Signals to probe for when interviewing engineering managers."
 excerpt: "Attributes and Signals to probe for when interviewing engineering managers."
@@ -25,6 +25,15 @@ excerpt: "Attributes and Signals to probe for when interviewing engineering mana
 # Interviewing Engineering Managers
 
 ${toc}
+
+This post described a framework for interviewing engineering managers through multiple rounds. This framework is based on:
+
+- my own experiences both as an individual contributor and later on in engineering management / leadership,
+- observations in the industry,
+- discussions with friends and colleagues, and
+- interviewing many engineering manager candidates.
+
+At this time, I have broken down the interview into 3 rounds, but I think there is scope for fitting in one more round in there - I will likely revisit this in the future and update the post at that point.
 
 ## Behavioral Skills
 
