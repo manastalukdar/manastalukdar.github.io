@@ -5,7 +5,7 @@ tags:
  - Netflix
  - Distributed Systems
  - Observability
- - Cloud COmputing
+ - Cloud Computing
  - Data Platform
 categories:
  - Technology
