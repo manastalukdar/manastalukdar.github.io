@@ -19,6 +19,4 @@ meta:
 excerpt: "Uber Engineering on capacity recommendation engine and predictive scaling for throughput and utilization."
 ---
 
-# Uber Engineering on Capacity Recommendation Engine and Predictive Scaling
-
 [Capacity Recommendation Engine: Throughput and Utilization Based Predictive Scaling](https://eng.uber.com/capacity-recommendation-engine/)
