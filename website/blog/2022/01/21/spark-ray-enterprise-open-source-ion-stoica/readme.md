@@ -18,7 +18,7 @@ post-format: video
 title: Spark, Ray and Enterprise Open Source discussion with Ion Stoica
 url-slug: spark-ray-enterprise-open-source-ion-stoica
 first-published-on: 2022-01-21 20:43
-last-updated-on: 2022-01-21 20:43
+last-updated-on: 2022-01-21 21:11
 meta:
  description: "Gradient Dissent Podcast (from Weights & Biases) with Ion Stoica discussing distributed frameworks, etc."
 excerpt: "Gradient Dissent Podcast (from Weights & Biases) with Ion Stoica discussing distributed frameworks, etc."
