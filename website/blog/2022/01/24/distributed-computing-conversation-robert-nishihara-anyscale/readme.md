@@ -5,7 +5,7 @@ tags:
  - Distributed Systems
  - Machine Learning
  - Robert Nishihara
- - AnyScale
+ - Anyscale
  - Weights & Biases
  - Gradient Dissent
  - Podcast
