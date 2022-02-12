@@ -16,4 +16,4 @@ meta:
 excerpt: "What's in a Good Error Message? by Gunnar Morling"
 ---
 
-# What's in a Good Error Message? by Gunnar Morling
+[What's in a Good Error Message? by Gunnar Morling](https://www.morling.dev/blog/whats-in-a-good-error-message/)
