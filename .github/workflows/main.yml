@@ -19,7 +19,7 @@ jobs:
       - name: Extract Branch Name
         run: echo "BRANCH=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
           python-version: "3.9"
           architecture: "x64"
