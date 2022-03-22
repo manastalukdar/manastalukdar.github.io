@@ -11,7 +11,7 @@ post-format: link
 title: Building ML Pipelines and What is DAG by John Aven
 url-slug: building-ml-pipelines-dag
 first-published-on: 2022-03-21 20:50
-last-updated-on: 2022-03-21 20:50
+last-updated-on: 2022-03-22 09:51
 meta:
  description: "Building ML Pipelines and What is DAG by John Aven."
 excerpt: "Building ML Pipelines and What is DAG by John Aven"
