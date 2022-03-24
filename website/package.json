@@ -96,7 +96,7 @@
     "jpeg-js": ">=0.4.3",
     "lodash": ">=4.17.21",
     "material-design-icons-iconfont": "^6.5.0",
-    "minimist": ">=1.2.5",
+    "minimist": ">=1.2.6",
     "nth-check": ">=2.0.1",
     "postcss": "^8.4.12",
     "postcss-import": "^14.0.2",
