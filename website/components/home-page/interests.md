@@ -14,4 +14,4 @@
 
 - **Building, creating**:  I am a methodical, meticulous person and I love building, creating things. I have a 5-year diploma in Fine Arts and Crafts, which aligns with my creative inclinations. My career in Software Engineering allows me to utilize my natural proclivities to create solutions that empowers users and drives customer success.
 
-- **Hiking**: I love nature and like to go on hikes around the San Francisco Bay Area. I particularly enjoy the redwood forests in California.
+- **Nature**: I love nature in general and particularly enjoy the redwood forests in California.
