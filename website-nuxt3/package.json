@@ -110,6 +110,8 @@
     "ssri": ">=9.0.1",
     "trim": ">=1.0.1",
     "ua-parser-js": ">=1.0.2",
+    "terser": ">=4.8.1",
+    "parse-url": ">=6.0.2",
     "vue": "3.2.37",
     "vue-template-compiler": "^2.7.8"
   }
