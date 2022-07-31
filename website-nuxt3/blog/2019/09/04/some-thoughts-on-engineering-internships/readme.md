@@ -28,9 +28,9 @@ The goal for an engineering internship should be that the intern can:
 
 1. accomplish something that s/he can feel proud of.
 2. complete work that they can put on their resume and would be a value-addition for their career.
-3. obtain industry experience\dots
+3. obtain industry experience.
 
-In my experience, the path that checks off all of these boxes is by having the intern work on end-to-end project(s) that they can take from start to completion. Typically, it is a good idea to shortlist a few project ideas and then discuss with the intern after s/he starts, so they know that their interests and inputs are valued - this goes a long way in converting the intern into a returning full-time employee.
+In my experience, the path that checks off all of these boxes is by having the intern work on end-to-end project(s) that they can take from start to completion. Typically, it is a good idea to shortlist a few project ideas and then discuss with the intern after s/he starts, so they know that their interests and inputs are valued. This goes a long way in converting the intern into a returning full-time employee.
 
 ## Mentoring
 
@@ -48,7 +48,7 @@ During the beginning of the internship the EM should have a frank discussion and
 
 The EM should do regular check-ins with the assigned mentor as well as the intern so any course corrections can be done sooner rather than later. This should happen no less frequent than once every two weeks, perhaps even once a week if necessary. Midway through the internship, a formal evaluation should be done to document if things are still on track.
 
-## Final presentation and report
+## Final Presentation and Report
 
 The EM should organize final presentation (and ideally even dry-runs) where the intern can talk about their accomplishments. The EM and mentor should work with the intern helping and guiding them to prepare for the presentation as well as a final report.
 
@@ -72,4 +72,4 @@ At the end of the internship, the EM should:
 
 ## Other
 
-The primary goal of an internship should be converting the intern into a full-time employee if their work performance meets the bar. It is very common that once an intern has accepted the returning full-time offer, they may actually not start until months later, and perhaps even a year later. in these cases, it is critical that the EM schedules regular check-ins with the incoming employee so they remain engaged and connected to the company and the team.
+One of the primary goals of an internship should be converting the intern into a full-time employee if their work performance meets the bar. It is very common that once an intern has accepted the returning full-time offer, they may actually not start until months later, and perhaps even a year later. in these cases, it is critical that the EM schedules regular check-ins with the incoming employee so they remain engaged and connected to the company and the team.
