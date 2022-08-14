@@ -46,7 +46,7 @@
     "markdown-it-toc-done-right": "^4.2.0",
     "mdi": "^2.2.43",
     "mermaid": "^9.1.5",
-    "nuxt": "3.0.0-rc.7",
+    "nuxt": "3.0.0-rc.8",
     "prettier-eslint-cli": "^7.0.0",
     "print-js": "^1.6.0",
     "sass": "^1.54.4",
