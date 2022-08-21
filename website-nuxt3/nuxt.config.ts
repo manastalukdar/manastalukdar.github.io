@@ -210,7 +210,7 @@ export default defineNuxtConfig ({
    */
   plugins: [
     '@/plugins/materialdesignicons.js',
-    '@plugins/vueAsyncComputed.js',
+    //'~/plugins/vueAsyncComputed.js',
     '~/plugins/vuetify-theme-cache.js',
     '~/plugins/disqus',
     {
@@ -301,7 +301,7 @@ export default defineNuxtConfig ({
     transpile: ['vuetify']
   },
 
-  hooks: {
+  /*hooks: {
     'pages:extend'(routes, resolve) {
       routes.push({
         name: 'custom',
@@ -309,7 +309,7 @@ export default defineNuxtConfig ({
         component: resolve(__dirname, 'pages/404.vue'),
       })
     },
-  },
+  },*/
 
   link: [
     {
