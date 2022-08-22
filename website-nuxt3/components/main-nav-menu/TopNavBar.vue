@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions } from 'pinia'
 import MainNavMenuBlog from './Blog.vue'
 import MainNavMenuAbout from './About.vue'
 import MainNavMenuLegal from './Legal.vue'

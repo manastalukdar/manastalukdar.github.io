@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
 import breadcrumbs from '../../../components/breadcrumbs'
 import postsList from '../../../components/blog/posts-list/list.vue'
 export default {

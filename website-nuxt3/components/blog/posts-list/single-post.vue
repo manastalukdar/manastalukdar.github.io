@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
 import postHeader from './post-header.vue'
 const dayjs = require('dayjs')
 export default {

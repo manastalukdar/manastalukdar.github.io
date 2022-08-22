@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
 import recentPosts from '../blog/recent-posts/list.vue'
 export default {
   components: {

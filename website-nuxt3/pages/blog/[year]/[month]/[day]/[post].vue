@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
 import axios from 'axios'
 import markdownItAnchor from 'markdown-it-anchor'
 import markdownItTocDoneRight from 'markdown-it-toc-done-right'

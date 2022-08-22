@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
 import breadcrumbs from '../../components/breadcrumbs'
 const dayjs = require('dayjs')
 export default {

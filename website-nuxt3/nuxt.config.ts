@@ -201,6 +201,7 @@ export default defineNuxtConfig ({
     '@nuxtjs/redirect-module',
     '@nuxtjs/sitemap',
     '@nuxtjs/google-gtag',
+    '@pinia/nuxt'
   ],
 
   //buildModules: ['@nuxtjs/vuetify'],

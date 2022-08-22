@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
 import ContactMenuItems from './ContactMenuItems.vue'
 export default {
   components: {

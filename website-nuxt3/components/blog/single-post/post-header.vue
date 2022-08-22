@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
 export default {
   props: {
     postMetadata: {

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
 import featured from '../components/home-page/featured.vue'
 import socialMediaAndResumeLinks from '../components/home-page/social-media-resume.vue'
 import aboutBlurb from '../components/home-page/about-blurb.vue'

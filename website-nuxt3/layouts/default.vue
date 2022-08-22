@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
 import { addBackToTop } from 'vanilla-back-to-top'
 import MainNavMenuNavigationDrawer from '../components/main-nav-menu/NavigationDrawer.vue'
 import MainNavMenuTopNavBar from '../components/main-nav-menu/TopNavBar.vue'
