@@ -81,7 +81,7 @@
     "eslint-config-standard": "^17.0.0",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^26.8.2",
+    "eslint-plugin-jest": "^27.0.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-nuxt": "^3.2.0",
     "eslint-plugin-prettier": "^4.2.1",
