@@ -99,7 +99,7 @@
     "minimist": ">=1.2.6",
     "nth-check": ">=2.1.1",
     "postcss": "^8.4.16",
-    "postcss-import": "^14.1.0",
+    "postcss-import": "^15.0.0",
     "postcss-loader": "4.3.0",
     "postcss-url": "^10.1.3",
     "prettier": "^2.7.1",
