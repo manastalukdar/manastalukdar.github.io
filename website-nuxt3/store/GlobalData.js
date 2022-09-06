@@ -1,5 +1,7 @@
+import { defineStore } from 'pinia'
+
 // initial state
-const state = () => ({
+const state = defineStore({
   appTitle: 'Manas Talukdar',
   appOwner: 'Manas Talukdar',
   copyrightStartYear: '2018',
