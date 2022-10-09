@@ -28,7 +28,7 @@ jobs:
       - run: python website/scripts/create_blog_metadata.py
       - uses: actions/setup-node@v3
         with:
-          node-version: '17'
+          node-version: '18'
       - run: node --version
       - run: npm --version
       - working-directory: website
