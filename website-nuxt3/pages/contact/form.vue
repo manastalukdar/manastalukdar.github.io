@@ -7,7 +7,7 @@
         <v-form
           ref="form"
           v-model="form"
-          action="https://formspree.io/manas.talukdar@gmail.com"
+          action="https://formspree.io/f/xoqblqlq"
           method="POST"
         >
           <v-text-field
