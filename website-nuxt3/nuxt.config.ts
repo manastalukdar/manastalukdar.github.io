@@ -1,6 +1,5 @@
 import { Feed } from 'feed'
 import * as fs from 'fs';
-import { defineNuxtConfig } from 'nuxt'
 // @ts-ignore
 import * as getRoutes from './utils/getRoutes.ts'
 // const ampify = require('./plugins/ampify')
