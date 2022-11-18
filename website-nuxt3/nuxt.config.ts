@@ -1,3 +1,4 @@
+import { defineNuxtConfig } from 'nuxt'
 import { Feed } from 'feed'
 import * as fs from 'fs';
 // @ts-ignore
@@ -22,6 +23,9 @@ const siteDescription =
   'Manas Talukdar is a senior engineering manager in distributed systems and AI/ML platforms, experienced in growing organizations and running high performing teams.'
 
 export default defineNuxtConfig ({
+  typescript: {
+    shim: false
+  },
   target: 'static',
   telemetry: false,
 

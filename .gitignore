@@ -1,3 +1,12 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
+
 .DS_Store
 website/node_modules/
 website-nuxt3/node_modules/
