@@ -1,6 +1,7 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
+import App from '../app.vue'
 import VueDisqus from 'vue-disqus'
 
-Vue.use(VueDisqus, {
-  shortname: 'manastalukdar',
-})
+createApp(App)
+  .use(VueDisqus, { shortname: 'manastalukdar' })
+  .mount('#app')

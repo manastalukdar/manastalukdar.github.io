@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from 'nuxt/config'
 import { Feed } from 'feed'
 import * as fs from 'fs';
 // @ts-ignore
@@ -198,12 +198,15 @@ export default defineNuxtConfig ({
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    './modules/helper',
+    //'./modules/helper',
     //'@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    '@nuxtjs/redirect-module',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/google-gtag',
+    '@kevinmarrec/nuxt-pwa',
+    //'@nuxtjs/redirect-module',
+    //https://github.com/funkenstudio/sitemap-module-nuxt-3#readme
+    ['@funken-studio/sitemap-nuxt-3', { generateOnBuild: true }],
+    //https://github.com/nuxt-community/gtm-module/issues/82
+    //'@nuxtjs/google-gtag',
+    //https://stackoverflow.com/questions/74003458/cannot-find-module-pinia-dist-pinia-mjs-when-using-run-dev
     '@pinia/nuxt'
   ],
 
@@ -216,14 +219,14 @@ export default defineNuxtConfig ({
     '@/plugins/materialdesignicons.js',
     //'~/plugins/vueAsyncComputed.js',
     '~/plugins/vuetify-theme-cache.js',
-    '~/plugins/disqus',
-    {
+    //'~/plugins/disqus',
+    /*{
       src: '~/plugins/socialsharing',
       ssr: false,
-    },
+    },*/
   ],
 
-  'google-gtag': {
+  /*'google-gtag': {
     id: 'UA-118888630-1',
     config: {
       anonymize_ip: false, // anonymize IP
@@ -231,7 +234,7 @@ export default defineNuxtConfig ({
     },
     debug: true, // enable to track in dev mode
     disableAutoPageTrack: false, // disable if you don't want to track each page route with router.afterEach(...).
-  },
+  },*/
 
   /*
    ** Axios module configuration
@@ -245,9 +248,9 @@ export default defineNuxtConfig ({
    */
   build: {
     //dir: 'dist',
-    loaders: {
+    /*loaders: {
       stylus: {},
-    },
+    },*/
 
     // hideNothingWarning
     /*postcss: {
@@ -338,7 +341,7 @@ export default defineNuxtConfig ({
     },
   },*/
 
-  sitemap: {
+  /*sitemap: {
     path: '.' + sitemapPath,
     hostname: baseUrl,
     cacheTime: 1000 * 60 * 15, // 15 mins
@@ -367,7 +370,7 @@ export default defineNuxtConfig ({
       from: '^.*(?<!/)$', // ^.*(?<!\.(png|jpg))$    ^.*(?<!/)$
       to: (from, req) => req.url + '/',
     },
-  ],
+  ],*/
 
   /*render: {
     static: {
@@ -376,18 +379,18 @@ export default defineNuxtConfig ({
   },*/
 
   generate: {
-    crawler: false,
-    dir: 'dist',
-    routes: function () {
-      getRoutes.functions.generateRoutes()
+    //crawler: false,
+    //dir: 'dist',
+    //routes: function () {
+      //getRoutes.functions.generateRoutes()
       /*fs.writeFile("./output.logfile", JSON.stringify(getRoutes.properties.nuxtGenerateRoutes), function(err) {
         if(err) {
             return console.log(err);
         }
         console.log("The file was saved!");
       });*/
-      return getRoutes.properties.nuxtGenerateRoutes
-    },
+      //return getRoutes.properties.nuxtGenerateRoutes
+    //},
   },
 
   /*

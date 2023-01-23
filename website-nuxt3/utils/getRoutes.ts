@@ -1,6 +1,6 @@
 import { groupBy } from 'lodash'
 import blogMetadata from '../static/blogdata/metadata/blog_metadata.json'
-import { Dayjs } from 'dayjs'
+const dayjs = require('dayjs')
 
 export const properties = {
   sitemapRoutes: [],
@@ -9,7 +9,6 @@ export const properties = {
   tags: [],
   categories: [],
   authors: [],
-  postFormats: [],
   baseUrl: '',
 }
 
@@ -40,7 +39,7 @@ export const functions = {
     })
 
     blogMetadata.forEach((postmetadata) => {
-      const dayjsObj = new Dayjs(postmetadata['first-published-on'])
+      const dayjsObj = dayjs(postmetadata['first-published-on'])
       const route =
         '/blog/' +
         dayjsObj.format('YYYY-MM-DD').replace(/-/g, '/') +
@@ -68,7 +67,7 @@ export const functions = {
       properties.postFormats.push({
         name: postFormatName,
         slug: key,
-        count: (<any>value).length, //https://stackoverflow.com/a/27089911/420827
+        count: value.length,
       })
       properties.nuxtGenerateRoutes.push({
         route,
@@ -105,7 +104,7 @@ export const functions = {
       properties.authors.push({
         name: authorName[0].name,
         slug: key,
-        count: (<any>value).length,
+        count: value.length,
       })
       properties.nuxtGenerateRoutes.push({
         route,
@@ -136,7 +135,7 @@ export const functions = {
       properties.tags.push({
         name: tagName[0].name,
         slug: key,
-        count: (<any>value).length,
+        count: value.length,
       })
       properties.nuxtGenerateRoutes.push({
         route,
@@ -172,7 +171,7 @@ export const functions = {
       properties.categories.push({
         name: catName[0].name,
         slug: key,
-        count: (<any>value).length,
+        count: value.length,
       })
       properties.nuxtGenerateRoutes.push({
         route,
@@ -187,7 +186,7 @@ export const functions = {
     })
 
     const groupedByYear = blogMetadata.reduce(function (acc, curr) {
-      const dayjsObj = new Dayjs(curr['first-published-on'])
+      const dayjsObj = dayjs(curr['first-published-on'])
       const year = dayjsObj.format('YYYY')
       if (acc[year]) {
         acc[year].push(curr)
@@ -206,7 +205,7 @@ export const functions = {
     }
 
     const groupedByMonth = blogMetadata.reduce(function (acc, curr) {
-      const dayjsObj = new Dayjs(curr['first-published-on'])
+      const dayjsObj = dayjs(curr['first-published-on'])
       const year = dayjsObj.format('YYYY')
       const month = dayjsObj.format('MM')
       const key = year + '-' + month
@@ -229,7 +228,7 @@ export const functions = {
     }
 
     const groupedByDay = blogMetadata.reduce(function (acc, curr) {
-      const dayjsObj = new Dayjs(curr['first-published-on'])
+      const dayjsObj = dayjs(curr['first-published-on'])
       const year = dayjsObj.format('YYYY')
       const month = dayjsObj.format('MM')
       const day = dayjsObj.format('DD')
