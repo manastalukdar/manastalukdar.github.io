@@ -115,7 +115,7 @@
     "terser": ">=5.16.1",
     "trim": ">=1.0.1",
     "ua-parser-js": ">=1.0.32",
-    "vue": "3.2.45",
+    "vue": "3.2.47",
     "vue-template-compiler": "^2.7.14"
   }
 }
