@@ -3,6 +3,8 @@ import { Feed } from 'feed'
 import * as fs from 'fs';
 // @ts-ignore
 import * as getRoutes from './utils/getRoutes.ts'
+import vuetify from 'vite-plugin-vuetify'
+import { createResolver } from '@nuxt/kit'
 // const ampify = require('./plugins/ampify')
 // import ampify from './plugins/ampify'
 
@@ -22,21 +24,23 @@ const siteName = siteOwner
 const siteDescription =
   'Manas Talukdar is a senior engineering manager in distributed systems and AI/ML platforms, experienced in growing organizations and running high performing teams.'
 
+const { resolve } = createResolver(import.meta.url)
+
 export default defineNuxtConfig ({
   typescript: {
     shim: false
   },
-  target: 'static',
+  //target: 'static',
   telemetry: false,
 
-  helper: {
+  /*helper: {
     aboutBlurbText: '',
-  },
+  },*/
 
   // https://pwa.nuxtjs.org/modules/meta.html
-  meta: {
+ /* meta: {
     // ...
-  },
+  },*/
 
   pwa: {
     icon: {
@@ -46,7 +50,7 @@ export default defineNuxtConfig ({
   },
 
   // https://pwa.nuxtjs.org/modules/manifest.html
-  manifest: {
+  /*manifest: {
     short_name: 'MTalukdar',
     name: 'Manas Talukdar',
     start_url: '/',
@@ -54,12 +58,12 @@ export default defineNuxtConfig ({
     theme_color: '#263238',
     display: 'standalone',
     lang: 'en',
-  },
+  },*/
 
   /*
    ** Headers of the page
    */
-  useHead: {
+  /*useHead: {
     // title: pkg.name,
     meta: [
       {
@@ -175,18 +179,18 @@ export default defineNuxtConfig ({
         as: 'style',
       },
     ],
-  },
+  },*/
 
-  publicRuntimeConfig: {
+  /*publicRuntimeConfig: {
     baseURL: baseUrl,
-  },
+  },*/
 
   /*
    ** Customize the progress-bar color
    */
-  loading: {
+  /*loading: {
     color: '#fff',
-  },
+  },*/
 
   /*
    ** Global CSS
@@ -239,9 +243,9 @@ export default defineNuxtConfig ({
   /*
    ** Axios module configuration
    */
-  axios: {
+  /*axios: {
     // See https://github.com/nuxt-community/axios-module#options
-  },
+  },*/
 
   /*
    ** Build configuration
@@ -308,23 +312,30 @@ export default defineNuxtConfig ({
     transpile: ['vuetify']
   },
 
-  /*hooks: {
-    'pages:extend'(routes, resolve) {
+  hooks: {
+    'vite:extendConfig': (config) => {
+      config.plugins.push(
+        vuetify({
+          styles: { configFile: resolve('./assets/style/variables.scss') },
+        })
+      )
+    }
+    /*'pages:extend'(routes, resolve) {
       routes.push({
         name: 'custom',
         path: '*',
         component: resolve(__dirname, 'pages/404.vue'),
       })
-    },
-  },*/
+    },*/
+  },
 
-  link: [
+  /*link: [
     {
       rel: 'icon',
       type: 'image/x-icon',
       href: faviconPath,
     },
-  ],
+  ],*/
 
   vite: {
     define: {

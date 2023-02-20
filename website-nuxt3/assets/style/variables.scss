@@ -1,22 +1,24 @@
 // assets/variables.scss
+@forward 'vuetify/settings' with (
+  // The variables you want to modify
+  $font-size-root: 15px,
+  $line-height-root: 1.8,
+  // For updating SASS lists
+  // $material-light: map-merge($material-light, ( cards: blue )),
+  // $btn-border-radius: 10px,
+  /*$body-font-family: 'Maven Pro',
+    'Roboto',
+    'Helvetica Neue',
+    'Segoe UI',
+    'sans-serif';*/
+  $code-color: #383636,
+  //$v-main-padding: 65px 0 65px,
+);
+
 @import url('https://fonts.googleapis.com/css?family=Maven+Pro|Roboto&display=swap');
 // Open+Sans|Roboto|Montserrat, Lato, Nunito Sans, Raleway, Lora, Maven Pro, PT Sans, Carlito
 
-@import '~vuetify/src/styles/styles.sass';
-
-// The variables you want to modify
-$font-size-root: 15px;
-$line-height-root: 1.8;
-// For updating SASS lists
-// $material-light: map-merge($material-light, ( cards: blue ));
-// $btn-border-radius: 10px;
-$body-font-family: 'Maven Pro',
-  'Roboto',
-  'Helvetica Neue',
-  'Segoe UI',
-  'sans-serif';
-$code-color: #383636;
-$v-main-padding: 65px 0 65px;
+//@import 'vuetify/src/styles/styles.sass';
 
 // https://stackoverflow.com/questions/57130910/how-do-i-apply-css-to-all-elements-except-when-first-child-is-of-certain-id/
 .content-body {
