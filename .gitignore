@@ -8,21 +8,14 @@ node_modules
 dist
 
 .DS_Store
-website/node_modules/
-website-nuxt3/node_modules/
+**/node_modules/
 **/dist/
-website/npm-debug.log*
-website-nuxt3/npm-debug.log*
-website/yarn-debug.log*
-website-nuxt3/yarn-debug.log*
-website/yarn-error.log*
-website-nuxt3/yarn-error.log*
-website/test/unit/coverage/
-website-nuxt3/test/unit/coverage/
-website/test/e2e/reports/
-website-nuxt3/test/e2e/reports/
-website/selenium-debug.log
-website-nuxt3/selenium-debug.log
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/test/unit/coverage/
+**/test/e2e/reports/
+**/selenium-debug.log
 
 # Editor directories and files
 .idea
@@ -93,28 +86,22 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-website/.env
-website-nuxt3/.env
+**/.env
 
 # parcel-bundler cache (https://parceljs.org/)
 website/.cache
-website-nuxt3/.cache
 
 # nuxt.js build output
-website/.nuxt
-website-nuxt3/.nuxt
+**/.nuxt
 
 # Nuxt generate
-website/dist
-website-nuxt3/dist
+**/dist
 
 # vuepress build output
-website/.vuepress/dist
-website-nuxt3/.vuepress/dist
+**/.vuepress/dist
 
 # Serverless directories
-website/.serverless
-website-nuxt3/.serverless
+**/.serverless
 
 # IDE
 .idea
@@ -124,14 +111,11 @@ sw.*
 
 **/sitemap.xml*
 
-website/static/blogdata/
-website-nuxt3/static/blogdata/
+**/static/blogdata/
 
-website/static/*feed.xml
-website-nuxt3/static/*feed.xml
+**/static/*feed.xml
 
-website/static/styles/
-website-nuxt3/static/styles/
+**/static/styles/
 
 # scala
 .metals
