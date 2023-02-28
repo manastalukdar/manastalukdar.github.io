@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    v-model="navigationStore.sidebarVisible"
+    v-model="sidebarVisible"
     class="hidden-md-and-up"
     app
     right
@@ -65,6 +65,7 @@ export default {
       legalText: navigationStore.legalText,
       legalPath: navigationStore.legalPath,
       contactText: navigationStore.contactText,
+      sidebarVisible: navigationStore.sidebarVisible
   }),
   components: {
     BlogMenuItems,

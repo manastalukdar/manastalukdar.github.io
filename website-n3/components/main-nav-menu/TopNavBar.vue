@@ -1,17 +1,21 @@
 <template>
   <v-app-bar color="headerAndFooterColor" app>
     <v-app-bar-nav-icon class="hidden-sm-and-up">
-      <nuxt-link v-slot="{ navigate }" to="/" custom style="cursor: pointer">
+      <nuxt-link v-slot="{ navigate }" to="/" custom>
+        <div class="home-link">
         <span role="link" @click="navigate" @keypress.enter="navigate"
           ><v-icon>mdi-home</v-icon></span
         >
+      </div>
       </nuxt-link>
     </v-app-bar-nav-icon>
     <v-toolbar-title class="hidden-xs-only text-h5">
-      <nuxt-link v-slot="{ navigate }" to="/" custom style="cursor: pointer">
-        <span role="link" @click="navigate" @keypress.enter="navigate">{{
+      <nuxt-link v-slot="{ navigate }" to="/" custom>
+        <div class="home-link">
+        <span role="link" @click="navigate" @keypress.enter="navigate" class="home-link">{{
           appTitle
         }}</span>
+      </div>
       </nuxt-link>
     </v-toolbar-title>
     <div class="flex-grow-1" />
@@ -104,4 +108,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.home-link {
+  cursor: pointer
+}
+
+</style>
