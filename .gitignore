@@ -112,10 +112,13 @@ sw.*
 **/sitemap.xml*
 
 **/static/blogdata/
+**/public/blogdata/
 
 **/static/*feed.xml
+**/public/*feed.xml
 
 **/static/styles/
+**/public/styles/
 
 # scala
 .metals

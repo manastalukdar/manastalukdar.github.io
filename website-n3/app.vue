@@ -1,15 +1,11 @@
 <template>
-  <v-app>
-    <v-main>
-      <v-container id="content-body-container" class="content-body pa-3">
-        <transition name="fade">
-          <!-- component matched by the route will render here -->
-          <NuxtPage />
-        </transition>
-      </v-container>
-    </v-main>
-  </v-app>
+  <NuxtLayout :name="layout">
+  </NuxtLayout>
 </template>
+
+<script setup lang="ts">
+const layout = "default";
+</script>
 
 <script lang="ts">
 export default {
