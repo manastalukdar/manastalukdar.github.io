@@ -10,7 +10,6 @@
 <script>
 import fm from 'front-matter'
 import mdit from 'markdown-it'
-import asyncComputed from '../../utils/vue3-async-computed.ts'
 import { computedAsync } from '@vueuse/core'
 const md = new mdit({
   html: true,
@@ -32,14 +31,5 @@ export default {
       aboutBlurb
     }
   },
-  /* asyncComputed: {
-    async aboutBlurb() {
-      const fileContent = await import('./about-blurb.md')
-      const res = fm(fileContent.default)
-      console.log('HERE')
-      console.log(md.render(res.body))
-      return md.render(res.body)
-    },
-  }, */
 }
 </script>
