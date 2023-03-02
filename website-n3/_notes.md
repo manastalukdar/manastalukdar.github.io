@@ -5,3 +5,6 @@
 - https://stackblitz.com/edit/markdown-it-idp4zq?file=index.ts
 - https://www.reddit.com/r/vuejs/comments/kkac96/async_computed_property_for_vue_3/
 - https://github.com/foxbenjaminfox/vue-async-computed/issues/104
+- https://github.com/nuxt/nuxt/issues/12778#issuecomment-977796717
+- https://stackoverflow.com/questions/72925356/how-to-add-webpack-loader-to-nuxt-3
+- https://github.com/zhangyuang/vite-raw-plugin

@@ -12,7 +12,6 @@ import fm from 'front-matter'
 import mdit from 'markdown-it'
 import asyncComputed from '../../utils/vue3-async-computed.ts'
 import { computedAsync } from '@vueuse/core'
-import fs from 'fs';
 const md = new mdit({
   html: true,
   linkify: true,
@@ -21,12 +20,13 @@ const md = new mdit({
 export default {
   setup() {
     const aboutBlurb = computedAsync(async () => {
-      console.log('HERE1')
-      const fileContent = await fs.readFile('./about-blurb.md', "utf8")
-      console.log('HERE2')
-      const res = fm(fileContent.default)
-      console.log(md.render(res.body))
-      return md.render(res.body)
+      try {
+        const fileContent = await import('./about-blurb.md?raw')
+        const res = fm(fileContent.default)
+        return md.render(res.body)
+      } catch (error) {
+        console.log(error)
+      }
     })
     return {
       aboutBlurb
