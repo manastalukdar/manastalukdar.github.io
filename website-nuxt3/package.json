@@ -65,7 +65,7 @@
   "devDependencies": {
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.12",
-    "@kevinmarrec/nuxt-pwa": "^0.16.2",
+    "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@mdi/font": "^7.1.96",
     "@nuxtjs/eslint-config": "^12.0.0",
     "@vue/eslint-config-prettier": "^7.0.0",
