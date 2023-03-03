@@ -29,14 +29,14 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
+import { useNavigationStore } from '@/stores/Navigation'
+const navigationStore = useNavigationStore()
 export default {
-  computed: {
-    ...mapState({
-      socialMediaItems: (state) => state.Navigation.contact.socialMediaItems,
-      aboutItems: (state) => state.Navigation.about.aboutItems,
-    }),
-  },
+  data: () => ({
+      socialMediaItems: navigationStore.contact.socialMediaItems,
+      aboutItems: navigationStore.about.aboutItems,
+  })
 }
 </script>
 

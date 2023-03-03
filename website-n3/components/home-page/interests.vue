@@ -18,19 +18,28 @@
 </template>
 
 <script>
-const fm = require('front-matter')
-const md = require('markdown-it')({
+import fm from 'front-matter'
+import mdit from 'markdown-it'
+import { computedAsync } from '@vueuse/core'
+const md = new mdit({
   html: true,
   linkify: true,
   typographer: true,
 })
 export default {
-  asyncComputed: {
-    async interests() {
-      const fileContent = await import('./interests.md')
-      const res = fm(fileContent.default)
-      return md.render(res.body)
-    },
+  setup() {
+    const interests = computedAsync(async () => {
+      try {
+        const fileContent = await import('./interests.md?raw')
+        const res = fm(fileContent.default)
+        return md.render(res.body)
+      } catch (error) {
+        console.log(error)
+      }
+    })
+    return {
+      interests
+    }
   },
 }
 </script>

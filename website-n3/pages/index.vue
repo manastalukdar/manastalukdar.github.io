@@ -13,7 +13,7 @@
 
       <v-col sm="6" class="py-2 d-flex flex-column" cols="12">
         <v-row class="flex-grow-0 pb-2">
-          <!-- <socialMediaAndResumeLinks /> -->
+          <socialMediaAndResumeLinks />
         </v-row>
         <v-row class="flex-grow-1 pt-2">
           <featured />
@@ -22,15 +22,15 @@
     </v-row>
 
     <v-row class="px-2 py-2">
-      <!-- <highlights /> -->
+      <highlights />
     </v-row>
 
     <v-row class="px-2 py-2">
-      <!-- <interests /> -->
+      <interests />
     </v-row>
 
     <v-row class="px-2 py-2">
-      <!-- <recentUpdates /> -->
+      <recentUpdates />
     </v-row>
   </v-container>
 </template>
@@ -38,10 +38,18 @@
 <script>
 import aboutBlurb from '../components/home-page/about-blurb.vue'
 import featured from '../components/home-page/featured.vue'
+import socialMediaAndResumeLinks from '../components/home-page/social-media-resume.vue'
+import highlights from '../components/home-page/highlights.vue'
+import interests from '../components/home-page/interests.vue'
+import recentUpdates from '../components/home-page/recent-updates.vue'
 export default {
   components: {
     aboutBlurb,
-    featured
+    featured,
+    socialMediaAndResumeLinks,
+    highlights,
+    interests,
+    recentUpdates
   },
 }
 </script>
