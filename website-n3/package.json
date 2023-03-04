@@ -35,7 +35,8 @@
     "pinia": "^2.0.32",
     "sass": "^1.58.3",
     "vite-plugin-vuetify": "^1.0.2",
-    "vuetify": "^3.1.6"
+    "vuetify": "^3.1.6",
+    "@volar-plugins/vetur": "latest"
   },
   "overrides": {
     "vue": "latest"

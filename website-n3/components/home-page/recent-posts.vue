@@ -14,8 +14,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import recentPosts from '../blog/recent-posts/list.vue'
+import { useNavigationStore } from '@/stores/Navigation'
+const navigationStore = useNavigationStore()
 export default {
   components: {
     recentPosts,
@@ -29,11 +30,9 @@ export default {
   },
   data: () => ({
     itemsToDisplay: 6,
+      blogItems: navigationStore.blog.blogItems,
   }),
   computed: {
-    ...mapState({
-      blogItems: (state) => state.Navigation.blog.blogItems,
-    }),
   },
 }
 </script>
