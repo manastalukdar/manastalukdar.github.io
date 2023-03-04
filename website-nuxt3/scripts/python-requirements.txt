@@ -1,3 +1,0 @@
-markdown
-python-frontmatter
-python-dateutil
