@@ -12,6 +12,7 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
   state: initialState,
   actions: {
     async getBlogMetadata(baseURL: string) {
+      console.log(baseURL)
       const { data }: any = await axios
         .get(baseURL + '/blogdata/metadata/blog_metadata.json')
         .catch(function (error) {

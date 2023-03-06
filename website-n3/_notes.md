@@ -8,3 +8,14 @@
 - https://github.com/nuxt/nuxt/issues/12778#issuecomment-977796717
 - https://stackoverflow.com/questions/72925356/how-to-add-webpack-loader-to-nuxt-3
 - https://github.com/zhangyuang/vite-raw-plugin
+- https://serversideup.net/using-async-data-in-nuxt-3/
+- https://serversideup.net/advanced-data-fetching-with-nuxt-3/
+- https://nuxt.com/docs/api/composables/use-nuxt-app#payload
+- https://github.com/nuxt/nuxt/issues/13949
+- https://github.com/Smef/nuxt-ssg-issue-demo/blob/main/nuxt.config.ts
+- https://github.com/mohsin/iMoz-Web
+- https://github.com/Smef/nuxt-ssg-issue-demo
+- https://github.com/nuxt/nuxt/issues/14507
+- https://stackoverflow.com/questions/74606668/nuxt3-prerender-all-routes
+- https://github.com/nuxt/nuxt/issues/15450
+- https://nuxt.com/docs/getting-started/deployment#static-hosting

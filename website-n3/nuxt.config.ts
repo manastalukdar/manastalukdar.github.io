@@ -5,7 +5,16 @@ import { config, Configuration } from 'webpack';
 
 const { resolve } = createResolver(import.meta.url)
 
+const baseUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://manastalukdar.github.io'
+    : 'http://localhost:3000'
+
 export default defineNuxtConfig({
+  runtimeConfig: {
+    baseUrl: baseUrl
+  },
+
   css: ['vuetify/lib/styles/main.sass', '@mdi/font/css/materialdesignicons.min.css'],
 
   build: {

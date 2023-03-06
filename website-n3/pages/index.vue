@@ -51,7 +51,18 @@ const navigationStore = useNavigationStore()
 const globalDataStore = useGlobalDataStore()
 export default {
   setup() {
-
+    const runtimeConfig  = useRuntimeConfig(); // $config.baseURL
+    const route = useRoute(); // route.params
+    try {
+        if (blogMetadataStore.blogMetadata.length === 0) {
+          blogMetadataStore.getBlogMetadata(runtimeConfig.baseUrl)
+        }
+    } catch (error) {
+      console.log(error)
+    }
+    return {
+      baseUrl: runtimeConfig.baseUrl,
+    }
   },
   components: {
     aboutBlurb,
@@ -62,7 +73,7 @@ export default {
     interests,
     recentUpdates
   },
-  async asyncData({ store, params, $config, payload }) {
+  /* async asyncData({ store, params, $config, payload }) {
     if (payload) {
       return {
         baseUrl: $config.baseURL,
@@ -76,7 +87,7 @@ export default {
         baseUrl: $config.baseURL,
       }
     }
-  },
+  }, */
   data() {
     return {
       currentHref: '/',
