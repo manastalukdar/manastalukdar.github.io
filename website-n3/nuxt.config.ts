@@ -12,7 +12,9 @@ const baseUrl =
 
 export default defineNuxtConfig({
   runtimeConfig: {
-    baseUrl: baseUrl
+    public: {
+      baseUrl: baseUrl
+    }
   },
 
   css: ['vuetify/lib/styles/main.sass', '@mdi/font/css/materialdesignicons.min.css'],

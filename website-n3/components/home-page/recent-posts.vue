@@ -30,7 +30,7 @@ export default {
   },
   data: () => ({
     itemsToDisplay: 6,
-      blogItems: navigationStore.blog.blogItems,
+    blogItems: navigationStore.blog.blogItems,
   }),
   computed: {
   },

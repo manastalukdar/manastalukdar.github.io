@@ -55,7 +55,7 @@ export default {
     const route = useRoute(); // route.params
     try {
         if (blogMetadataStore.blogMetadata.length === 0) {
-          blogMetadataStore.getBlogMetadata(runtimeConfig.baseUrl)
+          blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl)
         }
     } catch (error) {
       console.log(error)
@@ -88,15 +88,13 @@ export default {
       }
     }
   }, */
-  data() {
-    return {
+  data: () => ({
       currentHref: '/',
       socialMediaItems: navigationStore.contact.socialMediaItems,
       aboutItems: navigationStore.about.aboutItems,
       appOwner: globalDataStore.appOwner,
       blogMetadata: blogMetadataStore.blogMetadata,
-    }
-  },
+  }),
   head() {
     const url = this.baseUrl + this.currentHref
     const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
