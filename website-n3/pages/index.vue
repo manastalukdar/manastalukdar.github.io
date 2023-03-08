@@ -35,173 +35,112 @@
   </v-container>
 </template>
 
-<script>
-import aboutBlurb from '../components/home-page/about-blurb.vue'
-import recentPostsHomePage from '../components/home-page/recent-posts.vue'
-import featured from '../components/home-page/featured.vue'
-import socialMediaAndResumeLinks from '../components/home-page/social-media-resume.vue'
-import highlights from '../components/home-page/highlights.vue'
-import interests from '../components/home-page/interests.vue'
-import recentUpdates from '../components/home-page/recent-updates.vue'
-import { useBlogMetadataStore } from '@/stores/BlogMetadata'
-import { useNavigationStore } from '@/stores/Navigation'
-import { useGlobalDataStore } from '@/stores/GlobalData'
-import { computed } from 'vue'
-const blogMetadataStore = useBlogMetadataStore()
-const navigationStore = useNavigationStore()
-const globalDataStore = useGlobalDataStore()
-export default {
-  async setup() {
-    const currentHref = '/';
-    const socialMediaItems = navigationStore.contact.socialMediaItems;
-    const aboutItems = navigationStore.about.aboutItems;
-    const appOwner = globalDataStore.appOwner;
-    const blogMetadata = blogMetadataStore.blogMetadata;
-    const runtimeConfig = useRuntimeConfig(); // $config.baseURL
-    const route = useRoute(); // route.params
-    const baseUrl = runtimeConfig.baseUrl;
-    const breadcrumbs = computed({
-      get() {
-        return  [
-          {
-            text: 'Home',
-            disabled: false,
-            to: '/',
-          },
-        ]
-      }
-    });
+<script setup>
+import aboutBlurb from '../components/home-page/about-blurb.vue';
+import recentPostsHomePage from '../components/home-page/recent-posts.vue';
+import featured from '../components/home-page/featured.vue';
+import socialMediaAndResumeLinks from '../components/home-page/social-media-resume.vue';
+import highlights from '../components/home-page/highlights.vue';
+import interests from '../components/home-page/interests.vue';
+import recentUpdates from '../components/home-page/recent-updates.vue';
+import { useBlogMetadataStore } from '@/stores/BlogMetadata';
+import { useNavigationStore } from '@/stores/Navigation';
+import { useGlobalDataStore } from '@/stores/GlobalData';
+import { computed } from 'vue';
+const blogMetadataStore = useBlogMetadataStore();
+const navigationStore = useNavigationStore();
+const globalDataStore = useGlobalDataStore();
+const currentHref = '/';
+const socialMediaItems = navigationStore.contact.socialMediaItems;
+const aboutItems = navigationStore.about.aboutItems;
+const appOwner = globalDataStore.appOwner;
+const runtimeConfig = useRuntimeConfig(); // $config.baseURL
+const route = useRoute(); // route.params
+const baseUrl = runtimeConfig.baseUrl;
+async function setupBlogMetadata() {
     try {
         if (blogMetadataStore.blogMetadata.length === 0) {
-          await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl)
+          await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
         }
     } catch (error) {
       console.log(error)
     }
-    const url = baseUrl + currentHref
-    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
-      (item, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        item: {
-          '@id': baseUrl + item.to,
-          name: item.text,
-        },
-      })
-    )
-    const breadcrumbsStructuredData = {
-      '@context': 'http://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray,
-    }
-    const structuredData = {
-      '@context': 'http://schema.org',
-      '@type': 'Person',
-      name: appOwner,
-      url,
-      sameAs: [
-        socialMediaItems[0].href,
-        socialMediaItems[1].href,
-        socialMediaItems[2].href,
-        'https://www.facebook.com/manas.talukdar',
-        'https://www.instagram.com/manastalukdar/',
-        'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA',
-      ],
-    }
-    useHead({
-      title: appOwner,
-      link: [{ rel: 'canonical', href: url }],
-      __dangerouslyDisableSanitizers: ['script'],
-      script: [
-        {
-          innerHTML: JSON.stringify(structuredData),
-          type: 'application/ld+json',
-        },
-        {
-          innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json',
-        },
-      ],
-    })
-    return {
-      baseUrl: runtimeConfig.baseUrl,
-    }
+};
+await setupBlogMetadata();
+const blogMetadata = blogMetadataStore.blogMetadata;
+components: {
+  aboutBlurb,
+  recentPostsHomePage,
+  featured,
+  socialMediaAndResumeLinks,
+  highlights,
+  interests,
+  recentUpdates
+};
+data: () => ({
+    currentHref: '/',
+    socialMediaItems: navigationStore.contact.socialMediaItems,
+    aboutItems: navigationStore.about.aboutItems,
+    appOwner: globalDataStore.appOwner,
+    blogMetadata: blogMetadataStore.blogMetadata,
+});
+const breadcrumbs = [
+  {
+    text: 'Home',
+    disabled: false,
+    to: '/',
   },
-  components: {
-    aboutBlurb,
-    recentPostsHomePage,
-    featured,
-    socialMediaAndResumeLinks,
-    highlights,
-    interests,
-    recentUpdates
-  },
-  data: () => ({
-      currentHref: '/',
-      socialMediaItems: navigationStore.contact.socialMediaItems,
-      aboutItems: navigationStore.about.aboutItems,
-      appOwner: globalDataStore.appOwner,
-      blogMetadata: blogMetadataStore.blogMetadata,
-  }),
-  useHead() {
-    const url = this.baseUrl + this.currentHref
-    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
-      (item, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        item: {
-          '@id': this.baseUrl + item.to,
-          name: item.text,
-        },
-      })
-    )
-    const breadcrumbsStructuredData = {
-      '@context': 'http://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray,
+];
+const breadcrumbsComputed = computed({
+    get() {
+      return  breadcrumbs
     }
-    const structuredData = {
-      '@context': 'http://schema.org',
-      '@type': 'Person',
-      name: this.appOwner,
-      url,
-      sameAs: [
-        this.socialMediaItems[0].href,
-        this.socialMediaItems[1].href,
-        this.socialMediaItems[2].href,
-        'https://www.facebook.com/manas.talukdar',
-        'https://www.instagram.com/manastalukdar/',
-        'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA',
-      ],
-    }
-    return {
-      title: this.appOwner,
-      link: [{ rel: 'canonical', href: url }],
-      __dangerouslyDisableSanitizers: ['script'],
-      script: [
-        {
-          innerHTML: JSON.stringify(structuredData),
-          type: 'application/ld+json',
-        },
-        {
-          innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json',
-        },
-      ],
-    }
-  },
-  computed: {
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-        },
-      ]
+  });
+const url = baseUrl + currentHref;
+const breadcrumbsStructuredDataArray = breadcrumbs.map(
+  (item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@id': baseUrl + item.to,
+      name: item.text,
     },
-  },
-}
+  })
+);
+const breadcrumbsStructuredData = {
+  '@context': 'http://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbsStructuredDataArray,
+};
+const structuredData = {
+  '@context': 'http://schema.org',
+  '@type': 'Person',
+  name: appOwner,
+  url,
+  sameAs: [
+    socialMediaItems[0].href,
+    socialMediaItems[1].href,
+    socialMediaItems[2].href,
+    'https://www.facebook.com/manas.talukdar',
+    'https://www.instagram.com/manastalukdar/',
+    'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA',
+  ],
+};
+useHead({
+  title: appOwner,
+    link: [{ rel: 'canonical', href: url }],
+    __dangerouslyDisableSanitizers: ['script'],
+    script: [
+      {
+        innerHTML: JSON.stringify(structuredData),
+        type: 'application/ld+json',
+      },
+      {
+        innerHTML: JSON.stringify(breadcrumbsStructuredData),
+        type: 'application/ld+json',
+      },
+    ],
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
