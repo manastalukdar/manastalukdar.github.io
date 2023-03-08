@@ -46,13 +46,31 @@ import recentUpdates from '../components/home-page/recent-updates.vue'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
+import { computed } from 'vue'
 const blogMetadataStore = useBlogMetadataStore()
 const navigationStore = useNavigationStore()
 const globalDataStore = useGlobalDataStore()
 export default {
   async setup() {
-    const runtimeConfig  = useRuntimeConfig(); // $config.baseURL
+    const currentHref = '/';
+    const socialMediaItems = navigationStore.contact.socialMediaItems;
+    const aboutItems = navigationStore.about.aboutItems;
+    const appOwner = globalDataStore.appOwner;
+    const blogMetadata = blogMetadataStore.blogMetadata;
+    const runtimeConfig = useRuntimeConfig(); // $config.baseURL
     const route = useRoute(); // route.params
+    const baseUrl = runtimeConfig.baseUrl;
+    const breadcrumbs = computed({
+      get() {
+        return  [
+          {
+            text: 'Home',
+            disabled: false,
+            to: '/',
+          },
+        ]
+      }
+    });
     try {
         if (blogMetadataStore.blogMetadata.length === 0) {
           await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl)
@@ -60,6 +78,51 @@ export default {
     } catch (error) {
       console.log(error)
     }
+    const url = baseUrl + currentHref
+    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
+      (item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@id': baseUrl + item.to,
+          name: item.text,
+        },
+      })
+    )
+    const breadcrumbsStructuredData = {
+      '@context': 'http://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbsStructuredDataArray,
+    }
+    const structuredData = {
+      '@context': 'http://schema.org',
+      '@type': 'Person',
+      name: appOwner,
+      url,
+      sameAs: [
+        socialMediaItems[0].href,
+        socialMediaItems[1].href,
+        socialMediaItems[2].href,
+        'https://www.facebook.com/manas.talukdar',
+        'https://www.instagram.com/manastalukdar/',
+        'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA',
+      ],
+    }
+    useHead({
+      title: appOwner,
+      link: [{ rel: 'canonical', href: url }],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          innerHTML: JSON.stringify(structuredData),
+          type: 'application/ld+json',
+        },
+        {
+          innerHTML: JSON.stringify(breadcrumbsStructuredData),
+          type: 'application/ld+json',
+        },
+      ],
+    })
     return {
       baseUrl: runtimeConfig.baseUrl,
     }
@@ -73,21 +136,6 @@ export default {
     interests,
     recentUpdates
   },
-  /* async asyncData({ store, params, $config, payload }) {
-    if (payload) {
-      return {
-        baseUrl: $config.baseURL,
-        blogMetadata: payload,
-      }
-    } else {
-      if (blogMetadataStore.blogMetadata.length === 0) {
-        blogMetadataStore.getBlogMetadata($config.baseURL)
-      }
-      return {
-        baseUrl: $config.baseURL,
-      }
-    }
-  }, */
   data: () => ({
       currentHref: '/',
       socialMediaItems: navigationStore.contact.socialMediaItems,
@@ -95,7 +143,7 @@ export default {
       appOwner: globalDataStore.appOwner,
       blogMetadata: blogMetadataStore.blogMetadata,
   }),
-  head() {
+  useHead() {
     const url = this.baseUrl + this.currentHref
     const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
       (item, index) => ({

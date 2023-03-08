@@ -20,3 +20,4 @@
 - https://github.com/nuxt/nuxt/issues/15450
 - https://nuxt.com/docs/getting-started/deployment#static-hosting
 - https://javascriptsu.wordpress.com/2022/01/02/use-props-in-script-setup-nuxt3/
+- https://vueschool.io/lessons/computed-properties-in-the-composition-api
