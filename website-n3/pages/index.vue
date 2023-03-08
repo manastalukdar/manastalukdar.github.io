@@ -50,12 +50,12 @@ const blogMetadataStore = useBlogMetadataStore()
 const navigationStore = useNavigationStore()
 const globalDataStore = useGlobalDataStore()
 export default {
-  setup() {
+  async setup() {
     const runtimeConfig  = useRuntimeConfig(); // $config.baseURL
     const route = useRoute(); // route.params
     try {
         if (blogMetadataStore.blogMetadata.length === 0) {
-          blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl)
+          await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl)
         }
     } catch (error) {
       console.log(error)
