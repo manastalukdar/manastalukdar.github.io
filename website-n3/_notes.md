@@ -22,3 +22,7 @@
 - https://javascriptsu.wordpress.com/2022/01/02/use-props-in-script-setup-nuxt3/
 - https://vueschool.io/lessons/computed-properties-in-the-composition-api
 - https://www.netlify.com/blog/understanding-defineprops-and-defineemits-in-vue-3.2/
+- https://stackoverflow.com/questions/74161609/how-to-add-a-page-loader-in-nuxt-3-application
+- https://stackblitz.com/edit/nuxt-starter-ckuayo?file=plugins%2Floading-bar.client.ts
+- https://www.thisdot.co/blog/rendering-modes-in-nuxt-3
+- https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
