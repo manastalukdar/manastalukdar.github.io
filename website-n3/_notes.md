@@ -21,3 +21,4 @@
 - https://nuxt.com/docs/getting-started/deployment#static-hosting
 - https://javascriptsu.wordpress.com/2022/01/02/use-props-in-script-setup-nuxt3/
 - https://vueschool.io/lessons/computed-properties-in-the-composition-api
+- https://www.netlify.com/blog/understanding-defineprops-and-defineemits-in-vue-3.2/

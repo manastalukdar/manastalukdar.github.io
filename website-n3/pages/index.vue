@@ -77,13 +77,6 @@ components: {
   interests,
   recentUpdates
 };
-data: () => ({
-    currentHref: '/',
-    socialMediaItems: navigationStore.contact.socialMediaItems,
-    aboutItems: navigationStore.about.aboutItems,
-    appOwner: globalDataStore.appOwner,
-    blogMetadata: blogMetadataStore.blogMetadata,
-});
 const breadcrumbs = [
   {
     text: 'Home',

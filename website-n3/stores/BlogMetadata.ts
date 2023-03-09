@@ -49,7 +49,6 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
       return this.blogMetadata
     },
 
-
     getPostsForDay(year: string, month: string, day: string) {
       const groupedByDay = this.blogMetadata.reduce(function (acc: { [x: string]: any[] }, curr: { [x: string]: string | number | Date | dayjs.Dayjs | null | undefined }) {
         const dayjsObj = dayjs(curr['first-published-on'])

@@ -5,23 +5,20 @@
         <div>
           <v-breadcrumbs
             :items="breadcrumbs"
-            divider=">"
             class="justify-center"
-          ></v-breadcrumbs>
+          >
+            <template v-slot:divider>
+              <v-icon icon="mdi-chevron-right"></v-icon>
+            </template>
+          </v-breadcrumbs>
         </div>
       </v-card>
     </v-col>
   </v-row>
 </template>
 
-<script>
-export default {
-  props: {
-    breadcrumbs: {
-      type: Array,
-      required: true,
-      default: () => [],
-    },
-  },
-}
+<script setup>
+const props = defineProps({
+  breadcrumbs: Array
+})
 </script>
