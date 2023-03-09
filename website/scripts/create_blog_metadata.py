@@ -11,12 +11,11 @@ import shutil
 from datetime import date, datetime
 
 import frontmatter
-import markdown
 from dateutil import parser
 
 POSTS_LIST_FILE_JSON = "website/static/blogdata/metadata/blog_metadata.json"
 POSTS_DIST_FOLDER = "website/static/blogdata"
-POSTS_FOLDER = "website/blog"
+POSTS_FOLDER = "blog"
 
 POST_PATH_STRING = "path"
 
@@ -45,7 +44,7 @@ def create_posts_list(files):
     for item in files.items():
         post = frontmatter.load(item[1])
         post[POST_PATH_STRING] = item[0]
-        if post['published'] == True:
+        if post["published"] is True:
             count = count + 1
             newTags = get_data_with_url_slug(post['tags'])
             post['tags'] = newTags
