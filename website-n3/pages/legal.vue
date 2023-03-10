@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <breadcrumbs :breadcrumbs="breadcrumbsData" />
+    <breadcrumbs :breadcrumbs="breadcrumbsDataComputed" />
     <p />
     <v-row>
       <v-col cols="12">
@@ -13,7 +13,7 @@
   </v-container>
 </template>
 
-<script setup>
+<script>
 import breadcrumbs from '../components/breadcrumbs';
 import { useNavigationStore } from '@/stores/Navigation';
 import { useGlobalDataStore } from '@/stores/GlobalData';
@@ -39,9 +39,6 @@ const breadcrumbsData = [
     exact: true,
   },
 ];
-components: {
-  breadcrumbs
-};
 const title = currentPage + ' || ' + appOwner;
 const url = baseUrl + currentHref;
 const breadcrumbsStructuredDataArray = breadcrumbsData.map(
@@ -59,47 +56,62 @@ const breadcrumbsStructuredData = {
   '@type': 'BreadcrumbList',
   itemListElement: breadcrumbsStructuredDataArray,
 };
-useHead({
-  title,
-  meta: [
-    {
-      hid: 'description',
-      name: 'description',
-      content: description,
-    },
-    {
-      hid: 'apple-mobile-web-app-title',
-      name: 'apple-mobile-web-app-title',
-      content: title,
-    },
-    {
-      hid: 'og-title',
-      name: 'og:title',
-      property: 'og:title',
-      content: title,
-    },
-    {
-      hid: 'og-url',
-      name: 'og:url',
-      property: 'og:url',
-      content: url,
-    },
-    {
-      hid: 'og-description',
-      name: 'og:description',
-      property: 'og:description',
-      content: description,
-    },
-  ],
-  link: [{ rel: 'canonical', href: url }],
-  __dangerouslyDisableSanitizers: ['script'],
-  script: [
-    {
-      innerHTML: JSON.stringify(breadcrumbsStructuredData),
-      type: 'application/ld+json',
-    },
-  ],
-});
+export default {
+  setup() {
+    useHead({
+      title: title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: description,
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: title,
+        },
+        {
+          hid: 'og-title',
+          name: 'og:title',
+          property: 'og:title',
+          content: title,
+        },
+        {
+          hid: 'og-url',
+          name: 'og:url',
+          property: 'og:url',
+          content: url,
+        },
+        {
+          hid: 'og-description',
+          name: 'og:description',
+          property: 'og:description',
+          content: description,
+        },
+      ],
+      link: [{ rel: 'canonical', href: url }],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          innerHTML: JSON.stringify(breadcrumbsStructuredData),
+          type: 'application/ld+json',
+        },
+      ],
+    })
+    return {
+      breadcrumbsDataComputed1
+    }
+  },
+  components: {
+    breadcrumbs
+  },
+  computed: {
+    breadcrumbsDataComputed() {
+      return breadcrumbsData
+    }
+  }
+}
 </script>
 
 <style></style>

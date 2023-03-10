@@ -27,3 +27,4 @@
 - https://www.thisdot.co/blog/rendering-modes-in-nuxt-3
 - https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
 - https://stackoverflow.com/questions/64117116/how-can-i-use-async-await-in-the-vue-3-0-setup-function-using-typescript
+- https://masteringnuxt.com/blog/dynamic-pages-in-nuxt-3
