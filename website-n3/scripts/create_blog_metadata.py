@@ -23,7 +23,7 @@ POST_PATH_STRING = "path"
 def find_files():
     """Return the list of files to process."""
     result = {}
-    root_dir = "website/blog"
+    root_dir = "blog"
     cwd = os.getcwd()
     #print(os.listdir(root_dir))
     for root, dirs, files in os.walk(root_dir):
