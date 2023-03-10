@@ -9,12 +9,12 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.191",
-    "@types/node": "^18.14.2",
+    "@types/node": "^18.15.0",
     "@volar-plugins/vetur": "latest",
     "@vueuse/core": "^9.13.0",
     "@vueuse/nuxt": "^9.13.0",
-    "nuxt": "^3.2.2",
-    "webpack": "^5.75.0"
+    "nuxt": "^3.2.3",
+    "webpack": "^5.76.0"
   },
   "dependencies": {
     "@mdi/font": "^7.1.96",
@@ -34,10 +34,10 @@
     "markdown-it-mathjax": "^2.0.0",
     "markdown-it-textual-uml": "^0.12.0",
     "markdown-it-toc-done-right": "^4.2.0",
-    "pinia": "^2.0.32",
+    "pinia": "^2.0.33",
     "sass": "^1.58.3",
     "vite-plugin-vuetify": "^1.0.2",
-    "vuetify": "^3.1.6"
+    "vuetify": "^3.1.8"
   },
   "overrides": {
     "vue": "latest"
