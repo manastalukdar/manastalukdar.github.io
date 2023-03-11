@@ -1,5 +1,5 @@
-import * as fs from 'fs'
-import * as path from 'path'
+const fs = require('fs')
+const path = require('path')
 
 const stylesDir = path.join(__dirname, '../public/styles')
 
@@ -13,7 +13,7 @@ styles.forEach((element) => {
   fs.copyFile(
     path.join(__dirname, '../node_modules/highlight.js/styles/', element),
     path.join(stylesDir, element),
-    (err: any) => {
+    (err) => {
       if (err) throw err
       console.log(element + ': source was copied to destination')
     }

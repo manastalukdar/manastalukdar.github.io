@@ -1,7 +1,7 @@
 <template>
   <v-app-bar color="headerAndFooterColor" app>
     <v-app-bar-nav-icon class="hidden-sm-and-up">
-      <nuxt-link v-slot="{ navigate }" to="/" custom>
+      <nuxt-link v-slot="{ navigate }" to="/">
         <div class="home-link">
         <span role="link" @click="navigate" @keypress.enter="navigate"
           ><v-icon>mdi-home</v-icon></span
@@ -10,7 +10,7 @@
       </nuxt-link>
     </v-app-bar-nav-icon>
     <v-toolbar-title class="hidden-xs-only text-h5">
-      <nuxt-link v-slot="{ navigate }" to="/" custom>
+      <nuxt-link v-slot="{ navigate }" to="/">
         <div class="home-link">
         <span role="link" @click="navigate" @keypress.enter="navigate" class="home-link">{{
           appTitle

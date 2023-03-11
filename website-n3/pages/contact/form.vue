@@ -64,50 +64,50 @@
 import breadcrumbs from '../../components/breadcrumbs';
 import { useNavigationStore } from '@/stores/Navigation';
 import { useGlobalDataStore } from '@/stores/GlobalData';
-const navigationStore = useNavigationStore();
-const globalDataStore = useGlobalDataStore();
-const appOwner = globalDataStore.appOwner;
-const currentPage =
-        navigationStore.contact.contactForm.text +
-        ' | ' +
-        navigationStore.contact.contactText;
-const currentHref = navigationStore.contact.contactForm.href;
-const runtimeConfig = useRuntimeConfig();
-const baseUrl = runtimeConfig.baseUrl;
-const title = currentPage + ' || ' + appOwner;
-const description = 'Contact Form.';
-const url = baseUrl + currentHref;
-const breadcrumbsData = [
-  {
-    text: 'Home',
-    disabled: false,
-    to: '/',
-    exact: true,
-  },
-  {
-    text: 'Contact Form',
-    disabled: false,
-    to: currentHref,
-    exact: true,
-  },
-];
-const breadcrumbsStructuredDataArray = breadcrumbsData.map(
-  (item, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    item: {
-      '@id': baseUrl + item.to,
-      name: item.text,
-    },
-  })
-)
-const breadcrumbsStructuredData = {
-  '@context': 'http://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: breadcrumbsStructuredDataArray,
-}
 export default {
   setup() {
+    const navigationStore = useNavigationStore();
+    const globalDataStore = useGlobalDataStore();
+    const appOwner = globalDataStore.appOwner;
+    const currentPage =
+            navigationStore.contact.contactForm.text +
+            ' | ' +
+            navigationStore.contact.contactText;
+    const currentHref = navigationStore.contact.contactForm.href;
+    const runtimeConfig = useRuntimeConfig();
+    const baseUrl = runtimeConfig.baseUrl;
+    const title = currentPage + ' || ' + appOwner;
+    const description = 'Contact Form.';
+    const url = baseUrl + currentHref;
+    const breadcrumbsData = [
+      {
+        text: 'Home',
+        disabled: false,
+        to: '/',
+        exact: true,
+      },
+      {
+        text: 'Contact Form',
+        disabled: false,
+        to: currentHref,
+        exact: true,
+      },
+    ];
+    const breadcrumbsStructuredDataArray = breadcrumbsData.map(
+      (item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@id': baseUrl + item.to,
+          name: item.text,
+        },
+      })
+    )
+    const breadcrumbsStructuredData = {
+      '@context': 'http://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbsStructuredDataArray,
+    }
     const breadcrumbsDataComputed = computed(()=>breadcrumbsData);
     useHead({
       title: title,

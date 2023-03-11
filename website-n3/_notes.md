@@ -28,3 +28,6 @@
 - https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram
 - https://stackoverflow.com/questions/64117116/how-can-i-use-async-await-in-the-vue-3-0-setup-function-using-typescript
 - https://masteringnuxt.com/blog/dynamic-pages-in-nuxt-3
+- https://vanoneang.github.io/article/v-model-in-vue3.html#the-challenge-reduce-boilerplate
+- https://learnvue.co/articles/script-setup
+- https://vuejs.org/guide/essentials/computed.html#basic-example

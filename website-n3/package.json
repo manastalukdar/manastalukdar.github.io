@@ -5,18 +5,22 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "getHighlightJsStyleSheets": "node utils/getHighlightJsStyleSheets.js"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.191",
-    "@types/node": "^18.14.2",
+    "@types/node": "^18.15.0",
     "@volar-plugins/vetur": "latest",
     "@vueuse/core": "^9.13.0",
     "@vueuse/nuxt": "^9.13.0",
-    "nuxt": "^3.2.2",
-    "webpack": "^5.75.0"
+    "material-design-icons-iconfont": "^6.7.0",
+    "nuxt": "^3.2.3",
+    "webpack": "^5.76.1"
   },
   "dependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
     "@mdi/font": "^7.1.96",
     "@pinia/nuxt": "^0.4.7",
     "@vitejs/plugin-vue": "^4.0.0",
@@ -34,10 +38,11 @@
     "markdown-it-mathjax": "^2.0.0",
     "markdown-it-textual-uml": "^0.12.0",
     "markdown-it-toc-done-right": "^4.2.0",
-    "pinia": "^2.0.32",
-    "sass": "^1.58.3",
+    "pinia": "^2.0.33",
+    "sass": "^1.59.2",
     "vite-plugin-vuetify": "^1.0.2",
-    "vuetify": "^3.1.6"
+    "vue-material-design-icons": "^5.2.0",
+    "vuetify": "^3.1.8"
   },
   "overrides": {
     "vue": "latest"

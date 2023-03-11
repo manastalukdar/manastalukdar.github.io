@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <breadcrumbs :breadcrumbs="breadcrumbsDataComputed" />
+    <breadcrumbs :breadcrumbs="breadcrumbsDataComputed.breadcrumbsData" />
     <p />
     <v-row>
       <v-col cols="12">
@@ -13,8 +13,9 @@
   </v-container>
 </template>
 
-<script>
+<script setup>
 import breadcrumbs from '../components/breadcrumbs';
+import { computed } from 'vue';
 import { useNavigationStore } from '@/stores/Navigation';
 import { useGlobalDataStore } from '@/stores/GlobalData';
 const navigationStore = useNavigationStore();
@@ -56,61 +57,50 @@ const breadcrumbsStructuredData = {
   '@type': 'BreadcrumbList',
   itemListElement: breadcrumbsStructuredDataArray,
 };
-export default {
-  setup() {
-    useHead({
-      title: title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: description,
-        },
-        {
-          hid: 'apple-mobile-web-app-title',
-          name: 'apple-mobile-web-app-title',
-          content: title,
-        },
-        {
-          hid: 'og-title',
-          name: 'og:title',
-          property: 'og:title',
-          content: title,
-        },
-        {
-          hid: 'og-url',
-          name: 'og:url',
-          property: 'og:url',
-          content: url,
-        },
-        {
-          hid: 'og-description',
-          name: 'og:description',
-          property: 'og:description',
-          content: description,
-        },
-      ],
-      link: [{ rel: 'canonical', href: url }],
-      __dangerouslyDisableSanitizers: ['script'],
-      script: [
-        {
-          innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json',
-        },
-      ],
-    })
-    return {
-      breadcrumbsDataComputed1
-    }
-  },
-  components: {
-    breadcrumbs
-  },
-  computed: {
-    breadcrumbsDataComputed() {
-      return breadcrumbsData
-    }
-  }
+const breadcrumbsDataComputed = reactive({ breadcrumbsData: breadcrumbsData });
+useHead({
+  title: title,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: description,
+    },
+    {
+      hid: 'apple-mobile-web-app-title',
+      name: 'apple-mobile-web-app-title',
+      content: title,
+    },
+    {
+      hid: 'og-title',
+      name: 'og:title',
+      property: 'og:title',
+      content: title,
+    },
+    {
+      hid: 'og-url',
+      name: 'og:url',
+      property: 'og:url',
+      content: url,
+    },
+    {
+      hid: 'og-description',
+      name: 'og:description',
+      property: 'og:description',
+      content: description,
+    },
+  ],
+  link: [{ rel: 'canonical', href: url }],
+  __dangerouslyDisableSanitizers: ['script'],
+  script: [
+    {
+      innerHTML: JSON.stringify(breadcrumbsStructuredData),
+      type: 'application/ld+json',
+    },
+  ],
+});
+components: {
+  breadcrumbs
 }
 </script>
 

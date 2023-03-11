@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <MainNavMenuTopNavBar />
-    <MainNavMenuNavigationDrawer />
+    <!-- <MainNavMenuNavigationDrawer /> -->
 
     <v-main>
       <v-container id="content-body-container" class="content-body pa-3">
