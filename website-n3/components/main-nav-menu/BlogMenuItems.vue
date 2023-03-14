@@ -14,7 +14,7 @@ import { useNavigationStore } from '@/stores/Navigation'
 const navigationStore = useNavigationStore()
 export default {
   data: () => ({
-    blogItems: navigationStore.about.blogItems
+    blogItems: navigationStore.blog.blogItems
   }),
   computed: {}
 }

@@ -31,3 +31,16 @@
 - https://vanoneang.github.io/article/v-model-in-vue3.html#the-challenge-reduce-boilerplate
 - https://learnvue.co/articles/script-setup
 - https://vuejs.org/guide/essentials/computed.html#basic-example
+- https://stackoverflow.com/questions/73298110/itemssubitems-nav-bar-is-not-displaying-subitems-vuevuetify-3
+- https://next.vuetifyjs.com/en/components/lists/
+- https://codepen.io/fabiozanchi/pen/dybBmKj
+- https://codesandbox.io/s/vuetify-nested-menu-qlbnv?file=/src/components/NestedMenu.vue
+- https://codepen.io/mourticarius/pen/RwxeKdz
+- https://github.com/vuetifyjs/vuetify/issues/1877
+- https://stackoverflow.com/questions/55503676/vuetify-navigation-drawer-with-sub-menushttps://stackoverflow.com/questions/73298110/itemssubitems-nav-bar-is-not-displaying-subitems-vuevuetify-3
+- https://stackoverflow.com/questions/61559467/vuejs-sidebar-menu-with-subitems
+- https://github.com/yaminncco/vue-sidebar-menu
+- https://codepen.io/vtucker/pen/VwwbXmw
+- https://stackoverflow.com/questions/54337639/how-to-create-vuetify-toolbar-link-dropdown-menu
+- https://vuetifyjs.com/en/components/menus/#menu
+- https://stackoverflow.com/questions/50500842/how-to-attach-a-vuetify-v-menu-to-its-parent-element-in-a-scrollable-list

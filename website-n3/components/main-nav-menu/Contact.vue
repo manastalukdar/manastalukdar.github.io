@@ -1,12 +1,12 @@
 <template>
-  <v-menu attach bottom left offset-y max-height="500">
-    <template #activator="{ on }">
-      <v-btn :aria-label="contactText" text style="min-width: 48px">
+  <v-menu bottom left offset-y max-height="500">
+    <template v-slot:activator="{ props }">
+      <v-btn :aria-label="contactText" text style="min-width: 48px" v-bind="props">
         <span class="hidden-sm-and-down mr-1" v-text="contactText" />
         <v-icon>mdi-menu-down</v-icon>
       </v-btn>
     </template>
-    <v-list color="headerAndFooterColor" dense>
+    <v-list color="headerAndFooterColor" density="default">
       <ContactMenuItems />
     </v-list>
   </v-menu>

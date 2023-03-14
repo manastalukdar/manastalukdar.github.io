@@ -3,12 +3,13 @@
     v-model="sidebarVisible"
     class="hidden-md-and-up"
     app
-    right
+    location="right"
+    temporary
     color="headerAndFooterColor"
     :disable-resize-watcher="true"
     :disable-route-watcher="true"
   >
-    <v-list nav dense>
+    <v-list nav density="default">
       <v-list-group no-action>
         <v-list-item slot="activator">
           <v-list-item-action>
@@ -51,29 +52,23 @@
   </v-navigation-drawer>
 </template>
 
-<script>
-import { useNavigationStore } from '@/stores/Navigation'
-const navigationStore = useNavigationStore()
-import BlogMenuItems from './BlogMenuItems.vue'
-import AboutMenuItems from './AboutMenuItems.vue'
-import ContactMenuItems from './ContactMenuItems.vue'
-export default {
-  data: () => ({
-      blogText: navigationStore.blog.blogText,
-      aboutText: navigationStore.about.aboutText,
-      aboutPath: navigationStore.aboutPath,
-      legalText: navigationStore.legalText,
-      legalPath: navigationStore.legalPath,
-      contactText: navigationStore.contactText,
-      sidebarVisible: navigationStore.sidebarVisible
-  }),
-  components: {
-    BlogMenuItems,
-    AboutMenuItems,
-    ContactMenuItems,
-  },
-  computed: {
-  },
+<script setup>
+import { useNavigationStore } from '@/stores/Navigation';
+import BlogMenuItems from './BlogMenuItems.vue';
+import AboutMenuItems from './AboutMenuItems.vue';
+import ContactMenuItems from './ContactMenuItems.vue';
+const navigationStore = useNavigationStore();
+const blogText = navigationStore.blog.blogText;
+const aboutText = navigationStore.about.aboutText;
+const aboutPath = navigationStore.aboutPath;
+const legalText = navigationStore.legalText;
+const legalPath = navigationStore.legalPath;
+const contactText = navigationStore.contactText;
+const sidebarVisible = navigationStore.sidebarVisible;
+components: {
+  BlogMenuItems,
+  AboutMenuItems,
+  ContactMenuItems
 }
 </script>
 
