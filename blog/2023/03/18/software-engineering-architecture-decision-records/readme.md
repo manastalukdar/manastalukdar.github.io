@@ -2,7 +2,7 @@
 published: yes
 tags:
  - Engineering Leadership
- - Documentation
+ - Technical Documentation
  - Software Engineering
  - Architecture Decision Record (ADR)
 categories:
@@ -25,9 +25,9 @@ ${toc}
 
 ## Overview
 
-Architecture Decision Record (ADR) is a point-in-time log entry of a design and/or architectural decision. This is usually the result of a pointed decision / discussion rather than a played-out design review process. ADR should also typically only address a specific problem / concern and it should be concise and lightweight as compared to design documents.
+Architecture Decision Record (ADR) is a point-in-time log entry of a design and/or architectural decision. This is usually the result of a pointed decision / discussion rather than a played-out design review process. ADR should also typically only address a specific problem / concern and it should be concise and lightweight as compared to a design document.
 
-There is a certain inter-play between ADR, 𝗥𝗙𝗖 (Request for Comments) and design documents. Sometimes ADRs are used as feeders for RFCs, but that is not necessary a hard and fast rule.
+There is a certain inter-play between ADR, RFC (Request for Comments) and design documents. Sometimes ADRs are used as feeders for RFCs, but that is not necessary a hard and fast rule.
 
 We will discuss RFC and design documents in separate posts. This post outlines a template for capturing a ADR.
 

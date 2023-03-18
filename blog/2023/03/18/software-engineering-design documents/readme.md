@@ -4,6 +4,7 @@ tags:
  - Engineering Leadership
  - Software Engineering
  - Design Documents
+ - Technical Documentation
 categories:
  - Technology
 authors:
@@ -24,7 +25,7 @@ ${toc}
 
 ## Overview
 
-A software design document is an extremely important part of the software development effort. While not every development work item / stream necessarily entails a design document, engineering leaders should foster a culture where software engineers organically are able to make a judgement call on when to write a design document. A design document allows for ideas to be fleshed out in a more formal and a transparent manner. It allows for stakeholders to review and respond and to document feedback for future reference. Design documents can in some cases also act as feeders for technical / architectiral documents.
+A software design document is an extremely important part of the software development effort. While not every development work item / stream necessarily entails a design document, engineering leaders should foster a culture where software engineers organically are able to make a judgement call on when to write a design document. A design document allows for ideas to be fleshed out in a more formal and a transparent manner. It allows for stakeholders to review and respond and to document feedback for future reference. Design documents can in some cases also act as feeders for technical / architectural documents.
 
 This post provides a template for software design document.
 
@@ -69,13 +70,13 @@ PSR should be a first class citizen for all development efforts.
 
 ### Proposal
 
-Include any architecture / timing / sequence / component diagrams, data models, users flows, etc.
+Include any architecture / timing / sequence / component diagrams, data models, user flows, etc.
 
 #### Key Takeaways
 
 ### Potential Trade-offs and Risks
 
-Any short-term and/or long-term tradeoffs and risks.
+Any short-term and/or long-term trade-offs and risks.
 
 ### Alternatives
 
