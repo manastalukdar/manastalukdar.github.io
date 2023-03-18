@@ -42,10 +42,13 @@ A short title summarizing the documented decision.
 | Status                      | Draft / Proposed / Under Review / Unknown / Accepted / Amended |
 | Date Created                | [optional]                                                     |
 | Date Last Updated           | [optional]                                                     |
-| Engineering Team            |                                                                |
-| Lead                        |                                                                |
+| Last Updated By             | [optional]                                                     |
+| Author(s)                   |                                                                |
+| Engineering Team(s)         |                                                                |
+| Engineering Lead            |                                                                |
 | Primary Product Stakeholder |                                                                |
 | Other Stakeholders          |                                                                |
+| Reviewer(s)                 |                                                                |
 
 ### Problem Statement
 
@@ -59,7 +62,7 @@ Discussion of the decision with all relevant details.
 
 ### Consequences
 
-Discussion of problem mitigation. Tradeoffs and risks (including short-term and long-term) should also be covered.
+Discussion of problem mitigation. Tradeoffs and risks (including short-term and/or long-term) should also be covered.
 
 ### Alternatives
 
