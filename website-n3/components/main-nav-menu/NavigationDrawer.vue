@@ -54,6 +54,7 @@
 
 <script setup>
 import { useNavigationStore } from '@/stores/Navigation';
+import { ref } from 'vue'
 import BlogMenuItems from './BlogMenuItems.vue';
 import AboutMenuItems from './AboutMenuItems.vue';
 import ContactMenuItems from './ContactMenuItems.vue';
@@ -65,6 +66,8 @@ const legalText = navigationStore.legalText;
 const legalPath = navigationStore.legalPath;
 const contactText = navigationStore.contactText;
 const sidebarVisible = navigationStore.sidebarVisible;
+console.log('HERE2')
+console.log(sidebarVisible)
 components: {
   BlogMenuItems,
   AboutMenuItems,
