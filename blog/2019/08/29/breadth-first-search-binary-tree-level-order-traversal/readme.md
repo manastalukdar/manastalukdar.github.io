@@ -347,10 +347,6 @@ frame "BinaryTree" {
 
 ```plantuml
 frame "Solution" {
-    note left of () Queue
-    Queue:
-    Queue Size: 3
-    end note
     component 12_2 #lightgreen [
         12
     ]
@@ -378,6 +374,10 @@ frame "Solution" {
     () Queue .. 12_2
     12_2 .. 7_2
     7_2 .. 9_2
+    note left of () Queue
+    Queue:
+    Queue Size: 3
+    end note
     note left of 7_2
     Level 2:
     end note
