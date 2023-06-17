@@ -70,7 +70,7 @@ PSR should be a first class citizen for all development efforts.
 
 ### Proposal
 
-Include any architecture / timing / sequence / component diagrams, data models, user flows, etc.
+Include any architecture / timing / sequence / component diagrams, data models, user flows, examples, code samples, etc.
 
 #### Key Takeaways
 
