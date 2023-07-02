@@ -11,7 +11,7 @@ authors:
  - "Manas Talukdar"
 post-format: standard
 title: Software Engineering Design Documents
-url-slug: software-engineering-design documents
+url-slug: software-engineering-design-documents
 first-published-on: 2023-03-18 14:47
 last-updated-on: 2023-03-18 14:47
 meta:

@@ -20,7 +20,7 @@ const faviconPath = '/favicon.ico'
 
 const siteName = siteOwner
 const siteDescription =
-  'Manas Talukdar is a director of engineering in distributed systems and AI/ML platforms, experienced in growing organizations and running high performing teams.'
+  'Manas Talukdar is a senior leader in Data Infrastructure for Enterprise AI. He has built organizations, and developed products that are part of critical infrastructure for industry verticals throughout the world.'
 
 export default defineNuxtConfig({
   runtimeConfig: {

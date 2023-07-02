@@ -4,7 +4,7 @@
       <v-card color="cardColor" raised elevation="8">
         <div>
           <v-breadcrumbs
-            :items="breadcrumbs"
+            :items="props.breadcrumbs"
             class="justify-center"
           >
             <template v-slot:divider>

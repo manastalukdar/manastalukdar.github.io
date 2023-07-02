@@ -38,7 +38,6 @@ export default {
   }),
   computed: {
     posts() {
-      console.log(this.postsList.slice(0, this.itemsToDisplay)[0])
       return this.postsList.slice(0, this.itemsToDisplay)
     },
   },
