@@ -9,26 +9,26 @@
     "getHighlightJsStyleSheets": "node utils/getHighlightJsStyleSheets.js"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.191",
-    "@types/node": "^18.15.3",
+    "@types/lodash": "^4.14.195",
+    "@types/node": "^20.3.3",
     "@volar-plugins/vetur": "latest",
-    "@vueuse/core": "^9.13.0",
-    "@vueuse/nuxt": "^9.13.0",
+    "@vueuse/core": "^10.2.1",
+    "@vueuse/nuxt": "^10.2.1",
     "material-design-icons-iconfont": "^6.7.0",
-    "nuxt": "^3.3.1",
-    "webpack": "^5.76.2"
+    "nuxt": "^3.6.1",
+    "webpack": "^5.88.1"
   },
   "dependencies": {
-    "@babel/cli": "^7.21.0",
-    "@babel/core": "^7.21.3",
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
     "@mdi/font": "^7.2.96",
-    "@pinia/nuxt": "^0.4.7",
-    "@vitejs/plugin-vue": "^4.1.0",
+    "@pinia/nuxt": "^0.4.11",
+    "@vitejs/plugin-vue": "^4.2.3",
     "@volar-plugins/vetur": "latest",
-    "axios": "^1.3.4",
-    "dayjs": "^1.11.7",
+    "axios": "^1.4.0",
+    "dayjs": "^1.11.8",
     "front-matter": "^4.0.2",
-    "highlight.js": "^11.7.0",
+    "highlight.js": "^11.8.0",
     "lodash": "^4.17.21",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.7",
@@ -38,11 +38,11 @@
     "markdown-it-mathjax": "^2.0.0",
     "markdown-it-textual-uml": "^0.12.0",
     "markdown-it-toc-done-right": "^4.2.0",
-    "pinia": "^2.0.33",
-    "sass": "^1.59.3",
+    "pinia": "^2.1.4",
+    "sass": "^1.63.6",
     "vite-plugin-vuetify": "^1.0.2",
     "vue-material-design-icons": "^5.2.0",
-    "vuetify": "^3.1.10"
+    "vuetify": "^3.3.6"
   },
   "overrides": {
     "vue": "latest"

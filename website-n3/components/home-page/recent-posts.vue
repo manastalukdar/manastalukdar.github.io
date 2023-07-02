@@ -13,26 +13,19 @@
   </v-col>
 </template>
 
-<script>
+<script setup>
 import recentPosts from '../blog/recent-posts/list.vue'
 import { useNavigationStore } from '@/stores/Navigation'
 const navigationStore = useNavigationStore()
-export default {
-  components: {
-    recentPosts,
+defineProps({
+  postsList: {
+    type: Array,
+    required: true,
+    default() {
+      return {}
+    }
   },
-  props: {
-    postsList: {
-      type: Array,
-      required: true,
-      default: () => [],
-    },
-  },
-  data: () => ({
-    itemsToDisplay: 6,
-    blogItems: navigationStore.blog.blogItems,
-  }),
-  computed: {
-  },
-}
+});
+const itemsToDisplay = 6;
+const blogItems = navigationStore.blog.blogItems;
 </script>

@@ -6,7 +6,7 @@
     <p />
     <v-row
       v-for="post in posts"
-      :key="post['name']"
+      :key="post['url-slug']"
       class="px-2"
       justify="center"
     >
@@ -38,6 +38,7 @@ export default {
   }),
   computed: {
     posts() {
+      console.log(this.postsList.slice(0, this.itemsToDisplay)[0])
       return this.postsList.slice(0, this.itemsToDisplay)
     },
   },

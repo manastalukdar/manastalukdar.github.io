@@ -28,16 +28,12 @@
   </v-col>
 </template>
 
-<script>
+<script setup>
 import { mapState } from 'pinia'
 import { useNavigationStore } from '@/stores/Navigation'
 const navigationStore = useNavigationStore()
-export default {
-  data: () => ({
-      socialMediaItems: navigationStore.contact.socialMediaItems,
-      aboutItems: navigationStore.about.aboutItems,
-  })
-}
+const socialMediaItems = navigationStore.contact.socialMediaItems;
+const aboutItems = navigationStore.about.aboutItems;
 </script>
 
 <style></style>

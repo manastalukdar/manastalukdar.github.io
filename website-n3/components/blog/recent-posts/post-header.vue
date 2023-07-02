@@ -7,55 +7,49 @@
             postLinkSlugs.year,
             postLinkSlugs.month,
             postLinkSlugs.day,
-            postLinkSlugs.post
+            postLinkSlugs.post,
           )
         "
       >
-        {{ postMetadata.title }}
+        {{ props.postMetadata.title }}
       </nuxt-link>
     </client-only>
   </div>
 </template>
 
-<script>
+<script setup>
 import { useNavigationStore } from '@/stores/Navigation'
 import  dayjs from 'dayjs'
 const navigationStore = useNavigationStore()
-export default {
-  props: {
-    postMetadata: {
-      type: Object,
-      required: true,
-      default: () => {},
-    },
+const props = defineProps({
+  postMetadata: {
+    type: Object,
+    required: true,
+    default() {
+      return {}
+    }
   },
-  data: () => ({
-    dynamicBlogPostRoute: navigationStore.blog.dynamicItems.blogPost.href,
-  }),
-  computed: {
-    postLinkSlugs() {
-      const dayjsObj = dayjs(this.postMetadata['first-published-on'])
-      const year = dayjsObj.format('YYYY')
-      const month = dayjsObj.format('MM')
-      const day = dayjsObj.format('DD')
-      const post = this.postMetadata['url-slug']
-      return { year, month, day, post }
-    },
-  },
-  methods: {
-    getBlogPostRoute(year, month, day, post) {
-      return (
-        this.dynamicBlogPostRoute +
-        year +
-        '/' +
-        month +
-        '/' +
-        day +
-        '/' +
-        post +
-        '/'
-      )
-    },
-  },
-}
+});
+const dynamicBlogPostRoute = navigationStore.blog.dynamicItems.blogPost.href;
+const postLinkSlugs = computed(() => {
+    const dayjsObj = dayjs(props.postMetadata['first-published-on'])
+    const year = dayjsObj.format('YYYY')
+    const month = dayjsObj.format('MM')
+    const day = dayjsObj.format('DD')
+    const post = props.postMetadata['url-slug']
+    return { year, month, day, post }
+  });
+const getBlogPostRoute = (year, month, day, post) => {
+    return (
+      dynamicBlogPostRoute +
+      year +
+      '/' +
+      month +
+      '/' +
+      day +
+      '/' +
+      post +
+      '/'
+    )
+  };
 </script>
