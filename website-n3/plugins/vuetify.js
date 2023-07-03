@@ -4,17 +4,21 @@
 // https://opensource.org/licenses/MIT
 
 // plugins/vuetify.js
-import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
-import 'vuetify/styles'
+import "vuetify/styles";
+import { createVuetify } from "vuetify";
+import * as components from "vuetify/components";
+import * as directives from "vuetify/directives";
+import { VDataIterator } from "vuetify/labs/VDataIterator";
+import "vuetify/styles";
 
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     ssr: true,
-    components,
+    components: {
+      ...components,
+      VDataIterator,
+    },
     directives,
-  })
-  nuxtApp.vueApp.use(vuetify)
-})
+  });
+  nuxtApp.vueApp.use(vuetify);
+});
