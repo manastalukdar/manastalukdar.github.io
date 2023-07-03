@@ -3,32 +3,32 @@
     <v-col cols="12">
       <v-row class="text-h6 px-3 py-3" justify="center">
         <v-col class="text-center align-center">
-          {{ postMetadata.title }}
+          {{ props.postMetadata.title }}
           &nbsp;
-          <v-icon>{{ postFormatIcon }}</v-icon>
+          <v-icon>{{ postFormatIcon() }}</v-icon>
         </v-col>
         <p />
       </v-row>
       <v-row class="px-3 py-3" justify="center">
         Authors:&nbsp;
-        <div v-for="item in postMetadata.authors" :key="item['name']">
+        <div v-for="item in props.postMetadata.authors" :key="item['name']">
           <nuxt-link :to="getAuthorRoute(item['url-slug'])">
             <span>{{ item['name'] }}</span>
           </nuxt-link>
           &nbsp;
         </div>
-        || Published: {{ postMetadata['first-published-on'] }}
+        || Published: {{ props.postMetadata['first-published-on'] }}
       </v-row>
       <v-row class="px-3" justify="center">
         Categories:&nbsp;
-        <div v-for="item in postMetadata.categories" :key="item['name']">
+        <div v-for="item in props.postMetadata.categories" :key="item['name']">
           <nuxt-link :to="getCategoryRoute(item['url-slug'])">
             <span>{{ item['name'] }}</span>
           </nuxt-link>
           &nbsp;
         </div>
         || Tags:&nbsp;
-        <div v-for="item in postMetadata.tags" :key="item['name']">
+        <div v-for="item in props.postMetadata.tags" :key="item['name']">
           <nuxt-link :to="getTagRoute(item['url-slug'])">
             <span>{{ item['name'] }}</span>
           </nuxt-link>
@@ -57,7 +57,7 @@ const props = defineProps({
 });
 //console.log(props.postMetadata);
 const postFormatIcon = () => {
-  return blogMetadataStore.getters['BlogMetadata/getPostFormatIcon'](
+  return blogMetadataStore.getPostFormatIcon(
     props.postMetadata['post-format'].name
   )
 };
