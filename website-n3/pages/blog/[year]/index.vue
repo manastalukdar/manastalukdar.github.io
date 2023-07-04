@@ -16,8 +16,8 @@
 <script setup>
 import breadcrumbs from '../../../components/breadcrumbs'
 import postsList from '../../../components/blog/posts-list/list.vue'
-import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
+import dayjs from 'dayjs'
 dayjs.extend(customParseFormat)
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
@@ -58,7 +58,7 @@ function getPostsByYear() {
     return []
   }
   return posts
-}
+};
 const blogMetadata = getPostsByYear();
 const breadcrumbsData = [
     {
