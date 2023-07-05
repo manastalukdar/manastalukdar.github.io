@@ -2,15 +2,15 @@
   <v-row>
     <v-col class="py-2" cols="12">
       <v-data-iterator
+        v-model:items-per-page="itemsPerPage"
+        v-model:page="page"
         :items="props.postsList"
-        :items-per-page.sync="itemsPerPage"
-        :page="page"
         row
         wrap
       >
         <template v-slot:default="props">
-          <v-row v-for="item in props.items" >
-            <singlePost :post-metadata="item" />
+          <v-row v-for="item in props.items" :key="item.name">
+            <singlePost :post-metadata="item.raw" />
           </v-row>
           <!--<hr>-->
         </template>
@@ -51,7 +51,7 @@
             <v-btn
               icon
               size="small"
-              @click="prevPage"
+              @click="prevPage()"
             >
               <v-icon>mdi-chevron-left</v-icon>
             </v-btn>
@@ -59,7 +59,7 @@
               icon
               size="small"
               class="ml-2"
-              @click="nextPage"
+              @click="nextPage()"
             >
               <v-icon>mdi-chevron-right</v-icon>
             </v-btn>
@@ -81,16 +81,20 @@ const props = defineProps({
     }
   },
 });
-const itemsPerPageOptions = [5, 10];
-const itemsPerPage = 5;
-const page = 1;
-const numberOfPages = () => {
-  return Math.ceil(props.postsList.length / itemsPerPage)
+const itemsPerPageArray = [5, 10];
+let itemsPerPage = 5;
+let page = 1;
+function numberOfPages() {
+  return Math.ceil(props.postsList.length / itemsPerPage);
 };
-const nextPage = () => {
-  if (page + 1 <= numberOfPages()) page += 1
+function nextPage() {
+  if (page + 1 <= numberOfPages()) {
+    page += 1;
+  }
 };
-const prevPage = () => {
-  if (page - 1 >= 1) page -= 1
+function prevPage() {
+  if (page - 1 >= 1) {
+    page -= 1;
+  }
 };
 </script>

@@ -14,10 +14,10 @@
         )
       "
     >
-      <postHeader :post-metadata="props.postMetadata.raw" />
+      <postHeader :post-metadata="props.postMetadata" />
       <p />
       <div class="col text-left">
-        {{ props.postMetadata.raw.excerpt }}&nbsp;
+        {{ props.postMetadata.excerpt }}&nbsp;
         <nuxt-link
           :to="
             getBlogPostRoute(
@@ -49,14 +49,14 @@ const props = defineProps({
     }
   },
 });
-//console.log(props.postMetadata.raw.excerpt);
+//console.log(props.postMetadata.excerpt);
 const dynamicBlogPostRoute = navigationStore.blog.dynamicItems.blogPost.href;
 const postLinkSlugs = () => {
-    const dayjsObj = dayjs(props.postMetadata.raw['first-published-on'])
+    const dayjsObj = dayjs(props.postMetadata['first-published-on'])
     const year = dayjsObj.format('YYYY')
     const month = dayjsObj.format('MM')
     const day = dayjsObj.format('DD')
-    const post = props.postMetadata.raw['url-slug']
+    const post = props.postMetadata['url-slug']
     return { year, month, day, post }
   };
 const getBlogPostRoute = (year, month, day, post) => {

@@ -20,5 +20,5 @@
 <script setup>
 const props = defineProps({
   breadcrumbs: Array
-})
+});
 </script>
