@@ -42,59 +42,44 @@
   </v-col>
 </template>
 
-<script>
-export default {
-  props: {
-    url: {
-      type: String,
-      required: true,
-      default: '',
-    },
-    title: {
-      type: String,
-      required: true,
-      default: '',
-    },
-    description: {
-      type: String,
-      required: true,
-      default: '',
-    },
-    quote: {
-      type: String,
-      required: true,
-      default: '',
-    },
-    hashtags: {
-      type: String,
-      required: true,
-      default: '',
-    },
+<script setup>
+import { usePaperizer } from 'paperizer'
+defineProps ({
+  url: {
+    type: String,
+    required: true,
+    default: '',
   },
-  data() {
-    return {
-      twitterUser: 'ManasTalukdar',
-      cssTextPrintMe: '',
-      printjsCall() {},
-    }
+  title: {
+    type: String,
+    required: true,
+    default: '',
   },
-  mounted() {
-    this.initPrintJs()
+  description: {
+    type: String,
+    required: true,
+    default: '',
   },
-  methods: {
-    print() {
-      this.printjsCall({
-        printable: 'printMe',
-        type: 'html',
-        style:
-          '#single-post-header {text-align: center; justify-content: center !important;} .row {display: flex; flex-wrap: wrap; flex: 1 1 auto;} .col {flex-basis: 0; flex-grow: 1; max-width: 100%} .col-12 {flex: 0 0 100%} html {font-family: "Maven Pro", sans-serif; line-height: 1.8; font-size: 15px}',
-      })
-    },
-    initPrintJs() {
-      this.printjsCall = require('print-js')
-    },
+  quote: {
+    type: String,
+    required: true,
+    default: '',
   },
-}
+  hashtags: {
+    type: String,
+    required: true,
+    default: '',
+  },
+});
+const twitterUser = 'ManasTalukdar';
+const { paperize } = usePaperizer('printMe',  {
+  styles: [
+    '#single-post-header {text-align: center; justify-content: center !important;} .row {display: flex; flex-wrap: wrap; flex: 1 1 auto;} .col {flex-basis: 0; flex-grow: 1; max-width: 100%} .col-12 {flex: 0 0 100%} html {font-family: "Maven Pro", sans-serif; line-height: 1.8; font-size: 15px}'
+  ]
+});
+const print = () => {
+  paperize()
+};
 </script>
 
 <style>

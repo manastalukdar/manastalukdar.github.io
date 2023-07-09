@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <breadcrumbs :breadcrumbs="breadcrumbsData" />
     <p />
     <v-row class="text-justify">
       <v-col cols="12">
@@ -17,113 +17,105 @@
   </v-container>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script setup>
 import breadcrumbs from '../../components/breadcrumbs'
 import postsList from '../../components/blog/posts-list/list.vue'
-export default {
-  components: {
-    breadcrumbs,
-    postsList,
-  },
-  async asyncData({ store, params, $config, payload }) {
-    if (payload) {
-      return {
-        baseUrl: $config.baseURL,
-        blogMetadata: payload,
-      }
-    } else if (store.state.BlogMetadata.blogMetadata.length === 0) {
-      await store.dispatch('BlogMetadata/getBlogMetadata', [$config.baseURL])
-      return {
-        baseUrl: $config.baseURL,
-      }
+import { useNavigationStore } from '@/stores/Navigation'
+import { useGlobalDataStore } from '@/stores/GlobalData'
+import { useBlogMetadataStore } from '@/stores/BlogMetadata'
+const navigationStore = useNavigationStore();
+const globalDataStore = useGlobalDataStore();
+const blogMetadataStore = useBlogMetadataStore();
+const runtimeConfig = useRuntimeConfig();
+const route = useRoute();
+const baseUrl = runtimeConfig.public.baseUrl;
+async function setupBlogMetadata() {
+    try {
+        if (blogMetadataStore.blogMetadata.length === 0) {
+          await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
+        }
+    } catch (error) {
+      console.log(error)
     }
+};
+await setupBlogMetadata();
+const appOwner = globalDataStore.appOwner;
+const currentPage = navigationStore.blog.blogItems[0].text;
+const blogMetadata = blogMetadataStore.blogMetadata;
+const pageTitle = navigationStore.blog.blogText;
+const currentHref = navigationStore.blog.blogItems[0].href;
+const title = currentPage + ' || ' + appOwner;
+const description = 'Reflections on software engineering and other matters.';
+const url = baseUrl + currentHref;
+const breadcrumbsData = [
+  {
+    text: 'Home',
+    disabled: false,
+    to: '/',
   },
-  head() {
-    const title = this.currentPage + ' || ' + this.appOwner
-    const description = 'Reflections on software engineering and other matters.'
-    const url = this.baseUrl + this.currentHref
-    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
-      (item, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        item: {
-          '@id': this.baseUrl + item.to,
-          name: item.text,
-        },
-      })
-    )
-    const breadcrumbsStructuredData = {
-      '@context': 'http://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray,
-    }
-    return {
-      title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: description,
-        },
-        {
-          hid: 'apple-mobile-web-app-title',
-          name: 'apple-mobile-web-app-title',
-          content: title,
-        },
-        {
-          hid: 'og-title',
-          name: 'og:title',
-          property: 'og:title',
-          content: title,
-        },
-        {
-          hid: 'og-url',
-          name: 'og:url',
-          property: 'og:url',
-          content: url,
-        },
-        {
-          hid: 'og-description',
-          name: 'og:description',
-          property: 'og:description',
-          content: description,
-        },
-      ],
-      link: [{ rel: 'canonical', href: url }],
-      __dangerouslyDisableSanitizers: ['script'],
-      script: [
-        {
-          innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json',
-        },
-      ],
-    }
+  {
+    text: 'Blog',
+    disabled: false,
+    to: currentHref,
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) => state.Navigation.blog.blogItems[0].text,
-      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
-      pageTitle: (state) => state.Navigation.blog.blogText,
-      currentHref: (state) => state.Navigation.blog.blogItems[0].href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.currentHref,
-        },
-      ]
+];
+const breadcrumbsStructuredDataArray = breadcrumbsData.map(
+  (item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@id': baseUrl + item.to,
+      name: item.text,
     },
-  },
-}
+  })
+);
+const breadcrumbsStructuredData = {
+  '@context': 'http://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbsStructuredDataArray,
+};
+useHead({
+  title: title,
+  title,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: description,
+    },
+    {
+      hid: 'apple-mobile-web-app-title',
+      name: 'apple-mobile-web-app-title',
+      content: title,
+    },
+    {
+      hid: 'og-title',
+      name: 'og:title',
+      property: 'og:title',
+      content: title,
+    },
+    {
+      hid: 'og-url',
+      name: 'og:url',
+      property: 'og:url',
+      content: url,
+    },
+    {
+      hid: 'og-description',
+      name: 'og:description',
+      property: 'og:description',
+      content: description,
+    },
+  ],
+  link: [{ rel: 'canonical', href: url }],
+  __dangerouslyDisableSanitizers: ['script'],
+  script: [
+    {
+      innerHTML: JSON.stringify(breadcrumbsStructuredData),
+      type: 'application/ld+json',
+    },
+  ],
+});
 </script>
 
 <style></style>

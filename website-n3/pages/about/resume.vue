@@ -32,7 +32,7 @@ export default {
             navigationStore.about.aboutText;
     const currentHref = navigationStore.about.aboutItems[0].href;
     const runtimeConfig = useRuntimeConfig();
-    const baseUrl = runtimeConfig.baseUrl;
+    const baseUrl = runtimeConfig.public.baseUrl;
     const title = currentPage + ' || ' + appOwner;
     const description = 'Manas Talukdar resume';
     const url = baseUrl + currentHref;

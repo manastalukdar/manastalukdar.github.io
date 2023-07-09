@@ -10,7 +10,7 @@
         </v-card>
       </v-row>
 
-      <v-row class="py-3">
+<v-row class="py-3">
         <client-only>
           <socialSharing
             :url="url"

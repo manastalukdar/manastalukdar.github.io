@@ -56,7 +56,7 @@ const aboutItems = navigationStore.about.aboutItems;
 const appOwner = globalDataStore.appOwner;
 const runtimeConfig = useRuntimeConfig(); // $config.baseURL
 const route = useRoute(); // route.params
-const baseUrl = runtimeConfig.baseUrl;
+const baseUrl = runtimeConfig.public.baseUrl;
 async function setupBlogMetadata() {
     try {
         if (blogMetadataStore.blogMetadata.length === 0) {

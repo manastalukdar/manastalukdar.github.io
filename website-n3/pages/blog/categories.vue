@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <breadcrumbs :breadcrumbs="breadcrumbsData" />
     <p />
     <v-row class="text-justify">
       <v-col cols="12">
@@ -16,26 +16,25 @@
             <div class="flex-grow-1" />
             <v-text-field
               v-model="search"
-              append-icon="search"
+              append-icon="mdi-magnify"
               label="Search"
               single-line
               hide-details
             />
           </v-card-title>
-          <v-data-table :headers="headers" :items="categories" :search="search">
-            <template #body="{ items }">
-              <tbody>
-                <tr v-for="item in items" :key="item.slug">
-                  <td>
-                    <nuxt-link :to="getLink([item.slug])">
-                      {{ item.name }}
-                    </nuxt-link>
-                  </td>
-                  <td class="text-right">
-                    {{ item.count }}
-                  </td>
-                </tr>
-              </tbody>
+          <v-data-table :headers="headers" :items="categories" :search="search"
+            :items-per-page="10">
+            <template v-slot:item="{ item }">
+              <tr>
+                <td>
+                  <nuxt-link :to="getLink([item.selectable.slug])">
+                    {{ item.selectable.name }}
+                  </nuxt-link>
+                </td>
+                <td class="text-left">
+                  {{ item.selectable.count }}
+                </td>
+              </tr>
             </template>
             <template #no-results :value="true" color="error" icon="warning">
               <v-alert>
@@ -49,155 +48,133 @@
   </v-container>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script setup>
 import breadcrumbs from '../../components/breadcrumbs'
-export default {
-  components: {
-    breadcrumbs,
-  },
-  async asyncData({ store, params, $config, payload }) {
-    if (payload) {
-      return {
-        baseUrl: $config.baseURL,
-        categories: payload,
-      }
-    } else {
-      if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [$config.baseURL])
-      }
-      const categories = store.getters['BlogMetadata/getCategories']
-      if (categories === undefined) {
-        return {
-          baseUrl: $config.baseURL,
-          categories: [],
+import { useNavigationStore } from '@/stores/Navigation'
+import { useGlobalDataStore } from '@/stores/GlobalData'
+import { useBlogMetadataStore } from '@/stores/BlogMetadata'
+const navigationStore = useNavigationStore();
+const globalDataStore = useGlobalDataStore();
+const blogMetadataStore = useBlogMetadataStore();
+const runtimeConfig = useRuntimeConfig();
+const route = useRoute();
+const baseUrl = runtimeConfig.public.baseUrl;
+async function setupBlogMetadata() {
+    try {
+        if (blogMetadataStore.blogMetadata.length === 0) {
+          await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
         }
-      }
-      return {
-        baseUrl: $config.baseURL,
-        categories,
-      }
+    } catch (error) {
+      console.log(error)
     }
+};
+await setupBlogMetadata();
+const appOwner = globalDataStore.appOwner;
+const currentPage =
+  navigationStore.blog.blogItems[1].text +
+  ' | ' +
+  navigationStore.blog.blogText;
+const blogMetadata = blogMetadataStore.blogMetadata;
+const pageTitle = navigationStore.blog.blogItems[1].text;
+const blogHref = navigationStore.blog.blogItems[0].href;
+const currentHref = navigationStore.blog.blogItems[1].href;
+const categoriesText = navigationStore.blog.blogItems[1].text;
+const blogDynamicItemsCategory =
+  navigationStore.blog.dynamicItems.category.href;
+const categories = blogMetadataStore.getCategories();
+//console.log(categories)
+const title = currentPage + ' || ' + appOwner
+const description = 'List of all categories from blog.'
+const url = baseUrl + currentHref
+const breadcrumbsData = [
+  {
+    text: 'Home',
+    disabled: false,
+    to: '/',
+    exact: true,
   },
-  data() {
-    return {
-      search: '',
-      headers: [
-        {
-          text: 'Category',
-          align: 'left',
-          sortable: true,
-          value: 'name',
-        },
-        { text: 'Number of posts', align: 'right', value: 'count' },
-      ],
-    }
+  {
+    text: 'Blog',
+    disabled: false,
+    to: blogHref,
+    exact: true,
   },
-  head() {
-    const title = this.currentPage + ' || ' + this.appOwner
-    const description = 'List of all categories from blog.'
-    const url = this.baseUrl + this.currentHref
-    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
-      (item, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        item: {
-          '@id': this.baseUrl + item.to,
-          name: item.text,
-        },
-      })
-    )
-    const breadcrumbsStructuredData = {
-      '@context': 'http://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray,
-    }
-    return {
-      title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: description,
-        },
-        {
-          hid: 'apple-mobile-web-app-title',
-          name: 'apple-mobile-web-app-title',
-          content: title,
-        },
-        {
-          hid: 'og-title',
-          name: 'og:title',
-          property: 'og:title',
-          content: title,
-        },
-        {
-          hid: 'og-url',
-          name: 'og:url',
-          property: 'og:url',
-          content: url,
-        },
-        {
-          hid: 'og-description',
-          name: 'og:description',
-          property: 'og:description',
-          content: description,
-        },
-      ],
-      link: [{ rel: 'canonical', href: url }],
-      __dangerouslyDisableSanitizers: ['script'],
-      script: [
-        {
-          innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json',
-        },
-      ],
-    }
+  {
+    text: categoriesText,
+    disabled: false,
+    to: currentHref,
+    exact: true,
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.blog.blogItems[1].text +
-        ' | ' +
-        state.Navigation.blog.blogText,
-      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
-      pageTitle: (state) => state.Navigation.blog.blogItems[1].text,
-      blogHref: (state) => state.Navigation.blog.blogItems[0].href,
-      currentHref: (state) => state.Navigation.blog.blogItems[1].href,
-      categoriesText: (state) => state.Navigation.blog.blogItems[1].text,
-      blogDynamicItemsCategory: (state) =>
-        state.Navigation.blog.dynamicItems.category.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Blog',
-          disabled: false,
-          to: this.blogHref,
-          exact: true,
-        },
-        {
-          text: this.categoriesText,
-          disabled: false,
-          to: this.currentHref,
-          exact: true,
-        },
-      ]
+];
+const breadcrumbsStructuredDataArray = breadcrumbsData.map(
+  (item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@id': baseUrl + item.to,
+      name: item.text,
     },
+  })
+);
+const breadcrumbsStructuredData = {
+  '@context': 'http://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbsStructuredDataArray,
+};
+const search = '';
+const headers = [
+  {
+    title: 'Category',
+    align: 'left',
+    sortable: true,
+    key: 'name',
   },
-  methods: {
-    getLink(categorySlug) {
-      return this.blogDynamicItemsCategory + categorySlug + '/'
+  { title: 'Number of posts', align: 'left', sortable: true, key: 'count' },
+];
+useHead({
+  title: title,
+  meta: [
+    {
+      hid: 'description',
+      name: 'description',
+      content: description,
     },
-  },
-}
+    {
+      hid: 'apple-mobile-web-app-title',
+      name: 'apple-mobile-web-app-title',
+      content: title,
+    },
+    {
+      hid: 'og-title',
+      name: 'og:title',
+      property: 'og:title',
+      content: title,
+    },
+    {
+      hid: 'og-url',
+      name: 'og:url',
+      property: 'og:url',
+      content: url,
+    },
+    {
+      hid: 'og-description',
+      name: 'og:description',
+      property: 'og:description',
+      content: description,
+    },
+  ],
+  link: [{ rel: 'canonical', href: url }],
+  __dangerouslyDisableSanitizers: ['script'],
+  script: [
+    {
+      innerHTML: JSON.stringify(breadcrumbsStructuredData),
+      type: 'application/ld+json',
+    },
+  ],
+});
+function getLink(categorySlug) {
+  return blogDynamicItemsCategory + categorySlug + '/'
+};
 </script>
 
 <style></style>

@@ -75,7 +75,7 @@ export default {
             navigationStore.contact.contactText;
     const currentHref = navigationStore.contact.contactForm.href;
     const runtimeConfig = useRuntimeConfig();
-    const baseUrl = runtimeConfig.baseUrl;
+    const baseUrl = runtimeConfig.public.baseUrl;
     const title = currentPage + ' || ' + appOwner;
     const description = 'Contact Form.';
     const url = baseUrl + currentHref;

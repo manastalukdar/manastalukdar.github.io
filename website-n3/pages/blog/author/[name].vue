@@ -26,7 +26,7 @@ const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
 const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
-const baseUrl = runtimeConfig.baseUrl;
+const baseUrl = runtimeConfig.public.baseUrl;
 const appOwner = globalDataStore.appOwner;
 const currentPage =
   navigationStore.blog.authorText +

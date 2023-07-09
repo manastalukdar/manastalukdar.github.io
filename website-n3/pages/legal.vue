@@ -24,7 +24,7 @@ const appOwner = globalDataStore.appOwner;
 const currentPage = navigationStore.legal.legalText;
 const currentHref = navigationStore.legal.legalPath;
 const runtimeConfig = useRuntimeConfig();
-const baseUrl = runtimeConfig.baseUrl;
+const baseUrl = runtimeConfig.public.baseUrl;
 const description = 'Legal disclaimer.';
 const breadcrumbsData = [
   {
