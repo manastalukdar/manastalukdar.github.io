@@ -79,7 +79,7 @@ const breadcrumbsData = [
   },
   {
     title: 'Blog Posts by Tag',
-    disabled: true,
+    disabled: false,
     href: blogDynamicItemsTag + tagUrlSlug + '/',
   },
 ];

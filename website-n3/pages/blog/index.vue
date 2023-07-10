@@ -49,14 +49,14 @@ const description = 'Reflections on software engineering and other matters.';
 const url = baseUrl + currentHref;
 const breadcrumbsData = [
   {
-    text: 'Home',
+    title: 'Home',
     disabled: false,
-    to: '/',
+    href: '/',
   },
   {
-    text: 'Blog',
+    title: 'Blog',
     disabled: false,
-    to: currentHref,
+    href: currentHref,
   },
 ];
 const breadcrumbsStructuredDataArray = breadcrumbsData.map(

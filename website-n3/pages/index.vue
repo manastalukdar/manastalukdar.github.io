@@ -79,9 +79,9 @@ components: {
 };
 const breadcrumbs = [
   {
-    text: 'Home',
+    title: 'Home',
     disabled: false,
-    to: '/',
+    href: '/',
   },
 ];
 const breadcrumbsComputed = computed({

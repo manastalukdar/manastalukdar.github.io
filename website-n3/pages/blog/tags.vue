@@ -91,21 +91,21 @@ const description = 'List of all tags from blog.';
 const url = baseUrl + currentHref;
 const breadcrumbsData = [
   {
-    text: 'Home',
+    title: 'Home',
     disabled: false,
-    to: '/',
+    href: '/',
     exact: true,
   },
   {
-    text: 'Blog',
+    title: 'Blog',
     disabled: false,
-    to: blogHref,
+    href: blogHref,
     exact: true,
   },
   {
-    text: tagsText,
+    title: tagsText,
     disabled: false,
-    to: currentHref,
+    href: currentHref,
     exact: true,
   },
 ];
@@ -124,7 +124,7 @@ const breadcrumbsStructuredData = {
   '@type': 'BreadcrumbList',
   itemListElement: breadcrumbsStructuredDataArray,
 };
-const search = '';
+let search = '';
 const headers = [
   {
     title: 'Tag',

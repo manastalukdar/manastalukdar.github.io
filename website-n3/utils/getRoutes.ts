@@ -1,5 +1,5 @@
-import { groupBy } from 'lodash'
-import blogMetadata from '../static/blogdata/metadata/blog_metadata.json'
+import { groupBy } from 'lodash-es'
+import blogMetadata from '../public/blogdata/metadata/blog_metadata.json'
 import dayjs from 'dayjs'
 
 export const properties = {
@@ -270,6 +270,7 @@ export const helperFunctions = {
       description: postMetadata.meta.description,
       content: postMetadata.excerpt + ' ...read more',
       date: new Date(postMetadata['first-published-on']),
+      dateupdated: new Date(postMetadata['last-updated-on']),
       author: authorsTemp,
     }
 

@@ -244,23 +244,23 @@ const structuredData = {
 };
 const breadcrumbsData = [
   {
-    text: 'Home',
+    title: 'Home',
     disabled: false,
-    to: '/',
+    href: '/',
     nuxt: true,
     exact: true,
   },
   {
-    text: 'Blog',
+    title: 'Blog',
     disabled: false,
-    to: blogHref,
+    href: blogHref,
     nuxt: true,
     exact: true,
   },
   {
-    text: postMetadata.title,
+    title: postMetadata.title,
     disabled: false,
-    to: postId,
+    href: postId,
     nuxt: true,
     exact: true,
   },

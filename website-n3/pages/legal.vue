@@ -28,15 +28,15 @@ const baseUrl = runtimeConfig.public.baseUrl;
 const description = 'Legal disclaimer.';
 const breadcrumbsData = [
   {
-    text: 'Home',
+    title: 'Home',
     disabled: false,
-    to: '/',
+    href: '/',
     exact: true,
   },
   {
-    text: 'Legal',
+    title: 'Legal',
     disabled: false,
-    to: currentHref,
+    href: currentHref,
     exact: true,
   },
 ];

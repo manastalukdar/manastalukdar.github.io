@@ -44,3 +44,9 @@
 - https://stackoverflow.com/questions/54337639/how-to-create-vuetify-toolbar-link-dropdown-menu
 - https://vuetifyjs.com/en/components/menus/#menu
 - https://stackoverflow.com/questions/50500842/how-to-attach-a-vuetify-v-menu-to-its-parent-element-in-a-scrollable-list
+
+## Move to Nuxt 3
+
+- https://github.com/nuxt/nuxt/issues/14507
+- [Nuxt Context: where is it in Nuxt 3](https://krutiepatel.com/blog/nuxt-context-where-is-it-in-nuxt-3/)
+- https://github.com/nuxt-community/sitemap-module/issues/248

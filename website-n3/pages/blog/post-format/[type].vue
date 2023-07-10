@@ -80,7 +80,7 @@ const breadcrumbsData = [
   },
   {
     title: 'Blog Posts by Post-Format',
-    disabled: true,
+    disabled: false,
     href: blogDynamicItemsPostFormat + postFormatType() + '/',
   },
 ];

@@ -92,7 +92,7 @@ const description = 'List of all post formats from blog.';
 const url = baseUrl + currentHref;
 const postFormats = blogMetadataStore.getPostFormats();
 //console.log(postFormats)
-const search = '';
+let search = '';
 const headers = [
   {
     title: 'Post Format',
@@ -104,21 +104,21 @@ const headers = [
 ];
 const breadcrumbsData = [
   {
-    text: 'Home',
+    title: 'Home',
     disabled: false,
-    to: '/',
+    href: '/',
     exact: true,
   },
   {
-    text: 'Blog',
+    title: 'Blog',
     disabled: false,
-    to: blogHref,
+    href: blogHref,
     exact: true,
   },
   {
-    text: postFormatsText,
+    title: postFormatsText,
     disabled: false,
-    to: currentHref,
+    href: currentHref,
     exact: true,
   },
 ];

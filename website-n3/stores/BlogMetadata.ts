@@ -1,7 +1,7 @@
 import axios from 'axios'
 import dayjs from 'dayjs'
 import { defineStore } from 'pinia'
-import { find, groupBy } from 'lodash'
+import { find, groupBy } from 'lodash-es'
 
 // initial state
 const initialState = () => ({

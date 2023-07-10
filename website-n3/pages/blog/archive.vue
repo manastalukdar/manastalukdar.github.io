@@ -92,7 +92,7 @@ const currentHref = navigationStore.blog.blogItems[4].href;
 const archiveText = navigationStore.blog.blogItems[4].text;
 const blogDynamicItemsBlogPost =
   navigationStore.blog.dynamicItems.blogPost.href;
-const search = '';
+let search = '';
 const headers = [
   {
     title: 'Post Title',
@@ -118,21 +118,21 @@ const description = 'List of all blog posts.';
 const url = baseUrl + currentHref;
 const breadcrumbsData = [
   {
-    text: 'Home',
+    title: 'Home',
     disabled: false,
-    to: '/',
+    href: '/',
     exact: true,
   },
   {
-    text: 'Blog',
+    title: 'Blog',
     disabled: false,
-    to: blogHref,
+    href: blogHref,
     exact: true,
   },
   {
-    text: archiveText,
+    title: archiveText,
     disabled: false,
-    to: currentHref,
+    href: currentHref,
     exact: true,
   },
 ];

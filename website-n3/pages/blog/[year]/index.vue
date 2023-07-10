@@ -62,22 +62,19 @@ function getPostsByYear() {
 const blogMetadata = getPostsByYear();
 const breadcrumbsData = [
     {
-      text: 'Home',
+      title: 'Home',
       disabled: false,
-      to: '/',
-      exact: true,
+      href: '/',
     },
     {
-      text: 'Blog',
+      title: 'Blog',
       disabled: false,
-      to: blogHref,
-      exact: true,
+      href: blogHref,
     },
     {
-      text: 'Blog Posts by Year',
+      title: 'Blog Posts by Year',
       disabled: false,
-      to: blogBaseHref + yearUrlSlug + '/',
-      exact: true,
+      href: blogBaseHref + yearUrlSlug + '/',
     },
   ];
 const breadcrumbsStructuredDataArray = breadcrumbsData.map(

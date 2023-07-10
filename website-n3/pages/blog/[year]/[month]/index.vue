@@ -62,22 +62,19 @@ function getPostsForMonth() {
 const blogMetadata = getPostsForMonth();
 const breadcrumbsData = [
   {
-    text: 'Home',
+    title: 'Home',
     disabled: false,
-    to: '/',
-    exact: true,
+    href: '/',
   },
   {
-    text: 'Blog',
+    title: 'Blog',
     disabled: false,
-    to: blogHref,
-    exact: true,
+    href: blogHref,
   },
   {
-    text: 'Blog Posts by Month',
+    title: 'Blog Posts by Month',
     disabled: false,
-    to: blogBaseHref + monthUrlSlug + '/',
-    exact: true,
+    href: blogBaseHref + monthUrlSlug + '/',
   },
 ];
 const breadcrumbsStructuredDataArray = breadcrumbsData.map(

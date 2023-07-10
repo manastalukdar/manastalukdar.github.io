@@ -59,21 +59,21 @@ function getPostsForDay() {
 const blogMetadata = getPostsForDay();
 const breadcrumbsData = [
     {
-      text: 'Home',
+      title: 'Home',
       disabled: false,
-      to: '/',
+      href: '/',
       exact: true,
     },
     {
-      text: 'Blog',
+      title: 'Blog',
       disabled: false,
-      to: blogHref,
+      href: blogHref,
       exact: true,
     },
     {
-      text: 'Blog Posts by Day',
+      title: 'Blog Posts by Day',
       disabled: false,
-      to: blogBaseHref + dayUrlSlug + '/',
+      href: blogBaseHref + dayUrlSlug + '/',
       exact: true,
     },
 ];

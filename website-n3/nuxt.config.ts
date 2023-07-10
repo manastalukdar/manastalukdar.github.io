@@ -1,7 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import vuetify from 'vite-plugin-vuetify'
+import fs from 'fs'
+import { Feed, Item } from 'feed'
 import { createResolver } from '@nuxt/kit'
 import { config, Configuration } from 'webpack';
+import * as getRoutes from './utils/getRoutes.js'
 
 const { resolve } = createResolver(import.meta.url)
 
@@ -11,9 +14,9 @@ const baseUrl =
     : 'http://localhost:3000'
 
 
-const staticDir = './static'
+const publicDir = './public'
 const feedFileName = '/blogfeed.xml'
-const feedPath = staticDir + feedFileName
+const feedPath = publicDir + feedFileName
 const siteOwner = 'Manas Talukdar'
 const sitemapPath = '/sitemap.xml'
 const faviconPath = '/favicon.ico'
@@ -155,7 +158,7 @@ export default defineNuxtConfig({
   css: ['vuetify/lib/styles/main.sass', '@mdi/font/css/materialdesignicons.min.css', 'material-design-icons-iconfont/dist/material-design-icons.css', 'vue-material-design-icons/styles.css'],
 
   build: {
-    transpile: ['vuetify'],
+    transpile: ['vuetify', "lodash-es"],
   },
 
   vite: {
@@ -165,7 +168,8 @@ export default defineNuxtConfig({
   },
 
   hooks: {
-    'vite:extend' ({ nuxt, config }) {},
+    'vite:extend' ({ nuxt, config }) {
+    },
     'vite:extendConfig': (config, { isClient, isServer }) => {
       /*config.plugins.push(
         vuetify({
@@ -173,14 +177,79 @@ export default defineNuxtConfig({
         })
       )*/
     },
-    'webpack:config' (configs: Configuration[]) {}
+    'webpack:config' (configs: Configuration[]) {},
+
+    build: {
+      before: () => {
+        // feed generation
+        getRoutes.functions.setBaseUrl(baseUrl)
+        getRoutes.functions.generateRoutes()
+        const feed = new Feed({
+          id: baseUrl,
+          title: siteOwner + ' - blog',
+          link: baseUrl + feedFileName,
+          description: 'Syndication feed for blog.',
+          copyright:
+            'All rights reserved ' + new Date().getFullYear() + ' ' + siteOwner,
+          author: {
+            name: siteOwner,
+            link: baseUrl,
+          },
+        })
+        getRoutes.properties.feedItems.forEach((item: any) => {
+          feed.addItem(item)
+        })
+        getRoutes.properties.categories.forEach((category: any) => {
+          feed.addCategory(category.name)
+        })
+        feed.addContributor({
+          name: siteOwner,
+          link: baseUrl,
+        })
+        fs.writeFile(feedPath, feed.rss2(), (err) => {
+          if (err)
+            throw err
+          else {
+            console.log(feedPath + " written successfully.")
+          }
+        })
+      }
+    },
   },
 
   modules: [
     '@pinia/nuxt',
     '@vueuse/nuxt',
+    'nuxt-simple-sitemap'
   ],
 
   plugins: [
   ],
+
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+      ]
+    }
+  },
+
+  site: {
+    url: baseUrl,
+  },
+
+  sitemap: {
+    urls: () => {
+      if (getRoutes.properties.sitemapRoutes.length == 0) {
+        getRoutes.functions.generateRoutes()
+      }
+      getRoutes.properties.sitemapRoutes.map((route: any) => ({
+        loc: route
+      }))
+      getRoutes.properties.sitemapRoutes.push(baseUrl + sitemapPath)
+      getRoutes.properties.sitemapRoutes.push(baseUrl + feedFileName)
+      return getRoutes.properties.sitemapRoutes
+    }
+  }
 })

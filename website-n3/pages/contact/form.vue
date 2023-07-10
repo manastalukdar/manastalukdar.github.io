@@ -81,15 +81,15 @@ export default {
     const url = baseUrl + currentHref;
     const breadcrumbsData = [
       {
-        text: 'Home',
+        title: 'Home',
         disabled: false,
-        to: '/',
+        href: '/',
         exact: true,
       },
       {
-        text: 'Contact Form',
+        title: 'Contact Form',
         disabled: false,
-        to: currentHref,
+        href: currentHref,
         exact: true,
       },
     ];
