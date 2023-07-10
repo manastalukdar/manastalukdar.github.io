@@ -160,8 +160,7 @@ export default defineNuxtConfig({
     '@mdi/font/css/materialdesignicons.min.css',
     'material-design-icons-iconfont/dist/material-design-icons.css',
     'vue-material-design-icons/styles.css',
-    //'~/assets/style/print-blog-post.css',
-    //'~/assets/style/app.scss'
+    '~/style/print-blog-post.css'
   ],
 
   build: {
@@ -172,17 +171,30 @@ export default defineNuxtConfig({
     define: {
       'process.env.DEBUG': false,
     },
+    css    : {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "./style/settings.scss";', //./style/settings.scss
+        },
+      },
+    },
+  },
+
+  sourcemap: {
+    server: false,
+    client: false,
   },
 
   hooks: {
     'vite:extend' ({ nuxt, config }) {
     },
     'vite:extendConfig': (config, { isClient, isServer }) => {
-      /*config.plugins.push(
+      config.plugins?.push(
         vuetify({
+          autoImport: true,
           styles: { configFile: resolve('./style/settings.scss') },
         })
-      )*/
+      )
     },
     'webpack:config' (configs: Configuration[]) {},
 
