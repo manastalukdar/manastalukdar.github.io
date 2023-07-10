@@ -1,5 +1,5 @@
 <template>
-  <v-footer app height="auto" padless>
+  <v-footer app height="auto" class="pa-0">
     <v-card
       class="flex py-4"
       text
@@ -7,6 +7,7 @@
       flat
       width="100%"
       color="headerAndFooterColor"
+      style="border-radius:0"
     >
       <v-row class="justify-end">
         <v-col class="text-left" style="margin-left: 1em; margin-right: 1em">

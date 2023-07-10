@@ -83,10 +83,10 @@ const print = () => {
 </script>
 
 <style>
-.theme--dark .socialSharing a {
+.v-theme--darkTheme1 .socialSharing a {
   color: #fff !important;
 }
-.theme--light .socialSharing a {
+.v-theme--light .socialSharing a {
   color: rgba(0, 0, 0, 0.54) !important;
 }
 .socialSharingItems {

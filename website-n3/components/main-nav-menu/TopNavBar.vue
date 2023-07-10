@@ -44,6 +44,7 @@ import MainNavMenuBlog from './Blog.vue'
 import MainNavMenuAbout from './About.vue'
 import MainNavMenuLegal from './Legal.vue'
 import MainNavMenuContact from './Contact.vue'
+import { useTheme } from 'vuetify'
 export default {
   data: () => ({
       appTitle: globalDataStore.appTitle,
@@ -65,8 +66,9 @@ export default {
       flipSidebarVisibility: 'Navigation/flipSidebarVisibility',
     }), */
     flipThemeMode() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
-      // console.log(this.$vuetify.theme.currentTheme)
+      const theme = useTheme()
+      theme.global.name.value = theme.global.current.value.darkTheme1 ? 'lightTheme' : 'darkTheme1'
+      // console.log(theme.global.name.value)
       this.setCorrectHJsStyle()
     },
     setCorrectHJsStyle() {

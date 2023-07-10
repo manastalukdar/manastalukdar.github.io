@@ -50,7 +50,7 @@ export default {
   mounted() {
     // this.$vuetify.theme.dark = true
     backToTop.addBackToTop({
-      diameter: 40,
+      diameter: 45,
       zIndex: 3,
     })
   },
@@ -60,8 +60,8 @@ export default {
 <style>
 
 #back-to-top {
-  background: var(--v-backToTopBackground-base);
-  color: var(--v-backToTopText-base);
+  background: var(--v-theme-backToTopBackground-base);
+  color: var(--v-theme-backToTopText-base);
   bottom: 70px;
 }
 .fade-enter-active,
@@ -73,37 +73,37 @@ export default {
   opacity: 0;
 }
 
-.theme--dark.v-application {
-  background-color: var(--v-background-lighten1) !important;
+.theme--darkTheme1.v-application {
+  background-color: var(--v-theme-background-lighten1) !important;
 }
 
-.theme--dark.v-data-table {
-  background-color: var(--v-cardColor) !important;
+.v-theme--darkTheme1.v-data-table {
+  background-color: var(--v-theme-cardColor) !important;
 }
 
-.theme--dark a {
+.v-theme--darkTheme1 a {
   color: #42b983;
 }
-.theme--dark a:hover {
+.v-theme--darkTheme1 a:hover {
   color: #ce7720;
 }
-.theme--dark a:active {
+.v-theme--darkTheme1 a:active {
   color: #e90e0e;
 }
-/*.theme--dark a:visited {
+/*.v-theme--darkTheme1 a:visited {
   color: #b1be80;
 }*/
 
-.theme--light a {
+.v-theme--light a {
   color: #31805c;
 }
-.theme--light a:hover {
+.v-theme--light a:hover {
   color: #ca6a2a;
 }
-.theme--light a:active {
+.v-theme--light a:active {
   color: #e90e0e;
 }
-/*.theme--light a:visited {
+/*.v-theme--light a:visited {
   color: #797a33;
 }*/
 
@@ -175,8 +175,8 @@ code {
 }
 
 code {
-  background-color: var(--v-codeBackgroundColor-base) !important;
-  color: var(--v-codeTextColor-base) !important;
+  background-color: var(--v-theme-codeBackgroundColor-base) !important;
+  color: var(--v-theme-codeTextColor-base) !important;
 }
 
 blockquote {
