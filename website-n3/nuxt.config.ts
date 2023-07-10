@@ -155,7 +155,14 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['vuetify/lib/styles/main.sass', '@mdi/font/css/materialdesignicons.min.css', 'material-design-icons-iconfont/dist/material-design-icons.css', 'vue-material-design-icons/styles.css'],
+  css: [
+    'vuetify/lib/styles/main.sass',
+    '@mdi/font/css/materialdesignicons.min.css',
+    'material-design-icons-iconfont/dist/material-design-icons.css',
+    'vue-material-design-icons/styles.css',
+    //'~/assets/style/print-blog-post.css',
+    //'~/assets/style/app.scss'
+  ],
 
   build: {
     transpile: ['vuetify', "lodash-es"],
@@ -218,9 +225,12 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    //'./modules/helper',
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    'nuxt-simple-sitemap'
+    'nuxt-simple-sitemap',
+    'nuxt-gtag',
+    '@kevinmarrec/nuxt-pwa',
   ],
 
   plugins: [
@@ -233,6 +243,13 @@ export default defineNuxtConfig({
         '/',
       ]
     }
+  },
+
+  gtag: {
+    id: 'G-17M4RW7HF7',
+    config: {
+      send_page_view: true, // might be necessary to avoid duplicated page track on page reload
+    },
   },
 
   site: {
@@ -251,5 +268,32 @@ export default defineNuxtConfig({
       getRoutes.properties.sitemapRoutes.push(baseUrl + feedFileName)
       return getRoutes.properties.sitemapRoutes
     }
-  }
+  },
+
+  pwa: {
+    /* workbox: {
+      enabled: true
+    }, */
+    icon: {
+      source: publicDir + '/images/android-chrome-512x512.png',
+      targetDir: './', // publicDir + '/generatedIcons',
+    },
+  },
+
+  // https://pwa.nuxtjs.org/modules/manifest.html
+  manifest: {
+    short_name: 'MTalukdar',
+    name: 'Manas Talukdar',
+    start_url: '/',
+    background_color: '#303030',
+    theme_color: '#263238',
+    display: 'standalone',
+    lang: 'en',
+  },
+
+  render: {
+    static: {
+      ttl: 1000 * 60 * 60 * 24 * 7,
+    },
+  },
 })

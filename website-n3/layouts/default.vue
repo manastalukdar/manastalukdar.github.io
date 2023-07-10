@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import backToTop from 'vanilla-back-to-top'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 const globalDataStore = useGlobalDataStore()
 import MainNavMenuNavigationDrawer from '../components/main-nav-menu/NavigationDrawer.vue'
@@ -48,10 +49,10 @@ export default {
   },
   mounted() {
     // this.$vuetify.theme.dark = true
-    /* addBackToTop({
+    backToTop.addBackToTop({
       diameter: 40,
       zIndex: 3,
-    }) */
+    })
   },
 }
 </script>

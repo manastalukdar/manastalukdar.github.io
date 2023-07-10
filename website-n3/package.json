@@ -13,6 +13,7 @@
     "getHighlightJsStyleSheets": "node utils/getHighlightJsStyleSheets.js"
   },
   "devDependencies": {
+    "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@types/lodash": "^4.14.195",
     "@types/node": "^20.4.1",
     "@volar-plugins/vetur": "latest",
@@ -20,7 +21,10 @@
     "@vueuse/nuxt": "^10.2.1",
     "material-design-icons-iconfont": "^6.7.0",
     "nuxt": "^3.6.2",
+    "nuxt-gtag": "^0.5.7",
     "nuxt-simple-sitemap": "^3.0.8",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
     "webpack": "^5.88.1"
   },
   "dependencies": {
@@ -49,7 +53,7 @@
     "paperizer": "^0.0.6",
     "pinia": "^2.1.4",
     "print-js": "^1.6.0",
-    "sass": "^1.63.6",
+    "vanilla-back-to-top": "^7.2.1",
     "vite-plugin-vuetify": "^1.0.2",
     "vue-disqus": "^5.1.0",
     "vue-material-design-icons": "^5.2.0",

@@ -50,3 +50,5 @@
 - https://github.com/nuxt/nuxt/issues/14507
 - [Nuxt Context: where is it in Nuxt 3](https://krutiepatel.com/blog/nuxt-context-where-is-it-in-nuxt-3/)
 - https://github.com/nuxt-community/sitemap-module/issues/248
+- https://github.com/nuxt-community/pwa-module/issues/537
+- https://www.the-koi.com/projects/nuxt-3-how-to-use-axios/
