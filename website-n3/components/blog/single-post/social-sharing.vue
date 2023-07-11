@@ -86,7 +86,7 @@ const print = () => {
 .v-theme--darkTheme1 .socialSharing a {
   color: #fff !important;
 }
-.v-theme--light .socialSharing a {
+.v-theme--lightTheme .socialSharing a {
   color: rgba(0, 0, 0, 0.54) !important;
 }
 .socialSharingItems {

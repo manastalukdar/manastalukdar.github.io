@@ -77,8 +77,8 @@ export default {
   background-color: var(--v-theme-background-lighten1) !important;
 }
 
-.v-theme--darkTheme1.v-data-table {
-  background-color: var(--v-theme-cardColor) !important;
+.v-theme--darkTheme1.v-table__wrapper {
+  background: var(--v-theme-cardColor) !important;
 }
 
 .v-theme--darkTheme1 a {
@@ -94,16 +94,16 @@ export default {
   color: #b1be80;
 }*/
 
-.v-theme--light a {
+.v-theme--lightTheme a {
   color: #31805c;
 }
-.v-theme--light a:hover {
+.v-theme--lightTheme a:hover {
   color: #ca6a2a;
 }
-.v-theme--light a:active {
+.v-theme--lightTheme a:active {
   color: #e90e0e;
 }
-/*.v-theme--light a:visited {
+/*.v-theme--lightTheme a:visited {
   color: #797a33;
 }*/
 

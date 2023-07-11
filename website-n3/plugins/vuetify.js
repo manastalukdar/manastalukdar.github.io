@@ -14,7 +14,7 @@ import { VDataIterator } from "vuetify/labs/VDataIterator";
 import "vuetify/styles";
 
 const darkTheme1 = {
-  dark: false,
+  dark: true,
   colors: {
     background: "#141e24", // #141e24
     headerAndFooterColor: colors.blueGrey.darken3,

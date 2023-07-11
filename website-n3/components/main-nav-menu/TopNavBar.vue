@@ -35,79 +35,67 @@
   </v-app-bar>
 </template>
 
-<script>
-import { useGlobalDataStore } from '@/stores/GlobalData'
-import { useNavigationStore } from '@/stores/Navigation'
-const globalDataStore = useGlobalDataStore()
-const navigationStore = useNavigationStore()
-import MainNavMenuBlog from './Blog.vue'
-import MainNavMenuAbout from './About.vue'
-import MainNavMenuLegal from './Legal.vue'
-import MainNavMenuContact from './Contact.vue'
-import { useTheme } from 'vuetify'
-export default {
-  data: () => ({
-      appTitle: globalDataStore.appTitle,
-      flipSidebarVisibility: navigationStore.flipSidebarVisibility
-  }),
-  components: {
-    MainNavMenuBlog,
-    MainNavMenuAbout,
-    MainNavMenuLegal,
-    MainNavMenuContact,
-  },
-  computed: {
-  },
-  mounted() {
-    this.setCorrectHJsStyle()
-  },
-  methods: {
-    /* ...mapActions({
-      flipSidebarVisibility: 'Navigation/flipSidebarVisibility',
-    }), */
-    flipThemeMode() {
-      const theme = useTheme()
-      theme.global.name.value = theme.global.current.value.darkTheme1 ? 'lightTheme' : 'darkTheme1'
-      // console.log(theme.global.name.value)
-      this.setCorrectHJsStyle()
-    },
-    setCorrectHJsStyle() {
-      if (this.$vuetify.theme.isDark) {
-        this.setCorrectHJsStyleBase('dark', 'light')
-      } else {
-        this.setCorrectHJsStyleBase('light', 'dark')
-      }
-    },
-    setCorrectHJsStyleBase(styleToEnable, styleToDisable) {
-      let fileName = null
-      switch (styleToEnable) {
-        case `dark`:
-          fileName = 'atom-one-dark.css'
-          break
-        case 'light':
-          fileName = 'atom-one-light.css'
-          break
-      }
-      const elementToEnable = document.getElementById(
-        'highlightjs-' + styleToEnable
-      )
-      if (elementToEnable == null) {
-        const head = document.getElementsByTagName('head')[0]
-        const elementToCreate = document.createElement('link')
-        elementToCreate.rel = 'stylesheet'
-        elementToCreate.id = 'highlightjs-' + styleToEnable
-        elementToCreate.href = '/styles/' + fileName
-        head.appendChild(elementToCreate)
-      }
-      const elementToDisable = document.getElementById(
-        'highlightjs-' + styleToDisable
-      )
-      if (elementToDisable != null) {
-        elementToDisable.remove()
-      }
-    },
-  },
-}
+<script setup>
+import { useGlobalDataStore } from '@/stores/GlobalData';
+import { useNavigationStore } from '@/stores/Navigation';
+const globalDataStore = useGlobalDataStore();
+const navigationStore = useNavigationStore();
+import MainNavMenuBlog from './Blog.vue';
+import MainNavMenuAbout from './About.vue';
+import MainNavMenuLegal from './Legal.vue';
+import MainNavMenuContact from './Contact.vue';
+import { useTheme } from 'vuetify';
+const appTitle = globalDataStore.appTitle;
+const theme = useTheme();
+onMounted(() => {
+  setCorrectHJsStyle();
+});
+function flipSidebarVisibility() {
+  navigationStore.flipSidebarVisibility();
+};
+function flipThemeMode() {
+  //console.log(theme.global.name.value)
+  //console.log(theme.global.current.value)
+  theme.global.name.value = 'darkTheme1' ? 'lightTheme' : 'darkTheme1';
+  //console.log(theme.global.current.value)
+  setCorrectHJsStyle();
+};
+function setCorrectHJsStyle() {
+  if (theme.global.name.value = 'darkTheme1') {
+    setCorrectHJsStyleBase('dark', 'light')
+  } else {
+    setCorrectHJsStyleBase('light', 'dark')
+  }
+};
+function setCorrectHJsStyleBase(styleToEnable, styleToDisable) {
+  let fileName = null
+  switch (styleToEnable) {
+    case `dark`:
+      fileName = 'atom-one-dark.css'
+      break
+    case 'light':
+      fileName = 'atom-one-light.css'
+      break
+  }
+  const elementToEnable = document.getElementById(
+    'highlightjs-' + styleToEnable
+  )
+  if (elementToEnable == null) {
+    var head = document.getElementsByTagName('head')[0]
+    var elementToCreate = document.createElement('link')
+    elementToCreate.rel = 'stylesheet'
+    elementToCreate.id = 'highlightjs-' + styleToEnable
+    elementToCreate.href = '/styles/' + fileName
+    //console.log(elementToCreate)
+    head.appendChild(elementToCreate)
+  }
+  const elementToDisable = document.getElementById(
+    'highlightjs-' + styleToDisable
+  )
+  if (elementToDisable != null) {
+    elementToDisable.remove()
+  }
+};
 </script>
 
 <style scoped>

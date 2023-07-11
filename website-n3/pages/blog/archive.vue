@@ -92,20 +92,20 @@ const currentHref = navigationStore.blog.blogItems[4].href;
 const archiveText = navigationStore.blog.blogItems[4].text;
 const blogDynamicItemsBlogPost =
   navigationStore.blog.dynamicItems.blogPost.href;
-let search = '';
+var search = '';
 const headers = [
   {
     title: 'Post Title',
     align: 'left',
     sortable: false,
-    key: 'title',
+    key: 'selectable.title',
   },
   {
     title: 'First Published On',
     align: 'left',
     sortable: true,
     key: 'first-published-on',
-  },,
+  },
   {
     title: 'Last Updated On',
     align: 'left',
