@@ -4,12 +4,12 @@
       <v-data-iterator
         v-model:items-per-page="itemsPerPage"
         v-model:page="page"
-        :items="props.postsList"
+        :items="passedProps.postsList"
         row
         wrap
       >
         <template v-slot:default="props">
-          <v-row v-for="item in props.items" :key="item.name">
+          <v-row v-for="item in props.items" :key="item.raw.name">
             <singlePost :post-metadata="item.raw" />
           </v-row>
           <!--<hr>-->
@@ -72,7 +72,7 @@
 
 <script setup>
 import singlePost from './single-post.vue'
-const props = defineProps({
+const passedProps = defineProps({
   postsList: {
     type: Array,
     required: true,
@@ -82,19 +82,21 @@ const props = defineProps({
   },
 });
 const itemsPerPageArray = [5, 10];
-let itemsPerPage = 5;
-let page = 1;
+const itemsPerPage = ref(5);
+const page = ref(1);
 function numberOfPages() {
-  return Math.ceil(props.postsList.length / itemsPerPage);
+  return Math.ceil(passedProps.postsList.length / itemsPerPage.value);
 };
 function nextPage() {
-  if (page + 1 <= numberOfPages()) {
-    page += 1;
+  if (page.value + 1 <= numberOfPages()) {
+    page.value += 1;
   }
+  //console.log(page.value)
 };
 function prevPage() {
-  if (page - 1 >= 1) {
-    page -= 1;
+  if (page.value - 1 >= 1) {
+    page.value -= 1;
   }
+  //console.log(page.value)
 };
 </script>
