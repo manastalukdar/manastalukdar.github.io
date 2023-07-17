@@ -1,21 +1,17 @@
 <template>
   <v-app-bar color="headerAndFooterColor" app>
-    <v-app-bar-nav-icon class="hidden-sm-and-up">
+    <v-app-bar-nav-icon class="hidden-sm-and-up home-icon">
       <nuxt-link v-slot="{ navigate }" to="/">
-        <div class="home-link">
         <span role="link" @click="navigate" @keypress.enter="navigate"
           ><v-icon>mdi-home</v-icon></span
         >
-      </div>
       </nuxt-link>
     </v-app-bar-nav-icon>
-    <v-toolbar-title class="hidden-xs-only text-h5">
+    <v-toolbar-title class="hidden-xs-only text-h5 home-link">
       <nuxt-link v-slot="{ navigate }" to="/">
-        <div class="home-link">
         <span role="link" @click="navigate" @keypress.enter="navigate" class="home-link">{{
           appTitle
         }}</span>
-      </div>
       </nuxt-link>
     </v-toolbar-title>
     <div class="flex-grow-1" />
@@ -99,8 +95,9 @@ function setCorrectHJsStyleBase(styleToEnable, styleToDisable) {
 </script>
 
 <style scoped>
-.home-link {
-  cursor: pointer
+.home-link a:link {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 </style>
