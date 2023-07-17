@@ -8,6 +8,7 @@
             class="justify-center"
           >
             <template v-slot:title="{ item }">
+              <client-only>
               <v-breadcrumbs-item
                   :to="item.href"
                   nuxt
@@ -15,6 +16,7 @@
               >
                   {{ item.title }}
               </v-breadcrumbs-item>
+              </client-only>
             </template>
             <template v-slot:divider>
               <v-icon icon="mdi-chevron-right"></v-icon>
