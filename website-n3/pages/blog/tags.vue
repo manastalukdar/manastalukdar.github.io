@@ -124,7 +124,7 @@ const breadcrumbsStructuredData = {
   '@type': 'BreadcrumbList',
   itemListElement: breadcrumbsStructuredDataArray,
 };
-let search = '';
+const search = ref('');
 const headers = [
   {
     title: 'Tag',
