@@ -92,13 +92,13 @@ const currentHref = navigationStore.blog.blogItems[4].href;
 const archiveText = navigationStore.blog.blogItems[4].text;
 const blogDynamicItemsBlogPost =
   navigationStore.blog.dynamicItems.blogPost.href;
-var search = '';
+const search = ref('');
 const headers = [
   {
     title: 'Post Title',
     align: 'left',
     sortable: false,
-    key: 'selectable.title',
+    key: 'title',
   },
   {
     title: 'First Published On',
