@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar color="headerAndFooterColor" app>
+  <v-app-bar color="headerAndFooterColor" app class="px-3">
     <v-app-bar-nav-icon class="hidden-sm-and-up home-icon">
       <nuxt-link v-slot="{ navigate }" to="/">
         <span role="link" @click="navigate" @keypress.enter="navigate"
@@ -7,7 +7,7 @@
         >
       </nuxt-link>
     </v-app-bar-nav-icon>
-    <v-toolbar-title class="hidden-xs-only text-h5 home-link">
+    <v-toolbar-title class="hidden-xs text-h5 home-link">
       <nuxt-link v-slot="{ navigate }" to="/">
         <span role="link" @click="navigate" @keypress.enter="navigate" class="home-link">{{
           appTitle
