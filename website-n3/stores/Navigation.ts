@@ -116,7 +116,7 @@ export const useNavigationStore = defineStore('Navigation', {
   actions: {
     flipSidebarVisibility() {
       this.sidebarVisible = !this.sidebarVisible
-      console.log(this.sidebarVisible)
+      //console.log(this.sidebarVisible)
     },
     setSidebarVisibility(value: any) {
       this.sidebarVisible = value
