@@ -1,6 +1,8 @@
-- _More than 15 years of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
+- Industry leader in _**Data Infrastrucrure for** Enterprise AI_. Created and led several product verticals and organizations driving related innovation.
 
-- Established the Data org within Platform engineering department. Grew a team of 6 to an org of ~20 engineers across 3 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
+- _More than 16 years of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
+
+- Established the Data org within Platform engineering department. Grew a team of 6 to an org of ~30 engineers across 5 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
 
 - Experienced in hiring and mentoring engineers, _identifying and developing leaders_. Trained in management methodologies from UC Berkeley Center for Executive Education. _Fueled rapid growth of multiple teams_ by formulating strategies and processes around hiring. As part of _department leadership_ instituted frameworks and best practices to maintain high bar and streamline growth. Developed successful cross-departmental collaborations to _scale multiple software teams_ across engineering department.
 
