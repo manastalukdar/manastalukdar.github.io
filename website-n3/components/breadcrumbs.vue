@@ -7,6 +7,15 @@
             :items="props.breadcrumbs"
             class="justify-center"
           >
+            <template v-slot:title="{ item }">
+              <v-breadcrumbs-item
+                  :to="item.href"
+                  nuxt
+                  exact
+              >
+                  {{ item.title }}
+              </v-breadcrumbs-item>
+            </template>
             <template v-slot:divider>
               <v-icon icon="mdi-chevron-right"></v-icon>
             </template>
@@ -18,7 +27,11 @@
 </template>
 
 <script setup>
+const route = useRoute();
 const props = defineProps({
   breadcrumbs: Array
 });
+//console.log(props.breadcrumbs)
+//console.log(route.path)
+//:disabled="item.href === route.path"
 </script>
