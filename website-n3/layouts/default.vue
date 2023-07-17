@@ -59,6 +59,10 @@ export default {
 
 <style>
 
+.v-application ol, .v-application ul {
+  padding-left: 24px;
+}
+
 #back-to-top {
   background: var(--v-theme-backToTopBackground-base);
   color: var(--v-theme-backToTopText-base);
