@@ -6,7 +6,7 @@
     <p />
     <v-row
       v-for="post in posts"
-      :key="post['name']"
+      :key="post['url-slug']"
       class="px-2"
       justify="center"
     >

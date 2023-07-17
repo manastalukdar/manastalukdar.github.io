@@ -1,20 +1,20 @@
 <template>
   <div>
     <v-list-item v-for="item in aboutItems" :key="item.text" :to="item.href">
-      <v-list-item-avatar>
+      <v-avatar>
         <v-icon>{{ item.icon }}</v-icon>
-      </v-list-item-avatar>
+      </v-avatar>
       <v-list-item-title v-text="item.text" />
     </v-list-item>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { useNavigationStore } from '@/stores/Navigation'
+const navigationStore = useNavigationStore()
 export default {
-  data: () => ({}),
-  computed: mapState({
-    aboutItems: (state) => state.Navigation.about.aboutItems,
-  }),
+  data: () => ({
+    aboutItems: navigationStore.about.aboutItems
+  })
 }
 </script>

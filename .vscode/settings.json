@@ -27,7 +27,8 @@
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
-    }
+    },
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "editor.formatOnType": false,
   "editor.formatOnSave": true,
@@ -41,10 +42,12 @@
   "editor.snippetSuggestions": "none",
   "editor.wordBasedSuggestions": false, // disable tab expansion because it conflict with github-copilot
   "vetur.validation.template": false,
-  "eslint.workingDirectories": [{
-    "directory": "./website",
-    "changeProcessCWD": true
-  }],
+  "eslint.workingDirectories": [
+    {
+      "directory": "./website",
+      "changeProcessCWD": true
+    }
+  ],
   "markdown.extension.print.onFileSave": false,
   "markdown.extension.toc.orderedList": true,
   "markdown.extension.toc.levels": "2..6",
@@ -55,5 +58,6 @@
     "**/target": true
   },
   "c3.rootPackage": "",
-  "vetur.validation.interpolation": false
+  "vetur.validation.interpolation": false,
+  "python.formatting.provider": "none"
 }

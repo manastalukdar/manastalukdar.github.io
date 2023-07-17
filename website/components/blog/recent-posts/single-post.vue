@@ -4,20 +4,17 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import postHeader from './post-header.vue'
-export default {
-  components: {
-    postHeader,
+defineProps({
+  postMetadata: {
+    type: Object,
+    required: true,
+    default() {
+      return {}
+    }
   },
-  props: {
-    postMetadata: {
-      type: Object,
-      required: true,
-      default: () => {},
-    },
-  },
-}
+})
 </script>
 
 <style></style>

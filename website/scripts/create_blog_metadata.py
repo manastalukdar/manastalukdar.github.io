@@ -13,8 +13,8 @@ from datetime import date, datetime
 import frontmatter
 from dateutil import parser
 
-POSTS_LIST_FILE_JSON = "website/static/blogdata/metadata/blog_metadata.json"
-POSTS_DIST_FOLDER = "website/static/blogdata"
+POSTS_LIST_FILE_JSON = "website/public/blogdata/metadata/blog_metadata.json"
+POSTS_DIST_FOLDER = "website/public/blogdata"
 POSTS_FOLDER = "blog"
 
 POST_PATH_STRING = "path"
@@ -23,7 +23,7 @@ POST_PATH_STRING = "path"
 def find_files():
     """Return the list of files to process."""
     result = {}
-    root_dir = "blog"
+    root_dir = POSTS_FOLDER
     cwd = os.getcwd()
     #print(os.listdir(root_dir))
     for root, dirs, files in os.walk(root_dir):

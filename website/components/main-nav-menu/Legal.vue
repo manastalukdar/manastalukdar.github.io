@@ -1,12 +1,12 @@
 <template>
-  <v-menu attach bottom left offset-y max-height="500">
-    <template #activator="{ on }">
+  <v-menu bottom left offset-y max-height="500">
+    <template v-slot:activator="{ props }">
       <v-btn
         :aria-label="legalText"
         text
         :to="legalPath"
         style="min-width: 48px"
-        v-on="on"
+        v-bind="props"
       >
         <span class="hidden-sm-and-down mr-1" v-text="legalText" />
       </v-btn>
@@ -15,12 +15,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { useNavigationStore } from '@/stores/Navigation'
+const navigationStore = useNavigationStore()
 export default {
-  data: () => ({}),
-  computed: mapState({
-    legalText: (state) => state.Navigation.legal.legalText,
-    legalPath: (state) => state.Navigation.legal.legalPath,
+  data: () => ({
+    legalText: navigationStore.legal.legalText,
+    legalPath: navigationStore.legal.legalPath,
   }),
+  computed: {}
 }
 </script>

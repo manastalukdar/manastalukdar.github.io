@@ -2,7 +2,7 @@
   <v-col cols="12">
     <v-card
       color="cardColor"
-      class="pa-3"
+      class="pa-8"
       raised
       elevation="8"
       style="height: 100%"
@@ -12,27 +12,36 @@
       </v-row>
       <p />
       <!--eslint-disable-next-line vue/no-v-html-->
-      <div class="px-2 pb-2" v-html="recent" />
+      <div class="pl-2 pb-2" v-html="recent" />
     </v-card>
   </v-col>
 </template>
 
 <script>
-const fm = require('front-matter')
-const md = require('markdown-it')({
+import fm from 'front-matter'
+import mdit from 'markdown-it'
+import { computedAsync } from '@vueuse/core'
+const md = new mdit({
   html: true,
   linkify: true,
   typographer: true,
 })
-const markdownRenderHelpers = require('../../utils/markdownRenderHelpers.js')
-markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
+// const markdownRenderHelpers = require('../../utils/markdownRenderHelpers.js')
+// markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
 export default {
-  asyncComputed: {
-    async recent() {
-      const fileContent = await import('./recent-updates.md')
-      const res = fm(fileContent.default)
-      return md.render(res.body)
-    },
+  setup() {
+    const recent = computedAsync(async () => {
+      try {
+        const fileContent = await import('./recent-updates.md?raw')
+        const res = fm(fileContent.default)
+        return md.render(res.body)
+      } catch (error) {
+        console.log(error)
+      }
+    })
+    return {
+      recent
+    }
   },
 }
 </script>

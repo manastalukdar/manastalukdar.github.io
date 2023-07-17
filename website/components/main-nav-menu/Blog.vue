@@ -1,28 +1,28 @@
 <template>
-  <v-menu attach bottom left offset-y max-height="500">
-    <template #activator="{ on }">
-      <v-btn text :aria-label="blogText" style="min-width: 48px" v-on="on">
+  <v-menu bottom left offset-y max-height="500">
+    <template v-slot:activator="{ props }">
+      <v-btn text :aria-label="blogText" style="min-width: 48px" v-bind="props">
         <span class="hidden-sm-and-down mr-1" v-text="blogText" />
-        <v-icon> arrow_drop_down </v-icon>
+        <v-icon>mdi-menu-down</v-icon>
       </v-btn>
     </template>
-    <v-list color="headerAndFooterColor" dense>
+    <v-list color="headerAndFooterColor" density="default">
       <BlogMenuItems />
     </v-list>
   </v-menu>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { useNavigationStore } from '@/stores/Navigation'
 import BlogMenuItems from './BlogMenuItems.vue'
-
+const navigationStore = useNavigationStore()
 export default {
+  data: () => ({
+    blogText: navigationStore.blog.blogText,
+  }),
   components: {
     BlogMenuItems,
   },
-  data: () => ({}),
-  computed: mapState({
-    blogText: (state) => state.Navigation.blog.blogText,
-  }),
+  computed: {},
 }
 </script>

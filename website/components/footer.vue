@@ -1,5 +1,5 @@
 <template>
-  <v-footer app height="auto" padless>
+  <v-footer app height="auto" class="pa-0">
     <v-card
       class="flex py-4"
       text
@@ -7,6 +7,7 @@
       flat
       width="100%"
       color="headerAndFooterColor"
+      style="border-radius:0"
     >
       <v-row class="justify-end">
         <v-col class="text-left" style="margin-left: 1em; margin-right: 1em">
@@ -22,7 +23,7 @@
           >
           with
           <a
-            href="https://nuxtjs.org/"
+            href="https://nuxt.com/"
             target="_blank"
             rel="noopener noreferrer"
             >Nuxt.js</a
@@ -38,20 +39,20 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from 'pinia'
+import { useGlobalDataStore } from '@/stores/GlobalData'
+const globalDataStore = useGlobalDataStore()
 export default {
   data: () => ({
     siteMapText: 'Sitemap',
     blogFeedtext: 'Blog Feed',
     builtWithText:
       'Built with <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>',
+    appOwner: globalDataStore.appOwner,
   }),
   computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      copyrightStartYear: (state) => state.GlobalData.copyrightStartYear,
-      copyrightEndYear: (state) => state.GlobalData.copyrightEndYear,
-    }),
+    ...mapState(useGlobalDataStore, ['copyrightStartYear']),
+    ...mapState(useGlobalDataStore, ['copyrightEndYear']),
   },
 }
 </script>

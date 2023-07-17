@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <breadcrumbs :breadcrumbs="breadcrumbsDataComputed" />
     <p />
     <v-row class="text-center">
       <v-col cols="12">
@@ -61,40 +61,44 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import breadcrumbs from '../../components/breadcrumbs'
+import breadcrumbs from '../../components/breadcrumbs';
+import { useNavigationStore } from '@/stores/Navigation';
+import { useGlobalDataStore } from '@/stores/GlobalData';
 export default {
-  components: {
-    breadcrumbs,
-  },
-  asyncData({ store, params, $config, payload }) {
-    return {
-      baseUrl: $config.baseURL,
-    }
-  },
-  data: () => ({
-    name: undefined,
-    email: undefined,
-    message: '',
-    form: false,
-    isLoading: false,
-    rules: {
-      email: (v) => (v || '').match(/@/) || 'Please enter a valid email',
-      length: (len) => (v) =>
-        (v || '').length >= len || `Invalid character length, required ${len}`,
-      required: (v) => !!v || 'This field is required',
-    },
-    description: 'Contact Form.',
-  }),
-  head() {
-    const title = this.currentPage + ' || ' + this.appOwner
-    const url = this.baseUrl + this.currentHref
-    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
+  setup() {
+    const navigationStore = useNavigationStore();
+    const globalDataStore = useGlobalDataStore();
+    const appOwner = globalDataStore.appOwner;
+    const currentPage =
+            navigationStore.contact.contactForm.text +
+            ' | ' +
+            navigationStore.contact.contactText;
+    const currentHref = navigationStore.contact.contactForm.href;
+    const runtimeConfig = useRuntimeConfig();
+    const baseUrl = runtimeConfig.public.baseUrl;
+    const title = currentPage + ' || ' + appOwner;
+    const description = 'Contact Form.';
+    const url = baseUrl + currentHref;
+    const breadcrumbsData = [
+      {
+        title: 'Home',
+        disabled: false,
+        href: '/',
+        exact: true,
+      },
+      {
+        title: 'Contact Form',
+        disabled: false,
+        href: currentHref,
+        exact: true,
+      },
+    ];
+    const breadcrumbsStructuredDataArray = breadcrumbsData.map(
       (item, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         item: {
-          '@id': this.baseUrl + item.to,
+          '@id': baseUrl + item.to,
           name: item.text,
         },
       })
@@ -104,13 +108,14 @@ export default {
       '@type': 'BreadcrumbList',
       itemListElement: breadcrumbsStructuredDataArray,
     }
-    return {
-      title,
+    const breadcrumbsDataComputed = computed(()=>breadcrumbsData);
+    useHead({
+      title: title,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.description,
+          content: description,
         },
         {
           hid: 'apple-mobile-web-app-title',
@@ -133,7 +138,7 @@ export default {
           hid: 'og-description',
           name: 'og:description',
           property: 'og:description',
-          content: this.description,
+          content: description,
         },
       ],
       link: [{ rel: 'canonical', href: url }],
@@ -144,34 +149,27 @@ export default {
           type: 'application/ld+json',
         },
       ],
+    })
+    return {
+      breadcrumbsDataComputed
     }
   },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.contact.contactForm.text +
-        ' | ' +
-        state.Navigation.contact.contactText,
-      currentHref: (state) => state.Navigation.contact.contactForm.href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-          exact: true,
-        },
-        {
-          text: 'Contact Form',
-          disabled: false,
-          to: this.currentHref,
-          exact: true,
-        },
-      ]
-    },
+  components: {
+    breadcrumbs,
   },
+  data: () => ({
+    name: undefined,
+    email: undefined,
+    message: '',
+    form: false,
+    isLoading: false,
+    rules: {
+      email: (v) => (v || '').match(/@/) || 'Please enter a valid email',
+      length: (len) => (v) =>
+        (v || '').length >= len || `Invalid character length, required ${len}`,
+      required: (v) => !!v || 'This field is required',
+    },
+  }),
   methods: {
     submit() {
       this.$v.$touch()

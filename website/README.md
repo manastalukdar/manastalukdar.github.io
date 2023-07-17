@@ -1,66 +1,42 @@
-# website
+# Nuxt 3 Minimal Starter
 
-## Project setup
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-```
+## Setup
+
+Make sure to install the dependencies:
+
+```bash
+# yarn
+yarn install
+
+# npm
 npm install
+
+# pnpm
+pnpm install
 ```
 
-### Compiles and hot-reloads for development
+## Development Server
 
-```
-npm run serve
+Start the development server on http://localhost:3000
+
+```bash
+npm run dev
 ```
 
-### Compiles and minifies for production
+## Production
 
-```
+Build the application for production:
+
+```bash
 npm run build
 ```
 
-### Run your tests
+Locally preview production build:
 
-```
-npm run test
-```
-
-### Lints and fixes files
-
-```
-npm run lint
+```bash
+npm run preview
 ```
 
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-## nuxt
-
-> nuxt sandbox
-
-### Build Setup
-
-``` bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
-
-### Update nuget packages
-
-```
-npm update
-```
-
-As of npm@2.6.1, the npm update will only inspect top-level packages. Prior versions of npm would also recursively inspect all dependencies. To get the old behavior, use npm --depth 9999 update. [ref](https://docs.npmjs.com/cli/update.html)
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

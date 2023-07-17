@@ -28,7 +28,7 @@ jobs:
       - run: python website/scripts/create_blog_metadata.py
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
       - run: node --version
       - run: npm --version
       - working-directory: website
@@ -42,8 +42,8 @@ jobs:
         if: ${{ github.event_name == 'push' && env.BRANCH == 'source' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./website/dist
-          publish_branch:  main  # default: gh-pages
+          publish_dir: ./website/.output/public
+          publish_branch: main # default: gh-pages
           keep_files: false # default: false
           force_orphan: true
           commit_message: "GitHub CI Updates [ci skip]"

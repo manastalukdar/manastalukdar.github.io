@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12">
     <v-card color="cardColor" class="pa-3 fill-height" raised elevation="8">
-      <v-row class="pa-3" justify="center">
+      <v-row class="pa-3 px-15" justify="space-between">
         <v-list-item
           v-for="item in socialMediaItems"
           :key="item.text"
@@ -28,16 +28,12 @@
   </v-col>
 </template>
 
-<script>
-import { mapState } from 'vuex'
-export default {
-  computed: {
-    ...mapState({
-      socialMediaItems: (state) => state.Navigation.contact.socialMediaItems,
-      aboutItems: (state) => state.Navigation.about.aboutItems,
-    }),
-  },
-}
+<script setup>
+import { mapState } from 'pinia'
+import { useNavigationStore } from '@/stores/Navigation'
+const navigationStore = useNavigationStore()
+const socialMediaItems = navigationStore.contact.socialMediaItems;
+const aboutItems = navigationStore.about.aboutItems;
 </script>
 
 <style></style>

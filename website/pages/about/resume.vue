@@ -1,6 +1,6 @@
 <template>
   <v-container id="container-resume" fluid>
-    <breadcrumbs :breadcrumbs="breadcrumbs" />
+    <breadcrumbs :breadcrumbs="breadcrumbsDataComputed" />
     <p />
     <v-card class="resume-wrapper">
       <client-only>
@@ -18,27 +18,42 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import breadcrumbs from '../../components/breadcrumbs'
+import { useNavigationStore } from '@/stores/Navigation';
+import { useGlobalDataStore } from '@/stores/GlobalData';
 export default {
-  components: {
-    breadcrumbs,
-  },
-  asyncData({ store, params, $config, payload }) {
-    return {
-      baseUrl: $config.baseURL,
-    }
-  },
-  head() {
-    const title = this.currentPage + ' || ' + this.appOwner
-    const description = 'Manas Talukdar resume'
-    const url = this.baseUrl + this.currentHref
-    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
+  setup() {
+    const navigationStore = useNavigationStore();
+    const globalDataStore = useGlobalDataStore();
+    const appOwner = globalDataStore.appOwner;
+    const currentPage =
+            navigationStore.about.aboutItems[0].text +
+            ' | ' +
+            navigationStore.about.aboutText;
+    const currentHref = navigationStore.about.aboutItems[0].href;
+    const runtimeConfig = useRuntimeConfig();
+    const baseUrl = runtimeConfig.public.baseUrl;
+    const title = currentPage + ' || ' + appOwner;
+    const description = 'Manas Talukdar resume';
+    const url = baseUrl + currentHref;
+    const breadcrumbsData = [
+        {
+          title: 'Home',
+          disabled: false,
+          href: '/',
+        },
+        {
+          title: 'Resume',
+          disabled: false,
+          href: currentHref,
+        },
+      ];
+    const breadcrumbsStructuredDataArray = breadcrumbsData.map(
       (item, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         item: {
-          '@id': this.baseUrl + item.to,
+          '@id': baseUrl + item.to,
           name: item.text,
         },
       })
@@ -48,8 +63,9 @@ export default {
       '@type': 'BreadcrumbList',
       itemListElement: breadcrumbsStructuredDataArray,
     }
-    return {
-      title,
+    const breadcrumbsDataComputed = computed(()=>breadcrumbsData);
+    useHead({
+      title: title,
       meta: [
         {
           hid: 'description',
@@ -88,31 +104,10 @@ export default {
           type: 'application/ld+json',
         },
       ],
+    });
+    return {
+      breadcrumbsDataComputed
     }
-  },
-  computed: {
-    ...mapState({
-      appOwner: (state) => state.GlobalData.appOwner,
-      currentPage: (state) =>
-        state.Navigation.about.aboutItems[0].text +
-        ' | ' +
-        state.Navigation.about.aboutText,
-      currentHref: (state) => state.Navigation.about.aboutItems[0].href,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-        },
-        {
-          text: 'Resume',
-          disabled: false,
-          to: this.currentHref,
-        },
-      ]
-    },
   },
   mounted() {
     this.fixParentContainerWidthOnMount()
@@ -141,7 +136,7 @@ export default {
         }
       }
     },
-  },
+  }
 }
 </script>
 

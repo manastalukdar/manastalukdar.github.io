@@ -35,110 +35,105 @@
   </v-container>
 </template>
 
-<script>
-import { mapState } from 'vuex'
-import featured from '../components/home-page/featured.vue'
-import socialMediaAndResumeLinks from '../components/home-page/social-media-resume.vue'
-import aboutBlurb from '../components/home-page/about-blurb.vue'
-import highlights from '../components/home-page/highlights.vue'
-import recentPostsHomePage from '../components/home-page/recent-posts.vue'
-import interests from '../components/home-page/interests.vue'
-import recentUpdates from '../components/home-page/recent-updates.vue'
-export default {
-  components: {
-    featured,
-    socialMediaAndResumeLinks,
-    aboutBlurb,
-    highlights,
-    recentPostsHomePage,
-    interests,
-    recentUpdates,
+<script setup>
+import aboutBlurb from '../components/home-page/about-blurb.vue';
+import recentPostsHomePage from '../components/home-page/recent-posts.vue';
+import featured from '../components/home-page/featured.vue';
+import socialMediaAndResumeLinks from '../components/home-page/social-media-resume.vue';
+import highlights from '../components/home-page/highlights.vue';
+import interests from '../components/home-page/interests.vue';
+import recentUpdates from '../components/home-page/recent-updates.vue';
+import { useBlogMetadataStore } from '@/stores/BlogMetadata';
+import { useNavigationStore } from '@/stores/Navigation';
+import { useGlobalDataStore } from '@/stores/GlobalData';
+import { computed } from 'vue';
+const blogMetadataStore = useBlogMetadataStore();
+const navigationStore = useNavigationStore();
+const globalDataStore = useGlobalDataStore();
+const currentHref = '/';
+const socialMediaItems = navigationStore.contact.socialMediaItems;
+const aboutItems = navigationStore.about.aboutItems;
+const appOwner = globalDataStore.appOwner;
+const runtimeConfig = useRuntimeConfig(); // $config.baseURL
+const route = useRoute(); // route.params
+const baseUrl = runtimeConfig.public.baseUrl;
+async function setupBlogMetadata() {
+    try {
+        if (blogMetadataStore.blogMetadata.length === 0) {
+          await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
+        }
+    } catch (error) {
+      console.log(error)
+    }
+};
+await setupBlogMetadata();
+const blogMetadata = blogMetadataStore.blogMetadata;
+components: {
+  aboutBlurb,
+  recentPostsHomePage,
+  featured,
+  socialMediaAndResumeLinks,
+  highlights,
+  interests,
+  recentUpdates
+};
+const breadcrumbs = [
+  {
+    title: 'Home',
+    disabled: false,
+    href: '/',
   },
-  async asyncData({ store, params, $config, payload }) {
-    if (payload) {
-      return {
-        baseUrl: $config.baseURL,
-        blogMetadata: payload,
-      }
-    } else {
-      if (store.state.BlogMetadata.blogMetadata.length === 0) {
-        await store.dispatch('BlogMetadata/getBlogMetadata', [$config.baseURL])
-      }
-      return {
-        baseUrl: $config.baseURL,
-      }
+];
+const breadcrumbsComputed = computed({
+    get() {
+      return  breadcrumbs
     }
-  },
-  data() {
-    return {
-      currentHref: '/',
-    }
-  },
-  head() {
-    const url = this.baseUrl + this.currentHref
-    const breadcrumbsStructuredDataArray = this.breadcrumbs.map(
-      (item, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        item: {
-          '@id': this.baseUrl + item.to,
-          name: item.text,
-        },
-      })
-    )
-    const breadcrumbsStructuredData = {
-      '@context': 'http://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbsStructuredDataArray,
-    }
-    const structuredData = {
-      '@context': 'http://schema.org',
-      '@type': 'Person',
-      name: this.appOwner,
-      url,
-      sameAs: [
-        this.socialMediaItems[0].href,
-        this.socialMediaItems[1].href,
-        this.socialMediaItems[2].href,
-        'https://www.facebook.com/manas.talukdar',
-        'https://www.instagram.com/manastalukdar/',
-        'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA',
-      ],
-    }
-    return {
-      title: this.appOwner,
-      link: [{ rel: 'canonical', href: url }],
-      __dangerouslyDisableSanitizers: ['script'],
-      script: [
-        {
-          innerHTML: JSON.stringify(structuredData),
-          type: 'application/ld+json',
-        },
-        {
-          innerHTML: JSON.stringify(breadcrumbsStructuredData),
-          type: 'application/ld+json',
-        },
-      ],
-    }
-  },
-  computed: {
-    ...mapState({
-      socialMediaItems: (state) => state.Navigation.contact.socialMediaItems,
-      aboutItems: (state) => state.Navigation.about.aboutItems,
-      appOwner: (state) => state.GlobalData.appOwner,
-      blogMetadata: (state) => state.BlogMetadata.blogMetadata,
-    }),
-    breadcrumbs() {
-      return [
-        {
-          text: 'Home',
-          disabled: false,
-          to: '/',
-        },
-      ]
+  });
+const url = baseUrl + currentHref;
+const breadcrumbsStructuredDataArray = breadcrumbs.map(
+  (item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@id': baseUrl + item.to,
+      name: item.text,
     },
-  },
-}
+  })
+);
+const breadcrumbsStructuredData = {
+  '@context': 'http://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbsStructuredDataArray,
+};
+const structuredData = {
+  '@context': 'http://schema.org',
+  '@type': 'Person',
+  name: appOwner,
+  url,
+  sameAs: [
+    socialMediaItems[0].href,
+    socialMediaItems[1].href,
+    socialMediaItems[2].href,
+    'https://www.facebook.com/manas.talukdar',
+    'https://www.instagram.com/manastalukdar/',
+    'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA',
+  ],
+};
+useHead({
+  title: appOwner,
+    link: [{ rel: 'canonical', href: url }],
+    __dangerouslyDisableSanitizers: ['script'],
+    script: [
+      {
+        innerHTML: JSON.stringify(structuredData),
+        type: 'application/ld+json',
+      },
+      {
+        innerHTML: JSON.stringify(breadcrumbsStructuredData),
+        type: 'application/ld+json',
+      },
+    ],
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
