@@ -49,7 +49,7 @@ export default defineNuxtConfig({
         {
           hid: 'keywords',
           name: 'keywords',
-          content: siteOwner + ', website, blog, resume',
+          content: siteOwner + ', website, blog, resume, data infrastructure, enterprise ai',
         },
         {
           hid: 'description',

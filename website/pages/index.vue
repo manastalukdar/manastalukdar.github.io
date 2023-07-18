@@ -54,6 +54,7 @@ const currentHref = '/';
 const socialMediaItems = navigationStore.contact.socialMediaItems;
 const aboutItems = navigationStore.about.aboutItems;
 const appOwner = globalDataStore.appOwner;
+const homepageTitle = globalDataStore.homepageTitle;
 const runtimeConfig = useRuntimeConfig(); // $config.baseURL
 const route = useRoute(); // route.params
 const baseUrl = runtimeConfig.public.baseUrl;
@@ -120,7 +121,7 @@ const structuredData = {
   ],
 };
 useHead({
-  title: appOwner,
+  title: homepageTitle,
     link: [{ rel: 'canonical', href: url }],
     __dangerouslyDisableSanitizers: ['script'],
     script: [

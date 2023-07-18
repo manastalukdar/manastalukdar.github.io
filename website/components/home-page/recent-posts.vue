@@ -2,7 +2,7 @@
   <v-col cols="12">
     <v-card
       color="cardColor"
-      class="pa-3"
+      class="pa-3 pt-5"
       raised
       elevation="8"
       style="height: 100%"
