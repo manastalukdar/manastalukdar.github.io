@@ -21,13 +21,13 @@
 import fm from 'front-matter'
 import mdit from 'markdown-it'
 import { computedAsync } from '@vueuse/core'
+import getTargetBlankLinkRender from '../../utils/markdownRenderHelpers.ts';
 const md = new mdit({
   html: true,
   linkify: true,
   typographer: true,
 })
-// const markdownRenderHelpers = require('../../utils/markdownRenderHelpers.js')
-// markdownRenderHelpers.default.functions.getTargetBlankLinkRender(md)
+getTargetBlankLinkRender(md)
 export default {
   setup() {
     const recent = computedAsync(async () => {

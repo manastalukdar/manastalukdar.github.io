@@ -99,9 +99,6 @@ useHead({
     },
   ],
 });
-components: {
-  breadcrumbs
-}
 </script>
 
 <style></style>

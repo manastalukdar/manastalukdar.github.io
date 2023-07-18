@@ -1,8 +1,18 @@
 <template>
   <v-col cols="12">
-    <v-card class="pa-3 pb-5" raised elevation="8" color="cardColor">
+    <v-card
+      color="cardColor"
+      class="pa-8"
+      raised
+      elevation="8"
+      style="height: 100%"
+    >
+      <v-row class="text-h5 px-3 py-3" justify="center">
+        <span>For Recruiters and Hiring Managers</span>
+      </v-row>
+      <p />
       <!--eslint-disable-next-line vue/no-v-html-->
-      <div class="text-justify px-2" v-html="aboutBlurb" />
+      <div class="pl-2 pb-2" v-html="recruiters" />
     </v-card>
   </v-col>
 </template>
@@ -18,9 +28,9 @@ const md = new mdit({
 })
 export default {
   setup() {
-    const aboutBlurb = computedAsync(async () => {
+    const recruiters = computedAsync(async () => {
       try {
-        const fileContent = await import('./about-blurb.md?raw')
+        const fileContent = await import('./recruiters.md?raw')
         const res = fm(fileContent.default)
         return md.render(res.body)
       } catch (error) {
@@ -28,7 +38,7 @@ export default {
       }
     })
     return {
-      aboutBlurb
+      recruiters
     }
   },
 }
