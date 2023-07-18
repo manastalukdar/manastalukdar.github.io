@@ -5,6 +5,8 @@
  https://opensource.org/licenses/MIT
 -->
 
+Note: Not looking for any new opportunity at this time.
+
 ### What I bring to the table?
 
 - Over 16 years of industry experience in established companies as well as startups.
