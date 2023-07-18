@@ -17,7 +17,7 @@
   </v-col>
 </template>
 
-<script>
+<script setup>
 import fm from 'front-matter'
 import mdit from 'markdown-it'
 import { computedAsync } from '@vueuse/core'
@@ -26,20 +26,13 @@ const md = new mdit({
   linkify: true,
   typographer: true,
 })
-export default {
-  setup() {
-    const recruiters = computedAsync(async () => {
-      try {
-        const fileContent = await import('./recruiters.md?raw')
-        const res = fm(fileContent.default)
-        return md.render(res.body)
-      } catch (error) {
-        console.log(error)
-      }
-    })
-    return {
-      recruiters
-    }
-  },
-}
+const recruiters = computedAsync(async () => {
+  try {
+    const fileContent = await import('./recruiters.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
 </script>

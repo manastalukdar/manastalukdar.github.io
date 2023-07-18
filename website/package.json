@@ -16,7 +16,7 @@
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@types/lodash": "^4.14.195",
     "@types/node": "^20.4.2",
-    "@volar-plugins/vetur": "latest",
+    "volar-service-vetur": "latest",
     "@vueuse/core": "^10.2.1",
     "@vueuse/nuxt": "^10.2.1",
     "material-design-icons-iconfont": "^6.7.0",
