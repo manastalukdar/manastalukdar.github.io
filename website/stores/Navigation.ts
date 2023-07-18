@@ -74,6 +74,12 @@ const initialState = () => ({
         icon: 'mdi-file-document',
         text: 'Resume',
       },
+      {
+        href: '/about/recruiters/',
+        target: '_blank',
+        icon: 'mdi-handshake',
+        text: 'Recruiters',
+      },
     ],
   },
   legal: {
