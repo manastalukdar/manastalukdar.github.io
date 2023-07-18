@@ -13,19 +13,19 @@
 - A very high systemizing nature - highly methodical and meticulous.
 - Strong bias for action.
 - Ability to keep track of multiple threads and ensure progress on all of them.
+- Ability to work very hard.
 
 ### What value will I provide?
 
 - Strong technical background coupled with strong engineering leadership.
 - Ability to sift through ambiguity and bring _order to chaos_.
 - Compelling ability to provide results under challenging circumstances.
-- Ability to work very hard.
 - Multiplier affect on people around me.
 
 ### What would interest me?
 
 - A role heading the engineering organization for an earlier stage startup (ideally series A or B).
-- Solving problems broadly at the intersection of large-scale distributed systems, data infrastructure and AI/ML.
+- Solving problems broadly at the intersection of **large-scale distributed systems, data infrastructure and AI/ML**.
 - Working with people who value hard work, integrity, trust and mutual respect.
 - The reward of going on a journey towards collective accomplishment.
 
@@ -41,5 +41,6 @@
 
 ### Next steps?
 
+- View my [resume](https://manastalukdar.github.io/about/resume/).
 - Email me at `firstName.lastName@gmail.com`.
 - Connect with me at [LinkedIn](https://www.linkedin.com/in/manastalukdar/).
