@@ -8,7 +8,7 @@
       style="height: 100%"
       id="printMe"
     >
-      <v-row class="text-h5 px-3 py-3" justify="center">
+      <v-row id="recruiters-header" class="text-h5 px-3 py-3" justify="center">
         <span>For Recruiters and Hiring Managers</span>
       </v-row>
       <p />
@@ -43,7 +43,7 @@ const recruiters = computedAsync(async () => {
 });
 const { paperize } = usePaperizer('printMe',  {
   styles: [
-    '#single-post-header {text-align: center; justify-content: center !important;} .row {display: flex; flex-wrap: wrap; flex: 1 1 auto;} .col {flex-basis: 0; flex-grow: 1; max-width: 100%} .col-12 {flex: 0 0 100%} html {font-family: "Maven Pro", sans-serif; line-height: 1.8; font-size: 15px}'
+    '#recruiters-header {text-align: center; justify-content: center !important;} .row {display: flex; flex-wrap: wrap; flex: 1 1 auto;} .col {flex-basis: 0; flex-grow: 1; max-width: 100%} .col-12 {flex: 0 0 100%} html {font-family: "Maven Pro", sans-serif; line-height: 1.8; font-size: 15px}'
   ]
 });
 const print = () => {
