@@ -1,7 +1,7 @@
 <template>
   <v-col cols="12">
     <v-card color="cardColor" class="pa-3  pt-5 fill-height" raised elevation="8">
-      <v-row class="pa-3 px-15" justify="space-between">
+      <v-row class="pa-3 px-15 space-evenly">
         <v-list-item
           v-for="item in socialMediaItems"
           :key="item.text"
