@@ -1,4 +1,4 @@
-- Senior industry leader in _**Data Infrastructure** for Enterprise AI_. Experienced in leading organizations and developing products used in global critical industrial infrastructure.
+- Senior industry leader in _**Data Infrastructure** for Enterprise AI_. Experienced in leading organizations and developing products used in critical industrial infrastructure across the world.
 
 - _More than 16 years of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
 
