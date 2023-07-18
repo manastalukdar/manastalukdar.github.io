@@ -37,6 +37,11 @@ const darkTheme1 = {
 const lightTheme = {
   dark: false,
   colors: {
+    background: "#eee",
+    surface: "#15202b",
+    primary: "#3f51b5",
+    secondary: "#00ccff",
+    error: "#ffcc00",
     headerAndFooterColor: colors.grey.lighten2,
     cardColor: colors.shades.white,
     backToTopBackground: colors.grey.lighten2,

@@ -52,7 +52,7 @@ function flipSidebarVisibility() {
 function flipThemeMode() {
   //console.log(theme.global.name.value)
   //console.log(theme.global.current.value)
-  theme.global.name.value = 'darkTheme1' ? 'lightTheme' : 'darkTheme1';
+  theme.global.name.value = theme.global.name.value === 'darkTheme1' ? 'lightTheme' : 'darkTheme1';
   //console.log(theme.global.current.value)
   setCorrectHJsStyle();
 };
