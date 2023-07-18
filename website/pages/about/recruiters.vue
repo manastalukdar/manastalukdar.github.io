@@ -8,14 +8,14 @@
       style="height: 100%"
       id="printMe"
     >
-      <v-row class="text-h5 px-3 py-3 recruiters-header space-around">
+      <v-row class="text-h5 px-3 py-3 recruiters-header justify-center">
         <span>For Recruiters and Hiring Managers</span>
       </v-row>
       <p />
       <!--eslint-disable-next-line vue/no-v-html-->
       <div class="pl-2 pb-2" v-html="recruiters" />
 
-      <div class="printButton col py-5 space-around">
+      <div class="printButton col py-5 justify-center">
         <v-icon @click="print">mdi-printer</v-icon>
       </div>
     </v-card>
