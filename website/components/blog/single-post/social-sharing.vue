@@ -74,7 +74,7 @@ defineProps ({
 const twitterUser = 'ManasTalukdar';
 const { paperize } = usePaperizer('printMe',  {
   styles: [
-    '#single-post-header {text-align: center; justify-content: center !important;} .row {display: flex; flex-wrap: wrap; flex: 1 1 auto;} .col {flex-basis: 0; flex-grow: 1; max-width: 100%} .col-12 {flex: 0 0 100%} html {font-family: "Maven Pro", sans-serif; line-height: 1.8; font-size: 15px}'
+    '../../../style/print-blog-post.css'
   ]
 });
 const print = () => {
