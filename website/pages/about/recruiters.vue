@@ -13,9 +13,9 @@
       </v-row>
       <p />
       <!--eslint-disable-next-line vue/no-v-html-->
-      <div class="pl-2 pb-2" v-html="recruiters" />
+      <div class="pl-2 pb-2 markdown-content" v-html="recruiters" />
 
-      <div class="printButton col py-5 justify-center">
+      <div class="printButton row py-5 justify-center">
         <v-icon @click="print">mdi-printer</v-icon>
       </div>
     </v-card>
@@ -43,7 +43,7 @@ const recruiters = computedAsync(async () => {
 });
 const { paperize } = usePaperizer('printMe',  {
   styles: [
-  'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
+  //'https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css',
     '../../style/print-recruiters.css'
   ]
 });
