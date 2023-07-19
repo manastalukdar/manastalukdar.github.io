@@ -5,6 +5,8 @@
       hover
       class="py-5 px-5"
       nuxt
+      raised
+      elevation="8"
       :to="
         getBlogPostRoute(
           postLinkSlugs().year,

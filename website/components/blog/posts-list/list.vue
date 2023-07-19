@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <v-row class="pa-3">
     <v-col class="py-2" cols="12">
       <v-data-iterator
         v-model:items-per-page="itemsPerPage"
