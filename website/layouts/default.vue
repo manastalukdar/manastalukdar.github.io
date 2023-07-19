@@ -81,9 +81,9 @@ export default {
   background-color: var(--v-theme-background-lighten1) !important;
 }
 
-.v-theme--darkTheme1.v-table__wrapper {
+/*.v-theme--darkTheme1.v-table__wrapper {
   background: var(--v-theme-cardColor) !important;
-}
+}*/
 
 .v-theme--darkTheme1 a {
   color: #42b983;

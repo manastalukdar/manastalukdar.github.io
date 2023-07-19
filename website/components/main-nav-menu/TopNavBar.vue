@@ -57,7 +57,7 @@ function flipThemeMode() {
   setCorrectHJsStyle();
 };
 function setCorrectHJsStyle() {
-  if (theme.global.name.value = 'darkTheme1') {
+  if (theme.global.name.value === 'darkTheme1') {
     setCorrectHJsStyleBase('dark', 'light')
   } else {
     setCorrectHJsStyleBase('light', 'dark')
