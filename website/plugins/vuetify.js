@@ -17,7 +17,7 @@ const darkTheme1 = {
   dark: true,
   colors: {
     background: "#141e24", // #141e24
-    surface: "#141e24",
+    surface: colors.blueGrey.darken3, // #141e24
     headerAndFooterColor: colors.blueGrey.darken3,
     cardColor: colors.blueGrey.darken4,
     primary: colors.teal.lighten3, // blue.darken2
