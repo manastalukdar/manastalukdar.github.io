@@ -48,6 +48,8 @@ export default {
     addBackToTop({
       diameter: 40,
       zIndex: 3,
+      backgroundColor: 'var(--v-backToTopBackground-base)',
+      textColor: 'var(--v-backToTopText-base)'
     })
   },
 }
