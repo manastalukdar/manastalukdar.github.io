@@ -48,10 +48,11 @@ export default {
   computed: {
   },
   mounted() {
-    // this.$vuetify.theme.dark = true
     backToTop.addBackToTop({
-      diameter: 45,
+      diameter: 50,
       zIndex: 3,
+      backgroundColor: 'var(--v-backToTopBackground)',
+      textColor: 'var(--v-backToTopText)'
     })
   },
 }
@@ -64,7 +65,7 @@ export default {
 }
 
 #back-to-top {
-  background: var(--v-theme-backToTopBackground-base);
+  background: #85A3C3;
   color: var(--v-theme-backToTopText-base);
   bottom: 70px;
 }
