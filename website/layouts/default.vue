@@ -67,7 +67,7 @@ export default {
 #back-to-top {
   background: #85A3C3;
   color: var(--v-theme-backToTopText-base);
-  bottom: 70px;
+  bottom: 100px;
 }
 .fade-enter-active,
 .fade-leave-active {
