@@ -38,11 +38,6 @@
 - An annual bonus at 25-30% of base pay.
 - A generous options package at an attractive strike price and exercise timeline. **Note**: If the startup is still in seed round, I will expect attractive percentage equity.
 - Additional annual performance based stock grants.
-- Stock grants vesting cycle being over 4 years. One year initial vesting cliff is acceptable if subsequent vests happen every month or with each pay cycle.
-- Nice to haves:
-  - 401(k) matching.
-  - Wellness / gym membership stipend.
-  - Performance based out-of-band cash bonuses.
 
 ### Miscellaneous
 
