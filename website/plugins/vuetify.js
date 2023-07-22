@@ -47,7 +47,7 @@ const darkEasyTheme = {
     headerAndFooterColor: "rgb(42, 45, 47)",
     cardColor: "rgb(24, 26, 20)",
     primary: colors.teal.lighten3,
-    backToTopBackground: colors.blueGrey.darken2,
+    backToTopBackground: "rgb(42, 45, 47)",
     backToTopText: colors.blue.lighten1,
     codeBackgroundColor: "#282c34",
     codeTextColor: "#abb2bf",

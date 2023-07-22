@@ -65,8 +65,8 @@ export default {
 }
 
 #back-to-top {
-  background: #85A3C3;
-  color: var(--v-theme-backToTopText-base);
+  background: rgb(var(--v-theme-backToTopBackground));
+  color: rgb(var(--v-theme-backToTopText));
   bottom: 100px;
 }
 .fade-enter-active,
@@ -97,7 +97,7 @@ a:active {
 }*/
 
 .theme-selector {
-  max-width: 172px;
+  max-width: 140px;
   max-height: 45px;
 }
 
