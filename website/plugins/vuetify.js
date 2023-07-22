@@ -13,7 +13,7 @@ import { VDataTable } from "vuetify/labs/VDataTable";
 import { VDataIterator } from "vuetify/labs/VDataIterator";
 import "vuetify/styles";
 
-const darkTheme1 = {
+const darkForestTheme = {
   dark: true,
   colors: {
     background: "#141e24", // #141e24
@@ -25,6 +25,37 @@ const darkTheme1 = {
     backToTopText: colors.blue.lighten1,
     codeBackgroundColor: "#282c34",
     codeTextColor: "#abb2bf",
+    linkColor: "#42b983",
+    linkHoverColor: "#ce7720",
+    linkActiveColor: "#e90e0e",
+    LinkVisitedColor: "#b1be80",
+    textColor: "rgb(232, 230, 227)",
+    /* accent: colors.grey.darken3,
+      secondary: colors.amber.darken3,
+      info: colors.teal.lighten1,
+      warning: colors.amber.base,
+      error: colors.deepOrange.accent4,
+      success: colors.green.accent3 */
+  },
+};
+
+const darkEasyTheme = {
+  dark: true,
+  colors: {
+    background: "rgb(24, 26, 27)",
+    surface: "rgb(24, 26, 27)",
+    headerAndFooterColor: "rgb(42, 45, 47)",
+    cardColor: "rgb(24, 26, 20)",
+    primary: colors.teal.lighten3,
+    backToTopBackground: colors.blueGrey.darken2,
+    backToTopText: colors.blue.lighten1,
+    codeBackgroundColor: "#282c34",
+    codeTextColor: "#abb2bf",
+    linkColor: "#42b983",
+    linkHoverColor: "#ce7720",
+    linkActiveColor: "#e90e0e",
+    LinkVisitedColor: "#b1be80",
+    textColor: "rgb(232, 230, 227)",
     /* accent: colors.grey.darken3,
       secondary: colors.amber.darken3,
       info: colors.teal.lighten1,
@@ -48,16 +79,22 @@ const lightTheme = {
     backToTopText: colors.red.base,
     codeBackgroundColor: "#f5f5f5",
     codeTextColor: "#383636",
+    linkColor: "#31805c",
+    linkHoverColor: "#ca6a2a",
+    linkActiveColor: "#e90e0e",
+    LinkVisitedColor: "#797a33",
+    textColor: "rgb(232, 230, 227)",
   },
 };
 
 export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     theme: {
-      defaultTheme: "darkTheme1",
+      defaultTheme: "darkForestTheme",
       themes: {
-        darkTheme1,
+        darkForestTheme,
         lightTheme,
+        darkEasyTheme,
       },
       options: {
         customProperties: true,

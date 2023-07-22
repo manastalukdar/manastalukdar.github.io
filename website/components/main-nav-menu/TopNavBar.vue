@@ -15,15 +15,26 @@
       </nuxt-link>
     </v-toolbar-title>
     <div class="flex-grow-1" />
-    <v-btn text icon @click="flipThemeMode">
+<!--     <v-btn text icon @click="flipThemeMode">
       <v-icon>mdi-theme-light-dark</v-icon>
-    </v-btn>
+    </v-btn> -->
     <v-toolbar-items class="hidden-sm-and-down">
       <MainNavMenuBlog />
       <MainNavMenuAbout />
       <MainNavMenuLegal />
       <MainNavMenuContact />
     </v-toolbar-items>
+
+    <v-select
+      label="Theme"
+      class="theme-selector"
+      density="compact"
+      chips
+      variant="solo"
+      v-model="selectedTheme"
+      :items="myThemes"
+      @update:modelValue="setTheme()"
+    ></v-select>
 
     <v-btn text icon class="hidden-md-and-up" @click="flipSidebarVisibility">
       <v-icon>mdi-menu</v-icon>
@@ -41,23 +52,41 @@ import MainNavMenuAbout from './About.vue';
 import MainNavMenuLegal from './Legal.vue';
 import MainNavMenuContact from './Contact.vue';
 import { useTheme } from 'vuetify';
-const appTitle = globalDataStore.appTitle;
 const theme = useTheme();
+const themeLookup = {
+  "darkForestTheme": "Dark Forest",
+  "darkEasyTheme": "Dark Easy",
+  "lightTheme": "Light"
+}
+const myThemes = Object.values(themeLookup);
+var selectedTheme = ref(themeLookup[theme.global.name.value]);
+const appTitle = globalDataStore.appTitle;
 onMounted(() => {
   setCorrectHJsStyle();
 });
 function flipSidebarVisibility() {
   navigationStore.flipSidebarVisibility();
 };
+const setTheme = () => {
+  Object.entries(themeLookup).forEach(([k,v]) => {
+    if (v === selectedTheme.value) {
+      //console.log(v)
+      theme.global.name.value = k
+    }
+  })
+  //theme.global.name.value = selectedTheme.value;
+  //console.log(selectedTheme.value);
+};
 function flipThemeMode() {
   //console.log(theme.global.name.value)
   //console.log(theme.global.current.value)
-  theme.global.name.value = theme.global.name.value === 'darkTheme1' ? 'lightTheme' : 'darkTheme1';
+  theme.global.name.value = theme.global.name.value === 'darkForestTheme' ? 'lightTheme' : 'darkForestTheme';
   //console.log(theme.global.current.value)
+  selectedTheme = ref(themeLookup[theme.global.name.value]);
   setCorrectHJsStyle();
 };
 function setCorrectHJsStyle() {
-  if (theme.global.name.value === 'darkTheme1') {
+  if (theme.global.name.value === 'darkForestTheme') {
     setCorrectHJsStyleBase('dark', 'light')
   } else {
     setCorrectHJsStyleBase('light', 'dark')

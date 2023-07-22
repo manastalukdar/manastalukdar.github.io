@@ -78,39 +78,27 @@ export default {
   opacity: 0;
 }
 
-.theme--darkTheme1.v-application {
+.theme--darkForestTheme.v-application {
   background-color: var(--v-theme-background-lighten1) !important;
 }
 
-/*.v-theme--darkTheme1.v-table__wrapper {
-  background: var(--v-theme-cardColor) !important;
+a {
+  color: rgb(var(--v-theme-linkColor));
+}
+a:hover {
+  color: rgb(var(--v-theme-linkHoverColor));
+}
+a:active {
+  color: rgb(var(--v-theme-linkActiveColor));;
+}
+/*a:visited {
+  color: rgb(var(--v-theme-linkVisitedColor));;
 }*/
 
-.v-theme--darkTheme1 a {
-  color: #42b983;
+.theme-selector {
+  max-width: 172px;
+  max-height: 45px;
 }
-.v-theme--darkTheme1 a:hover {
-  color: #ce7720;
-}
-.v-theme--darkTheme1 a:active {
-  color: #e90e0e;
-}
-/*.v-theme--darkTheme1 a:visited {
-  color: #b1be80;
-}*/
-
-.v-theme--lightTheme a {
-  color: #31805c;
-}
-.v-theme--lightTheme a:hover {
-  color: #ca6a2a;
-}
-.v-theme--lightTheme a:active {
-  color: #e90e0e;
-}
-/*.v-theme--lightTheme a:visited {
-  color: #797a33;
-}*/
 
 p {
   margin-top: 16px;
