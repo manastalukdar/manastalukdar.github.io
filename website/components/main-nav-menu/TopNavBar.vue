@@ -70,7 +70,8 @@ function flipSidebarVisibility() {
 const setTheme = () => {
   Object.entries(themeLookup).forEach(([k,v]) => {
     if (v === selectedTheme.value) {
-      //console.log(v)
+      console.log("k: " + k)
+      console.log("v: " +v)
       theme.global.name.value = k
     }
   })
