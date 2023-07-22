@@ -30,7 +30,7 @@
       class="theme-selector"
       density="compact"
       chips
-      variant="solo"
+      variant="solo-filled"
       v-model="selectedTheme"
       :items="myThemes"
       @update:modelValue="setTheme()"

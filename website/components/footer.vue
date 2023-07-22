@@ -26,7 +26,14 @@
             href="https://nuxt.com/"
             target="_blank"
             rel="noopener noreferrer"
-            >Nuxt.js</a
+            >Nuxt</a
+          >
+          and
+          <a
+            href="https://vuetifyjs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Vuetify</a
           >
           &nbsp;||&nbsp;
           <a href="/sitemap.xml" target="_blank">{{ siteMapText }}</a>
