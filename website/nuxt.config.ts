@@ -268,6 +268,10 @@ export default defineNuxtConfig({
     url: baseUrl,
   },
 
+  routeRules: {
+    '/**': { swr: 60  }, // 👈🏻 TTL in seconds
+  },
+
   sitemap: {
     urls: () => {
       if (getRoutes.properties.sitemapRoutes.length == 0) {
