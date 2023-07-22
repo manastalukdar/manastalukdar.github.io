@@ -50,9 +50,7 @@ export default {
   mounted() {
     backToTop.addBackToTop({
       diameter: 50,
-      zIndex: 3,
-      backgroundColor: 'var(--v-backToTopBackground)',
-      textColor: 'var(--v-backToTopText)'
+      zIndex: 3
     })
   },
 }
