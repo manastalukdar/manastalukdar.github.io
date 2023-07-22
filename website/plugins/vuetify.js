@@ -39,7 +39,7 @@ const darkForestTheme = {
   },
 };
 
-const darkEasyTheme = {
+const darkNightTheme = {
   dark: true,
   colors: {
     background: "rgb(24, 26, 27)",
@@ -94,7 +94,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       themes: {
         darkForestTheme,
         lightTheme,
-        darkEasyTheme,
+        darkNightTheme,
       },
       options: {
         customProperties: true,

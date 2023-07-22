@@ -55,7 +55,7 @@ import { useTheme } from 'vuetify';
 const theme = useTheme();
 const themeLookup = {
   "darkForestTheme": "Dark Forest",
-  "darkEasyTheme": "Dark Easy",
+  "darkNightTheme": "Dark Night",
   "lightTheme": "Light"
 }
 const myThemes = Object.values(themeLookup);
@@ -76,6 +76,7 @@ const setTheme = () => {
   })
   //theme.global.name.value = selectedTheme.value;
   //console.log(selectedTheme.value);
+  setCorrectHJsStyle();
 };
 function flipThemeMode() {
   //console.log(theme.global.name.value)
@@ -86,7 +87,7 @@ function flipThemeMode() {
   setCorrectHJsStyle();
 };
 function setCorrectHJsStyle() {
-  if (theme.global.name.value === 'darkForestTheme') {
+  if (theme.global.name.value.includes("dark")) {
     setCorrectHJsStyleBase('dark', 'light')
   } else {
     setCorrectHJsStyleBase('light', 'dark')
