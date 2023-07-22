@@ -88,10 +88,10 @@ a:hover {
   color: rgb(var(--v-theme-linkHoverColor));
 }
 a:active {
-  color: rgb(var(--v-theme-linkActiveColor));;
+  color: rgb(var(--v-theme-linkActiveColor));
 }
 /*a:visited {
-  color: rgb(var(--v-theme-linkVisitedColor));;
+  color: rgb(var(--v-theme-linkVisitedColor));
 }*/
 
 .theme-selector {
