@@ -82,8 +82,9 @@ export default {
   background-color: var(--v-theme-background-lighten1) !important;
 }
 
-a {
+.v-breadcrumbs-item--link, a {
   color: rgb(var(--v-theme-linkColor));
+  text-decoration: underline;
 }
 a:hover {
   color: rgb(var(--v-theme-linkHoverColor));
