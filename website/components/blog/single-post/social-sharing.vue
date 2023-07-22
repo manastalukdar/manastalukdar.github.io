@@ -83,12 +83,6 @@ const print = () => {
 </script>
 
 <style>
-.v-theme--darkForestTheme .socialSharing a {
-  color: #fff !important;
-}
-.v-theme--lightTheme .socialSharing a {
-  color: rgba(0, 0, 0, 0.54) !important;
-}
 .socialSharingItems {
   display: flex;
   justify-content: center;
