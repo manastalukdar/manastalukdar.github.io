@@ -1,6 +1,8 @@
-- Senior industry leader in _**Data Infrastructure** for Enterprise AI_. Experienced in leading organizations and developing products used in critical industrial infrastructure across the world.
+- Senior industry leader in _**Data Infrastructure** for Enterprise AI_. Experienced in building and growing organizations and developing products used in critical industrial infrastructure across the world.
 
 - _More than 16 years of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
+
+- Quick learner, self driven. Significant experience and contributions in distributed systems, data infrastructure and cloud computing. Recent technical focus on scalable AI/ML platforms. Current core competencies in large-scale systems design and organizational growth.
 
 - Established the Data org within Platform engineering department at C3 AI. Grew a team of 6 to an org of ~30 engineers across 5 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
 
