@@ -14,6 +14,7 @@
 - Proven track record of building and scaling products used in critical industrial infrastructure across the world.
 - Experience leading teams and organizations both co-located and remote / distributed.
 - A highly systemizing nature. Very methodical and meticulous.
+- Excellent communication and collaboration skills.
 - Strong bias for action.
 - Strong sense of ownership and very hard working.
 
