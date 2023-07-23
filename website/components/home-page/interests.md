@@ -1,4 +1,4 @@
-- **AI/ML Platforms**: My recent work has mostly been in scalable platforms for large-scale AI/ML and data analysis applications. This is aligned with my continued interest in working at the intersection of distributed systems, big data and AI/ML.
+- **AI/ML Platforms**: My recent work has mostly been in scalable platforms for large-scale AI/ML and data analysis applications. This is aligned with my continued interest in working at the intersection of distributed systems, data infrastructure and AI/ML.
 
 - **Distributed Systems and Cloud Computing**: I am interested in the design, architecture and organizational challenges of distributed systems. I enjoy working on problems involving scale, data consistency, availability, resiliency, reliability, microservices, and how to build and run teams that solve these problems. I have extensive experience with public cloud platforms, specifically Microsoft Azure since its very early days. I am also quite comfortable with Amazon Web Services, familiar with Google Cloud Platform and I have a good grasp of distributed systems technologies in the open source domain.
 
