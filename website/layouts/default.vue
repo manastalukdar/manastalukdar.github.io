@@ -65,7 +65,7 @@ export default {
 #back-to-top {
   background: rgb(var(--v-theme-backToTopBackground));
   color: rgb(var(--v-theme-backToTopText));
-  bottom: 100px;
+  bottom: 120px;
 }
 .fade-enter-active,
 .fade-leave-active {
@@ -76,11 +76,11 @@ export default {
   opacity: 0;
 }
 
-.theme--darkForestTheme.v-application {
+/* .theme--darkForestTheme.v-application {
   background-color: var(--v-theme-background-lighten1) !important;
-}
+} */
 
-.v-breadcrumbs-item--link, a {
+.v-breadcrumbs-item--link, .v-list-item a, a {
   color: rgb(var(--v-theme-linkColor));
   text-decoration: underline;
 }
