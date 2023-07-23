@@ -29,7 +29,7 @@ jobs:
             python3 -m pip install -r website/scripts/python-requirements.txt
             python3 website/scripts/create_blog_metadata.py
             mkdir -p tmp/
-            cp website/static/blogdata tmp -r
+            cp website/public/blogdata tmp -r
             find tmp
 
       - persist_to_workspace:
@@ -53,7 +53,7 @@ jobs:
       - run:
           name: Run npm generate
           command: |
-            cp tmp/blogdata website/static/blogdata -r
+            cp tmp/blogdata website/public/blogdata -r
             cd website
             npm install --legacy-peer-deps
             npm run getHighlightJsStyleSheets
