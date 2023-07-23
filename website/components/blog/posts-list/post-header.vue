@@ -4,8 +4,9 @@
       <v-row class="text-h6 px-3 py-3" justify="center">
         <v-col class="text-center align-center">
           {{ props.postMetadata.title }}
-          &nbsp;
-          <v-icon>{{ postFormatIcon() }}</v-icon>
+          <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
+            <v-icon>{{ postFormatIcon() }}</v-icon>
+          </nuxt-link>
         </v-col>
         <p />
       </v-row>
@@ -64,6 +65,7 @@ const postFormatIcon = () => {
 const dynamicCategoryRoute = navigationStore.blog.dynamicItems.category.href;
 const dynamicTagRoute = navigationStore.blog.dynamicItems.tag.href;
 const dynamicAuthorRoute = navigationStore.blog.dynamicItems.author.href;
+const dynamicPostFormatRoute = navigationStore.blog.dynamicItems.postFormat.href;
 const aboutItems = navigationStore.about.aboutItems;
 const appOwner = globalDataStore.appOwner;
 const blogMetadata = globalDataStore.blogMetadata;
@@ -76,6 +78,10 @@ const getTagRoute = (slug) => {
 };
 const getAuthorRoute = (slug) => {
   return dynamicAuthorRoute + slug + '/'
+};
+const getPostFormatRoute = (slug) => {
+  console.log(dynamicPostFormatRoute + slug + '/')
+  return dynamicPostFormatRoute + slug + '/'
 };
 </script>
 

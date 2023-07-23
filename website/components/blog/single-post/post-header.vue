@@ -4,8 +4,9 @@
       <v-row class="text-h5 px-3 py-3" justify="center">
         <v-col class="text-center align-center">
           {{ props.postMetadata.title }}
-          &nbsp;
-          <v-icon>{{ postFormatIcon() }}</v-icon>
+          <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
+            <v-icon>{{ postFormatIcon() }}</v-icon>
+          </nuxt-link>
         </v-col>
         <p />
       </v-row>
