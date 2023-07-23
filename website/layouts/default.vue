@@ -80,9 +80,8 @@ export default {
   background-color: var(--v-theme-background-lighten1) !important;
 } */
 
-.v-breadcrumbs-item--link, .v-list-item a, a {
+.v-breadcrumbs-item--link, .v-list-item, a {
   color: rgb(var(--v-theme-linkColor));
-  text-decoration: underline;
 }
 a:hover {
   color: rgb(var(--v-theme-linkHoverColor));
@@ -94,10 +93,10 @@ a:active {
   color: rgb(var(--v-theme-linkVisitedColor));
 }*/
 
-.theme-selector {
+/* .theme-selector {
   max-width: 140px;
   max-height: 45px;
-}
+} */
 
 p {
   margin-top: 16px;

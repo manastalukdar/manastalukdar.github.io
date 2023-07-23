@@ -24,21 +24,16 @@
       <MainNavMenuLegal />
       <MainNavMenuContact />
     </v-toolbar-items>
-
-    <v-select
-      label="Theme"
-      class="theme-selector"
-      density="compact"
-      chips
-      variant="solo-filled"
-      v-model="selectedTheme"
-      :items="myThemes"
-      @update:modelValue="setTheme()"
-    ></v-select>
-
+    <client-only>
     <v-btn text icon class="hidden-md-and-up" @click="flipSidebarVisibility">
       <v-icon>mdi-menu</v-icon>
     </v-btn>
+    <v-btn @click="flipSettingsDialogVisibility">
+      <v-icon>mdi-cog</v-icon>
+      <settings>
+      </settings>
+    </v-btn>
+  </client-only>
   </v-app-bar>
 </template>
 
@@ -51,79 +46,16 @@ import MainNavMenuBlog from './Blog.vue';
 import MainNavMenuAbout from './About.vue';
 import MainNavMenuLegal from './Legal.vue';
 import MainNavMenuContact from './Contact.vue';
-import { useTheme } from 'vuetify';
-const theme = useTheme();
-const themeLookup = {
-  "darkForestTheme": "Dark Forest",
-  "darkNightTheme": "Dark Night",
-  "lightTheme": "Light"
-}
-const myThemes = Object.values(themeLookup);
-var selectedTheme = ref(themeLookup[theme.global.name.value]);
+import settings from '../settings.vue';
 const appTitle = globalDataStore.appTitle;
 onMounted(() => {
-  setCorrectHJsStyle();
+  //setCorrectHJsStyle();
 });
 function flipSidebarVisibility() {
   navigationStore.flipSidebarVisibility();
 };
-const setTheme = () => {
-  Object.entries(themeLookup).forEach(([k,v]) => {
-    if (v === selectedTheme.value) {
-      //console.log(selectedTheme.value)
-      //console.log("k: " + k)
-      //console.log("v: " +v)
-      theme.global.name.value = k
-      //console.log(theme.global.name.value)
-    }
-  })
-  //theme.global.name.value = selectedTheme.value;
-  //console.log(selectedTheme.value);
-  setCorrectHJsStyle();
-};
-function flipThemeMode() {
-  //console.log(theme.global.name.value)
-  //console.log(theme.global.current.value)
-  theme.global.name.value = theme.global.name.value === 'darkForestTheme' ? 'lightTheme' : 'darkForestTheme';
-  //console.log(theme.global.current.value)
-  selectedTheme = ref(themeLookup[theme.global.name.value]);
-  setCorrectHJsStyle();
-};
-function setCorrectHJsStyle() {
-  if (theme.global.name.value.includes("dark")) {
-    setCorrectHJsStyleBase('dark', 'light')
-  } else {
-    setCorrectHJsStyleBase('light', 'dark')
-  }
-};
-function setCorrectHJsStyleBase(styleToEnable, styleToDisable) {
-  let fileName = null
-  switch (styleToEnable) {
-    case `dark`:
-      fileName = 'atom-one-dark.css'
-      break
-    case 'light':
-      fileName = 'atom-one-light.css'
-      break
-  }
-  const elementToEnable = document.getElementById(
-    'highlightjs-' + styleToEnable
-  )
-  if (elementToEnable == null) {
-    var head = document.getElementsByTagName('head')[0]
-    var elementToCreate = document.createElement('link')
-    elementToCreate.rel = 'stylesheet'
-    elementToCreate.id = 'highlightjs-' + styleToEnable
-    elementToCreate.href = '/styles/' + fileName
-    //console.log(elementToCreate)
-    head.appendChild(elementToCreate)
-  }
-  const elementToDisable = document.getElementById(
-    'highlightjs-' + styleToDisable
-  )
-  if (elementToDisable != null) {
-    elementToDisable.remove()
-  }
+function flipSettingsDialogVisibility() {
+  navigationStore.flipSettingsDialogVisibility();
 };
 </script>
 

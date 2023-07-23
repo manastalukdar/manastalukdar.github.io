@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 // initial state
 const initialState = () => ({
   sidebarVisible: false,
+  settingsDialogVisible: false,
   blog: {
     blogText: 'Blog',
     authorText: 'Author',
@@ -126,6 +127,12 @@ export const useNavigationStore = defineStore('Navigation', {
     },
     setSidebarVisibility(value: any) {
       this.sidebarVisible = value
+    },
+    flipSettingsDialogVisibility() {
+      this.settingsDialogVisible = !this.settingsDialogVisible
+    },
+    setSettingsDialogVisibility(value: any) {
+      this.settingsDialogVisible = value
     },
   }
 })
