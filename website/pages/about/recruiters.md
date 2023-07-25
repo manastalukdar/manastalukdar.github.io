@@ -47,7 +47,7 @@
 
 ### Miscellaneous
 
-- Due to US legal immigration system being where it is, I still do not have my green card even after being in this country for over 18 years. So, I will need immigration support. Specifically, H1B and continuing my GC application. Happy to discuss specifics.
+- Due to US legal immigration system being where it is, I still do not have my green card. So, I will need immigration support. Specifically, H1B and continuing my GC application. Happy to discuss specifics.
 - I am mostly an in-person, work-from-office person. However, it would be nice to have the flexibility to work remotely on occasion.
 
 ### Next steps?
