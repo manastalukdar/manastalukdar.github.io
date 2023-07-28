@@ -152,7 +152,7 @@ const recruiters = computedAsync(async () => {
 const { paperize } = usePaperizer('printMe',  {
   styles: [
   //'https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css',
-    '../../style/print-recruiters.css'
+    '/style/print-recruiters.css'
   ]
 });
 const print = () => {

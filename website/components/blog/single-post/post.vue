@@ -6,7 +6,7 @@
           <postHeader :post-metadata="postMetadata" />
           <p />
           <!-- eslint-disable-next-line vue/no-v-html -->
-          <div class="blogPostContent col" v-html="postContent" />
+          <div class="blogPostContent col px-5" v-html="postContent" />
         </v-card>
       </v-row>
 

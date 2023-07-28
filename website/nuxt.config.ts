@@ -160,7 +160,7 @@ export default defineNuxtConfig({
     '@mdi/font/css/materialdesignicons.min.css',
     'material-design-icons-iconfont/dist/material-design-icons.css',
     'vue-material-design-icons/styles.css',
-    '~/style/print-blog-post.css'
+    //'~/style/print-blog-post.css'
   ],
 
   build: {
