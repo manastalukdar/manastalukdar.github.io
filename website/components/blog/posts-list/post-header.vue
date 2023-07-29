@@ -80,7 +80,7 @@ const getAuthorRoute = (slug) => {
   return dynamicAuthorRoute + slug + '/'
 };
 const getPostFormatRoute = (slug) => {
-  console.log(dynamicPostFormatRoute + slug + '/')
+  //console.log(dynamicPostFormatRoute + slug + '/')
   return dynamicPostFormatRoute + slug + '/'
 };
 </script>

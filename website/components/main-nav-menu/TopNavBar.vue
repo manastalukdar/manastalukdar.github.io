@@ -48,9 +48,6 @@ import MainNavMenuLegal from './Legal.vue';
 import MainNavMenuContact from './Contact.vue';
 import settings from '../settings.vue';
 const appTitle = globalDataStore.appTitle;
-onMounted(() => {
-  //setCorrectHJsStyle();
-});
 function flipSidebarVisibility() {
   navigationStore.flipSidebarVisibility();
 };

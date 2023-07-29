@@ -44,8 +44,9 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useNavigationStore } from '@/stores/Navigation';
-
+import setCorrectHJsStyle from '../utils/setCorrectHJsStyle.ts';
 import { useTheme } from 'vuetify';
+const theme = useTheme();
 const navigationStore = useNavigationStore();
 var { settingsDialogVisible } = storeToRefs(navigationStore);
 watch(settingsDialogVisible, () => {
@@ -55,7 +56,6 @@ function closeDialog() {
   navigationStore.setSettingsDialogVisibility(false);
 }
 
-const theme = useTheme();
 const themeLookup = {
   "darkForestTheme": "Dark Forest",
   "darkNightTheme": "Dark Night",
@@ -64,42 +64,6 @@ const themeLookup = {
 const myThemes = Object.values(themeLookup);
 var selectedTheme = ref(themeLookup[theme.global.name.value]);
 
-function setCorrectHJsStyle() {
-  if (theme.global.name.value.includes("dark")) {
-    setCorrectHJsStyleBase('dark', 'light')
-  } else {
-    setCorrectHJsStyleBase('light', 'dark')
-  }
-};
-function setCorrectHJsStyleBase(styleToEnable, styleToDisable) {
-  let fileName = null
-  switch (styleToEnable) {
-    case `dark`:
-      fileName = 'atom-one-dark.css'
-      break
-    case 'light':
-      fileName = 'atom-one-light.css'
-      break
-  }
-  const elementToEnable = document.getElementById(
-    'highlightjs-' + styleToEnable
-  )
-  if (elementToEnable == null) {
-    var head = document.getElementsByTagName('head')[0]
-    var elementToCreate = document.createElement('link')
-    elementToCreate.rel = 'stylesheet'
-    elementToCreate.id = 'highlightjs-' + styleToEnable
-    elementToCreate.href = '/styles/' + fileName
-    //console.log(elementToCreate)
-    head.appendChild(elementToCreate)
-  }
-  const elementToDisable = document.getElementById(
-    'highlightjs-' + styleToDisable
-  )
-  if (elementToDisable != null) {
-    elementToDisable.remove()
-  }
-};
 const setTheme = () => {
   Object.entries(themeLookup).forEach(([k,v]) => {
     if (v === selectedTheme.value) {
@@ -112,6 +76,6 @@ const setTheme = () => {
   })
   //theme.global.name.value = selectedTheme.value;
   //console.log(selectedTheme.value);
-  setCorrectHJsStyle();
+  setCorrectHJsStyle(theme);
 };
 </script>

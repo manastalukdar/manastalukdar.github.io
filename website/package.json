@@ -14,15 +14,15 @@
   },
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
-    "@types/lodash": "^4.14.195",
-    "@types/node": "^20.4.4",
+    "@types/lodash": "^4.14.196",
+    "@types/node": "^20.4.5",
     "volar-service-vetur": "latest",
     "@vueuse/core": "^10.2.1",
     "@vueuse/nuxt": "^10.2.1",
     "material-design-icons-iconfont": "^6.7.0",
     "nuxt": "^3.6.5",
     "nuxt-gtag": "^0.5.7",
-    "nuxt-simple-sitemap": "^3.0.12",
+    "nuxt-simple-sitemap": "^3.1.1",
     "sass": "^1.64.1",
     "sass-loader": "^13.3.2",
     "webpack": "^5.88.2"
@@ -47,11 +47,11 @@
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-html5-embed": "^1.0.0",
     "markdown-it-mathjax": "^2.0.0",
-    "markdown-it-textual-uml": "^0.12.0",
+    "markdown-it-textual-uml": "^0.13.0",
     "markdown-it-toc-done-right": "^4.2.0",
-    "mermaid": "^10.2.4",
+    "mermaid": "^10.3.0",
     "paperizer": "^0.1.6",
-    "pinia": "^2.1.4",
+    "pinia": "^2.1.6",
     "print-js": "^1.6.0",
     "vanilla-back-to-top": "^7.2.1",
     "vite-plugin-vuetify": "^1.0.2",
@@ -59,7 +59,7 @@
     "vue-material-design-icons": "^5.2.0",
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue3-disqus": "^1.0.6",
-    "vuetify": "^3.3.9"
+    "vuetify": "^3.3.10"
   },
   "overrides": {
     "vue": "latest"

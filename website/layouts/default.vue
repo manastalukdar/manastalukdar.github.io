@@ -19,41 +19,34 @@
   <slot />
 </template>
 
-<script>
-import backToTop from 'vanilla-back-to-top'
-import { useGlobalDataStore } from '@/stores/GlobalData'
-const globalDataStore = useGlobalDataStore()
-import MainNavMenuNavigationDrawer from '../components/main-nav-menu/NavigationDrawer.vue'
-import MainNavMenuTopNavBar from '../components/main-nav-menu/TopNavBar.vue'
-import Footer from '../components/footer.vue'
-export default {
+<script setup>
+import backToTop from 'vanilla-back-to-top';
+import { useGlobalDataStore } from '@/stores/GlobalData';
+const globalDataStore = useGlobalDataStore();
+import MainNavMenuNavigationDrawer from '../components/main-nav-menu/NavigationDrawer.vue';
+import MainNavMenuTopNavBar from '../components/main-nav-menu/TopNavBar.vue';
+import Footer from '../components/footer.vue';
+import setCorrectHJsStyle from '../utils/setCorrectHJsStyle.ts';
+import { useTheme } from 'vuetify';
+const theme = useTheme();
+/* definePageMeta({
   pageTransition: {
     name: 'fade',
     mode: 'out-in',
-  },
-  data: () => ({
-    appOwner: globalDataStore.appOwner,
-  }),
-  /* name: 'App', */
-  components: {
-    MainNavMenuNavigationDrawer,
-    MainNavMenuTopNavBar,
-    Footer,
-  },
-  head() {
-    return {
-      title: this.appOwner,
-    }
-  },
-  computed: {
-  },
-  mounted() {
-    backToTop.addBackToTop({
-      diameter: 50,
-      zIndex: 3
-    })
-  },
-}
+  }
+}); */
+const appOwner = globalDataStore.appOwner;
+/* name: 'App', */
+useHead({
+  title: appOwner,
+});
+onMounted(() => {
+  backToTop.addBackToTop({
+    diameter: 50,
+    zIndex: 3
+  });
+  setCorrectHJsStyle(theme);
+});
 </script>
 
 <style>

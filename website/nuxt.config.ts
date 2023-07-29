@@ -36,6 +36,8 @@ export default defineNuxtConfig({
    ** Headers of the page
    */
   app: {
+    //layoutTransition: { name: 'layout', mode: 'out-in' },
+
     head: {
       // title: pkg.name,
       meta: [
