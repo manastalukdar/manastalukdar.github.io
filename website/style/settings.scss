@@ -16,8 +16,8 @@
 $v-main-padding: 65px 0 65px;
 
 html {
-  font-family: 'Maven Pro', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
-  line-height: 1.8;
+  font-family: 'Maven Pro', 'Helvetica Neue', 'Segoe UI', 'sans-serif' !important;
+  line-height: 1.8 !important;
 }
 
 // https://stackoverflow.com/questions/57130910/how-do-i-apply-css-to-all-elements-except-when-first-child-is-of-certain-id/
