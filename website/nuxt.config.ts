@@ -122,7 +122,7 @@ export default defineNuxtConfig({
         {
           rel: 'stylesheet',
           href:
-            'https://fonts.googleapis.com/css?family=Maven+Pro|Roboto|Material+Icons',
+            'https://fonts.googleapis.com/css?family=Maven+Pro|Material+Icons',
         },
         {
           rel: 'alternate',
