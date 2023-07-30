@@ -5,12 +5,13 @@
   $font-size-root: 15px,
   $line-height-root: 1.8,
   $code-color: #383636,
-  $body-font-family: ('Maven Pro', 'Helvetica Neue', 'Segoe UI', 'sans-serif'),
+  $body-font-family: ('Maven Pro', 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif'),
   $button-color: green,
   $button-font-weight: 700,
 );
 
-@import 'https://fonts.googleapis.com/css?family=Maven+Pro|Roboto|Nunito+Sans&display=swap';
+@import 'https://fonts.googleapis.com/css?family=Maven+Pro|Roboto&display=swap';
+// Nunito+Sans
 
 $v-main-padding: 65px 0 65px;
 
