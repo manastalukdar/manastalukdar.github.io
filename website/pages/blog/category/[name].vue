@@ -83,7 +83,7 @@ const breadcrumbsData = [
   },
   {
     title: 'Blog Posts by Category',
-    disabled: true,
+    disabled: false,
     href: blogDynamicItemsCategory + categoryUrlSlug + '/',
   },
 ];
