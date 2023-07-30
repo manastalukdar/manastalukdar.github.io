@@ -1,6 +1,8 @@
 #single-post-header {
   text-align: center;
   justify-content: center;
+  text-decoration-line: underline;
+  font-weight: bold;
 }
 .row {
   display: flex;
@@ -19,4 +21,5 @@ html {
   font-family: "Maven Pro", sans-serif;
   line-height: 1.8;
   font-size: 15px;
+  padding: 1em;
 }

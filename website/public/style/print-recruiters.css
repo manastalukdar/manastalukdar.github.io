@@ -6,7 +6,7 @@
  */
 .recruiters-header {
   text-align: center;
-  justify-content: center !important;
+  justify-content: center;
   text-decoration-line: underline;
   font-weight: bold;
 }
@@ -25,7 +25,7 @@
 }
 html {
   font-family: "Maven Pro", sans-serif;
-  line-height: 1.5;
-  font-size: 14px;
+  line-height: 1.8;
+  font-size: 15px;
   padding: 1em;
 }
