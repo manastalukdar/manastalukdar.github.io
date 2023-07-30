@@ -1,16 +1,16 @@
 <template>
   <v-container>
-    <v-col>
-      <v-row id="printMe" class="py-3">
-        <v-card color="cardColor" raised elevation="8" class="py-6 px-6 col-12">
-          <postHeader :post-metadata="postMetadata" />
+    <v-col class="px-2">
+      <v-row id="printMe" class="py-3 px-3">
+        <v-card color="cardColor" raised elevation="8" class="py-6 px-6 v-row">
+          <postHeader :post-metadata="postMetadata"/>
           <p />
           <!-- eslint-disable-next-line vue/no-v-html -->
-          <div class="blogPostContent col px-5" v-html="postContent" />
+          <div class="blogPostContent col px-5 pt-5" v-html="postContent" />
         </v-card>
       </v-row>
 
-<v-row class="py-3">
+      <v-row class="py-3">
         <client-only>
           <socialSharing
             :url="url"
