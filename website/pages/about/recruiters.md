@@ -5,13 +5,13 @@
  https://opensource.org/licenses/MIT
 -->
 
-[**Note**: I am not looking for any new opportunity at this time.]
+<!-- [**Note**: I am not looking for any new opportunity at this time.] -->
 
 ### What I bring to the table?
 
 - Over 16 years of industry experience in established companies as well as startups.
 - Proven track record of building, growing, supporting and leading organizations of high technical caliber.
-- Proven track record of building and scaling products used in critical industrial infrastructure across the world.
+- Proven track record of building and scaling enterprise products used in critical industrial infrastructure across the world.
 - Experience leading teams and organizations both co-located and remote / distributed.
 - A highly systemizing nature. Very methodical and meticulous.
 - Excellent communication and collaboration skills.
