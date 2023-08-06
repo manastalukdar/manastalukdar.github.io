@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 tags:
  - Engineering Leadership
 categories:
@@ -11,14 +11,15 @@ post-format: standard
 title: Side Projects for Engineering Teams
 url-slug: side-projects-engineering-teams
 first-published-on: 2021-09-18 17:09
-last-updated-on: 2021-09-19 15:22
+last-updated-on: 2023-08-05 18:56
 meta:
  description: "Side Projects for Engineering Teams."
 excerpt: "An important part of engineering leadership, specifically people leadership, is providing opportunities for team members to remain interested and engaged. While it is inevitable"
 ---
+
 # Side Projects for Engineering Teams
 
-An important part of engineering leadership, specifically people leadership, is providing opportunities for team members to remain interested and engaged. While it is inevitable that people will leave, it is good to ensure that they will some day look back at the time spent in the team as being interesting and advancing for their career. Among other things, in my org, this includes introducing 10-20% project time for developers to work on side-projects^[If I am not mistaken, this side project time was first introduced by Google back in the day.] not necessarily directly related to any product road-map deliverables, but of course related to the company's technology ecosystem. This provides a good opportunity for folks to work on some interesting things outside of the core deliverables and help keep them engaged. It is however necessary to put some structure around this with requirements such as the side-project needing proper definition, tracking time spent, prior approval, etc. Following is how I go about the side-projects for the teams in my org.
+An important part of engineering leadership, specifically people leadership, is providing opportunities for team members to remain interested and engaged. While it is inevitable that people will leave, it is good to ensure that they will some day look back at the time spent in the team as being interesting and advancing for their career. Among other things, this can include introducing 10-20% project time for developers to work on side-projects^[If I am not mistaken, this side project time was first introduced by Google back in the day.] not necessarily directly related to any product road-map deliverables, but of course related to the company's technology ecosystem. This provides a good opportunity for engineers to work on some interesting things outside of the core deliverables and help keep them engaged. It is however necessary to put some structure around this with requirements such as the side-project needing proper definition, tracking time spent, prior approval, etc. This may be accomplished using these guidelines:
 
 - Developers can spend 10% of their time every sprint working on side projects not directly related to any sprint or quarterly deliverables.
 - Each side project much have some definition and deliverable pre-defined.
