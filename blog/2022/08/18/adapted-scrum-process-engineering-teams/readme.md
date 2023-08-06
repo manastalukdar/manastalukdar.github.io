@@ -11,7 +11,7 @@ categories:
 authors:
  - "Manas Talukdar"
 post-format: standard
-title: Adapted Scrum Process
+title: Adapted Scrum Process for Engineering Teams
 url-slug: adapted-scrum-process-engineering-teams
 first-published-on: 2022-08-18 12:08
 last-updated-on: 2023-08-05 22:02
