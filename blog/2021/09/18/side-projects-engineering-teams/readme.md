@@ -2,9 +2,9 @@
 published: true
 tags:
  - Engineering Leadership
+ - Software Engineering
 categories:
  - Technology
- - Musings
 authors:
  - "Manas Talukdar"
 post-format: standard
