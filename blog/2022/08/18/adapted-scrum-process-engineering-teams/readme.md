@@ -22,6 +22,8 @@ excerpt: "In the past we have discussed a [development methodology](/blog/2019/0
 
 # Adapted Scrum Process for Engineering Teams
 
+${toc}
+
 In the past we have discussed a [development methodology](/blog/2019/04/28/development-methodology/) for software engineering teams. This post will discuss an evolution of that methodology that has now been successfully utilized by multiple teams.
 
 ## Background
