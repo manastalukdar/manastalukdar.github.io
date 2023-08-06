@@ -309,9 +309,9 @@ export default defineNuxtConfig({
     lang: 'en',
   },
 
-  render: {
+/*   render: {
     static: {
       ttl: 1000 * 60 * 60 * 24 * 7,
     },
-  },
+  }, */
 })
