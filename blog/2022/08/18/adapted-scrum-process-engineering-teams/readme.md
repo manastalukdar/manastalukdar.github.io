@@ -43,7 +43,7 @@ This post will propose some ideas for better ticketing w.r.t. Jira issue types, 
 
 ## Work Items and Jira Issue Types
 
-| Id  | Work Item                | Description                                                            | Jira Issue Type | Backlog   | Lattice                                                                                       |
+| Id  | Work Item                | Description                                                            | Jira Issue Type | Backlog   | OKR                                                                                       |
 | --- | ------------------------ | ---------------------------------------------------------------------- | --------------- | --------- | --------------------------------------------------------------------------------------------- |
 | 1   | High-Level Objective     | High-level business value/vision                                       | Initiative      | Product   | N/A                                                                                           |
 | 2   | User Story               | End-user based user story                                              | Epic            | Product   | Objective                                                                                     |
