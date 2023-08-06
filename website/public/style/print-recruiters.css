@@ -10,12 +10,12 @@
   text-decoration-line: underline;
   font-weight: bold;
 }
-.row {
+.v-row {
   display: flex;
   flex-wrap: wrap;
   flex: 1 1 auto;
 }
-.col {
+.v-col {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;

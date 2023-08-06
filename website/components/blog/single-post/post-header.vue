@@ -1,7 +1,7 @@
 <template>
   <v-row id="single-post-header" class="text-center">
     <v-col cols="12">
-      <v-row class="text-h5 px-3 py-3" justify="center">
+      <v-row id="single-post-title" class="text-h5 px-3 py-3" justify="center">
         <v-col class="text-center align-center">
           {{ props.postMetadata.title }}
           <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
@@ -10,7 +10,7 @@
         </v-col>
         <p />
       </v-row>
-      <v-row class="px-3 py-3" justify="center">
+      <v-row id="single-post-header-meta-1" class="px-3 py-3" justify="center">
         Authors:&nbsp;
         <div v-for="item in props.postMetadata.authors" :key="item['name']">
           <nuxt-link :to="getAuthorRoute(item['url-slug'])">
@@ -21,7 +21,7 @@
         || Published: {{ props.postMetadata["first-published-on"] }} || Updated:
         {{ props.postMetadata["last-updated-on"] }}
       </v-row>
-      <v-row class="px-3" justify="center">
+      <v-row id="single-post-header-meta-2" class="px-3" justify="center">
         Categories:&nbsp;
         <div v-for="item in props.postMetadata.categories" :key="item['name']">
           <nuxt-link :to="getCategoryRoute(item['url-slug'])">
