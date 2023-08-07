@@ -45,3 +45,9 @@ table th {
   padding: 3px 5px;
   border: 0.5px solid #86a1bd;
 }
+body::after {
+  padding-top: 2em;
+  content: "Copyright \00a9  Manas Talukdar";
+  display: block;
+  text-align: center;
+}
