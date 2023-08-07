@@ -50,4 +50,5 @@ body::after {
   content: "Copyright \00a9  Manas Talukdar";
   display: block;
   text-align: center;
+  font-weight: bold;
 }
