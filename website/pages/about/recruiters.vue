@@ -19,9 +19,9 @@
         <!--eslint-disable-next-line vue/no-v-html-->
         <div class="pl-2 pb-2 markdown-content" v-html="recruiters" />
 
-        <div class="printButton row py-5 justify-center">
-          <v-icon @click="print">mdi-printer</v-icon>
-        </div>
+        <v-row class="printButton row py-10 justify-center">
+          <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
+        </v-row>
       </v-card>
     </v-col>
   </v-row>
