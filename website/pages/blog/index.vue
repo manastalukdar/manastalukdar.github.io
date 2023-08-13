@@ -64,8 +64,8 @@ const breadcrumbsStructuredDataArray = breadcrumbsData.map(
     '@type': 'ListItem',
     position: index + 1,
     item: {
-      '@id': baseUrl + item.to,
-      name: item.text,
+      '@id': baseUrl + item.href,
+      name: item.title,
     },
   })
 );
