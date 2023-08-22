@@ -2,7 +2,7 @@
 
 - _More than 16 years of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
 
-- Quick learner, self driven. Significant experience and contributions in _distributed systems, data infrastructure and cloud computing_. Recent technical focus on _scalable AI/ML platforms_. Current core competencies in large-scale systems and organizational growth.
+- Quick learner, self driven. Significant experience and contributions in _distributed systems, data infrastructure and cloud computing_. Recent technical focus on _scalable AI/ML platforms_. Current core competencies in large-scale systems (design) and organizational growth.
 
 - Established the Data org within Platform engineering department at C3 AI. Grew a team of 6 to an org of ~30 engineers across 5 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
 
