@@ -41,7 +41,7 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage = navigationStore.blog.blogItems[0].text;
-const blogMetadata = blogMetadataStore.blogMetadata;
+const blogMetadata = blogMetadataStore.getBlogMetadata();
 const pageTitle = navigationStore.blog.blogText;
 const currentHref = navigationStore.blog.blogItems[0].href;
 const title = currentPage + ' || ' + appOwner;
