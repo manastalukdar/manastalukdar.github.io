@@ -80,7 +80,7 @@ const currentPage =
   navigationStore.blog.blogItems[3].text +
   ' | ' +
   navigationStore.blog.blogText;
-const blogMetadata = blogMetadataStore.blogMetadata;
+blogMetadata = blogMetadataStore.getBlogMetadata();
 const pageTitle = navigationStore.blog.blogItems[3].text;
 const blogHref = navigationStore.blog.blogItems[0].href;
 const currentHref = navigationStore.blog.blogItems[3].href;
