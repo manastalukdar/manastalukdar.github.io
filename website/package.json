@@ -15,24 +15,24 @@
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@types/lodash": "^4.14.197",
-    "@types/node": "^20.5.0",
+    "@types/node": "^20.5.6",
     "volar-service-vetur": "latest",
     "@vueuse/core": "^10.3.0",
     "@vueuse/nuxt": "^10.3.0",
     "material-design-icons-iconfont": "^6.7.0",
     "nuxt": "^3.6.5",
     "nuxt-gtag": "^0.6.1",
-    "nuxt-simple-sitemap": "^3.1.5",
-    "sass": "^1.65.1",
+    "nuxt-simple-sitemap": "^3.2.5",
+    "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
     "webpack": "^5.88.2"
   },
   "dependencies": {
     "@babel/cli": "^7.22.10",
-    "@babel/core": "^7.22.10",
+    "@babel/core": "^7.22.11",
     "@mdi/font": "^7.2.96",
     "@pinia/nuxt": "^0.4.11",
-    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue": "^4.3.3",
     "@volar-plugins/vetur": "latest",
     "axios": "^1.4.0",
     "dayjs": "^1.11.9",
@@ -59,7 +59,7 @@
     "vue-material-design-icons": "^5.2.0",
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue3-disqus": "^1.0.6",
-    "vuetify": "^3.3.12"
+    "vuetify": "^3.3.14"
   },
   "overrides": {
     "vue": "latest"

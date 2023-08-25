@@ -68,7 +68,7 @@ async function setupBlogMetadata() {
     }
 };
 await setupBlogMetadata();
-blogMetadata = blogMetadataStore.getBlogMetadata();
+const blogMetadata = blogMetadataStore.getBlogMetadata();
 components: {
   aboutBlurb,
   recentPostsHomePage,
