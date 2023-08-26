@@ -11,37 +11,38 @@
         <span>Recent</span>
       </v-row>
       <p />
-      <!--eslint-disable-next-line vue/no-v-html-->
-      <div class="pl-2 pb-2" v-html="recent" />
+      <v-row>
+        <v-col sm="6">
+          <currentReadingGoodreads class="pl-2 pb-2"/>
+        </v-col>
+        <v-col sm="6">
+        <!--eslint-disable-next-line vue/no-v-html-->
+        <div class="pl-2 pb-2" v-html="recent" />
+        </v-col>
+    </v-row>
     </v-card>
   </v-col>
 </template>
 
-<script>
-import fm from 'front-matter'
-import mdit from 'markdown-it'
-import { computedAsync } from '@vueuse/core'
+<script setup>
+import currentReadingGoodreads from './currently-reading-goodreads.vue';
+import fm from 'front-matter';
+import mdit from 'markdown-it';
+import { computedAsync } from '@vueuse/core';
 import getTargetBlankLinkRender from '../../utils/markdownRenderHelpers.ts';
 const md = new mdit({
   html: true,
   linkify: true,
   typographer: true,
 })
-getTargetBlankLinkRender(md)
-export default {
-  setup() {
-    const recent = computedAsync(async () => {
-      try {
-        const fileContent = await import('./recent-updates.md?raw')
-        const res = fm(fileContent.default)
-        return md.render(res.body)
-      } catch (error) {
-        console.log(error)
-      }
-    })
-    return {
-      recent
-    }
-  },
-}
+getTargetBlankLinkRender(md);
+const recent = computedAsync(async () => {
+  try {
+    const fileContent = await import('./recent-updates.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
 </script>

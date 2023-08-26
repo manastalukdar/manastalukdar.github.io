@@ -1,7 +1,3 @@
-#### Reading
-
-- **The Mountains of California**: Currently reading the book `The Mountains of California` by John Muir.
-
 #### Work
 
 - **AI, ML Platform**: I am currently leading and growing a highly technical org of multiple teams building a multi-cloud, distributed data infrastructure platform for large-scale AI/ML applications.
