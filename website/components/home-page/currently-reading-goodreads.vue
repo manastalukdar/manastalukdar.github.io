@@ -59,6 +59,7 @@ document.head.appendChild(goodreadsScript);
     border: 1px solid gray;
     border-radius:10px;
     padding: 10px 8px 10px 8px;
+    min-width: 220px;
     /*background-color:  #FFFFFF;
     color: #000000;
     width: 300px*/

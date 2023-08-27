@@ -11,13 +11,13 @@
         <span>Recent</span>
       </v-row>
       <p />
-      <v-row>
+      <v-row class="d-flex">
         <v-col sm="6" class="flex-grow-1">
-          <currentReadingGoodreads class="px-9 pb-2"/>
+          <currentReadingGoodreads class="px-2 pb-2"/>
         </v-col>
         <v-col sm="6" class="flex-grow-1">
         <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="px-9 pb-2" v-html="recent" />
+        <div class="px-2 pb-2" v-html="recent" />
         </v-col>
     </v-row>
     </v-card>
