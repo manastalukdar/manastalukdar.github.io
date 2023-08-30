@@ -13,6 +13,7 @@ const baseUrl =
     ? 'https://manastalukdar.github.io'
     : 'http://localhost:3000'
 
+const blogPostCount = getRoutes.functions.getBlogPostCount()
 
 const publicDir = './public'
 const feedFileName = '/blogfeed.xml'
@@ -28,7 +29,8 @@ const siteDescription =
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      baseUrl: baseUrl
+      baseUrl: baseUrl,
+      blogPostCount: blogPostCount
     }
   },
 

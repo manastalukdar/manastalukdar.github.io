@@ -36,7 +36,7 @@ const blogDynamicItemsTag = navigationStore.blog.dynamicItems.tag.href;
 const tagUrlSlug = route.params.name;
 async function setupBlogMetadata() {
     try {
-        if (blogMetadataStore.blogMetadata.length === 0) {
+        if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
           await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
         }
     } catch (error) {

@@ -44,7 +44,7 @@ const description = 'Blog posts on month ' + monthName
 const url = baseUrl + blogBaseHref + monthUrlSlug + '/'
 async function setupBlogMetadata() {
     try {
-        if (blogMetadataStore.blogMetadata.length === 0) {
+        if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
           await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
         }
     } catch (error) {

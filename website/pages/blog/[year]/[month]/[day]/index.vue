@@ -41,7 +41,7 @@ const description = 'Blog posts on day ' + dayName
 const url = baseUrl + blogBaseHref + dayUrlSlug + '/'
 async function setupBlogMetadata() {
     try {
-        if (blogMetadataStore.blogMetadata.length === 0) {
+        if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
           await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
         }
     } catch (error) {

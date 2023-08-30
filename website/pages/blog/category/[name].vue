@@ -39,7 +39,7 @@ const blogDynamicItemsCategory =
 const categoryUrlSlug = route.params.name;
 async function setupBlogMetadata() {
     try {
-        if (blogMetadataStore.blogMetadata.length === 0) {
+        if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
           await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
         }
     } catch (error) {

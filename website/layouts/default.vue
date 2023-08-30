@@ -22,13 +22,27 @@
 <script setup>
 import backToTop from 'vanilla-back-to-top';
 import { useGlobalDataStore } from '@/stores/GlobalData';
+import { useBlogMetadataStore } from '@/stores/BlogMetadata';
 const globalDataStore = useGlobalDataStore();
+const blogMetadataStore = useBlogMetadataStore();
 import MainNavMenuNavigationDrawer from '../components/main-nav-menu/NavigationDrawer.vue';
 import MainNavMenuTopNavBar from '../components/main-nav-menu/TopNavBar.vue';
 import Footer from '../components/footer.vue';
 import setCorrectHJsStyle from '../utils/setCorrectHJsStyle.ts';
 import { useTheme } from 'vuetify';
+const runtimeConfig = useRuntimeConfig();
 const theme = useTheme();
+async function setupBlogMetadata() {
+  try {
+      if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
+        await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
+        console.log(blogMetadataStore.blogMetadata.length)
+      }
+  } catch (error) {
+    console.log(error)
+  }
+};
+await setupBlogMetadata();
 /* definePageMeta({
   pageTransition: {
     name: 'fade',
