@@ -62,7 +62,6 @@ async function setupBlogMetadata() {
   try {
       if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
         await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
-        console.log(blogMetadataStore.blogMetadata.length)
       }
   } catch (error) {
     console.log(error)
@@ -136,17 +135,6 @@ useHead({
       },
     ],
 });
-/*onMounted(async () => {
-  async function setupBlogMetadataOnMounted() {
-    try {
-      console.log()
-        await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
-    } catch (error) {
-      console.log(error)
-    }
-  };
-  await setupBlogMetadataOnMounted();
-});*/
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

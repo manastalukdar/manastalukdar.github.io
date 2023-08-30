@@ -27,7 +27,6 @@ export const functions = {
     properties.baseUrl = baseUrl
   },
   getBlogPostCount() {
-    console.log(blogMetadata)
     return blogMetadata.length
   },
   generateRoutes() {
