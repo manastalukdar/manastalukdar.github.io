@@ -36,7 +36,6 @@ async function setupBlogMetadata() {
   try {
       if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
         await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
-        console.log(blogMetadataStore.blogMetadata.length)
       }
   } catch (error) {
     console.log(error)
