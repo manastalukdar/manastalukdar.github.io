@@ -119,7 +119,7 @@ var md = new MarkdownIt({
       // const m = textToProcess.match(/\(.*\)/)
       // const url = m[0].replace('(', '').replace(')', '')
       // opening tag
-      return '<div class="iframe-container">\n'
+      return '<div class="iframe-container">\n' // class="plyr__video-embed" id="player"
     } else {
       // closing tag
       return '</div>\n'
@@ -347,7 +347,9 @@ useHead({
     },
   ],
 });
-onMounted(() => {
+onMounted(() => { //async
+  //const Plyr = await import("plyr");
+  //const newPlyr = new Plyr.default('#player', {});
   // if (mermaid == null) {
   //   mermaid = require('mermaid')
   // }

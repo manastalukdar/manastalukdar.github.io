@@ -193,14 +193,18 @@ blockquote {
   align-content: center;
 }
 .iframe-container iframe {
-  position: absolute;
+  /*position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100%;*/
+  min-width: 100%;
+  min-height: 100%;
+  height: 430px;
   border: 0;
   display: block;
   margin: auto;
+  padding: 2em;
 }
 
 /*
