@@ -25,6 +25,6 @@ meta:
 excerpt: "Distributed computing conversation with Robert Nishihara from Anyscale."
 ---
 
-::: iframe-container
+::: iframe-container-youtube
 <iframe width="560" height="315" frameborder=0 src="https://www.youtube.com/embed/zRaWCFJcagI?si=nDNwD02UFggVT7gF" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"></iframe>
 :::

@@ -20,6 +20,6 @@ meta:
 excerpt: "Conference talk on Uber scaling its real-time infrastructure."
 ---
 
-::: iframe-container
-<iframe frameborder=0 src="https://www.youtube.com/embed/K-fI2BeTLkk"></iframe>
+::: iframe-container-youtube
+<iframe width="560" height="315" frameborder=0 src="https://www.youtube.com/embed/K-fI2BeTLkk"></iframe>
 :::

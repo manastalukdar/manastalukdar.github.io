@@ -24,8 +24,8 @@ meta:
 excerpt: "Gradient Dissent Podcast (from Weights & Biases) with Ion Stoica discussing distributed frameworks, etc."
 ---
 
-::: iframe-container
-<iframe frameborder=0 src="https://www.youtube.com/embed/-MVLURFH5nk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"></iframe>
+::: iframe-container-youtube
+<iframe width="560" height="315" frameborder=0 src="https://www.youtube.com/embed/-MVLURFH5nk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"></iframe>
 :::
 
 ---

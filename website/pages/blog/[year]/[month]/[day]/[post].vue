@@ -125,6 +125,15 @@ var md = new MarkdownIt({
       return '</div>\n'
     }
   },
+}).use(markdownItContainer, 'iframe-container-youtube', {
+  render(tokens, idx) {
+    if (tokens[idx].nesting === 1) {
+      return '<div class="iframe-container-youtube">\n'
+    } else {
+      // closing tag
+      return '</div>\n'
+    }
+  },
 }).use(markdownItAnchor, {
   permalink: markdownItAnchor.permalink.headerLink(),
   // permalinkBefore: true,

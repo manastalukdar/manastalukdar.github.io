@@ -19,6 +19,6 @@ meta:
 excerpt: "Feature Store talk by Jim Dowling at PyData meetup."
 ---
 
-::: iframe-container
-<iframe frameborder=0 src="https://www.youtube.com/embed/EI2QisCvEM4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"></iframe>
+::: iframe-container-youtube
+<iframe width="560" height="315" frameborder=0 src="https://www.youtube.com/embed/EI2QisCvEM4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"></iframe>
 :::
