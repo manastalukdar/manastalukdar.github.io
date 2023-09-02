@@ -25,7 +25,7 @@ excerpt: "Gradient Dissent Podcast (from Weights & Biases) with Ion Stoica discu
 ---
 
 ::: iframe-container-youtube
-<iframe width="560" height="315" frameborder=0 src="https://www.youtube.com/embed/-MVLURFH5nk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"></iframe>
+<iframe width="900" height="550" frameborder=0 src="https://www.youtube.com/embed/-MVLURFH5nk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen"></iframe>
 :::
 
 ---
