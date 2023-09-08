@@ -36,3 +36,11 @@ excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo
 ### De-humanizing People
 
 ### Being Dishonest
+
+## Being Obtuse
+
+### Being Impulsive
+
+### Getting Drunk on the Kool-Aid
+
+## Lacking Empathy
