@@ -28,5 +28,6 @@ Collection of some reading and research material on vector databases.
 - [FAISS](https://github.com/facebookresearch/faiss)
 - [Chroma](https://www.trychroma.com/)
 - [Weaviate](https://weaviate.io/)
+- [pgvector](https://github.com/pgvector/pgvector)
 - [Not All Vector Databases Are Made Equal](https://towardsdatascience.com/milvus-pinecone-vespa-weaviate-vald-gsi-what-unites-these-buzz-words-and-what-makes-each-9c65a3bd0696)
 - Same author as above article, in interview with Pinecone: [How to Choose a Vector Database](https://www.youtube.com/watch?v=Yo-AzVpWrRg)
