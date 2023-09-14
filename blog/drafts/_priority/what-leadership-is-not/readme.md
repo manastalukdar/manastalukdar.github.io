@@ -43,4 +43,7 @@ excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo
 
 ### Getting Drunk on the Kool-Aid
 
+- Getting emotionally attached to science projects.
+- Ignoring and indeed disparaging industry trends and other solutions.
+
 ## Lacking Empathy
