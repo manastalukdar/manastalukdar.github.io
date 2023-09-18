@@ -4,6 +4,8 @@ tags:
  - Agile Methodology
  - Scrum
  - Engineering Leadership
+ - Software Engineering
+ - Project Management
 categories:
  - Technology
 authors:
