@@ -27,12 +27,12 @@
             <template v-slot:item="{ item }">
               <tr>
                 <td>
-                  <nuxt-link :to="getLink([item.selectable.slug])">
-                    {{ item.selectable.name }}
+                  <nuxt-link :to="getLink([item.slug])">
+                    {{ item.name }}
                   </nuxt-link>
                 </td>
                 <td class="text-left">
-                  {{ item.selectable.count }}
+                  {{ item.count }}
                 </td>
               </tr>
             </template>

@@ -31,14 +31,14 @@
             <template v-slot:item="{ item }">
                 <tr>
                   <td>
-                    <nuxt-link :to="getLink([item.selectable.slug])">{{
-                      item.selectable.name
+                    <nuxt-link :to="getLink([item.slug])">{{
+                      item.name
                     }}</nuxt-link
                     >&nbsp;&nbsp;&nbsp;&nbsp;<v-icon>{{
-                      getPostFormatIcon(item.selectable.name)
+                      getPostFormatIcon(item.name)
                     }}</v-icon>
                   </td>
-                  <td class="text-left">{{ item.selectable.count }}</td>
+                  <td class="text-left">{{ item.count }}</td>
                 </tr>
             </template>
             <template #no-results :value="true" color="error" icon="warning">

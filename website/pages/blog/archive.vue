@@ -34,14 +34,14 @@
                 <td>
                   <nuxt-link
                     :to="
-                      getLink(item.selectable['first-published-on'], item.selectable['url-slug'])
+                      getLink(item['first-published-on'], item['url-slug'])
                     "
                   >
-                    {{ item.selectable.title }}
+                    {{ item.title }}
                   </nuxt-link>
                 </td>
-                <td>{{ getFirstPublishedDateTime(item.selectable['first-published-on']) }}</td>
-                <td>{{ getLastUpdatedDateTime(item.selectable['last-updated-on']) }}</td>
+                <td>{{ getFirstPublishedDateTime(item['first-published-on']) }}</td>
+                <td>{{ getLastUpdatedDateTime(item['last-updated-on']) }}</td>
               </tr>
             </template>
             <template #no-results :value="true" color="error" icon="warning">
