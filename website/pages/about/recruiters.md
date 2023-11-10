@@ -29,7 +29,7 @@
 ### What would interest me?
 
 - A role heading the engineering organization for an earlier stage startup <!--(ideally series A or B)--> with growth trajectory.
-- Solving problems broadly at the intersection of **large-scale distributed systems, data infrastructure and AI/ML**.
+- Solving problems broadly at the intersection of **AI/ML and large-scale systems**.
 - Working with people who value hard work, integrity, trust and mutual respect.
 - The reward of going on a journey towards collective accomplishment.
 
