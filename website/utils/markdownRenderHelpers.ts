@@ -16,7 +16,14 @@ export default function getTargetBlankLinkRender(md: { renderer: { rules: { link
 
     if (hrefIndex >= 0) {
       const linkVal = tokens[idx].attrs[hrefIndex][1];
-      if (linkVal.charAt(0) === "#") {
+      console.log("linkVal: " + linkVal)
+      var length = linkVal.length
+      var protocol = linkVal.substring(0, linkVal.lastIndexOf("://"))
+      //console.log("protocol: " + protocol)
+      var urlString = linkVal.substring(linkVal.lastIndexOf("//")+2, length);
+      var baseUrl = urlString.substring(0, urlString.indexOf("/"))
+      console.log(baseUrl)
+      if (linkVal.charAt(0) === "#" || linkVal.charAt(0) === "/" || protocol.length === 0) {
         isLocal = true;
       }
     }
