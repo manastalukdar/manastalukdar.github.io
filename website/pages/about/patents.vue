@@ -56,7 +56,7 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[1].text +
+  navigationStore.about.aboutItems[2].text +
   ' | ' +
   navigationStore.about.aboutText;
 const currentHref = navigationStore.about.aboutItems[2].href;
