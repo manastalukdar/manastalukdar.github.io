@@ -61,5 +61,4 @@ function flipSettingsDialogVisibility() {
   cursor: pointer;
   text-decoration: none;
 }
-
 </style>

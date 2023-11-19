@@ -84,7 +84,7 @@ const initialState = () => ({
       {
         href: '/about/patents/',
         target: '_blank',
-        icon: 'mdi-certificate',
+        icon: 'mdi-script-text',
         text: 'Patents',
       },
     ],

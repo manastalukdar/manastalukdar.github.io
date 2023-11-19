@@ -6,7 +6,7 @@
         <v-icon>mdi-menu-down</v-icon>
       </v-btn>
     </template>
-    <v-list color="headerAndFooterColor" density="default">
+    <v-list density="default">
       <AboutMenuItems />
     </v-list>
   </v-menu>
