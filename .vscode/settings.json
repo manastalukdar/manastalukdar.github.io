@@ -26,7 +26,8 @@
   "python.linting.enabled": true,
   "[python]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit"
     },
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
@@ -52,7 +53,7 @@
   "markdown.extension.toc.orderedList": true,
   "markdown.extension.toc.levels": "2..6",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "files.watcherExclude": {
     "**/target": true
@@ -62,5 +63,10 @@
   "python.formatting.provider": "none",
   "[c][cpp][cuda-cpp][python]": {
     "editor.wordBasedSuggestions": "off"
+  },
+  "[go]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
   }
 }
