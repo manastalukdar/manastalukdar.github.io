@@ -16,7 +16,7 @@ first-published-on: 2023-11-23 19:08
 last-updated-on: 2023-11-23 19:08
 meta:
  description: "Some thoughts on leadership and loyalty following the OpenAI employee revolt after Sam Altman's ouster."
-excerpt: "Sam Altman is now [back](https://www.msn.com/en-us/money/companies/sam-altman-is-set-to-return-as-the-ceo-of-openai/ar-AA1kkDLf) as OpenAI CEO. It would be fair to say that one of the key developments that led to his return"
+excerpt: "Sam Altman is now back as OpenAI CEO. It would be fair to say that one of the key developments that led to his return"
 ---
 
 # Leadership, Loyalty and OpenAI Employee Revolt after Sam Altman Ouster
