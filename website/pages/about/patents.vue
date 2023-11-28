@@ -56,11 +56,11 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[2].text +
+  navigationStore.about.aboutItems[1].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[2].href;
-const patentsText = navigationStore.about.aboutItems[2].text;
+const currentHref = navigationStore.about.aboutItems[1].href;
+const patentsText = navigationStore.about.aboutItems[1].text;
 const title = currentPage + ' || ' + appOwner;
 const description = 'Listing of filed and/or granted patents.';
 const url = baseUrl + currentHref;

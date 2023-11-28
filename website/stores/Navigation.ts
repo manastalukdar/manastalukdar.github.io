@@ -76,16 +76,16 @@ const initialState = () => ({
         text: 'Resume',
       },
       {
-        href: '/about/recruiters/',
-        target: '_blank',
-        icon: 'mdi-handshake',
-        text: 'Recruiters',
-      },
-      {
         href: '/about/patents/',
         target: '_blank',
         icon: 'mdi-script-text',
         text: 'Patents',
+      },
+      {
+        href: '/about/recruiters/',
+        target: '_blank',
+        icon: 'mdi-handshake',
+        text: 'Recruiters',
       },
     ],
   },
