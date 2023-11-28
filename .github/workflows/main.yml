@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
+          python-version: "3.12"
           architecture: "x64"
       - run: python --version
       - run: pip install -r website/scripts/python-requirements.txt
