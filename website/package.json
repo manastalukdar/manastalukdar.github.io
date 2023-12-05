@@ -43,7 +43,7 @@
     "lodash-es": "^4.17.21",
     "markdown-it": "^13.0.2",
     "markdown-it-anchor": "^8.6.7",
-    "markdown-it-container": "^3.0.0",
+    "markdown-it-container": "^4.0.0",
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-html5-embed": "^1.0.0",
     "markdown-it-mathjax": "^2.0.0",
