@@ -60,7 +60,7 @@
     "vue-material-design-icons": "^5.2.0",
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue3-disqus": "^1.0.6",
-    "vuetify": "^3.4.0"
+    "vuetify": "^3.4.1"
   },
   "overrides": {
     "vue": "latest"
