@@ -2,7 +2,6 @@
   <v-footer app height="auto" class="pa-0">
     <v-card
       class="flex py-4"
-      text
       tile
       flat
       width="100%"
