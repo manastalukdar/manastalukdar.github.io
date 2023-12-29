@@ -104,12 +104,12 @@ Sprint completion may be measured using one or more of the following mechanisms.
 This methodology can easily, and indeed has been easily, incorporated into a programmatic framework. As with any software, good design is essential to ensure it is scalable and maintainable. To that end, we can abstract data ingestion, processing and analysis into there distinct steps and the output of each steps results in
 
 - Raw data: These are chunked `json` files with the raw `REST` data from GitHub and Jira APIs serialized into a `json` schema.
-- Processed data: This is tabular data in the desired data model obtained from processing the raw data obtained as chunked `json` files. The tabular data is stored as `csv`, but can be persisted as relational data.
+- Processed data: This is tabular data in the desired data model obtained from processing the raw data previously obtained as chunked `json` files. The tabular data is stored as `csv`, but can be persisted as relational data.
 - Analyzed data: This is also tabular data that analyses the processed data and presents it in a consumable and actionable format. It can be stored as `csv` or as relational data.
 
 ### Data Integration
 
-Data integration (DI) ensures that the relevant data from the various sources outlined above are ingested and integrated into the system in a continuous basis. First step is to determine storage for the raw files. This may be some share somewhere, or S3, Azure blogs, GCS. The next step is to wrap the DI code into a job. This may be in the form of a lambda function or a service running as part of a Cloud platform. It is extremely important to have observability in this process with adequate logging and instrumentation. It is also important to have some ability to notify when something goes wrong.
+Data integration (DI) ensures that the relevant data from the various sources outlined above are ingested and integrated into the system in a continuous basis. First step is to determine storage for the raw files. This may be some share somewhere, or S3, Azure blogs, GCS. The next step is to wrap the DI code into a job. This may be in the form of a lambda function or a service running as part of a Cloud platform. It is extremely important to have observability in this process with adequate logging and instrumentation. It is very important to have the ability to notify when something goes wrong.
 
 ### Data Processing
 
@@ -263,7 +263,7 @@ erDiagram
     JIRA-TICKET-COMMENT ||--|| QUARTER : createdQuarter
 ```
 
-The processing computation can be on-demand or should ideally be based on incremental new raw data. The latter can be accomplished using some sort of a pub-sub mechanism where new incoming raw data triggers the data processing job which be a lambda or a dedicated service.
+The processing computation can be on-demand or should ideally be based on incremental new raw data. The latter can be accomplished using some sort of a pub-sub mechanism where new incoming raw data triggers the data processing job which can be a lambda or a dedicated service.
 
 ### Analysis
 
@@ -308,17 +308,17 @@ This can be done through various techniques such as data visualization, reportin
 
 ### Weighted and ranked analysis
 
-To provide a more comprehensive view, the analysis can include weighting the metrics. This can be done by assigning different weights to each metric based on different levels and roles. For example, a senior or lead / staff engineer should be given more weight for reviewing pull requests while a junior engineer for submitting pull requests. Based on these weights, and a certain pre-defined calibration, engineers can be ranked. In addition, there should be a mechanism for direct manager to assign a certain rating for each engineer in their team. The final analysis should take into account manager rating (which should be weighted appropriately) and provide both metrics weighted rating and manager weighted rating. The purpose of providing both data points is for managers to ensure that their perspective on each engineer on their team is aligned with what the raw data presents. It is conceivable for some mis-alignment but that should be justifiable and explainable.
+To provide a more comprehensive view, the analysis can include weighting the metrics. This can be done by assigning different weights to each metric based on different levels and roles. For example, a senior or lead / staff engineer should be given more weight for reviewing pull requests while a junior engineer for submitting pull requests. Based on these weights, and a certain pre-defined calibration, engineers can be ranked. In addition, there should be a mechanism for direct manager to assign a certain rating for each engineer in their team. The final analysis should take into account manager rating (which should be weighted appropriately) and provide both metrics weighted rating and manager weighted rating. The purpose of providing both data points is for managers to ensure that their perspective on each engineer on their team is aligned with what the data presents. It is conceivable that some mis-alignment may exist but that should be justifiable and explainable.
 
 ### Automation
 
-Automation plays a crucial role in the methodology as it ensures the continuous collection, processing, and analysis of data. By automating these steps, organizations can have real-time insights into the productivity and performance of their software engineering teams. This allows for timely decision-making and enables teams to make adjustments and improvements as needed. As aforementioned, a pub0sub mechanism will have to be sued to ensure coherence and connection between the raw data collection, processing and analysis steps for full automation.
+Automation plays a crucial role in the methodology as it ensures the continuous collection, processing, and analysis of data. By automating these steps, organizations can have real-time insights into the productivity and performance of their software engineering teams. This allows for timely decision-making and enables teams to make adjustments and improvements as needed. As aforementioned, a pub-sub mechanism will have to be used to ensure coherence and connection between the raw data collection, processing and analysis steps for full automation.
 
 ## Interpreting the data
 
 The analyzed data can be used to get insights into performance and productivity of engineers and engineering teams. It is particularly useful to get data such as:
 
-- Is someone getting more task than PR tickets? This would point to an action item for manager to ensure fair distribution of work. Or perhaps that specific engineer more naturally gravitates towards non-coding work. Perhaps s/he is more interested in operations, or support, etc.
+- Is someone getting more task than PR tickets? This would point to an action item for manager to ensure fair distribution of work. Or perhaps that a specific engineer more naturally gravitates towards non-coding work. Perhaps s/he is more interested in operations, or support, etc.
 - Is someone with high PR submission rate suddenly exhibiting low PR count?
 - Is a junior engineer reviewing a lot of PRs. Perhaps s/he is starting to exhibit signals for the next level.
 - Which components(s) seem to have more bugs?
@@ -329,7 +329,7 @@ The analyzed data can be used during performance review cycles for calibration, 
 
 ## A word of caution
 
-It is extremely important not to blindly use this framework. To make a call about an engineer or a team by just looking at the data without context could potentially be misleading. For instance perhaps an engineer spent few sprints working on a critical customer issue and so did not have to time to submit or review PRs, or close any tickets. This engineer would still have provided value to the company despite the metrics data perhaps presenting a different picture. These instances should be used to enhance the framework to incorporate more data points.
+It is extremely important not to blindly use this framework. It could potentially be misleading to make a call about an engineer or a team by just looking at the data without context. For instance, perhaps an engineer spent few sprints working on a critical customer issue and so did not have to time to submit or review PRs, or close any tickets. This engineer would still have provided value to the company despite the metrics data perhaps presenting a different picture. These instances should be used to enhance the framework to incorporate more data points.
 
 ## Summary
 
