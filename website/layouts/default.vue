@@ -169,11 +169,8 @@ pre code {
 code {
   margin-left: 0.25em;
   margin-right: 0.25em;
-}
-
-code {
-  background-color: var(--v-theme-codeBackgroundColor-base) !important;
-  color: var(--v-theme-codeTextColor-base) !important;
+  background: rgb(var(--v-theme-codeBackgroundColor)) !important;
+  color: rgb(var(--v-theme-codeTextColor)) !important;
 }
 
 blockquote {
