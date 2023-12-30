@@ -34,8 +34,10 @@ import postHeader from './post-header.vue'
 import socialSharing from './social-sharing.vue'
 import comments from './comments.vue'
 import mermaid from 'mermaid'
-mermaid.initialize({ startOnLoad: false });
-await mermaid.run()
+if (process.browser) {
+  mermaid.initialize({ startOnLoad: false });
+  await mermaid.run()
+}
 const passedProps = defineProps({
   postMetadata: {
     type: Object,
