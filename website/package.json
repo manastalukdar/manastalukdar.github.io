@@ -48,7 +48,7 @@
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-html5-embed": "^1.0.0",
     "markdown-it-mathjax": "^2.0.0",
-    "markdown-it-textual-uml": "^0.17.0",
+    "markdown-it-textual-uml": "^0.17.1",
     "markdown-it-toc-done-right": "^4.2.0",
     "mermaid": "^10.6.1",
     "paperizer": "^0.1.6",
