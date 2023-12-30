@@ -18,7 +18,6 @@ import axios from 'axios';
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItTocDoneRight from 'markdown-it-toc-done-right';
 import markdownItTextualUml from 'markdown-it-textual-uml';
-import mermaid from 'mermaid/dist/mermaid.esm.mjs';
 import post from '../../../../../components/blog/single-post/post.vue';
 import breadcrumbs from '../../../../../components/breadcrumbs';
 
@@ -289,7 +288,6 @@ const breadcrumbsStructuredData = {
   '@type': 'BreadcrumbList',
   itemListElement: breadcrumbsStructuredDataArray,
 };
-// let mermaid = null
 useHead({
   title: title,
   meta: [
@@ -359,13 +357,6 @@ useHead({
 onMounted(() => { //async
   //const Plyr = await import("plyr");
   //const newPlyr = new Plyr.default('#player', {});
-  // if (mermaid == null) {
-  //   mermaid = require('mermaid')
-  // }
-  mermaid.initialize({
-    startOnLoad: true,
-    theme: 'forest',
-  })
 });
 </script>
 
