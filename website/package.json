@@ -15,7 +15,7 @@
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@types/lodash": "^4.14.202",
-    "@types/node": "^20.10.5",
+    "@types/node": "^20.10.6",
     "@vueuse/core": "^10.7.1",
     "@vueuse/nuxt": "^10.7.1",
     "material-design-icons-iconfont": "^6.7.0",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@babel/cli": "^7.23.4",
-    "@babel/core": "^7.23.6",
+    "@babel/core": "^7.23.7",
     "@mdi/font": "^7.4.47",
     "@pinia/nuxt": "^0.5.1",
     "@vitejs/plugin-vue": "^5.0.1",
@@ -47,7 +47,7 @@
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-html5-embed": "^1.0.0",
     "markdown-it-mathjax": "^2.0.0",
-    "markdown-it-textual-uml": "^0.16.0",
+    "markdown-it-textual-uml": "^0.17.0",
     "markdown-it-toc-done-right": "^4.2.0",
     "mermaid": "^10.6.1",
     "paperizer": "^0.1.6",
