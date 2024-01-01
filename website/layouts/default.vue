@@ -157,13 +157,18 @@ pre {
   margin: 2em;
   white-space: pre-wrap;
   word-wrap: break-word;
+    word-break: break-all;
   text-align: justify;
 }
 @media all and (orientation: landscape) {
   pre {
     white-space: pre-wrap;
     word-wrap: break-word;
+    word-break: break-all;
     text-align: justify;
+  }
+  code {
+  white-space: pre-wrap;
   }
 }
 pre code {
