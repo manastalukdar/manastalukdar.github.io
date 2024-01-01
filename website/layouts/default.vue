@@ -149,6 +149,10 @@ h5 {
   margin-top: 2em;
   margin-bottom: 2em;
 }
+.hljs {
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
 pre {
   margin: 2em;
   white-space: pre-wrap;
@@ -171,6 +175,7 @@ code {
   margin-right: 0.25em;
   background: rgb(var(--v-theme-codeBackgroundColor)) !important;
   color: rgb(var(--v-theme-codeTextColor)) !important;
+  white-space: pre-wrap;
 }
 
 blockquote {

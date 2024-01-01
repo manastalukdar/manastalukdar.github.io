@@ -90,19 +90,19 @@ var md = new MarkdownIt({
       try {
         const langClass = 'language-' + lang
         return (
-          '<pre><div class="' +
+          '<pre><code class="' +
           langClass +
           ' hljs">' +
           hljs.highlight(str, { language: lang, ignoreIllegals: true })
             .value +
-          '</div></pre>'
+          '</code></pre>'
         )
         // return hljs.highlight(lang, str).value
         // eslint-disable-next-line no-empty
       } catch (__) {}
     }
     return (
-      '<pre><div class="hljs">' + md.utils.escapeHtml(str) + '</div></pre>'
+      '<pre><code class="hljs">' + md.utils.escapeHtml(str) + '</code></pre>'
     )
     // return '' // use external default escaping
   },
