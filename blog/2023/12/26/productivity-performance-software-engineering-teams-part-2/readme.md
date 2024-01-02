@@ -13,7 +13,7 @@ post-format: standard
 title: Measuring Productivity and Performance of Software Engineering Teams - Part 2
 url-slug: productivity-performance-software-engineering-teams-part-2
 first-published-on: 2023-12-26 14:46
-last-updated-on: 2023-12-29 13:19
+last-updated-on: 2024-01-01 20:38
 meta:
  description: "A comprehensive data-driven methodology for measuring productivity and performance of software engineering teams."
 excerpt: "In a previous post we discussed one methodology for measuring productivity and performance of software engineering teams. This post expands on it by"
@@ -125,6 +125,9 @@ erDiagram
         string team
         string organization
         string department
+        string[] githubId
+        string[] jiraId
+        string[] githubEmail
     }
     SPRINT {
         string id PK
@@ -279,6 +282,9 @@ erDiagram
         string team
         string organization
         string department
+        string[] githubId
+        string[] jiraId
+        string[] githubEmail
     }
     ANALYZED {
         string id PK
