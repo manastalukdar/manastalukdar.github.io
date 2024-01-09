@@ -16,7 +16,7 @@
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@types/lodash": "^4.14.202",
-    "@types/node": "^20.10.7",
+    "@types/node": "^20.10.8",
     "@vueuse/core": "^10.7.1",
     "@vueuse/nuxt": "^10.7.1",
     "material-design-icons-iconfont": "^6.7.0",
@@ -61,7 +61,7 @@
     "vue-material-design-icons": "^5.2.0",
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue3-disqus": "^1.0.6",
-    "vuetify": "^3.4.9"
+    "vuetify": "^3.4.10"
   },
   "overrides": {
     "vue": "latest"
