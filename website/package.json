@@ -24,7 +24,7 @@
     "nuxt-gtag": "^1.1.2",
     "nuxt-simple-sitemap": "^4.4.1",
     "sass": "^1.69.7",
-    "sass-loader": "^13.3.3",
+    "sass-loader": "^14.0.0",
     "volar-service-vetur": "latest",
     "webpack": "^5.89.0"
   },
