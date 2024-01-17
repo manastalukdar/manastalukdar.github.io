@@ -2,7 +2,7 @@
 published: false
 tags:
  - Engineering Leadership
- - 360 Feedback
+ - 360-Degree Feedback
 categories:
  - Technology
 authors:
@@ -17,6 +17,6 @@ meta:
 excerpt: "Providing feedback to software engineers is an integral part of supporting teams and organizations."
 ---
 
-# A Framework for 360 Feedback for Software Engineers
+# A Framework for 360-Degree Feedback for Software Engineers
 
 - [GitHub repo](https://github.com/manastalukdar/engineering-360-degree-feedback)
