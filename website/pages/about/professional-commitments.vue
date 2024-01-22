@@ -12,12 +12,12 @@
         style="height: 100%"
         id="printMe"
       >
-        <v-row class="text-h5 px-3 py-3 recruiters-header justify-center">
-          <span>For Recruiters and Hiring Managers</span>
+        <v-row class="text-h5 px-3 py-3 page-header justify-center">
+          <span>Progessional Commitments</span>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="pl-2 pb-2 markdown-content" v-html="recruiters" />
+        <div class="pl-2 pb-2 markdown-content" v-html="professionalCommitments" />
 
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
@@ -56,13 +56,13 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[3].text +
+  navigationStore.about.aboutItems[2].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[3].href;
-const recruitersText = navigationStore.about.aboutItems[3].text;
+const currentHref = navigationStore.about.aboutItems[2].href;
+const professionalCommitmentsText = navigationStore.about.aboutItems[2].text;
 const title = currentPage + ' || ' + appOwner;
-const description = 'Landing page for recruiters and hiring managers.';
+const description = 'Listing of professional commitments outside of day job.';
 const url = baseUrl + currentHref;
 const breadcrumbsData = [
   {
@@ -72,7 +72,7 @@ const breadcrumbsData = [
     exact: true,
   },
   {
-    title: recruitersText,
+    title: professionalCommitmentsText,
     disabled: false,
     href: currentHref,
     exact: true,
@@ -140,9 +140,9 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const recruiters = computedAsync(async () => {
+const professionalCommitments = computedAsync(async () => {
   try {
-    const fileContent = await import('./recruiters.md?raw')
+    const fileContent = await import('./professional-commitments.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -152,7 +152,7 @@ const recruiters = computedAsync(async () => {
 const { paperize } = usePaperizer('printMe',  {
   styles: [
   //'https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css',
-    '/style/print-recruiters.css'
+    '/style/print-generic.css'
   ]
 });
 const print = () => {

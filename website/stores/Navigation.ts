@@ -82,6 +82,12 @@ const initialState = () => ({
         text: 'Patents',
       },
       {
+        href: '/about/professional-commitments/',
+        target: '_blank',
+        icon: 'mdi-script-text',
+        text: 'Professional Commitments',
+      },
+      {
         href: '/about/recruiters/',
         target: '_blank',
         icon: 'mdi-handshake',
