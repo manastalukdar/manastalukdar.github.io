@@ -4,4 +4,4 @@
 
 #### Other
 
-- I was recently appointment as a AI 2030 Senior fellow and member of the Advisory Board.
+- I was recently appointment as a AI 2030 Senior Fellow and member of the Advisory Board.
