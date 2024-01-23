@@ -84,7 +84,7 @@ const initialState = () => ({
       {
         href: '/about/professional-commitments/',
         target: '_blank',
-        icon: 'mdi-script-text',
+        icon: 'mdi-list-box',
         text: 'Professional Commitments',
       },
       {
