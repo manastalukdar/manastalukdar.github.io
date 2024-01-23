@@ -328,5 +328,6 @@ and also iPads specifically.
   word-wrap: break-word;
   white-space: normal;
   -webkit-line-clamp: unset !important;
+  width: 100px;
 }
 </style>
