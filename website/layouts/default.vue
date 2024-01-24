@@ -323,4 +323,11 @@ and also iPads specifically.
   content: counter(h2counter) '.' counter(h3counter) '.' counter(h4counter) '.'
     counter(h5counter) '.' counter(h6counter) '.\0000a0\0000a0';
 }
+
+.wrap-text {
+  word-wrap: break-word;
+  white-space: normal;
+  -webkit-line-clamp: unset !important;
+  width: 100px;
+}
 </style>
