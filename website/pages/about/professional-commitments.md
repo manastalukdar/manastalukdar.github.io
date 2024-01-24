@@ -23,3 +23,5 @@ Along with my full-time job, I am also part of several other professional commit
 ### Advisory Roles
 
 - Providing general guidance to an early-stage startup working on a Generative AI based enterprise product.
+
+I am open to similar roles. For details please see [here](/about/services/).
