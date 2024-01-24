@@ -93,6 +93,12 @@ const initialState = () => ({
         icon: 'mdi-handshake',
         text: 'Recruiters',
       },
+      {
+        href: '/about/services/',
+        target: '_blank',
+        icon: 'mdi-toolbox-outline',
+        text: 'Services',
+      },
     ],
   },
   legal: {
