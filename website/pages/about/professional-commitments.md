@@ -1,27 +1,25 @@
 Along with my full-time job, I am also part of several other professional commitments some of which are listed here.
 
-## Affiliations and Memberships
+### Professional Memberships
 
-### Professional Organizations
+- Senior member of [IEEE](https://www.ieee.org).
 
-- Senior member of [IEEE](https://www.ieee.org)
-
-### Other
+### Other Affiliations
 
 - Member of the MIT Technology Review Global Insights Panel.
 
-## Fellowships
+### Fellowships
 
-- Senior Fellow of [AI 2030](https://www.ai2030.org/)
+- Senior Fellow of [AI 2030](https://www.ai2030.org/).
 
-## Board Memberships
+### Board Memberships
 
-- Advisory Board member of [AI 2030](https://www.ai2030.org/)
+- Advisory Board member of [AI 2030](https://www.ai2030.org/).
 
-## Judging Roles
+### Judging Roles
 
 - Accepted as a Judge for the [SIIA CODiE Awards](https://siia.net/codie/).
 
-## Advisory Roles
+### Advisory Roles
 
 - Providing general guidance to an early-stage startup working on a Generative AI based enterprise product.
