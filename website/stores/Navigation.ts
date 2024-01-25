@@ -88,16 +88,16 @@ const initialState = () => ({
         text: 'Professional Commitments',
       },
       {
-        href: '/about/recruiters/',
-        target: '_blank',
-        icon: 'mdi-handshake',
-        text: 'Recruiters',
-      },
-      {
         href: '/about/services/',
         target: '_blank',
         icon: 'mdi-toolbox-outline',
         text: 'Services',
+      },
+      {
+        href: '/about/recruiters/',
+        target: '_blank',
+        icon: 'mdi-handshake',
+        text: 'Recruiters',
       },
     ],
   },

@@ -56,11 +56,11 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[3].text +
+  navigationStore.about.aboutItems[4].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[3].href;
-const recruitersText = navigationStore.about.aboutItems[3].text;
+const currentHref = navigationStore.about.aboutItems[4].href;
+const recruitersText = navigationStore.about.aboutItems[4].text;
 const title = currentPage + ' || ' + appOwner;
 const description = 'Landing page for recruiters and hiring managers.';
 const url = baseUrl + currentHref;
