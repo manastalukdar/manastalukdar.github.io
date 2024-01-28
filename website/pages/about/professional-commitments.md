@@ -19,6 +19,7 @@ Along with my full-time job, I am also part of several other professional commit
 ### Judging Roles
 
 - Accepted as a Judge for the [SIIA CODiE Awards](https://siia.net/codie/).
+- Accepted as a Judge for the [Globee Awards](https://globeeawards.com).
 
 ### Advisory Roles
 
