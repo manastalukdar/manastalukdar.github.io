@@ -24,7 +24,7 @@ const faviconPath = '/favicon.ico'
 
 const siteName = siteOwner
 const siteDescription =
-  'Manas Talukdar builds products used globally in critical industrial infrastructure and leads organizations in Data Infrastructure for Enterprise AI.'
+  'Manas Talukdar builds AI and Data products used globally in critical industrial infrastructure and leads organizations in Enterprise AI.'
 
 export default defineNuxtConfig({
   runtimeConfig: {
