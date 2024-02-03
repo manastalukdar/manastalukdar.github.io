@@ -6,7 +6,7 @@ categories:
  - Technology
 authors:
  - "Manas Talukdar"
-post-format: standard
+post-format: aside
 title: On Layoffs
 url-slug: on-layoffs
 first-published-on: 2024-02-02 19:40
