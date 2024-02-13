@@ -1,6 +1,6 @@
 #### Work
 
-- **AI, ML Platform**: I am currently leading and growing a highly technical org of multiple teams building a multi-cloud, distributed data infrastructure platform for large-scale AI/ML applications.
+- I am currently supporting platform and product organizations at [Labelbox](https://labelbox.com) building a data-centric AI Platform and SaaS AI products.
 
 #### Other
 
