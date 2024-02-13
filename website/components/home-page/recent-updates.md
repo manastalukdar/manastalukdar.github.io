@@ -1,6 +1,6 @@
 #### Work
 
-- I am currently supporting platform and product engineering organizations at [Labelbox](https://labelbox.com) building a data-centric AI Platform and SaaS AI products.
+- I am currently supporting platform and product engineering organizations at [Labelbox](https://labelbox.com) building a data-centric AI Platform and AI SaaS products.
 
 #### Other
 
