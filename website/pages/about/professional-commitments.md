@@ -23,6 +23,7 @@ Along with my full-time job, I am also part of several other professional commit
 
 ### Advisory Roles
 
+- Mentor/Advisor for startups at [Alchemist Accelerator](https://www.alchemistaccelerator.com), a venture backed accelerator for early-stage startups that monetize from enterprises.
 - Providing general guidance to an early-stage startup working on a Generative AI based product.
 
 I am open to similar roles. For details please see [here](/about/services/).
