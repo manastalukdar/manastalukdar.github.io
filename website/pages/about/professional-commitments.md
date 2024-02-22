@@ -27,4 +27,8 @@ Along with my full-time job, I am also part of several other professional commit
 - Providing general guidance to an early-stage startup working on a Generative AI based product.
 - Technology advisor for AI, ML, distributed systems, etc. at [Guidepoint](https://www.guidepoint.com).
 
+### Upcoming Conference Talks
+
+- I will be [speaking](https://www.ai2030.org/team) at the 2024 [Chicago AI Conference](https://www.ai2030.org/2023-ai-conference).
+
 I am open to similar roles. For details please see [here](/about/services/).
