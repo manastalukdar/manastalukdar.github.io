@@ -18,8 +18,12 @@ Along with my full-time job, I am also part of several other professional commit
 
 ### Judging Roles
 
-- Accepted as a Judge for the [SIIA CODiE Awards](https://siia.net/codie/).
 - Accepted as a Judge for the [Globee Awards](https://globeeawards.com).
+
+#### Past
+
+- [2024 Globee Awards for Cybersecurity](https://credential.globeeawards.com/d85bdcc4-c13a-4dcd-9639-d034eb124cc7).
+- Accepted as a Judge for the 2024 [SIIA CODiE Awards](https://siia.net/codie/).
 
 ### Advisory Roles
 
@@ -27,7 +31,7 @@ Along with my full-time job, I am also part of several other professional commit
 - Providing general guidance to an early-stage startup working on a Generative AI based product.
 - Technology advisor for AI, ML, distributed systems, etc. at [Guidepoint](https://www.guidepoint.com).
 
-### Upcoming Conference Talks
+### Conference Talks
 
 - I will be [speaking](https://www.ai2030.org/team) at the 2024 [Chicago AI Conference](https://www.ai2030.org/2023-ai-conference).
 
