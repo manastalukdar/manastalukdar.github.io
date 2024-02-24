@@ -1,11 +1,8 @@
 Along with my full-time job, I am also part of several other professional commitments some of which are listed here.
 
-### Professional Memberships
+### Professional Memberships and Affiliations
 
 - Senior member of [IEEE](https://www.ieee.org).
-
-### Other Affiliations
-
 - Member of the MIT Technology Review Global Insights Panel.
 
 ### Fellowships
@@ -31,7 +28,7 @@ Along with my full-time job, I am also part of several other professional commit
 - Providing general guidance to an early-stage startup working on a Generative AI based product.
 - Technology advisor for AI, ML, distributed systems, etc. at [Guidepoint](https://www.guidepoint.com).
 
-### Conference Talks
+### Talks
 
 - I will be [speaking](https://www.ai2030.org/team) at the 2024 [Chicago AI Conference](https://www.ai2030.org/2023-ai-conference).
 

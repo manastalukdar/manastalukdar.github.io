@@ -16,8 +16,72 @@
           <span>Professional Commitments</span>
         </v-row>
         <p />
+        <v-expansion-panels v-model="panel">
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              Professional Memberships and Affiliations
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <div class="pl-2 pb-2 markdown-content" v-html="membershipsAffiliations" />
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              Fellowships
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <div class="pl-2 pb-2 markdown-content" v-html="fellowships" />
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              Board Memberships
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <div class="pl-2 pb-2 markdown-content" v-html="boardMemberships" />
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              Judging Roles
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <div class="pl-2 pb-2 markdown-content" v-html="judgingRoles" />
+              <v-expansion-panels>
+                <v-expansion-panel>
+                  <v-expansion-panel-title>
+                    Past
+                  </v-expansion-panel-title>
+                  <v-expansion-panel-text>
+                    <div class="pl-2 pb-2 markdown-content" v-html="judgingRolesPast" />
+                  </v-expansion-panel-text>
+                </v-expansion-panel>
+              </v-expansion-panels>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              Advisory Roles
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <div class="pl-2 pb-2 markdown-content" v-html="advisoryRoles" />
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              Talks
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <div class="pl-2 pb-2 markdown-content" v-html="talks" />
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+        <div>
+        <p/>
+          I am open to similar roles. For details please see <a href="/about/services/">here</a>.
+        </div>
         <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="pl-2 pb-2 markdown-content" v-html="professionalCommitments" />
+        <!-- <div class="pl-2 pb-2 markdown-content" v-html="professionalCommitments" /> -->
 
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
@@ -140,9 +204,73 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
+const panel = [0, 1, 2, 3, 4, 5]
 const professionalCommitments = computedAsync(async () => {
   try {
     const fileContent = await import('./professional-commitments.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const membershipsAffiliations = computedAsync(async () => {
+  try {
+    const fileContent = await import('./pc-content/memberships-affiliations.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const fellowships = computedAsync(async () => {
+  try {
+    const fileContent = await import('./pc-content/fellowships.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const boardMemberships = computedAsync(async () => {
+  try {
+    const fileContent = await import('./pc-content/board-memberships.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const judgingRoles = computedAsync(async () => {
+  try {
+    const fileContent = await import('./pc-content/judging-roles.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const judgingRolesPast = computedAsync(async () => {
+  try {
+    const fileContent = await import('./pc-content/judging-roles-past.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const advisoryRoles = computedAsync(async () => {
+  try {
+    const fileContent = await import('./pc-content/advisory-roles.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const talks = computedAsync(async () => {
+  try {
+    const fileContent = await import('./pc-content/talks.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {

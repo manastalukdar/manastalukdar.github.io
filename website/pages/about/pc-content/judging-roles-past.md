@@ -1,0 +1,2 @@
+- [2024 Globee Awards for Cybersecurity](https://credential.globeeawards.com/d85bdcc4-c13a-4dcd-9639-d034eb124cc7).
+- Accepted as a Judge for the 2024 [SIIA CODiE Awards](https://siia.net/codie/).

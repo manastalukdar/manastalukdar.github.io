@@ -1,0 +1,1 @@
+- Accepted as a Judge for the [Globee Awards](https://globeeawards.com).
