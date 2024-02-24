@@ -16,6 +16,7 @@
           <span>Professional Commitments</span>
         </v-row>
         <p />
+        <client-only>
         <v-expansion-panels multiple v-model="panel">
           <v-expansion-panel>
             <v-expansion-panel-title>
@@ -76,6 +77,7 @@
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
+      </client-only>
         <div>
         <p/>
           I am open to similar roles. For details please see <nuxt-link to="/about/services/">here</nuxt-link>.
