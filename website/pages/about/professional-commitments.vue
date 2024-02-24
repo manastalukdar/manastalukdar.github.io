@@ -16,7 +16,7 @@
           <span>Professional Commitments</span>
         </v-row>
         <p />
-        <v-expansion-panels v-model="panel">
+        <v-expansion-panels multiple>
           <v-expansion-panel>
             <v-expansion-panel-title>
               Professional Memberships and Affiliations
