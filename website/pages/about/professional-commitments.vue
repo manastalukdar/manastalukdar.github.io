@@ -78,7 +78,7 @@
         </v-expansion-panels>
         <div>
         <p/>
-          I am open to similar roles. For details please see <a href="/about/services/">here</a>.
+          I am open to similar roles. For details please see <nuxt-link to="/about/services/">here</nuxt-link>.
         </div>
         <!--eslint-disable-next-line vue/no-v-html-->
         <!-- <div class="pl-2 pb-2 markdown-content" v-html="professionalCommitments" /> -->
@@ -204,16 +204,7 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const panel = ref([0, 1, 2, 3, 4, 5])
-const professionalCommitments = computedAsync(async () => {
-  try {
-    const fileContent = await import('./professional-commitments.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
-});
+const panel = ref([0, 1, 2, 3, 4, 5]);
 const membershipsAffiliations = computedAsync(async () => {
   try {
     const fileContent = await import('./pc-content/memberships-affiliations.md?raw')
