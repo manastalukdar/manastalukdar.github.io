@@ -16,7 +16,7 @@
           <span>Professional Commitments</span>
         </v-row>
         <p />
-        <v-expansion-panels multiple>
+        <v-expansion-panels multiple v-model="panel">
           <v-expansion-panel>
             <v-expansion-panel-title>
               Professional Memberships and Affiliations
@@ -204,7 +204,7 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const panel = [0, 1, 2, 3, 4, 5]
+const panel = ref([0, 1, 2, 3, 4, 5])
 const professionalCommitments = computedAsync(async () => {
   try {
     const fileContent = await import('./professional-commitments.md?raw')
