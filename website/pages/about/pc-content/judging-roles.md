@@ -1,1 +1,1 @@
-- Accepted as a Judge for the [Globee Awards](https://globeeawards.com).
+- Accepted as a Judge for the 2024 [Globee Awards](https://globeeawards.com).
