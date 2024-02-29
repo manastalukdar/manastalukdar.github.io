@@ -1,0 +1,2 @@
+- Engineering mentor, specifically around AI/ML at [ADPList](https://www.adplist.org/).
+- Mentor at [The Mentoring Club](https://www.thementoringclub.org/).

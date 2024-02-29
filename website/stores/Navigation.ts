@@ -88,6 +88,12 @@ const initialState = () => ({
         text: 'Professional Commitments',
       },
       {
+        href: '/about/volunteering/',
+        target: '_blank',
+        icon: 'mdi-desk-lamp',
+        text: 'Volunteering',
+      },
+      {
         href: '/about/services/',
         target: '_blank',
         icon: 'mdi-toolbox-outline',
