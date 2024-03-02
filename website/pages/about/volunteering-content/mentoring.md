@@ -1,3 +1,3 @@
 - Engineering mentor, specifically around AI/ML, at [ADPList](https://www.adplist.org/).
+- Engineering and leadership mentor at [The Mentoring-Club](https://www.mentoring-club.com).
 - Mentor at [The Mentoring Club](https://www.thementoringclub.org/).
-- Mentor at [The Mentoring-Club](https://www.mentoring-club.com)
