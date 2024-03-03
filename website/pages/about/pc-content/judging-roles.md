@@ -1,1 +1,2 @@
-- Accepted as a Judge for the 2024 [Globee Awards](https://globeeawards.com).
+- Accepted as a judge for the 2024 [Globee Awards](https://globeeawards.com).
+- Accepted as a judge for the 2024 [American Business Awards](https://stevieawards.com/ABA) (part of the Stevie Awards).
