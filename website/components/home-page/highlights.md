@@ -6,7 +6,7 @@
 
 - Established the Data org within Platform engineering department at C3 AI. Grew a team of 6 to an org of ~30 engineers across 6 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
 
-- Established a highly successful internship program at C3 AI. _Created a strong pipeline_ of interns from top universities. Formulated a program that led to _100% intern conversion into full-time roles_ within my organization.
+- Established a highly successful internship program at C3 AI. _Created a strong pipeline_ of interns from top universities. Achieved _100% intern conversion into full-time roles_ within my organization.
 
 - Experienced in hiring and mentoring engineers, _identifying and developing leaders_. Trained in management methodologies from UC Berkeley Center for Executive Education. _Fueled rapid growth of multiple teams_ by formulating strategies and processes around hiring. As part of _department leadership_ instituted frameworks and best practices to maintain high bar and streamline growth. Developed successful cross-departmental collaborations to _scale multiple software teams_ across engineering department.
 
