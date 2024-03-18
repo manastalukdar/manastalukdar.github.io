@@ -1,5 +1,5 @@
 - Mentor/Advisor for startups at [Alchemist Accelerator](https://www.alchemistaccelerator.com), a venture backed accelerator for early-stage startups that monetize from enterprises.
 - Providing general guidance to an early-stage startup working on a Generative AI based product.
-- Technology/Consulting advisor for AI, ML, distributed systems, etc. at
+- Technology advisor for AI, ML, distributed systems, etc. at
   - [Guidepoint](https://www.guidepoint.com).
   - [Office Hours](https://officehours.com/).
