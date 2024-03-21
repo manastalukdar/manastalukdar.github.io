@@ -1,1 +1,1 @@
-- I will be [speaking](https://www.ai2030.org/team) at the 2024 [Chicago AI Conference](https://www.ai2030.org/2023-ai-conference).
+- I will be [speaking](https://chicagoaiweek.com/speaker/manas-talukdar/) at the 2024 [Chicago AI Conference](https://chicagoaiweek.com).
