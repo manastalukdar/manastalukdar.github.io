@@ -5,8 +5,9 @@ I am open to:
 - Joining steering committees for organizations or standards, etc.
 - Being part of judging panels.
 - Reviewer roles for technical submissions.
-- Participating in panel discussions.
 - Giving conference talks.
+- Participating in panel discussions.
+- Participating in podcasts. I may be reached out through [matchmaker.fm](https://www.matchmaker.fm/show-guest/manas-talukdar-ced412), or any of the options below.
 
 Please note that these are on a non-compensatory and part-time basis only. If you are interested, you can contact me by one of more of the following options.
 
