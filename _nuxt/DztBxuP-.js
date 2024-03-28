@@ -1,0 +1,2 @@
+const a=`- I will be [speaking](https://chicagoaiweek.com/speaker/manas-talukdar/) at the 2024 [Chicago AI Conference](https://chicagoaiweek.com).
+`;export{a as default};

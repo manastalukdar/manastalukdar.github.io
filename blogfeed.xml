@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Manas Talukdar - blog</title>
+        <link>https://manastalukdar.github.io/blogfeed.xml</link>
+        <description>Syndication feed for blog.</description>
+        <lastBuildDate>Thu, 28 Mar 2024 04:34:40 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <copyright>All rights reserved 2024 Manas Talukdar</copyright>
+        <category>Technology</category>
+        <category>Musings</category>
+        <category>Science</category>
+        <category>History</category>
+        <category>Miscellaneous</category>
+        <item>
+            <title><![CDATA[The Shift from Models to Compound AI Systems - Berkeley AI Research Lab]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/03/17/shift-models-compound-ai-systems-bair-lab/</link>
+            <guid>/blog/2024/03/17/shift-models-compound-ai-systems-bair-lab/</guid>
+            <pubDate>Sun, 17 Mar 2024 21:15:00 GMT</pubDate>
+            <description><![CDATA[Berkeley AI Research Lab on the shift from models to compound AI systems.]]></description>
+            <content:encoded><![CDATA[Berkeley AI Research Lab on the shift from models to compound AI systems. ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Understanding Deep Learning Book by Simon Prince]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/02/03/understanding-deep-learning-book-simon-prince/</link>
+            <guid>/blog/2024/02/03/understanding-deep-learning-book-simon-prince/</guid>
+            <pubDate>Sat, 03 Feb 2024 10:50:00 GMT</pubDate>
+            <description><![CDATA[Understanding Deep Learning book by Simon Prince.]]></description>
+            <content:encoded><![CDATA[Understanding Deep Learning book by Simon Prince ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[The Definitive Guide on Feature Store from Hopsworks]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/02/02/feature-store-definitive-guide-hopsworks/</link>
+            <guid>/blog/2024/02/02/feature-store-definitive-guide-hopsworks/</guid>
+            <pubDate>Fri, 02 Feb 2024 19:48:00 GMT</pubDate>
+            <description><![CDATA[The Definitive Guide on Feature Store from Hopsworks.]]></description>
+            <content:encoded><![CDATA[The Definitive Guide on Feature Store from Hopsworks ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[On Layoffs]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/02/02/on-layoffs/</link>
+            <guid>/blog/2024/02/02/on-layoffs/</guid>
+            <pubDate>Fri, 02 Feb 2024 19:40:00 GMT</pubDate>
+            <description><![CDATA[Some thoughts on the ongoing layoffs.]]></description>
+            <content:encoded><![CDATA[The pendulum has well and truly swung from a red-hot employees’ market to an employers’ market, in this past year. The great resignation has now become ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Measuring Productivity and Performance of Software Engineering Teams - Part 2]]></title>
+            <link>https://manastalukdar.github.io/blog/2023/12/26/productivity-performance-software-engineering-teams-part-2/</link>
+            <guid>/blog/2023/12/26/productivity-performance-software-engineering-teams-part-2/</guid>
+            <pubDate>Tue, 26 Dec 2023 14:46:00 GMT</pubDate>
+            <description><![CDATA[A comprehensive data-driven methodology for measuring productivity and performance of software engineering teams.]]></description>
+            <content:encoded><![CDATA[In a previous post we discussed one methodology for measuring productivity and performance of software engineering teams. This post expands on it by ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Leadership, Loyalty and OpenAI Employee Revolt after Sam Altman Ouster]]></title>
+            <link>https://manastalukdar.github.io/blog/2023/11/23/leadership-loyalty-openai-employee-revolt-sam-altman-ouster/</link>
+            <guid>/blog/2023/11/23/leadership-loyalty-openai-employee-revolt-sam-altman-ouster/</guid>
+            <pubDate>Thu, 23 Nov 2023 19:08:00 GMT</pubDate>
+            <description><![CDATA[Some thoughts on leadership and loyalty following the OpenAI employee revolt after Sam Altman's ouster.]]></description>
+            <content:encoded><![CDATA[Sam Altman is now back as OpenAI CEO. It would be fair to say that one of the key developments that led to his return ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Scrum Master Responsibilities]]></title>
+            <link>https://manastalukdar.github.io/blog/2023/09/15/scrum-master-responsibilities/</link>
+            <guid>/blog/2023/09/15/scrum-master-responsibilities/</guid>
+            <pubDate>Fri, 15 Sep 2023 12:22:00 GMT</pubDate>
+            <description><![CDATA[An exposition of scrum master responsibilities as I have outlines for my organization.]]></description>
+            <content:encoded><![CDATA[Scrum masters play a key role in ensuring smooth running of a scrum team and timely delivery ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Engineering Support Duty Rotation]]></title>
+            <link>https://manastalukdar.github.io/blog/2023/08/29/engineering-support-duty-rotation/</link>
+            <guid>/blog/2023/08/29/engineering-support-duty-rotation/</guid>
+            <pubDate>Tue, 29 Aug 2023 12:19:00 GMT</pubDate>
+            <description><![CDATA[An exposition of engineering support duty rotation.]]></description>
+            <content:encoded><![CDATA[It is common for engineers to have to support products they have built. Sometimes this takes the form of ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Vector Database Reading and Research Material]]></title>
+            <link>https://manastalukdar.github.io/blog/2023/08/24/vector-database-reading-material/</link>
+            <guid>/blog/2023/08/24/vector-database-reading-material/</guid>
+            <pubDate>Thu, 24 Aug 2023 14:37:00 GMT</pubDate>
+            <description><![CDATA[Collection of some reading and research material on vector databases.]]></description>
+            <content:encoded><![CDATA[Collection of some reading and research material on vector databases. ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Software Engineering Design Documents]]></title>
+            <link>https://manastalukdar.github.io/blog/2023/03/18/software-engineering-design-documents/</link>
+            <guid>/blog/2023/03/18/software-engineering-design-documents/</guid>
+            <pubDate>Sat, 18 Mar 2023 14:47:00 GMT</pubDate>
+            <description><![CDATA[Software engineering design documents and a proposed template.]]></description>
+            <content:encoded><![CDATA[A software design document is an extremely important part of the software development effort. While not every development work item / stream necessarily entails a design document, ...read more]]></content:encoded>
+        </item>
+    </channel>
+</rss>
