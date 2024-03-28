@@ -4,3 +4,4 @@
 - Technology advisor for AI, ML, distributed systems, etc. at
   - [Guidepoint](https://www.guidepoint.com).
   - [Office Hours](https://officehours.com/).
+  - [Capvision](https://capvision.com).
