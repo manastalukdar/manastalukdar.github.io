@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import breadcrumbs from '../../components/breadcrumbs'
+import breadcrumbs from '../../../components/breadcrumbs'
 import { useNavigationStore } from '@/stores/Navigation';
 import { useGlobalDataStore } from '@/stores/GlobalData';
 export default {
@@ -27,10 +27,11 @@ export default {
     const globalDataStore = useGlobalDataStore();
     const appOwner = globalDataStore.appOwner;
     const currentPage =
-            navigationStore.about.aboutItems[0].text +
+            navigationStore.about.aboutItems[0].professionalItems[1].text +
             ' | ' +
             navigationStore.about.aboutText;
-    const currentHref = navigationStore.about.aboutItems[0].href;
+    const currentHref = navigationStore.about.aboutItems[0].professionalItems[1].href;
+    const resumeText = navigationStore.about.aboutItems[0].professionalItems[1].text;
     const runtimeConfig = useRuntimeConfig();
     const baseUrl = runtimeConfig.public.baseUrl;
     const title = currentPage + ' || ' + appOwner;
@@ -43,7 +44,17 @@ export default {
           href: '/',
         },
         {
-          title: 'Resume',
+          title: 'About',
+          disabled: true,
+          exact: true,
+        },
+        {
+          title: 'Professional',
+          disabled: true,
+          exact: true,
+        },
+        {
+          title: resumeText,
           disabled: false,
           href: currentHref,
         },

@@ -33,7 +33,7 @@ import { usePaperizer } from 'paperizer'
 import fm from 'front-matter'
 import mdit from 'markdown-it'
 import { computedAsync } from '@vueuse/core'
-import breadcrumbs from '../../components/breadcrumbs'
+import breadcrumbs from '../../../components/breadcrumbs'
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
@@ -56,11 +56,11 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[1].text +
+  navigationStore.about.aboutItems[0].professionalItems[2].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[1].href;
-const patentsText = navigationStore.about.aboutItems[1].text;
+const currentHref = navigationStore.about.aboutItems[0].professionalItems[2].href;
+const patentsText = navigationStore.about.aboutItems[0].professionalItems[2].text;
 const title = currentPage + ' || ' + appOwner;
 const description = 'Listing of filed and/or granted patents.';
 const url = baseUrl + currentHref;
@@ -69,6 +69,16 @@ const breadcrumbsData = [
     title: 'Home',
     disabled: false,
     href: '/',
+    exact: true,
+  },
+  {
+    title: 'About',
+    disabled: true,
+    exact: true,
+  },
+  {
+    title: 'Professional',
+    disabled: true,
     exact: true,
   },
   {

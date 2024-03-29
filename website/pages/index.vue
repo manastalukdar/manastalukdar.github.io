@@ -22,14 +22,6 @@
     </v-row>
 
     <v-row class="px-2 py-2">
-      <highlights />
-    </v-row>
-
-    <v-row class="px-2 py-2">
-      <interests />
-    </v-row>
-
-    <v-row class="px-2 py-2">
       <recentUpdates />
     </v-row>
   </v-container>
@@ -40,8 +32,6 @@ import aboutBlurb from '../components/home-page/about-blurb.vue';
 import recentPostsHomePage from '../components/home-page/recent-posts.vue';
 import featured from '../components/home-page/featured.vue';
 import socialMediaAndResumeLinks from '../components/home-page/social-media-resume.vue';
-import highlights from '../components/home-page/highlights.vue';
-import interests from '../components/home-page/interests.vue';
 import recentUpdates from '../components/home-page/recent-updates.vue';
 import { useBlogMetadataStore } from '@/stores/BlogMetadata';
 import { useNavigationStore } from '@/stores/Navigation';
@@ -74,8 +64,6 @@ components: {
   recentPostsHomePage,
   featured,
   socialMediaAndResumeLinks,
-  highlights,
-  interests,
   recentUpdates
 };
 const breadcrumbs = [

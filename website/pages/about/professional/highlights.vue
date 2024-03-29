@@ -13,21 +13,11 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Volunteering</span>
+          <span>Professional Highlights</span>
         </v-row>
         <p />
-        <client-only>
-        <v-expansion-panels multiple v-model="panel">
-          <v-expansion-panel>
-            <v-expansion-panel-title>
-              Mentoring
-            </v-expansion-panel-title>
-            <v-expansion-panel-text>
-              <div class="pl-2 pb-2 markdown-content" v-html="mentoring" />
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-        </v-expansion-panels>
-      </client-only>
+        <highlights />
+
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
         </v-row>
@@ -39,14 +29,11 @@
 
 <script setup>
 import { usePaperizer } from 'paperizer'
-import fm from 'front-matter'
-import mdit from 'markdown-it'
-import { computedAsync } from '@vueuse/core'
-import breadcrumbs from '../../components/breadcrumbs'
+import breadcrumbs from '../../../components/breadcrumbs'
+import highlights from '../../components/about/highlights.vue';
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
-import getTargetBlankLinkRender from '../../utils/markdownRenderHelpers.ts';
 const navigationStore = useNavigationStore();
 const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
@@ -65,13 +52,13 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[1].text +
+  navigationStore.about.aboutItems[0].professionalItems[0].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[1].href;
-const volunteeringText = navigationStore.about.aboutItems[1].text;
+const currentHref = navigationStore.about.aboutItems[0].professionalItems[0].href;
+const highlightsText = navigationStore.about.aboutItems[0].professionalItems[0].text;
 const title = currentPage + ' || ' + appOwner;
-const description = 'Volunteering activities.';
+const description = 'highlights';
 const url = baseUrl + currentHref;
 const breadcrumbsData = [
   {
@@ -86,7 +73,12 @@ const breadcrumbsData = [
     exact: true,
   },
   {
-    title: volunteeringText,
+    title: 'Professional',
+    disabled: true,
+    exact: true,
+  },
+  {
+    title: highlightsText,
     disabled: false,
     href: currentHref,
     exact: true,
@@ -148,26 +140,10 @@ useHead({
     },
   ],
 });
-const md = new mdit({
-  html: true,
-  linkify: true,
-  typographer: true,
-});
-getTargetBlankLinkRender(md);
-const panel = ref([0]);
-const mentoring = computedAsync(async () => {
-  try {
-    const fileContent = await import('./content-volunteering/mentoring.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
-});
 const { paperize } = usePaperizer('printMe',  {
   styles: [
   //'https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css',
-    '/style/print-generic.css'
+    '/style/print-recruiters.css'
   ]
 });
 const print = () => {

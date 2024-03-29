@@ -56,11 +56,11 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[3].text +
+  navigationStore.about.aboutItems[4].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[3].href;
-const servicesText = navigationStore.about.aboutItems[3].text;
+const currentHref = navigationStore.about.aboutItems[4].href;
+const servicesText = navigationStore.about.aboutItems[4].text;
 const title = currentPage + ' || ' + appOwner;
 const description = 'Services';
 const url = baseUrl + currentHref;
@@ -69,6 +69,11 @@ const breadcrumbsData = [
     title: 'Home',
     disabled: false,
     href: '/',
+    exact: true,
+  },
+  {
+    title: 'About',
+    disabled: true,
     exact: true,
   },
   {

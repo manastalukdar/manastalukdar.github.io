@@ -7,10 +7,6 @@
       elevation="8"
       style="height: 100%"
     >
-      <v-row class="text-h6 px-3 py-3" justify="center">
-        <span>Highlights</span>
-      </v-row>
-      <p />
       <!--eslint-disable-next-line vue/no-v-html-->
       <div class="pl-2 pb-2" v-html="highlights" />
     </v-card>

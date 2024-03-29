@@ -13,17 +13,25 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Volunteering</span>
+          <span>Honors and Awards</span>
         </v-row>
         <p />
         <client-only>
         <v-expansion-panels multiple v-model="panel">
           <v-expansion-panel>
             <v-expansion-panel-title>
-              Mentoring
+              Global Recognition Award, 2024
             </v-expansion-panel-title>
             <v-expansion-panel-text>
-              <div class="pl-2 pb-2 markdown-content" v-html="mentoring" />
+              <div class="pl-2 pb-2 markdown-content" v-html="globalRecognitionAward" />
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              IEEE Senior Membership
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <div class="pl-2 pb-2 markdown-content" v-html="ieeeSeniorMembership" />
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -65,13 +73,13 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[1].text +
+  navigationStore.about.aboutItems[3].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[1].href;
-const volunteeringText = navigationStore.about.aboutItems[1].text;
+const currentHref = navigationStore.about.aboutItems[3].href;
+const honorsAwardsText = navigationStore.about.aboutItems[3].text;
 const title = currentPage + ' || ' + appOwner;
-const description = 'Volunteering activities.';
+const description = 'Listing of recognition through honors and awards.';
 const url = baseUrl + currentHref;
 const breadcrumbsData = [
   {
@@ -86,7 +94,7 @@ const breadcrumbsData = [
     exact: true,
   },
   {
-    title: volunteeringText,
+    title: honorsAwardsText,
     disabled: false,
     href: currentHref,
     exact: true,
@@ -154,10 +162,19 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const panel = ref([0]);
-const mentoring = computedAsync(async () => {
+const panel = ref([0, 1]);
+const globalRecognitionAward = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-volunteering/mentoring.md?raw')
+    const fileContent = await import('./content-honors-awards/global-recognition-award.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const ieeeSeniorMembership = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/ieee-senior-membership.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {

@@ -70,22 +70,39 @@ const initialState = () => ({
     aboutText: 'About',
     aboutItems: [
       {
-        href: '/about/resume/',
-        target: '_blank',
-        icon: 'mdi-file-document',
-        text: 'Resume',
-      },
-      {
-        href: '/about/patents/',
-        target: '_blank',
-        icon: 'mdi-script-text',
-        text: 'Patents',
-      },
-      {
-        href: '/about/professional-commitments/',
-        target: '_blank',
-        icon: 'mdi-list-box',
-        text: 'Professional Commitments',
+          professionalText: "Professional",
+          professionalItems: [
+            {
+              href: '/about/professional/highlights/',
+              target: '_blank',
+              icon: 'mdi-text',
+              text: 'Highlights',
+            },
+            {
+              href: '/about/professional/resume/',
+              target: '_blank',
+              icon: 'mdi-file-document',
+              text: 'Resume',
+            },
+            {
+              href: '/about/professional/patents/',
+              target: '_blank',
+              icon: 'mdi-script-text',
+              text: 'Patents',
+            },
+            {
+              href: '/about/professional/engagements/',
+              target: '_blank',
+              icon: 'mdi-list-box',
+              text: 'Engagements',
+            },
+            {
+              href: '/about/professional/recruiters/',
+              target: '_blank',
+              icon: 'mdi-handshake',
+              text: 'Recruiters',
+            },
+          ],
       },
       {
         href: '/about/volunteering/',
@@ -94,16 +111,22 @@ const initialState = () => ({
         text: 'Volunteering',
       },
       {
+        href: '/about/interests/',
+        target: '_blank',
+        icon: 'mdi-thumb-up',
+        text: 'Interests',
+      },
+      {
+        href: '/about/honors-awards/',
+        target: '_blank',
+        icon: 'mdi-medal',
+        text: 'Honors and Awards',
+      },
+      {
         href: '/about/services/',
         target: '_blank',
         icon: 'mdi-toolbox-outline',
         text: 'Services',
-      },
-      {
-        href: '/about/recruiters/',
-        target: '_blank',
-        icon: 'mdi-handshake',
-        text: 'Recruiters',
       },
     ],
   },

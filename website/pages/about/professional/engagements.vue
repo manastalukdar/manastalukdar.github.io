@@ -13,7 +13,7 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Professional Commitments</span>
+          <span>Professional Engagements</span>
         </v-row>
         <p />
         <client-only>
@@ -83,7 +83,7 @@
           I am open to similar roles. For details please see <nuxt-link to="/about/services/">here</nuxt-link>.
         </div>
         <!--eslint-disable-next-line vue/no-v-html-->
-        <!-- <div class="pl-2 pb-2 markdown-content" v-html="professionalCommitments" /> -->
+        <!-- <div class="pl-2 pb-2 markdown-content" v-html="professionalEngagements" /> -->
 
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
@@ -99,7 +99,7 @@ import { usePaperizer } from 'paperizer'
 import fm from 'front-matter'
 import mdit from 'markdown-it'
 import { computedAsync } from '@vueuse/core'
-import breadcrumbs from '../../components/breadcrumbs'
+import breadcrumbs from '../../../components/breadcrumbs'
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
@@ -122,13 +122,13 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[2].text +
+  navigationStore.about.aboutItems[0].professionalItems[3].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[2].href;
-const professionalCommitmentsText = navigationStore.about.aboutItems[2].text;
+const currentHref = navigationStore.about.aboutItems[0].professionalItems[3].href;
+const professionalEngagementsText = navigationStore.about.aboutItems[0].professionalItems[3].text;
 const title = currentPage + ' || ' + appOwner;
-const description = 'Listing of professional commitments outside of day job.';
+const description = 'Listing of professional engagements outside of day job.';
 const url = baseUrl + currentHref;
 const breadcrumbsData = [
   {
@@ -138,7 +138,17 @@ const breadcrumbsData = [
     exact: true,
   },
   {
-    title: professionalCommitmentsText,
+    title: 'About',
+    disabled: true,
+    exact: true,
+  },
+  {
+    title: 'Professional',
+    disabled: true,
+    exact: true,
+  },
+  {
+    title: professionalEngagementsText,
     disabled: false,
     href: currentHref,
     exact: true,
@@ -209,7 +219,7 @@ getTargetBlankLinkRender(md);
 const panel = ref([0, 1, 2, 3, 4, 5]);
 const membershipsAffiliations = computedAsync(async () => {
   try {
-    const fileContent = await import('./pc-content/memberships-affiliations.md?raw')
+    const fileContent = await import('./content-engagements/memberships-affiliations.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -218,7 +228,7 @@ const membershipsAffiliations = computedAsync(async () => {
 });
 const fellowships = computedAsync(async () => {
   try {
-    const fileContent = await import('./pc-content/fellowships.md?raw')
+    const fileContent = await import('./content-engagements/fellowships.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -227,7 +237,7 @@ const fellowships = computedAsync(async () => {
 });
 const boardMemberships = computedAsync(async () => {
   try {
-    const fileContent = await import('./pc-content/board-memberships.md?raw')
+    const fileContent = await import('./content-engagements/board-memberships.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -236,7 +246,7 @@ const boardMemberships = computedAsync(async () => {
 });
 const judgingRoles = computedAsync(async () => {
   try {
-    const fileContent = await import('./pc-content/judging-roles.md?raw')
+    const fileContent = await import('./content-engagements/judging-roles.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -245,7 +255,7 @@ const judgingRoles = computedAsync(async () => {
 });
 const judgingRolesPast = computedAsync(async () => {
   try {
-    const fileContent = await import('./pc-content/judging-roles-past.md?raw')
+    const fileContent = await import('./content-engagements/judging-roles-past.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -254,7 +264,7 @@ const judgingRolesPast = computedAsync(async () => {
 });
 const advisoryRoles = computedAsync(async () => {
   try {
-    const fileContent = await import('./pc-content/advisory-roles.md?raw')
+    const fileContent = await import('./content-engagements/advisory-roles.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -263,7 +273,7 @@ const advisoryRoles = computedAsync(async () => {
 });
 const talks = computedAsync(async () => {
   try {
-    const fileContent = await import('./pc-content/talks.md?raw')
+    const fileContent = await import('./content-engagements/talks.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {

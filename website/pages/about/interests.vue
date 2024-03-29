@@ -12,12 +12,11 @@
         style="height: 100%"
         id="printMe"
       >
-        <v-row class="text-h5 px-3 py-3 recruiters-header justify-center">
-          <span>For Recruiters and Hiring Managers</span>
+        <v-row class="text-h5 px-3 py-3 page-header justify-center">
+          <span>Interests</span>
         </v-row>
         <p />
-        <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="pl-2 pb-2 markdown-content" v-html="recruiters" />
+        <interests />
 
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
@@ -30,14 +29,11 @@
 
 <script setup>
 import { usePaperizer } from 'paperizer'
-import fm from 'front-matter'
-import mdit from 'markdown-it'
-import { computedAsync } from '@vueuse/core'
 import breadcrumbs from '../../components/breadcrumbs'
+import interests from '../components/about/interests.vue';
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
-import getTargetBlankLinkRender from '../../utils/markdownRenderHelpers.ts';
 const navigationStore = useNavigationStore();
 const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
@@ -54,15 +50,18 @@ async function setupBlogMetadata() {
     }
 };
 await setupBlogMetadata();
+components: {
+  interests
+};
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[4].text +
+  navigationStore.about.aboutItems[2].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[4].href;
-const recruitersText = navigationStore.about.aboutItems[4].text;
+const currentHref = navigationStore.about.aboutItems[2].href;
+const interestsText = navigationStore.about.aboutItems[2].text;
 const title = currentPage + ' || ' + appOwner;
-const description = 'Landing page for recruiters and hiring managers.';
+const description = 'Interests';
 const url = baseUrl + currentHref;
 const breadcrumbsData = [
   {
@@ -72,7 +71,12 @@ const breadcrumbsData = [
     exact: true,
   },
   {
-    title: recruitersText,
+    title: 'About',
+    disabled: true,
+    exact: true,
+  },
+  {
+    title: interestsText,
     disabled: false,
     href: currentHref,
     exact: true,
@@ -133,21 +137,6 @@ useHead({
       type: 'application/ld+json',
     },
   ],
-});
-const md = new mdit({
-  html: true,
-  linkify: true,
-  typographer: true,
-});
-getTargetBlankLinkRender(md);
-const recruiters = computedAsync(async () => {
-  try {
-    const fileContent = await import('./recruiters.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
 });
 const { paperize } = usePaperizer('printMe',  {
   styles: [
