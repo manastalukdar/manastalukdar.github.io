@@ -58,6 +58,8 @@ const appOwner = globalDataStore.appOwner;
 const currentPage =
   navigationStore.about.aboutItems[0].professionalItems[4].text +
   ' | ' +
+  navigationStore.about.aboutItems[0].professionalText +
+  ' | ' +
   navigationStore.about.aboutText;
 const currentHref = navigationStore.about.aboutItems[0].professionalItems[4].href;
 const recruitersText = navigationStore.about.aboutItems[0].professionalItems[4].text;

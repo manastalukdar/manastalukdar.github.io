@@ -54,6 +54,8 @@ const appOwner = globalDataStore.appOwner;
 const currentPage =
   navigationStore.about.aboutItems[0].professionalItems[0].text +
   ' | ' +
+  navigationStore.about.aboutItems[0].professionalText +
+  ' | ' +
   navigationStore.about.aboutText;
 const currentHref = navigationStore.about.aboutItems[0].professionalItems[0].href;
 const highlightsText = navigationStore.about.aboutItems[0].professionalItems[0].text;

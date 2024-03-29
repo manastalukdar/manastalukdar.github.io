@@ -124,6 +124,8 @@ const appOwner = globalDataStore.appOwner;
 const currentPage =
   navigationStore.about.aboutItems[0].professionalItems[3].text +
   ' | ' +
+  navigationStore.about.aboutItems[0].professionalText +
+  ' | ' +
   navigationStore.about.aboutText;
 const currentHref = navigationStore.about.aboutItems[0].professionalItems[3].href;
 const professionalEngagementsText = navigationStore.about.aboutItems[0].professionalItems[3].text;

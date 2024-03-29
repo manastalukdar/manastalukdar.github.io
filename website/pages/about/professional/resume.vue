@@ -29,6 +29,8 @@ export default {
     const currentPage =
             navigationStore.about.aboutItems[0].professionalItems[1].text +
             ' | ' +
+            navigationStore.about.aboutItems[0].professionalText +
+            ' | ' +
             navigationStore.about.aboutText;
     const currentHref = navigationStore.about.aboutItems[0].professionalItems[1].href;
     const resumeText = navigationStore.about.aboutItems[0].professionalItems[1].text;
