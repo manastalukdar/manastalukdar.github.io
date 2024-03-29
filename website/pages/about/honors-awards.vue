@@ -20,7 +20,7 @@
         <v-expansion-panels multiple v-model="panel">
           <v-expansion-panel>
             <v-expansion-panel-title>
-              Global Recognition Award, 2024
+              Global Recognition Award
             </v-expansion-panel-title>
             <v-expansion-panel-text>
               <div class="pl-2 pb-2 markdown-content" v-html="globalRecognitionAward" />
