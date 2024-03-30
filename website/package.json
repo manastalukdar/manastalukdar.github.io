@@ -16,21 +16,21 @@
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@types/lodash": "^4.17.0",
-    "@types/node": "^20.11.28",
+    "@types/node": "^20.12.2",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
     "material-design-icons-iconfont": "^6.7.0",
-    "nuxt": "^3.11.0",
+    "nuxt": "^3.11.1",
     "nuxt-gtag": "^2.0.5",
     "nuxt-simple-sitemap": "^4.4.1",
     "sass": "^1.72.0",
     "sass-loader": "^14.1.1",
     "volar-service-vetur": "latest",
-    "webpack": "^5.90.3"
+    "webpack": "^5.91.0"
   },
   "dependencies": {
-    "@babel/cli": "^7.23.9",
-    "@babel/core": "^7.24.0",
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.3",
     "@mdi/font": "^7.4.47",
     "@pinia/nuxt": "^0.5.1",
     "@vitejs/plugin-vue": "^5.0.4",
@@ -42,7 +42,7 @@
     "highlight.js": "^11.9.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
-    "markdown-it": "^14.0.0",
+    "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-container": "^4.0.0",
     "markdown-it-footnote": "^4.0.0",
@@ -61,7 +61,7 @@
     "vue-material-design-icons": "^5.3.0",
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue3-disqus": "^1.0.6",
-    "vuetify": "^3.5.9"
+    "vuetify": "^3.5.13"
   },
   "overrides": {
     "vue": "latest"
