@@ -123,6 +123,12 @@ const initialState = () => ({
         text: 'Honors and Awards',
       },
       {
+        href: '/about/media/',
+        target: '_blank',
+        icon: 'mdi-newspaper',
+        text: 'Media',
+      },
+      {
         href: '/about/services/',
         target: '_blank',
         icon: 'mdi-toolbox-outline',

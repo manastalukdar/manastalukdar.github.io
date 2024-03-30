@@ -13,11 +13,11 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Services</span>
+          <span>Media</span>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="pl-2 pb-2 markdown-content" v-html="services" />
+        <div class="pl-2 pb-2 markdown-content" v-html="media" />
 
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
@@ -56,13 +56,13 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[5].text +
+  navigationStore.about.aboutItems[4].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[5].href;
-const servicesText = navigationStore.about.aboutItems[5].text;
+const currentHref = navigationStore.about.aboutItems[4].href;
+const mediaText = navigationStore.about.aboutItems[4].text;
 const title = currentPage + ' || ' + appOwner;
-const description = 'Services';
+const description = 'Media';
 const url = baseUrl + currentHref;
 const breadcrumbsData = [
   {
@@ -77,7 +77,7 @@ const breadcrumbsData = [
     exact: true,
   },
   {
-    title: servicesText,
+    title: mediaText,
     disabled: false,
     href: currentHref,
     exact: true,
@@ -145,9 +145,9 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const services = computedAsync(async () => {
+const media = computedAsync(async () => {
   try {
-    const fileContent = await import('./services.md?raw')
+    const fileContent = await import('./media.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
