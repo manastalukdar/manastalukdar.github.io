@@ -1,5 +1,5 @@
 <template>
-  <v-menu bottom left offset-y max-height="500">
+  <v-menu class="text-center" bottom left offset-y max-height="500">
     <template v-slot:activator="{ props }">
       <v-btn :aria-label="contactText" text style="min-width: 48px" v-bind="props">
         <span class="hidden-sm-and-down mr-1" v-text="contactText" />
