@@ -2,13 +2,12 @@
   <v-col cols="12">
     <v-card
       color="cardColor"
-      class="pa-8"
-      raised
-      elevation="8"
+      class="pa-0"
+      flat
       style="height: 100%"
     >
       <!--eslint-disable-next-line vue/no-v-html-->
-      <div class="pl-2 pb-2" v-html="interests" />
+      <div class="pl-0 pb-0" v-html="interests" />
     </v-card>
   </v-col>
 </template>

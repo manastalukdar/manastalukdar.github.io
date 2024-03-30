@@ -267,6 +267,11 @@ and also iPads specifically.
     word-break: break-all;
     word-wrap: break-word;
   }
+
+  .v-breadcrumbs {
+    word-break: break-all;
+    word-wrap: break-word;
+  }
 }
 
 /*

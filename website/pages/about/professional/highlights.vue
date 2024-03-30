@@ -13,7 +13,7 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Professional Highlights</span>
+          <span>Work Experience Highlights</span>
         </v-row>
         <p />
         <highlights />
