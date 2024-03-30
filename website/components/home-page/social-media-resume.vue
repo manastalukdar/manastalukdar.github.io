@@ -14,13 +14,13 @@
       </v-row>
       <v-row class="pa-3" justify="center">
         <v-list-item
-          :key="aboutItems[0].text"
-          :to="aboutItems[0].href"
+          :key="aboutItems[0].professionalItems[1].text"
+          :to="aboutItems[0].professionalItems[1].href"
           class="text-center"
         >
           <v-list-item-title
             class="font-weight-medium"
-            v-text="aboutItems[0].text"
+            v-text="aboutItems[0].professionalItems[1].text"
           />
         </v-list-item>
       </v-row>
