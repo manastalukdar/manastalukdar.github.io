@@ -1,1 +1,4 @@
-Selected blog posts on Engineering Leadership: [Growing Teams](/blog/2019/09/19/growing-developing-software-engineering-teams/), [Engineering Internships](/blog/2019/09/04/some-thoughts-on-engineering-internships/), [Interviewing Engineering Managers](/blog/2022/01/02/interviewing-engineering-managers/), [Interviewing Software Engineers](/blog/2019/04/14/interviewing-software-engineers/), [Attributes of a Senior Software Engineer](/blog/2019/04/17/attributes-senior-level-software-engineer/), [Development Methodology](/blog/2022/08/18/adapted-scrum-process-engineering-teams/), [Measuring Engineering Productivity](/blog/2023/12/26/productivity-performance-software-engineering-teams-part-2/).
+- Blog posts on [Engineering Leadership](/blog/tag/engineering-leadership/).
+- Work experience [highlights](/about/professional/highlights/).
+- General [interests](/about/interests/).
+- [Honors and Awards](/about/honors-awards/).
