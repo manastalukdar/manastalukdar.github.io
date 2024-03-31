@@ -7,7 +7,7 @@
       <v-list-item-title v-text="contactForm.text" />
     </v-list-item>
     <v-divider />
-    <v-list-subheader class="text-center align-center" v-text="subHeaderTextSocialMedia.text" />
+    <v-list-subheader class="text-center align-center" v-text="subHeaderTextSocialMediaText"></v-list-subheader>
     <v-list-item
       v-for="item in socialMediaItems"
       :key="item.text"
@@ -22,15 +22,10 @@
   </div>
 </template>
 
-<script>
-import { useNavigationStore } from '@/stores/Navigation'
-const navigationStore = useNavigationStore()
-export default {
-  data: () => ({
-    subHeaderTextSocialMedia: navigationStore.contact.subHeaderTextSocialMedia,
-    contactForm: navigationStore.contact.contactForm,
-    socialMediaItems: navigationStore.contact.socialMediaItems
-  }),
-  computed: {}
-}
+<script setup>
+import { useNavigationStore } from '@/stores/Navigation';
+const navigationStore = useNavigationStore();
+const subHeaderTextSocialMediaText = navigationStore.contact.subHeaderTextSocialMedia.text;
+const contactForm = navigationStore.contact.contactForm;
+const socialMediaItems = navigationStore.contact.socialMediaItems;
 </script>
