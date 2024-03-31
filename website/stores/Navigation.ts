@@ -6,6 +6,7 @@ const initialState = () => ({
   settingsDialogVisible: false,
   blog: {
     blogText: 'Blog',
+    icon: 'mdi-newspaper',
     authorText: 'Author',
     yearText: 'Year',
     monthText: 'Month',
@@ -68,9 +69,11 @@ const initialState = () => ({
   },
   about: {
     aboutText: 'About',
+    icon: 'mdi-information',
     aboutItems: [
       {
           professionalText: "Professional",
+          icon: 'mdi-briefcase-outline',
           professionalItems: [
             {
               href: '/about/professional/highlights/',
@@ -138,10 +141,12 @@ const initialState = () => ({
   },
   legal: {
     legalText: 'Legal',
+    icon: 'mdi-gavel',
     legalPath: '/legal/',
   },
   contact: {
     contactText: 'Contact',
+    icon: 'mdi-mail',
     subHeaderTextSocialMedia: { text: 'Social Media' },
     contactForm: {
       text: 'Form',

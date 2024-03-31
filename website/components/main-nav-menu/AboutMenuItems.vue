@@ -3,8 +3,9 @@
     <v-menu class="text-center" location=start left offset-y max-height="500">
       <template v-slot:activator="{ props }">
         <v-btn :aria-label="professionalText" text style="min-width: 48px" v-bind="props">
-          <span v-text="professionalText" />
           <v-icon>mdi-menu-left</v-icon>
+          <span v-text="professionalText" />
+          <v-icon end>{{ professionalIcon }}</v-icon>
         </v-btn>
       </template>
       <v-list density="default">
@@ -25,6 +26,7 @@ import { useNavigationStore } from '@/stores/Navigation';
 import AboutProfessionalMenuItems from './AboutProfessionalMenuItems.vue';
 const navigationStore = useNavigationStore();
 const professionalText = navigationStore.about.aboutItems[0].professionalText;
+const professionalIcon = navigationStore.about.aboutItems[0].icon;
 const aboutItems = navigationStore.about.aboutItems.filter(function (item) {
   return 'href' in item
 });

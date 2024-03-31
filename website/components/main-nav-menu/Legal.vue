@@ -8,20 +8,17 @@
         style="min-width: 48px"
         v-bind="props"
       >
+        <v-icon start>{{legalIcon}}</v-icon>
         <span class="hidden-sm-and-down mr-1" v-text="legalText" />
       </v-btn>
     </template>
   </v-menu>
 </template>
 
-<script>
-import { useNavigationStore } from '@/stores/Navigation'
-const navigationStore = useNavigationStore()
-export default {
-  data: () => ({
-    legalText: navigationStore.legal.legalText,
-    legalPath: navigationStore.legal.legalPath,
-  }),
-  computed: {}
-}
+<script setup>
+import { useNavigationStore } from '@/stores/Navigation';
+const navigationStore = useNavigationStore();
+const legalText = navigationStore.legal.legalText;
+const legalPath = navigationStore.legal.legalPath;
+const legalIcon = navigationStore.legal.icon;
 </script>
