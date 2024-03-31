@@ -7,7 +7,7 @@
       <v-list-item-title v-text="contactForm.text" />
     </v-list-item>
     <v-divider />
-    <v-list-subheader class="text-center align-center" v-text="subHeaderTextSocialMediaText"></v-list-subheader>
+    <v-list-subheader class="text-center align-center">{{ subHeaderTextSocialMediaText }}</v-list-subheader>
     <v-list-item
       v-for="item in socialMediaItems"
       :key="item.text"
