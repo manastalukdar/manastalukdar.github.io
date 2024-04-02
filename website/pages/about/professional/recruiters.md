@@ -5,7 +5,7 @@
  https://opensource.org/licenses/MIT
 -->
 
-[**Note**: I am not looking for any new opportunity at this time, but pleease feel free to reach out.]
+[**Note**: I am not looking for any new opportunity at this time, but please feel free to reach out.]
 
 ### What I bring to the table?
 
