@@ -5,7 +5,7 @@ I am open to:
 - Joining steering committees for organizations or standards, etc.
 - Being part of judging panels.
 - Reviewer roles for technical submissions.
-- Giving conference talks.
+- Giving conference talks, or other public speaking opportunities. I can be contacted through the [Free Speaker Bureau](https://www.freespeakerbureau.com/speaker-presenter/manas-talukdar) platform, or any of the options below.
 - Participating in panel discussions.
 - Participating in podcasts. I can contacted through the [matchmaker.fm](https://www.matchmaker.fm/show-guest/manas-talukdar-ced412) platform, or any of the options below.
 
