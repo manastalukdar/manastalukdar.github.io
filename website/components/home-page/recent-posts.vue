@@ -26,6 +26,6 @@ defineProps({
     }
   },
 });
-const itemsToDisplay = 5;
+const itemsToDisplay = 6;
 const blogItems = navigationStore.blog.blogItems;
 </script>
