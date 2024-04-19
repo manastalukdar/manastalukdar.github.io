@@ -23,13 +23,13 @@ A list of some AI and general technical newsletters that I find interesting:
 
 - [The Batch](https://www.deeplearning.ai/thebatch/): A newsletter from Andrew Ng's deeplearning.ai. [recommended]
 - [Import AI](https://jack-clark.net/): A newsletter from Jack Clark.
-- [The Gradient](https://thegradient.pub/): A newsletter from The Gradient. [recommended]
-- [Data Elixir](https://dataelixir.com/): A newsletter from Lon Riesberg.
-- [The Data Exchange](https://thedataexchange.media/): A newsletter from Ben Lorica.
+- [The Gradient](https://thegradient.pub/) [recommended]
+- [Data Elixir](https://dataelixir.com/)
 - [AI Titbits](https://www.aitidbits.ai) [recommended]
 - [AI News](https://buttondown.email/ainews) [recommended]
 - [The Ground Truth](https://ground-truth.beehiiv.com)
 - [Tarry's AI Notes](https://www.linkedin.com/newsletters/tarry-s-ai-notes-7014965974319661056/)
+- [Artificial Intelligence from Andriy Burkov](https://www.linkedin.com/pulse/artificial-intelligence-221-andriy-burkov-wu64e/) [recommended]
 - [Marktechpost AI Newsletter](https://www.airesearchinsights.com) [recommended]
 - [The Rundown AI](https://www.therundown.ai) [recommended]
 - [AI digest from GoatStack AI](https://goatstack.ai) [recommended]
