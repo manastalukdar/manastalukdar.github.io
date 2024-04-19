@@ -42,9 +42,10 @@ A list of some technical newsletters that I find interesting:
 - [Tarry's AI Notes](https://www.linkedin.com/newsletters/tarry-s-ai-notes-7014965974319661056/)
 - [Artificial Intelligence](https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/) from Andriy Burkov [recommended]
 - [The Atlas](https://www.linkedin.com/newsletters/the-atlas-7075090904906149891/) from Generative AI
-- [The AI Economy](https://www.linkedin.com/newsletters/7149119617343381504). A curated news roundup exploring AI's impact on business, work, society and technology. 
+- [The AI Economy](https://www.linkedin.com/newsletters/7149119617343381504). A curated news roundup exploring AI's impact on business, work, society and technology.
 
 ## General Technology
 
+- [TLDR](https://tldr.tech/) - summaries of the most interesting stories in startups 🚀, tech 📱, and programming. [recommended]
 - [The Information](https://www.theinformation.com)
-- [Chartr](https://www.chartr.co/) from [Sherwood news](https://sherwood.news/) provides data-driven insights into business, tech, entertainment and society.
+- [Chartr](https://www.chartr.co/) from [Sherwood news](https://sherwood.news/) - data-driven insights into business, tech, entertainment and society.
