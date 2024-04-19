@@ -19,7 +19,9 @@ excerpt: "A list of some AI and general technical newsletters that I find intere
 
 # AI and General Technical Newsletters
 
-A list of some AI and general technical newsletters that I find interesting:
+A list of some technical newsletters that I find interesting:
+
+## AI, ML, Data
 
 - [The Batch](https://www.deeplearning.ai/thebatch/) from Andrew Ng's deeplearning.ai. [recommended]
 - [Import AI](https://jack-clark.net/) from Jack Clark.
@@ -28,13 +30,20 @@ A list of some AI and general technical newsletters that I find interesting:
 - [AI Titbits](https://www.aitidbits.ai) [recommended]
 - [AI News](https://buttondown.email/ainews) [recommended]
 - [The Ground Truth](https://ground-truth.beehiiv.com)
-- [Tarry's AI Notes](https://www.linkedin.com/newsletters/tarry-s-ai-notes-7014965974319661056/) [LinkedIn]
-- [Artificial Intelligence](https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/) from Andriy Burkov [LinkedIn] [recommended]
-- [The Atlas](https://www.linkedin.com/newsletters/the-atlas-7075090904906149891/) from Generative AI [LinkedIn]
 - [Marktechpost AI Newsletter](https://www.airesearchinsights.com) [recommended]
 - [The Rundown AI](https://www.therundown.ai) [recommended]
 - [AI digest from GoatStack AI](https://goatstack.ai) [recommended]
 - [The Variable](https://medium.com/towards-data-science/newsletters/the-variable)
-- [The Information](https://www.theinformation.com)
 - [Unsupervised Learning](https://danielmiessler.com) [recommended]
 - [Cerebral Valley](https://cerebralvalley.ai) [recommended]
+
+### LinkedIn Newsletters
+
+- [Tarry's AI Notes](https://www.linkedin.com/newsletters/tarry-s-ai-notes-7014965974319661056/)
+- [Artificial Intelligence](https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/) from Andriy Burkov [recommended]
+- [The Atlas](https://www.linkedin.com/newsletters/the-atlas-7075090904906149891/) from Generative AI
+
+## General Technology
+
+- [The Information](https://www.theinformation.com)
+- [Chartr](https://www.chartr.co/) from [Sherwood news](https://sherwood.news/) provides data-driven insights into business, tech, entertainment and society.
