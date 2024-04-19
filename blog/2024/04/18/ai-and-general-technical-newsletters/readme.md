@@ -33,7 +33,7 @@ A list of some AI and general technical newsletters that I find interesting:
 - [Marktechpost AI Newsletter](https://www.airesearchinsights.com) [recommended]
 - [The Rundown AI](https://www.therundown.ai) [recommended]
 - [AI digest from GoatStack AI](https://goatstack.ai) [recommended]
-- [The variable](https://medium.com/towards-data-science/newsletters/the-variable)
+- [The Variable](https://medium.com/towards-data-science/newsletters/the-variable)
 - [The Information](https://www.theinformation.com)
 - [Unsupervised Learning](https://danielmiessler.com) [recommended]
 - [Cerebral Valley](https://cerebralvalley.ai) [recommended]
