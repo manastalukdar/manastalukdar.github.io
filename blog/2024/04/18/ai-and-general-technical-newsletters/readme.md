@@ -21,7 +21,7 @@ excerpt: "A list of some AI and general technical newsletters that I find intere
 
 A list of some technical newsletters that I find interesting:
 
-## AI, ML, Data
+## AI and Data
 
 - [The Batch](https://www.deeplearning.ai/thebatch/) from Andrew Ng's deeplearning.ai. [recommended]
 - [Import AI](https://jack-clark.net/) from Jack Clark.
@@ -42,7 +42,7 @@ A list of some technical newsletters that I find interesting:
 - [Tarry's AI Notes](https://www.linkedin.com/newsletters/tarry-s-ai-notes-7014965974319661056/)
 - [Artificial Intelligence](https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/) from Andriy Burkov [recommended]
 - [The Atlas](https://www.linkedin.com/newsletters/the-atlas-7075090904906149891/) from Generative AI
-- [The AI Economy](https://www.linkedin.com/newsletters/7149119617343381504). A curated news roundup exploring AI's impact on business, work, society and technology.
+- [The AI Economy](https://www.linkedin.com/newsletters/7149119617343381504) - A curated news roundup exploring AI's impact on business, work, society and technology.
 
 ## General Technology
 
