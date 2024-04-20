@@ -36,6 +36,7 @@ A list of some technical newsletters that I find interesting:
 - [The Variable](https://medium.com/towards-data-science/newsletters/the-variable)
 - [Unsupervised Learning](https://danielmiessler.com) [recommended]
 - [Cerebral Valley](https://cerebralvalley.ai) [recommended]
+- [Ahead of AI](https://magazine.sebastianraschka.com) [recommended]
 
 ### LinkedIn Newsletters
 
