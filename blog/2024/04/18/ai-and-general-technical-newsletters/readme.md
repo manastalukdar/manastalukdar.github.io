@@ -41,12 +41,17 @@ A list of some technical newsletters that I find interesting:
 ### LinkedIn Newsletters
 
 - [Tarry's AI Notes](https://www.linkedin.com/newsletters/tarry-s-ai-notes-7014965974319661056/)
-- [Artificial Intelligence](https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/) from Andriy Burkov [recommended]
-- [The Atlas](https://www.linkedin.com/newsletters/the-atlas-7075090904906149891/) from Generative AI
+- [Artificial Intelligence](https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/) from Andriy Burkovb. [recommended]
+- [The Atlas](https://www.linkedin.com/newsletters/the-atlas-7075090904906149891/) by [Generative AI](https://www.linkedin.com/company/genai-works/).
 - [The AI Economy](https://www.linkedin.com/newsletters/7149119617343381504) - A curated news roundup exploring AI's impact on business, work, society and technology.
+- [Top ML Papers of the Week](https://www.linkedin.com/newsletters/7020865424875474944/) by [DAIR.AI](https://www.linkedin.com/company/dair-ai/). [recommended]
 
 ## General Technology
 
-- [TLDR](https://tldr.tech/) - summaries of the most interesting stories in startups, tech, and programming. [recommended]
+- [TLDR](https://tldr.tech/) - Summaries of the most interesting stories in startups, tech, and programming. [recommended]
 - [The Information](https://www.theinformation.com)
-- [Chartr](https://www.chartr.co/) from [Sherwood news](https://sherwood.news/) - data-driven insights into business, tech, entertainment and society.
+- [Chartr](https://www.chartr.co/) from [Sherwood news](https://sherwood.news/) - Data-driven insights into business, tech, entertainment and society.
+
+### LinkedIn Newsletters
+
+- [The VC Corner](https://www.linkedin.com/newsletters/7159882988204220416/) - Recent news and resources for those investing or working in startups.
