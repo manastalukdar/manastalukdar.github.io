@@ -47,6 +47,6 @@ A list of some technical newsletters that I find interesting:
 
 ## General Technology
 
-- [TLDR](https://tldr.tech/) - summaries of the most interesting stories in startups 🚀, tech 📱, and programming. [recommended]
+- [TLDR](https://tldr.tech/) - summaries of the most interesting stories in startups, tech, and programming. [recommended]
 - [The Information](https://www.theinformation.com)
 - [Chartr](https://www.chartr.co/) from [Sherwood news](https://sherwood.news/) - data-driven insights into business, tech, entertainment and society.
