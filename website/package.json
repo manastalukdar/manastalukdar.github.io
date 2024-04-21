@@ -24,7 +24,7 @@
     "nuxt-gtag": "^2.0.5",
     "nuxt-simple-sitemap": "^4.4.1",
     "sass": "^1.75.0",
-    "sass-loader": "^14.2.0",
+    "sass-loader": "^14.2.1",
     "volar-service-vetur": "latest",
     "webpack": "^5.91.0"
   },
@@ -61,7 +61,7 @@
     "vue-material-design-icons": "^5.3.0",
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue3-disqus": "^1.0.6",
-    "vuetify": "^3.5.15"
+    "vuetify": "^3.5.16"
   },
   "overrides": {
     "vue": "latest"
