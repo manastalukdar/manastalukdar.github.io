@@ -37,6 +37,7 @@ A list of some technical newsletters that I find interesting:
 - [Unsupervised Learning](https://danielmiessler.com) [recommended]
 - [Cerebral Valley](https://cerebralvalley.ai) [recommended]
 - [Ahead of AI](https://magazine.sebastianraschka.com) [recommended]
+- [AlphaSignal](https://alphasignal.ai/) [recommended]
 
 ### LinkedIn Newsletters
 
