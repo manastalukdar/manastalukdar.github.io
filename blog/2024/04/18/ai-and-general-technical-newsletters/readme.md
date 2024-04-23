@@ -51,6 +51,7 @@ A list of some technical newsletters that I find interesting:
 - [TLDR](https://tldr.tech/) - Summaries of the most interesting stories in startups, tech, and programming. [recommended]
 - [The Information](https://www.theinformation.com)
 - [Chartr](https://www.chartr.co/) from [Sherwood news](https://sherwood.news/) - Data-driven insights into business, tech, entertainment and society.
+- [New Atlas](https://newatlas.com)
 
 ### LinkedIn Newsletters
 
