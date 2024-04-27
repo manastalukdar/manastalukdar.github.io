@@ -38,6 +38,7 @@ A list of some technical newsletters that I find interesting:
 - [Cerebral Valley](https://cerebralvalley.ai) [recommended]
 - [Ahead of AI](https://magazine.sebastianraschka.com) [recommended]
 - [AlphaSignal](https://alphasignal.ai/) [recommended]
+- [Hugging Face Daily Papers](https://huggingface.co/papers) [recommended]
 
 ### LinkedIn Newsletters
 
