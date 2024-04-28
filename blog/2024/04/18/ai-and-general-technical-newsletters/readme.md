@@ -39,6 +39,7 @@ A list of some technical newsletters that I find interesting:
 - [Ahead of AI](https://magazine.sebastianraschka.com) [recommended]
 - [AlphaSignal](https://alphasignal.ai/) [recommended]
 - [Hugging Face Daily Papers](https://huggingface.co/papers) [recommended]
+- [Chief AI Officer](https://www.chiefaioffice.xyz) - Track funding in AI Startups from OpenAI, a16z, Google & more.
 
 ### LinkedIn Newsletters
 
