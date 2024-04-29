@@ -28,6 +28,14 @@
           </v-expansion-panel>
           <v-expansion-panel>
             <v-expansion-panel-title>
+              Indian Achiever's Award
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <div class="pl-2 pb-2 markdown-content" v-html="indianAchieversAward" />
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
               IEEE Senior Membership
             </v-expansion-panel-title>
             <v-expansion-panel-text>
@@ -162,10 +170,19 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const panel = ref([0, 1]);
+const panel = ref([0, 1, 2]);
 const globalRecognitionAward = computedAsync(async () => {
   try {
     const fileContent = await import('./content-honors-awards/global-recognition-award.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const indianAchieversAward = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/indian-achievers-award.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
