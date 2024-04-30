@@ -58,7 +58,7 @@ Applicant will provide to sponsor a written document detailing the following, wi
 
 - Introduction and technical background. Applicant should provide a brief breakdown of their technical background, highlighting their career path so far at the company.
 - Statement of intent. Applicant should provide statement of intent for getting promoted to the staff/lead engineer role and also provide a brief overview of why they believe they are ready for the said role. Applicant should subsequently provide details using concrete examples as elucidated below.
-- Alignment with engineering competency metrix. Applicant should provide a detailed breakdown of how they have met the engineering competency matrix for the staff/lead engineer position. Applicant should provide specific supporting examples. Sponsor should/can directly work with the applicant on this section.
+- Alignment with engineering competency matrix. Applicant should provide a detailed breakdown of how they have met the engineering competency matrix for the staff/lead engineer position. Applicant should provide specific supporting examples. Sponsor should/can directly work with the applicant on this section.
 - Examples of work at the company that highlights ownership, consistent output, results and positive impact/outcome. Applicant should list at least two projects / initiatives where following signals and attributes were exhibited:
   - End to end ownership.
   - Diving deep into unfamiliar areas.
