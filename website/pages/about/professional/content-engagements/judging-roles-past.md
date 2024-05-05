@@ -1,2 +1,4 @@
 - [2024 Globee Awards for Cybersecurity](https://credential.globeeawards.com/d85bdcc4-c13a-4dcd-9639-d034eb124cc7).
+- [2024 Globee Awards for Customer Excellence](https://credential.globeeawards.com/6d0ec856-011c-44f1-8270-dfd743427802#gs.8clb76).
+- [2024 American Business Awards](https://stevieawards.com/ABA) (part of the Stevie Awards).
 - Accepted as a Judge for the 2024 [SIIA CODiE Awards](https://siia.net/codie/).
