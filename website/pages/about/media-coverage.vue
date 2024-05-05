@@ -17,7 +17,7 @@
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="pl-2 pb-2 markdown-content" v-html="media" />
+        <div class="pl-2 pb-2 markdown-content" v-html="mediaCoverage" />
 
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
@@ -37,7 +37,7 @@ import breadcrumbs from '../../components/breadcrumbs'
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
-import getTargetBlankLinkRender from '../../utils/markdownRenderHelpers.ts';
+import getTargetBlankLinkRender from '../../utils/markdownRenderHelpers';
 const navigationStore = useNavigationStore();
 const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
@@ -145,9 +145,9 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const media = computedAsync(async () => {
+const mediaCoverage = computedAsync(async () => {
   try {
-    const fileContent = await import('./media.md?raw')
+    const fileContent = await import('./content-media-coverage/media-coverage.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {

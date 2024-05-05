@@ -126,10 +126,10 @@ const initialState = () => ({
         text: 'Honors and Awards',
       },
       {
-        href: '/about/media/',
+        href: '/about/media-coverage/',
         target: '_blank',
         icon: 'mdi-newspaper',
-        text: 'Media',
+        text: 'Media Coverage',
       },
       {
         href: '/about/services/',
