@@ -70,10 +70,10 @@
           </v-expansion-panel>
           <v-expansion-panel>
             <v-expansion-panel-title>
-              Talks
+              Speaking
             </v-expansion-panel-title>
             <v-expansion-panel-text>
-              <div class="pl-2 pb-2 markdown-content" v-html="talks" />
+              <div class="pl-2 pb-2 markdown-content" v-html="speaking" />
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -273,9 +273,9 @@ const advisoryRoles = computedAsync(async () => {
     console.log(error)
   }
 });
-const talks = computedAsync(async () => {
+const speaking= computedAsync(async () => {
   try {
-    const fileContent = await import('./content-engagements/talks.md?raw')
+    const fileContent = await import('./content-engagements/speaking.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
