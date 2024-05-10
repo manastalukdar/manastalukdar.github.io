@@ -2,5 +2,6 @@
 - Work experience [highlights](/about/professional/highlights/).
 - General [interests](/about/interests/).
 - [Honors and Awards](/about/honors-awards/).
+- [Media Coverage](/about/media-coverage/).
 - [Services](/about/services/).
 - [For Recruiters and Hiring Managers](/about/professional/recruiters/).
