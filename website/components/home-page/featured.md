@@ -1,6 +1,5 @@
 - Blog posts on [Engineering Leadership](/blog/tag/engineering-leadership/).
-- Work experience [highlights](/about/professional/highlights/).
-- General [interests](/about/interests/).
+- Work experience [highlights](/about/professional/highlights/) and general [interests](/about/interests/).
 - [Honors and Awards](/about/honors-awards/).
 - [Media Coverage](/about/media-coverage/).
 - [Services](/about/services/).
