@@ -20,6 +20,14 @@
         <v-expansion-panels multiple v-model="panel">
           <v-expansion-panel>
             <v-expansion-panel-title>
+              Titan Business Award
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <div class="pl-2 pb-2 markdown-content" v-html="titanBusinessAward" />
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
               Global Recognition Award
             </v-expansion-panel-title>
             <v-expansion-panel-text>
@@ -170,7 +178,16 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const panel = ref([0, 1, 2]);
+const panel = ref([0, 1, 2, 3]);
+const titanBusinessAward = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/titan-business-award.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
 const globalRecognitionAward = computedAsync(async () => {
   try {
     const fileContent = await import('./content-honors-awards/global-recognition-award.md?raw')
