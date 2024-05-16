@@ -66,6 +66,16 @@
             </v-expansion-panel-title>
             <v-expansion-panel-text>
               <div class="pl-2 pb-2 markdown-content" v-html="advisoryRoles" />
+              <v-expansion-panels>
+                <v-expansion-panel>
+                  <v-expansion-panel-title>
+                    Past
+                  </v-expansion-panel-title>
+                  <v-expansion-panel-text>
+                    <div class="pl-2 pb-2 markdown-content" v-html="advisoryRolesPast" />
+                  </v-expansion-panel-text>
+                </v-expansion-panel>
+              </v-expansion-panels>
             </v-expansion-panel-text>
           </v-expansion-panel>
           <v-expansion-panel>
@@ -267,6 +277,15 @@ const judgingRolesPast = computedAsync(async () => {
 const advisoryRoles = computedAsync(async () => {
   try {
     const fileContent = await import('./content-engagements/advisory-roles.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const advisoryRolesPast = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-engagements/advisory-roles-past.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
