@@ -1,2 +1,4 @@
 - Senior member of [IEEE](https://www.ieee.org).
 - Member of the MIT Technology Review Global Insights Panel.
+- Member of the [AI Accelerator Institute](https://www.aiacceleratorinstitute.com).
+- Member and Ambassador at the [AI Frontier Network](https://aifn.co/).
