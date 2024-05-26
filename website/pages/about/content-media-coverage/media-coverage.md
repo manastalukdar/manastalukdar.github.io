@@ -1,1 +1,2 @@
 - [Manas Talukdar Wins a 2024 Global Recognition Award(TM)](https://markets.businessinsider.com/news/stocks/manas-talukdar-wins-a-2024-global-recognition-award-tm-1033328826) [Business Insider].
+- [Manas Talukdar Wins a 2024 Global Recognition Award(TM)](https://news.marketersmedia.com/manas-talukdar-wins-a-2024-global-recognition-awardtm/89128987) [Marketers Media].
