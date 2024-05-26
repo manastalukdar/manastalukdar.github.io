@@ -189,7 +189,7 @@ getTargetBlankLinkRender(md);
 const panel = ref([0, 1, 2, 3, 4]);
 const aiFontierNetworkAmbassador = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-honors-awards/ai-frontier-network-ambassador.md.md?raw')
+    const fileContent = await import('./content-honors-awards/ai-frontier-network-ambassador.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
