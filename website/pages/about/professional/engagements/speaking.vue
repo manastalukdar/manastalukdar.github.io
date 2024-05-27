@@ -13,7 +13,7 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Advisory Roles</span>
+          <span>{{ speakingText }}</span>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
@@ -61,8 +61,8 @@ async function setupBlogMetadata() {
 };
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
-const currentHref = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[4].href;
-const speakingText = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[4].text;
+const currentHref = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[5].href;
+const speakingText = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[5].text;
 const professionalText = navigationStore.about.aboutItems[0].professionalText;
 const engagementsText = navigationStore.about.aboutItems[0].professionalItems[3].text;
 const engagementsHref = navigationStore.about.aboutItems[0].professionalItems[3].href;
