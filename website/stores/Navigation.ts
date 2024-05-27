@@ -98,6 +98,44 @@ const initialState = () => ({
               target: '_blank',
               icon: 'mdi-list-box',
               text: 'Engagements',
+              engagementsItems: [
+                {
+                  href: '/about/professional/engagements/memberships-affiliations/',
+                  target: '_blank',
+                  icon: 'mdi-account-group',
+                  text: 'Professional Memberships and Affiliations',
+                },
+                {
+                  href: '/about/professional/engagements/fellowships/',
+                  target: '_blank',
+                  icon: 'mdi-seal-variant',
+                  text: 'Fellowships',
+                },
+                {
+                  href: '/about/professional/engagements/board-memberships/',
+                  target: '_blank',
+                  icon: 'mdi-account-tie',
+                  text: 'Board Memberships',
+                },
+                {
+                  href: '/about/professional/engagements/judging-roles/',
+                  target: '_blank',
+                  icon: 'mdi-scale-balance',
+                  text: 'Judging Roles',
+                },
+                {
+                  href: '/about/professional/engagements/advisory-roles/',
+                  target: '_blank',
+                  icon: 'mdi-human-male-board',
+                  text: 'Advisory Roles',
+                },
+                {
+                  href: '/about/professional/engagements/speaking/',
+                  target: '_blank',
+                  icon: 'mdi-microphone-variant',
+                  text: 'Speaking',
+                },
+              ]
             },
             {
               href: '/about/professional/recruiters/',

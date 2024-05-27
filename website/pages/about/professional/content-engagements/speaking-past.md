@@ -1,0 +1,1 @@
+- I was part  of a [panel discussion](https://www.youtube.com/watch?v=HPz8WcOd1Hk&list=PL_L8y6vMp5V1bOhwunELfKr0byviF4Wo1&index=12) on **Building a Culture of Innovation: Leadership Strategies for the Digital Age** at [CTO CON 2024](https://www.ctocon.remotebase.com/).

@@ -84,6 +84,16 @@
             </v-expansion-panel-title>
             <v-expansion-panel-text>
               <div class="pl-2 pb-2 markdown-content" v-html="speaking" />
+              <v-expansion-panels>
+                <v-expansion-panel>
+                  <v-expansion-panel-title>
+                    Past
+                  </v-expansion-panel-title>
+                  <v-expansion-panel-text>
+                    <div class="pl-2 pb-2 markdown-content" v-html="speakingPast" />
+                  </v-expansion-panel-text>
+                </v-expansion-panel>
+              </v-expansion-panels>
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -109,11 +119,11 @@ import { usePaperizer } from 'paperizer'
 import fm from 'front-matter'
 import mdit from 'markdown-it'
 import { computedAsync } from '@vueuse/core'
-import breadcrumbs from '../../../components/breadcrumbs'
+import breadcrumbs from '../../../../components/breadcrumbs'
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
-import getTargetBlankLinkRender from '../../utils/markdownRenderHelpers.ts';
+import getTargetBlankLinkRender from '../../../utils/markdownRenderHelpers.ts';
 const navigationStore = useNavigationStore();
 const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
@@ -231,7 +241,7 @@ getTargetBlankLinkRender(md);
 const panel = ref([0, 1, 2, 3, 4, 5]);
 const membershipsAffiliations = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-engagements/memberships-affiliations.md?raw')
+    const fileContent = await import('../content-engagements/memberships-affiliations.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -240,7 +250,7 @@ const membershipsAffiliations = computedAsync(async () => {
 });
 const fellowships = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-engagements/fellowships.md?raw')
+    const fileContent = await import('../content-engagements/fellowships.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -249,7 +259,7 @@ const fellowships = computedAsync(async () => {
 });
 const boardMemberships = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-engagements/board-memberships.md?raw')
+    const fileContent = await import('../content-engagements/board-memberships.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -258,7 +268,7 @@ const boardMemberships = computedAsync(async () => {
 });
 const judgingRoles = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-engagements/judging-roles.md?raw')
+    const fileContent = await import('../content-engagements/judging-roles.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -267,7 +277,7 @@ const judgingRoles = computedAsync(async () => {
 });
 const judgingRolesPast = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-engagements/judging-roles-past.md?raw')
+    const fileContent = await import('../content-engagements/judging-roles-past.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -276,7 +286,7 @@ const judgingRolesPast = computedAsync(async () => {
 });
 const advisoryRoles = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-engagements/advisory-roles.md?raw')
+    const fileContent = await import('../content-engagements/advisory-roles.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -285,7 +295,7 @@ const advisoryRoles = computedAsync(async () => {
 });
 const advisoryRolesPast = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-engagements/advisory-roles-past.md?raw')
+    const fileContent = await import('../content-engagements/advisory-roles-past.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -294,7 +304,16 @@ const advisoryRolesPast = computedAsync(async () => {
 });
 const speaking= computedAsync(async () => {
   try {
-    const fileContent = await import('./content-engagements/speaking.md?raw')
+    const fileContent = await import('../content-engagements/speaking.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const speakingPast = computedAsync(async () => {
+  try {
+    const fileContent = await import('../content-engagements/speaking-past.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
