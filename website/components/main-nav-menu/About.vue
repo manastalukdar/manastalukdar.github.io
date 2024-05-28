@@ -1,5 +1,5 @@
 <template>
-  <v-menu class="text-center" bottom max-height="500">
+  <v-menu class="text-center" bottom max-height="800">
     <template v-slot:activator="{ props }">
       <v-btn :aria-label="aboutText" text style="min-width: 48px" v-bind="props">
         <v-icon start>{{ aboutIcon }}</v-icon>
