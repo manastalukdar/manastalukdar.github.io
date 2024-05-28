@@ -1,6 +1,6 @@
 - Blog posts on [Engineering Leadership](/blog/tag/engineering-leadership/).
 - Work experience [highlights](/about/professional/highlights/) and general [interests](/about/interests/).
 - [Honors and Awards](/about/honors-awards/) and [Media Coverage](/about/media-coverage/).
-- Upcoming and past [speaking engagements](/about/professional/engagements/speaking/).
+- Upcoming [speaking engagements](/about/professional/engagements/speaking/).
 - [Services](/about/services/).
 - [For Recruiters and Hiring Managers](/about/professional/recruiters/).
