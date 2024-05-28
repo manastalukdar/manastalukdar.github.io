@@ -1,12 +1,14 @@
 <template>
   <div>
-    <v-menu class="text-center" location=start left offset-y max-height="500">
+    <v-menu class="text-center" location=start left offset-y max-height="800">
       <template v-slot:activator="{ props }">
-        <v-btn :aria-label="professionalText" text style="min-width: 48px" v-bind="props">
+        <v-list-item :key="professionalText" v-bind="props">
+          <v-avatar>
+            <v-icon>{{ professionalIcon }}</v-icon>
+          </v-avatar>
+          <v-list-item-title class="wrap-text text-center" v-text="professionalText" />
           <v-icon>mdi-menu-left</v-icon>
-          <span v-text="professionalText" />
-          <v-icon end>{{ professionalIcon }}</v-icon>
-        </v-btn>
+        </v-list-item>
       </template>
       <v-list density="default">
         <AboutProfessionalMenuItems />
