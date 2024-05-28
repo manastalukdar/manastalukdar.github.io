@@ -97,7 +97,7 @@ const initialState = () => ({
               href: '/about/professional/engagements/',
               target: '_blank',
               icon: 'mdi-list-box',
-              text: 'Engagements',
+              engagementsText: 'Engagements',
               engagementsItems: [
                 {
                   href: '/about/professional/engagements/memberships-affiliations/',
