@@ -1,3 +1,3 @@
-- I will be running a roundtable and a workshop at the Plato [Elevate](https://www.platohq.com/events/elevate) engineering leadership conference.
-- I will be [speaking](https://chicagoaiweek.com/speaker/manas-talukdar/) at the 2024 [Chicago AI Conference](https://chicagoaiweek.com).
-- I will be doing a keynote at [Deep Learning DevCon 2024](https://dldc.adasci.org).
+- Roundtable and workshop at the Plato [Elevate](https://www.platohq.com/events/elevate) engineering leadership conference.
+- [Speaking](https://chicagoaiweek.com/speaker/manas-talukdar/) at the 2024 [Chicago AI Conference](https://chicagoaiweek.com).
+- Keynote at [Deep Learning DevCon 2024](https://dldc.adasci.org).
