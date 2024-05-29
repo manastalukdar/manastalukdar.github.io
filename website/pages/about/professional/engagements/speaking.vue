@@ -19,7 +19,7 @@
         <!--eslint-disable-next-line vue/no-v-html-->
         <div class="pl-2 pb-2 markdown-content" v-html="speaking" />
         <v-row class="text-h6 px-3 py-3 page-header justify-center">
-          <span>Past</span>
+          <span>Recent Past</span>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
