@@ -1,3 +1,4 @@
+- [2024 Globee Awards - Technology](https://credential.globeeawards.com/7bdae446-600c-4ebc-a01f-760799e4aa46#gs.9lt4ci).
 - [2024 Globee Awards - Disruptors](https://credential.globeeawards.com/8c889137-d177-4b30-a276-5c6f5bf10e04#gs.9x241m).
 - [2024 Globee Awards - Golden Bridge](https://credential.globeeawards.com/a17f3e66-a8a5-461c-b3a9-1839ff0beffb#gs.8ct13k).
 - [2024 Globee Awards for Customer Excellence](https://credential.globeeawards.com/6d0ec856-011c-44f1-8270-dfd743427802#gs.8clb76).
