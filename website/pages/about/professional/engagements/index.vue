@@ -90,14 +90,14 @@
           </v-expansion-panel>
           <v-expansion-panel>
             <v-expansion-panel-title>
-              Speaking
+              Upcoming Speaking Engagements
             </v-expansion-panel-title>
             <v-expansion-panel-text>
               <div class="pl-2 pb-2 markdown-content" v-html="speaking" />
               <v-expansion-panels>
                 <v-expansion-panel>
                   <v-expansion-panel-title>
-                    Past
+                    Recent Past
                   </v-expansion-panel-title>
                   <v-expansion-panel-text>
                     <div class="pl-2 pb-2 markdown-content" v-html="speakingPast" />
