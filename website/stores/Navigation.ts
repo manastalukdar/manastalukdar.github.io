@@ -126,7 +126,7 @@ const initialState = () => ({
                 {
                   href: '/about/professional/engagements/editor-reviewer-roles/',
                   target: '_blank',
-                  icon: 'mdi-eye-outline',
+                  icon: 'mdi-book-edit',
                   text: 'Editor and Reviewer Roles',
                 },
                 {
