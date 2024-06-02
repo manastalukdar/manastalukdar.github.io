@@ -124,6 +124,12 @@ const initialState = () => ({
                   text: 'Judging Roles',
                 },
                 {
+                  href: '/about/professional/engagements/editor-reviewer-roles/',
+                  target: '_blank',
+                  icon: 'mdi-eye-outline',
+                  text: 'Editor and Reviewer Roles',
+                },
+                {
                   href: '/about/professional/engagements/advisory-roles/',
                   target: '_blank',
                   icon: 'mdi-human-male-board',

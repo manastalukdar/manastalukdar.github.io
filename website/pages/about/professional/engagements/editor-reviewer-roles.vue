@@ -13,17 +13,17 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Upcoming {{ speakingText }} Engagements</span>
+          <span>{{ editorReviewerRolesText }}</span>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="pl-2 pb-2 markdown-content" v-html="speaking" />
+        <div class="pl-2 pb-2 markdown-content" v-html="editorReviewerRoles" />
         <v-row class="text-h6 px-3 py-3 page-header justify-center">
-          <span>Recent Past</span>
+          <span>Past</span>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="pl-2 pb-2 markdown-content" v-html="speakingPast" />
+        <div class="pl-2 pb-2 markdown-content" v-html="editorReviewerRolesPast" />
 
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
@@ -43,7 +43,7 @@ import breadcrumbs from '../../../../components/breadcrumbs'
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
-import getTargetBlankLinkRender from '../../../../utils/markdownRenderHelpers.ts';
+import getTargetBlankLinkRender from '../../../../utils/markdownRenderHelpers';
 const navigationStore = useNavigationStore();
 const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
@@ -61,14 +61,14 @@ async function setupBlogMetadata() {
 };
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
-const currentHref = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[5].href;
-const speakingText = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[6].text;
+const currentHref = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[3].href;
+const editorReviewerRolesText = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[4].text;
 const professionalText = navigationStore.about.aboutItems[0].professionalText;
 const engagementsText = navigationStore.about.aboutItems[0].professionalItems[3].engagementsText;
 const engagementsHref = navigationStore.about.aboutItems[0].professionalItems[3].href;
 const aboutText = navigationStore.about.aboutText;
 const currentPage =
-  speakingText +
+  editorReviewerRolesText +
   ' | ' +
   engagementsText +
   ' | ' +
@@ -102,7 +102,7 @@ const breadcrumbsData = [
     exact: true,
   },
   {
-    title: speakingText,
+    title: editorReviewerRolesText,
     disabled: false,
     href: currentHref,
     exact: true,
@@ -170,18 +170,18 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const speaking = computedAsync(async () => {
+const editorReviewerRoles = computedAsync(async () => {
   try {
-    const fileContent = await import('../content-engagements/speaking.md?raw')
+    const fileContent = await import('../content-engagements/editorReviewer-roles.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
     console.log(error)
   }
 });
-const speakingPast = computedAsync(async () => {
+const editorReviewerRolesPast = computedAsync(async () => {
   try {
-    const fileContent = await import('../content-engagements/speaking-past.md?raw')
+    const fileContent = await import('../content-engagements/editorReviewer-roles-past.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {

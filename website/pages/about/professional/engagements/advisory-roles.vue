@@ -62,7 +62,7 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentHref = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[4].href;
-const advisoryRolesText = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[4].text;
+const advisoryRolesText = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[5].text;
 const professionalText = navigationStore.about.aboutItems[0].professionalText;
 const engagementsText = navigationStore.about.aboutItems[0].professionalItems[3].engagementsText;
 const engagementsHref = navigationStore.about.aboutItems[0].professionalItems[3].href;
