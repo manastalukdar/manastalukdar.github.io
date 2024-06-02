@@ -18,12 +18,6 @@
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
         <div class="pl-2 pb-2 markdown-content" v-html="editorReviewerRoles" />
-        <v-row class="text-h6 px-3 py-3 page-header justify-center">
-          <span>Past</span>
-        </v-row>
-        <p />
-        <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="pl-2 pb-2 markdown-content" v-html="editorReviewerRolesPast" />
 
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
@@ -172,16 +166,7 @@ const md = new mdit({
 getTargetBlankLinkRender(md);
 const editorReviewerRoles = computedAsync(async () => {
   try {
-    const fileContent = await import('../content-engagements/editorReviewer-roles.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
-});
-const editorReviewerRolesPast = computedAsync(async () => {
-  try {
-    const fileContent = await import('../content-engagements/editorReviewer-roles-past.md?raw')
+    const fileContent = await import('../content-engagements/editor-reviewer-roles.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
