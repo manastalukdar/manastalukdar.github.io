@@ -62,7 +62,7 @@
           </v-expansion-panel>
           <v-expansion-panel>
             <v-expansion-panel-title>
-              Judging Roles
+              Editor and Reviewer Roles
             </v-expansion-panel-title>
             <v-expansion-panel-text>
               <div class="pl-2 pb-2 markdown-content" v-html="editorReviewerRoles" />
