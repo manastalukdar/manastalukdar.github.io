@@ -62,6 +62,16 @@
           </v-expansion-panel>
           <v-expansion-panel>
             <v-expansion-panel-title>
+              Judging Roles
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <div class="pl-2 pb-2 markdown-content" v-html="editorReviewerRoles" />
+              <v-expansion-panels>
+              </v-expansion-panels>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+          <v-expansion-panel>
+            <v-expansion-panel-title>
               Advisory Roles
             </v-expansion-panel-title>
             <v-expansion-panel-text>
@@ -278,6 +288,15 @@ const judgingRoles = computedAsync(async () => {
 const judgingRolesPast = computedAsync(async () => {
   try {
     const fileContent = await import('../content-engagements/judging-roles-past.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const editorReviewerRoles = computedAsync(async () => {
+  try {
+    const fileContent = await import('../content-engagements/editor-reviewer-roles.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
