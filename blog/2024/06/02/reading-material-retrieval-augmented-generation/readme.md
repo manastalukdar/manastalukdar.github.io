@@ -8,7 +8,7 @@ categories:
 authors:
  - "Manas Talukdar"
 post-format: link
-title: Getting Started
+title: Some Reading Material on Retrieval Augmented Generation
 url-slug: reading-material-retrieval-augmented-generation
 first-published-on: 2024-06-02 21:23
 last-updated-on: 2024-06-02 21:23
