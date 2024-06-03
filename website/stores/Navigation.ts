@@ -211,10 +211,10 @@ const initialState = () => ({
         text: 'GitHub',
       },
       {
-        href: 'https://www.twitter.com/manastalukdar/',
+        href: 'https://www.x.com/manastalukdar/',
         target: '_blank',
-        icon: 'mdi-twitter',
-        text: 'Twitter',
+        icon: 'mdi-alpha-x',
+        text: 'X',
       },
     ],
   },
