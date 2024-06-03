@@ -16,7 +16,7 @@ post-format: standard
 title: Interviewing Engineering Managers
 url-slug: interviewing-engineering-managers
 first-published-on: 2022-01-02 17:09
-last-updated-on: 2022-01-02 17:09
+last-updated-on: 2024-06-02 17:22
 meta:
  description: "Attributes and Signals to probe for when interviewing engineering managers."
 excerpt: "This post described a framework for interviewing engineering managers through multiple rounds. This framework is based on"
@@ -111,11 +111,22 @@ A coding exercise to test for code competency. Does not need to be at the same l
 
 ### Systems Design [Round 2]
 
-Candidate must exhibit a strong understanding of large-scale distributed systems. This may include things like consistency models, CAP theorem, retry handling, pub-sub architectures, etc. A typical way to probe for this may be to have candidate give a rundown of a relevant project from their resume. Another approach could be asking candidate about a specific distributed systems problem and seed a discussion from there touching on multiple concepts. Candidate does not necessarily need to have a direct answer, but needs to demonstrate:
+Candidate must exhibit a strong understanding of machine learning and is applications with regard to large-scale systems. This may include things like understanding deep learning frameworks, NLP, ML tooling including working with ML pipelines, etc. From large-scale systems perspective, it may include consistency models, CAP theorem, retry handling, pub-sub architectures, etc.
 
-- strong understanding of distributed systems.
-- ability ot hold their own in a technical conversation.
+A typical way to probe for this may be to have candidate give a rundown of a relevant project from their resume. Another approach could be asking candidate about a specific ML systems problem and seed a discussion from there touching on multiple concepts. Candidate does not necessarily need to have a direct answer, but needs to demonstrate:
+
+- strong understand of machine learning
+- strong understanding of large-scale distributed systems.
+- ability to hold their own in a technical conversation.
 - ability to ask the right questions.
+
+Some possible questions may be around:
+
+- Design a natural language search engine for a large corpus of text that is updated in real-time based on newly available text.
+- Can you explain what are embeddings? What is chunking? What is tokenization? How does chunk size matter?
+- How would you design a model fine-tuning systems. What are the considerations?
+- How would you optimize for improving model inference time?
+- What are the pros and cons of a low-latency inferencing systems?
 
 ### Experience with Public Cloud Platforms and/or Open-Source Big-Data Technologies [Round 2]
 
