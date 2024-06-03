@@ -2,7 +2,10 @@
 published: true
 tags:
  - Artificial Intelligence
- - Retrieval Augmented Generation
+ - Machine Learning
+ - Retrieval-Augmented Generation
+ - Large language Model
+ - Reading
 categories:
  - Technology
 authors:
@@ -13,11 +16,11 @@ url-slug: reading-material-retrieval-augmented-generation
 first-published-on: 2024-06-02 21:23
 last-updated-on: 2024-06-02 21:23
 meta:
- description: "Some reading material on Retrieval Augmented Generation."
-excerpt: "Some reading material on Retrieval Augmented Generation"
+ description: "Some reading material on Retrieval-Augmented Generation."
+excerpt: "Retrieval-Augmented Generation for Knowledge-Intensive NLP"
 ---
 
-# Some Reading Material on Retrieval Augmented Generation
+# Some Reading Material on Retrieval-Augmented Generation
 
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) [paper]
 - [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) [paper]

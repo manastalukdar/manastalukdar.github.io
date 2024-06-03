@@ -3,7 +3,8 @@ published: true
 tags:
  - Artificial Intelligence
  - Machine Learning
- - AI Papers I Read Recently
+ - Papers I Read Recently Series
+ - Reading
 categories:
  - Technology
 authors:
