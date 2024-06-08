@@ -7,6 +7,7 @@ tags:
  - Artificial Intelligence
  - Machine Learning
  - Tech Talk
+ - Professional Speaking Engagements
 categories:
  - Technology
 authors:
@@ -14,7 +15,7 @@ authors:
 post-format: video
 title: C3 AI Datasets - Tech Talk
 url-slug: c3-ai-datasets-tech-talk
-first-published-on: 2023-03-18 09:22
+first-published-on: 2023-03-19 09:22
 last-updated-on: 2024-01-25 09:22
 meta:
  description: "Tech Talk on C3 AI Datasets."
