@@ -1,2 +1,2 @@
 - [Speaking](https://chicagoaiweek.com/speaker/manas-talukdar/) at the 2024 [Chicago AI Conference](https://chicagoaiweek.com).
-- Keynote at [Deep Learning DevCon 2024](https://dldc.adasci.org).
+- [Keynote](https://dldc.adasci.org/speaker/manas-talukdar/) at [Deep Learning DevCon 2024](https://dldc.adasci.org).
