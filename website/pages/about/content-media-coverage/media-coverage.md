@@ -1,3 +1,3 @@
 - [Manas Talukdar Wins a 2024 Global Recognition Award(TM)](https://markets.businessinsider.com/news/stocks/manas-talukdar-wins-a-2024-global-recognition-award-tm-1033328826) [Business Insider].
 - [Manas Talukdar Wins a 2024 Global Recognition Award(TM)](https://news.marketersmedia.com/manas-talukdar-wins-a-2024-global-recognition-awardtm/89128987) [Marketers Media].
-- [Manas Talukdar Of Labelbox: How AI Is Disrupting Our Industry, and What We Can Do About It - An Interview With Cynthia Corsetti](https://medium.com/authority-magazine/manas-talukdar-of-labelbox-how-ai-is-disrupting-our-industry-and-what-we-can-do-about-it-9ce4bfb2effe)
+- [Manas Talukdar Of Labelbox: How AI Is Disrupting Our Industry, and What We Can Do About It](https://medium.com/authority-magazine/manas-talukdar-of-labelbox-how-ai-is-disrupting-our-industry-and-what-we-can-do-about-it-9ce4bfb2effe). An Interview With Cynthia Corsetti for Authority Magazine.
