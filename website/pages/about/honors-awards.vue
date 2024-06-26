@@ -20,7 +20,7 @@
         <v-expansion-panels multiple v-model="panel">
           <v-expansion-panel>
             <v-expansion-panel-title>
-              Globee Award for Technology (Artificial Intelligence)
+              Globee Award for Technology
             </v-expansion-panel-title>
             <v-expansion-panel-text>
               <div class="pl-2 pb-2 markdown-content" v-html="globeeTechnologyAward" />
