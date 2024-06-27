@@ -29,8 +29,8 @@
     "webpack": "^5.91.0"
   },
   "dependencies": {
-    "@babel/cli": "^7.24.6",
-    "@babel/core": "^7.24.6",
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
     "@mdi/font": "^7.4.47",
     "@pinia/nuxt": "^0.5.1",
     "@vitejs/plugin-vue": "^5.0.5",
