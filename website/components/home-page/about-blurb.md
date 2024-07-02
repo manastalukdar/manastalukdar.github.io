@@ -4,4 +4,4 @@ His experience spans over a decade and a half in leadership and critical roles f
 
 Manas advises startups in the AI and Data space, among other [professional engagements](/about/professional/engagements/) and [volunteering activities](/about/volunteering/). He has filed multiple [patents](/about/professional/patents/) in data processing and machine learning for AI. The enterprise products he has developed are part of critical infrastructure for several industry verticals throughout the world.
 
-Manas has been invited to speak at technical and leadership conferences. He has delivered graduation speech at university commencement ceremonies. He has been appointed to judge several prestigious national and international industry awards. His contributions have been recognized through multiple honors and awards.
+Manas often speaks at technical and leadership conferences. He has delivered graduation speech at university commencement ceremonies. He has been appointed to judge several prestigious national and international industry awards. His contributions have been recognized through multiple honors and awards.
