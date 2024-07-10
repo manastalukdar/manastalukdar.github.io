@@ -16,58 +16,79 @@
           <span>Honors and Awards</span>
         </v-row>
         <p />
+        <v-row class="text-h6 px-3 py-3 justify-center">
+          <span>Honors</span>
+        </v-row>
+        <p />
         <client-only>
-        <v-expansion-panels multiple v-model="panel">
-          <v-expansion-panel>
-            <v-expansion-panel-title>
-              Globee Award for Technology
-            </v-expansion-panel-title>
-            <v-expansion-panel-text>
-              <div class="pl-2 pb-2 markdown-content" v-html="globeeTechnologyAward" />
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-          <v-expansion-panel>
-            <v-expansion-panel-title>
-              Ambassador, AI Frontier Network
-            </v-expansion-panel-title>
-            <v-expansion-panel-text>
-              <div class="pl-2 pb-2 markdown-content" v-html="aiFontierNetworkAmbassador" />
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-          <v-expansion-panel>
-            <v-expansion-panel-title>
-              Titan Business Award
-            </v-expansion-panel-title>
-            <v-expansion-panel-text>
-              <div class="pl-2 pb-2 markdown-content" v-html="titanBusinessAward" />
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-          <v-expansion-panel>
-            <v-expansion-panel-title>
-              Global Recognition Award
-            </v-expansion-panel-title>
-            <v-expansion-panel-text>
-              <div class="pl-2 pb-2 markdown-content" v-html="globalRecognitionAward" />
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-          <v-expansion-panel>
-            <v-expansion-panel-title>
-              Indian Achiever's Award
-            </v-expansion-panel-title>
-            <v-expansion-panel-text>
-              <div class="pl-2 pb-2 markdown-content" v-html="indianAchieversAward" />
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-          <v-expansion-panel>
-            <v-expansion-panel-title>
-              IEEE Senior Membership
-            </v-expansion-panel-title>
-            <v-expansion-panel-text>
-              <div class="pl-2 pb-2 markdown-content" v-html="ieeeSeniorMembership" />
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-        </v-expansion-panels>
-      </client-only>
+          <v-expansion-panels multiple v-model="panel">
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Ambassador, AI Frontier Network
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="aiFontierNetworkAmbassador" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                IEEE Senior Membership
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="ieeeSeniorMembership" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Other
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="other" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </client-only>
+        <p />
+        <v-row class="text-h6 px-3 py-3 justify-center">
+          <span>Awards</span>
+        </v-row>
+        <p />
+        <client-only>
+          <v-expansion-panels multiple v-model="panel">
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Globee Award for Technology
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="globeeTechnologyAward" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Titan Business Award
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="titanBusinessAward" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Global Recognition Award
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="globalRecognitionAward" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Indian Achiever's Award
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="indianAchieversAward" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </client-only>
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
         </v-row>
@@ -195,45 +216,9 @@ const md = new mdit({
 });
 getTargetBlankLinkRender(md);
 const panel = ref([0, 1, 2, 3, 4, 5]);
-const globeeTechnologyAward = computedAsync(async () => {
-  try {
-    const fileContent = await import('./content-honors-awards/globee-technology.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
-});
 const aiFontierNetworkAmbassador = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-honors-awards/ai-frontier-network-ambassador.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
-});
-const titanBusinessAward = computedAsync(async () => {
-  try {
-    const fileContent = await import('./content-honors-awards/titan-business-award.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
-});
-const globalRecognitionAward = computedAsync(async () => {
-  try {
-    const fileContent = await import('./content-honors-awards/global-recognition-award.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
-});
-const indianAchieversAward = computedAsync(async () => {
-  try {
-    const fileContent = await import('./content-honors-awards/indian-achievers-award.md?raw')
+    const fileContent = await import('./content-honors-awards/honors/ai-frontier-network-ambassador.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -242,7 +227,52 @@ const indianAchieversAward = computedAsync(async () => {
 });
 const ieeeSeniorMembership = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-honors-awards/ieee-senior-membership.md?raw')
+    const fileContent = await import('./content-honors-awards/honors/ieee-senior-membership.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const other = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/honors/other.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const globeeTechnologyAward = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/awards/globee-technology.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const titanBusinessAward = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/awards/titan-business-award.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const globalRecognitionAward = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/awards/global-recognition-award.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const indianAchieversAward = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/awards/indian-achievers-award.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {

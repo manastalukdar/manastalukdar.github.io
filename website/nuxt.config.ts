@@ -316,4 +316,6 @@ export default defineNuxtConfig({
       ttl: 1000 * 60 * 60 * 24 * 7,
     },
   }, */
+
+  compatibilityDate: '2024-07-10',
 })
