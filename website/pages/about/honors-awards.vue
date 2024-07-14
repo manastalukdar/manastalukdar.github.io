@@ -21,7 +21,15 @@
         </v-row>
         <p />
         <client-only>
-          <v-expansion-panels multiple v-model="panel">
+          <v-expansion-panels multiple v-model="panelHonors">
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Member, American Society for AI
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="americanSocietyForAi" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
             <v-expansion-panel>
               <v-expansion-panel-title>
                 Ambassador, AI Frontier Network
@@ -54,7 +62,7 @@
         </v-row>
         <p />
         <client-only>
-          <v-expansion-panels multiple v-model="panel">
+          <v-expansion-panels multiple v-model="panelAwards">
             <v-expansion-panel>
               <v-expansion-panel-title>
                 Globee Award for Technology
@@ -215,7 +223,16 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const panel = ref([0, 1, 2, 3, 4, 5]);
+const panelHonors = ref([0, 1, 2, 3]);
+const americanSocietyForAi = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/honors/american-society-for-ai.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
 const aiFontierNetworkAmbassador = computedAsync(async () => {
   try {
     const fileContent = await import('./content-honors-awards/honors/ai-frontier-network-ambassador.md?raw')
@@ -243,6 +260,7 @@ const other = computedAsync(async () => {
     console.log(error)
   }
 });
+const panelAwards = ref([0, 1, 2, 3]);
 const globeeTechnologyAward = computedAsync(async () => {
   try {
     const fileContent = await import('./content-honors-awards/awards/globee-technology.md?raw')

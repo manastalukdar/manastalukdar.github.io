@@ -1,5 +1,6 @@
-- Senior member of [IEEE](https://www.ieee.org).
-- Member of the [MIT Technology Review](https://www.technologyreview.com) Global Insights Panel.
+- Member of the [American Society for AI](https://www.asfai.org).
 - Member of the [Harvard Business Review](https://hbr.org) Advisory Council.
-- Member of the [AI Accelerator Institute](https://www.aiacceleratorinstitute.com).
 - Member and Ambassador at the [AI Frontier Network](https://aifn.co/).
+- Member of the [AI Accelerator Institute](https://www.aiacceleratorinstitute.com).
+- Member of the [MIT Technology Review](https://www.technologyreview.com) Global Insights Panel.
+- Senior member of [IEEE](https://www.ieee.org).
