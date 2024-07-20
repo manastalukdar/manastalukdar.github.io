@@ -6,6 +6,7 @@ tags:
  - Retrieval-Augmented Generation
  - Large language Model
  - Reading
+ - Papers I Read Recently Series
 categories:
  - Technology
 authors:
