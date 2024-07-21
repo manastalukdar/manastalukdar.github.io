@@ -181,7 +181,7 @@ getTargetBlankLinkRender(md);
 const panelAwards = ref([0, 1, 2, 3]);
 const globeeTechnologyAward = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-honors-awards/awards/globee-technology.md?raw')
+    const fileContent = await import('./content-awards/globee-technology.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -190,7 +190,7 @@ const globeeTechnologyAward = computedAsync(async () => {
 });
 const titanBusinessAward = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-honors-awards/awards/titan-business-award.md?raw')
+    const fileContent = await import('./content-awards/titan-business-award.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -199,7 +199,7 @@ const titanBusinessAward = computedAsync(async () => {
 });
 const globalRecognitionAward = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-honors-awards/awards/global-recognition-award.md?raw')
+    const fileContent = await import('./content-awards/global-recognition-award.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -208,7 +208,7 @@ const globalRecognitionAward = computedAsync(async () => {
 });
 const indianAchieversAward = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-honors-awards/awards/indian-achievers-award.md?raw')
+    const fileContent = await import('./content-awards/indian-achievers-award.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {

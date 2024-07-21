@@ -182,7 +182,7 @@ getTargetBlankLinkRender(md);
 const panelHonors = ref([0, 1, 2, 3]);
 const americanSocietyForAi = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-honors-awards/honors/american-society-for-ai.md?raw')
+    const fileContent = await import('./content-honors/american-society-for-ai.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -191,7 +191,7 @@ const americanSocietyForAi = computedAsync(async () => {
 });
 const aiFontierNetworkAmbassador = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-honors-awards/honors/ai-frontier-network-ambassador.md?raw')
+    const fileContent = await import('./content-honors/ai-frontier-network-ambassador.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -200,7 +200,7 @@ const aiFontierNetworkAmbassador = computedAsync(async () => {
 });
 const ieeeSeniorMembership = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-honors-awards/honors/ieee-senior-membership.md?raw')
+    const fileContent = await import('./content-honors/ieee-senior-membership.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -209,7 +209,7 @@ const ieeeSeniorMembership = computedAsync(async () => {
 });
 const other = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-honors-awards/honors/other.md?raw')
+    const fileContent = await import('./content-honors/other.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
