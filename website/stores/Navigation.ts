@@ -173,7 +173,7 @@ const initialState = () => ({
         href: '/about/awards/',
         target: '_blank',
         icon: 'mdi-trophy',
-        text: 'awards',
+        text: 'Awards',
       },
       {
         href: '/about/media-coverage/',
