@@ -10,8 +10,8 @@ categories:
 authors:
  - "Manas Talukdar"
 post-format: link
-title: Some AI Papers I Read Recently
-url-slug: some-ai-papers-I read-recently
+title: Some AI Papers I Read Recently [27 May 2024]
+url-slug: some-ai-papers-I read-recently-27-may-2024
 first-published-on: 2024-05-27 18:38
 last-updated-on: 2024-05-27 18:38
 meta:
@@ -19,7 +19,7 @@ meta:
 excerpt: "Retrieval-Augmented Generation for Large Language"
 ---
 
-# Some AI Papers I Read Recently
+# Some AI Papers I Read Recently [27 May 2024]
 
 - [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997v1)
 - [A Survey on Evaluation of Large Language Models](https://arxiv.org/abs/2307.03109)
