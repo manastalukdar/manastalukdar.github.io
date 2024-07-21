@@ -13,12 +13,45 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Media Coverage</span>
+          <span>Honors</span>
         </v-row>
         <p />
-        <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="pl-2 pb-2 markdown-content" v-html="mediaCoverage" />
-
+        <client-only>
+          <v-expansion-panels multiple v-model="panelAwards">
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Globee Award for Technology
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="globeeTechnologyAward" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Titan Business Award
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="titanBusinessAward" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Global Recognition Award
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="globalRecognitionAward" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
+                Indian Achiever's Award
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="indianAchieversAward" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </client-only>
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
         </v-row>
@@ -37,7 +70,7 @@ import breadcrumbs from '../../components/breadcrumbs'
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
-import getTargetBlankLinkRender from '../../utils/markdownRenderHelpers';
+import getTargetBlankLinkRender from '../../utils/markdownRenderHelpers.ts';
 const navigationStore = useNavigationStore();
 const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
@@ -56,13 +89,13 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[5].text +
+  navigationStore.about.aboutItems[4].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[5].href;
-const mediaText = navigationStore.about.aboutItems[5].text;
+const currentHref = navigationStore.about.aboutItems[4].href;
+const awardsText = navigationStore.about.aboutItems[4].text;
 const title = currentPage + ' || ' + appOwner;
-const description = 'Media';
+const description = 'Listing of recognition through awards.';
 const url = baseUrl + currentHref;
 const breadcrumbsData = [
   {
@@ -77,7 +110,7 @@ const breadcrumbsData = [
     exact: true,
   },
   {
-    title: mediaText,
+    title: awardsText,
     disabled: false,
     href: currentHref,
     exact: true,
@@ -145,9 +178,37 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const mediaCoverage = computedAsync(async () => {
+const panelAwards = ref([0, 1, 2, 3]);
+const globeeTechnologyAward = computedAsync(async () => {
   try {
-    const fileContent = await import('./content-media-coverage/media-coverage.md?raw')
+    const fileContent = await import('./content-honors-awards/awards/globee-technology.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const titanBusinessAward = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/awards/titan-business-award.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const globalRecognitionAward = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/awards/global-recognition-award.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const indianAchieversAward = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors-awards/awards/indian-achievers-award.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
@@ -157,7 +218,7 @@ const mediaCoverage = computedAsync(async () => {
 const { paperize } = usePaperizer('printMe',  {
   styles: [
   //'https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css',
-    '/style/print-recruiters.css'
+    '/style/print-generic.css'
   ]
 });
 const print = () => {

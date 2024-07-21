@@ -13,10 +13,6 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Honors and Awards</span>
-        </v-row>
-        <p />
-        <v-row class="text-h6 px-3 py-3 justify-center">
           <span>Honors</span>
         </v-row>
         <p />
@@ -57,46 +53,6 @@
           </v-expansion-panels>
         </client-only>
         <p />
-        <v-row class="text-h6 px-3 py-3 justify-center">
-          <span>Awards</span>
-        </v-row>
-        <p />
-        <client-only>
-          <v-expansion-panels multiple v-model="panelAwards">
-            <v-expansion-panel>
-              <v-expansion-panel-title>
-                Globee Award for Technology
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <div class="pl-2 pb-2 markdown-content" v-html="globeeTechnologyAward" />
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-            <v-expansion-panel>
-              <v-expansion-panel-title>
-                Titan Business Award
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <div class="pl-2 pb-2 markdown-content" v-html="titanBusinessAward" />
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-            <v-expansion-panel>
-              <v-expansion-panel-title>
-                Global Recognition Award
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <div class="pl-2 pb-2 markdown-content" v-html="globalRecognitionAward" />
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-            <v-expansion-panel>
-              <v-expansion-panel-title>
-                Indian Achiever's Award
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <div class="pl-2 pb-2 markdown-content" v-html="indianAchieversAward" />
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-          </v-expansion-panels>
-        </client-only>
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
         </v-row>
@@ -138,9 +94,9 @@ const currentPage =
   ' | ' +
   navigationStore.about.aboutText;
 const currentHref = navigationStore.about.aboutItems[3].href;
-const honorsAwardsText = navigationStore.about.aboutItems[3].text;
+const honorsText = navigationStore.about.aboutItems[3].text;
 const title = currentPage + ' || ' + appOwner;
-const description = 'Listing of recognition through honors and awards.';
+const description = 'Listing of recognition through honors.';
 const url = baseUrl + currentHref;
 const breadcrumbsData = [
   {
@@ -155,7 +111,7 @@ const breadcrumbsData = [
     exact: true,
   },
   {
-    title: honorsAwardsText,
+    title: honorsText,
     disabled: false,
     href: currentHref,
     exact: true,
@@ -254,43 +210,6 @@ const ieeeSeniorMembership = computedAsync(async () => {
 const other = computedAsync(async () => {
   try {
     const fileContent = await import('./content-honors-awards/honors/other.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
-});
-const panelAwards = ref([0, 1, 2, 3]);
-const globeeTechnologyAward = computedAsync(async () => {
-  try {
-    const fileContent = await import('./content-honors-awards/awards/globee-technology.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
-});
-const titanBusinessAward = computedAsync(async () => {
-  try {
-    const fileContent = await import('./content-honors-awards/awards/titan-business-award.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
-});
-const globalRecognitionAward = computedAsync(async () => {
-  try {
-    const fileContent = await import('./content-honors-awards/awards/global-recognition-award.md?raw')
-    const res = fm(fileContent.default)
-    return md.render(res.body)
-  } catch (error) {
-    console.log(error)
-  }
-});
-const indianAchieversAward = computedAsync(async () => {
-  try {
-    const fileContent = await import('./content-honors-awards/awards/indian-achievers-award.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {

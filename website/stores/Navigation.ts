@@ -164,10 +164,16 @@ const initialState = () => ({
         text: 'Interests',
       },
       {
-        href: '/about/honors-awards/',
+        href: '/about/honors/',
         target: '_blank',
         icon: 'mdi-medal',
-        text: 'Honors and Awards',
+        text: 'Honors',
+      },
+      {
+        href: '/about/awards/',
+        target: '_blank',
+        icon: 'mdi-trophy',
+        text: 'awards',
       },
       {
         href: '/about/media-coverage/',
