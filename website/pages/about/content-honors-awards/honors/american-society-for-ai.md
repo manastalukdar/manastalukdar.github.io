@@ -1,4 +1,4 @@
-**Invited to be a member of the American Socity for AI (ASFAI), July 2024**
+**Invited to be a member of the American Society for AI (ASFAI), July 2024**
 
 > [American Society for Artificial Intelligence](https://www.asfai.org) (ASFAI) is a private & prestigious club that brings together prominent leaders & executives.
 > ...
