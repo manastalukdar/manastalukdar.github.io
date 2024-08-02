@@ -20,6 +20,14 @@
           <v-expansion-panels multiple v-model="panelHonors">
             <v-expansion-panel>
               <v-expansion-panel-title>
+                Listed in Marquis Who's Who
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="marquisWhosWho" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
                 Member, American Society for AI
               </v-expansion-panel-title>
               <v-expansion-panel-text>
@@ -179,7 +187,16 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const panelHonors = ref([0, 1, 2, 3]);
+const panelHonors = ref([0, 1, 2, 3, 4]);
+const marquisWhosWho = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors/marquis-who’s-who.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
 const americanSocietyForAi = computedAsync(async () => {
   try {
     const fileContent = await import('./content-honors/american-society-for-ai.md?raw')
