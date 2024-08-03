@@ -1,5 +1,9 @@
 // settings.scss
 //$body-font-family: 'Maven Pro', 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+
+
+@use './settings.sass';
+
 @forward 'vuetify/settings' with (
   // The variables you want to modify
   $font-size-root: 15px,

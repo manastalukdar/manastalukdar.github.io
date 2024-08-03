@@ -182,7 +182,7 @@ code {
   color: rgb(var(--v-theme-codeTextColor)) !important;
   white-space: pre-wrap;
 }
-
+/*
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
@@ -190,6 +190,8 @@ blockquote {
   font-weight: 300;
   border-left: 2px solid #eee;
 }
+*/
+
 .iframe-container {
   position: relative;
   padding-bottom: 56.25%; /* set the aspect ratio here as (height / width) * 100% */
