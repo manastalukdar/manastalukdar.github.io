@@ -1,4 +1,4 @@
-**Listed through invitation in Marquis Who's Who, July 2024**
+**Invited to be listed in Marquis Who's Who, July 2024**
 
 > [Marquis Who’s Who](https://marquiswhoswho.com/) was established in 1898 and promptly began publishing biographical data in 1899. More than 125 years ago, our founder, Albert Nelson Marquis, established a standard of excellence with the first publication of Who’s Who in America.
 
