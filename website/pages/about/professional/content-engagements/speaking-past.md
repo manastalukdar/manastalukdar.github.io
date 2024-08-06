@@ -1,3 +1,4 @@
+- [Podcast guest on Artificial Intelligence](https://danielstih.com/podcast-with-manas-talukdar) hosted by Daniel Stih.
 - [Spoke](https://chicagoaiweek.com/speaker/manas-talukdar/) on AI Trust and Safety at the 2024 [Chicago AI Conference](https://chicagoaiweek.com).
 - [Graduation speech](https://www.youtube.com/watch?v=zQXnush_qrA&t=789s) on Artificial Intelligence at the 2024 commencement ceremony of the American National University and University of Fairfax.
 - Roundtable and workshop on AI project execution at the 2024 Plato [Elevate](https://www.platohq.com/events/elevate) engineering leadership conference.
