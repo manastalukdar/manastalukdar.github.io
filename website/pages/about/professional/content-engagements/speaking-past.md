@@ -6,7 +6,7 @@
 
 ### Podcasts
 
-- Guest on [Daniel Stih's podcast](https://danielstih.com/podcast-with-manas-talukdar). Conversation around Artificial Intelligence.
+- Conversation around artificial intelligence on [The Daniel Stih podcast](https://danielstih.com/podcast-with-manas-talukdar).
 
 <!-- ### Workshops -->
 
