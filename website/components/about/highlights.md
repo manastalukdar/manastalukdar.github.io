@@ -4,6 +4,8 @@
 
 - Quick learner, self driven. Significant experience and contributions in _artificial intelligence, distributed systems, data infrastructure and cloud computing_. Recent technical focus on _scalable AI/ML platforms_. Current core competencies in large-scale systems and organizational growth.
 
+- Experienced in running large organizations spanning multiple teams across multiple geographies.
+
 - Established the Data org within Platform engineering department at C3 AI. Grew a team of 6 to an org of ~30 engineers across 6 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
 
 - Established a highly successful internship program at C3 AI. _Created a strong pipeline_ of interns from top universities. Achieved _100% intern conversion into full-time roles_ within my organization.
