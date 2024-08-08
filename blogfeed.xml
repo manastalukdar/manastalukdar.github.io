@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Manas Talukdar - blog</title>
+        <link>https://manastalukdar.github.io/blogfeed.xml</link>
+        <description>Syndication feed for blog.</description>
+        <lastBuildDate>Thu, 08 Aug 2024 14:25:06 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <copyright>All rights reserved 2024 Manas Talukdar</copyright>
+        <category>Technology</category>
+        <category>Musings</category>
+        <category>Science</category>
+        <category>History</category>
+        <category>Miscellaneous</category>
+        <item>
+            <title><![CDATA[Recent AI Reading [20 July 2024]]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/07/20/recent-ai-reading-20-july-2024/</link>
+            <guid>/blog/2024/07/20/recent-ai-reading-20-july-2024/</guid>
+            <pubDate>Sat, 20 Jul 2024 17:03:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[LLM-Eval: Unified Multi-Dimensional Automatic Evaluation for Open-Domain Conversations with Large Language ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Graduation Speech on AI at 2024 Commencement Ceremony of the American National University and University of Fairfax]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/06/22/graduation-speech-ai-2024-commencement-anu-uf/</link>
+            <guid>/blog/2024/06/22/graduation-speech-ai-2024-commencement-anu-uf/</guid>
+            <pubDate>Sat, 22 Jun 2024 23:22:00 GMT</pubDate>
+            <description><![CDATA[Graduation speech on AI at 2024 commencement ceremony of the American National University and University of Fairfax.]]></description>
+            <content:encoded><![CDATA[I was honored to deliver the graduation speech at the 2024 commencement ceremony of ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Some Reading Material on Retrieval-Augmented Generation]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/06/02/reading-material-retrieval-augmented-generation/</link>
+            <guid>/blog/2024/06/02/reading-material-retrieval-augmented-generation/</guid>
+            <pubDate>Sun, 02 Jun 2024 21:23:00 GMT</pubDate>
+            <description><![CDATA[Some reading material on Retrieval-Augmented Generation.]]></description>
+            <content:encoded><![CDATA[Retrieval-Augmented Generation for Knowledge-Intensive NLP ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Some AI Papers I Read Recently [27 May 2024]]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/05/27/some-ai-papers-I read-recently-27-may-2024/</link>
+            <guid>/blog/2024/05/27/some-ai-papers-I read-recently-27-may-2024/</guid>
+            <pubDate>Mon, 27 May 2024 18:38:00 GMT</pubDate>
+            <description><![CDATA[Some AI Papers I Read Recently.]]></description>
+            <content:encoded><![CDATA[Retrieval-Augmented Generation for Large Language ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Panel Discussion at CTO CON 2024]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/05/27/panel-discussion-cto-con-2024/</link>
+            <guid>/blog/2024/05/27/panel-discussion-cto-con-2024/</guid>
+            <pubDate>Mon, 27 May 2024 17:19:00 GMT</pubDate>
+            <description><![CDATA[Panel discussion on Building a 'Culture of Innovation: Leadership Strategies for the Digital Age' at CTO CON 2024.]]></description>
+            <content:encoded><![CDATA[I was part of a panel discussion on ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Breaking into Data Engineering]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/05/12/breaking-into-data-engineering/</link>
+            <guid>/blog/2024/05/12/breaking-into-data-engineering/</guid>
+            <pubDate>Sun, 12 May 2024 20:06:00 GMT</pubDate>
+            <description><![CDATA[Breaking into Data Engineering.]]></description>
+            <content:encoded><![CDATA[I get asked by individuals on some mentoring forums about how to break into data engineering. This post is a collection  ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[A Framework for Promotion to Staff or Lead Engineer]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/04/30/framework-promotion-to-staff-lead-engineer/</link>
+            <guid>/blog/2024/04/30/framework-promotion-to-staff-lead-engineer/</guid>
+            <pubDate>Tue, 30 Apr 2024 13:42:00 GMT</pubDate>
+            <description><![CDATA[An framework for promotions to Staff or Lead Engineer.]]></description>
+            <content:encoded><![CDATA[A Staff or Lead Software Engineer is a very senior role in the engineering organization. It is a role that requires a deep understanding of the technology stack, the ability ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[AI and General Technical Newsletters]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/04/18/ai-and-general-technical-newsletters/</link>
+            <guid>/blog/2024/04/18/ai-and-general-technical-newsletters/</guid>
+            <pubDate>Thu, 18 Apr 2024 22:04:00 GMT</pubDate>
+            <description><![CDATA[A list of some AI and general technical newsletters.]]></description>
+            <content:encoded><![CDATA[A list of some AI and general technical newsletters that I find interesting ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Breaking into AI/ML]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/04/13/breaking-into-ai-ml/</link>
+            <guid>/blog/2024/04/13/breaking-into-ai-ml/</guid>
+            <pubDate>Sat, 13 Apr 2024 14:14:00 GMT</pubDate>
+            <description><![CDATA[Some pointers for breaking into AI/ML.]]></description>
+            <content:encoded><![CDATA[I often get asked how to break into AI/ML. This question comes from ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Andreessen Horowitz on Enterprise Generative AI in 2024]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/03/30/generative-ai-enterprise-2024-a16z/</link>
+            <guid>/blog/2024/03/30/generative-ai-enterprise-2024-a16z/</guid>
+            <pubDate>Sat, 30 Mar 2024 13:41:00 GMT</pubDate>
+            <description><![CDATA[Getting started post.]]></description>
+            <content:encoded><![CDATA[Andreessen Horowitz on how enterprises are building and buying Generative AI in 2024 ...read more]]></content:encoded>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,8 @@
+const t=`- Mentor/Advisor for startups at [Alchemist Accelerator](https://www.alchemistaccelerator.com), a venture backed accelerator for early-stage startups that monetize from enterprises.
+- Engineering leadership mentor at [Plato](https://www.platohq.com/@manas-talukdar-zfyuvrxm6if).
+- AI/ML, career development, technology and leadership mentor at [MentorCruise](https://mentorcruise.com/mentor/manastalukdar/).
+- Technology advisor for AI, ML, distributed systems, etc. at
+  - [Guidepoint](https://www.guidepoint.com).
+  - [Office Hours](https://officehours.com/).
+  - [Capvision](https://capvision.com).
+`;export{t as default};
