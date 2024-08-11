@@ -12,8 +12,8 @@ authors:
 post-format: video
 title: Conversation on Artificial intelligence on the Daniel Stih podcast
 url-slug: conversation-artificial-intelligence-daniel-stih-podcast
-first-published-on: 2024-06-22 23:22
-last-updated-on: 2024-06-22 23:22
+first-published-on: 2024-08-10 23:35
+last-updated-on: 2024-08-10 23:35
 meta:
  description: "Conversation on artificial intelligence on the Daniel Stih podcast."
 excerpt: "Conversation on artificial intelligence on the Daniel Stih podcast"
