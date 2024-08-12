@@ -1,1 +1,1 @@
-- Technical Editor and Reviewer for [Manning Publications](https://www.manning.com).
+- Technical Editor and Reviewer for [Manning Publications](https://www.manning.com) [May 2024].
