@@ -4,4 +4,4 @@
 
 > A biographical dictionary of notable men and women, first published in 1899 which highlights thousands of biographies that reach beyond lists and facts to shed additional light on what makes these inspiring individuals who they are. Among our listees are Nobel and Pulitzer Prize winners, legendary athletes, best-selling authors, accomplished artists, renowned entertainers, entrepreneurs, corporate executives, and more.
 
-![]([https://](https://badges.marquiswhoswho.com/Badge/honoredlistee/74f672e08ad34a6284e749d3e57479703022fa6e2508448485e9cb720d66b2cb))
+![](https://badges.marquiswhoswho.com/Badge/honoredlistee/74f672e08ad34a6284e749d3e57479703022fa6e2508448485e9cb720d66b2cb)
