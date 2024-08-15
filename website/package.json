@@ -35,7 +35,7 @@
     "@pinia/nuxt": "^0.5.3",
     "@vitejs/plugin-vue": "^5.1.2",
     "@volar-plugins/vetur": "latest",
-    "axios": "^1.7.3",
+    "axios": "^1.7.4",
     "dayjs": "^1.11.12",
     "feed": "^4.2.2",
     "front-matter": "^4.0.2",
