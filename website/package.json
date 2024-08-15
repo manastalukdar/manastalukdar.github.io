@@ -17,7 +17,7 @@
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@types/lodash": "^4.17.7",
     "@types/node": "^22.2.0",
-    "@vueuse/core": "^10.11.1",
+    "@vueuse/core": "^11.0.0",
     "@vueuse/nuxt": "^10.11.1",
     "material-design-icons-iconfont": "^6.7.0",
     "nuxt": "^3.12.4",
