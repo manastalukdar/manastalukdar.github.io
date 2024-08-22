@@ -10,5 +10,5 @@
 
 ### Other
 
-- [SF Engineering Leaders Community](https://sfelc.com).
-- [Gartner Peer Community](https://www.gartner.com/peer-community/profile/manas-talukdar-UdiPy).
+- [SF Engineering Leaders Community](https://sfelc.com) [August 2024].
+- [Gartner Peer Community](https://www.gartner.com/peer-community/profile/manas-talukdar-UdiPy) [August 2024].
