@@ -1,6 +1,6 @@
 - Senior industry leader in _Data Infrastructure for **Enterprise AI**_. Experienced in building and growing organizations and developing products used in critical industrial infrastructure across the world.
 
-- _More than 17 years of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
+- _Nearly two decades of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
 
 - Quick learner, self driven. Significant experience and contributions in _artificial intelligence, distributed systems, data infrastructure and cloud computing_. Recent technical focus on _scalable AI/ML platforms_ and _generative AI_.
 
