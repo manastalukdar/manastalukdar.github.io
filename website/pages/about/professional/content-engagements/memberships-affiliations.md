@@ -1,5 +1,6 @@
 ### Memberships
 
+- Member of the [Association for Computing Machinery (ACM)](https://www.acm.org) [September 2024].
 - Member of the [Innovation Executives League](https://www.dragonspears.com/innovative-executives-league) [August 2024].
 - Member of the [American Society for AI](https://www.asfai.org) [July 2024].
 - Member of the [Harvard Business Review](https://hbr.org) Advisory Council [July 2024].
