@@ -32,7 +32,7 @@
 import { mapState } from 'pinia'
 import { useNavigationStore } from '@/stores/Navigation'
 const navigationStore = useNavigationStore()
-const otherLocations = navigationStore.contact.otherLocations;
+const otherLocations = navigationStore.contact.otherLocations.filter(item => !item.text.includes('Scholar'));
 const aboutItems = navigationStore.about.aboutItems;
 </script>
 
