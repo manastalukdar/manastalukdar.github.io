@@ -17,7 +17,7 @@
       <v-avatar>
         <v-icon>{{ item.icon }}</v-icon>
       </v-avatar>
-      <v-list-item-title v-text="item.text" />
+      <v-list-item-title class="wrap-text" v-text="item.text" />
     </v-list-item>
   </div>
 </template>

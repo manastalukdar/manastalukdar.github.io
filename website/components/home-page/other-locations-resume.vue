@@ -3,7 +3,7 @@
     <v-card color="cardColor" class="pa-3  pt-5 fill-height" raised elevation="8">
       <v-row class="pa-3 px-15 justify-space-evenly">
         <v-list-item
-          v-for="item in socialMediaItems"
+          v-for="item in otherLocations"
           :key="item.text"
           :href="item.href"
           :target="item.target"
@@ -32,7 +32,7 @@
 import { mapState } from 'pinia'
 import { useNavigationStore } from '@/stores/Navigation'
 const navigationStore = useNavigationStore()
-const socialMediaItems = navigationStore.contact.socialMediaItems;
+const otherLocations = navigationStore.contact.otherLocations;
 const aboutItems = navigationStore.about.aboutItems;
 </script>
 

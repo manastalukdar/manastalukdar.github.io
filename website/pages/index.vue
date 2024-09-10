@@ -13,7 +13,7 @@
 
       <v-col sm="6" class="py-2 d-flex flex-column" cols="12">
         <v-row class="flex-grow-0 pb-1 pt-4 pt-sm-0">
-          <socialMediaAndResumeLinks />
+          <otherLocationsAndResumeLinks />
         </v-row>
         <v-row class="flex-grow-1 pt-2">
           <featured />
@@ -31,7 +31,7 @@
 import aboutBlurb from '../components/home-page/about-blurb.vue';
 import recentPostsHomePage from '../components/home-page/recent-posts.vue';
 import featured from '../components/home-page/featured.vue';
-import socialMediaAndResumeLinks from '../components/home-page/social-media-resume.vue';
+import otherLocationsAndResumeLinks from '../components/home-page/other-locations-resume.vue';
 import recentUpdates from '../components/home-page/recent-updates.vue';
 import { useBlogMetadataStore } from '@/stores/BlogMetadata';
 import { useNavigationStore } from '@/stores/Navigation';
@@ -41,7 +41,7 @@ const blogMetadataStore = useBlogMetadataStore();
 const navigationStore = useNavigationStore();
 const globalDataStore = useGlobalDataStore();
 const currentHref = '/';
-const socialMediaItems = navigationStore.contact.socialMediaItems;
+const otherLocations = navigationStore.contact.otherLocations;
 const aboutItems = navigationStore.about.aboutItems;
 const appOwner = globalDataStore.appOwner;
 const homepageTitle = globalDataStore.homepageTitle;
@@ -63,7 +63,7 @@ components: {
   aboutBlurb,
   recentPostsHomePage,
   featured,
-  socialMediaAndResumeLinks,
+  otherLocationsAndResumeLinks,
   recentUpdates
 };
 const breadcrumbs = [
@@ -100,9 +100,9 @@ const structuredData = {
   name: appOwner,
   url,
   sameAs: [
-    socialMediaItems[0].href,
-    socialMediaItems[1].href,
-    socialMediaItems[2].href,
+    otherLocations[0].href,
+    otherLocations[1].href,
+    otherLocations[2].href,
     'https://www.facebook.com/manas.talukdar',
     'https://www.instagram.com/manastalukdar/',
     'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA',
