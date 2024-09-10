@@ -197,13 +197,13 @@ const initialState = () => ({
   contact: {
     contactText: 'Contact',
     icon: 'mdi-mail',
-    subHeaderTextSocialMedia: { text: 'Social Media' },
+    subHeaderTextOtherLocations: { text: 'Other Locations' },
     contactForm: {
       text: 'Form',
       icon: 'mdi-email-box',
       href: '/contact/form/',
     },
-    socialMediaItems: [
+    otherLocations: [
       {
         href: 'https://www.linkedin.com/in/manastalukdar/',
         target: '_blank',
@@ -221,6 +221,12 @@ const initialState = () => ({
         target: '_blank',
         icon: 'mdi-alpha-x',
         text: 'X',
+      },
+      {
+        href: 'https://scholar.google.com/citations?user=42DCHoEAAAAJ&hl=en&authuser=1&scioq=manas+talukdar',
+        target: '_blank',
+        icon: 'mdi-school',
+        text: 'Google Scholar',
       },
     ],
   },

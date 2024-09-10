@@ -10,7 +10,7 @@
           name="resumeBox"
           src="https://manastalukdar.github.io/resume-cv"
         >
-          <p>iframes are not supported by your browser.</p>
+          iframes are not supported by your browser.
         </iframe>
       </client-only>
     </v-card>

@@ -7,9 +7,9 @@
       <v-list-item-title v-text="contactForm.text" />
     </v-list-item>
     <v-divider />
-    <v-list-subheader class="text-center align-center">{{ subHeaderTextSocialMediaText }}</v-list-subheader>
+    <v-list-subheader class="text-center align-center">{{ subHeaderTextOtherLocationsText }}</v-list-subheader>
     <v-list-item
-      v-for="item in socialMediaItems"
+      v-for="item in otherLocations"
       :key="item.text"
       :href="item.href"
       :target="item.target"
@@ -25,7 +25,7 @@
 <script setup>
 import { useNavigationStore } from '@/stores/Navigation';
 const navigationStore = useNavigationStore();
-const subHeaderTextSocialMediaText = navigationStore.contact.subHeaderTextSocialMedia.text;
+const subHeaderTextOtherLocationsText = navigationStore.contact.subHeaderTextOtherLocations.text;
 const contactForm = navigationStore.contact.contactForm;
-const socialMediaItems = navigationStore.contact.socialMediaItems;
+const otherLocations = navigationStore.contact.otherLocations;
 </script>
