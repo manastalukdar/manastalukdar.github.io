@@ -220,7 +220,7 @@ const initialState = () => ({
         href: 'https://www.x.com/manastalukdar/',
         target: '_blank',
         icon: 'mdi-alpha-x',
-        text: 'X',
+        text: 'X / Twitter',
       },
       {
         href: 'https://scholar.google.com/citations?user=42DCHoEAAAAJ&hl=en&authuser=1&scioq=manas+talukdar',
