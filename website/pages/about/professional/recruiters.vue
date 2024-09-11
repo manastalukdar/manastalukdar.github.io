@@ -56,13 +56,13 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[0].professionalItems[4].text +
+  navigationStore.about.aboutItems[0].professionalItems[5].text +
   ' | ' +
   navigationStore.about.aboutItems[0].professionalText +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[0].professionalItems[4].href;
-const recruitersText = navigationStore.about.aboutItems[0].professionalItems[4].text;
+const currentHref = navigationStore.about.aboutItems[0].professionalItems[5].href;
+const recruitersText = navigationStore.about.aboutItems[0].professionalItems[5].text;
 const title = currentPage + ' || ' + appOwner;
 const description = 'Landing page for recruiters and hiring managers.';
 const url = baseUrl + currentHref;

@@ -80,18 +80,21 @@ const initialState = () => ({
               target: '_blank',
               icon: 'mdi-text',
               text: 'Highlights',
+              isRouterLink: true,
             },
             {
               href: '/about/professional/resume/',
               target: '_blank',
               icon: 'mdi-file-document',
               text: 'Resume',
+              isRouterLink: true,
             },
             {
               href: '/about/professional/patents/',
               target: '_blank',
               icon: 'mdi-script-text',
               text: 'Patents',
+              isRouterLink: true,
             },
             {
               href: '/about/professional/engagements/',
@@ -144,10 +147,18 @@ const initialState = () => ({
               ]
             },
             {
+              href: 'https://scholar.google.com/citations?user=42DCHoEAAAAJ&hl=en&authuser=1&scioq=manas+talukdar',
+              target: '_blank',
+              icon: 'mdi-school',
+              text: 'Google Scholar',
+              isRouterLink: false,
+            },
+            {
               href: '/about/professional/recruiters/',
               target: '_blank',
               icon: 'mdi-handshake',
               text: 'Recruiters',
+              isRouterLink: true,
             },
           ],
       },
@@ -221,12 +232,6 @@ const initialState = () => ({
         target: '_blank',
         icon: 'mdi-alpha-x',
         text: 'X / Twitter',
-      },
-      {
-        href: 'https://scholar.google.com/citations?user=42DCHoEAAAAJ&hl=en&authuser=1&scioq=manas+talukdar',
-        target: '_blank',
-        icon: 'mdi-school',
-        text: 'Google Scholar',
       },
     ],
   },

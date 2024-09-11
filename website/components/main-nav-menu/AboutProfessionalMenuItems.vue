@@ -14,7 +14,10 @@
         <AboutProfessionalEngagementsItems />
       </v-list>
     </v-menu>
-    <v-list-item v-for="item in aboutProfessionalItems" :key="item.text" :to="item.href">
+    <v-list-item v-for="item in aboutProfessionalItems" :key="item.text"
+    :to="item.isRouterLink ? item.href : null"
+    :href="!item.isRouterLink ? item.href : null"
+    :target="!item.isRouterLink ? item.target: null">
       <v-avatar>
         <v-icon>{{ item.icon }}</v-icon>
       </v-avatar>
