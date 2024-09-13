@@ -62,6 +62,6 @@
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue3-disqus": "^1.0.6",
     "vuetify": "^3.7.1",
-    "vue": "^3.5.3"
+    "vue": "^3.5.5"
   }
 }
