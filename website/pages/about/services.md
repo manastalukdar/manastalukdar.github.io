@@ -2,7 +2,7 @@ I am open to:
 
 - Advisory services for startups.
   - Including providing comprehensive reviews and actionable reports on the technology stack, architecture, code quality, product roadmap / guidance, etc.
-- Due diligence for venture capital firms.
+- Due diligence on behalf of investors (including venture capital firms).
 - General technical guidance and consulting on AI, ML, data infrastructure, large-scale systems, engineering leadership, career development, and related areas. I can be contacted through [MentorCruise](https://mentorcruise.com/mentor/manastalukdar/), [ADPList](https://adplist.org/mentors/manas-talukdar), [The Mentoring-Club](https://www.mentoring-club.com/the-mentors/manas-talukdar), [Plato](https://www.platohq.com/@manas-talukdar-zfyuvrxm6if) platforms, or any of the options below.
 - Board member roles.
   - Including (unpaid) advisory board member roles.
