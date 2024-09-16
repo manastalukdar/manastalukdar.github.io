@@ -11,7 +11,7 @@ post-format: standard
 title: A Framework for Promotion to Senior Engineering Manager
 url-slug: framework-promotion-to-senior-engineering-manager
 first-published-on: 2024-05-13 23:04
-last-updated-on: 2024-05-13 23:04
+last-updated-on: 2024-09-15 22:13
 meta:
  description: "An framework for promotions to Senior Engineering Manager."
 excerpt: "In the past on this blog, I have written about a framework for promotion to Staff Software Engineer. Similar to a staff engineer position, a Senior Engineering Manager, as the name suggests, is a very senior role"

@@ -11,7 +11,7 @@ post-format: standard
 title: A Framework for Promotion to Staff or Lead Engineer
 url-slug: framework-promotion-to-staff-lead-engineer
 first-published-on: 2024-04-30 13:42
-last-updated-on: 2024-04-30 13:42
+last-updated-on: 2024-09-15 22:13
 meta:
  description: "An framework for promotions to Staff or Lead Engineer."
 excerpt: "A Staff or Lead Software Engineer is a very senior role in the engineering organization. It is a role that requires a deep understanding of the technology stack, the ability"
