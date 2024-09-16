@@ -9,7 +9,7 @@
 
 ### What I bring to the table?
 
-- Around 17 years of industry experience in established companies as well as startups.
+- Nearly two decades years of industry experience in established companies as well as startups.
 - Proven track record of building, growing, supporting and leading organizations of high technical caliber.
 - Proven track record of building and scaling enterprise products used in critical industrial infrastructure across the world.
 - Experience leading and running teams and organizations both co-located and remote / distributed.
@@ -43,6 +43,8 @@
 <!-- - Stock grants vesting cycle being over 4 years. One year initial vesting cliff is acceptable if subsequent vests happen every month or with each pay cycle.
 - Nice to haves:
   - 401(k) matching.
+  - Support / reimbursement for membership of professional organizations such as IEEE, ACM, etc.
+  - Support / reimbursement for attending conferences. I would of course be willing to speak at conferences on behalf of the company.
   - Wellness / gym membership stipend.
   - Performance based out-of-band cash bonuses. -->
 
