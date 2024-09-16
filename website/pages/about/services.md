@@ -1,7 +1,10 @@
 I am open to:
 
-- Advisory services for startups.
-  - Including providing comprehensive reviews and actionable reports on the technology stack, architecture, code quality, product roadmap / guidance, etc.
+- Advisory services for startups. This includes providing comprehensive reviews and actionable reports on:
+  - The technology stack, architecture, code quality, general technical guidance, etc.
+  - Any specific project. Typically I get involved when these are just ideas and (mostly) questions on how to leverage AI/ML, that are in the early stages of discussion / development, but I am open to other areas as well.
+  - Product roadmap / strategy, etc.
+  - Organizational structure, hiring, growth, etc., including guidance for specific roles or teams.
 - Due diligence on behalf of investors (including venture capital firms).
 - General technical guidance and consulting on AI, ML, data infrastructure, large-scale systems, engineering leadership, career development, and related areas. I can be contacted through [MentorCruise](https://mentorcruise.com/mentor/manastalukdar/), [ADPList](https://adplist.org/mentors/manas-talukdar), [The Mentoring-Club](https://www.mentoring-club.com/the-mentors/manas-talukdar), [Plato](https://www.platohq.com/@manas-talukdar-zfyuvrxm6if) platforms, or any of the options below.
 - Board member roles.
