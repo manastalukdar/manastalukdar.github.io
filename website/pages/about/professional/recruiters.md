@@ -16,8 +16,9 @@
 - Experience running organizations spread across different continents.
 - A highly systemizing nature. Very methodical and meticulous.
 - Excellent communication and collaboration skills.
-- Strong bias for action.
+- Strong bias for action and a laser focus on providing results.
 - Strong sense of ownership and very hard working.
+- Standing in the industry. I have several [professional engagements](/about/professional/engagements/) beyond my day job, including organizational memberships and affiliations, public speaking, technical reviewer, etc. This tends to bring additional positive visibility to the company I work for.
 
 ### What value will I provide?
 
