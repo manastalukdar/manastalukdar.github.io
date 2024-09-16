@@ -1,6 +1,6 @@
 ### Conferences
 
-- [Keynote](https://dldc.adasci.org/speaker/manas-talukdar/) at [Deep Learning DevCon 2024](https://dldc.adasci.org) on `Human Feedback in Generative AI Systems`.
+- [Keynote](https://dldc.adasci.org/speaker/manas-talukdar/) at [Deep Learning DevCon 2024](https://dldc.adasci.org) on `Human Feedback in Generative AI Systems`. Recorded video [here](https://adasci.org/courses/session-recordings-deep-learning-devcon-dldc-2024/).
 - [Spoke](https://chicagoaiweek.com/speaker/manas-talukdar/) on `AI Trust and Safety` at the 2024 [Chicago AI Conference](https://chicagoaiweek.com).
 - Roundtable and workshop on AI project execution at the 2024 Plato [Elevate](https://www.platohq.com/events/elevate) engineering leadership conference.
   - Led a Roundtable on `Building an Engineering Design Culture that Executes Impactful AI Projects`.
