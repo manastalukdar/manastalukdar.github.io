@@ -16,11 +16,11 @@
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@types/lodash": "^4.17.7",
-    "@types/node": "^22.5.4",
+    "@types/node": "^22.5.5",
     "@vueuse/core": "^11.0.3",
     "@vueuse/nuxt": "^11.0.3",
     "material-design-icons-iconfont": "^6.7.0",
-    "nuxt": "^3.13.1",
+    "nuxt": "^3.13.2",
     "nuxt-gtag": "^3.0.1",
     "nuxt-simple-sitemap": "^4.4.1",
     "sass": "^1.78.0",
