@@ -32,6 +32,8 @@ excerpt: ""
 
 ## Papers
 
+- [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050)
+
 ### Synthetic Data
 
 ### Alignment with Human Feedback / Preferences
@@ -42,7 +44,7 @@ excerpt: ""
 
 ## Technical Reports
 
-[OpenAI o1 System Card](https://cdn.openai.com/o1-system-card.pdf)
+- [OpenAI o1 System Card](https://cdn.openai.com/o1-system-card.pdf)
 
 ## Articles and Blog Posts
 
