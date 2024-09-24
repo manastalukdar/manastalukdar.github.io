@@ -52,7 +52,7 @@
 ### Miscellaneous
 
 - Due to US legal immigration system being where it is, I still do not have my green card. So, I will need immigration support. Specifically, H1B and continuing my GC application. Happy to discuss specifics.
-- I am mostly an in-person, work-from-office person. However, it would be nice to have the flexibility to work remotely on occasion.
+- I have worked in in-person, hybrid as well as remote working environments. I am comfortable and have been successful in all of them. I am open to any of these working environments. For in-person, I would appreciate the option of working remotely on occasion.
 
 ### Next steps?
 
