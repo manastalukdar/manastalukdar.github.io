@@ -35,6 +35,7 @@ excerpt: ""
 - [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050)
   - Blog post: [Improving mathematical reasoning with process supervision](https://openai.com/index/improving-mathematical-reasoning-with-process-supervision/)
   - Dataset: [GitHub](https://github.com/openai/prm800k?tab=readme-ov-file)
+- [Training Language Models to Self-Correct via Reinforcement Learning](https://arxiv.org/abs/2409.12917)
 
 ### Synthetic Data
 
