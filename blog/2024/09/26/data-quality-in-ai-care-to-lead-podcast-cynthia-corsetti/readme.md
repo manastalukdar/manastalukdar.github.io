@@ -25,7 +25,7 @@ excerpt: "Conversation on data quality in AI on the CARE to Lead® podcast with 
 # Conversation on Data Quality in AI on the CARE to Lead® Podcast with Cynthia Corsetti
 
 ::: iframe-container
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2ab95e0TS_U?si=cvhY5Y1gfz_aaqMK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="900" height="550" src="https://www.youtube.com/embed/2ab95e0TS_U?si=cvhY5Y1gfz_aaqMK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
 
 - [Spotify](https://podcasters.spotify.com/pod/show/cynthia0867/episodes/Data-Quality-in-AI-Insights-from-Manas-Talukdar-of-Labelbox-e2omclp)
