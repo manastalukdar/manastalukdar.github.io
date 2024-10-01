@@ -9,6 +9,7 @@
 
 ### Podcasts
 
+- Data Quality in AI: Insights from Manas Talukdar of Labelbox on the [CARE to Lead® podcast with Cynthia Corsetti](https://www.dataqualitypodcast.com/episodes/data-quality-in-ai-insights-from-manas-talukdar-of-labelbox).
 - Conversation on artificial intelligence on [The Daniel Stih podcast](https://danielstih.com/podcast-with-manas-talukdar).
 
 <!-- ### Workshops -->
