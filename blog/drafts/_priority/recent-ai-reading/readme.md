@@ -36,6 +36,7 @@ excerpt: ""
   - Blog post: [Improving mathematical reasoning with process supervision](https://openai.com/index/improving-mathematical-reasoning-with-process-supervision/)
   - Dataset: [GitHub](https://github.com/openai/prm800k?tab=readme-ov-file)
 - [Training Language Models to Self-Correct via Reinforcement Learning](https://arxiv.org/abs/2409.12917)
+- [The Perfect Blend: Redefining RLHF with Mixture of Judges](https://arxiv.org/abs/2409.20370)
 
 ### Synthetic Data
 
