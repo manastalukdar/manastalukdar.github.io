@@ -24,6 +24,6 @@ excerpt: "I was part of a panel discussion on"
 
 I was part of a panel discussion on **Building a Culture of Innovation: Leadership Strategies for the Digital Age** at [CTO CON 2024](https://www.ctocon.remotebase.com/).
 
-::: iframe-container
+::: iframe-container-youtube
 <iframe width="900" height="550" frameborder=0 src="https://www.youtube.com/embed/HPz8WcOd1Hk?si=LPsuagqwI5g2Dx_R" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::

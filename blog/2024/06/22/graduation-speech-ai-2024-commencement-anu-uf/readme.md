@@ -22,6 +22,6 @@ excerpt: "I was honored to deliver the graduation speech at the 2024 commencemen
 
 I was honored to deliver the graduation [speech](https://www.youtube.com/watch?v=zQXnush_qrA&t=789s) on Artificial Intelligence at the 2024 commencement ceremony of the American National University and University of Fairfax. I spoke about how AI is transforming the world and how the graduates can contribute to this transformation. I also shared my journey and the lessons I learnt along the way. It was a truly inspiring experience, and I wish all the graduates the best of luck in their future endeavors.
 
-::: iframe-container
+::: iframe-container-youtube
 <iframe width="900" height="550" frameborder=0 src="https://www.youtube.com/embed/zQXnush_qrA?si=a0eOskQZCbSqOkvN" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::

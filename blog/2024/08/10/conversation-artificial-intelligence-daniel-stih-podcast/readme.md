@@ -21,7 +21,7 @@ excerpt: "Conversation on artificial intelligence on the Daniel Stih podcast"
 
 # Conversation on Artificial intelligence on the Daniel Stih podcast
 
-::: iframe-container
+::: iframe-container-youtube
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MmiE8qG969M?si=HOCiX466QXwrpYg0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
 
