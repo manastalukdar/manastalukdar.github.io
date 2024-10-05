@@ -24,8 +24,8 @@ excerpt: "Conversation on data quality in AI on the CARE to Lead® podcast with 
 
 # Conversation on Data Quality in AI on the CARE to Lead® Podcast with Cynthia Corsetti
 
-::: iframe-container
-<iframe width="900" height="550" src="https://www.youtube.com/embed/2ab95e0TS_U?si=cvhY5Y1gfz_aaqMK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+::: iframe-container-youtube
+<iframe title="YouTube video player" width="900" height="550" src="https://www.youtube.com/embed/2ab95e0TS_U?si=cvhY5Y1gfz_aaqMK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
 
 - [Youtube](https://www.youtube.com/watch?v=2ab95e0TS_U)
