@@ -9,11 +9,11 @@
 
 ### Podcasts
 
-- Data Quality in AI: Insights from Manas Talukdar of Labelbox on the [CARE to Lead® podcast with Cynthia Corsetti](https://www.youtube.com/watch?v=2ab95e0TS_U). [25 September, 2024]
-- Conversation on artificial intelligence on [The Daniel Stih podcast](https://danielstih.com/podcast-with-manas-talukdar). [11 August, 2024]
+- `Data Quality in AI: Insights from Manas Talukdar of Labelbox` on the [CARE to Lead® podcast with Cynthia Corsetti](https://www.youtube.com/watch?v=2ab95e0TS_U). [25 September, 2024]
+- Conversation on `artificial intelligence` on [The Daniel Stih podcast](https://danielstih.com/podcast-with-manas-talukdar). [11 August, 2024]
 
 <!-- ### Workshops -->
 
 ### Other
 
-- [Graduation speech](https://www.youtube.com/watch?v=zQXnush_qrA&t=789s) on Artificial Intelligence at the 2024 commencement ceremony of the American National University and University of Fairfax. [22 June, 2024]
+- [Graduation speech](https://www.youtube.com/watch?v=zQXnush_qrA&t=789s) on `Artificial Intelligence` at the 2024 commencement ceremony of the American National University and University of Fairfax. [22 June, 2024]
