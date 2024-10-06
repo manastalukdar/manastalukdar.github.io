@@ -1,3 +1,4 @@
+- [2024 Globee Awards - Leadership](https://credential.globeeawards.com/0337fb7a-80f5-40bc-8699-c835c08e4e53#gs.foptg7)
 - [2024 Globee Awards - American Business](https://credential.globeeawards.com/5fc13d72-73fd-49b6-a4a3-98c8cfc5f67e#gs.a0pxdb).
 - [2024 Globee Awards - Technology](https://credential.globeeawards.com/7bdae446-600c-4ebc-a01f-760799e4aa46#gs.9lt4ci).
 - [2024 Globee Awards - Disruptors](https://credential.globeeawards.com/8c889137-d177-4b30-a276-5c6f5bf10e04#gs.9x241m).
