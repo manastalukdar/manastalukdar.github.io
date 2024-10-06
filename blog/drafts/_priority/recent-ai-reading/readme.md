@@ -37,6 +37,7 @@ excerpt: ""
   - Dataset: [GitHub](https://github.com/openai/prm800k?tab=readme-ov-file)
 - [Training Language Models to Self-Correct via Reinforcement Learning](https://arxiv.org/abs/2409.12917)
 - [The Perfect Blend: Redefining RLHF with Mixture of Judges](https://arxiv.org/abs/2409.20370)
+- [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903)
 
 ### Synthetic Data
 
