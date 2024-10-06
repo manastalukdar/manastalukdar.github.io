@@ -45,6 +45,8 @@ excerpt: ""
 
 ### Retrieval-Augmented Generation
 
+- [A Comprehensive Survey on Vector Database: Storage and Retrieval Technique, Challenge](https://arxiv.org/abs/2310.11703)
+
 ### Other
 
 ## Technical Reports
@@ -52,5 +54,7 @@ excerpt: ""
 - [OpenAI o1 System Card](https://cdn.openai.com/o1-system-card.pdf)
 
 ## Articles and Blog Posts
+
+- [Distance Metrics in Vector Search](https://weaviate.io/blog/distance-metrics-in-vector-search)
 
 ## Miscellaneous
