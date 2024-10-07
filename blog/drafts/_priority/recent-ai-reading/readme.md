@@ -39,6 +39,7 @@ excerpt: ""
 - [The Perfect Blend: Redefining RLHF with Mixture of Judges](https://arxiv.org/abs/2409.20370)
 - [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903)
 - [CoEdIT: Text Editing by Task-Specific Instruction Tuning](https://www.arxiv.org/abs/2305.09857)
+- [Better Instruction-Following Through Minimum Bayes Risk](https://arxiv.org/abs/2410.02902v1)
 
 ### Synthetic Data
 
