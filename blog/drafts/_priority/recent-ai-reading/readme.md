@@ -56,5 +56,7 @@ excerpt: ""
 ## Articles and Blog Posts
 
 - [Distance Metrics in Vector Search](https://weaviate.io/blog/distance-metrics-in-vector-search)
+- [Introduction to Recurrent Neural Network](https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/)
+- [Back Propagation in Recurrent Neural Networks](https://www.adityaagrawal.net/blog/deep_learning/bprop_rnn)
 
 ## Miscellaneous
