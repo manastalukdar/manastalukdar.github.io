@@ -20,6 +20,14 @@
           <v-expansion-panels multiple v-model="panelAwards">
             <v-expansion-panel>
               <v-expansion-panel-title>
+                Globee Award for Leadership
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="globeeLeadershipAward" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
                 International Business Award (Stevie)
               </v-expansion-panel-title>
               <v-expansion-panel-text>
@@ -190,6 +198,15 @@ const panelAwards = ref([0, 1, 2, 3, 4]);
 const stevieIba = computedAsync(async () => {
   try {
     const fileContent = await import('./content-awards/stevie-international-business-award.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const globeeLeadershipAward = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-awards/globee-leadership.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
