@@ -42,6 +42,11 @@ excerpt: ""
 - [Better Instruction-Following Through Minimum Bayes Risk](https://arxiv.org/abs/2410.02902v1)
 - [RevisEval: Improving LLM-as-a-Judge via Response-Adapted References](https://arxiv.org/abs/2410.05193)
 - [Hyper-multi-step: The Truth Behind Difficult Long-context Tasks](https://arxiv.org/abs/2410.04422)
+- [Were RNNs All We Needed?](https://arxiv.org/abs/2410.01201)
+- [Intelligence at the Edge of Chaos](https://www.arxiv.org/abs/2410.02536)
+- [RATIONALYST: Pre-training Process-Supervision for Improving Reasoning](https://arxiv.org/abs/2410.01044)
+- [Tutor CoPilot: A Human-AI Approach for Scaling Real-Time Expertise](https://arxiv.org/abs/2410.03017)
+- [Self-Boosting Large Language Models with Synthetic Preference Data](https://arxiv.org/abs/2410.06961)
 
 ### Synthetic Data
 
