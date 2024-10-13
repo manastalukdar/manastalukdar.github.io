@@ -194,7 +194,7 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const panelAwards = ref([0, 1, 2, 3, 4]);
+const panelAwards = ref([0, 1, 2, 3, 4, 5]);
 const stevieIba = computedAsync(async () => {
   try {
     const fileContent = await import('./content-awards/stevie-international-business-award.md?raw')
