@@ -14,6 +14,7 @@ tags:
  - Model Evaluation
  - LLM as Judge
  - Alignment with Human Feedback
+ - Agentic AI
 categories:
  - Technology
 authors:
@@ -32,31 +33,38 @@ excerpt: ""
 
 ## Papers
 
-- [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050)
-  - Blog post: [Improving mathematical reasoning with process supervision](https://openai.com/index/improving-mathematical-reasoning-with-process-supervision/)
-  - Dataset: [GitHub](https://github.com/openai/prm800k?tab=readme-ov-file)
-- [Training Language Models to Self-Correct via Reinforcement Learning](https://arxiv.org/abs/2409.12917)
-- [The Perfect Blend: Redefining RLHF with Mixture of Judges](https://arxiv.org/abs/2409.20370)
-- [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903)
-- [CoEdIT: Text Editing by Task-Specific Instruction Tuning](https://www.arxiv.org/abs/2305.09857)
-- [Better Instruction-Following Through Minimum Bayes Risk](https://arxiv.org/abs/2410.02902v1)
-- [RevisEval: Improving LLM-as-a-Judge via Response-Adapted References](https://arxiv.org/abs/2410.05193)
-- [Hyper-multi-step: The Truth Behind Difficult Long-context Tasks](https://arxiv.org/abs/2410.04422)
-- [Were RNNs All We Needed?](https://arxiv.org/abs/2410.01201)
-- [Intelligence at the Edge of Chaos](https://www.arxiv.org/abs/2410.02536)
-- [RATIONALYST: Pre-training Process-Supervision for Improving Reasoning](https://arxiv.org/abs/2410.01044)
-- [Tutor CoPilot: A Human-AI Approach for Scaling Real-Time Expertise](https://arxiv.org/abs/2410.03017)
-- [Self-Boosting Large Language Models with Synthetic Preference Data](https://arxiv.org/abs/2410.06961)
-
 ### Synthetic Data
 
-### Alignment with Human Feedback / Preferences
+- [Self-Boosting Large Language Models with Synthetic Preference Data](https://arxiv.org/abs/2410.06961)
+
+### AI Alignment with Human Feedback / Preferences
+
+- [The Perfect Blend: Redefining RLHF with Mixture of Judges](https://arxiv.org/abs/2409.20370)
+- [RevisEval: Improving LLM-as-a-Judge via Response-Adapted References](https://arxiv.org/abs/2410.05193)
+- [Better Instruction-Following Through Minimum Bayes Risk](https://arxiv.org/abs/2410.02902v1)
+- [Tutor CoPilot: A Human-AI Approach for Scaling Real-Time Expertise](https://arxiv.org/abs/2410.03017)
 
 ### Retrieval-Augmented Generation
 
 - [A Comprehensive Survey on Vector Database: Storage and Retrieval Technique, Challenge](https://arxiv.org/abs/2310.11703)
 
+### Agentic AI
+
+- [Agent S: An Open Agentic Framework that Uses Computers Like a Human](https://arxiv.org/abs/2410.08164)
+
 ### Other
+
+- [Let's Verify Step by Step](https://arxiv.org/abs/2305.20050)
+  - Blog post: [Improving mathematical reasoning with process supervision](https://openai.com/index/improving-mathematical-reasoning-with-process-supervision/)
+  - Dataset: [GitHub](https://github.com/openai/prm800k?tab=readme-ov-file)
+- [Training Language Models to Self-Correct via Reinforcement Learning](https://arxiv.org/abs/2409.12917)
+- [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903)
+- [CoEdIT: Text Editing by Task-Specific Instruction Tuning](https://www.arxiv.org/abs/2305.09857)
+- [Hyper-multi-step: The Truth Behind Difficult Long-context Tasks](https://arxiv.org/abs/2410.04422)
+- [Were RNNs All We Needed?](https://arxiv.org/abs/2410.01201)
+- [Intelligence at the Edge of Chaos](https://www.arxiv.org/abs/2410.02536)
+- [RATIONALYST: Pre-training Process-Supervision for Improving Reasoning](https://arxiv.org/abs/2410.01044)
+- [Towards Self-Improvement of LLMs via MCTS: Leveraging Stepwise Knowledge with Curriculum Preference Learning](https://arxiv.org/abs/2410.06508)
 
 ## Technical Reports
 
