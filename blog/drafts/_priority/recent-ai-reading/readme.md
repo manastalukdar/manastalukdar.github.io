@@ -83,5 +83,6 @@ excerpt: ""
 - [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
 - [Some Intuition on Attention and the Transformer](https://eugeneyan.com/writing/attention/)
 - [How Transformers work in deep learning and NLP: an intuitive introduction](https://theaisummer.com/transformer/)
+- [AutoArena: An Open-Source AI Tool that Automates Head-to-Head Evaluations Using LLM Judges to Rank GenAI Systems](https://www.marktechpost.com/2024/10/09/autoarena-an-open-source-ai-tool-that-automates-head-to-head-evaluations-using-llm-judges-to-rank-genai-systems/)
 
 ## Miscellaneous
