@@ -4,4 +4,4 @@ Manas Talukdar was recognized with a [Globee Award for Technology](https://globe
 
 **Artificial Intelligence Achievement of the Year - Issued by Globee Business Awards, June 2024**
 
-Manas Talukdar was recognized with a [Globee Award for Technology](hhttps://globeeawards.com/technology/) in the category of "Artificial Intelligence Achievement of the Year", for [Innovative product development in AI with patents and wide adoption](https://credential.globeeawards.com/dcc25d00-6d28-4706-bad2-c9727ec0725b#gs.behk3u). This recognition underscores the entrant's distinguished performance, creativity, and impact within their sector, highlighting them as high achievers.
+Manas Talukdar was recognized with a [Globee Award for Technology](https://globeeawards.com/technology/) in the category of "Artificial Intelligence Achievement of the Year", for [Innovative product development in AI with patents and wide adoption](https://credential.globeeawards.com/dcc25d00-6d28-4706-bad2-c9727ec0725b#gs.behk3u). This recognition underscores the entrant's distinguished performance, creativity, and impact within their sector, highlighting them as high achievers.
