@@ -33,6 +33,10 @@ excerpt: ""
 
 ## Papers
 
+- [CoTracker3: Simpler and Better Point Tracking by Pseudo-Labelling Real Videos](https://arxiv.org/abs/2410.11831)
+  - [website](https://cotracker3.github.io/)
+  - [code](https://github.com/facebookresearch/co-tracker)
+
 ### Synthetic Data
 
 ### AI Alignment with Human Feedback / Preferences
