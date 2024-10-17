@@ -9,6 +9,8 @@
 
 ### Podcasts
 
+<!-- - Conversation on AI and engineering leadership with Dr. John Dontico on the [Throttle Up leadership podcast](https://www.throttleupleadership.com/).
+- Conversation on AI, Data and engineering leadership at [The CTO Show podcast with Mehmet Gonullu](https://www.mehmetcto.show/). -->
 - `Data Quality in AI: Insights from Manas Talukdar of Labelbox` on the [CARE to Lead® podcast with Cynthia Corsetti](https://www.youtube.com/watch?v=2ab95e0TS_U). [25 September, 2024]
 - Conversation on `artificial intelligence` on [The Daniel Stih podcast](https://danielstih.com/podcast-with-manas-talukdar). [11 August, 2024]
 
