@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Manas Talukdar - blog</title>
+        <link>https://manastalukdar.github.io/blogfeed.xml</link>
+        <description>Syndication feed for blog.</description>
+        <lastBuildDate>Thu, 17 Oct 2024 19:56:07 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <copyright>All rights reserved 2024 Manas Talukdar</copyright>
+        <category>Technology</category>
+        <category>Musings</category>
+        <category>Science</category>
+        <category>History</category>
+        <category>Miscellaneous</category>
+        <item>
+            <title><![CDATA[Recent AI Reading [15 October 2024]]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/10/15/recent-ai-reading-15-october-2024/</link>
+            <guid>/blog/2024/10/15/recent-ai-reading-15-october-2024/</guid>
+            <pubDate>Tue, 15 Oct 2024 22:34:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[Self-Boosting Large Language Models with Synthetic Preference Data ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Conversation on Data Quality in AI on the CARE to Lead® Podcast with Cynthia Corsetti]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/09/26/data-quality-in-ai-care-to-lead-podcast-cynthia-corsetti/</link>
+            <guid>/blog/2024/09/26/data-quality-in-ai-care-to-lead-podcast-cynthia-corsetti/</guid>
+            <pubDate>Thu, 26 Sep 2024 19:50:00 GMT</pubDate>
+            <description><![CDATA[Conversation on data quality in AI on the CARE to Lead® podcast with Cynthia Corsetti]]></description>
+            <content:encoded><![CDATA[Conversation on data quality in AI on the CARE to Lead® podcast with Cynthia Corsetti ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [07 September 2024]]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/09/07/recent-ai-reading-07-september-2024/</link>
+            <guid>/blog/2024/09/07/recent-ai-reading-07-september-2024/</guid>
+            <pubDate>Sat, 07 Sep 2024 20:06:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[Best Practices and Lessons Learned on Synthetic Data ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [11 August 2024]]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/08/11/recent-ai-reading-11-august-2024/</link>
+            <guid>/blog/2024/08/11/recent-ai-reading-11-august-2024/</guid>
+            <pubDate>Sun, 11 Aug 2024 00:56:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[Self-play with Execution Feedback: Improving Instruction-following Capabilities of Large Language Models ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Conversation on Artificial intelligence on the Daniel Stih podcast]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/08/10/conversation-artificial-intelligence-daniel-stih-podcast/</link>
+            <guid>/blog/2024/08/10/conversation-artificial-intelligence-daniel-stih-podcast/</guid>
+            <pubDate>Sat, 10 Aug 2024 23:35:00 GMT</pubDate>
+            <description><![CDATA[Conversation on artificial intelligence on the Daniel Stih podcast.]]></description>
+            <content:encoded><![CDATA[Conversation on artificial intelligence on the Daniel Stih podcast ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [20 July 2024]]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/07/20/recent-ai-reading-20-july-2024/</link>
+            <guid>/blog/2024/07/20/recent-ai-reading-20-july-2024/</guid>
+            <pubDate>Sat, 20 Jul 2024 17:03:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[LLM-Eval: Unified Multi-Dimensional Automatic Evaluation for Open-Domain Conversations with Large Language ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Graduation Speech on AI at 2024 Commencement Ceremony of the American National University and University of Fairfax]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/06/22/graduation-speech-ai-2024-commencement-anu-uf/</link>
+            <guid>/blog/2024/06/22/graduation-speech-ai-2024-commencement-anu-uf/</guid>
+            <pubDate>Sat, 22 Jun 2024 23:22:00 GMT</pubDate>
+            <description><![CDATA[Graduation speech on AI at 2024 commencement ceremony of the American National University and University of Fairfax.]]></description>
+            <content:encoded><![CDATA[I was honored to deliver the graduation speech at the 2024 commencement ceremony of ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Some Reading Material on Retrieval-Augmented Generation]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/06/02/reading-material-retrieval-augmented-generation/</link>
+            <guid>/blog/2024/06/02/reading-material-retrieval-augmented-generation/</guid>
+            <pubDate>Sun, 02 Jun 2024 21:23:00 GMT</pubDate>
+            <description><![CDATA[Some reading material on Retrieval-Augmented Generation.]]></description>
+            <content:encoded><![CDATA[Retrieval-Augmented Generation for Knowledge-Intensive NLP ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Some AI Papers I Read Recently [27 May 2024]]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/05/27/some-ai-papers-I read-recently-27-may-2024/</link>
+            <guid>/blog/2024/05/27/some-ai-papers-I read-recently-27-may-2024/</guid>
+            <pubDate>Mon, 27 May 2024 18:38:00 GMT</pubDate>
+            <description><![CDATA[Some AI Papers I Read Recently.]]></description>
+            <content:encoded><![CDATA[Retrieval-Augmented Generation for Large Language ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Panel Discussion at CTO CON 2024]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/05/27/panel-discussion-cto-con-2024/</link>
+            <guid>/blog/2024/05/27/panel-discussion-cto-con-2024/</guid>
+            <pubDate>Mon, 27 May 2024 17:19:00 GMT</pubDate>
+            <description><![CDATA[Panel discussion on Building a 'Culture of Innovation: Leadership Strategies for the Digital Age' at CTO CON 2024.]]></description>
+            <content:encoded><![CDATA[I was part of a panel discussion on ...read more]]></content:encoded>
+        </item>
+    </channel>
+</rss>
