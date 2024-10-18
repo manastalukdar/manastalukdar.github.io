@@ -37,6 +37,11 @@ excerpt: ""
   - [website](https://cotracker3.github.io/)
   - [code](https://github.com/facebookresearch/co-tracker)
 
+### Model Evaluation
+
+- [Large Language Model Evaluation via Matrix Nuclear-Norm](https://arxiv.org/abs/2410.10672)
+- [HumanEval-V: Evaluating Visual Understanding and Reasoning Abilities of Large Multimodal Models Through Coding Tasks](https://arxiv.org/abs/2410.12381)
+
 ### Synthetic Data
 
 ### AI Alignment with Human Feedback / Preferences
