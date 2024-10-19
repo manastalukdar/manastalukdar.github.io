@@ -41,6 +41,7 @@ excerpt: ""
 
 - [Large Language Model Evaluation via Matrix Nuclear-Norm](https://arxiv.org/abs/2410.10672)
 - [HumanEval-V: Evaluating Visual Understanding and Reasoning Abilities of Large Multimodal Models Through Coding Tasks](https://arxiv.org/abs/2410.12381)
+- [MixEval-X: Any-to-Any Evaluations from Real-World Data Mixtures](https://arxiv.org/abs/2410.13754)
 
 ### Synthetic Data
 
