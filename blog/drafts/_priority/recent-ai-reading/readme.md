@@ -36,6 +36,10 @@ excerpt: ""
 - [CoTracker3: Simpler and Better Point Tracking by Pseudo-Labelling Real Videos](https://arxiv.org/abs/2410.11831)
   - [website](https://cotracker3.github.io/)
   - [code](https://github.com/facebookresearch/co-tracker)
+- [The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits](https://arxiv.org/abs/2402.17764)
+  - [Official inference framework for 1-bit LLMs](https://github.com/microsoft/BitNet)
+- [BitNet: Scaling 1-bit Transformers for Large Language Models](https://arxiv.org/abs/2310.11453)
+  - [Implementation of "BitNet: Scaling 1-bit Transformers for Large Language Models" in pytorch](https://github.com/kyegomez/BitNet)
 
 ### Model Evaluation
 
