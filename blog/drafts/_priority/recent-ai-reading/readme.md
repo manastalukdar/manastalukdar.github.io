@@ -55,6 +55,8 @@ excerpt: ""
 
 ### Agentic AI
 
+- [Agentic Information Retrieval](https://arxiv.org/abs/2410.09713)
+
 ### Other
 
 ## Technical Reports
