@@ -68,3 +68,5 @@ excerpt: ""
 ## Articles and Blog Posts
 
 ## Miscellaneous
+
+- [Swarm](https://github.com/openai/swarm) - Educational framework exploring ergonomic, lightweight multi-agent orchestration
