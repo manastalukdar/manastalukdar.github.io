@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 const initialState = () => ({
     appTitle: 'Manas Talukdar',
     appOwner: 'Manas Talukdar',
-    homepageTitle: 'Manas Talukdar | Data Infrastructure for Enterprise AI',
+    homepageTitle: 'Manas Talukdar | Enterprise AI, Data Infrastructure',
     copyrightStartYear: '2018',
     copyrightEndYear: new Date().getFullYear(),
     currentPageName: '',
