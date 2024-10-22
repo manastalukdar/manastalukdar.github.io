@@ -52,6 +52,8 @@ excerpt: ""
 
 ### AI Alignment with Human Feedback / Preferences
 
+- [Reward-Augmented Data Enhances Direct Preference Alignment of LLMs](https://arxiv.org/abs/2410.08067)
+
 ### Retrieval-Augmented Generation
 
 ### Agentic AI
