@@ -46,6 +46,7 @@ excerpt: ""
 - [Large Language Model Evaluation via Matrix Nuclear-Norm](https://arxiv.org/abs/2410.10672)
 - [HumanEval-V: Evaluating Visual Understanding and Reasoning Abilities of Large Multimodal Models Through Coding Tasks](https://arxiv.org/abs/2410.12381)
 - [MixEval-X: Any-to-Any Evaluations from Real-World Data Mixtures](https://arxiv.org/abs/2410.13754)
+- [NaturalBench: Evaluating Vision-Language Models on Natural Adversarial Samples](https://arxiv.org/abs/2410.14669)
 
 ### Synthetic Data
 
@@ -56,6 +57,7 @@ excerpt: ""
 ### Agentic AI
 
 - [Agentic Information Retrieval](https://arxiv.org/abs/2410.09713)
+- [Web Agents with World Models: Learning and Leveraging Environment Dynamics in Web Navigation](https://arxiv.org/abs/2410.13232)
 
 ### Other
 
