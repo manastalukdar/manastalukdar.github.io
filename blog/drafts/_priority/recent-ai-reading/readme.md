@@ -67,6 +67,8 @@ excerpt: ""
 
 ## Articles and Blog Posts
 
+- [Artificial + Human Intelligence Merge in the World of Process Safety Systems](https://engineering.tamu.edu/news/2024/07/artificial-human-intelligence-merge-in-the-world-of-process-safety-systems.html)
+
 ## Miscellaneous
 
 - [Swarm](https://github.com/openai/swarm) - Educational framework exploring ergonomic, lightweight multi-agent orchestration
