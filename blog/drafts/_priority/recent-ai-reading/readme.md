@@ -47,6 +47,7 @@ excerpt: ""
 - [HumanEval-V: Evaluating Visual Understanding and Reasoning Abilities of Large Multimodal Models Through Coding Tasks](https://arxiv.org/abs/2410.12381)
 - [MixEval-X: Any-to-Any Evaluations from Real-World Data Mixtures](https://arxiv.org/abs/2410.13754)
 - [NaturalBench: Evaluating Vision-Language Models on Natural Adversarial Samples](https://arxiv.org/abs/2410.14669)
+- [CompassJudger-1: All-in-one Judge Model Helps Model Evaluation and Evolution](https://arxiv.org/abs/2410.16256)
 
 ### Synthetic Data
 
@@ -54,6 +55,7 @@ excerpt: ""
 
 - [Reward-Augmented Data Enhances Direct Preference Alignment of LLMs](https://arxiv.org/abs/2410.08067)
 - [Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning](https://arxiv.org/abs/2410.08146)
+- [Aligning Large Language Models via Self-Steering Optimization](https://arxiv.org/abs/2410.17131)
 
 ### Retrieval-Augmented Generation
 
