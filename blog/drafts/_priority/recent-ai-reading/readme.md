@@ -71,6 +71,7 @@ excerpt: ""
 ## Articles and Blog Posts
 
 - [Artificial + Human Intelligence Merge in the World of Process Safety Systems](https://engineering.tamu.edu/news/2024/07/artificial-human-intelligence-merge-in-the-world-of-process-safety-systems.html)
+- [Introducing Multimodal Embed 3: Powering AI Search](https://cohere.com/blog/multimodal-embed-3)
 
 ## Miscellaneous
 
