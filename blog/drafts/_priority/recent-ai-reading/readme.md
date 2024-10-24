@@ -43,6 +43,7 @@ excerpt: ""
 - [Reward-Augmented Data Enhances Direct Preference Alignment of LLMs](https://arxiv.org/abs/2410.08067)
 - [Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning](https://arxiv.org/abs/2410.08146)
 - [Aligning Large Language Models via Self-Steering Optimization](https://arxiv.org/abs/2410.17131)
+- [Learning Goal-Conditioned Representations for Language Reward Model](https://arxiv.org/abs/2407.13887)
 
 ### Model Evaluation
 
