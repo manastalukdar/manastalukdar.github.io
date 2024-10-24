@@ -63,11 +63,47 @@
       ":::"
     ]
   },
+  "youtube-iframe-container embed": {
+  "scope": "markdown",
+  "prefix": "youtube-iframe-container-embed",
+    "body": [
+      "::: iframe-container-youtube",
+      "<iframe title="YouTube video player" width="900" height="550" frameborder=0 src=\"\"></iframe>",
+      ":::"
+    ]
+  },
   "table-of-contents": {
     "scope": "markdown",
     "prefix": "table-of-contents",
     "body": [
       "\\${toc}"
+    ]
+  },
+  "recent-ai-reading": {
+    "scope": "markdown",
+    "prefix": "recent-ai-reading",
+    "body": [
+      "# Recent AI Reading [dd Month yyyy]",
+      "",
+      "## Papers",
+      "",
+      "### Agentic AI",
+      "",
+      "### AI Alignment with Human Feedback / Preferences and other methods",
+      "",
+      "### Model Evaluation",
+      "",
+      "### Retrieval-Augmented Generation",
+      "",
+      "### Synthetic Data",
+      "",
+      "### Miscellaneous",
+      "",
+      "## Technical Reports",
+      "",
+      "## Articles and Blog Posts",
+      "",
+      "## Miscellaneous",
     ]
   }
 }

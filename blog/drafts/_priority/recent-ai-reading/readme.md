@@ -33,13 +33,16 @@ excerpt: ""
 
 ## Papers
 
-- [CoTracker3: Simpler and Better Point Tracking by Pseudo-Labelling Real Videos](https://arxiv.org/abs/2410.11831)
-  - [website](https://cotracker3.github.io/)
-  - [code](https://github.com/facebookresearch/co-tracker)
-- [The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits](https://arxiv.org/abs/2402.17764)
-  - [Official inference framework for 1-bit LLMs](https://github.com/microsoft/BitNet)
-- [BitNet: Scaling 1-bit Transformers for Large Language Models](https://arxiv.org/abs/2310.11453)
-  - [Implementation of "BitNet: Scaling 1-bit Transformers for Large Language Models" in pytorch](https://github.com/kyegomez/BitNet)
+### Agentic AI
+
+- [Agentic Information Retrieval](https://arxiv.org/abs/2410.09713)
+- [Web Agents with World Models: Learning and Leveraging Environment Dynamics in Web Navigation](https://arxiv.org/abs/2410.13232)
+
+### AI Alignment with Human Feedback / Preferences and other methods
+
+- [Reward-Augmented Data Enhances Direct Preference Alignment of LLMs](https://arxiv.org/abs/2410.08067)
+- [Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning](https://arxiv.org/abs/2410.08146)
+- [Aligning Large Language Models via Self-Steering Optimization](https://arxiv.org/abs/2410.17131)
 
 ### Model Evaluation
 
@@ -49,22 +52,19 @@ excerpt: ""
 - [NaturalBench: Evaluating Vision-Language Models on Natural Adversarial Samples](https://arxiv.org/abs/2410.14669)
 - [CompassJudger-1: All-in-one Judge Model Helps Model Evaluation and Evolution](https://arxiv.org/abs/2410.16256)
 
-### Synthetic Data
-
-### AI Alignment with Human Feedback / Preferences and other methods
-
-- [Reward-Augmented Data Enhances Direct Preference Alignment of LLMs](https://arxiv.org/abs/2410.08067)
-- [Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning](https://arxiv.org/abs/2410.08146)
-- [Aligning Large Language Models via Self-Steering Optimization](https://arxiv.org/abs/2410.17131)
-
 ### Retrieval-Augmented Generation
 
-### Agentic AI
+### Synthetic Data
 
-- [Agentic Information Retrieval](https://arxiv.org/abs/2410.09713)
-- [Web Agents with World Models: Learning and Leveraging Environment Dynamics in Web Navigation](https://arxiv.org/abs/2410.13232)
+### Miscellaneous
 
-### Other
+- [CoTracker3: Simpler and Better Point Tracking by Pseudo-Labelling Real Videos](https://arxiv.org/abs/2410.11831)
+  - [website](https://cotracker3.github.io/)
+  - [code](https://github.com/facebookresearch/co-tracker)
+- [The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits](https://arxiv.org/abs/2402.17764)
+  - [Official inference framework for 1-bit LLMs](https://github.com/microsoft/BitNet)
+- [BitNet: Scaling 1-bit Transformers for Large Language Models](https://arxiv.org/abs/2310.11453)
+  - [Implementation of "BitNet: Scaling 1-bit Transformers for Large Language Models" in pytorch](https://github.com/kyegomez/BitNet)
 
 ## Technical Reports
 
