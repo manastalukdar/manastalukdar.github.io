@@ -50,9 +50,10 @@ excerpt: ""
 
 ### Synthetic Data
 
-### AI Alignment with Human Feedback / Preferences
+### AI Alignment with Human Feedback / Preferences and other methods
 
 - [Reward-Augmented Data Enhances Direct Preference Alignment of LLMs](https://arxiv.org/abs/2410.08067)
+- [Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning](https://arxiv.org/abs/2410.08146)
 
 ### Retrieval-Augmented Generation
 
