@@ -66,6 +66,7 @@ excerpt: ""
   - [Official inference framework for 1-bit LLMs](https://github.com/microsoft/BitNet)
 - [BitNet: Scaling 1-bit Transformers for Large Language Models](https://arxiv.org/abs/2310.11453)
   - [Implementation of "BitNet: Scaling 1-bit Transformers for Large Language Models" in pytorch](https://github.com/kyegomez/BitNet)
+  - [Multi-IF: Benchmarking LLMs on Multi-Turn and Multilingual Instructions Following](https://arxiv.org/abs/2410.15553)
 
 ## Technical Reports
 
