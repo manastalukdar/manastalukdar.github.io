@@ -37,7 +37,7 @@ excerpt: "Discussion on AI and Data Infrastructure with Mehmet Gonullu on The CT
 - [Amazon Music](https://music.amazon.com/podcasts/808c134e-bf9b-4562-8b6f-f293b037e519/episodes/153ec6f9-e22e-44da-8be1-618d35637686/the-cto-show-with-mehmet-gonullu-405-inside-the-world-of-industrial-ai-manas-talukdar-on-data-pipelines-and-predictions)
 - [Listen Notes](https://www.listennotes.com/podcasts/the-cto-show-with/405-inside-the-world-of-MoWVSJeN8BE/)
 - [Podchaser](https://www.podchaser.com/podcasts/the-cto-show-with-mehmet-gonul-5100857/episodes/405-inside-the-world-of-indust-228324170)
-- anghami
-- Overcast
+- [anghami](https://play.anghami.com/episode/1183378497)
+<!-- - - Overcast
 - RadioPublic
-- Castro
+- Castro -->
