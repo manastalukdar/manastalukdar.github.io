@@ -46,6 +46,7 @@ excerpt: ""
 ### Miscellaneous
 
 - [Large Language Models Reflect the Ideology of their Creators](https://arxiv.org/abs/2410.18417)
+- [Fine-tuning Aligned Language Models Compromises Safety, Even When Users Do Not Intend To!](https://arxiv.org/abs/2310.03693)
 
 ## Technical Reports
 
