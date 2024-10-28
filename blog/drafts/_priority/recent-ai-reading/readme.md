@@ -45,6 +45,8 @@ excerpt: ""
 
 ### Miscellaneous
 
+- [Large Language Models Reflect the Ideology of their Creators](https://arxiv.org/abs/2410.18417)
+
 ## Technical Reports
 
 ## Articles and Blog Posts
