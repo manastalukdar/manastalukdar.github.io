@@ -1,5 +1,6 @@
 ### Conferences
 
+- Talk on `Incorporating the Latest Human Feedback Techniques in Training Large Language Models` at the [International Conference on Machine Learning and Artificial Intelligence](https://www.pagesconferences.org/2024/robotics-artificial-intelligence) (ICMLAI) 2024. [22 October, 2024]
 - [Keynote](https://dldc.adasci.org/speaker/manas-talukdar/) at [Deep Learning DevCon 2024](https://dldc.adasci.org) on `Human Feedback in Generative AI Systems`. Recorded video [here](https://adasci.org/courses/session-recordings-deep-learning-devcon-dldc-2024/). [23 August, 2023]
 - [Spoke](https://chicagoaiweek.com/speaker/manas-talukdar/) on `AI Trust and Safety` at the 2024 [Chicago AI Conference](https://chicagoaiweek.com). [26 June, 2024]
 - Roundtable and workshop on AI project execution at the 2024 Plato [Elevate](https://www.platohq.com/events/elevate) engineering leadership conference.
@@ -13,8 +14,8 @@
 - Conversation with [Ian Bergman](https://www.linkedin.com/in/ianbergman/) on the [Innovators Inside](https://www.alchemistaccelerator.com/podcasts) podcast from Alchemist Accelerator.
 - Conversation with Kyle Baxter on the [Big Bulldog Consulting](https://www.bigbulldogbusiness.com/) [podcast](https://www.youtube.com/@bigbulldogconsulting2714/videos).
 - Conversation on AI and engineering leadership with Dr. John Dontico on the [Throttle Up leadership podcast](https://www.throttleupleadership.com/).
-- Conversation on AI, Data and engineering leadership at [The CTO Show podcast with Mehmet Gonullu](https://www.mehmetcto.show/).
 - -->
+- [Discussion](https://www.mehmetcto.show/405-inside-the-world-of-industrial-ai-manas-talukdar-on-data-pipelines-and-predictions/) on AI and Data Infrastructure on [The CTO Show Podcast with Mehmet Gonullu](https://www.mehmetcto.show/)
 - `Data Quality in AI: Insights from Manas Talukdar of Labelbox` on the [CARE to Lead® podcast with Cynthia Corsetti](https://www.youtube.com/watch?v=2ab95e0TS_U). [25 September, 2024]
 - Conversation on `artificial intelligence` on [The Daniel Stih podcast](https://danielstih.com/podcast-with-manas-talukdar). [11 August, 2024]
 

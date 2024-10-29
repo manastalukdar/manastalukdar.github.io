@@ -4,4 +4,4 @@
 
 #### Other
 
-- I was a guest on the CARE to Lead® podcast with Cynthia Corsetti where we had a [discussion](/blog/2024/09/26/data-quality-in-ai-care-to-lead-podcast-cynthia-corsetti/) on Data Quality in AI and Engineering Leadership.
+- I was a guest on The CTO Show podcast with Mehmet Gonullu where we had a [discussion](/blog/2024/10/25/ai-data-infrastructure-mehmet-gonullo-the-cto-show-podcast/) on AI and data infrastructure.
