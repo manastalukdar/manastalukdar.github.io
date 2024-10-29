@@ -15,7 +15,7 @@
 - Conversation with Kyle Baxter on the [Big Bulldog Consulting](https://www.bigbulldogbusiness.com/) [podcast](https://www.youtube.com/@bigbulldogconsulting2714/videos).
 - Conversation on AI and engineering leadership with Dr. John Dontico on the [Throttle Up leadership podcast](https://www.throttleupleadership.com/).
 - -->
-- [Discussion](https://www.mehmetcto.show/405-inside-the-world-of-industrial-ai-manas-talukdar-on-data-pipelines-and-predictions/) on AI and Data Infrastructure on [The CTO Show Podcast with Mehmet Gonullu](https://www.mehmetcto.show/)
+- [Discussion](https://www.mehmetcto.show/405-inside-the-world-of-industrial-ai-manas-talukdar-on-data-pipelines-and-predictions/) on AI and Data Infrastructure on [The CTO Show Podcast with Mehmet Gonullu](https://www.mehmetcto.show/) [25 October, 2024]
 - `Data Quality in AI: Insights from Manas Talukdar of Labelbox` on the [CARE to Lead® podcast with Cynthia Corsetti](https://www.youtube.com/watch?v=2ab95e0TS_U). [25 September, 2024]
 - Conversation on `artificial intelligence` on [The Daniel Stih podcast](https://danielstih.com/podcast-with-manas-talukdar). [11 August, 2024]
 
