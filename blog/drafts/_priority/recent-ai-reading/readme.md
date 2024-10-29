@@ -43,6 +43,8 @@ excerpt: ""
 
 ### Synthetic Data
 
+- [Fictitious Synthetic Data Can Improve LLM Factuality via Prerequisite Learning](https://arxiv.org/abs/2410.19290)
+
 ### Miscellaneous
 
 - [Large Language Models Reflect the Ideology of their Creators](https://arxiv.org/abs/2410.18417)
