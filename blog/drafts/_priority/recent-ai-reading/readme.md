@@ -66,5 +66,6 @@ excerpt: ""
 ## Articles and Blog Posts
 
 - [Creating a LLM-as-a-Judge That Drives Business Results](https://hamel.dev/blog/posts/llm-judge/)
+- [Understanding LLMs from Scratch Using Middle School Math](https://towardsdatascience.com/understanding-llms-from-scratch-using-middle-school-math-e602d27ec876)
 
 ## Miscellaneous
