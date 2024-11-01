@@ -35,6 +35,9 @@ excerpt: ""
 
 ### Agentic AI
 
+- [AgentStore: Scalable Integration of Heterogeneous Agents As Specialized Generalist Computer Assistant](https://arxiv.org/abs/2410.18603)
+  - [Source code](https://chengyou-jia.github.io/AgentStore-Home/) in [GitHub](https://github.com/chengyou-jia/AgentStore)
+
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
 - [Reference-Guided Verdict: LLMs-as-Judges in Automatic Evaluation of Free-Form Text](https://arxiv.org/abs/2408.09235)
@@ -54,6 +57,9 @@ excerpt: ""
 - [Datasets for Large Language Models: A Comprehensive Survey](https://arxiv.org/abs/2402.18041v1)
   - GitHub Repo: [Awesome-LLMs-Datasets](https://github.com/lmmlzn/Awesome-LLMs-Datasets)
 - [Large Language Models and the Degradation of the Medical Record](https://www.nejm.org/doi/full/10.1056/NEJMp2405999)
+- [DreamClear: High-Capacity Real-World Image Restoration with Privacy-Safe Dataset Curation](https://arxiv.org/abs/2410.18666)
+- [A Survey of Small Language Models](https://arxiv.org/abs/2410.20011)
+- [Document Parsing Unveiled: Techniques, Challenges, and Prospects for Structured Information Extraction](https://arxiv.org/abs/2410.21169)
 
 ## Technical Reports
 
