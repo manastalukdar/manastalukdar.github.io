@@ -37,6 +37,8 @@ excerpt: ""
 
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
+- [Reference-Guided Verdict: LLMs-as-Judges in Automatic Evaluation of Free-Form Text](https://arxiv.org/abs/2408.09235)
+
 ### Model Evaluation
 
 ### Retrieval-Augmented Generation
@@ -49,9 +51,14 @@ excerpt: ""
 
 - [Large Language Models Reflect the Ideology of their Creators](https://arxiv.org/abs/2410.18417)
 - [Fine-tuning Aligned Language Models Compromises Safety, Even When Users Do Not Intend To!](https://arxiv.org/abs/2310.03693)
+- [Datasets for Large Language Models: A Comprehensive Survey](https://arxiv.org/abs/2402.18041v1)
+  - GitHub Repo: [Awesome-LLMs-Datasets](https://github.com/lmmlzn/Awesome-LLMs-Datasets)
+- [Large Language Models and the Degradation of the Medical Record](https://www.nejm.org/doi/full/10.1056/NEJMp2405999)
 
 ## Technical Reports
 
 ## Articles and Blog Posts
+
+- [Creating a LLM-as-a-Judge That Drives Business Results](https://hamel.dev/blog/posts/llm-judge/)
 
 ## Miscellaneous
