@@ -32,7 +32,7 @@
     "@babel/cli": "^7.25.9",
     "@babel/core": "^7.25.9",
     "@mdi/font": "^7.4.47",
-    "@pinia/nuxt": "^0.5.5",
+    "@pinia/nuxt": "^0.7.0",
     "@vitejs/plugin-vue": "^5.1.4",
     "@volar-plugins/vetur": "latest",
     "axios": "^1.7.7",
