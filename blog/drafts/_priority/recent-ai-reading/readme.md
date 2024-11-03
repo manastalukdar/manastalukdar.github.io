@@ -37,10 +37,13 @@ excerpt: ""
 
 - [AgentStore: Scalable Integration of Heterogeneous Agents As Specialized Generalist Computer Assistant](https://arxiv.org/abs/2410.18603)
   - [Source code](https://chengyou-jia.github.io/AgentStore-Home/) in [GitHub](https://github.com/chengyou-jia/AgentStore)
+- [Teaching Embodied Reinforcement Learning Agents: Informativeness and Diversity of Language Use](https://arxiv.org/abs/2410.24218)
+  - [Teachable_RL source code](https://github.com/sled-group/Teachable_RL).
 
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
 - [Reference-Guided Verdict: LLMs-as-Judges in Automatic Evaluation of Free-Form Text](https://arxiv.org/abs/2408.09235)
+- [SelfCodeAlign: Self-Alignment for Code Generation](https://arxiv.org/abs/2410.24198)
 
 ### Model Evaluation
 
@@ -69,3 +72,5 @@ excerpt: ""
 - [Understanding LLMs from Scratch Using Middle School Math](https://towardsdatascience.com/understanding-llms-from-scratch-using-middle-school-math-e602d27ec876)
 
 ## Miscellaneous
+
+- [awesome-production-llm](https://github.com/jihoo-kim/awesome-production-llm) - A curated list of awesome open-source libraries for production LLM.
