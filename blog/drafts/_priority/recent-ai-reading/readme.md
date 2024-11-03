@@ -63,6 +63,7 @@ excerpt: ""
 - [DreamClear: High-Capacity Real-World Image Restoration with Privacy-Safe Dataset Curation](https://arxiv.org/abs/2410.18666)
 - [A Survey of Small Language Models](https://arxiv.org/abs/2410.20011)
 - [Document Parsing Unveiled: Techniques, Challenges, and Prospects for Structured Information Extraction](https://arxiv.org/abs/2410.21169)
+- [A Survey of Small Language Models](https://arxiv.org/abs/2410.20011)
 
 ## Technical Reports
 
