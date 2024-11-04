@@ -1,6 +1,6 @@
 I am open to:
 
-- Advisory services for startups. This includes providing comprehensive reviews and actionable reports on:
+- Advisory services for startups (and non-startups). This includes providing comprehensive reviews and actionable reports on:
   - The technology stack, architecture, code quality, general technical guidance, etc.
   - Any specific project. Typically I get involved when these are just ideas and (mostly) questions on how to leverage AI/ML, that are in the early stages of discussion / development, but I am open to other areas as well.
   - Product roadmap / strategy, etc.
