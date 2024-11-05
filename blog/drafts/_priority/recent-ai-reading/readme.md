@@ -52,6 +52,8 @@ excerpt: ""
 ### Synthetic Data
 
 - [Fictitious Synthetic Data Can Improve LLM Factuality via Prerequisite Learning](https://arxiv.org/abs/2410.19290)
+- [Hunyuan-Large: An Open-Source MoE Model with 52 Billion Activated Parameters by Tencent](https://arxiv.org/abs/2411.02265)
+  - > Synthetic data is all you need? New large MoE from Tencent was trained on 1.5 trillion tokens of synthetic data. The 389B-A52B MoE outperforms @AIatMeta Llama 3.1 405B across academic benchmarks. [[ref](https://x.com/_philschmid/status/1853703814114623898)]
 
 ### Miscellaneous
 
