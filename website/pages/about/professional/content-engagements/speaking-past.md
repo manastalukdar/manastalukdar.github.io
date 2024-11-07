@@ -1,6 +1,9 @@
 ### Conferences
 
-- [Panel](https://x.com/MetaEraHK/status/1852076396832788642) discussion on `How AI is Transforming Businesses` at the [Palo Alto AI x Web3 Summit](https://www.aw3.ai/event/add12af4-e9ae-45a9-a1a8-b9c4232a00f2/summary). [31 October, 2024]
+- Talk and panel discussion at the [AI Expo](https://events.ringcentral.com/events/swarm-ai-expo) organized by [Swarm Community](https://swarmcommunity.org/).
+  - Talk on `The cutting-edge in human feedback enabling development of frontier multi-modal LLMs`. [7 November, 2024]
+  - Panel discussion on `Explainable AI in Healthcare`. [7 November, 2024]
+- [Panel discussion](https://x.com/MetaEraHK/status/1852076396832788642) on `How AI is Transforming Businesses` at the [Palo Alto AI x Web3 Summit](https://www.aw3.ai/event/add12af4-e9ae-45a9-a1a8-b9c4232a00f2/summary). [31 October, 2024]
 - Talk on `Incorporating the Latest Human Feedback Techniques in Training Large Language Models` at the [International Conference on Machine Learning and Artificial Intelligence](https://www.pagesconferences.org/2024/robotics-artificial-intelligence) (ICMLAI 2024), held at Edinburgh, UK. [22 October, 2024]
 - [Keynote](https://dldc.adasci.org/speaker/manas-talukdar/) at [Deep Learning DevCon 2024](https://dldc.adasci.org) on `Human Feedback in Generative AI Systems`. Recorded video [here](https://adasci.org/courses/session-recordings-deep-learning-devcon-dldc-2024/). [23 August, 2023]
 - [Spoke](https://chicagoaiweek.com/speaker/manas-talukdar/) on `AI Trust and Safety` at the 2024 [Chicago AI Conference](https://chicagoaiweek.com). [26 June, 2024]
