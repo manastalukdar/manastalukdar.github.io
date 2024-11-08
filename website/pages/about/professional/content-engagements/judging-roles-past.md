@@ -1,3 +1,4 @@
+- [2024 Globee Awards - Women in Business](https://credential.globeeawards.com/0835ec52-e563-4450-b30f-b8318460bc07#gs.h9u5n7#acc.u6JAqE47)
 - [2024 Globee Awards - Business](https://credential.globeeawards.com/f824d6ed-ecaa-4167-b77b-28a954843ae9)
 - [2024 Globee Awards - Leadership](https://credential.globeeawards.com/0337fb7a-80f5-40bc-8699-c835c08e4e53#gs.foptg7)
 - [2024 Globee Awards - American Business](https://credential.globeeawards.com/5fc13d72-73fd-49b6-a4a3-98c8cfc5f67e#gs.a0pxdb).
