@@ -78,3 +78,4 @@ excerpt: ""
 ## Miscellaneous
 
 - [awesome-production-llm](https://github.com/jihoo-kim/awesome-production-llm) - A curated list of awesome open-source libraries for production LLM.
+- [A New Chapter for fast.ai: How To Solve It With Code](https://www.answer.ai/posts/2024-11-07-solveit.html)
