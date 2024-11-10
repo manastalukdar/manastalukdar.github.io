@@ -45,6 +45,7 @@ excerpt: ""
 - [Reference-Guided Verdict: LLMs-as-Judges in Automatic Evaluation of Free-Form Text](https://arxiv.org/abs/2408.09235)
 - [SelfCodeAlign: Self-Alignment for Code Generation](https://arxiv.org/abs/2410.24198)
 - [MA-RLHF: Reinforcement Learning from Human Feedback with Macro Actions](https://arxiv.org/abs/2410.02743)
+- [RLEF: Grounding Code LLMs in Execution Feedback with Reinforcement Learning](https://arxiv.org/abs/2410.02089)
 
 ### Model Evaluation
 
