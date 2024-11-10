@@ -50,6 +50,11 @@ excerpt: ""
 
 ### Retrieval-Augmented Generation
 
+- [RAGulator: Lightweight Out-of-Context Detectors for Grounded Text Generation](https://arxiv.org/abs/2411.03920)
+- [Long Context RAG Performance of Large Language Models](https://arxiv.org/abs/2411.03538)
+- [RAGViz: Diagnose and Visualize Retrieval-Augmented Generation](https://arxiv.org/abs/2411.01751)
+- [M3DocRAG: Multi-modal Retrieval is What You Need for Multi-page Multi-document Understanding](https://arxiv.org/abs/2411.04952)
+
 ### Synthetic Data
 
 - [Fictitious Synthetic Data Can Improve LLM Factuality via Prerequisite Learning](https://arxiv.org/abs/2410.19290)
@@ -67,6 +72,7 @@ excerpt: ""
 - [A Survey of Small Language Models](https://arxiv.org/abs/2410.20011)
 - [Document Parsing Unveiled: Techniques, Challenges, and Prospects for Structured Information Extraction](https://arxiv.org/abs/2410.21169)
 - [A Survey of Small Language Models](https://arxiv.org/abs/2410.20011)
+- [OpenCoder: The Open Cookbook for Top-Tier Code Large Language Models](https://arxiv.org/abs/2411.04905)
 
 ## Technical Reports
 
