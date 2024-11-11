@@ -1,2 +1,1 @@
-- Accepted as a judge for the 2024 [Globee Awards](https://globeeawards.com).
-- Accepted as a judge for the [Titan Business Awards](https://www.titanawards.com/).
+
