@@ -49,4 +49,6 @@ excerpt: ""
 
 ## Articles and Blog Posts
 
+- [LLM-as-a-Judge vs Human Evaluation](https://www.galileo.ai/blog/llm-as-a-judge-vs-human-evaluation)
+
 ## Miscellaneous
