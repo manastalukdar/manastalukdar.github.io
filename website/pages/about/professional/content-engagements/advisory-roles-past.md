@@ -1,1 +1,1 @@
-- Provided general guidance to an early-stage startup working on a Generative AI based product.
+I often help startups and companies with strategy on incorporating AI into their products and services. This of course includes technical recommendations. Some recent engagements include a an early-stage startup working on a generative AI based product, a workspace analytics multi-national company, an EdTech startup. This is on a voluntary basis and I do not take any compensation for these engagements.
