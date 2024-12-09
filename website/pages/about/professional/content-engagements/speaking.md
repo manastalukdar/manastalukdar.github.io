@@ -1,10 +1,13 @@
 ### Conferences
 
 - Speaking at [AI DevWorld 2025](https://aidevworld.com/) on `Enterprise AI Applications - Real-World Use Cases from Predictive to Generative AI`. [February, 2025]
-<!-- - Speaking at the [Global Summit on Robotics and Artificial Intelligence (ROBOTICS2025)](https://robotics.researchconnects.org) on `Techniques and Applications in Large Language Model Evaluation`. [April, 2025] -->
+- Speaking at the [Global Summit on Robotics and Artificial Intelligence (ROBOTICS2025)](https://robotics.researchconnects.org) on `Techniques and Applications in Large Language Model Evaluation`. [Valencia, Spain] [April, 2025]
 - Part of the [organizing committee](https://robotics.spectrumconferences.com/committee) and speaking on `AI Alignment in Frontier Large Language Models` at the [3rd International Summit on Robotics, Artificial Intelligence and Machine Learning](https://robotics.spectrumconferences.com) (ISRAI 2025) in Dubai, UAE. [September, 2025]
-<!-- - Speaking at [Cypher 2024](https://cypher.aimresearch.co/) on `Enabling the Development of Multi-Modal LLMs`. -->
 
-<!-- ### Podcasts
-### Workshops 
+### Podcasts
+
+- Recorded a conversation as an invited guest on a podcast run by a prestigious startup accelerator with almost $4 B in total funding. The conversation was broadly on AI and startups. It is expected to be published in the new year.
+- Recorded a conversation as an invited guest on a leadership podcast run by a well-known leadership coach. The conversation was broadly on leadership and AI. It is expected to be published in the new year.
+
+<!-- ### Workshops 
 ### Other -->
