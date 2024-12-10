@@ -45,6 +45,8 @@ excerpt: ""
 
 ### Miscellaneous
 
+- [Training Large Language Models to Reason in a Continuous Latent Space](https://arxiv.org/abs/2412.06769)
+
 ## Technical Reports
 
 ## Articles and Blog Posts
