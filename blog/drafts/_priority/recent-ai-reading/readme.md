@@ -43,6 +43,8 @@ excerpt: ""
 
 ### Synthetic Data
 
+- [Evaluating Language Models as Synthetic Data Generators](https://arxiv.org/abs/2412.03679)
+
 ### Miscellaneous
 
 - [Training Large Language Models to Reason in a Continuous Latent Space](https://arxiv.org/abs/2412.06769)
