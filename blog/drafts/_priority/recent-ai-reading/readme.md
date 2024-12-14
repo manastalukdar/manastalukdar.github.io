@@ -54,5 +54,6 @@ excerpt: ""
 ## Articles and Blog Posts
 
 - [LLM-as-a-Judge vs Human Evaluation](https://www.galileo.ai/blog/llm-as-a-judge-vs-human-evaluation)
+- [The Google Willow thing](https://scottaaronson.blog/?p=8525)
 
 ## Miscellaneous
