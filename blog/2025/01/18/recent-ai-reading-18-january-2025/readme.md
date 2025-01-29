@@ -25,7 +25,7 @@ first-published-on: 2025-01-18 20:44
 last-updated-on: 2025-01-18 20:44
 meta:
  description: "Recent AI reading, including papers and articles."
-excerpt: ""
+excerpt: "A Multi-AI Agent System for Autonomous Optimization of"
 ---
 
 # Recent AI Reading [18 January 2025]
