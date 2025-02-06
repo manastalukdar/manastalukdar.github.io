@@ -203,7 +203,7 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const panelHonors = ref([0, 1, 2, 3, 4]);
+const panelHonors = ref([0, 1, 2, 3, 4, 5, 6]);
 const forbesTechnologyCouncil = computedAsync(async () => {
   try {
     const fileContent = await import('./content-honors/forbes-technology-council.md?raw')
