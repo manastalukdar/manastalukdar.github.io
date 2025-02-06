@@ -1,6 +1,6 @@
-**## **Issued by British Computer Society (BCS), February, 2025**
+**Issued by British Computer Society (BCS), February, 2025**
 
-> BCS Fellowship is home to the most influential professionals in the digital industry.
+> [BCS Fellowship](https://www.bcs.org/membership-and-registrations/become-a-member/bcs-fellowship/) is home to the most influential professionals in the digital industry.
 > ...
 > Suitable for: Inspirational technology leaders, innovators and academics.
 > ...
