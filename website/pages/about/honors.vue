@@ -20,6 +20,14 @@
           <v-expansion-panels multiple v-model="panelHonors">
             <v-expansion-panel>
               <v-expansion-panel-title>
+                Member, Forbes Technology Council
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                <div class="pl-2 pb-2 markdown-content" v-html="forbesTechnologyCouncil" />
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title>
                 Fellow of the British Computer Society (BCS)
               </v-expansion-panel-title>
               <v-expansion-panel-text>
@@ -196,6 +204,15 @@ const md = new mdit({
 });
 getTargetBlankLinkRender(md);
 const panelHonors = ref([0, 1, 2, 3, 4]);
+const bcsFellow = computedAsync(async () => {
+  try {
+    const fileContent = await import('./content-honors/forbes-technology-council.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
 const bcsFellow = computedAsync(async () => {
   try {
     const fileContent = await import('./content-honors/bcs-fellowship.md?raw')

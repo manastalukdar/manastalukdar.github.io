@@ -1,7 +1,7 @@
 ### Memberships
 
 - Member of the [Forbes Technology Council](https://councils.forbes.com/profile/Manas-Talukdar-Director-Engineering-Labelbox/3ae01bdd-08d5-497d-a0da-2360cd17d651) [February 2025].
-- Member of the [British Computer Society](https://www.bcs.org/) [February 2025].
+- Member and Fellow of the [British Computer Society](https://www.bcs.org/) [February 2025].
 - Member of the [Association for Computing Machinery (ACM)](https://www.acm.org) [September 2024].
 - Member of the [Innovative Executives League](https://www.dragonspears.com/innovative-executives-league) [August 2024].
 - Member of the [American Society for AI](https://www.asfai.org) [July 2024].
