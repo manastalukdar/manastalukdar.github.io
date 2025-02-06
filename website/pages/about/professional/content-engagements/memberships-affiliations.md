@@ -10,7 +10,7 @@
 - Member of the [AI Accelerator Institute](https://www.aiacceleratorinstitute.com) [April 2024].
 - Member of the [MIT Technology Review](https://www.technologyreview.com) Global Insights Panel [Jan 2024].
 - Member and Senior Fellow of [AI 2030](https://www.ai2030.org/) [January 2024].
-- Senior member of [IEEE](https://www.ieee.org) [Auguat 2023].
+- Senior member of [IEEE](https://www.ieee.org) [August 2023].
 
 ### Other
 
