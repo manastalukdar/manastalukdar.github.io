@@ -1,1 +1,2 @@
+- Fellow member of [British Computer Society](https://www.bcs.org) (BCS) [Feb 2025].
 - Senior Fellow of [AI 2030](https://www.ai2030.org/) [Jan 2024].
