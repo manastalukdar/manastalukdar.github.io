@@ -204,7 +204,7 @@ const md = new mdit({
 });
 getTargetBlankLinkRender(md);
 const panelHonors = ref([0, 1, 2, 3, 4]);
-const bcsFellow = computedAsync(async () => {
+const forbesTechnologyCouncil = computedAsync(async () => {
   try {
     const fileContent = await import('./content-honors/forbes-technology-council.md?raw')
     const res = fm(fileContent.default)
