@@ -48,6 +48,7 @@ excerpt: "Reasoning Language Models: A Blueprint"
 - [Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown in State-Of-the-Art Large Language Models](https://arxiv.org/abs/2406.02061)
   - <https://x.com/JJitsev/status/1883158738661691878>
 - [s1: Simple test-time scaling](https://arxiv.org/abs/2501.19393)
+  - [Researchers created an open rival to OpenAI’s o1 ‘reasoning’ model for under $50](https://techcrunch.com/2025/02/05/researchers-created-an-open-rival-to-openais-o1-reasoning-model-for-under-50/?guccounter=1)
 
 ## Technical Reports
 

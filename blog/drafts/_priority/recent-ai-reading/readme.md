@@ -49,4 +49,6 @@ excerpt: ""
 
 ## Articles and Blog Posts
 
+- [When Doctors With A.I. Are Outperformed by A.I. Alone](https://erictopol.substack.com/p/when-doctors-with-ai-are-outperformed)
+
 ## Miscellaneous
