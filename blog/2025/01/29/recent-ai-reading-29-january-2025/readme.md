@@ -16,7 +16,7 @@ post-format: link
 title: Recent AI Reading [29 January 2025]
 url-slug: recent-ai-reading-29-january-2025
 first-published-on: 2025-01-29 11:25
-last-updated-on: 2025-01-29 11:25
+last-updated-on: 2025-02-06 22:25
 meta:
  description: "Recent AI reading, including papers and articles."
 excerpt: "Reasoning Language Models: A Blueprint"
@@ -47,12 +47,19 @@ excerpt: "Reasoning Language Models: A Blueprint"
 - [Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters](https://arxiv.org/abs/2408.03314)
 - [Alice in Wonderland: Simple Tasks Showing Complete Reasoning Breakdown in State-Of-the-Art Large Language Models](https://arxiv.org/abs/2406.02061)
   - <https://x.com/JJitsev/status/1883158738661691878>
+- [s1: Simple test-time scaling](https://arxiv.org/abs/2501.19393)
 
 ## Technical Reports
 
 - [Qwen2.5-1M Technical Report](https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen2.5-1M/Qwen2_5_1M_Technical_Report.pdf)
   - [Qwen2.5-1M: Deploy Your Own Qwen with Context Length up to 1M Tokens](https://qwenlm.github.io/blog/qwen2.5-1m/)
+- [DeepSeek R1 Read Teaming Report](https://cdn.prod.website-files.com/6690a78074d86ca0ad978007/679918c4e37c71ea2179f6fb_Latest%20Red%20Teaming%20Deepseek_Jan2025.pdf) from Enkrypt AI.
 
 ## Articles and Blog Posts
 
 - [How to align open LLMs in 2025 with DPO & and synthetic data](https://www.philschmid.de/rl-with-llms-in-2025-dpo)
+
+## Miscellaneous
+
+- [International AI Safety Report](https://assets.publishing.service.gov.uk/media/679a0c48a77d250007d313ee/International_AI_Safety_Report_2025_accessible_f.pdf) 
+
