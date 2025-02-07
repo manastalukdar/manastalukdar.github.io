@@ -45,6 +45,8 @@ excerpt: ""
 
 ### Miscellaneous
 
+- [Gold-medalist Performance in Solving Olympiad Geometry with AlphaGeometry2](https://arxiv.org/abs/2502.03544)
+
 ## Technical Reports
 
 ## Articles and Blog Posts
