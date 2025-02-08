@@ -37,6 +37,10 @@ excerpt: ""
 
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
+### Large Language Models
+
+- [Step-KTO: Optimizing Mathematical Reasoning through Stepwise Binary Feedback](https://arxiv.org/abs/2501.10799)
+
 ### Model Evaluation
 
 ### Retrieval-Augmented Generation
