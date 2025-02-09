@@ -50,6 +50,7 @@ excerpt: ""
 ### Miscellaneous
 
 - [Gold-medalist Performance in Solving Olympiad Geometry with AlphaGeometry2](https://arxiv.org/abs/2502.03544)
+- [Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture](https://arxiv.org/abs/2301.08243)
 
 ## Technical Reports
 
