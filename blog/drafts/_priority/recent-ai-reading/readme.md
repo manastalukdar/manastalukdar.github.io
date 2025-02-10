@@ -37,6 +37,8 @@ excerpt: ""
 
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
+- [PILAF: Optimal Human Preference Sampling for Reward Modeling](https://arxiv.org/abs/2502.04270)
+
 ### Large Language Models
 
 - [Step-KTO: Optimizing Mathematical Reasoning through Stepwise Binary Feedback](https://arxiv.org/abs/2501.10799)
