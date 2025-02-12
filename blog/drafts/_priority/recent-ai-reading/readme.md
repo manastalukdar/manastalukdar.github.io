@@ -35,6 +35,8 @@ excerpt: ""
 
 ### Agentic AI
 
+- [Agentic Reasoning: Reasoning LLMs with Tools for the Deep Research](https://arxiv.org/abs/2502.04644)
+
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
 - [PILAF: Optimal Human Preference Sampling for Reward Modeling](https://arxiv.org/abs/2502.04270)
