@@ -45,6 +45,7 @@ excerpt: ""
 
 - [Step-KTO: Optimizing Mathematical Reasoning through Stepwise Binary Feedback](https://arxiv.org/abs/2501.10799)
 - [NoLiMa: Long-Context Evaluation Beyond Literal Matching](https://arxiv.org/abs/2502.05167)
+- [Competitive Programming with Large Reasoning Models](https://arxiv.org/abs/2502.06807)
 
 ### Model Evaluation
 
@@ -56,6 +57,7 @@ excerpt: ""
 
 - [Gold-medalist Performance in Solving Olympiad Geometry with AlphaGeometry2](https://arxiv.org/abs/2502.03544)
 - [Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture](https://arxiv.org/abs/2301.08243)
+- [Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach](https://arxiv.org/abs/2502.05171)
 
 ## Technical Reports
 
