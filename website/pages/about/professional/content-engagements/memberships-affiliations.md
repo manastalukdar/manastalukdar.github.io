@@ -14,5 +14,6 @@
 
 ### Other
 
+- Part of [Perplexity Business Fellowship](https://www.perplexity.ai/business-fellowship) [February 2025].
 - [SF Engineering Leadership Community](https://sfelc.com) [August 2024].
 - [Gartner Peer Community](https://www.gartner.com/peer-community/profile/manas-talukdar-UdiPy) [August 2024].
