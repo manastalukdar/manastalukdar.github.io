@@ -49,6 +49,8 @@ excerpt: ""
 - [Step-Video-T2V Technical Report: The Practice, Challenges, and Future of Video Foundation Model](https://arxiv.org/abs/2502.10248)
 - [GPT-4.5 System Card](https://huggingface.co/reach-vb/GPT-4.5-System-Card/blob/main/gpt-4-5-system-card.pdf)
   - <https://cdn.openai.com/gpt-4-5-system-card.pdf>
+- [CodeCriticBench: A Holistic Code Critique Benchmark for Large Language Models](https://arxiv.org/abs/2502.16614v1)
+- [LLM Post-Training: A Deep Dive into Reasoning Large Language Models](https://arxiv.org/abs/2502.21321)
 
 ### Model Evaluation
 
@@ -67,5 +69,6 @@ excerpt: ""
 ## Articles and Blog Posts
 
 - [When Doctors With A.I. Are Outperformed by A.I. Alone](https://erictopol.substack.com/p/when-doctors-with-ai-are-outperformed)
+- [Crossing the uncanny valley of conversational voice](https://www.sesame.com/research/crossing_the_uncanny_valley_of_voice)
 
 ## Miscellaneous
