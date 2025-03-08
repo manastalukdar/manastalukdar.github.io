@@ -32,6 +32,3 @@ excerpt: Discussion on Navigating the AI Revolution with Dr. John Dentico on the
 - [Audible](https://www.audible.com/pd/B0DXFJJ7WZ)
 - [Listen Notes](https://www.listennotes.com/podcasts/throttle-up/episode-83-navigating-the-ai-MguYZfQx160/)
 - [libsyn](https://sites.libsyn.com/404114/episode-83-navigating-the-ai-revolution-with-manas-talukdar-director-of-engineering-for-labelbox)
-<!-- - - Overcast
-- RadioPublic
-- Castro -->
