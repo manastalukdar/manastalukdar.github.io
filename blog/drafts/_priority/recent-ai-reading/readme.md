@@ -51,6 +51,7 @@ excerpt: ""
   - <https://cdn.openai.com/gpt-4-5-system-card.pdf>
 - [CodeCriticBench: A Holistic Code Critique Benchmark for Large Language Models](https://arxiv.org/abs/2502.16614v1)
 - [LLM Post-Training: A Deep Dive into Reasoning Large Language Models](https://arxiv.org/abs/2502.21321)
+- [Towards Reasoning Era: A Survey of Long Chain-of-Thought for Reasoning Large Language Models](https://arxiv.org/abs/2503.09567)
 
 ### Model Evaluation
 
@@ -58,11 +59,14 @@ excerpt: ""
 
 ### Synthetic Data
 
+- [Generative Agent Simulations of 1,000 People](https://arxiv.org/abs/2411.10109)
+
 ### Miscellaneous
 
 - [Gold-medalist Performance in Solving Olympiad Geometry with AlphaGeometry2](https://arxiv.org/abs/2502.03544)
 - [Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture](https://arxiv.org/abs/2301.08243)
 - [Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach](https://arxiv.org/abs/2502.05171)
+- [Applications of Large Models in Medicine](https://arxiv.org/abs/2502.17132)
 
 ## Technical Reports
 
