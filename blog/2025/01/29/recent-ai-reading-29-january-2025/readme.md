@@ -16,7 +16,7 @@ post-format: link
 title: Recent AI Reading [29 January 2025]
 url-slug: recent-ai-reading-29-january-2025
 first-published-on: 2025-01-29 11:25
-last-updated-on: 2025-02-06 22:25
+last-updated-on: 2025-03-13 18:43
 meta:
  description: "Recent AI reading, including papers and articles."
 excerpt: "Reasoning Language Models: A Blueprint"
@@ -40,6 +40,9 @@ excerpt: "Reasoning Language Models: A Blueprint"
 - [DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning](https://arxiv.org/abs/2501.12948)
 - [Bite: How Deepseek R1 was trained](https://www.philschmid.de/deepseek-r1)
 - [Breaking down the DeepSeek-R1 training process—no PhD required](https://www.vellum.ai/blog/the-training-of-deepseek-r1-and-ways-to-use-it)
+- [Understanding DeepSeek-R1 paper: Beginner’s guide](https://medium.com/data-science-in-your-pocket/understanding-deepseek-r1-paper-beginners-guide-e86f83fda796)
+- [DeepSeek-R1 Paper Explained – A New RL LLMs Era in AI?](https://aipapersacademy.com/deepseek-r1/)
+- [Morgan Brown (on X) - Finally had a chance to dig into DeepSeek’s r1…](https://x.com/morganb/status/1883686183550820485)
 - [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)
 - [DeepSeek R1 and R1-Zero Explained](https://thelmbook.com/articles/#!./DeepSeek-R1.md)
 - [DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models](https://arxiv.org/abs/2402.03300)
