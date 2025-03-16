@@ -36,6 +36,8 @@ excerpt: ""
 ### Agentic AI
 
 - [Agentic Reasoning: Reasoning LLMs with Tools for the Deep Research](https://arxiv.org/abs/2502.04644)
+- [A-MEM: Agentic Memory for LLM Agents](https://arxiv.org/abs/2502.12110v3)
+- [Plan-and-Act: Improving Planning of Agents for Long-Horizon Tasks](https://arxiv.org/abs/2503.09572)
 
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
@@ -52,6 +54,8 @@ excerpt: ""
 - [CodeCriticBench: A Holistic Code Critique Benchmark for Large Language Models](https://arxiv.org/abs/2502.16614v1)
 - [LLM Post-Training: A Deep Dive into Reasoning Large Language Models](https://arxiv.org/abs/2502.21321)
 - [Towards Reasoning Era: A Survey of Long Chain-of-Thought for Reasoning Large Language Models](https://arxiv.org/abs/2503.09567)
+- [Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516)
+- [A Survey on Post-training of Large Language Models](https://arxiv.org/abs/2503.06072)
 
 ### Model Evaluation
 
@@ -70,9 +74,15 @@ excerpt: ""
 
 ## Technical Reports
 
+- [Gemma 3 Technical Report](https://storage.googleapis.com/deepmind-media/gemma/Gemma3Report.pdf)
+
 ## Articles and Blog Posts
 
 - [When Doctors With A.I. Are Outperformed by A.I. Alone](https://erictopol.substack.com/p/when-doctors-with-ai-are-outperformed)
 - [Crossing the uncanny valley of conversational voice](https://www.sesame.com/research/crossing_the_uncanny_valley_of_voice)
 
 ## Miscellaneous
+
+- [Traveling Waves Integrate Spatial Information Through Time](https://arxiv.org/abs/2502.06034)
+- [Transformers without Normalization](https://arxiv.org/abs/2503.10622)
+- [GPT Researcher](https://gptr.dev) | [Source Code in GitHub](https://github.com/assafelovic/gpt-researcher)
