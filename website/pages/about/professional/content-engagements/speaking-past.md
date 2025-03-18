@@ -18,9 +18,9 @@
 ### Podcasts
 
 <!-- 
-- Conversation with [Ian Bergman](https://www.linkedin.com/in/ianbergman/) on the [Innovators Inside](https://www.alchemistaccelerator.com/podcasts) podcast from Alchemist Accelerator.
 - Conversation on AI with Harshika (Hershey) Chadha on [The Revenue-Focused Marketer podcast](https://harshikachadha.com/#podcasts).
 - -->
+- [Conversation](https://www.alchemistaccelerator.com/podcasts-archive/manas-talukdar) with [Ian Bergman](https://www.linkedin.com/in/ianbergman/) on the [Innovators Inside](https://www.alchemistaccelerator.com/podcasts) podcast from Alchemist Accelerator.
 - [Conversation](https://www.youtube.com/watch?v=iH7PSi9PELc) on AI and engineering leadership with Dr. John Dentico on the [Throttle Up leadership podcast](https://www.throttleupleadership.com/). [17 February, 2025]
 - [Discussion](https://www.mehmetcto.show/405-inside-the-world-of-industrial-ai-manas-talukdar-on-data-pipelines-and-predictions/) on AI and Data Infrastructure on [The CTO Show Podcast with Mehmet Gonullu](https://www.mehmetcto.show/). [25 October, 2024]
 - `Data Quality in AI: Insights from Manas Talukdar of Labelbox` on the [CARE to Lead® podcast with Cynthia Corsetti](https://www.youtube.com/watch?v=2ab95e0TS_U). [25 September, 2024]
