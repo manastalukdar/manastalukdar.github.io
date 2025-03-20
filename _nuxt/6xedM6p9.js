@@ -1,0 +1,1 @@
+import{_ as o}from"./DlAUqK2U.js";import{c as e,w as r,V as n,o as s,e as a}from"./BXaWKCOK.js";const c={};function _(i,t,p,d,f,u){return s(),e(n,null,{default:r(()=>t[0]||(t[0]=[a(" Under Construction ")])),_:1})}const x=o(c,[["render",_]]);export{x as default};
