@@ -1,5 +1,3 @@
-## Expert Opinions
-
 ## Expert Opinions / Quotes
 
 - [AI Coding Assistants: 17 Risks (And How To Mitigate Them)](https://www.forbes.com/councils/forbestechcouncil/2025/03/21/ai-coding-assistants-17-risks-and-how-to-mitigate-them/) [[Forbes](https://www.forbes.com/)] [March 21, 2025]
