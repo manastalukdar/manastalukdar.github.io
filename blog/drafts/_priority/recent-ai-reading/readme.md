@@ -56,6 +56,8 @@ excerpt: ""
 - [Towards Reasoning Era: A Survey of Long Chain-of-Thought for Reasoning Large Language Models](https://arxiv.org/abs/2503.09567)
 - [Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning](https://arxiv.org/abs/2503.09516)
 - [A Survey on Post-training of Large Language Models](https://arxiv.org/abs/2503.06072)
+- [Measuring AI Ability to Complete Long Tasks](https://arxiv.org/abs/2503.14499)
+  - [Blog: Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)
 
 ### Model Evaluation
 
