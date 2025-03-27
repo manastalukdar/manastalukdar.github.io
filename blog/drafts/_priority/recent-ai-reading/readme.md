@@ -38,10 +38,13 @@ excerpt: ""
 - [Agentic Reasoning: Reasoning LLMs with Tools for the Deep Research](https://arxiv.org/abs/2502.04644)
 - [A-MEM: Agentic Memory for LLM Agents](https://arxiv.org/abs/2502.12110v3)
 - [Plan-and-Act: Improving Planning of Agents for Long-Horizon Tasks](https://arxiv.org/abs/2503.09572)
+- [Why Do Multi-Agent LLM Systems Fail?](https://arxiv.org/abs/2503.13657)
+- [Survey on Evaluation of LLM-based Agents](https://arxiv.org/abs/2503.16416)
 
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
 - [PILAF: Optimal Human Preference Sampling for Reward Modeling](https://arxiv.org/abs/2502.04270)
+- [Aligning Multimodal LLM with Human Preference: A Survey](https://arxiv.org/abs/2503.14504)
 
 ### Large Language Models
 
