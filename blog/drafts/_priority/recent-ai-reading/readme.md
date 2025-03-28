@@ -61,6 +61,7 @@ excerpt: ""
 - [A Survey on Post-training of Large Language Models](https://arxiv.org/abs/2503.06072)
 - [Measuring AI Ability to Complete Long Tasks](https://arxiv.org/abs/2503.14499)
   - [Blog: Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)
+- [Auditing Language Models for Hidden Objectives](https://assets.anthropic.com/m/317564659027fb33/original/Auditing-Language-Models-for-Hidden-Objectives.pdf)
 
 ### Model Evaluation
 
