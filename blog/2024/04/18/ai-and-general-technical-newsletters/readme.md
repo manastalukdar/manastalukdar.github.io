@@ -11,7 +11,7 @@ post-format: aside
 title: AI and General Technical Newsletters
 url-slug: ai-and-general-technical-newsletters
 first-published-on: 2024-04-18 22:04
-last-updated-on: 2024-04-18 22:04
+last-updated-on: 2025-03-27 17:13
 meta:
  description: "A list of some AI and general technical newsletters."
 excerpt: "A list of some AI and general technical newsletters that I find interesting"
@@ -40,6 +40,7 @@ A list of some technical newsletters that I find interesting:
 - [AlphaSignal](https://alphasignal.ai/) [recommended]
 - [Hugging Face Daily Papers](https://huggingface.co/papers) [recommended]
 - [Chief AI Officer](https://www.chiefaioffice.xyz) - Track funding in AI Startups from OpenAI, a16z, Google & more.
+- [The AiEdge Newsletter](https://newsletter.theaiedge.io)
 
 ### LinkedIn Newsletters
 
