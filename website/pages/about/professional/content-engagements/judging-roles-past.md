@@ -1,4 +1,5 @@
 - Served as a judge for the 2025 [Globee Awards](https://globeeawards.com).
+  - [2025 Globee Awards for Artificial Intelligence](https://credential.globeeawards.com/49f56ccc-0641-4fdc-9e2a-9577904692b0#acc.oPpEn2v8)
   - [2025 Globee Awards for Cybersecurity](https://credential.globeeawards.com/6f832cc5-4cf7-4da1-8895-76058f529486#acc.eJbGBh7q).
 - Served as a judge for the 2024 [Globee Awards](https://globeeawards.com).
   - [2024 Globee Awards - Women in Business](https://credential.globeeawards.com/0835ec52-e563-4450-b30f-b8318460bc07#gs.h9u5n7#acc.u6JAqE47)
