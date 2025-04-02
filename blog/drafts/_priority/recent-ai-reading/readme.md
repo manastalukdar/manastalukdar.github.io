@@ -40,6 +40,7 @@ excerpt: ""
 - [Plan-and-Act: Improving Planning of Agents for Long-Horizon Tasks](https://arxiv.org/abs/2503.09572)
 - [Why Do Multi-Agent LLM Systems Fail?](https://arxiv.org/abs/2503.13657)
 - [Survey on Evaluation of LLM-based Agents](https://arxiv.org/abs/2503.16416)
+- [Large Language Model Agent: A Survey on Methodology, Applications and Challenges](https://arxiv.org/abs/2503.21460)
 
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
@@ -62,6 +63,9 @@ excerpt: ""
 - [Measuring AI Ability to Complete Long Tasks](https://arxiv.org/abs/2503.14499)
   - [Blog: Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/)
 - [Auditing Language Models for Hidden Objectives](https://assets.anthropic.com/m/317564659027fb33/original/Auditing-Language-Models-for-Hidden-Objectives.pdf)
+- [On the Biology of a Large Language Model](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)
+  - Blog: [Tracing the thoughts of a large language model](https://www.anthropic.com/news/tracing-thoughts-language-model)
+  - YouTube Video: [Tracing the thoughts of a large language model](https://www.youtube.com/watch?v=Bj9BD2D3DzA)
 
 ### Model Evaluation
 
