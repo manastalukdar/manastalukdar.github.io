@@ -15,6 +15,7 @@ tags:
  - LLM as Judge
  - Alignment with Human Feedback
  - Agentic AI
+ - AI Agents
 categories:
  - Technology
 authors:
@@ -33,7 +34,7 @@ excerpt: ""
 
 ## Papers
 
-### Agentic AI
+### Agentic AI / AI Agents
 
 - [Agentic Reasoning: Reasoning LLMs with Tools for the Deep Research](https://arxiv.org/abs/2502.04644)
 - [A-MEM: Agentic Memory for LLM Agents](https://arxiv.org/abs/2502.12110v3)
