@@ -29,7 +29,9 @@ excerpt: Discussion on How Data and Cloud-Native Strategies are Redefining Enter
 :::
 
 - [Alchemist Accelerator Innovator Inside Podcast](https://www.alchemistaccelerator.com/podcasts-archive/manas-talukdar)
-- [YouTube](https://www.youtube.com/watch?v=H78ndreHKO8)
+- [YouTube - The Data Arms Race in AI: Why Quality Training Data Matters](https://www.youtube.com/watch?v=H78ndreHKO8)
+- [YouTube - The Data Dilemma: Overcoming Bias & GPU Cost Barriers in AI Training](https://www.youtube.com/watch?v=Q7CT-obaBR4)
+- [YouTube - The Portfolio of Bets: Strategic AI Investment in Uncertain Times](https://www.youtube.com/watch?v=Fb_e-_j4ivs)
 - [Apple Podcasts](https://podcasts.apple.com/us/podcast/how-data-and-cloud-native-strategies-are-redefining/id1539980005?i=1000699628657)
 - [Spotify](https://open.spotify.com/episode/6Z8oLzcKA19BmHOqJtV54A)
 - [Amazon Music](https://music.amazon.com/podcasts/e76fa82b-a51e-497e-94b1-3dc91fe8cb54/episodes/27847d87-868c-4e0d-8928-284ac3c66812/)
