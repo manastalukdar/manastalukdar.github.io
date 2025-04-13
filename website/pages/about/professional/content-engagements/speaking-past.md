@@ -1,5 +1,6 @@
 ### Conferences
 
+- Spoke at the [Global Summit on Robotics and Artificial Intelligence](https://robotics.researchconnects.org) (ROBOTICS2025) on `Techniques and Applications in Large Language Model Evaluation`. [Valencia, Spain / Webinar] [10 April, 2025]
 - Talk and roundtable at [AI DevWorld 2025](https://aidevworld.com/) in Santa Clara, CA, USA.
   - Talk on `Enterprise AI Applications - Real-World Use Cases from Predictive to Generative AI`. [11 February, 2025]
   - Roundtable on `AI`. [12 February, 2025]
