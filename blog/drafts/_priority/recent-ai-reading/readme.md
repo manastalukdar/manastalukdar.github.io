@@ -87,6 +87,8 @@ excerpt: ""
 ## Technical Reports
 
 - [Gemma 3 Technical Report](https://storage.googleapis.com/deepmind-media/gemma/Gemma3Report.pdf)
+- [Artificial Intelligence Index Report 2025](https://hai-production.s3.amazonaws.com/files/hai_ai_index_report_2025.pdf) from Stanford University.
+
 
 ## Articles and Blog Posts
 
