@@ -89,11 +89,11 @@ excerpt: ""
 - [Gemma 3 Technical Report](https://storage.googleapis.com/deepmind-media/gemma/Gemma3Report.pdf)
 - [Artificial Intelligence Index Report 2025](https://hai-production.s3.amazonaws.com/files/hai_ai_index_report_2025.pdf) from Stanford University.
 
-
 ## Articles and Blog Posts
 
 - [When Doctors With A.I. Are Outperformed by A.I. Alone](https://erictopol.substack.com/p/when-doctors-with-ai-are-outperformed)
 - [Crossing the uncanny valley of conversational voice](https://www.sesame.com/research/crossing_the_uncanny_valley_of_voice)
+- [Reinforcement Learning from Verifiable Rewards](https://labelstud.io/blog/reinforcement-learning-from-verifiable-rewards/)
 
 ## Miscellaneous
 
