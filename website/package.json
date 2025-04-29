@@ -16,26 +16,26 @@
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@types/lodash": "^4.17.16",
-    "@types/node": "^22.14.0",
-    "@vueuse/core": "^13.0.0",
-    "@vueuse/nuxt": "^13.0.0",
+    "@types/node": "^22.15.3",
+    "@vueuse/core": "^13.1.0",
+    "@vueuse/nuxt": "^13.1.0",
     "material-design-icons-iconfont": "^6.7.0",
-    "nuxt": "^3.16.2",
+    "nuxt": "^3.17.1",
     "nuxt-gtag": "^3.0.2",
     "nuxt-simple-sitemap": "^4.4.1",
-    "sass": "^1.86.2",
+    "sass": "^1.87.0",
     "sass-loader": "^16.0.5",
     "volar-service-vetur": "latest",
-    "webpack": "^5.98.0"
+    "webpack": "^5.99.7"
   },
   "dependencies": {
     "@babel/cli": "^7.27.0",
     "@babel/core": "^7.26.10",
     "@mdi/font": "^7.4.47",
-    "@pinia/nuxt": "^0.10.1",
+    "@pinia/nuxt": "^0.11.0",
     "@vitejs/plugin-vue": "^5.2.3",
     "@volar-plugins/vetur": "latest",
-    "axios": "^1.8.4",
+    "axios": "^1.9.0",
     "dayjs": "^1.11.13",
     "feed": "^4.2.2",
     "front-matter": "^4.0.2",
@@ -52,7 +52,7 @@
     "markdown-it-toc-done-right": "^4.2.0",
     "mermaid": "^11.6.0",
     "paperizer": "^0.1.6",
-    "pinia": "^3.0.1",
+    "pinia": "^3.0.2",
     "plyr": "^3.7.8",
     "print-js": "^1.6.0",
     "vanilla-back-to-top": "^7.2.1",
@@ -61,7 +61,7 @@
     "vue-material-design-icons": "^5.3.1",
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue3-disqus": "^1.0.7",
-    "vuetify": "^3.8.0",
+    "vuetify": "^3.8.3",
     "vue": "^3.5.13"
   }
 }
