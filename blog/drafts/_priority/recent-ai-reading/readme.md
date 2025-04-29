@@ -42,6 +42,9 @@ excerpt: ""
 - [Why Do Multi-Agent LLM Systems Fail?](https://arxiv.org/abs/2503.13657)
 - [Survey on Evaluation of LLM-based Agents](https://arxiv.org/abs/2503.16416)
 - [Large Language Model Agent: A Survey on Methodology, Applications and Challenges](https://arxiv.org/abs/2503.21460)
+- [How to think about agent frameworks](https://blog.langchain.dev/how-to-think-about-agent-frameworks/)
+  - [Agent Framework comparison](https://docs.google.com/spreadsheets/d/1B37VxTBuGLeTSPVWtz7UMsCdtXrqV5hCjWkbHN8tfAo/edit?gid=0#gid=0)
+- [Advances and Challenges in Foundation Agents: From Brain-Inspired Intelligence to Evolutionary, Collaborative, and Safe Systems](https://arxiv.org/abs/2504.01990)
 
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
@@ -68,6 +71,7 @@ excerpt: ""
 - [On the Biology of a Large Language Model](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)
   - Blog: [Tracing the thoughts of a large language model](https://www.anthropic.com/news/tracing-thoughts-language-model)
   - YouTube Video: [Tracing the thoughts of a large language model](https://www.youtube.com/watch?v=Bj9BD2D3DzA)
+- [Taming the Titans: A Survey of Efficient LLM Inference Serving](https://arxiv.org/abs/2504.19720)
 
 ### Model Evaluation
 
