@@ -75,7 +75,9 @@ excerpt: ""
 
 ### Model Evaluation
 
-### Retrieval-Augmented Generation
+### Retrieval-Augmented Generation-
+
+- [UniversalRAG: Retrieval-Augmented Generation over Multiple Corpora with Diverse Modalities and Granularities](https://arxiv.org/abs/2504.20734)
 
 ### Synthetic Data
 
