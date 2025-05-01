@@ -51,6 +51,7 @@ excerpt: ""
 - [PILAF: Optimal Human Preference Sampling for Reward Modeling](https://arxiv.org/abs/2502.04270)
 - [Aligning Multimodal LLM with Human Preference: A Survey](https://arxiv.org/abs/2503.14504)
 - [Boost Your Human Image Generation Model via Direct Preference Optimization](https://arxiv.org/abs/2405.20216)
+- [Reinforcement Learning for Reasoning in Large Language Models with One Training Example](https://arxiv.org/abs/2504.20571)
 
 ### Large Language Models
 
