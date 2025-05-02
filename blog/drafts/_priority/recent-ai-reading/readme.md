@@ -74,6 +74,7 @@ excerpt: ""
   - Blog: [Tracing the thoughts of a large language model](https://www.anthropic.com/news/tracing-thoughts-language-model)
   - YouTube Video: [Tracing the thoughts of a large language model](https://www.youtube.com/watch?v=Bj9BD2D3DzA)
 - [Taming the Titans: A Survey of Efficient LLM Inference Serving](https://arxiv.org/abs/2504.19720)
+- [LLMs for Engineering: Teaching Models to Design High Powered Rockets](https://arxiv.org/abs/2504.19394)
 
 ### Model Evaluation
 
