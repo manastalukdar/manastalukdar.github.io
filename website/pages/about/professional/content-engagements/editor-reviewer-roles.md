@@ -1,4 +1,5 @@
 - Technical Editor and Reviewer for [Manning Publications](https://www.manning.com) [May 2024]. Here is a listing of some of the recent books I have reviewed:
+  - [Build a Machine Learning Platform (From Scratch)](https://www.manning.com/books/build-a-machine-learning-platform-from-scratch) by Benjamin Tan Wei Hao, Shanoop Padmanabhan, and Varun Mallya
   - [LangChain in Action - Agents and LLM applications](https://www.manning.com/books/langchain-in-action) by Roberto Infante
   - [Building AI Applications on the Web](https://www.manning.com/books/building-ai-applications-on-the-web) by Theo Despoudis
   - [Spring AI in Action](https://www.manning.com/books/spring-ai-in-action) by Craig Walls
