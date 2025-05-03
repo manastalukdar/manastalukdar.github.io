@@ -1,5 +1,6 @@
 ## Expert Opinions / Quotes
 
+- [19 Best Practices For Monetizing Data (And Why They Matter)](https://www.forbes.com/councils/forbestechcouncil/2025/05/01/19-best-practices-for-monetizing-data-and-why-they-matter/) [[Forbes](https://www.forbes.com/)] [May 01, 2025]
 - [AI Coding Assistants: 17 Risks (And How To Mitigate Them)](https://www.forbes.com/councils/forbestechcouncil/2025/03/21/ai-coding-assistants-17-risks-and-how-to-mitigate-them/) [[Forbes](https://www.forbes.com/)] [March 21, 2025]
 - [AI drives change across industries: Experts](https://timesofindia.indiatimes.com/india/ai-drives-change-across-industries-experts/articleshow/117394615.cms) [[Times of India](https://timesofindia.indiatimes.com/)] [January 20, 2025]
 - [Artificial Intelligence, Large Language Models and the Future of Enterprise Software](https://www.businesstoday.in/impact-feature/story/artificial-intelligence-large-language-models-and-the-future-of-enterprise-software-459709-2025-01-06) [[Business Today](https://www.businesstoday.in/)] [January 7, 2025]
