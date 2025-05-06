@@ -37,7 +37,7 @@
     "@volar-plugins/vetur": "latest",
     "axios": "^1.9.0",
     "dayjs": "^1.11.13",
-    "feed": "^4.2.2",
+    "feed": "^5.0.0",
     "front-matter": "^4.0.2",
     "highlight.js": "^11.11.1",
     "lodash": "^4.17.21",
