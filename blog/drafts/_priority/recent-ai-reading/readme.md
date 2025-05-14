@@ -52,6 +52,7 @@ excerpt: ""
 - [Aligning Multimodal LLM with Human Preference: A Survey](https://arxiv.org/abs/2503.14504)
 - [Boost Your Human Image Generation Model via Direct Preference Optimization](https://arxiv.org/abs/2405.20216)
 - [Reinforcement Learning for Reasoning in Large Language Models with One Training Example](https://arxiv.org/abs/2504.20571)
+  - GitHub [repo](https://github.com/ypwang61/One-Shot-RLVR)
 - [AlphaPO -- Reward shape matters for LLM alignment](https://arxiv.org/abs/2501.03884)
 
 ### Large Language Models
