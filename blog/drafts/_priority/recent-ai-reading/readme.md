@@ -104,9 +104,11 @@ excerpt: ""
 - [When Doctors With A.I. Are Outperformed by A.I. Alone](https://erictopol.substack.com/p/when-doctors-with-ai-are-outperformed)
 - [Crossing the uncanny valley of conversational voice](https://www.sesame.com/research/crossing_the_uncanny_valley_of_voice)
 - [Reinforcement Learning from Verifiable Rewards](https://labelstud.io/blog/reinforcement-learning-from-verifiable-rewards/)
+- [Introducing HealthBench - An evaluation for AI systems and human health.](https://openai.com/index/healthbench/)
 
 ## Miscellaneous
 
 - [Traveling Waves Integrate Spatial Information Through Time](https://arxiv.org/abs/2502.06034)
 - [Transformers without Normalization](https://arxiv.org/abs/2503.10622)
 - [GPT Researcher](https://gptr.dev) | [Source Code in GitHub](https://github.com/assafelovic/gpt-researcher)
+- [Gemini Deep Research](https://gemini.google/overview/deep-research/?hl=en)
