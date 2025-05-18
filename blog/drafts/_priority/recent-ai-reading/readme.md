@@ -45,6 +45,7 @@ excerpt: ""
 - [How to think about agent frameworks](https://blog.langchain.dev/how-to-think-about-agent-frameworks/)
   - [Agent Framework comparison](https://docs.google.com/spreadsheets/d/1B37VxTBuGLeTSPVWtz7UMsCdtXrqV5hCjWkbHN8tfAo/edit?gid=0#gid=0)
 - [Advances and Challenges in Foundation Agents: From Brain-Inspired Intelligence to Evolutionary, Collaborative, and Safe Systems](https://arxiv.org/abs/2504.01990)
+- [AI Agents vs. Agentic AI: A Conceptual Taxonomy, Applications and Challenge](https://arxiv.org/abs/2505.10468)
 
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
@@ -76,6 +77,7 @@ excerpt: ""
   - YouTube Video: [Tracing the thoughts of a large language model](https://www.youtube.com/watch?v=Bj9BD2D3DzA)
 - [Taming the Titans: A Survey of Efficient LLM Inference Serving](https://arxiv.org/abs/2504.19720)
 - [LLMs for Engineering: Teaching Models to Design High Powered Rockets](https://arxiv.org/abs/2504.19394)
+- [LLMs Get Lost In Multi-Turn Conversation](https://arxiv.org/abs/2505.06120)
 
 ### Model Evaluation
 
@@ -110,3 +112,4 @@ excerpt: ""
 - [Traveling Waves Integrate Spatial Information Through Time](https://arxiv.org/abs/2502.06034)
 - [Transformers without Normalization](https://arxiv.org/abs/2503.10622)
 - [GPT Researcher](https://gptr.dev) | [Source Code in GitHub](https://github.com/assafelovic/gpt-researcher)
+- [Dive into Deep Learning](https://arxiv.org/abs/2106.11342)
