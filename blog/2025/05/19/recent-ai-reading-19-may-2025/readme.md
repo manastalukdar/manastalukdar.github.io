@@ -78,7 +78,7 @@ excerpt: ""
 - [LLMs for Engineering: Teaching Models to Design High Powered Rockets](https://arxiv.org/abs/2504.19394)
 - [LLMs Get Lost In Multi-Turn Conversation](https://arxiv.org/abs/2505.06120)
 
-### Retrieval-Augmented Generation-
+### Retrieval-Augmented Generation
 
 - [UniversalRAG: Retrieval-Augmented Generation over Multiple Corpora with Diverse Modalities and Granularities](https://arxiv.org/abs/2504.20734)
 
