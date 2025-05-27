@@ -43,6 +43,7 @@ excerpt: ""
 - [Learning to Think: Information-Theoretic Reinforcement Fine-Tuning for LLMs](https://www.arxiv.org/abs/2505.10425)
 - [Reinforcing Multi-Turn Reasoning in LLM Agents via Turn-Level Credit Assignment](https://arxiv.org/abs/2505.11821v1)
   - [Code](https://github.com/SiliangZeng/Multi-Turn-RL-Agent)
+- [The Ultimate Guide to Fine-Tuning LLMs from Basics to Breakthroughs: An Exhaustive Review of Technologies, Research, Best Practices, Applied Research Challenges and Opportunities](https://arxiv.org/abs/2408.13296)
 
 ### Model Evaluation
 
