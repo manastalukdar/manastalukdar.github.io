@@ -40,6 +40,8 @@ excerpt: ""
 
 ### Large Language Models
 
+- [Learning to Think: Information-Theoretic Reinforcement Fine-Tuning for LLMs](https://www.arxiv.org/abs/2505.10425)
+
 ### Model Evaluation
 
 ### Retrieval-Augmented Generation
