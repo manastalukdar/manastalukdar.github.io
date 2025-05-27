@@ -41,6 +41,8 @@ excerpt: ""
 ### Large Language Models
 
 - [Learning to Think: Information-Theoretic Reinforcement Fine-Tuning for LLMs](https://www.arxiv.org/abs/2505.10425)
+- [Reinforcing Multi-Turn Reasoning in LLM Agents via Turn-Level Credit Assignment](https://arxiv.org/abs/2505.11821v1)
+  - [Code](https://github.com/SiliangZeng/Multi-Turn-RL-Agent)
 
 ### Model Evaluation
 
