@@ -62,20 +62,31 @@ const themeLookup = {
   "lightTheme": "Light"
 }
 const myThemes = Object.values(themeLookup);
-var selectedTheme = ref(themeLookup[theme.global.name.value]);
+
+// Load saved theme from localStorage or use current theme
+const savedTheme = localStorage.getItem('selectedTheme');
+var selectedTheme = ref(savedTheme || themeLookup[theme.global.name.value]);
+
+// Apply saved theme on component mount
+onMounted(() => {
+  if (savedTheme) {
+    Object.entries(themeLookup).forEach(([k,v]) => {
+      if (v === savedTheme) {
+        theme.global.name.value = k;
+        setCorrectHJsStyle(theme);
+      }
+    });
+  }
+});
 
 const setTheme = () => {
   Object.entries(themeLookup).forEach(([k,v]) => {
     if (v === selectedTheme.value) {
-      //console.log(selectedTheme.value)
-      //console.log("k: " + k)
-      //console.log("v: " +v)
-      theme.global.name.value = k
-      //console.log(theme.global.name.value)
+      theme.global.name.value = k;
+      // Save theme to localStorage
+      localStorage.setItem('selectedTheme', selectedTheme.value);
     }
-  })
-  //theme.global.name.value = selectedTheme.value;
-  //console.log(selectedTheme.value);
+  });
   setCorrectHJsStyle(theme);
 };
 </script>
