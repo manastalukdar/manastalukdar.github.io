@@ -8,7 +8,7 @@
 ## Features
 
 - [Pioneering AI Innovation and Adoption: Manas Talukdar's Transformative Impact on Enterprise AI and Data Infrastructure](https://www.indiatoday.in/impact-feature/story/pioneering-ai-innovation-and-adoption-manas-talukdars-transformative-impact-on-enterprise-ai-and-data-infrastructure-2660413-2025-01-06) [[India Today](https://www.indiatoday.in)] [January 6, 2025]
-- [Manas Talukdar - A Visionary Technology Leader Driving AI Innovation and Adoption](https://www.passionvista.com/manas-talukdar/) [[Passion Vista](https://www.passionvista.com)] [August, 2024]
+<!--- [Manas Talukdar - A Visionary Technology Leader Driving AI Innovation and Adoption](https://www.passionvista.com/manas-talukdar/) [[Passion Vista](https://www.passionvista.com)] [August, 2024]-->
 - [Manas Talukdar – Industry Leader Driving Innovations And Global Adoption In AI And Data Infrastructure](https://www.outlookindia.com/hub4business/manas-talukdar-industry-leader-driving-innovations-and-global-adoption-in-ai-and-data-infrastructure) [[Outlook India](https://www.outlookindia.com/)] [July 4, 2024].
 
 ## Interviews
@@ -18,8 +18,8 @@
 - [Manas Talukdar Of Labelbox: How AI Is Disrupting Our Industry, and What We Can Do About It](https://medium.com/authority-magazine/manas-talukdar-of-labelbox-how-ai-is-disrupting-our-industry-and-what-we-can-do-about-it-9ce4bfb2effe). An Interview with Cynthia Corsetti for [Authority Magazine](https://medium.com/authority-magazine) [June 13, 2024].
   - [Manas Talukdar Of Labelbox: How AI Is Disrupting Our Industry, and What We Can Do About It](https://www.cynthiacorsetti.com/how-ai-is-disrupting-our-industry-and-what-we-can-do-about-it-manas-talukdar/). An Interview With Cynthia Corsetti.
 
-## Miscellaneous
+<!--## Miscellaneous
 
 - [Marquis Who's Who Honors Manas Talukdar for Expertise and Outstanding Achievements in Artificial Intelligence and Data Infrastructure](https://www.24-7pressrelease.com/press-release/514548/marquis-whos-who-honors-manas-talukdar-for-expertise-and-outstanding-achievements-in-artificial-intelligence-and-data-infrastructure) [[24-7 Press Release](https://www.24-7pressrelease.com)] [September 23, 2024]
 - [Manas Talukdar Wins a 2024 Global Recognition Award(TM)](https://markets.businessinsider.com/news/stocks/manas-talukdar-wins-a-2024-global-recognition-award-tm-1033328826) [[Business Insider](https://www.businessinsider.com)] [May 6, 2024].
-  - [Manas Talukdar Wins a 2024 Global Recognition Award(TM)](https://news.marketersmedia.com/manas-talukdar-wins-a-2024-global-recognition-awardtm/89128987) [[Marketers Media](https://news.marketersmedia.com)] [May 4, 2024].
+  - [Manas Talukdar Wins a 2024 Global Recognition Award(TM)](https://news.marketersmedia.com/manas-talukdar-wins-a-2024-global-recognition-awardtm/89128987) [[Marketers Media](https://news.marketersmedia.com)] [May 4, 2024].-->
