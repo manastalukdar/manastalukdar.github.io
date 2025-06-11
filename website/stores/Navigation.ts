@@ -180,12 +180,12 @@ const initialState = () => ({
         icon: 'mdi-medal',
         text: 'Honors',
       },
-      {
-        href: '/about/awards/',
-        target: '_blank',
-        icon: 'mdi-trophy',
-        text: 'Awards',
-      },
+      // {
+      //   href: '/about/awards/',
+      //   target: '_blank',
+      //   icon: 'mdi-trophy',
+      //   text: 'Awards',
+      // },
       {
         href: '/about/media-coverage/',
         target: '_blank',

@@ -50,14 +50,14 @@
                 <div class="pl-2 pb-2 markdown-content" v-html="americanSocietyForAi" />
               </v-expansion-panel-text>
             </v-expansion-panel>
-            <v-expansion-panel>
+            <!--<v-expansion-panel>
               <v-expansion-panel-title>
                 Ambassador, AI Frontier Network
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <div class="pl-2 pb-2 markdown-content" v-html="aiFontierNetworkAmbassador" />
               </v-expansion-panel-text>
-            </v-expansion-panel>
+            </v-expansion-panel>-->
             <v-expansion-panel>
               <v-expansion-panel-title>
                 IEEE Senior Membership
