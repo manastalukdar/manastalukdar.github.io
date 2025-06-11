@@ -50,7 +50,7 @@
                 <div class="pl-2 pb-2 markdown-content" v-html="titanBusinessAward" />
               </v-expansion-panel-text>
             </v-expansion-panel>
-            <v-expansion-panel>
+            <!--<v-expansion-panel>
               <v-expansion-panel-title>
                 Global Recognition Award
               </v-expansion-panel-title>
@@ -65,7 +65,7 @@
               <v-expansion-panel-text>
                 <div class="pl-2 pb-2 markdown-content" v-html="indianAchieversAward" />
               </v-expansion-panel-text>
-            </v-expansion-panel>
+            </v-expansion-panel>-->
           </v-expansion-panels>
         </client-only>
         <v-row class="printButton row py-10 justify-center">

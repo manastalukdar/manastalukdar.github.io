@@ -34,14 +34,14 @@
                 <div class="pl-2 pb-2 markdown-content" v-html="bcsFellow" />
               </v-expansion-panel-text>
             </v-expansion-panel>
-            <v-expansion-panel>
+            <!--<v-expansion-panel>
               <v-expansion-panel-title>
                 Listed in Marquis Who's Who
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <div class="pl-2 pb-2 markdown-content" v-html="marquisWhosWho" />
               </v-expansion-panel-text>
-            </v-expansion-panel>
+            </v-expansion-panel>-->
             <v-expansion-panel>
               <v-expansion-panel-title>
                 Member, American Society for AI
