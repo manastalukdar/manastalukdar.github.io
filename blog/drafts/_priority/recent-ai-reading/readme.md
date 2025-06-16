@@ -59,5 +59,6 @@ excerpt: ""
 ## Articles and Blog Posts
 
 - [How we built our multi-agent research system](https://www.anthropic.com/engineering/built-multi-agent-research-system?utm_source=alphasignal)
+- [WEF Report: The Impact of AI Driving 170m New Jobs by 2030](https://aimagazine.com/articles/wef-report-the-impact-of-ai-driving-170m-new-jobs-by-2030)
 
 ## Miscellaneous
