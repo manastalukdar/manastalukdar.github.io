@@ -18,4 +18,6 @@ meta:
 excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
 ---
 
-# Title
+# Reflections After Two Decades in the Technology Industry
+
+Recently, I completed two decades in the technology industry. All of it has been in the San Francisco Bay Area working for large enterprise software companies, as well as startups. This has been an eventful and fulfilling journey. It has also been a learning experience. Not just in terms or technology, leadership and business, but also in terms of the human factor.
