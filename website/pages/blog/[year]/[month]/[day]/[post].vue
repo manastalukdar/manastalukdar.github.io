@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import axios from 'axios';
+// import axios from 'axios'; - Replaced with $fetch for better Nuxt compatibility
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItTocDoneRight from 'markdown-it-toc-done-right';
 import markdownItTextualUml from 'markdown-it-textual-uml';
@@ -158,33 +158,15 @@ const postMetadata = blogMetadataStore.getPostMetadata(
   route.params.day,
   route.params.post
 );
-const fileContent = await axios
-.get(baseUrl+ '/blogdata/' + postMetadata.path)
-.catch(function (error) {
-  if (error.response) {
-    // The request was made and the server responded with a status code
-    // that falls out of the range of 2xx
-    // eslint-disable-next-line no-console
-    console.log(error.response.data)
-    // eslint-disable-next-line no-console
-    console.log(error.response.status)
-    // eslint-disable-next-line no-console
-    console.log(error.response.headers)
-  } else if (error.request) {
-    // The request was made but no response was received
-    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-    // http.ClientRequest in node.js
-    // eslint-disable-next-line no-console
-    console.log(error.request)
-  } else {
-    // Something happened in setting up the request that triggered an Error
-    // eslint-disable-next-line no-console
-    console.log('Error', error.message)
-  }
+let fileContent;
+try {
+  fileContent = await $fetch(baseUrl+ '/blogdata/' + postMetadata.path);
+} catch (error) {
   // eslint-disable-next-line no-console
-  console.log(error.config)
-});
-const res = fm(fileContent.data);
+  console.log('Error fetching blog post content:', error);
+  fileContent = '';
+}
+const res = fm(fileContent);
 const postContent = md.render(res.body);
 const postId = postIdTemp;
 const url = baseUrl+ '/' + postIdTemp;

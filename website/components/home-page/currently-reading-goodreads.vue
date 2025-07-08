@@ -3,17 +3,10 @@
 </template>
 
 <script setup>
-import axios from 'axios';
+// import axios from 'axios'; - Removed as it's not actually used
 const goodreadsbaseURL = 'https://www.goodreads.com';
 const url = "/review/custom_widget/5987383.Reading?cover_position=left&cover_size=small&num_books=5&order=d&shelf=currently-reading&show_author=1&show_cover=0&show_rating=0&show_review=0&show_tags=0&show_title=1&sort=date_updated&widget_bg_color=FFFFFF&widget_bg_transparent=&widget_border_width=1&widget_id=1693083477&widget_text_color=000000&widget_title_size=medium&widget_width=medium";
 onMounted(() => {
-  const axiosInstance = axios.create({
-    baseURL: goodreadsbaseURL,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      crossdomain: true
-    }
-});
 const goodreadsScript = document.createElement("script");
 goodreadsScript.setAttribute(
       "src",

@@ -15,6 +15,8 @@
     </v-main>
 
     <Footer />
+    <LoadingIndicator />
+    <LinearLoadingIndicator />
   </v-app>
   <slot />
 </template>
@@ -23,11 +25,15 @@
 import backToTop from 'vanilla-back-to-top';
 import { useGlobalDataStore } from '@/stores/GlobalData';
 import { useBlogMetadataStore } from '@/stores/BlogMetadata';
+import { useLoadingStore } from '@/stores/Loading';
 const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
+const loadingStore = useLoadingStore();
 import MainNavMenuNavigationDrawer from '../components/main-nav-menu/NavigationDrawer.vue';
 import MainNavMenuTopNavBar from '../components/main-nav-menu/TopNavBar.vue';
 import Footer from '../components/footer.vue';
+import LoadingIndicator from '../components/LoadingIndicator.vue';
+import LinearLoadingIndicator from '../components/LinearLoadingIndicator.vue';
 import setCorrectHJsStyle from '../utils/setCorrectHJsStyle.ts';
 import { useTheme } from 'vuetify';
 const runtimeConfig = useRuntimeConfig();
@@ -35,10 +41,13 @@ const theme = useTheme();
 async function setupBlogMetadata() {
   try {
       if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
+        loadingStore.startLoading('Loading blog metadata...');
         await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
+        loadingStore.stopLoading();
       }
   } catch (error) {
     console.log(error)
+    loadingStore.stopLoading();
   }
 };
 await setupBlogMetadata();

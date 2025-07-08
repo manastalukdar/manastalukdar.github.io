@@ -178,7 +178,7 @@ export default defineNuxtConfig({
     css    : {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "./style/settings.scss";', //./style/settings.scss
+          // Removed additionalData import since Vuetify plugin handles it with @use
         },
       },
     },

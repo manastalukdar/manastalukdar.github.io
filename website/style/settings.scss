@@ -1,8 +1,8 @@
 // settings.scss
-//$body-font-family: 'Maven Pro', 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
-
-
+// All @use and @forward rules must come first
 @use './settings.sass';
+
+//$body-font-family: 'Maven Pro', 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
 
 @forward 'vuetify/settings' with (
   // The variables you want to modify
@@ -14,6 +14,7 @@
   $button-font-weight: 100,
 );
 
+// Then come @import statements and other CSS
 @import 'https://fonts.googleapis.com/css?family=Maven+Pro|Hind+Madurai&display=swap';
 // Nunito+Sans
 
