@@ -29,6 +29,11 @@
       </v-list-group>
 
       <div class="px-0">
+        <v-list-item text nuxt to="/search" prepend-icon="mdi-magnify" title="Search">
+        </v-list-item>
+      </div>
+
+      <div class="px-0">
         <v-list-item text nuxt :to="legalPath" :prepend-icon="legalIcon" :title=legalText>
         </v-list-item>
       </div>

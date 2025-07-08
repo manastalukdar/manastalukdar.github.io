@@ -236,6 +236,21 @@ export default defineNuxtConfig({
             console.log(feedPath + " written successfully.")
           }
         })
+        
+        // Generate search index
+        try {
+          console.log('Generating search index...')
+          const { exec } = require('child_process')
+          exec('npm run generate-search-index', (error, stdout, stderr) => {
+            if (error) {
+              console.error('Search index generation failed:', error)
+            } else {
+              console.log('Search index generated successfully')
+            }
+          })
+        } catch (error) {
+          console.error('Failed to generate search index:', error)
+        }
       }
     },
   },
