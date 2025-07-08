@@ -11,7 +11,12 @@
         </v-row>
       </v-col>
       <client-only>
-        <postsList :posts-list="blogMetadata" />
+        <postsList 
+          :posts-list="blogMetadata" 
+          :initial-page="currentPage"
+          @page-changed="onPageChanged"
+          @per-page-changed="onPerPageChanged"
+        />
       </client-only>
     </v-row>
   </v-container>
@@ -28,7 +33,11 @@ const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
 const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
+const router = useRouter();
 const baseUrl = runtimeConfig.public.baseUrl;
+
+// Get current page from route or default to 1
+const currentPage = ref(parseInt(String(route.query.page || '1')));
 async function setupBlogMetadata() {
     try {
         if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
@@ -40,13 +49,53 @@ async function setupBlogMetadata() {
 };
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
-const currentPage = navigationStore.blog.blogItems[0].text;
+const currentPageText = navigationStore.blog.blogItems[0].text;
 const blogMetadata = blogMetadataStore.getBlogMetadata();
 const pageTitle = navigationStore.blog.blogText;
 const currentHref = navigationStore.blog.blogItems[0].href;
-const title = currentPage + ' || ' + appOwner;
+const title = computed(() => {
+  if (currentPage.value > 1) {
+    return `${currentPageText} - Page ${currentPage.value} || ${appOwner}`
+  }
+  return `${currentPageText} || ${appOwner}`
+})
 const description = 'Reflections on software engineering and other matters.';
-const url = baseUrl + currentHref;
+const url = computed(() => {
+  if (currentPage.value > 1) {
+    return baseUrl + currentHref + '?page=' + currentPage.value
+  }
+  return baseUrl + currentHref
+})
+
+// Event handlers for pagination
+function onPageChanged(newPage) {
+  currentPage.value = newPage
+  updateURL()
+}
+
+function onPerPageChanged(newPerPage) {
+  // Reset to page 1 when changing items per page
+  currentPage.value = 1
+  updateURL()
+}
+
+function updateURL() {
+  const query = {}
+  if (currentPage.value > 1) {
+    query.page = currentPage.value
+  }
+  
+  router.push({
+    path: '/blog',
+    query: query
+  })
+}
+
+// Watch for route changes (browser back/forward)
+watch(() => route.query.page, (newPage) => {
+  currentPage.value = parseInt(String(newPage || '1'))
+})
+
 const breadcrumbsData = [
   {
     title: 'Home',
@@ -76,7 +125,6 @@ const breadcrumbsStructuredData = {
 };
 useHead({
   title: title,
-  title,
   meta: [
     {
       hid: 'description',

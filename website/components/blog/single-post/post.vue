@@ -23,6 +23,12 @@
       </v-row>
 
       <v-row class="py-3">
+        <v-col cols="12">
+          <postNavigation :current-post="passedProps.postMetadata" />
+        </v-col>
+      </v-row>
+
+      <v-row class="py-3">
         <comments :post-id="postId" :url="url" />
       </v-row>
     </v-col>
@@ -33,6 +39,7 @@
 import postHeader from './post-header.vue'
 import socialSharing from './social-sharing.vue'
 import comments from './comments.vue'
+import postNavigation from '../post-navigation.vue'
 import mermaid from 'mermaid'
 if (process.browser) {
   mermaid.initialize({ startOnLoad: false });

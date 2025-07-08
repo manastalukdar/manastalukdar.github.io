@@ -272,6 +272,39 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
         )
       })
     },
+
+    getPaginatedPosts(page: number, perPage: number) {
+      const startIndex = (page - 1) * perPage
+      const endIndex = startIndex + perPage
+      return this.blogMetadata.slice(startIndex, endIndex)
+    },
+
+    getTotalPages(perPage: number) {
+      return Math.ceil(this.blogMetadata.length / perPage)
+    },
+
+    getPostIndex(currentPost: any) {
+      return this.blogMetadata.findIndex(post => 
+        post['url-slug'] === currentPost['url-slug'] &&
+        post['first-published-on'] === currentPost['first-published-on']
+      )
+    },
+
+    getNextPost(currentPost: any) {
+      const currentIndex = this.getPostIndex(currentPost)
+      if (currentIndex >= 0 && currentIndex < this.blogMetadata.length - 1) {
+        return this.blogMetadata[currentIndex + 1]
+      }
+      return null
+    },
+
+    getPreviousPost(currentPost: any) {
+      const currentIndex = this.getPostIndex(currentPost)
+      if (currentIndex > 0) {
+        return this.blogMetadata[currentIndex - 1]
+      }
+      return null
+    },
   },
 
   getters: {

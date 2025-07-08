@@ -1,102 +1,172 @@
 <template>
   <v-row class="pa-3">
     <v-col class="py-2" cols="12">
-      <v-data-iterator
-        v-model:items-per-page="itemsPerPage"
-        v-model:page="page"
-        :items="passedProps.postsList"
-        row
-        wrap
-      >
-        <template v-slot:default="props">
-          <v-row v-for="item in props.items" :key="item.raw.name">
-            <singlePost :post-metadata="item.raw" />
-          </v-row>
-          <!--<hr>-->
-        </template>
+      <v-row v-for="item in paginatedPosts" :key="item['url-slug']">
+        <singlePost :post-metadata="item" />
+      </v-row>
+      
+      <!-- Pagination Controls -->
+      <v-row class="pt-6">
+        <v-col cols="12">
+          <v-card class="pa-4" elevation="2">
+            <!-- Results Summary -->
+            <v-row class="align-center mb-3">
+              <v-col cols="12" sm="6">
+                <span class="text-body-1">
+                  Showing {{ startItem }}-{{ endItem }} of {{ totalPosts }} posts
+                </span>
+              </v-col>
+              <v-col cols="12" sm="6" class="text-right">
+                <span class="text-body-2 mr-3">Posts per page:</span>
+                <v-select
+                  v-model="itemsPerPage"
+                  :items="itemsPerPageArray"
+                  density="compact"
+                  style="width: 80px; display: inline-block;"
+                  hide-details
+                  @update:model-value="onItemsPerPageChange"
+                />
+              </v-col>
+            </v-row>
 
-        <template v-slot:footer>
-          <div class="d-flex align-center justify-space-around pa-4">
-            <span class="grey--text">Items per page</span>
-            <v-menu>
-              <template v-slot:activator="{ props }">
+            <!-- Navigation Controls -->
+            <v-row class="align-center justify-center">
+              <v-col cols="12" sm="8" class="d-flex align-center justify-center">
                 <v-btn
-                  variant="text"
-                  color="primary"
-                  class="ml-2"
-                  append-icon="mdi-chevron-down"
-                  v-bind="props"
+                  :disabled="currentPage <= 1"
+                  variant="outlined"
+                  @click="prevPage()"
+                  class="mr-2"
                 >
-                  {{ itemsPerPage }}
+                  <v-icon left>mdi-chevron-left</v-icon>
+                  Previous
                 </v-btn>
-              </template>
-              <v-list>
-                <v-list-item
-                  v-for="(number, index) in itemsPerPageArray"
-                  :key="index"
-                  :title="number"
-                  @click="itemsPerPage = number"
-                ></v-list-item>
-              </v-list>
-            </v-menu>
 
-            <v-spacer></v-spacer>
+                <span class="mx-4 text-body-1">
+                  Page {{ currentPage }} of {{ totalPages }}
+                </span>
 
-            <span
-              class="mr-4
-              grey--text"
-            >
-              Page {{ page }} of {{ numberOfPages() }}
-            </span>
-            <v-btn
-              icon
-              size="small"
-              @click="prevPage()"
-            >
-              <v-icon>mdi-chevron-left</v-icon>
-            </v-btn>
-            <v-btn
-              icon
-              size="small"
-              class="ml-2"
-              @click="nextPage()"
-            >
-              <v-icon>mdi-chevron-right</v-icon>
-            </v-btn>
-          </div>
-        </template>
-      </v-data-iterator>
+                <v-btn
+                  :disabled="currentPage >= totalPages"
+                  variant="outlined"
+                  @click="nextPage()"
+                  class="ml-2"
+                >
+                  Next
+                  <v-icon right>mdi-chevron-right</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+
+            <!-- Page Jump (for mobile) -->
+            <v-row class="mt-2 d-flex d-sm-none">
+              <v-col cols="12" class="text-center">
+                <v-text-field
+                  v-model="pageJump"
+                  label="Go to page"
+                  type="number"
+                  :min="1"
+                  :max="totalPages"
+                  density="compact"
+                  style="width: 120px; display: inline-block;"
+                  hide-details
+                  @keyup.enter="jumpToPage"
+                />
+                <v-btn @click="jumpToPage" class="ml-2" size="small">Go</v-btn>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-col>
   </v-row>
 </template>
 
 <script setup>
 import singlePost from './single-post.vue'
+import { useBlogMetadataStore } from '@/stores/BlogMetadata'
+
 const passedProps = defineProps({
   postsList: {
     type: Array,
     required: true,
     default() {
-      return {}
+      return []
     }
   },
+  initialPage: {
+    type: Number,
+    default: 1
+  }
 });
-const itemsPerPageArray = [5, 10];
-const itemsPerPage = ref(5);
-const page = ref(1);
-function numberOfPages() {
-  return Math.ceil(passedProps.postsList.length / itemsPerPage.value);
-};
+
+const emit = defineEmits(['page-changed', 'per-page-changed'])
+
+const blogMetadataStore = useBlogMetadataStore()
+
+const itemsPerPageArray = [5, 10, 15, 20]
+const itemsPerPage = ref(10)
+const currentPage = ref(passedProps.initialPage)
+const pageJump = ref(currentPage.value)
+
+// Computed properties
+const totalPosts = computed(() => passedProps.postsList.length)
+const totalPages = computed(() => Math.ceil(totalPosts.value / itemsPerPage.value))
+
+const paginatedPosts = computed(() => {
+  const startIndex = (currentPage.value - 1) * itemsPerPage.value
+  const endIndex = startIndex + itemsPerPage.value
+  return passedProps.postsList.slice(startIndex, endIndex)
+})
+
+const startItem = computed(() => {
+  if (totalPosts.value === 0) return 0
+  return (currentPage.value - 1) * itemsPerPage.value + 1
+})
+
+const endItem = computed(() => {
+  const end = currentPage.value * itemsPerPage.value
+  return Math.min(end, totalPosts.value)
+})
+
+// Watch for changes in page and emit to parent
+watch(currentPage, (newPage) => {
+  emit('page-changed', newPage)
+  pageJump.value = newPage
+})
+
+watch(itemsPerPage, (newPerPage) => {
+  emit('per-page-changed', newPerPage)
+})
+
+// Methods
 function nextPage() {
-  if (page.value + 1 <= numberOfPages()) {
-    page.value += 1;
+  if (currentPage.value < totalPages.value) {
+    currentPage.value += 1
   }
-  //console.log(page.value)
-};
+}
+
 function prevPage() {
-  if (page.value - 1 >= 1) {
-    page.value -= 1;
+  if (currentPage.value > 1) {
+    currentPage.value -= 1
   }
-  //console.log(page.value)
-};
+}
+
+function jumpToPage() {
+  const pageNum = parseInt(pageJump.value)
+  if (pageNum >= 1 && pageNum <= totalPages.value) {
+    currentPage.value = pageNum
+  }
+}
+
+function onItemsPerPageChange() {
+  // Reset to page 1 when changing items per page
+  currentPage.value = 1
+}
+
+// Watch for prop changes
+watch(() => passedProps.initialPage, (newPage) => {
+  currentPage.value = newPage
+  pageJump.value = newPage
+})
 </script>
