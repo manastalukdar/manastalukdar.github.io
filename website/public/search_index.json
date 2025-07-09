@@ -1,12 +1,20 @@
 [
   {
     "id": "/blog/2019/03/28/getting-started",
-    "title": "getting-started",
+    "title": "Getting Started",
     "content": "Welcome to my blog. I recently built this website, with blog. I learnt Vue.js and Nuxt.js for this project and it was a lot of fun. The UI components for this site uses the material design based Vuetify.js framework. This is an evolving website. The code and backlog for this project is available on GitHub. At some point I hope to write posts elaborating the design and implementation details behind the website.",
     "url": "/blog/2019/03/28/getting-started",
-    "date": "2019-03-28",
-    "categories": [],
-    "tags": [],
+    "date": "2019-03-28T00:00:00",
+    "categories": [
+      "Miscellaneous"
+    ],
+    "tags": [
+      "Blog",
+      "Nuxt.js",
+      "Personal Website",
+      "Vue.js",
+      "Vuetify.js"
+    ],
     "embedding": [
       -0.10653562843799591,
       0.01414714939892292,
@@ -396,12 +404,24 @@
   },
   {
     "id": "/blog/2019/04/04/azure-cosmos-db-consistency-levels",
-    "title": "azure-cosmos-db-consistency-levels",
+    "title": "Azure Cosmos DB and Consistency Levels",
     "content": "Azure Cosmos DB talk mentioning the different consistency levels used in the globally distributed database service. ::: iframe-container <iframe src=\"https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fatscaleevents%2Fvideos%2F1918977595042002%2F&show_text=false&width=560&t=0\" width=\"560\" height=\"314\" style=\"border:none;overflow:hidden\" scrolling=\"no\" frameborder=\"0\" allowfullscreen=\"true\" allow=\"autoplay; clipboard-write; encrypted-media; picture-in-pictu",
     "url": "/blog/2019/04/04/azure-cosmos-db-consistency-levels",
-    "date": "2019-04-04",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-04T00:00:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Cloud Computing",
+      "Conference Talk",
+      "Cosmos DB",
+      "Data Consistency",
+      "Distributed Systems",
+      "Facebook @Scale Conference",
+      "Leslie Lamport",
+      "Microsoft Azure",
+      "Software Engineering"
+    ],
     "embedding": [
       0.012290283106267452,
       -0.05170108750462532,
@@ -791,12 +811,25 @@
   },
   {
     "id": "/blog/2019/04/04/performance-under-load-adaptive-concurrency-limits-netflix",
-    "title": "performance-under-load-adaptive-concurrency-limits-netflix",
+    "title": "Performance Under Load - Adaptive Concurrency Limits at Netflix",
     "content": "Performance Under Load - Adaptive Concurrency Limits at Netflix",
     "url": "/blog/2019/04/04/performance-under-load-adaptive-concurrency-limits-netflix",
-    "date": "2019-04-04",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-04T00:00:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Adaptive Concurrency",
+      "Availability",
+      "Cloud Computing",
+      "Concurrency",
+      "Distributed Systems",
+      "Load",
+      "Netflix",
+      "Netflix TechBlog",
+      "Performance",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.031502921134233475,
       -0.1436271369457245,
@@ -1186,12 +1219,21 @@
   },
   {
     "id": "/blog/2019/04/05/rc-majumdar-ashoka-downfall-mauryan-empire",
-    "title": "rc-majumdar-ashoka-downfall-mauryan-empire",
+    "title": "RC Majumdar on Ashoka and the downfall of the Mauryan empire",
     "content": "RC Majumdar makes no bones about the root cause behind the downfall of the mighty Mauryan Empire. The cause of course being the overt renunciation of military might by Ashoka. Let the master himself speak: When the strong arm of Askoka, who possessed the power - to punish in spite of his repentance, was withdrawn, the Greeks poured once more into the Kabul Valley. the Punjab and even the Gangetic region and threw all these provinces into confusion. Asoka eschewed military conquest after the Kali",
     "url": "/blog/2019/04/05/rc-majumdar-ashoka-downfall-mauryan-empire",
-    "date": "2019-04-05",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-05T00:00:00",
+    "categories": [
+      "History"
+    ],
+    "tags": [
+      "Ashoka",
+      "Greeks",
+      "India",
+      "Indian History",
+      "Maurya",
+      "Ramesh Chandra Majumdar"
+    ],
     "embedding": [
       -0.08622496575117111,
       0.03302919864654541,
@@ -1581,12 +1623,22 @@
   },
   {
     "id": "/blog/2019/04/07/service-fabric-paper-eurosys-2018",
-    "title": "service-fabric-paper-eurosys-2018",
+    "title": "Service Fabric Paper from EuroSys 2018",
     "content": "pdf",
     "url": "/blog/2019/04/07/service-fabric-paper-eurosys-2018",
-    "date": "2019-04-07",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-07T00:00:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Cloud Computing",
+      "Conference Paper",
+      "Distributed Systems",
+      "Microservices",
+      "Microsoft Azure",
+      "Service Fabric",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.04084756597876549,
       0.03847023472189903,
@@ -1976,12 +2028,22 @@
   },
   {
     "id": "/blog/2019/04/08/distributed-systems-fun-profit-ebook",
-    "title": "distributed-systems-fun-profit-ebook",
+    "title": "eBook on Distributed Systems - Distributed systems for fun and profit",
     "content": "I recently read this (free and open source) eBook on distributed systems. It is authored by a fellow engineer in the industry. I think this eBook, while slightly dated, outlines some of the core conceptual aspects of distributed systems in a very concise form, that other literature has done so or expanded upon in forms many times larger.",
     "url": "/blog/2019/04/08/distributed-systems-fun-profit-ebook",
-    "date": "2019-04-08",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-08T00:00:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Book",
+      "Cloud Computing",
+      "Distributed Systems",
+      "eBook",
+      "Reading",
+      "Software Engineering",
+      "Technical Literature"
+    ],
     "embedding": [
       0.0052667600102722645,
       -0.04508497193455696,
@@ -2371,12 +2433,27 @@
   },
   {
     "id": "/blog/2019/04/13/pi-world-2019-san-francisco-brief-summary",
-    "title": "pi-world-2019-san-francisco-brief-summary",
+    "title": "Brief Summary of PI World 2019",
     "content": "Note: This is a personal post and has absolutely nothing to do with my employer OSIsoft. Brief Summary of PI World 2019 ${toc} I was at PI World 2019 in San Francisco this week. It was hectic, but also quite interesting seeing the industrial software domain veer towards cloud and edge. Talking to customers, it was quite apparent that there is a decided excitement about OSIsoft's edge and cloud solutions, specifically the Edge Data Store. The slick demo at the keynote using the SLTC data and the ",
     "url": "/blog/2019/04/13/pi-world-2019-san-francisco-brief-summary",
-    "date": "2019-04-13",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-13T00:00:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Behavioral Psychology",
+      "Conference",
+      "Evolutionary Psychology",
+      "IIot",
+      "OSIsoft",
+      "OSIsoft Cloud Services",
+      "OSIsoft Edge Data Store",
+      "PI World",
+      "PI World 2019",
+      "Process Data",
+      "Psychology",
+      "San Francisco"
+    ],
     "embedding": [
       -0.0798998475074768,
       -0.006586532574146986,
@@ -2766,12 +2843,22 @@
   },
   {
     "id": "/blog/2019/04/14/guerrilla-guide-interviewing-v3-joel-spolsky",
-    "title": "guerrilla-guide-interviewing-v3-joel-spolsky",
+    "title": "The Guerrilla Guide to Interviewing (version 3.0) by Joel Spolsky",
     "content": "The Guerrilla Guide to Interviewing (version 3.0)",
     "url": "/blog/2019/04/14/guerrilla-guide-interviewing-v3-joel-spolsky",
-    "date": "2019-04-14",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-14T00:15:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Hiring",
+      "Interviewing",
+      "Joel Spolsky",
+      "Recruiting",
+      "Software Engineer Interview",
+      "Software Engineering",
+      "Technical Interviews"
+    ],
     "embedding": [
       -0.031121088191866875,
       0.028725415468215942,
@@ -3161,12 +3248,22 @@
   },
   {
     "id": "/blog/2019/04/14/interviewing-software-engineers",
-    "title": "interviewing-software-engineers",
+    "title": "Interviewing Software Engineers",
     "content": "Interviewing Software Engineers ${toc} I think there are broadly 3 types of software engineers: 1. The heavy hitter. 2. The situation cracker. 3. The incompetent. Obviously we never want to hire the incompetent and it should be fairly easy to weed them out. So, the goal of interviewing candidates for a software engineering position is to ideally always hire the heavy hitter. But the heavy hitting candidates are few and the competition for them is intense. So there are times, when we may want to ",
     "url": "/blog/2019/04/14/interviewing-software-engineers",
-    "date": "2019-04-14",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-14T13:20:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Hiring",
+      "Interviewing",
+      "Recruiting",
+      "Software Engineer Interview",
+      "Software Engineering",
+      "Technical Interviews"
+    ],
     "embedding": [
       -0.05331538990139961,
       -0.0004938507918268442,
@@ -3556,12 +3653,23 @@
   },
   {
     "id": "/blog/2019/04/15/parallel-distributed-data-management-stanford-cs-course",
-    "title": "parallel-distributed-data-management-stanford-cs-course",
+    "title": "Stanford CS Course on Parallel and Distributed Data Management",
     "content": "Parallel and Distributed Data Management",
     "url": "/blog/2019/04/15/parallel-distributed-data-management-stanford-cs-course",
-    "date": "2019-04-15",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-15T10:45:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Cloud Computing",
+      "Computer Science",
+      "Course",
+      "Data Management",
+      "Distributed Systems",
+      "Learning",
+      "Software Engineering",
+      "Stanford"
+    ],
     "embedding": [
       -0.04529190808534622,
       0.009808351285755634,
@@ -3951,12 +4059,17 @@
   },
   {
     "id": "/blog/2019/04/17/attributes-senior-level-software-engineer",
-    "title": "attributes-senior-level-software-engineer",
+    "title": "Attributes of a Senior Level Software Engineer",
     "content": "Attributes of a Senior Level Software Engineer ${toc} High Technical Competency A senior software engineer is expected to be highly technically competent from both coding and system design perspective. S/he should exhibit proclivity for learning and knowledge sharing targeting inculcation of technical information that goes beyond the day-to-day grind and is geared towards a broader conceptual understanding of domain knowledge. Ability to Take on End-to-End Feature Development S/he should be able",
     "url": "/blog/2019/04/17/attributes-senior-level-software-engineer",
-    "date": "2019-04-17",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-17T11:30:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Software Engineering"
+    ],
     "embedding": [
       0.03303797170519829,
       -0.028670551255345345,
@@ -4346,12 +4459,20 @@
   },
   {
     "id": "/blog/2019/04/28/continuous-integration-git-branching-pull-requests",
-    "title": "continuous-integration-git-branching-pull-requests",
+    "title": "Continuous Integration using Git Branching and Pull Requests",
     "content": "Continuous Integration using Git Branching and Pull Requests ${toc} Source branching model I like to follow the Gitflow branching model \\[ref\\] with slight variations. Main branches There are two main branches (each of infinite timeline): - master - develop The master branch is at the “root” level. Some also refer to this as the integration branch. Typically, nightly builds run off of this branch. We always deploy to production from the master branch and use tags to keep track of such deployment",
     "url": "/blog/2019/04/28/continuous-integration-git-branching-pull-requests",
-    "date": "2019-04-28",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-28T16:15:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Agile Methodology",
+      "Continuous Integration",
+      "Git",
+      "Gitflow",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.02888222225010395,
       -0.09509102255105972,
@@ -4741,12 +4862,20 @@
   },
   {
     "id": "/blog/2019/04/28/development-methodology",
-    "title": "development-methodology",
+    "title": "Development Methodology",
     "content": "Development Methodology ${toc} Software Engineering teams I run follow agile development process, specifically scrum, or a close variation of it. Area Paths I like to have the following area paths (or tags) defined, with adaptations for a team and/or project as needed: - Core - CI-CD - Configuration and Management - Documentation - External Dependencies - Health and Diagnostics - Platform and Infrastructure - Profiling - Security - Software Reliability Work Items There are essentially three type",
     "url": "/blog/2019/04/28/development-methodology",
-    "date": "2019-04-28",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-28T13:15:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Agile Methodology",
+      "Engineering Leadership",
+      "Project Management",
+      "Scrum",
+      "Software Engineering"
+    ],
     "embedding": [
       0.012530758045613766,
       -0.0737261101603508,
@@ -5136,12 +5265,19 @@
   },
   {
     "id": "/blog/2019/04/29/git-vs-team-foundation-version-control",
-    "title": "git-vs-team-foundation-version-control",
+    "title": "Git vs. Team Foundation Version Control",
     "content": "Note: Some years back I had written up reasons for moving to Git. Looking through some of my old notes I ran into the write-up and decided to make a blog post out of it. Git vs. Team Foundation Version Control ${toc} Overview The primary motivation for moving to Git is the far better support for branching and merging. Specifically, the GitFlow branching model (section 3 below) will help manage parallel and distributed development, especially for a distributed team. Git is very widely used and is",
     "url": "/blog/2019/04/29/git-vs-team-foundation-version-control",
-    "date": "2019-04-29",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-29T10:50:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Git",
+      "Gitflow",
+      "Source Control",
+      "Team Foundation Version Control"
+    ],
     "embedding": [
       0.025997215881943703,
       -0.13815300166606903,
@@ -5531,12 +5667,19 @@
   },
   {
     "id": "/blog/2019/04/29/working-with-memory-dumps-windows-windbg",
-    "title": "working-with-memory-dumps-windows-windbg",
+    "title": "Working with Memory Dumps on Windows using WinDbg",
     "content": "Working with Memory Dumps on Windows using WinDbg ${toc} Getting a Memory Dump - Open WinDbg and go to File Attach to a Process. Select the process from the list and hit OK. - At this point the process will hang. In WinDbg hit F5 to let the process continue, try not to take too long as it can cause you to disconnect. - If you see \"BUSY Debuggee is running...\" at the bottom of the command window in WinDbg, the process is running. Whenever you don't see that, or the process hangs, return to WinDbg",
     "url": "/blog/2019/04/29/working-with-memory-dumps-windows-windbg",
-    "date": "2019-04-29",
-    "categories": [],
-    "tags": [],
+    "date": "2019-04-29T10:55:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Debugging",
+      "Memory Dumps",
+      "WinDbg",
+      "Windows"
+    ],
     "embedding": [
       -0.020644819363951683,
       -0.013531375676393509,
@@ -5926,12 +6069,18 @@
   },
   {
     "id": "/blog/2019/05/01/area-champions-software-engineering-teams",
-    "title": "area-champions-software-engineering-teams",
+    "title": "Area Champions in Software Engineering Teams",
     "content": "Area Champions in Software Engineering Teams ${toc} Introduction An important goal in running software engineering teams is ensuring software engineers (or developers) remain interested and engaged in their work. This can be accomplished by assigning work to each developer that they find interesting and challenging. However, a common pitfall many engineering managers fall into is repeatedly assigning developers work from a part of the project that they are quite familiar with. This could be beca",
     "url": "/blog/2019/05/01/area-champions-software-engineering-teams",
-    "date": "2019-05-01",
-    "categories": [],
-    "tags": [],
+    "date": "2019-05-01T12:56:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Project Management",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.028472108766436577,
       -0.04668028652667999,
@@ -6321,12 +6470,19 @@
   },
   {
     "id": "/blog/2019/05/04/measuring-productivity-performance-software-engineering-teams",
-    "title": "measuring-productivity-performance-software-engineering-teams",
+    "title": "Measuring Productivity and Performance of Software Engineering Teams",
     "content": "Measuring Productivity and Performance of Software Engineering Teams ${toc} A key facet of running software engineering teams is being able to measure team productivity and performance over time. This allows for gauging how a team is doing and whether any course correction is needed. It is also a means for measuring effectiveness of the Engineering Manager. The first step for measuring performance is to establish key performance indicators (KPI), or productivity metrics. If the team already uses",
     "url": "/blog/2019/05/04/measuring-productivity-performance-software-engineering-teams",
-    "date": "2019-05-04",
-    "categories": [],
-    "tags": [],
+    "date": "2019-05-04T13:15:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Agile Methodology",
+      "Engineering Leadership",
+      "Project Management",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.0014661445748060942,
       -0.03410119563341141,
@@ -6716,12 +6872,23 @@
   },
   {
     "id": "/blog/2019/05/28/distributed-systems-book-production-ready-microservices",
-    "title": "distributed-systems-book-production-ready-microservices",
+    "title": "Distributed Systems Book - Production-Ready Microservices",
     "content": "I recently read the book, Production-Ready Microservices. This book has some good pointers on what it takes to run \"operations for live services\". It is authored by an ex-Uber employee. Chapters 5 and 6 are specially relevant to Operations. Even if Service Operations is not of particular interest, it still makes for an interesting read from a Distributed Systems perspective, specifically what it takes to build and run a distributed systems service in production.",
     "url": "/blog/2019/05/28/distributed-systems-book-production-ready-microservices",
-    "date": "2019-05-28",
-    "categories": [],
-    "tags": [],
+    "date": "2019-05-28T14:25:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Book",
+      "Cloud Computing",
+      "Distributed Systems",
+      "Microservices",
+      "Reading",
+      "Service Operations",
+      "Software Engineering",
+      "Technical Literature"
+    ],
     "embedding": [
       -0.02580268681049347,
       -0.035112686455249786,
@@ -7111,12 +7278,19 @@
   },
   {
     "id": "/blog/2019/05/28/gitlab-runbooks",
-    "title": "gitlab-runbooks",
+    "title": "GitLab Runbooks",
     "content": "GitLab runbooks",
     "url": "/blog/2019/05/28/gitlab-runbooks",
-    "date": "2019-05-28",
-    "categories": [],
-    "tags": [],
+    "date": "2019-05-28T14:48:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Cloud Computing",
+      "Distributed Systems",
+      "Service Operations",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.05397868901491165,
       0.004544375464320183,
@@ -7901,12 +8075,20 @@
   },
   {
     "id": "/blog/2019/06/26/uber-scaling-real-time-infrastructure",
-    "title": "uber-scaling-real-time-infrastructure",
+    "title": "How Uber Scaled its Real Time Infrastructure to Trillion Events per Day",
     "content": "::: iframe-container-youtube <iframe width=\"900\" height=\"550\" frameborder=0 src=\"https://www.youtube.com/embed/K-fI2BeTLkk\"></iframe:::",
     "url": "/blog/2019/06/26/uber-scaling-real-time-infrastructure",
-    "date": "2019-06-26",
-    "categories": [],
-    "tags": [],
+    "date": "2019-06-26T00:45:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Conference Talk",
+      "DataWorks Summit",
+      "Distributed Systems",
+      "Scaling",
+      "Uber"
+    ],
     "embedding": [
       -0.04012648016214371,
       0.025828761979937553,
@@ -8296,12 +8478,18 @@
   },
   {
     "id": "/blog/2019/07/12/sliding-window-algorithm",
-    "title": "sliding-window-algorithm",
+    "title": "Sliding Window Algorithm",
     "content": "Sliding Window Algorithm ${toc} Basic Algorithm The best way to understand the sliding window algorithm is to work with an example. Say we have an array of integers, [1, 2, 3, 4, 5, 6, 7, 8]. If we have to calculate the sum of a sub-array of 3 elements from the array, as we move from left to right, the sliding window approach wil work as follows: 1. Take elements 1, 2, 3. Sum = 1+2+3 = 6. 2. Take elements 2, 3, 4. Sum = 2+3+4 = 9. 3. Take elements 3, 4, 5. Sum = 3+4+5 = 12. 4. Take elements 4, 5",
     "url": "/blog/2019/07/12/sliding-window-algorithm",
-    "date": "2019-07-12",
-    "categories": [],
-    "tags": [],
+    "date": "2019-07-12T13:45:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Algorithms",
+      "Computer Science",
+      "Sliding Window"
+    ],
     "embedding": [
       -0.048280540853738785,
       -0.0058896648697555065,
@@ -8691,12 +8879,20 @@
   },
   {
     "id": "/blog/2019/07/24/linkedin-migrating-to-microsoft-azure",
-    "title": "linkedin-migrating-to-microsoft-azure",
+    "title": "LinkedIn Migrating to Microsoft Azure",
     "content": "I think most of us in the industry knew this was going to happen at some point, in some scale. LinkedIn truly is a pioneer in the open-source distributed systems space. A number of successful technologies have come out of the LinkedIn stable, specifically their Systems and Infrastructure division, that have been widely adopted. Kafka is obviously the most famous of them all. Followed by others such as Samza, Pinot, Voldemort, etc. Given that most of these technologies have been open-sourced, the",
     "url": "/blog/2019/07/24/linkedin-migrating-to-microsoft-azure",
-    "date": "2019-07-24",
-    "categories": [],
-    "tags": [],
+    "date": "2019-07-24T16:45:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Cloud Computing",
+      "Distributed Systems",
+      "LinkedIn",
+      "Microsoft Azure",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.07956109941005707,
       -0.08490803092718124,
@@ -9086,12 +9282,20 @@
   },
   {
     "id": "/blog/2019/07/24/scaling-infrastructure-engineering-slack-qcon-talk",
-    "title": "scaling-infrastructure-engineering-slack-qcon-talk",
+    "title": "Scaling Infrastructure Engineering at Slack - QCon Talk",
     "content": "QCon talk on scaling infrastructure engineering at Slack.",
     "url": "/blog/2019/07/24/scaling-infrastructure-engineering-slack-qcon-talk",
-    "date": "2019-07-24",
-    "categories": [],
-    "tags": [],
+    "date": "2019-07-24T20:45:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Cloud Computing",
+      "Conference Talk",
+      "Distributed Systems",
+      "QCon",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.07470372319221497,
       -0.04452341049909592,
@@ -9481,12 +9685,16 @@
   },
   {
     "id": "/blog/2019/07/24/you-are-not-google",
-    "title": "you-are-not-google",
+    "title": "You Are Not Google",
     "content": "You Are Not Google Probably the most important text from the article: First, Understand the Problem.",
     "url": "/blog/2019/07/24/you-are-not-google",
-    "date": "2019-07-24",
-    "categories": [],
-    "tags": [],
+    "date": "2019-07-24T15:30:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Software Engineering"
+    ],
     "embedding": [
       -0.03191901743412018,
       0.05256018787622452,
@@ -9876,12 +10084,19 @@
   },
   {
     "id": "/blog/2019/07/27/stress-brain-neuroscience-news",
-    "title": "stress-brain-neuroscience-news",
+    "title": "What stress does to the brain - Neuroscience News",
     "content": "Neuroscience News summary of a recent research publication on the effects of stress on the brain.",
     "url": "/blog/2019/07/27/stress-brain-neuroscience-news",
-    "date": "2019-07-27",
-    "categories": [],
-    "tags": [],
+    "date": "2019-07-27T19:47:00",
+    "categories": [
+      "Science"
+    ],
+    "tags": [
+      "Academic Research",
+      "Brain",
+      "Neuroscience",
+      "Psychology"
+    ],
     "embedding": [
       -0.0009041561861522496,
       -0.009044871665537357,
@@ -10271,12 +10486,18 @@
   },
   {
     "id": "/blog/2019/08/19/katemats-distributed-systems-fault-tolerance-monitoring",
-    "title": "katemats-distributed-systems-fault-tolerance-monitoring",
+    "title": "Distributed Systems Basics – Handling Failure -- Fault Tolerance and Monitoring",
     "content": "Link to blog post by Kate Matsudaira: Distributed Systems Basics – Handling Failure: Fault Tolerance and Monitoring.",
     "url": "/blog/2019/08/19/katemats-distributed-systems-fault-tolerance-monitoring",
-    "date": "2019-08-19",
-    "categories": [],
-    "tags": [],
+    "date": "2019-08-19T16:21:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Distributed Systems",
+      "Fault Tolerance",
+      "Monitoring"
+    ],
     "embedding": [
       0.023944122716784477,
       -0.020686844363808632,
@@ -10666,12 +10887,21 @@
   },
   {
     "id": "/blog/2019/08/29/breadth-first-search-binary-tree-level-order-traversal",
-    "title": "breadth-first-search-binary-tree-level-order-traversal",
+    "title": "Breadth First Search Algorithm for Level Order Traversal of a Binary Tree",
     "content": "Breadth First Search Algorithm for Level Order Traversal of a Binary Tree ${toc} Breadth First Search (BFS) is a traversal/search algorithm for trees and graphs. We will use the example of a binary tree. The level order traversal problem for a binary tree is a good way to understand this algorithm. Algorithm Let us consider the following example: `plantuml digraph example2 {     12 -7 -9;     12 -1 -{ 10, 5 }; } ` For this binary tree we are expected to return a nested array as follows: `plainte",
     "url": "/blog/2019/08/29/breadth-first-search-binary-tree-level-order-traversal",
-    "date": "2019-08-29",
-    "categories": [],
-    "tags": [],
+    "date": "2019-08-29T13:33:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Algorithms",
+      "Binary Tree",
+      "Breadth First Search",
+      "Computer Science",
+      "Data Structures",
+      "Level Order Traversal"
+    ],
     "embedding": [
       -0.0299666840583086,
       0.04736419767141342,
@@ -11061,12 +11291,18 @@
   },
   {
     "id": "/blog/2019/09/04/some-thoughts-on-engineering-internships",
-    "title": "some-thoughts-on-engineering-internships",
+    "title": "Some Thoughts on Engineering Internships",
     "content": "Some Thoughts on Engineering Internships ${toc} Goal The goal for an engineering internship should be that the intern can: 1. accomplish something that s/he can feel proud of. 2. complete work that they can put on their resume and would be a value-addition for their career. 3. obtain industry experience. In my experience, the path that checks off all of these boxes is by having the intern work on end-to-end project(s) that they can take from start to completion. Typically, it is a good idea to s",
     "url": "/blog/2019/09/04/some-thoughts-on-engineering-internships",
-    "date": "2019-09-04",
-    "categories": [],
-    "tags": [],
+    "date": "2019-09-04T10:57:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Internships",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.06779228150844574,
       0.020941345021128654,
@@ -11456,12 +11692,18 @@
   },
   {
     "id": "/blog/2019/09/19/growing-developing-software-engineering-teams",
-    "title": "growing-developing-software-engineering-teams",
+    "title": "Growing and Developing Software Engineering Teams",
     "content": "Growing and Developing Software Engineering Teams ${toc} A big aspect of Engineering Leadership is growing and developing teams. This is a multi-faceted task that involves a multitude of things. This article will discuss my approach as an Engineering Manager. Well Defined Roles and Setting Clear Expectations I think it is very important to have well defined roles within a team and set very clear expectations of these roles with each developer in the team depending on his/her role. So for instanc",
     "url": "/blog/2019/09/19/growing-developing-software-engineering-teams",
-    "date": "2019-09-19",
-    "categories": [],
-    "tags": [],
+    "date": "2019-09-19T22:33:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Growing Teams",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.021438920870423317,
       0.01239907369017601,
@@ -11851,12 +12093,18 @@
   },
   {
     "id": "/blog/2020/01/25/work-rules-laszlo-bock-pointers",
-    "title": "work-rules-laszlo-bock-pointers",
+    "title": "Some Pointers from Work Rules by Laszlo Bock",
     "content": "Some pointers from Work Rules by Laszlo Bock. Work Rules 1. Give your work meaning. 2. Trust your people. 3. Hire only people who are better than you. 4. Don’t confuse development with managing performance. 5. Focus on the two tails. 6. Be frugal and generous. 7. Pay unfairly. 8. Nudge. 9. Manage the rising expectations. 10. Enjoy! And then go back to No. 1 and start again. The 8 Project Oxygen Attributes 1. Be a good coach. 2. Empower the team and do not micromanage. 3. Express interest/concern",
     "url": "/blog/2020/01/25/work-rules-laszlo-bock-pointers",
-    "date": "2020-01-25",
-    "categories": [],
-    "tags": [],
+    "date": "2020-01-25T14:46:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Reading",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.036659181118011475,
       0.03681143373250961,
@@ -12246,12 +12494,17 @@
   },
   {
     "id": "/blog/2021/09/18/side-projects-engineering-teams",
-    "title": "side-projects-engineering-teams",
+    "title": "Side Projects for Engineering Teams",
     "content": "Side Projects for Engineering Teams An important part of engineering leadership, specifically people leadership, is providing opportunities for team members to remain interested and engaged. While it is inevitable that people will leave, it is good to ensure that they will some day look back at the time spent in the team as being interesting and advancing for their career. Among other things, this can include introducing 10-20% project time for developers to work on side-projects^[If I am not mi",
     "url": "/blog/2021/09/18/side-projects-engineering-teams",
-    "date": "2021-09-18",
-    "categories": [],
-    "tags": [],
+    "date": "2021-09-18T17:09:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.02201065979897976,
       0.04944457486271858,
@@ -12641,12 +12894,17 @@
   },
   {
     "id": "/blog/2021/12/25/feature-store-for-ml-kth",
-    "title": "feature-store-for-ml-kth",
+    "title": "Feature Store for ML",
     "content": "Feature Store for ML Feature Store for ML is a knowledge repository, blog and feature store comparison website maintained by the distributed computing research group from the school of Electrical Engineering and Computer Science (EECS) at the KTH Royal Institute of Technology in Stockholm.",
     "url": "/blog/2021/12/25/feature-store-for-ml-kth",
-    "date": "2021-12-25",
-    "categories": [],
-    "tags": [],
+    "date": "2021-12-25T19:27:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Machine Learning",
+      "Reading"
+    ],
     "embedding": [
       -0.025358395650982857,
       -0.035960447043180466,
@@ -13036,12 +13294,17 @@
   },
   {
     "id": "/blog/2021/12/30/5-things-high-performing-teams",
-    "title": "5-things-high-performing-teams",
+    "title": "HBR: 5 Things High-Performing Teams Do Differently",
     "content": "HBR: 5 Things High-Performing Teams Do Differently Rob Friedman, PhD, an award-winning psychologist and the founder of ignite80 discusses 5 Things High-Performing Teams Do Differently over at Harvard Business Review.",
     "url": "/blog/2021/12/30/5-things-high-performing-teams",
-    "date": "2021-12-30",
-    "categories": [],
-    "tags": [],
+    "date": "2021-12-30T18:56:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Harvard Business Review"
+    ],
     "embedding": [
       0.03694911301136017,
       0.011466313153505325,
@@ -13431,12 +13694,16 @@
   },
   {
     "id": "/blog/2021/12/30/making-friends-machine-learning-cassie-kozyrkov",
-    "title": "making-friends-machine-learning-cassie-kozyrkov",
+    "title": "Making Friends with Machine Learning by Cassie Kozyrkov",
     "content": "Making Friends with Machine Learning by Cassie Kozyrkov Making Friends with Machine Learning was an internal-only Google course which has since been made publicly available. Summary on course here. YouTube playlist here.",
     "url": "/blog/2021/12/30/making-friends-machine-learning-cassie-kozyrkov",
-    "date": "2021-12-30",
-    "categories": [],
-    "tags": [],
+    "date": "2021-12-30T19:47:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Machine Learning"
+    ],
     "embedding": [
       -0.10998418927192688,
       -0.10619963705539703,
@@ -13826,12 +14093,16 @@
   },
   {
     "id": "/blog/2022/01/02/case-for-multi-task-meta-learning-in-production",
-    "title": "case-for-multi-task-meta-learning-in-production",
+    "title": "A Case for Multi-Task and Meta Learning in Production",
     "content": "A Case for Multi-Task and Meta Learning in Production A Case for Multi-Task and Meta Learning in Production",
     "url": "/blog/2022/01/02/case-for-multi-task-meta-learning-in-production",
-    "date": "2022-01-02",
-    "categories": [],
-    "tags": [],
+    "date": "2022-01-02T17:53:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Machine Learning"
+    ],
     "embedding": [
       0.046442970633506775,
       -0.01222617644816637,
@@ -14221,12 +14492,22 @@
   },
   {
     "id": "/blog/2022/01/02/interviewing-engineering-managers",
-    "title": "interviewing-engineering-managers",
+    "title": "Interviewing Engineering Managers",
     "content": "Interviewing Engineering Managers ${toc} Overview This post describes a framework for interviewing engineering managers through multiple rounds. This framework is based on: - my own experiences both as an individual contributor and later on in engineering management / leadership, - observations in the industry, - discussions with friends and colleagues, and - interviewing many engineering manager candidates. At this time, I have broken down the interview into 3 rounds, but I think there is scope",
     "url": "/blog/2022/01/02/interviewing-engineering-managers",
-    "date": "2022-01-02",
-    "categories": [],
-    "tags": [],
+    "date": "2022-01-02T17:09:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Engineering Manager Interview",
+      "Hiring",
+      "Interviewing",
+      "Recruiting",
+      "Software Engineering",
+      "Technical Interviews"
+    ],
     "embedding": [
       -0.042608842253685,
       0.002822557697072625,
@@ -14616,12 +14897,18 @@
   },
   {
     "id": "/blog/2022/01/02/pathways-next-generation-ai-architecture",
-    "title": "pathways-next-generation-ai-architecture",
+    "title": "Introducing Pathways: A next-generation AI architecture",
     "content": "Introducing Pathways: A next-generation AI architecture Introducing Pathways: A next-generation AI architecture",
     "url": "/blog/2022/01/02/pathways-next-generation-ai-architecture",
-    "date": "2022-01-02",
-    "categories": [],
-    "tags": [],
+    "date": "2022-01-02T18:44:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Google",
+      "Machine Learning"
+    ],
     "embedding": [
       -0.012679178267717361,
       -0.11961182206869125,
@@ -15011,12 +15298,21 @@
   },
   {
     "id": "/blog/2022/01/14/auto-diagnosis-remediation-netflix-data-platform",
-    "title": "auto-diagnosis-remediation-netflix-data-platform",
+    "title": "Auto-Diagnosis and Remediation in Netflix Data Platform",
     "content": "Auto-Diagnosis and Remediation in Netflix Data Platform",
     "url": "/blog/2022/01/14/auto-diagnosis-remediation-netflix-data-platform",
-    "date": "2022-01-14",
-    "categories": [],
-    "tags": [],
+    "date": "2022-01-14T19:13:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Cloud Computing",
+      "Data Platform",
+      "Distributed Systems",
+      "Netflix",
+      "Netflix Techblog",
+      "Observability"
+    ],
     "embedding": [
       0.01934625580906868,
       -0.16370755434036255,
@@ -15406,12 +15702,19 @@
   },
   {
     "id": "/blog/2022/01/21/capacity-recommendation-engine-predictive-scaling-uber",
-    "title": "capacity-recommendation-engine-predictive-scaling-uber",
+    "title": "Uber Engineering on Capacity Recommendation Engine and Predictive Scaling",
     "content": "Capacity Recommendation Engine: Throughput and Utilization Based Predictive Scaling",
     "url": "/blog/2022/01/21/capacity-recommendation-engine-predictive-scaling-uber",
-    "date": "2022-01-21",
-    "categories": [],
-    "tags": [],
+    "date": "2022-01-21T19:53:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Distributed Systems",
+      "Machine Learning",
+      "Scalability",
+      "Uber Engineering"
+    ],
     "embedding": [
       -0.022476915270090103,
       -0.0997404083609581,
@@ -15801,12 +16104,24 @@
   },
   {
     "id": "/blog/2022/01/21/spark-ray-enterprise-open-source-ion-stoica",
-    "title": "spark-ray-enterprise-open-source-ion-stoica",
+    "title": "Spark, Ray and Enterprise Open Source discussion with Ion Stoica",
     "content": "::: iframe-container-youtube <iframe width=\"900\" height=\"550\" frameborder=0 src=\"https://www.youtube.com/embed/-MVLURFH5nk\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen\"></iframe::: --- - Transcript - Gradient Dissent Podcast - Weights & Biases",
     "url": "/blog/2022/01/21/spark-ray-enterprise-open-source-ion-stoica",
-    "date": "2022-01-21",
-    "categories": [],
-    "tags": [],
+    "date": "2022-01-21T20:43:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Distributed Computing",
+      "Distributed Systems",
+      "Gradient Dissent",
+      "Ion Stoica",
+      "Machine Learning",
+      "Podcast",
+      "Ray",
+      "Spark",
+      "Weights & Biases"
+    ],
     "embedding": [
       -0.06825399398803711,
       -0.007077707909047604,
@@ -16196,12 +16511,19 @@
   },
   {
     "id": "/blog/2022/01/21/the-feature-store-jim-dowling-pydata-talk",
-    "title": "the-feature-store-jim-dowling-pydata-talk",
+    "title": "Feature Store talk by Jim Dowling at PyData Meetup",
     "content": "::: iframe-container-youtube <iframe width=\"900\" height=\"550\" frameborder=0 src=\"https://www.youtube.com/embed/EI2QisCvEM4\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture fullscreen\"></iframe:::",
     "url": "/blog/2022/01/21/the-feature-store-jim-dowling-pydata-talk",
-    "date": "2022-01-21",
-    "categories": [],
-    "tags": [],
+    "date": "2022-01-21T20:04:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Feature Store",
+      "Machine Learning",
+      "PyData",
+      "Talk"
+    ],
     "embedding": [
       -0.03840956836938858,
       0.04335208609700203,
@@ -16591,12 +16913,17 @@
   },
   {
     "id": "/blog/2022/01/22/feature-store-101-jordan-volz",
-    "title": "feature-store-101-jordan-volz",
+    "title": "Feature Store 101 by Jordan Volz",
     "content": "Feature Store 101",
     "url": "/blog/2022/01/22/feature-store-101-jordan-volz",
-    "date": "2022-01-22",
-    "categories": [],
-    "tags": [],
+    "date": "2022-01-22T11:30:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Feature Store",
+      "Machine Learning"
+    ],
     "embedding": [
       -0.03051646798849106,
       -0.0007486507529392838,
@@ -16986,12 +17313,25 @@
   },
   {
     "id": "/blog/2022/01/24/distributed-computing-conversation-robert-nishihara-anyscale",
-    "title": "distributed-computing-conversation-robert-nishihara-anyscale",
+    "title": "Distributed Computing Conversation with Robert Nishihara from Anyscale",
     "content": "::: iframe-container-youtube <iframe width=\"900\" height=\"550\" frameborder=0 src=\"https://www.youtube.com/embed/zRaWCFJcagI?si=nDNwD02UFggVT7gF\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen\"></iframe:::",
     "url": "/blog/2022/01/24/distributed-computing-conversation-robert-nishihara-anyscale",
-    "date": "2022-01-24",
-    "categories": [],
-    "tags": [],
+    "date": "2022-01-24T19:52:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Anyscale",
+      "Distributed Computing",
+      "Distributed Systems",
+      "Gradient Dissent",
+      "Machine Learning",
+      "Podcast",
+      "Ray",
+      "Robert Nishihara",
+      "Spark",
+      "Weights & Biases"
+    ],
     "embedding": [
       -0.05553548038005829,
       0.029441339895129204,
@@ -17381,12 +17721,16 @@
   },
   {
     "id": "/blog/2022/02/11/good-error-message-gunnar-morling",
-    "title": "good-error-message-gunnar-morling",
+    "title": "What's in a Good Error Message? by Gunnar Morling",
     "content": "What's in a Good Error Message? by Gunnar Morling",
     "url": "/blog/2022/02/11/good-error-message-gunnar-morling",
-    "date": "2022-02-11",
-    "categories": [],
-    "tags": [],
+    "date": "2022-02-11T19:24:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Software Engineering"
+    ],
     "embedding": [
       -0.03955969586968422,
       0.056927550584077835,
@@ -17776,12 +18120,17 @@
   },
   {
     "id": "/blog/2022/03/22/building-ml-pipelines-dag",
-    "title": "building-ml-pipelines-dag",
+    "title": "Building ML Pipelines and What is DAG by John Aven",
     "content": "Building ML Pipelines - What is a DAG?",
     "url": "/blog/2022/03/22/building-ml-pipelines-dag",
-    "date": "2022-03-22",
-    "categories": [],
-    "tags": [],
+    "date": "2022-03-21T20:50:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Machine Learning",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.1328417956829071,
       -0.03676430508494377,
@@ -18171,12 +18520,18 @@
   },
   {
     "id": "/blog/2022/03/22/deepeta-uber-predicts-arrival-times-deep-learning",
-    "title": "deepeta-uber-predicts-arrival-times-deep-learning",
+    "title": "DeepETA: How Uber Predicts Arrival Times Using Deep Learning",
     "content": "DeepETA: How Uber Predicts Arrival Times Using Deep Learning",
     "url": "/blog/2022/03/22/deepeta-uber-predicts-arrival-times-deep-learning",
-    "date": "2022-03-22",
-    "categories": [],
-    "tags": [],
+    "date": "2022-03-21T20:13:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Deep Learning",
+      "Machine Learning",
+      "Uber Engineering"
+    ],
     "embedding": [
       -0.051197003573179245,
       -0.08058732748031616,
@@ -18566,12 +18921,20 @@
   },
   {
     "id": "/blog/2022/08/18/adapted-scrum-process-engineering-teams",
-    "title": "adapted-scrum-process-engineering-teams",
+    "title": "Adapted Scrum Process for Engineering Teams",
     "content": "Adapted Scrum Process for Engineering Teams ${toc} In the past we have discussed a development methodology for software engineering teams. This post will discuss an evolution of that methodology that has now been successfully utilized by multiple teams. Background Most scrum teams do a fair job as far as estimation, story points, assignment, planning, standups, etc. are concerned. However, there can be potential for refining the methodology, specifically as it pertains to prioritization, cross-f",
     "url": "/blog/2022/08/18/adapted-scrum-process-engineering-teams",
-    "date": "2022-08-18",
-    "categories": [],
-    "tags": [],
+    "date": "2022-08-18T12:08:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Agile Methodology",
+      "Engineering Leadership",
+      "Project Management",
+      "Scrum",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.028795968741178513,
       -0.03138910233974457,
@@ -18961,12 +19324,19 @@
   },
   {
     "id": "/blog/2023/03/18/software-engineering-architecture-decision-records",
-    "title": "software-engineering-architecture-decision-records",
+    "title": "Software Engineering Architecture Decision Records (ADR)",
     "content": "Software Engineering Architecture Decision Records (ADR) ${toc} Overview Architecture Decision Record (ADR) is a point-in-time log entry of a design and/or architectural decision. This is usually the result of a pointed decision / discussion rather than a played-out design review process. ADR should also typically only address a specific problem / concern and it should be concise and lightweight as compared to a design document. There is a certain inter-play between ADR, RFC (Request for Comment",
     "url": "/blog/2023/03/18/software-engineering-architecture-decision-records",
-    "date": "2023-03-18",
-    "categories": [],
-    "tags": [],
+    "date": "2023-03-18T13:44:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Architecture Decision Record (ADR)",
+      "Engineering Leadership",
+      "Software Engineering",
+      "Technical Documentation"
+    ],
     "embedding": [
       -0.09044119715690613,
       0.026989132165908813,
@@ -19356,12 +19726,19 @@
   },
   {
     "id": "/blog/2023/03/18/software-engineering-design documents",
-    "title": "software-engineering-design documents",
+    "title": "Software Engineering Design Documents",
     "content": "Software Engineering Design Documents ${toc} Overview A software design document is an extremely important part of the software development effort. While not every development work item / stream necessarily entails a design document, engineering leaders should foster a culture where software engineers organically are able to make a judgement call on when to write a design document. A design document allows for ideas to be fleshed out in a more formal and a transparent manner. It allows for stake",
     "url": "/blog/2023/03/18/software-engineering-design documents",
-    "date": "2023-03-18",
-    "categories": [],
-    "tags": [],
+    "date": "2023-03-18T14:47:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Design Documents",
+      "Engineering Leadership",
+      "Software Engineering",
+      "Technical Documentation"
+    ],
     "embedding": [
       -0.08670102059841156,
       0.05321694165468216,
@@ -19751,12 +20128,22 @@
   },
   {
     "id": "/blog/2023/03/19/c3-ai-datasets-tech-talk",
-    "title": "c3-ai-datasets-tech-talk",
+    "title": "C3 AI Datasets - Tech Talk",
     "content": "C3 AI Datasets - Tech Talk and Blog ::: iframe-container-youtube <iframe width=\"900\" height=\"550\" frameborder=0 src=\"https://www.youtube.com/embed/xTSUrnj9rx8?si=aP8q78ldwmgucM8b\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen\"></iframe:::",
     "url": "/blog/2023/03/19/c3-ai-datasets-tech-talk",
-    "date": "2023-03-19",
-    "categories": [],
-    "tags": [],
+    "date": "2023-03-19T09:22:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "C3 AI",
+      "C3 AI Datasets",
+      "Data Exploration",
+      "Machine Learning",
+      "Professional Speaking Engagements",
+      "Tech Talk"
+    ],
     "embedding": [
       -0.08322400599718094,
       -0.0660754144191742,
@@ -20146,12 +20533,18 @@
   },
   {
     "id": "/blog/2023/08/24/vector-database-reading-research-material",
-    "title": "vector-database-reading-research-material",
+    "title": "Vector Database Reading and Research Material",
     "content": "Vector Database Reading and Research Material Collection of some reading and research material on vector databases. - Milvus   - Conduct a Hybrid Search - Pinecone - FAISS - Chroma - Weaviate - pgvector - Not All Vector Databases Are Made Equal - Same author as above article, in interview with Pinecone: How to Choose a Vector Database",
     "url": "/blog/2023/08/24/vector-database-reading-research-material",
-    "date": "2023-08-24",
-    "categories": [],
-    "tags": [],
+    "date": "2023-08-24T14:37:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Database",
+      "Software Engineering",
+      "Vector Database"
+    ],
     "embedding": [
       0.033606305718421936,
       -0.08372824639081955,
@@ -20541,12 +20934,17 @@
   },
   {
     "id": "/blog/2023/08/29/engineering-support-duty-rotation",
-    "title": "engineering-support-duty-rotation",
+    "title": "Engineering Support Duty Rotation",
     "content": "Engineering Support Duty Rotation It is common for engineers to have to support products they have built. Sometimes this takes the form of being on-call, sometimes there are other layers that interface directly with customers before engineering is called in to help. Regardless, it is important to establish some structure around this support responsibility with well-defined expectations, so that it is fair to all team members. In my org I enable this with a support duty rotation. A dedicated engi",
     "url": "/blog/2023/08/29/engineering-support-duty-rotation",
-    "date": "2023-08-29",
-    "categories": [],
-    "tags": [],
+    "date": "2023-08-29T12:19:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.06950177997350693,
       -0.02688114158809185,
@@ -20936,12 +21334,20 @@
   },
   {
     "id": "/blog/2023/09/15/scrum-master-responsibilities",
-    "title": "scrum-master-responsibilities",
+    "title": "Scrum Master Responsibilities",
     "content": "Scrum Master Responsibilities ${toc} Overview Scrum masters play a key role in ensuring smooth running of a scrum team and timely delivery of commitments. In my organization I have mentored, coached and appointed scrum masters for each engineering team. However, for the scrum masters to be successful and thus enable success of their respective teams it is important to set expectations and clearly outline responsibilities. This post outlines these responsibilities and expectations. Sprint Plannin",
     "url": "/blog/2023/09/15/scrum-master-responsibilities",
-    "date": "2023-09-15",
-    "categories": [],
-    "tags": [],
+    "date": "2023-09-15T12:22:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Agile Methodology",
+      "Engineering Leadership",
+      "Project Management",
+      "Scrum",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.006007184740155935,
       0.030246121808886528,
@@ -21331,12 +21737,19 @@
   },
   {
     "id": "/blog/2023/11/23/leadership-loyalty-openai-employee-revolt-sam-altman-ouster",
-    "title": "leadership-loyalty-openai-employee-revolt-sam-altman-ouster",
+    "title": "Leadership, Loyalty and OpenAI Employee Revolt after Sam Altman Ouster",
     "content": "Leadership, Loyalty and OpenAI Employee Revolt after Sam Altman Ouster Sam Altman is now back as OpenAI CEO. It would be fair to say that one of the key developments that led to his return was a letter signed by more than 700 out of 750 OpenAI employees signaling their intent to leave OpenAI if their ousted CEO Sam Altman was not brought back. It is remarkable that that over 90% of a company has backed their ex-CEO potentially at risk of their employment. Even if we assume that only 50% of those",
     "url": "/blog/2023/11/23/leadership-loyalty-openai-employee-revolt-sam-altman-ouster",
-    "date": "2023-11-23",
-    "categories": [],
-    "tags": [],
+    "date": "2023-11-23T19:08:00",
+    "categories": [
+      "Musings"
+    ],
+    "tags": [
+      "Leadership",
+      "Loyalty",
+      "OpenAI",
+      "Sam Altman"
+    ],
     "embedding": [
       -0.00007849740359233692,
       -0.08256594091653824,
@@ -21726,12 +22139,19 @@
   },
   {
     "id": "/blog/2023/12/26/productivity-performance-software-engineering-teams-part-2",
-    "title": "productivity-performance-software-engineering-teams-part-2",
+    "title": "Measuring Productivity and Performance of Software Engineering Teams - Part 2",
     "content": "Measuring Productivity and Performance of Software Engineering Teams - Part 2 ${toc} Overview In a previous post we discussed one methodology for measuring productivity and performance of software engineering teams. This post expands on it by outlining a thorough framework with (weighted) metrics from multiple different sources that software engineers use on a daily basis, to present a much more holistic picture. Motivation The efficiency and effectiveness of individual engineers and of engineer",
     "url": "/blog/2023/12/26/productivity-performance-software-engineering-teams-part-2",
-    "date": "2023-12-26",
-    "categories": [],
-    "tags": [],
+    "date": "2023-12-26T14:46:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Agile Methodology",
+      "Engineering Leadership",
+      "Project Management",
+      "Software Engineering"
+    ],
     "embedding": [
       -0.0032260925509035587,
       -0.032682616263628006,
@@ -22121,12 +22541,17 @@
   },
   {
     "id": "/blog/2024/02/02/feature-store-definitive-guide-hopsworks",
-    "title": "feature-store-definitive-guide-hopsworks",
+    "title": "The Definitive Guide on Feature Store from Hopsworks",
     "content": "The Definitive Guide on Feature Store from Hopsworks Feature Store: The Definitive Guide",
     "url": "/blog/2024/02/02/feature-store-definitive-guide-hopsworks",
-    "date": "2024-02-02",
-    "categories": [],
-    "tags": [],
+    "date": "2024-02-02T19:48:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Feature Store",
+      "Machine Learning"
+    ],
     "embedding": [
       -0.042853616178035736,
       -0.03154933080077171,
@@ -22516,12 +22941,16 @@
   },
   {
     "id": "/blog/2024/02/02/on-layoffs",
-    "title": "on-layoffs",
+    "title": "On Layoffs",
     "content": "On Layoffs The pendulum has well and truly swung over this past year from a red-hot employees’ market to an employers’ market. The great resignation has now become the unending layoffs. What started as mass layoffs around a year ago in the big tech companies has since morphed into a slow burn of smaller unending layoff cycles in companies big and small. A lot of the layoffs in large companies are driven by the need to appease institutional investors and squeeze increasingly higher shareholder va",
     "url": "/blog/2024/02/02/on-layoffs",
-    "date": "2024-02-02",
-    "categories": [],
-    "tags": [],
+    "date": "2024-02-02T19:40:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Layoffs"
+    ],
     "embedding": [
       0.053794313222169876,
       -0.026428626850247383,
@@ -22911,12 +23340,19 @@
   },
   {
     "id": "/blog/2024/02/03/understanding-deep-learning-book-simon-prince",
-    "title": "understanding-deep-learning-book-simon-prince",
+    "title": "Understanding Deep Learning Book by Simon Prince",
     "content": "Understanding Deep Learning Book by Simon Prince Understanding Deep Learning",
     "url": "/blog/2024/02/03/understanding-deep-learning-book-simon-prince",
-    "date": "2024-02-03",
-    "categories": [],
-    "tags": [],
+    "date": "2024-02-03T10:50:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Book",
+      "Deep Learning",
+      "Machine Learning",
+      "Simon Prince"
+    ],
     "embedding": [
       -0.0485149547457695,
       -0.03219350427389145,
@@ -23306,12 +23742,17 @@
   },
   {
     "id": "/blog/2024/03/17/shift-models-compound-ai-systems-bair-lab",
-    "title": "shift-models-compound-ai-systems-bair-lab",
+    "title": "The Shift from Models to Compound AI Systems - Berkeley AI Research Lab",
     "content": "The Shift from Models to Compound AI Systems - Berkeley AI Research Lab The Shift from Models to Compound AI Systems",
     "url": "/blog/2024/03/17/shift-models-compound-ai-systems-bair-lab",
-    "date": "2024-03-17",
-    "categories": [],
-    "tags": [],
+    "date": "2024-03-17T21:15:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Berkeley AI Research Lab"
+    ],
     "embedding": [
       0.0015176781453192234,
       -0.11617793887853622,
@@ -23701,12 +24142,17 @@
   },
   {
     "id": "/blog/2024/03/30/evolutionary-model-merge-sakana-ai",
-    "title": "evolutionary-model-merge-sakana-ai",
+    "title": "Evolutionary Model Merge - Sakana AI",
     "content": "Evolutionary Model Merge - Sakana AI Evolving New Foundation Models: Unleashing the Power of Automating Model Development",
     "url": "/blog/2024/03/30/evolutionary-model-merge-sakana-ai",
-    "date": "2024-03-30",
-    "categories": [],
-    "tags": [],
+    "date": "2024-03-30T13:37:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Machine Learning"
+    ],
     "embedding": [
       -0.026827841997146606,
       -0.08663038909435272,
@@ -24096,12 +24542,17 @@
   },
   {
     "id": "/blog/2024/03/30/generative-ai-enterprise-2024-a16z",
-    "title": "generative-ai-enterprise-2024-a16z",
+    "title": "Andreessen Horowitz on Enterprise Generative AI in 2024",
     "content": "Andreessen Horowitz on Enterprise Generative AI in 2024 16 Changes to the Way Enterprises Are Building and Buying Generative AI",
     "url": "/blog/2024/03/30/generative-ai-enterprise-2024-a16z",
-    "date": "2024-03-30",
-    "categories": [],
-    "tags": [],
+    "date": "2024-03-30T13:41:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Generative AI"
+    ],
     "embedding": [
       -0.03399822488427162,
       -0.008921153843402863,
@@ -24491,12 +24942,19 @@
   },
   {
     "id": "/blog/2024/04/13/breaking-into-ai-ml",
-    "title": "breaking-into-ai-ml",
+    "title": "Breaking into AI/ML",
     "content": "Breaking into AI/ML I often get asked how to break into AI/ML. This question comes from industry professionals as well as students and/or new graduates. Here is a rough guide that includes building a foundation and also getting some practical experience: 1. Do Machine Learning specialization in Coursera. [Mandatory] 2. Do Generative AI with Large Language Models course from Coursera. [Mandatory] 3. Do some of these short courses at DeepLearning.ai. After 1. and 2. above, you will know which ones",
     "url": "/blog/2024/04/13/breaking-into-ai-ml",
-    "date": "2024-04-13",
-    "categories": [],
-    "tags": [],
+    "date": "2024-04-13T14:14:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Breaking Into Series",
+      "Career Progression",
+      "Machine Learning"
+    ],
     "embedding": [
       0.019762014970183372,
       -0.11542601138353348,
@@ -24886,12 +25344,17 @@
   },
   {
     "id": "/blog/2024/04/18/ai-and-general-technical-newsletters",
-    "title": "ai-and-general-technical-newsletters",
+    "title": "AI and General Technical Newsletters",
     "content": "AI and General Technical Newsletters A list of some technical newsletters that I find interesting: AI and Data - The Batch from Andrew Ng's deeplearning.ai. [recommended] - Import AI from Jack Clark. - The Gradient [recommended] - Data Elixir - AI Titbits [recommended] - AI News [recommended] - The Ground Truth - Marktechpost AI Newsletter [recommended] - The Rundown AI [recommended] - AI digest from GoatStack AI [recommended] - The Variable - Unsupervised Learning [recommended] - Cerebral Valle",
     "url": "/blog/2024/04/18/ai-and-general-technical-newsletters",
-    "date": "2024-04-18",
-    "categories": [],
-    "tags": [],
+    "date": "2024-04-18T22:04:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Newsletters"
+    ],
     "embedding": [
       -0.06984037160873413,
       -0.10276225209236145,
@@ -25281,12 +25744,17 @@
   },
   {
     "id": "/blog/2024/04/30/framework-promotion-to-staff-lead-engineer",
-    "title": "framework-promotion-to-staff-lead-engineer",
+    "title": "A Framework for Promotion to Staff or Lead Engineer",
     "content": "An Framework for Promotion to Staff or Lead Engineer ${toc} Overview A Staff or Lead Software Engineer is a very senior role in the engineering organization. It is a role that requires a deep understanding of the technology stack, the ability to mentor and lead other engineers, and the ability to work with other teams to deliver complex projects. The role also requires a high level of technical expertise and the ability to solve complex technical problems. It is incumbent on engineering leadersh",
     "url": "/blog/2024/04/30/framework-promotion-to-staff-lead-engineer",
-    "date": "2024-04-30",
-    "categories": [],
-    "tags": [],
+    "date": "2024-04-30T13:42:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Promotions"
+    ],
     "embedding": [
       -0.0804467424750328,
       -0.05691375210881233,
@@ -25676,12 +26144,18 @@
   },
   {
     "id": "/blog/2024/05/12/breaking-into-data-engineering",
-    "title": "breaking-into-data-engineering",
+    "title": "Breaking into Data Engineering",
     "content": "Breaking into Data Engineering I get asked by individuals on some mentoring forums about how to break into data engineering. This post is a collection of resources and ideas that I have proffered to answer this question. 1. Courses    1. Big Data Specialization in Coursera offered by UC San Diego. [mandatory]    2. ETL and Data Pipelines with Shell, Airflow and Kafka course in Coursera. [mandatory]    3. Advanced Data Engineering course in Coursera. [mandatory]    4. IBM Data Engineering Profess",
     "url": "/blog/2024/05/12/breaking-into-data-engineering",
-    "date": "2024-05-12",
-    "categories": [],
-    "tags": [],
+    "date": "2024-05-12T20:06:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Breaking Into Series",
+      "Career Progression",
+      "Data Engineering"
+    ],
     "embedding": [
       0.01012466661632061,
       -0.02951747551560402,
@@ -26071,12 +26545,17 @@
   },
   {
     "id": "/blog/2024/05/13/framework-promption-to-senior-engineering-manager",
-    "title": "framework-promption-to-senior-engineering-manager",
+    "title": "A Framework for Promotion to Senior Engineering Manager",
     "content": "An Framework for Promotion to Senior Engineering Manager ${toc} Overview In the past on this blog, I have written about a framework for promotion to Staff Software Engineer. Similar to a staff engineer position, a Senior Engineering Manager, as the name suggests, is a very senior role in the engineering organization. It is, in many organizations, at the same level on the management track that a staff role is on the individual contributor track. A senior engineering manager needs to have scope ac",
     "url": "/blog/2024/05/13/framework-promption-to-senior-engineering-manager",
-    "date": "2024-05-13",
-    "categories": [],
-    "tags": [],
+    "date": "2024-05-13T23:04:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Engineering Leadership",
+      "Promotions"
+    ],
     "embedding": [
       -0.06854280829429626,
       -0.03394397348165512,
@@ -26466,12 +26945,20 @@
   },
   {
     "id": "/blog/2024/05/27/panel-discussion-cto-con-2024",
-    "title": "panel-discussion-cto-con-2024",
+    "title": "Panel Discussion at CTO CON 2024",
     "content": "Panel Discussion at CTO CON 2024 I was part of a panel discussion on Building a Culture of Innovation: Leadership Strategies for the Digital Age at CTO CON 2024. ::: iframe-container-youtube <iframe width=\"900\" height=\"550\" frameborder=0 src=\"https://www.youtube.com/embed/HPz8WcOd1Hk?si=LPsuagqwI5g2Dx_R\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe:",
     "url": "/blog/2024/05/27/panel-discussion-cto-con-2024",
-    "date": "2024-05-27",
-    "categories": [],
-    "tags": [],
+    "date": "2024-05-27T17:19:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "CTO CON",
+      "CTO CON 2024",
+      "Panel Discussion",
+      "Professional Speaking Engagements",
+      "Remotebase"
+    ],
     "embedding": [
       -0.040466926991939545,
       0.005648026242852211,
@@ -26861,12 +27348,19 @@
   },
   {
     "id": "/blog/2024/05/27/some-ai-papers-I read-recently-27-may-2024",
-    "title": "some-ai-papers-I read-recently-27-may-2024",
+    "title": "Some AI Papers I Read Recently [27 May 2024]",
     "content": "Some AI Papers I Read Recently [27 May 2024] - Retrieval-Augmented Generation for Large Language Models: A Survey - A Survey on Evaluation of Large Language Models - Does Fine-Tuning LLMs on New Knowledge Encourage Hallucinations? - Lessons from the Trenches on Reproducible Evaluation of Language Models",
     "url": "/blog/2024/05/27/some-ai-papers-I read-recently-27-may-2024",
-    "date": "2024-05-27",
-    "categories": [],
-    "tags": [],
+    "date": "2024-05-27T18:38:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Papers I Read Recently Series",
+      "Reading"
+    ],
     "embedding": [
       -0.0666181892156601,
       -0.05830281227827072,
@@ -27256,12 +27750,21 @@
   },
   {
     "id": "/blog/2024/06/02/reading-material-retrieval-augmented-generation",
-    "title": "reading-material-retrieval-augmented-generation",
+    "title": "Some Reading Material on Retrieval-Augmented Generation",
     "content": "Some Reading Material on Retrieval-Augmented Generation - Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks [paper] - Retrieval-Augmented Generation for Large Language Models: A Survey [paper] - An Overview on RAG Evaluation [blog post] - ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems [paper] - Introducing RAG & Agent Analytics [blog post] - Mastering RAG: Improve RAG Performance With 4 Powerful RAG Metrics [blog post]",
     "url": "/blog/2024/06/02/reading-material-retrieval-augmented-generation",
-    "date": "2024-06-02",
-    "categories": [],
-    "tags": [],
+    "date": "2024-06-02T21:23:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Large language Model",
+      "Machine Learning",
+      "Papers I Read Recently Series",
+      "Reading",
+      "Retrieval-Augmented Generation"
+    ],
     "embedding": [
       -0.07760599255561829,
       0.005685462616384029,
@@ -27651,12 +28154,18 @@
   },
   {
     "id": "/blog/2024/06/22/graduation-speech-ai-2024-commencement-anu-uf",
-    "title": "graduation-speech-ai-2024-commencement-anu-uf",
+    "title": "Graduation Speech on AI at 2024 Commencement Ceremony of the American National University and University of Fairfax",
     "content": "Graduation Speech on AI at 2024 Commencement Ceremony of the American National University and University of Fairfax I was honored to deliver the graduation speech on Artificial Intelligence at the 2024 commencement ceremony of the American National University and University of Fairfax. I spoke about how AI is transforming the world and how the graduates can contribute to this transformation. I also shared my journey and the lessons I learnt along the way. It was a truly inspiring experience, and",
     "url": "/blog/2024/06/22/graduation-speech-ai-2024-commencement-anu-uf",
-    "date": "2024-06-22",
-    "categories": [],
-    "tags": [],
+    "date": "2024-06-22T23:22:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Graduation Speech",
+      "Professional Speaking Engagements"
+    ],
     "embedding": [
       -0.03631381690502167,
       0.07672342658042908,
@@ -28046,12 +28555,23 @@
   },
   {
     "id": "/blog/2024/07/20/recent-ai-reading-20-july-2024",
-    "title": "recent-ai-reading-20-july-2024",
+    "title": "Recent AI Reading [20 July 2024]",
     "content": "Recent AI Reading [20 July 2024] Papers - LLM-Eval: Unified Multi-Dimensional Automatic Evaluation for Open-Domain Conversations with Large Language Models - GenAI Arena: An Open Evaluation Platform for Generative Models | GenAI-Arena - Matching Anything by Segmenting Anything - Self-Tuning: Instructing LLMs to Effectively Acquire New Knowledge through Self-Teaching - Nemotron-4 340B Technical Report - Nvidia - Creativity Has Left the Chat: The Price of Debiasing Language Models - Rich Human Fee",
     "url": "/blog/2024/07/20/recent-ai-reading-20-july-2024",
-    "date": "2024-07-20",
-    "categories": [],
-    "tags": [],
+    "date": "2024-07-20T17:03:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Generative AI",
+      "Large Language Models",
+      "Machine Learning",
+      "Model Evaluation",
+      "Model Training",
+      "Papers I Read Recently Series",
+      "Reading"
+    ],
     "embedding": [
       -0.014959937892854214,
       -0.05413069576025009,
@@ -28441,12 +28961,19 @@
   },
   {
     "id": "/blog/2024/08/10/conversation-artificial-intelligence-daniel-stih-podcast",
-    "title": "conversation-artificial-intelligence-daniel-stih-podcast",
+    "title": "Conversation on Artificial intelligence on the Daniel Stih podcast",
     "content": "Conversation on Artificial intelligence on the Daniel Stih podcast ::: iframe-container-youtube <iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/MmiE8qG969M?si=HOCiX466QXwrpYg0\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe::: - Artificial Intelligence With Senior Industry Leader Manas Talukdar - Spotify - Apple Podcasts - List",
     "url": "/blog/2024/08/10/conversation-artificial-intelligence-daniel-stih-podcast",
-    "date": "2024-08-10",
-    "categories": [],
-    "tags": [],
+    "date": "2024-08-10T23:35:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Daniel Stih",
+      "Podcast",
+      "Professional Speaking Engagements"
+    ],
     "embedding": [
       -0.0723138228058815,
       -0.01089619193226099,
@@ -28836,12 +29363,25 @@
   },
   {
     "id": "/blog/2024/08/11/recent-ai-reading-11-august-2024",
-    "title": "recent-ai-reading-11-august-2024",
+    "title": "Recent AI Reading [11 August 2024]",
     "content": "Recent AI Reading [11 August 2024] Papers - Self-play with Execution Feedback: Improving Instruction-following Capabilities of Large Language Models - Apple Intelligence Foundation Language Models - On LLMs-Driven Synthetic Data Generation, Curation, and Evaluation: A Survey - From LLMs to LLM-based Agents for Software Engineering: A Survey of Current, Challenges and Future   - OpenRead - Best Practices and Lessons Learned on Synthetic Data for Language Models Articles and Blog Posts - AI models",
     "url": "/blog/2024/08/11/recent-ai-reading-11-august-2024",
-    "date": "2024-08-11",
-    "categories": [],
-    "tags": [],
+    "date": "2024-08-11T00:56:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Data Generation",
+      "Generative AI",
+      "Large Language Models",
+      "Machine Learning",
+      "Model Training",
+      "Papers I Read Recently Series",
+      "Reading",
+      "Synthetic Data",
+      "Synthetic Data Generation"
+    ],
     "embedding": [
       0.020966019481420517,
       -0.09870316833257675,
@@ -29231,12 +29771,28 @@
   },
   {
     "id": "/blog/2024/09/07/recent-ai-reading-07-september-2024",
-    "title": "recent-ai-reading-07-september-2024",
+    "title": "Recent AI Reading [07 September 2024]",
     "content": "Recent AI Reading [07 September 2024] Papers Synthetic Data - Best Practices and Lessons Learned on Synthetic Data - On LLMs-Driven Synthetic Data Generation, Curation, and Evaluation: A Survey Alignment with Human Feedback / Preferences - RLHF Can Speak Many Languages: Unlocking Multilingual Preference Optimization for LLMs - Back to Basics: Revisiting REINFORCE Style Optimization for Learning from Human Feedback in LLMs - A Comprehensive Survey of LLM Alignment Techniques: RLHF, RLAIF, PPO, DP",
     "url": "/blog/2024/09/07/recent-ai-reading-07-september-2024",
-    "date": "2024-09-07",
-    "categories": [],
-    "tags": [],
+    "date": "2024-09-07T20:06:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Alignment with Human Feedback",
+      "Artificial Intelligence",
+      "Data Generation",
+      "Generative AI",
+      "Large Language Models",
+      "LLM as Judge",
+      "Machine Learning",
+      "Model Evaluation",
+      "Model Training",
+      "Papers I Read Recently Series",
+      "Reading",
+      "Synthetic Data",
+      "Synthetic Data Generation"
+    ],
     "embedding": [
       -0.035093870013952255,
       -0.10532812774181366,
@@ -29626,12 +30182,22 @@
   },
   {
     "id": "/blog/2024/09/26/data-quality-in-ai-care-to-lead-podcast-cynthia-corsetti",
-    "title": "data-quality-in-ai-care-to-lead-podcast-cynthia-corsetti",
+    "title": "Conversation on Data Quality in AI on the CARE to Lead® Podcast with Cynthia Corsetti",
     "content": "Conversation on Data Quality in AI on the CARE to Lead® Podcast with Cynthia Corsetti ::: iframe-container-youtube <iframe title=\"YouTube video player\" width=\"900\" height=\"550\" src=\"https://www.youtube.com/embed/2ab95e0TS_U?si=cvhY5Y1gfz_aaqMK\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe::: - Youtube - Spotify",
     "url": "/blog/2024/09/26/data-quality-in-ai-care-to-lead-podcast-cynthia-corsetti",
-    "date": "2024-09-26",
-    "categories": [],
-    "tags": [],
+    "date": "2024-09-26T19:50:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Care to Lead",
+      "Cynthia Corsetti",
+      "Data",
+      "Data Quality",
+      "Podcast",
+      "Professional Speaking Engagements"
+    ],
     "embedding": [
       0.015484989620745182,
       -0.05205218493938446,
@@ -30021,12 +30587,30 @@
   },
   {
     "id": "/blog/2024/10/15/recent-ai-reading-15-october-2024",
-    "title": "recent-ai-reading-15-october-2024",
+    "title": "Recent AI Reading [15 October 2024]",
     "content": "Recent AI Reading [15 October 2024] Papers Synthetic Data - Self-Boosting Large Language Models with Synthetic Preference Data AI Alignment with Human Feedback / Preferences - The Perfect Blend: Redefining RLHF with Mixture of Judges - RevisEval: Improving LLM-as-a-Judge via Response-Adapted References - Better Instruction-Following Through Minimum Bayes Risk - Tutor CoPilot: A Human-AI Approach for Scaling Real-Time Expertise Retrieval-Augmented Generation - A Comprehensive Survey on Vector Dat",
     "url": "/blog/2024/10/15/recent-ai-reading-15-october-2024",
-    "date": "2024-10-15",
-    "categories": [],
-    "tags": [],
+    "date": "2024-10-15T22:34:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Agentic AI",
+      "Alignment with Human Feedback",
+      "Artificial Intelligence",
+      "Data Generation",
+      "Generative AI",
+      "Large Language Models",
+      "LLM as Judge",
+      "Machine Learning",
+      "Model Evaluation",
+      "Model Training",
+      "Papers I Read Recently Series",
+      "Reading",
+      "Synthetic Data",
+      "Synthetic Data Generation",
+      "Vision Language Models"
+    ],
     "embedding": [
       -0.04573933407664299,
       -0.10878019779920578,
@@ -30416,12 +31000,24 @@
   },
   {
     "id": "/blog/2024/10/25/ai-data-infrastructure-mehmet-gonullo-the-cto-show-podcast",
-    "title": "ai-data-infrastructure-mehmet-gonullo-the-cto-show-podcast",
+    "title": "Discussion on AI and Data Infrastructure with Mehmet Gonullu on The CTO Show Podcast",
     "content": "Discussion on AI and Data Infrastructure with Mehmet Gonullu on The CTO Show Podcast ::: iframe-container-youtube <iframe title=\"YouTube video player\" width=\"900\" height=\"550\" src=\"https://www.youtube.com/embed/YSf04FGUH8Y?si=Co3X3CmiFNxcEjOp\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe::: - #405 Inside the World of Industrial AI: Manas Talukda",
     "url": "/blog/2024/10/25/ai-data-infrastructure-mehmet-gonullo-the-cto-show-podcast",
-    "date": "2024-10-25",
-    "categories": [],
-    "tags": [],
+    "date": "2024-10-25T13:07:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Artificial Intelligence",
+      "Data Infrastructure",
+      "Data Pipelines",
+      "Enterprise AI",
+      "Industrial AI",
+      "Mehmet Gonullu",
+      "Podcast",
+      "Professional Speaking Engagements",
+      "The CTO Show"
+    ],
     "embedding": [
       -0.053389064967632294,
       0.013196402229368687,
@@ -30811,12 +31407,26 @@
   },
   {
     "id": "/blog/2024/10/26/recent-ai-reading-26-october-2024",
-    "title": "recent-ai-reading-26-october-2024",
+    "title": "Recent AI Reading [26 October 2024]",
     "content": "Recent AI Reading [26 October 2024] Papers Agentic AI - Agentic Information Retrieval - Web Agents with World Models: Learning and Leveraging Environment Dynamics in Web Navigation AI Alignment with Human Feedback and Preferences, and other methods - Reward-Augmented Data Enhances Direct Preference Alignment of LLMs - Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning - Aligning Large Language Models via Self-Steering Optimization - Learning Goal-Conditioned Representation",
     "url": "/blog/2024/10/26/recent-ai-reading-26-october-2024",
-    "date": "2024-10-26",
-    "categories": [],
-    "tags": [],
+    "date": "2024-10-26T17:55:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Agentic AI",
+      "Alignment with Human Feedback",
+      "Artificial Intelligence",
+      "Generative AI",
+      "Large Language Models",
+      "LLM as Judge",
+      "Machine Learning",
+      "Model Evaluation",
+      "Model Training",
+      "Papers I Read Recently Series",
+      "Reading"
+    ],
     "embedding": [
       -0.020550448447465897,
       -0.10407831519842148,
@@ -31206,12 +31816,23 @@
   },
   {
     "id": "/blog/2024/11/02/neuroscience-news-research-anxiety-pollution-learning",
-    "title": "neuroscience-news-research-anxiety-pollution-learning",
+    "title": "New Research on Anxiety, Pollution, and Learning - Neuroscience News",
     "content": "New Research on Anxiety, Pollution, and Learning - Neuroscience News - Neuroscience News summary of a recent research publication on specific cell types in the amygdala linked to anxiety, revealing potential new targets for treatment. - Neuroscience News summary of exposure to ammonium nitrate, a component of fine particulate pollution from agricultural emissions, is associated with reduced learning and memory in children",
     "url": "/blog/2024/11/02/neuroscience-news-research-anxiety-pollution-learning",
-    "date": "2024-11-02",
-    "categories": [],
-    "tags": [],
+    "date": "2024-11-02T17:07:00",
+    "categories": [
+      "Science"
+    ],
+    "tags": [
+      "Academic Research",
+      "Amygdala",
+      "Anxiety",
+      "Brian",
+      "Learning",
+      "Neuroscience",
+      "Neuroscience News",
+      "Pollution"
+    ],
     "embedding": [
       0.09878522902727127,
       -0.012472336180508137,
@@ -31601,12 +32222,28 @@
   },
   {
     "id": "/blog/2024/11/10/recent-ai-reading-10-november-2024",
-    "title": "recent-ai-reading-10-november-2024",
+    "title": "Recent AI Reading [10 November 2024]",
     "content": "Recent AI Reading [dd Month yyyy] Papers Agentic AI - AgentStore: Scalable Integration of Heterogeneous Agents As Specialized Generalist Computer Assistant   - Source code in GitHub - Teaching Embodied Reinforcement Learning Agents: Informativeness and Diversity of Language Use   - Teachable_RL source code. AI Alignment with Human Feedback and Preferences, and other methods - Reference-Guided Verdict: LLMs-as-Judges in Automatic Evaluation of Free-Form Text - SelfCodeAlign: Self-Alignment for Co",
     "url": "/blog/2024/11/10/recent-ai-reading-10-november-2024",
-    "date": "2024-11-10",
-    "categories": [],
-    "tags": [],
+    "date": "2024-11-10T16:47:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Agentic AI",
+      "Alignment with Human Feedback",
+      "Artificial Intelligence",
+      "Data Generation",
+      "Generative AI",
+      "Large Language Models",
+      "Machine Learning",
+      "Model Training",
+      "Papers I Read Recently Series",
+      "Reading",
+      "Retrieval-Augmented Generation",
+      "Synthetic Data",
+      "Synthetic Data Generation"
+    ],
     "embedding": [
       -0.06213932856917381,
       -0.05719775706529617,
@@ -31996,12 +32633,28 @@
   },
   {
     "id": "/blog/2025/01/18/recent-ai-reading-18-january-2025",
-    "title": "recent-ai-reading-18-january-2025",
+    "title": "Recent AI Reading [18 January 2025]",
     "content": "Recent AI Reading [18 January 2025] Papers Agentic AI - A Multi-AI Agent System for Autonomous Optimization of Agentic AI Solutions via Iterative Refinement and LLM-Driven Feedback Loops AI Alignment with Human Feedback and Preferences, and other methods - Offline Reinforcement Learning for LLM Multi-Step Reasoning - RLEF: Grounding Code LLMs in Execution Feedback with Reinforcement Learning - From Generation to Judgment: Opportunities and Challenges of LLM-as-a-judge   - <https://github.com/llm",
     "url": "/blog/2025/01/18/recent-ai-reading-18-january-2025",
-    "date": "2025-01-18",
-    "categories": [],
-    "tags": [],
+    "date": "2025-01-18T20:44:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Agentic AI",
+      "Alignment with Human Feedback",
+      "Artificial Intelligence",
+      "Data Generation",
+      "Generative AI",
+      "Large Language Models",
+      "LLM as Judge",
+      "Machine Learning",
+      "Model Training",
+      "Papers I Read Recently Series",
+      "Reading",
+      "Synthetic Data",
+      "Synthetic Data Generation"
+    ],
     "embedding": [
       -0.047483038157224655,
       -0.07959873229265213,
@@ -32391,12 +33044,22 @@
   },
   {
     "id": "/blog/2025/01/29/recent-ai-reading-29-january-2025",
-    "title": "recent-ai-reading-29-january-2025",
+    "title": "Recent AI Reading [29 January 2025]",
     "content": "Recent AI Reading [29 January 2025] Papers Agentic AI - A Review of Prominent Paradigms for LLM-Based Agents: Tool Use (Including RAG), Planning, and Feedback Learning Large Language Models - Foundations of Large Language Models   - GitHub repo - Large Language Models: A Survey - Reasoning Language Models: A Blueprint - Towards Large Reasoning Models: A Survey of Reinforced Reasoning with Large Language Models - DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning -",
     "url": "/blog/2025/01/29/recent-ai-reading-29-january-2025",
-    "date": "2025-01-29",
-    "categories": [],
-    "tags": [],
+    "date": "2025-01-29T11:25:00",
+    "categories": [
+      "Technology"
+    ],
+    "tags": [
+      "Agentic AI",
+      "Artificial Intelligence",
+      "Generative AI",
+      "Large Language Models",
+      "Machine Learning",
+      "Papers I Read Recently Series",
+      "Reading"
+    ],
     "embedding": [
       -0.013866299763321877,
       -0.04047553613781929,

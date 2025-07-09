@@ -5,7 +5,7 @@
         <v-icon class="search-icon">mdi-magnify</v-icon>
         <span>AI-Powered Search</span>
       </v-card-title>
-      
+
       <v-card-text>
         <v-text-field
           v-model="searchQuery"
@@ -19,12 +19,12 @@
           clearable
           class="search-input"
         />
-        
+
         <!-- Search Options -->
         <div class="search-options" v-if="showAdvancedOptions">
           <v-row>
             <v-col cols="12" md="6">
-              <v-select
+              <v-autocomplete
                 v-model="selectedCategories"
                 :items="availableCategories"
                 label="Filter by Categories"
@@ -33,10 +33,12 @@
                 chips
                 closable-chips
                 dense
+                clearable
+                hide-no-data
               />
             </v-col>
             <v-col cols="12" md="6">
-              <v-select
+              <v-autocomplete
                 v-model="selectedTags"
                 :items="availableTags"
                 label="Filter by Tags"
@@ -45,10 +47,12 @@
                 chips
                 closable-chips
                 dense
+                clearable
+                hide-no-data
               />
             </v-col>
           </v-row>
-          
+
           <v-row>
             <v-col cols="12" md="6">
               <v-switch
@@ -70,7 +74,7 @@
             </v-col>
           </v-row>
         </div>
-        
+
         <!-- Toggle Advanced Options -->
         <v-btn
           variant="text"
@@ -83,7 +87,7 @@
         </v-btn>
       </v-card-text>
     </v-card>
-    
+
     <!-- Search Results -->
     <div class="search-results" v-if="searchResults || isSearching">
       <v-card class="results-card mt-4" elevation="1">
@@ -102,13 +106,13 @@
             {{ searchResults.searchType === 'semantic' ? 'AI Semantic' : 'Keyword' }}
           </v-chip>
         </v-card-title>
-        
+
         <v-card-text>
           <div v-if="isSearching" class="text-center pa-4">
             <v-progress-circular indeterminate color="primary"/>
             <p class="mt-2">Analyzing your query with AI...</p>
           </div>
-          
+
           <div v-else-if="searchResults && searchResults.results.length > 0">
             <v-list lines="three">
               <v-list-item
@@ -122,15 +126,15 @@
                     <v-icon>mdi-file-document</v-icon>
                   </v-avatar>
                 </template>
-                
+
                 <v-list-item-title class="result-title">
                   {{ result.title }}
                 </v-list-item-title>
-                
+
                 <v-list-item-subtitle class="result-content">
                   {{ result.content }}
                 </v-list-item-subtitle>
-                
+
                 <template #append>
                   <div class="result-meta">
                     <v-chip
@@ -154,7 +158,7 @@
               </v-list-item>
             </v-list>
           </div>
-          
+
           <div v-else-if="searchResults && searchResults.results.length === 0" class="text-center pa-4">
             <v-icon size="48" color="grey">mdi-magnify-close</v-icon>
             <p class="mt-2">No results found for "{{ searchResults.query }}"</p>
@@ -163,7 +167,7 @@
         </v-card-text>
       </v-card>
     </div>
-    
+
     <!-- Recent Posts -->
     <div class="recent-posts" v-if="!searchResults && !isSearching && recentPosts.length > 0">
       <v-card class="recent-card mt-4" elevation="1">
@@ -171,7 +175,7 @@
           <v-icon class="recent-icon">mdi-clock-outline</v-icon>
           <span>Recent Posts</span>
         </v-card-title>
-        
+
         <v-card-text>
           <v-list>
             <v-list-item
@@ -185,11 +189,11 @@
                   <v-icon size="16">mdi-file-document</v-icon>
                 </v-avatar>
               </template>
-              
+
               <v-list-item-title class="recent-title">
                 {{ post.title }}
               </v-list-item-title>
-              
+
               <v-list-item-subtitle>
                 {{ formatDate(post.date) }}
               </v-list-item-subtitle>
@@ -229,7 +233,7 @@ const onSearchInput = () => {
   if (searchTimeout) {
     clearTimeout(searchTimeout)
   }
-  
+
   searchTimeout = setTimeout(() => {
     if (searchQuery.value.length > 2) {
       performSearch()
@@ -240,13 +244,13 @@ const onSearchInput = () => {
 }
 
 const performSearch = async () => {
-  if (!searchQuery.value.trim()) {
+  if (!searchQuery.value.trim() || typeof window === 'undefined') {
     searchResults.value = null
     return
   }
-  
+
   isSearching.value = true
-  
+
   try {
     const options = {
       limit: maxResults.value,
@@ -254,7 +258,7 @@ const performSearch = async () => {
       categories: selectedCategories.value,
       tags: selectedTags.value
     }
-    
+
     searchResults.value = await searchService.search(searchQuery.value, options)
   } catch (error) {
     console.error('Search failed:', error)
@@ -274,12 +278,15 @@ const formatDate = (dateString) => {
 }
 
 const loadSuggestions = async () => {
-  try {
-    await searchService.initialize()
-    suggestions.value = searchService.getSuggestions()
-    recentPosts.value = searchService.getRecentPosts(5)
-  } catch (error) {
-    console.error('Failed to load suggestions:', error)
+  // Only run on client side
+  if (typeof window !== 'undefined') {
+    try {
+      await searchService.initialize()
+      suggestions.value = searchService.getSuggestions()
+      recentPosts.value = searchService.getRecentPosts(5)
+    } catch (error) {
+      console.error('Failed to load suggestions:', error)
+    }
   }
 }
 
@@ -297,11 +304,12 @@ onMounted(() => {
 
 .search-card {
   border-radius: 12px;
+  background: rgb(var(--v-theme-cardColor));
 }
 
 .search-header {
-  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
-  color: white;
+  background: rgb(var(--v-theme-headerAndFooterColor));
+  color: rgb(var(--v-theme-on-surface));
   border-radius: 12px 12px 0 0;
 }
 
@@ -314,19 +322,23 @@ onMounted(() => {
 }
 
 .search-options {
-  background: #f5f5f5;
+  background: rgb(var(--v-theme-surface));
   border-radius: 8px;
   padding: 16px;
   margin-top: 16px;
+  border: 1px solid rgb(var(--v-theme-outline));
+  opacity: 0.9;
 }
 
 .results-card {
   border-radius: 8px;
+  background: rgb(var(--v-theme-cardColor));
 }
 
 .results-header {
-  background: #f8f9fa;
-  border-bottom: 1px solid #e0e0e0;
+  background: rgb(var(--v-theme-surface));
+  border-bottom: 1px solid rgb(var(--v-theme-outline));
+  opacity: 0.9;
 }
 
 .results-icon {
@@ -334,7 +346,7 @@ onMounted(() => {
 }
 
 .search-result-item {
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgb(var(--v-theme-outline));
   padding: 16px 0;
 }
 
@@ -344,12 +356,13 @@ onMounted(() => {
 
 .result-title {
   font-weight: 600;
-  color: #1976d2;
+  color: rgb(var(--v-theme-primary));
   margin-bottom: 8px;
 }
 
 .result-content {
-  color: #666;
+  color: rgb(var(--v-theme-on-surface));
+  opacity: 0.7;
   line-height: 1.4;
 }
 
@@ -360,11 +373,13 @@ onMounted(() => {
 
 .recent-card {
   border-radius: 8px;
+  background: rgb(var(--v-theme-cardColor));
 }
 
 .recent-header {
-  background: #f8f9fa;
-  border-bottom: 1px solid #e0e0e0;
+  background: rgb(var(--v-theme-surface));
+  border-bottom: 1px solid rgb(var(--v-theme-outline));
+  opacity: 0.9;
 }
 
 .recent-icon {
@@ -372,7 +387,7 @@ onMounted(() => {
 }
 
 .recent-post-item {
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgb(var(--v-theme-outline));
   padding: 8px 0;
 }
 
@@ -382,14 +397,14 @@ onMounted(() => {
 
 .recent-title {
   font-weight: 500;
-  color: #1976d2;
+  color: rgb(var(--v-theme-primary));
 }
 
 @media (max-width: 600px) {
   .search-component {
     padding: 0 16px;
   }
-  
+
   .result-meta {
     min-width: 80px;
   }

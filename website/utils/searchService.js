@@ -10,6 +10,12 @@ class SearchService {
   async initialize() {
     if (this.isInitialized) return;
 
+    // Only initialize on client side
+    if (typeof window === 'undefined') {
+      console.warn('Search service can only be initialized on the client side');
+      return;
+    }
+
     try {
       // Load search index
       const response = await fetch('/search_index.json');
@@ -156,7 +162,9 @@ class SearchService {
 
   // Get suggestions based on categories and tags
   getSuggestions() {
-    if (!this.searchIndex) return { categories: [], tags: [] };
+    if (!this.searchIndex || typeof window === 'undefined') {
+      return { categories: [], tags: [] };
+    }
 
     const categories = new Set();
     const tags = new Set();
@@ -174,7 +182,9 @@ class SearchService {
 
   // Get recent posts
   getRecentPosts(limit = 5) {
-    if (!this.searchIndex) return [];
+    if (!this.searchIndex || typeof window === 'undefined') {
+      return [];
+    }
 
     return this.searchIndex
       .sort((a, b) => new Date(b.date) - new Date(a.date))

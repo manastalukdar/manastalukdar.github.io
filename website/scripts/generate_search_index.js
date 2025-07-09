@@ -40,12 +40,23 @@ function extractTextFromMarkdown(content) {
   return withoutMarkdown;
 }
 
-// Function to get metadata from blog_metadata.json
+// Function to get metadata from blog_metadata.json and create a lookup map
 function getBlogMetadata() {
   const metadataPath = path.join(BLOG_DATA_DIR, 'metadata', 'blog_metadata.json');
   try {
-    const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
-    return metadata;
+    const metadataArray = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
+    
+    // Create a lookup map based on the path field
+    const metadataMap = {};
+    metadataArray.forEach(post => {
+      if (post.path) {
+        // Convert path to URL format (remove .md extension and adjust path)
+        const url = `/blog/${post.path.replace('/readme.md', '').replace('.md', '')}`;
+        metadataMap[url] = post;
+      }
+    });
+    
+    return metadataMap;
   } catch (error) {
     console.error('Error reading blog metadata:', error);
     return {};
@@ -123,6 +134,14 @@ async function generateSearchIndex() {
       // Get metadata for this post
       const postMetadata = metadata[postInfo.url] || {};
       
+      // Extract categories and tags from metadata
+      const categories = postMetadata.categories 
+        ? postMetadata.categories.map(cat => cat.name || cat)
+        : [];
+      const tags = postMetadata.tags 
+        ? postMetadata.tags.map(tag => tag.name || tag)
+        : [];
+      
       // Generate embedding for the content
       console.log(`Generating embedding for ${postInfo.slug}...`);
       const embedding = await generateEmbedding(textContent);
@@ -133,9 +152,9 @@ async function generateSearchIndex() {
         title: postMetadata.title || postInfo.slug,
         content: textContent.substring(0, 500), // First 500 chars for preview
         url: postInfo.url,
-        date: postMetadata.date || `${postInfo.year}-${postInfo.month}-${postInfo.day}`,
-        categories: postMetadata.categories || [],
-        tags: postMetadata.tags || [],
+        date: postMetadata['first-published-on'] || `${postInfo.year}-${postInfo.month}-${postInfo.day}`,
+        categories: categories,
+        tags: tags,
         embedding: embedding
       };
       

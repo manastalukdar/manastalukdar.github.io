@@ -8,7 +8,22 @@
         </p>
       </div>
       
-      <SearchComponent />
+      <ClientOnly>
+        <SearchComponent />
+        <template #fallback>
+          <div class="search-loading">
+            <v-card class="search-card" elevation="2">
+              <v-card-title class="search-header">
+                <v-icon class="search-icon">mdi-magnify</v-icon>
+                <span>AI-Powered Search</span>
+              </v-card-title>
+              <v-card-text>
+                <v-skeleton-loader type="text, text, divider, text, text" />
+              </v-card-text>
+            </v-card>
+          </div>
+        </template>
+      </ClientOnly>
       
       <div class="search-info mt-8">
         <v-card class="info-card" elevation="1">
@@ -160,7 +175,7 @@ useHead({
 <style scoped>
 .search-page {
   min-height: 100vh;
-  background: #f5f5f5;
+  background: rgb(var(--v-theme-background));
   padding: 24px 0;
 }
 
@@ -178,25 +193,27 @@ useHead({
 .page-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1976d2;
+  color: rgb(var(--v-theme-primary));
   margin-bottom: 16px;
 }
 
 .page-description {
   font-size: 1.1rem;
-  color: #666;
+  color: rgb(var(--v-theme-on-surface));
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+  opacity: 0.7;
 }
 
 .info-card {
   border-radius: 12px;
+  background: rgb(var(--v-theme-cardColor));
 }
 
 .info-header {
-  background: linear-gradient(135deg, #2196f3 0%, #64b5f6 100%);
-  color: white;
+  background: rgb(var(--v-theme-headerAndFooterColor));
+  color: rgb(var(--v-theme-on-surface));
   border-radius: 12px 12px 0 0;
 }
 
@@ -222,22 +239,24 @@ useHead({
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 8px;
-  color: #333;
+  color: rgb(var(--v-theme-on-surface));
 }
 
 .feature-content p {
-  color: #666;
+  color: rgb(var(--v-theme-on-surface));
+  opacity: 0.7;
   line-height: 1.5;
   margin: 0;
 }
 
 .tips-card {
   border-radius: 12px;
+  background: rgb(var(--v-theme-cardColor));
 }
 
 .tips-header {
-  background: linear-gradient(135deg, #ff9800 0%, #ffb74d 100%);
-  color: white;
+  background: rgb(var(--v-theme-headerAndFooterColor));
+  color: rgb(var(--v-theme-on-surface));
   border-radius: 12px 12px 0 0;
 }
 
@@ -259,8 +278,28 @@ useHead({
 
 .tip-item span {
   margin-left: 12px;
-  color: #333;
+  color: rgb(var(--v-theme-on-surface));
   font-weight: 500;
+}
+
+.search-loading {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-loading .search-card {
+  border-radius: 12px;
+  background: rgb(var(--v-theme-cardColor));
+}
+
+.search-loading .search-header {
+  background: rgb(var(--v-theme-headerAndFooterColor));
+  color: rgb(var(--v-theme-on-surface));
+  border-radius: 12px 12px 0 0;
+}
+
+.search-loading .search-icon {
+  margin-right: 8px;
 }
 
 @media (max-width: 960px) {
