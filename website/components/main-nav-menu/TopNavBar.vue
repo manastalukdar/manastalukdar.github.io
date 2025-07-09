@@ -23,6 +23,10 @@
       <MainNavMenuAbout />
       <MainNavMenuLegal />
       <MainNavMenuContact />
+      <v-btn text to="/search">
+        <v-icon left>mdi-magnify</v-icon>
+        Search
+      </v-btn>
     </v-toolbar-items>
     <client-only>
     <v-btn text icon class="hidden-md-and-up" @click="flipSidebarVisibility">
