@@ -1,7 +1,7 @@
 <template>
   <v-row class="py-4">
-    <v-col cols="12">
-      <v-card elevation="2" class="pa-4">
+    <v-col cols="12" class="px-0 pt-5">
+      <v-card color="cardColor" raised elevation="8" class="pa-4 py-4">
         <v-row class="align-center">
           <!-- Previous Post -->
           <v-col cols="12" md="5">
@@ -11,9 +11,9 @@
                 :to="getPreviousPostUrl()"
                 class="text-decoration-none"
               >
-                <v-card 
-                  variant="outlined" 
-                  class="pa-3 hover-card" 
+                <v-card
+                  variant="outlined"
+                  class="pa-3 hover-card"
                   hover
                 >
                   <div class="d-flex align-start">
@@ -44,8 +44,8 @@
             <v-divider vertical class="d-none d-md-block mx-auto" style="height: 60px;"></v-divider>
             <v-divider class="d-block d-md-none my-3"></v-divider>
             <NuxtLink to="/blog" class="text-decoration-none">
-              <v-btn 
-                variant="outlined" 
+              <v-btn
+                variant="outlined"
                 size="small"
                 class="text-caption"
               >
@@ -63,9 +63,9 @@
                 :to="getNextPostUrl()"
                 class="text-decoration-none"
               >
-                <v-card 
-                  variant="outlined" 
-                  class="pa-3 hover-card" 
+                <v-card
+                  variant="outlined"
+                  class="pa-3 hover-card"
                   hover
                 >
                   <div class="d-flex align-start">

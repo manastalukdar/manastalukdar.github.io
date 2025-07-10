@@ -39,7 +39,7 @@
 import postHeader from './post-header.vue'
 import socialSharing from './social-sharing.vue'
 import comments from './comments.vue'
-import postNavigation from '../post-navigation.vue'
+import postNavigation from './post-navigation.vue'
 import mermaid from 'mermaid'
 if (process.browser) {
   mermaid.initialize({ startOnLoad: false });
