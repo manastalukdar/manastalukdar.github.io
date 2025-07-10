@@ -9,50 +9,6 @@
       }"
     ></div>
     
-    <!-- Optional circular progress indicator (for longer articles) -->
-    <div 
-      v-if="showCircularProgress && progressPercentage > 5"
-      class="reading-progress-circle"
-    >
-      <v-btn
-        fab
-        small
-        :color="progressColor"
-        elevation="4"
-        class="progress-fab"
-        @click="scrollToTop"
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          class="progress-svg"
-        >
-          <circle
-            cx="12"
-            cy="12"
-            r="10"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-opacity="0.2"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            r="10"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            :stroke-dasharray="circumference"
-            :stroke-dashoffset="strokeDashoffset"
-            class="progress-circle"
-          />
-        </svg>
-        <span class="progress-text">{{ Math.round(progressPercentage) }}%</span>
-      </v-btn>
-    </div>
     
     <!-- Reading time remaining (optional) -->
     <div 
@@ -74,15 +30,11 @@ const props = defineProps({
   },
   minContentHeight: {
     type: Number,
-    default: 1000 // Only show for articles longer than 1000px
+    default: 500 // Only show for articles longer than 500px
   },
   progressColor: {
     type: String,
     default: '#1976d2'
-  },
-  showCircularProgress: {
-    type: Boolean,
-    default: true
   },
   showTimeRemaining: {
     type: Boolean,
@@ -102,14 +54,9 @@ const estimatedReadingTime = ref(0)
 
 // Computed properties
 const showProgress = computed(() => {
-  return contentHeight.value > props.minContentHeight && progressPercentage.value > 0
+  return contentHeight.value > props.minContentHeight
 })
 
-const circumference = computed(() => 2 * Math.PI * 10) // radius is 10
-
-const strokeDashoffset = computed(() => {
-  return circumference.value - (progressPercentage.value / 100) * circumference.value
-})
 
 const timeRemaining = computed(() => {
   if (!estimatedReadingTime.value) return 0
@@ -138,8 +85,17 @@ const updateProgress = () => {
     const progress = Math.min(100, Math.max(0, (contentVisibleStart / maxScrollableContent) * 100))
     progressPercentage.value = progress
   } else {
+    // For short content, show progress based on scroll position relative to content
     progressPercentage.value = currentScrollTop > contentTop ? 100 : 0
   }
+  
+  // Debug logging (remove in production)
+  console.log('Progress Debug:', {
+    progressPercentage: progressPercentage.value,
+    contentHeight: contentHeight.value,
+    minHeight: props.minContentHeight,
+    showProgress: contentHeight.value > props.minContentHeight
+  })
 }
 
 const calculateReadingTime = () => {
@@ -151,12 +107,6 @@ const calculateReadingTime = () => {
   estimatedReadingTime.value = Math.ceil(words / props.readingSpeed)
 }
 
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
 
 const handleScroll = () => {
   updateProgress()
@@ -192,60 +142,21 @@ onUnmounted(() => {
 /* Top progress bar */
 .reading-progress-bar {
   position: fixed;
-  top: 0;
+  top: 64px; /* Position below app bar */
   left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, currentColor 0%, rgba(255,255,255,0.8) 100%);
-  z-index: 1000;
-  transition: width 0.1s ease-out;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  height: 4px;
+  background: linear-gradient(90deg, #1976d2 0%, #42a5f5 100%);
+  z-index: 9999;
+  transition: width 0.2s ease-out;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border-radius: 0 0 2px 0;
 }
 
-/* Circular progress indicator */
-.reading-progress-circle {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 999;
-  transition: all 0.3s ease;
-}
-
-.progress-fab {
-  position: relative;
-  width: 56px !important;
-  height: 56px !important;
-}
-
-.progress-svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-}
-
-.progress-circle {
-  transform: rotate(-90deg);
-  transform-origin: center;
-  transition: stroke-dashoffset 0.2s ease;
-}
-
-.progress-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 10px;
-  font-weight: bold;
-  color: white;
-  z-index: 1;
-}
 
 /* Time remaining indicator */
 .time-remaining {
   position: fixed;
-  bottom: 88px;
+  bottom: 24px;
   right: 24px;
   background: rgba(0, 0, 0, 0.8);
   color: white;
@@ -259,36 +170,22 @@ onUnmounted(() => {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .reading-progress-circle {
-    bottom: 16px;
-    right: 16px;
+  .reading-progress-bar {
+    top: 56px; /* Smaller app bar on mobile */
   }
   
   .time-remaining {
-    bottom: 80px;
+    bottom: 24px;
     right: 16px;
     font-size: 11px;
     padding: 4px 8px;
-  }
-  
-  .progress-fab {
-    width: 48px !important;
-    height: 48px !important;
-  }
-  
-  .progress-svg {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .progress-text {
-    font-size: 9px;
   }
 }
 
 /* Dark theme support */
 .v-theme--dark .reading-progress-bar {
-  box-shadow: 0 1px 3px rgba(255,255,255,0.1);
+  background: linear-gradient(90deg, #64b5f6 0%, #90caf9 100%);
+  box-shadow: 0 2px 4px rgba(255,255,255,0.1);
 }
 
 .v-theme--dark .time-remaining {
@@ -304,7 +201,6 @@ onUnmounted(() => {
 }
 
 /* Smooth animations */
-.reading-progress-circle,
 .time-remaining {
   animation: fadeInUp 0.3s ease-out;
 }
@@ -320,14 +216,4 @@ onUnmounted(() => {
   }
 }
 
-/* Hover effects */
-.progress-fab:hover {
-  transform: scale(1.1);
-  transition: transform 0.2s ease;
-}
-
-.progress-fab:hover .progress-text {
-  font-size: 11px;
-  transition: font-size 0.2s ease;
-}
 </style>

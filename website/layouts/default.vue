@@ -82,9 +82,6 @@ onMounted(() => {
   color: rgb(var(--v-theme-backToTopText));
   bottom: 120px;
 }
-.reading-progress-circle, .time-remaining {
-  bottom: 240px;
-}
 
 .fade-enter-active,
 .fade-leave-active {

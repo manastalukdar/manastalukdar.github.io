@@ -46,7 +46,6 @@
       <readingProgress 
         content-selector=".blogPostContent"
         :reading-speed="225"
-        :show-circular-progress="true"
         :show-time-remaining="true"
       />
     </client-only>
