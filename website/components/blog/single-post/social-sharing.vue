@@ -74,7 +74,7 @@ defineProps ({
 const twitterUser = 'ManasTalukdar';
 const { paperize } = usePaperizer('printMe',  {
   styles: [
-    '/style/print-blog-post.css'
+    '/styles/print-blog-post.css'
   ]
 });
 const print = () => {

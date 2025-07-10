@@ -270,7 +270,7 @@ const other = computedAsync(async () => {
 const { paperize } = usePaperizer('printMe',  {
   styles: [
   //'https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css',
-    '/style/print-generic.css'
+    '/styles/print-generic.css'
   ]
 });
 const print = () => {

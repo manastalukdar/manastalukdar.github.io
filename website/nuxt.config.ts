@@ -164,7 +164,7 @@ export default defineNuxtConfig({
     '@mdi/font/css/materialdesignicons.min.css',
     'material-design-icons-iconfont/dist/material-design-icons.css',
     'vue-material-design-icons/styles.css',
-    //'~/style/print-blog-post.css'
+    //'~/styles/print-blog-post.css'
   ],
 
   build: {
@@ -236,7 +236,7 @@ export default defineNuxtConfig({
             console.log(feedPath + " written successfully.")
           }
         })
-        
+
         // Generate search index
         try {
           console.log('Generating search index...')

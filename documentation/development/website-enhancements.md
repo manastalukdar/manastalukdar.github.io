@@ -52,7 +52,7 @@ This enhancement project focuses on improving user experience, content discovery
 #### ✅ Enhanced Print Styles
 
 **Status**: Completed  
-**Location**: `website/public/style/print-blog-post.css`
+**Location**: `website/public/styles/print-blog-post.css`
 
 **Description**: Comprehensive print optimization for blog articles with professional formatting.
 
