@@ -18,14 +18,6 @@
     >
       {{ timeRemaining }} min left
     </div>
-
-    <!-- Debug indicator - always visible -->
-<!--     <div
-      class="time-remaining debug-indicator"
-      style="background: red !important; bottom: 80px !important;"
-    >
-      DEBUG: showTimeRemaining={{ showTimeRemaining }}, timeRemaining={{ timeRemaining }}, estimatedTime={{ estimatedReadingTime }}
-    </div> -->
   </div>
 </template>
 
@@ -103,7 +95,6 @@ const updateProgress = () => {
 const calculateReadingTime = (retryCount = 0) => {
   console.log(`🔥 calculateReadingTime called, retry: ${retryCount}`)
   const contentEl = document.querySelector(props.contentSelector)
-  console.log('🔥 contentEl found:', !!contentEl, contentEl)
 
   if (!contentEl) {
     console.log('🔥 No content element, retrying...')
@@ -117,7 +108,6 @@ const calculateReadingTime = (retryCount = 0) => {
   }
 
   const text = contentEl.innerText || contentEl.textContent || ''
-  console.log('🔥 Text length:', text.length)
 
   // Check if content is actually loaded
   if (text.trim().length === 0) {
@@ -132,11 +122,6 @@ const calculateReadingTime = (retryCount = 0) => {
 
   const words = text.trim().split(/\s+/).length
   estimatedReadingTime.value = Math.ceil(words / props.readingSpeed)
-  console.log('🔥 Reading time calculated:', {
-    words,
-    readingSpeed: props.readingSpeed,
-    estimatedReadingTime: estimatedReadingTime.value
-  })
 }
 
 
