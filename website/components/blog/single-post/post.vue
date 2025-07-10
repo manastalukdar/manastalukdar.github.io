@@ -28,7 +28,7 @@
         </v-col>
       </v-row>
 
-      <v-row class="py-3">
+      <v-row class="pt-1 pb-3">
         <v-col cols="12">
           <client-only>
             <relatedPosts :current-post="passedProps.postMetadata" />

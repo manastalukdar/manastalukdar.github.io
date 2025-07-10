@@ -50,8 +50,13 @@
 </template>
 
 <script setup>
-import { searchService } from '@/utils/searchService'
 import dayjs from 'dayjs'
+
+// Only import search service on client side
+let searchService = null
+if (typeof window !== 'undefined') {
+  searchService = (await import('@/utils/searchService')).searchService
+}
 
 const props = defineProps({
   currentPost: {
@@ -76,7 +81,7 @@ const formatDate = (dateString) => {
 }
 
 const findRelatedPosts = async () => {
-  if (!props.currentPost) return
+  if (!props.currentPost || typeof window === 'undefined' || !searchService) return
   
   isLoading.value = true
   

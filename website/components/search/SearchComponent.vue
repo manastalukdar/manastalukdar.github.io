@@ -207,7 +207,11 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import { searchService } from '~/utils/searchService'
+// Only import search service on client side
+let searchService = null
+if (typeof window !== 'undefined') {
+  searchService = (await import('~/utils/searchService')).searchService
+}
 
 // Reactive state
 const searchQuery = ref('')
@@ -259,7 +263,9 @@ const performSearch = async () => {
       tags: selectedTags.value
     }
 
-    searchResults.value = await searchService.search(searchQuery.value, options)
+    if (searchService) {
+      searchResults.value = await searchService.search(searchQuery.value, options)
+    }
   } catch (error) {
     console.error('Search failed:', error)
     // Handle error - maybe show a toast notification
@@ -279,7 +285,7 @@ const formatDate = (dateString) => {
 
 const loadSuggestions = async () => {
   // Only run on client side
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined' && searchService) {
     try {
       await searchService.initialize()
       suggestions.value = searchService.getSuggestions()
