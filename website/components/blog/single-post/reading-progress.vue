@@ -1,22 +1,31 @@
 <template>
   <div v-if="showProgress" class="reading-progress-container">
     <!-- Fixed progress bar at top of viewport -->
-    <div 
+    <div
       class="reading-progress-bar"
-      :style="{ 
+      :style="{
         width: `${progressPercentage}%`,
         backgroundColor: progressColor
       }"
     ></div>
-    
-    
-    <!-- Reading time remaining (optional) -->
-    <div 
+
+
+    <!-- Reading time remaining -->
+    <div
       v-if="showTimeRemaining && timeRemaining > 0"
       class="time-remaining"
+      style="background: rgb(var(--v-theme-backToTopBackground)); bottom: 80px;"
     >
       {{ timeRemaining }} min left
     </div>
+
+    <!-- Debug indicator - always visible -->
+<!--     <div
+      class="time-remaining debug-indicator"
+      style="background: red !important; bottom: 80px !important;"
+    >
+      DEBUG: showTimeRemaining={{ showTimeRemaining }}, timeRemaining={{ timeRemaining }}, estimatedTime={{ estimatedReadingTime }}
+    </div> -->
   </div>
 </template>
 
@@ -72,7 +81,7 @@ const updateProgress = () => {
   const rect = contentEl.getBoundingClientRect()
   const contentTop = rect.top + window.pageYOffset
   const currentScrollTop = window.pageYOffset
-  
+
   scrollTop.value = currentScrollTop
   windowHeight.value = window.innerHeight
   contentHeight.value = contentEl.offsetHeight
@@ -80,7 +89,7 @@ const updateProgress = () => {
   // Calculate progress based on how much of the content is above the viewport
   const contentVisibleStart = Math.max(0, currentScrollTop - contentTop)
   const maxScrollableContent = Math.max(0, contentHeight.value - windowHeight.value)
-  
+
   if (maxScrollableContent > 0) {
     const progress = Math.min(100, Math.max(0, (contentVisibleStart / maxScrollableContent) * 100))
     progressPercentage.value = progress
@@ -88,23 +97,46 @@ const updateProgress = () => {
     // For short content, show progress based on scroll position relative to content
     progressPercentage.value = currentScrollTop > contentTop ? 100 : 0
   }
-  
-  // Debug logging (remove in production)
-  console.log('Progress Debug:', {
-    progressPercentage: progressPercentage.value,
-    contentHeight: contentHeight.value,
-    minHeight: props.minContentHeight,
-    showProgress: contentHeight.value > props.minContentHeight
-  })
+
 }
 
-const calculateReadingTime = () => {
+const calculateReadingTime = (retryCount = 0) => {
+  console.log(`🔥 calculateReadingTime called, retry: ${retryCount}`)
   const contentEl = document.querySelector(props.contentSelector)
-  if (!contentEl) return
+  console.log('🔥 contentEl found:', !!contentEl, contentEl)
+
+  if (!contentEl) {
+    console.log('🔥 No content element, retrying...')
+    // Retry up to 3 times with increasing delays
+    if (retryCount < 3) {
+      setTimeout(() => calculateReadingTime(retryCount + 1), 100 * (retryCount + 1))
+    } else {
+      console.log('🔥 Max retries reached, giving up')
+    }
+    return
+  }
 
   const text = contentEl.innerText || contentEl.textContent || ''
+  console.log('🔥 Text length:', text.length)
+
+  // Check if content is actually loaded
+  if (text.trim().length === 0) {
+    console.log('🔥 Content empty, retrying...')
+    if (retryCount < 3) {
+      setTimeout(() => calculateReadingTime(retryCount + 1), 100 * (retryCount + 1))
+    } else {
+      console.log('🔥 Max retries reached with empty content')
+    }
+    return
+  }
+
   const words = text.trim().split(/\s+/).length
   estimatedReadingTime.value = Math.ceil(words / props.readingSpeed)
+  console.log('🔥 Reading time calculated:', {
+    words,
+    readingSpeed: props.readingSpeed,
+    estimatedReadingTime: estimatedReadingTime.value
+  })
 }
 
 
@@ -118,11 +150,19 @@ const handleResize = () => {
 
 // Lifecycle
 onMounted(() => {
+  console.log('🔥 ReadingProgress component mounted')
+  console.log('🔥 Props:', {
+    contentSelector: props.contentSelector,
+    showTimeRemaining: props.showTimeRemaining,
+    readingSpeed: props.readingSpeed
+  })
+
   // Wait for content to be rendered
   nextTick(() => {
+    console.log('🔥 nextTick executed')
     calculateReadingTime()
     updateProgress()
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true })
     window.addEventListener('resize', handleResize, { passive: true })
   })
@@ -173,7 +213,7 @@ onUnmounted(() => {
   .reading-progress-bar {
     top: 56px; /* Smaller app bar on mobile */
   }
-  
+
   .time-remaining {
     bottom: 24px;
     right: 16px;
