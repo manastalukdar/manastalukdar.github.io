@@ -29,9 +29,27 @@
       </v-row>
 
       <v-row class="py-3">
+        <v-col cols="12">
+          <client-only>
+            <relatedPosts :current-post="passedProps.postMetadata" />
+          </client-only>
+        </v-col>
+      </v-row>
+
+      <v-row class="py-3">
         <comments :post-id="postId" :url="url" />
       </v-row>
     </v-col>
+    
+    <!-- Reading Progress Indicator -->
+    <client-only>
+      <readingProgress 
+        content-selector=".blogPostContent"
+        :reading-speed="225"
+        :show-circular-progress="true"
+        :show-time-remaining="true"
+      />
+    </client-only>
   </v-container>
 </template>
 
@@ -40,6 +58,8 @@ import postHeader from './post-header.vue'
 import socialSharing from './social-sharing.vue'
 import comments from './comments.vue'
 import postNavigation from './post-navigation.vue'
+import relatedPosts from './related-posts.vue'
+import readingProgress from './reading-progress.vue'
 import mermaid from 'mermaid'
 if (process.browser) {
   mermaid.initialize({ startOnLoad: false });

@@ -18,7 +18,7 @@
           </nuxt-link>
           &nbsp;
         </div>
-        || Published: {{ props.postMetadata['first-published-on'] }}
+        || Published: {{ props.postMetadata['first-published-on'] }} || {{ props.postMetadata["reading-time"]?.text || "1 min read" }}
       </v-row>
       <v-row class="px-3" justify="center">
         Categories:&nbsp;

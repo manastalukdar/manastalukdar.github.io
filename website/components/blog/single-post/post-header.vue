@@ -19,7 +19,7 @@
           &nbsp;
         </div>
         || Published: {{ props.postMetadata["first-published-on"] }} || Updated:
-        {{ props.postMetadata["last-updated-on"] }}
+        {{ props.postMetadata["last-updated-on"] }} || {{ props.postMetadata["reading-time"]?.text || "1 min read" }}
       </v-row>
       <v-row id="single-post-header-meta-2" class="px-3" justify="center">
         Categories:&nbsp;

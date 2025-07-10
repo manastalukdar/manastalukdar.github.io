@@ -9,6 +9,7 @@ import os
 import re
 import shutil
 from datetime import date, datetime
+import math
 
 import frontmatter
 from dateutil import parser
@@ -18,6 +19,48 @@ POSTS_DIST_FOLDER = "website/public/blogdata"
 POSTS_FOLDER = "blog"
 
 POST_PATH_STRING = "path"
+
+
+def calculate_reading_time(content, words_per_minute=225):
+    """Calculate reading time for markdown content."""
+    # Remove YAML frontmatter
+    content_without_frontmatter = re.sub(r'^---\n.*?\n---\n', '', content, flags=re.DOTALL)
+    
+    # Remove HTML tags
+    content_without_html = re.sub(r'<[^>]*>', '', content_without_frontmatter)
+    
+    # Remove markdown formatting
+    content_plain = content_without_html
+    content_plain = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', content_plain)  # Links
+    content_plain = re.sub(r'\*\*([^*]*)\*\*', r'\1', content_plain)  # Bold
+    content_plain = re.sub(r'\*([^*]*)\*', r'\1', content_plain)  # Italic
+    content_plain = re.sub(r'`([^`]*)`', r'\1', content_plain)  # Inline code
+    content_plain = re.sub(r'#{1,6}\s+', '', content_plain)  # Headers
+    content_plain = re.sub(r'>\s+', '', content_plain)  # Blockquotes
+    content_plain = re.sub(r'[-*+]\s+', '', content_plain)  # Lists
+    content_plain = re.sub(r'\d+\.\s+', '', content_plain)  # Numbered lists
+    content_plain = re.sub(r'\n+', ' ', content_plain)  # Newlines
+    content_plain = re.sub(r'\s+', ' ', content_plain)  # Normalize whitespace
+    content_plain = content_plain.strip()
+    
+    # Count words
+    words = [word for word in content_plain.split() if word.strip()]
+    word_count = len(words)
+    
+    # Calculate reading time
+    minutes = math.ceil(word_count / words_per_minute)
+    
+    # Generate text
+    if minutes == 1:
+        text = "1 min read"
+    else:
+        text = f"{minutes} min read"
+    
+    return {
+        "minutes": minutes,
+        "words": word_count,
+        "text": text
+    }
 
 
 def find_files():
@@ -58,6 +101,13 @@ def create_posts_list(files):
             post['first-published-on'] = newPublishedDate
             newUpdatedDate = parser.parse(str(post['last-updated-on']))
             post['last-updated-on'] = newUpdatedDate
+            
+            # Calculate reading time
+            with open(item[1], 'r', encoding='utf-8') as f:
+                content = f.read()
+            reading_time = calculate_reading_time(content)
+            post['reading-time'] = reading_time
+            
             data_all.append(post.metadata)
     print(f"Total posts: {count}")
     data_all.sort(key=extract_time, reverse=True)

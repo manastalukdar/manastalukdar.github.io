@@ -198,6 +198,145 @@ class SearchService {
         tags: entry.tags
       }));
   }
+
+  // Find related posts based on content similarity
+  async findRelatedPosts(currentPost, options = {}) {
+    if (!this.isInitialized) {
+      await this.initialize();
+    }
+
+    const {
+      limit = 5,
+      threshold = 0.15,
+      excludeCurrentPost = true,
+      preferSameCategory = true,
+      preferSameTags = true
+    } = options;
+
+    if (!this.searchIndex || typeof window === 'undefined') {
+      return [];
+    }
+
+    try {
+      let candidates = this.searchIndex;
+
+      // Exclude current post if specified
+      if (excludeCurrentPost && currentPost.id) {
+        candidates = candidates.filter(entry => entry.id !== currentPost.id);
+      }
+
+      // Generate query from current post content for semantic similarity
+      const query = `${currentPost.title} ${currentPost.categories?.join(' ') || ''} ${currentPost.tags?.join(' ') || ''}`;
+      
+      let results = [];
+
+      if (query.length > 3 && this.embeddingPipeline) {
+        // Semantic search using post content
+        const queryEmbedding = await this.generateQueryEmbedding(query);
+        
+        results = candidates.map(entry => {
+          const similarity = this.cosineSimilarity(queryEmbedding, entry.embedding);
+          let score = similarity;
+
+          // Boost score for same categories
+          if (preferSameCategory && currentPost.categories) {
+            const commonCategories = entry.categories?.filter(cat => 
+              currentPost.categories.includes(cat)
+            ).length || 0;
+            score += commonCategories * 0.1;
+          }
+
+          // Boost score for same tags
+          if (preferSameTags && currentPost.tags) {
+            const commonTags = entry.tags?.filter(tag => 
+              currentPost.tags.includes(tag)
+            ).length || 0;
+            score += commonTags * 0.05;
+          }
+
+          return {
+            ...entry,
+            score,
+            semanticSimilarity: similarity
+          };
+        }).filter(entry => entry.score > threshold);
+      } else {
+        // Fallback to category/tag-based similarity
+        results = candidates.map(entry => {
+          let score = 0;
+
+          // Score based on shared categories
+          if (currentPost.categories && entry.categories) {
+            const commonCategories = entry.categories.filter(cat => 
+              currentPost.categories.includes(cat)
+            ).length;
+            score += commonCategories * 0.3;
+          }
+
+          // Score based on shared tags
+          if (currentPost.tags && entry.tags) {
+            const commonTags = entry.tags.filter(tag => 
+              currentPost.tags.includes(tag)
+            ).length;
+            score += commonTags * 0.2;
+          }
+
+          return {
+            ...entry,
+            score
+          };
+        }).filter(entry => entry.score > 0);
+      }
+
+      // Sort by score and limit results
+      results.sort((a, b) => b.score - a.score);
+      results = results.slice(0, limit);
+
+      return results.map(entry => ({
+        id: entry.id,
+        title: entry.title,
+        url: entry.url,
+        date: entry.date,
+        categories: entry.categories,
+        tags: entry.tags,
+        score: entry.score,
+        semanticSimilarity: entry.semanticSimilarity
+      }));
+
+    } catch (error) {
+      console.error('Error finding related posts:', error);
+      
+      // Simple fallback based on categories/tags only
+      const results = this.searchIndex
+        .filter(entry => {
+          if (excludeCurrentPost && currentPost.id && entry.id === currentPost.id) {
+            return false;
+          }
+          
+          // Check for shared categories or tags
+          const hasSharedCategory = currentPost.categories?.some(cat => 
+            entry.categories?.includes(cat)
+          );
+          const hasSharedTag = currentPost.tags?.some(tag => 
+            entry.tags?.includes(tag)
+          );
+          
+          return hasSharedCategory || hasSharedTag;
+        })
+        .slice(0, limit)
+        .map(entry => ({
+          id: entry.id,
+          title: entry.title,
+          url: entry.url,
+          date: entry.date,
+          categories: entry.categories,
+          tags: entry.tags,
+          score: 0.1
+        }));
+
+      return results;
+    }
+  }
 }
 
 // Export singleton instance
