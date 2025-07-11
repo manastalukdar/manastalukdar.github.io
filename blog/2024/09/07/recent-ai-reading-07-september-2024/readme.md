@@ -23,6 +23,10 @@ title: Recent AI Reading [07 September 2024]
 url-slug: recent-ai-reading-07-september-2024
 first-published-on: 2024-09-07 20:06
 last-updated-on: 2024-09-07 20:06
+series:
+ name: Papers I Read Recently
+ description: A curated collection of AI/ML papers and research articles I've been reading and found interesting
+ part: 5
 meta:
  description: "Recent AI reading, including papers and articles."
 excerpt: "Best Practices and Lessons Learned on Synthetic Data"

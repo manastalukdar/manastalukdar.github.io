@@ -22,6 +22,12 @@ const initialState = () => ({
         text: 'Blog',
       },
       {
+        href: '/blog/series/',
+        target: '_blank',
+        icon: 'mdi-book-open-variant',
+        text: 'Series',
+      },
+      {
         href: '/blog/categories/',
         target: '_blank',
         icon: 'mdi-domain',

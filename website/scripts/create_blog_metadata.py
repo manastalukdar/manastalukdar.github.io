@@ -15,6 +15,7 @@ import frontmatter
 from dateutil import parser
 
 POSTS_LIST_FILE_JSON = "website/public/blogdata/metadata/blog_metadata.json"
+SERIES_LIST_FILE_JSON = "website/public/blogdata/metadata/series_metadata.json"
 POSTS_DIST_FOLDER = "website/public/blogdata"
 POSTS_FOLDER = "blog"
 
@@ -84,6 +85,8 @@ def create_posts_list(files):
     """Creates the list of posts"""
     count = 0
     data_all = []
+    series_data = {}
+    
     for item in files.items():
         post = frontmatter.load(item[1])
         post[POST_PATH_STRING] = item[0]
@@ -108,9 +111,44 @@ def create_posts_list(files):
             reading_time = calculate_reading_time(content)
             post['reading-time'] = reading_time
             
+            # Handle series information
+            if 'series' in post.metadata:
+                series_info = post.metadata['series']
+                if isinstance(series_info, dict):
+                    series_name = series_info.get('name', '')
+                    series_slug = process_item_for_url_slug(series_name)['url-slug']
+                    post['series'] = {
+                        'name': series_name,
+                        'url-slug': series_slug,
+                        'part': series_info.get('part', None),
+                        'description': series_info.get('description', '')
+                    }
+                    
+                    # Build series metadata
+                    if series_slug not in series_data:
+                        series_data[series_slug] = {
+                            'name': series_name,
+                            'url-slug': series_slug,
+                            'description': series_info.get('description', ''),
+                            'posts': []
+                        }
+                    
+                    series_data[series_slug]['posts'].append({
+                        'title': post['title'],
+                        'url-slug': post['url-slug'],
+                        'path': post[POST_PATH_STRING],
+                        'first-published-on': post['first-published-on'],
+                        'part': series_info.get('part', None),
+                        'excerpt': post.get('excerpt', ''),
+                        'reading-time': reading_time
+                    })
+            
             data_all.append(post.metadata)
+    
     print(f"Total posts: {count}")
     data_all.sort(key=extract_time, reverse=True)
+    
+    # Save posts metadata
     json_data = json.dumps(data_all, default=json_serial)  #, indent=2)
     # https://stackoverflow.com/a/12517490
     dir = os.path.dirname(POSTS_LIST_FILE_JSON)
@@ -124,6 +162,49 @@ def create_posts_list(files):
     file_to_update_json = open(POSTS_LIST_FILE_JSON, "w+")
     file_to_update_json.write(json_data)
     file_to_update_json.close()
+    
+    # Save series metadata
+    create_series_metadata(series_data)
+
+
+def create_series_metadata(series_data):
+    """Creates the series metadata file"""
+    series_list = []
+    
+    for series_slug, series_info in series_data.items():
+        # Sort posts by publication date
+        series_info['posts'].sort(key=lambda x: x['first-published-on'], reverse=False)
+        
+        # Add sequential numbering if parts are not specified
+        for i, post in enumerate(series_info['posts'], 1):
+            if post['part'] is None:
+                post['part'] = i
+        
+        # Calculate series statistics
+        series_info['post_count'] = len(series_info['posts'])
+        series_info['first_published'] = series_info['posts'][0]['first-published-on'] if series_info['posts'] else None
+        series_info['last_updated'] = series_info['posts'][-1]['first-published-on'] if series_info['posts'] else None
+        
+        series_list.append(series_info)
+    
+    # Sort series by first publication date
+    series_list.sort(key=lambda x: x['first_published'] if x['first_published'] else datetime.min, reverse=True)
+    
+    # Save series metadata
+    json_data = json.dumps(series_list, default=json_serial)
+    dir = os.path.dirname(SERIES_LIST_FILE_JSON)
+    if not os.path.exists(dir):
+        try:
+            os.makedirs(dir)
+            print(f"Created directory {dir}")
+        except OSError as exc:
+            if exc.errno != errno.EEXIST:
+                raise
+    
+    with open(SERIES_LIST_FILE_JSON, "w+") as file:
+        file.write(json_data)
+    
+    print(f"Total series: {len(series_list)}")
 
 
 def copy_blog_posts(src, dest):

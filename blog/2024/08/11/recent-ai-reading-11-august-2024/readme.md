@@ -20,6 +20,10 @@ title: Recent AI Reading [11 August 2024]
 url-slug: recent-ai-reading-11-august-2024
 first-published-on: 2024-08-11 00:56
 last-updated-on: 2024-08-11 00:56
+series:
+ name: Papers I Read Recently
+ description: A curated collection of AI/ML papers and research articles I've been reading and found interesting
+ part: 4
 meta:
  description: "Recent AI reading, including papers and articles."
 excerpt: "Self-play with Execution Feedback: Improving Instruction-following Capabilities of Large Language Models"

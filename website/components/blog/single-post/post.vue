@@ -10,6 +10,18 @@
         </v-card>
       </v-row>
 
+      <!-- Series Navigation -->
+      <v-row v-if="currentSeries" class="py-3">
+        <v-col cols="12">
+          <client-only>
+            <seriesNavigation 
+              :series="currentSeries"
+              :current-post-slug="passedProps.postMetadata['url-slug']"
+            />
+          </client-only>
+        </v-col>
+      </v-row>
+
       <v-row class="py-3">
         <client-only>
           <socialSharing
@@ -53,17 +65,21 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import postHeader from './post-header.vue'
 import socialSharing from './social-sharing.vue'
 import comments from './comments.vue'
 import postNavigation from './post-navigation.vue'
 import relatedPosts from './related-posts.vue'
 import readingProgress from './reading-progress.vue'
+import seriesNavigation from '../series/series-navigation.vue'
 import mermaid from 'mermaid'
 if (process.browser) {
   mermaid.initialize({ startOnLoad: false });
   await mermaid.run()
 }
+
+const currentSeries = ref(null)
 const passedProps = defineProps({
   postMetadata: {
     type: Object,
@@ -102,6 +118,39 @@ const hashtags = () => {
   })
   return hashtagsArray.join()
 }
+
+const loadSeriesData = async () => {
+  // Check if this post has series information
+  if (!passedProps.postMetadata.series) {
+    return
+  }
+  
+  try {
+    const response = await fetch('/blogdata/metadata/series_metadata.json')
+    if (!response.ok) {
+      console.error('Failed to load series metadata')
+      return
+    }
+    
+    const seriesData = await response.json()
+    const series = seriesData.find(s => s['url-slug'] === passedProps.postMetadata.series['url-slug'])
+    
+    if (series) {
+      currentSeries.value = {
+        name: series.name,
+        urlSlug: series['url-slug'],
+        description: series.description,
+        posts: series.posts
+      }
+    }
+  } catch (err) {
+    console.error('Error loading series data:', err)
+  }
+}
+
+onMounted(() => {
+  loadSeriesData()
+})
 </script>
 
 <style>

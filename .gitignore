@@ -120,5 +120,7 @@ sw.*
 **/static/styles/
 **/public/styles/
 
+**/search_index.json
+
 # scala
 .metals

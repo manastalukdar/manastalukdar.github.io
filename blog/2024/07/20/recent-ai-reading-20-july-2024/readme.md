@@ -18,6 +18,10 @@ title: Recent AI Reading [20 July 2024]
 url-slug: recent-ai-reading-20-july-2024
 first-published-on: 2024-07-20 17:03
 last-updated-on: 2024-07-20 17:03
+series:
+ name: Papers I Read Recently
+ description: A curated collection of AI/ML papers and research articles I've been reading and found interesting
+ part: 3
 meta:
  description: "Recent AI reading, including papers and articles."
 excerpt: "LLM-Eval: Unified Multi-Dimensional Automatic Evaluation for Open-Domain Conversations with Large Language"
