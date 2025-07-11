@@ -72,13 +72,15 @@ This enhancement project focuses on improving user experience, content discovery
 #### ✅ Reading Progress Indicator
 
 **Status**: Completed  
-**Location**: 
+**Location**:
+
 - Component: `website/components/blog/single-post/reading-progress.vue`
 - Integration: `website/components/blog/single-post/post.vue`
 
 **Description**: Visual progress indicator showing reading completion for long articles with estimated time remaining.
 
 **Features**:
+
 - Fixed progress bar at top of viewport
 - Circular progress indicator with percentage
 - Estimated time remaining based on reading speed
