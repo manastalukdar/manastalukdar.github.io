@@ -1,9 +1,7 @@
 <template>
-  <div class="series-detail-page">
-    <Head>
-      <Title>{{ pageTitle }}</Title>
-      <Meta name="description" :content="pageDescription" />
-    </Head>
+  <v-container>
+    <breadcrumbs v-if="!loading && series" :breadcrumbs="breadcrumbsData" />
+    <p v-if="!loading && series" />
     
     <div v-if="loading" class="text-center py-8">
       <v-progress-circular 
@@ -48,40 +46,36 @@
       </v-btn>
     </div>
     
-    <div v-else class="series-content">
-      <!-- Series Header -->
-      <div class="series-header mb-8">
-        <nav class="breadcrumb mb-4">
-          <NuxtLink to="/blog" class="text-decoration-none">Blog</NuxtLink>
-          <span class="mx-2">•</span>
-          <NuxtLink to="/blog/series" class="text-decoration-none">Series</NuxtLink>
-          <span class="mx-2">•</span>
-          <span class="text-medium-emphasis">{{ series.name }}</span>
-        </nav>
-        
-        <h1 class="text-h3 mb-4">{{ series.name }}</h1>
-        <p class="text-h6 text-medium-emphasis mb-4">
-          {{ series.description }}
-        </p>
-        
-        <div class="d-flex align-center gap-4 mb-4">
-          <v-chip
-            color="primary"
-            variant="outlined"
-            size="large"
-          >
-            {{ series.postCount }} {{ series.postCount === 1 ? 'post' : 'posts' }}
-          </v-chip>
+    <v-row v-else class="text-justify">
+      <v-col cols="12">
+        <!-- Series Header -->
+        <div class="series-header mb-8">
+          <v-row class="text-center py-2" justify="center">
+            <h1>{{ series.name }}</h1>
+          </v-row>
           
-          <v-chip
-            color="secondary"
-            variant="outlined"
-            size="large"
-          >
-            {{ formatDate(series.firstPublished) }} - {{ formatDate(series.lastUpdated) }}
-          </v-chip>
+          <p class="text-center text-h6 text-medium-emphasis mb-4">
+            {{ series.description }}
+          </p>
+          
+          <div class="d-flex align-center justify-center gap-4 mb-4">
+            <v-chip
+              color="primary"
+              variant="outlined"
+              size="large"
+            >
+              {{ series.postCount }} {{ series.postCount === 1 ? 'post' : 'posts' }}
+            </v-chip>
+            
+            <v-chip
+              color="secondary"
+              variant="outlined"
+              size="large"
+            >
+              {{ formatDate(series.firstPublished) }} - {{ formatDate(series.lastUpdated) }}
+            </v-chip>
+          </div>
         </div>
-      </div>
       
       <!-- Series Posts -->
       <div class="series-posts">
@@ -153,15 +147,24 @@
           </v-card>
         </div>
       </div>
-    </div>
-  </div>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import breadcrumbs from '../../../components/breadcrumbs'
+import { useNavigationStore } from '@/stores/Navigation'
+import { useGlobalDataStore } from '@/stores/GlobalData'
 
 const route = useRoute()
+const navigationStore = useNavigationStore()
+const globalDataStore = useGlobalDataStore()
+const runtimeConfig = useRuntimeConfig()
+const baseUrl = runtimeConfig.public.baseUrl
+
 const series = ref(null)
 const loading = ref(true)
 const error = ref(null)
@@ -172,6 +175,41 @@ const pageTitle = computed(() => {
 
 const pageDescription = computed(() => {
   return series.value ? series.value.description : 'Blog series not found'
+})
+
+const appOwner = globalDataStore.appOwner
+const blogHref = navigationStore.blog.blogItems[0].href
+const seriesHref = '/blog/series/'
+
+const breadcrumbsData = computed(() => {
+  if (!series.value) return []
+  
+  return [
+    {
+      title: 'Home',
+      disabled: false,
+      href: '/',
+      exact: true,
+    },
+    {
+      title: 'Blog',
+      disabled: false,
+      href: blogHref,
+      exact: true,
+    },
+    {
+      title: 'Series',
+      disabled: false,
+      href: seriesHref,
+      exact: true,
+    },
+    {
+      title: series.value.name,
+      disabled: false,
+      href: `/blog/series/${series.value.urlSlug}`,
+      exact: true,
+    },
+  ]
 })
 
 const formatDate = (dateString) => {
@@ -226,44 +264,76 @@ onMounted(() => {
   loadSeries()
 })
 
-// SEO and meta tags
-useSeoMeta({
-  title: pageTitle,
-  description: pageDescription,
-  ogTitle: pageTitle,
-  ogDescription: pageDescription,
-  ogType: 'website',
-  twitterCard: 'summary_large_image',
-  twitterTitle: pageTitle,
-  twitterDescription: pageDescription
+// Watch for series changes to update head data
+watch(series, (newSeries) => {
+  if (newSeries) {
+    const title = pageTitle.value + ' | ' + navigationStore.blog.blogText + ' || ' + appOwner
+    const description = pageDescription.value
+    const url = baseUrl + `/blog/series/${newSeries.urlSlug}`
+    
+    const breadcrumbsStructuredDataArray = breadcrumbsData.value.map(
+      (item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@id': baseUrl + item.href,
+          name: item.title,
+        },
+      })
+    )
+
+    const breadcrumbsStructuredData = {
+      '@context': 'http://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbsStructuredDataArray,
+    }
+    
+    useHead({
+      title: title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: description,
+        },
+        {
+          hid: 'apple-mobile-web-app-title',
+          name: 'apple-mobile-web-app-title',
+          content: title,
+        },
+        {
+          hid: 'og-title',
+          name: 'og:title',
+          property: 'og:title',
+          content: title,
+        },
+        {
+          hid: 'og-url',
+          name: 'og:url',
+          property: 'og:url',
+          content: url,
+        },
+        {
+          hid: 'og-description',
+          name: 'og:description',
+          property: 'og:description',
+          content: description,
+        },
+      ],
+      link: [{ rel: 'canonical', href: url }],
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          innerHTML: JSON.stringify(breadcrumbsStructuredData),
+          type: 'application/ld+json',
+        },
+      ],
+    })
+  }
 })
 </script>
 
 <style scoped>
-.series-detail-page {
-  min-height: 100vh;
-  padding: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .series-detail-page {
-    padding: 16px;
-  }
-}
-
-.series-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.breadcrumb {
-  font-size: 0.875rem;
-  opacity: 0.8;
-}
-
 .post-card {
   transition: all 0.2s ease-in-out;
 }
