@@ -16,7 +16,7 @@
         )
       "
     >
-      <postHeader :post-metadata="props.postMetadata" />
+      <postHeader :post-metadata="props.postMetadata" :show-series-info="props.showSeriesInfo" />
       <p />
       <div class="col text-left">
         {{ props.postMetadata.excerpt }}&nbsp;
@@ -50,6 +50,10 @@ const props = defineProps({
       return {}
     }
   },
+  showSeriesInfo: {
+    type: Boolean,
+    default: false
+  }
 });
 //console.log(props.postMetadata.excerpt);
 const dynamicBlogPostRoute = navigationStore.blog.dynamicItems.blogPost.href;

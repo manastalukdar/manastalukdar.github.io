@@ -2,7 +2,7 @@
   <v-row class="pa-3">
     <v-col class="py-2" cols="12">
       <v-row v-for="item in paginatedPosts" :key="item['url-slug']">
-        <singlePost :post-metadata="item" />
+        <singlePost :post-metadata="item" :show-series-info="passedProps.showSeriesInfo" />
       </v-row>
       
       <!-- Pagination Controls -->
@@ -32,6 +32,10 @@ const passedProps = defineProps({
   initialPage: {
     type: Number,
     default: 1
+  },
+  showSeriesInfo: {
+    type: Boolean,
+    default: false
   }
 });
 

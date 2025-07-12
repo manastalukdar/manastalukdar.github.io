@@ -4,7 +4,7 @@
       <v-row class="text-h6 px-3 py-3" justify="center">
         <v-col class="text-center align-center">
           <!-- Series Part Number -->
-          <div v-if="props.postMetadata.series?.part" class="mb-2">
+          <div v-if="props.postMetadata.series?.part && props.showSeriesInfo" class="mb-2">
             <v-chip
               color="primary"
               variant="outlined"
@@ -69,6 +69,10 @@ const props = defineProps({
     default() {
       return {}
     }
+  },
+  showSeriesInfo: {
+    type: Boolean,
+    default: false
   }
 });
 //console.log(props.postMetadata);

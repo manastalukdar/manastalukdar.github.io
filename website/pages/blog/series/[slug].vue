@@ -85,6 +85,7 @@
           <postsList
             :posts-list="formattedPosts"
             :initial-page="currentPage"
+            :show-series-info="true"
             @page-changed="onPageChanged"
             @per-page-changed="onPerPageChanged"
           />
