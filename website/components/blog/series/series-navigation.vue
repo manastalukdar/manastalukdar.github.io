@@ -70,24 +70,24 @@
                 v-for="post in series.posts" 
                 :key="post.urlSlug"
                 class="series-post-item"
-                :class="{ 'current-post': post.urlSlug === currentPostSlug }"
+                :class="{ 'current-post': post['url-slug'] === currentPostSlug }"
               >
                 <NuxtLink 
                   :to="`/blog/${post.path.replace('/readme.md', '')}`"
                   class="text-decoration-none d-flex align-center"
                 >
                   <v-chip 
-                    :color="post.urlSlug === currentPostSlug ? 'primary' : 'default'"
+                    :color="post['url-slug'] === currentPostSlug ? 'primary' : 'default'"
                     size="small"
                     class="me-2"
                   >
                     {{ post.part }}
                   </v-chip>
-                  <span :class="post.urlSlug === currentPostSlug ? 'text-primary font-weight-bold' : ''">
+                  <span :class="post['url-slug'] === currentPostSlug ? 'text-primary font-weight-bold' : ''">
                     {{ post.title }}
                   </span>
                   <v-chip 
-                    v-if="post.urlSlug === currentPostSlug"
+                    v-if="post['url-slug'] === currentPostSlug"
                     color="success"
                     variant="outlined"
                     size="x-small"
@@ -124,7 +124,7 @@ const props = defineProps({
 })
 
 const currentPost = computed(() => {
-  return props.series.posts.find(post => post.urlSlug === props.currentPostSlug)
+  return props.series.posts.find(post => post['url-slug'] === props.currentPostSlug)
 })
 
 const currentPart = computed(() => {
@@ -133,13 +133,13 @@ const currentPart = computed(() => {
 
 const previousPost = computed(() => {
   if (!currentPost.value) return null
-  const currentIndex = props.series.posts.findIndex(post => post.urlSlug === props.currentPostSlug)
+  const currentIndex = props.series.posts.findIndex(post => post['url-slug'] === props.currentPostSlug)
   return currentIndex > 0 ? props.series.posts[currentIndex - 1] : null
 })
 
 const nextPost = computed(() => {
   if (!currentPost.value) return null
-  const currentIndex = props.series.posts.findIndex(post => post.urlSlug === props.currentPostSlug)
+  const currentIndex = props.series.posts.findIndex(post => post['url-slug'] === props.currentPostSlug)
   return currentIndex < props.series.posts.length - 1 ? props.series.posts[currentIndex + 1] : null
 })
 </script>
