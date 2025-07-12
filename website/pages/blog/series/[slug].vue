@@ -2,62 +2,62 @@
   <v-container>
     <breadcrumbs v-if="!loading && series" :breadcrumbs="breadcrumbsData" />
     <p v-if="!loading && series" />
-    
+
     <div v-if="loading" class="text-center py-8">
-      <v-progress-circular 
-        indeterminate 
+      <v-progress-circular
+        indeterminate
         color="primary"
         size="64"
       />
       <p class="mt-4">Loading series...</p>
     </div>
-    
+
     <div v-else-if="error" class="text-center py-8">
-      <v-alert 
-        type="error" 
+      <v-alert
+        type="error"
         variant="outlined"
         class="mb-4"
       >
         {{ error }}
       </v-alert>
-      <v-btn 
-        to="/blog/series" 
+      <v-btn
+        to="/blog/series"
         variant="outlined"
         color="primary"
       >
         Back to Series
       </v-btn>
     </div>
-    
+
     <div v-else-if="!series" class="text-center py-8">
-      <v-alert 
-        type="info" 
+      <v-alert
+        type="info"
         variant="outlined"
         class="mb-4"
       >
         Series not found.
       </v-alert>
-      <v-btn 
-        to="/blog/series" 
+      <v-btn
+        to="/blog/series"
         variant="outlined"
         color="primary"
       >
         Back to Series
       </v-btn>
     </div>
-    
+
     <v-row v-else class="text-justify">
       <v-col cols="12">
         <!-- Series Header -->
         <div class="series-header mb-8">
           <v-row class="text-center py-2" justify="center">
-            <h1>{{ series.name }}</h1>
+            <h1>Series: {{ series.name }}</h1>
           </v-row>
-          
+
           <p class="text-center text-h6 text-medium-emphasis mb-4">
             {{ series.description }}
           </p>
-          
+
           <div class="d-flex align-center justify-center gap-4 mb-4">
             <v-chip
               color="primary"
@@ -66,7 +66,7 @@
             >
               {{ series.postCount }} {{ series.postCount === 1 ? 'post' : 'posts' }}
             </v-chip>
-            
+
             <v-chip
               color="secondary"
               variant="outlined"
@@ -76,76 +76,19 @@
             </v-chip>
           </div>
         </div>
-      
+
       <!-- Series Posts -->
       <div class="series-posts">
         <h2 class="text-h4 mb-6">All Posts in This Series</h2>
-        
-        <div class="posts-list">
-          <v-card
-            v-for="post in series.posts"
-            :key="post.urlSlug"
-            class="post-card mb-4"
-            elevation="1"
-            variant="outlined"
-          >
-            <v-card-text class="py-4">
-              <div class="d-flex align-start gap-4">
-                <v-chip 
-                  color="primary"
-                  size="large"
-                  class="flex-shrink-0"
-                >
-                  Part {{ post.part }}
-                </v-chip>
-                
-                <div class="flex-grow-1">
-                  <h3 class="text-h6 mb-2">
-                    <NuxtLink 
-                      :to="`/blog/${post.path.replace('/readme.md', '')}`"
-                      class="text-decoration-none"
-                    >
-                      {{ post.title }}
-                    </NuxtLink>
-                  </h3>
-                  
-                  <p class="text-body-2 text-medium-emphasis mb-2">
-                    {{ post.excerpt }}
-                  </p>
-                  
-                  <div class="d-flex align-center gap-2">
-                    <v-chip
-                      color="default"
-                      variant="outlined"
-                      size="small"
-                    >
-                      {{ post.readingTime.text }}
-                    </v-chip>
-                    
-                    <v-chip
-                      color="default"
-                      variant="outlined"
-                      size="small"
-                    >
-                      {{ formatDate(post.firstPublishedOn) }}
-                    </v-chip>
-                  </div>
-                </div>
-              </div>
-            </v-card-text>
-            
-            <v-card-actions>
-              <v-btn
-                :to="`/blog/${post.path.replace('/readme.md', '')}`"
-                variant="text"
-                color="primary"
-              >
-                Read Post
-                <v-icon end>mdi-arrow-right</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </div>
+
+        <client-only>
+          <postsList
+            :posts-list="formattedPosts"
+            :initial-page="currentPage"
+            @page-changed="onPageChanged"
+            @per-page-changed="onPerPageChanged"
+          />
+        </client-only>
       </div>
       </v-col>
     </v-row>
@@ -154,20 +97,25 @@
 
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import breadcrumbs from '../../../components/breadcrumbs'
+import postsList from '../../../components/blog/posts-list/list.vue'
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
+import { useBlogMetadataStore } from '@/stores/BlogMetadata'
 
 const route = useRoute()
+const router = useRouter()
 const navigationStore = useNavigationStore()
 const globalDataStore = useGlobalDataStore()
+const blogMetadataStore = useBlogMetadataStore()
 const runtimeConfig = useRuntimeConfig()
 const baseUrl = runtimeConfig.public.baseUrl
 
 const series = ref(null)
 const loading = ref(true)
 const error = ref(null)
+const currentPage = ref(parseInt(String(route.query.page || '1')))
 
 const pageTitle = computed(() => {
   return series.value ? `${series.value.name} - Blog Series` : 'Blog Series'
@@ -183,7 +131,7 @@ const seriesHref = '/blog/series/'
 
 const breadcrumbsData = computed(() => {
   if (!series.value) return []
-  
+
   return [
     {
       title: 'Home',
@@ -221,19 +169,72 @@ const formatDate = (dateString) => {
   })
 }
 
+// Format series posts for the postsList component
+const formattedPosts = computed(() => {
+  if (!series.value || !blogMetadataStore.blogMetadata) return []
+
+  // Find all published posts that belong to this series
+  const seriesPosts = blogMetadataStore.blogMetadata.filter(post =>
+    post.published &&
+    post.series &&
+    post.series['url-slug'] === series.value.urlSlug
+  )
+
+  // Sort posts by series part number
+  return seriesPosts.sort((a, b) => {
+    const partA = a.series?.part || 0
+    const partB = b.series?.part || 0
+    return partA - partB
+  })
+})
+
+// Event handlers for pagination
+function onPageChanged(newPage) {
+  currentPage.value = newPage
+  updateURL()
+}
+
+function onPerPageChanged(newPerPage) {
+  // Reset to page 1 when changing items per page
+  currentPage.value = 1
+  updateURL()
+}
+
+function updateURL() {
+  const query = {}
+  if (currentPage.value > 1) {
+    query.page = currentPage.value
+  }
+
+  router.push({
+    path: `/blog/series/${route.params.slug}`,
+    query: query
+  })
+}
+
+// Watch for route changes (browser back/forward)
+watch(() => route.query.page, (newPage) => {
+  currentPage.value = parseInt(String(newPage || '1'))
+})
+
 const loadSeries = async () => {
   try {
     loading.value = true
     error.value = null
-    
+
+    // Ensure blog metadata is loaded first
+    if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
+      await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl)
+    }
+
     const response = await fetch('/blogdata/metadata/series_metadata.json')
     if (!response.ok) {
       throw new Error('Failed to load series metadata')
     }
-    
+
     const data = await response.json()
     const seriesData = data.find(item => item['url-slug'] === route.params.slug)
-    
+
     if (seriesData) {
       series.value = {
         name: seriesData.name,
@@ -251,7 +252,7 @@ const loadSeries = async () => {
     } else {
       series.value = null
     }
-    
+
   } catch (err) {
     error.value = err.message
     console.error('Error loading series:', err)
@@ -270,7 +271,7 @@ watch(series, (newSeries) => {
     const title = pageTitle.value + ' | ' + navigationStore.blog.blogText + ' || ' + appOwner
     const description = pageDescription.value
     const url = baseUrl + `/blog/series/${newSeries.urlSlug}`
-    
+
     const breadcrumbsStructuredDataArray = breadcrumbsData.value.map(
       (item, index) => ({
         '@type': 'ListItem',
@@ -287,7 +288,7 @@ watch(series, (newSeries) => {
       '@type': 'BreadcrumbList',
       itemListElement: breadcrumbsStructuredDataArray,
     }
-    
+
     useHead({
       title: title,
       meta: [
@@ -334,15 +335,6 @@ watch(series, (newSeries) => {
 </script>
 
 <style scoped>
-.post-card {
-  transition: all 0.2s ease-in-out;
-}
-
-.post-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
 .gap-4 {
   gap: 16px;
 }
