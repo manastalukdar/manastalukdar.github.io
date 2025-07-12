@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Manas Talukdar - blog</title>
+        <link>https://manastalukdar.github.io/blogfeed.xml</link>
+        <description>Syndication feed for blog.</description>
+        <lastBuildDate>Sat, 12 Jul 2025 17:13:53 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <copyright>All rights reserved 2025 Manas Talukdar</copyright>
+        <category>Technology</category>
+        <category>Science</category>
+        <category>Musings</category>
+        <category>History</category>
+        <category>Miscellaneous</category>
+        <item>
+            <title><![CDATA[Recent AI Reading [19 May 2025]]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/05/19/recent-ai-reading-19-may-2025/</link>
+            <guid isPermaLink="false">/blog/2025/05/19/recent-ai-reading-19-may-2025/</guid>
+            <pubDate>Mon, 19 May 2025 10:35:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[ ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Discussion on How Data and Cloud-Native Strategies are Redefining Enterprise AI on the Alchemist Accelerator Innovator Inside Podcast]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/03/18/discussion-data-enterprise-ai-alchemist-accelerator-innovators-inside-podcast/</link>
+            <guid isPermaLink="false">/blog/2025/03/18/discussion-data-enterprise-ai-alchemist-accelerator-innovators-inside-podcast/</guid>
+            <pubDate>Tue, 18 Mar 2025 12:07:00 GMT</pubDate>
+            <description><![CDATA[Discussion on How Data and Cloud-Native Strategies are Redefining Enterprise AI on the Alchemist Accelerator Innovator Inside Podcast.]]></description>
+            <content:encoded><![CDATA[Discussion on How Data and Cloud-Native Strategies are Redefining Enterprise AI on the Alchemist Accelerator Innovator Inside Podcast" ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Discussion on Navigating the AI Revolution with Dr. John Dentico on the Throttle Up Leadership Podcast]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/03/07/discussion-ai-dr-john-dentico-throttle-up-leadership-podcast/</link>
+            <guid isPermaLink="false">/blog/2025/03/07/discussion-ai-dr-john-dentico-throttle-up-leadership-podcast/</guid>
+            <pubDate>Fri, 07 Mar 2025 21:48:00 GMT</pubDate>
+            <description><![CDATA[Discussion on Navigating the AI Revolution with Dr. John Dentico on the Throttle Up Leadership Podcast.]]></description>
+            <content:encoded><![CDATA[Discussion on Navigating the AI Revolution with Dr. John Dentico on the Throttle Up Leadership Podcast" ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [29 January 2025]]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/01/29/recent-ai-reading-29-january-2025/</link>
+            <guid isPermaLink="false">/blog/2025/01/29/recent-ai-reading-29-january-2025/</guid>
+            <pubDate>Wed, 29 Jan 2025 11:25:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[Reasoning Language Models: A Blueprint ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [18 January 2025]]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/01/18/recent-ai-reading-18-january-2025/</link>
+            <guid isPermaLink="false">/blog/2025/01/18/recent-ai-reading-18-january-2025/</guid>
+            <pubDate>Sat, 18 Jan 2025 20:44:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[A Multi-AI Agent System for Autonomous Optimization of ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [10 November 2024]]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/11/10/recent-ai-reading-10-november-2024/</link>
+            <guid isPermaLink="false">/blog/2024/11/10/recent-ai-reading-10-november-2024/</guid>
+            <pubDate>Sun, 10 Nov 2024 16:47:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[ ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[New Research on Anxiety, Pollution, and Learning - Neuroscience News]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/11/02/neuroscience-news-research-anxiety-pollution-learning/</link>
+            <guid isPermaLink="false">/blog/2024/11/02/neuroscience-news-research-anxiety-pollution-learning/</guid>
+            <pubDate>Sat, 02 Nov 2024 17:07:00 GMT</pubDate>
+            <description><![CDATA[New Research on Anxiety, Pollution, and Learning - Neuroscience News.]]></description>
+            <content:encoded><![CDATA[Neuroscience News summary of a recent research publication on specific cell types ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [26 October 2024]]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/10/26/recent-ai-reading-26-october-2024/</link>
+            <guid isPermaLink="false">/blog/2024/10/26/recent-ai-reading-26-october-2024/</guid>
+            <pubDate>Sat, 26 Oct 2024 17:55:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[Agentic Information Retrieval ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Discussion on AI and Data Infrastructure with Mehmet Gonullu on The CTO Show Podcast]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/10/25/ai-data-infrastructure-mehmet-gonullo-the-cto-show-podcast/</link>
+            <guid isPermaLink="false">/blog/2024/10/25/ai-data-infrastructure-mehmet-gonullo-the-cto-show-podcast/</guid>
+            <pubDate>Fri, 25 Oct 2024 13:07:00 GMT</pubDate>
+            <description><![CDATA[Discussion on AI and Data Infrastructure with Mehmet Gonullu on The CTO Show Podcast.]]></description>
+            <content:encoded><![CDATA[Discussion on AI and Data Infrastructure with Mehmet Gonullu on The CTO Show podcast ...read more]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [15 October 2024]]]></title>
+            <link>https://manastalukdar.github.io/blog/2024/10/15/recent-ai-reading-15-october-2024/</link>
+            <guid isPermaLink="false">/blog/2024/10/15/recent-ai-reading-15-october-2024/</guid>
+            <pubDate>Tue, 15 Oct 2024 22:34:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[Self-Boosting Large Language Models with Synthetic Preference Data ...read more]]></content:encoded>
+        </item>
+    </channel>
+</rss>
