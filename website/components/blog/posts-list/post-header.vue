@@ -3,10 +3,25 @@
     <v-col cols="12">
       <v-row class="text-h6 px-3 py-3" justify="center">
         <v-col class="text-center align-center">
-          {{ props.postMetadata.title }}
-          <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
-            <v-icon>{{ postFormatIcon() }}</v-icon>
-          </nuxt-link>
+          <!-- Series Part Number -->
+          <div v-if="props.postMetadata.series?.part" class="mb-2">
+            <v-chip
+              color="primary"
+              variant="outlined"
+              size="large"
+              class="series-part-chip"
+            >
+              Part {{ props.postMetadata.series.part }}
+            </v-chip>
+          </div>
+          
+          <!-- Post Title -->
+          <div>
+            {{ props.postMetadata.title }}
+            <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
+              <v-icon>{{ postFormatIcon() }}</v-icon>
+            </nuxt-link>
+          </div>
         </v-col>
         <p />
       </v-row>
@@ -85,4 +100,15 @@ const getPostFormatRoute = (slug) => {
 };
 </script>
 
-<style></style>
+<style scoped>
+.series-part-chip {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.series-part-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+</style>
