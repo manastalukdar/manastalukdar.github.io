@@ -12,7 +12,14 @@
         <p class="text-center text-h6 text-medium-emphasis mb-6">
           Explore curated collections of related blog posts organized by topic and theme.
         </p>
-        <SeriesList />
+        <client-only>
+          <SeriesPostsList 
+            :series-list="seriesMetadata" 
+            :initial-page="currentPage"
+            @page-changed="onPageChanged"
+            @per-page-changed="onPerPageChanged"
+          />
+        </client-only>
       </v-col>
     </v-row>
   </v-container>
@@ -21,27 +28,85 @@
 <script setup>
 import { computed } from 'vue'
 import breadcrumbs from '../../../components/breadcrumbs'
-import SeriesList from '~/components/blog/series/series-list.vue'
+import SeriesPostsList from '~/components/blog/series/series-posts-list.vue'
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
+import { useSeriesMetadataStore } from '@/stores/SeriesMetadata'
 
 const navigationStore = useNavigationStore()
 const globalDataStore = useGlobalDataStore()
+const seriesMetadataStore = useSeriesMetadataStore()
 const runtimeConfig = useRuntimeConfig()
 const route = useRoute()
+const router = useRouter()
 const baseUrl = runtimeConfig.public.baseUrl
+
+// Get current page from route or default to 1
+const currentPage = ref(parseInt(String(route.query.page || '1')))
+
+// Setup series metadata
+async function setupSeriesMetadata() {
+  try {
+    if (seriesMetadataStore.getSeriesCount() === 0) {
+      await seriesMetadataStore.setupSeriesMetadata(runtimeConfig.public.baseUrl)
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+await setupSeriesMetadata()
 
 const appOwner = globalDataStore.appOwner
 const pageTitle = computed(() => 'Blog Series')
 const pageDescription = computed(() => 'Explore curated collections of related blog posts organized by topic and theme.')
+const seriesMetadata = seriesMetadataStore.getSeriesMetadata()
 
 const blogHref = navigationStore.blog.blogItems[0].href
 const currentHref = '/blog/series/'
 const seriesText = 'Series'
 
-const title = pageTitle.value + ' | ' + navigationStore.blog.blogText + ' || ' + appOwner
+const title = computed(() => {
+  if (currentPage.value > 1) {
+    return `${pageTitle.value} - Page ${currentPage.value} | ${navigationStore.blog.blogText} || ${appOwner}`
+  }
+  return `${pageTitle.value} | ${navigationStore.blog.blogText} || ${appOwner}`
+})
 const description = pageDescription.value
-const url = baseUrl + currentHref
+const url = computed(() => {
+  if (currentPage.value > 1) {
+    return baseUrl + currentHref + '?page=' + currentPage.value
+  }
+  return baseUrl + currentHref
+})
+
+// Event handlers for pagination
+function onPageChanged(newPage) {
+  currentPage.value = newPage
+  updateURL()
+}
+
+function onPerPageChanged(newPerPage) {
+  // Reset to page 1 when changing items per page
+  currentPage.value = 1
+  updateURL()
+}
+
+function updateURL() {
+  const query = {}
+  if (currentPage.value > 1) {
+    query.page = currentPage.value
+  }
+  
+  router.push({
+    path: '/blog/series',
+    query: query
+  })
+}
+
+// Watch for route changes (browser back/forward)
+watch(() => route.query.page, (newPage) => {
+  currentPage.value = parseInt(String(newPage || '1'))
+})
 
 const breadcrumbsData = [
   {
