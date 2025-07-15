@@ -14,8 +14,7 @@ url-slug: framework-promotion-to-senior-engineering-manager
 first-published-on: 2024-05-13 23:04
 last-updated-on: 2024-09-15 22:13
 series:
- name: Framework for Engineering Promotions
- description: Frameworks for engineering promotions at senior leadership levels for both IC and management tracks.
+ slug: framework-for-engineering-promotions
  part: 2
 meta:
  description: "An framework for promotions to Senior Engineering Manager."

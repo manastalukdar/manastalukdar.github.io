@@ -1,0 +1,15 @@
+# Series Definitions
+# This file contains centralized definitions for all blog post series
+# to avoid duplication of series information across multiple posts.
+
+papers-i-read-recently:
+  name: "Papers I Read Recently"
+  description: "A curated collection of AI/ML papers and research articles I've been reading and found interesting"
+
+breaking-into:
+  name: "Breaking Into"
+  description: "Career guidance and roadmaps for breaking into different technology domains"
+
+framework-for-engineering-promotions:
+  name: "Framework for Engineering Promotions"
+  description: "Frameworks for engineering promotions at senior leadership levels for both IC and management tracks"

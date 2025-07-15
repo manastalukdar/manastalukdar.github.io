@@ -14,8 +14,7 @@ url-slug: framework-promotion-to-staff-lead-engineer
 first-published-on: 2024-04-30 13:42
 last-updated-on: 2024-09-15 22:13
 series:
- name: Framework for Engineering Promotions
- description: Frameworks for engineering promotions at senior leadership levels for both IC and management tracks.
+ slug: framework-for-engineering-promotions
  part: 1
 meta:
  description: "An framework for promotions to Staff or Lead Engineer."

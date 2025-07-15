@@ -15,8 +15,7 @@ url-slug: breaking-into-ai-ml
 first-published-on: 2024-04-13 14:14
 last-updated-on: 2024-04-13 14:14
 series:
- name: Breaking Into
- description: Career guidance and roadmaps for breaking into different technology domains
+ slug: breaking-into
  part: 1
 meta:
  description: "Some pointers for breaking into AI/ML."

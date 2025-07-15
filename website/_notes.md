@@ -52,3 +52,7 @@
 - https://github.com/nuxt-community/sitemap-module/issues/248
 - https://github.com/nuxt-community/pwa-module/issues/537
 - https://www.the-koi.com/projects/nuxt-3-how-to-use-axios/
+
+## On linux
+
+- `npm rebuild --verbose sharp`

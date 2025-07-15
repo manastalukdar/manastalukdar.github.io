@@ -14,8 +14,7 @@ url-slug: breaking-into-data-engineering
 first-published-on: 2024-05-12 20:06
 last-updated-on: 2024-05-12 20:06
 series:
- name: Breaking Into
- description: Career guidance and roadmaps for breaking into different technology domains
+ slug: breaking-into
  part: 2
 meta:
  description: "Breaking into Data Engineering."

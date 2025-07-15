@@ -18,8 +18,7 @@ url-slug: recent-ai-reading-29-january-2025
 first-published-on: 2025-01-29 11:25
 last-updated-on: 2025-03-13 18:43
 series:
- name: Papers I Read Recently
- description: A curated collection of AI/ML papers and research articles I've been reading and found interesting
+ slug: papers-i-read-recently
  part: 10
 meta:
  description: "Recent AI reading, including papers and articles."

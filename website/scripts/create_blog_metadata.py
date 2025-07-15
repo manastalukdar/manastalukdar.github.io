@@ -12,10 +12,12 @@ from datetime import date, datetime
 import math
 
 import frontmatter
+import yaml
 from dateutil import parser
 
 POSTS_LIST_FILE_JSON = "website/public/blogdata/metadata/blog_metadata.json"
 SERIES_LIST_FILE_JSON = "website/public/blogdata/metadata/series_metadata.json"
+SERIES_DEFINITIONS_FILE = "blog/metadata/series-definitions.yaml"
 POSTS_DIST_FOLDER = "website/public/blogdata"
 POSTS_FOLDER = "blog"
 
@@ -64,6 +66,19 @@ def calculate_reading_time(content, words_per_minute=225):
     }
 
 
+def load_series_definitions():
+    """Load series definitions from the central YAML file."""
+    try:
+        with open(SERIES_DEFINITIONS_FILE, 'r', encoding='utf-8') as f:
+            return yaml.safe_load(f) or {}
+    except FileNotFoundError:
+        print(f"Series definitions file not found: {SERIES_DEFINITIONS_FILE}")
+        return {}
+    except yaml.YAMLError as e:
+        print(f"Error parsing series definitions: {e}")
+        return {}
+
+
 def find_files():
     """Return the list of files to process."""
     result = {}
@@ -86,6 +101,9 @@ def create_posts_list(files):
     count = 0
     data_all = []
     series_data = {}
+    
+    # Load series definitions from central file
+    series_definitions = load_series_definitions()
     
     for item in files.items():
         post = frontmatter.load(item[1])
@@ -115,13 +133,29 @@ def create_posts_list(files):
             if 'series' in post.metadata:
                 series_info = post.metadata['series']
                 if isinstance(series_info, dict):
-                    series_name = series_info.get('name', '')
-                    series_slug = process_item_for_url_slug(series_name)['url-slug']
+                    # Check if using new simplified format (slug + part)
+                    if 'slug' in series_info:
+                        # New format: get series info from definitions
+                        series_slug = series_info['slug']
+                        if series_slug in series_definitions:
+                            series_def = series_definitions[series_slug]
+                            series_name = series_def['name']
+                            series_description = series_def['description']
+                        else:
+                            print(f"Warning: Series '{series_slug}' not found in definitions")
+                            series_name = series_slug.replace('-', ' ').title()
+                            series_description = ''
+                    else:
+                        # Old format: series info is inline
+                        series_name = series_info.get('name', '')
+                        series_slug = process_item_for_url_slug(series_name)['url-slug']
+                        series_description = series_info.get('description', '')
+                    
                     post['series'] = {
                         'name': series_name,
                         'url-slug': series_slug,
                         'part': series_info.get('part', None),
-                        'description': series_info.get('description', '')
+                        'description': series_description
                     }
                     
                     # Build series metadata
@@ -129,7 +163,7 @@ def create_posts_list(files):
                         series_data[series_slug] = {
                             'name': series_name,
                             'url-slug': series_slug,
-                            'description': series_info.get('description', ''),
+                            'description': series_description,
                             'posts': []
                         }
                     

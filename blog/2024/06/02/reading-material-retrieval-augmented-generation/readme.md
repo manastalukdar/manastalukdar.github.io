@@ -17,8 +17,7 @@ url-slug: reading-material-retrieval-augmented-generation
 first-published-on: 2024-06-02 21:23
 last-updated-on: 2024-06-02 21:23
 series:
- name: Papers I Read Recently
- description: A curated collection of AI/ML papers and research articles I've been reading and found interesting
+ slug: papers-i-read-recently
  part: 2
 meta:
  description: "Some reading material on Retrieval-Augmented Generation."
