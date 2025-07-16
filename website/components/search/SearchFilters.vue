@@ -326,7 +326,7 @@ const props = defineProps({
 const emit = defineEmits(['update:filters', 'clear-all'])
 
 // Reactive state
-const expandedPanels = ref(['categories', 'tags'])
+const expandedPanels = ref([])
 const categorySearch = ref('')
 const selectedCategories = ref(props.initialFilters.categories || [])
 const selectedTags = ref(props.initialFilters.tags || [])
