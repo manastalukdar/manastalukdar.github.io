@@ -180,6 +180,179 @@ class SearchService {
     };
   }
 
+  // Get filter counts for analytics
+  getFilterCounts() {
+    if (!this.searchIndex || typeof window === 'undefined') {
+      return { categories: {}, tags: {}, postFormats: {} };
+    }
+
+    const categoryCounts = {};
+    const tagCounts = {};
+    const postFormatCounts = {};
+
+    this.searchIndex.forEach(entry => {
+      // Count categories
+      entry.categories?.forEach(cat => {
+        categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+      });
+
+      // Count tags
+      entry.tags?.forEach(tag => {
+        tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+      });
+
+      // Count post formats (if available)
+      if (entry['post-format']?.name) {
+        const formatName = entry['post-format'].name;
+        postFormatCounts[formatName] = (postFormatCounts[formatName] || 0) + 1;
+      }
+    });
+
+    return {
+      categories: categoryCounts,
+      tags: tagCounts,
+      postFormats: postFormatCounts
+    };
+  }
+
+  // Preview search results count without performing full search
+  previewSearchCount(query, filters = {}) {
+    if (!this.searchIndex || typeof window === 'undefined') {
+      return 0;
+    }
+
+    let candidates = this.searchIndex;
+
+    // Apply filters
+    if (filters.categories && filters.categories.length > 0) {
+      candidates = candidates.filter(entry => 
+        entry.categories.some(cat => filters.categories.includes(cat))
+      );
+    }
+
+    if (filters.tags && filters.tags.length > 0) {
+      candidates = candidates.filter(entry => 
+        entry.tags.some(tag => filters.tags.includes(tag))
+      );
+    }
+
+    if (filters.postFormat) {
+      candidates = candidates.filter(entry => 
+        entry['post-format']?.name === filters.postFormat
+      );
+    }
+
+    if (filters.dateStart || filters.dateEnd) {
+      candidates = candidates.filter(entry => {
+        const entryDate = new Date(entry.date);
+        const startDate = filters.dateStart ? new Date(filters.dateStart) : null;
+        const endDate = filters.dateEnd ? new Date(filters.dateEnd) : null;
+        
+        if (startDate && entryDate < startDate) return false;
+        if (endDate && entryDate > endDate) return false;
+        return true;
+      });
+    }
+
+    // If there's a query, do basic matching
+    if (query && query.trim().length > 0) {
+      const queryLower = query.toLowerCase();
+      candidates = candidates.filter(entry => {
+        const titleLower = entry.title.toLowerCase();
+        const contentLower = entry.content.toLowerCase();
+        const categoriesLower = entry.categories.join(' ').toLowerCase();
+        const tagsLower = entry.tags.join(' ').toLowerCase();
+
+        return titleLower.includes(queryLower) ||
+               contentLower.includes(queryLower) ||
+               categoriesLower.includes(queryLower) ||
+               tagsLower.includes(queryLower);
+      });
+    }
+
+    return candidates.length;
+  }
+
+  // Get filter combinations that would yield results
+  getViableFilterCombinations(currentFilters = {}) {
+    if (!this.searchIndex || typeof window === 'undefined') {
+      return { categories: {}, tags: {}, postFormats: {} };
+    }
+
+    let candidates = this.searchIndex;
+
+    // Apply existing filters except the one we're analyzing
+    const applyFiltersExcept = (excludeType) => {
+      let filtered = this.searchIndex;
+
+      if (excludeType !== 'categories' && currentFilters.categories && currentFilters.categories.length > 0) {
+        filtered = filtered.filter(entry => 
+          entry.categories.some(cat => currentFilters.categories.includes(cat))
+        );
+      }
+
+      if (excludeType !== 'tags' && currentFilters.tags && currentFilters.tags.length > 0) {
+        filtered = filtered.filter(entry => 
+          entry.tags.some(tag => currentFilters.tags.includes(tag))
+        );
+      }
+
+      if (excludeType !== 'postFormat' && currentFilters.postFormat) {
+        filtered = filtered.filter(entry => 
+          entry['post-format']?.name === currentFilters.postFormat
+        );
+      }
+
+      if (excludeType !== 'date' && (currentFilters.dateStart || currentFilters.dateEnd)) {
+        filtered = filtered.filter(entry => {
+          const entryDate = new Date(entry.date);
+          const startDate = currentFilters.dateStart ? new Date(currentFilters.dateStart) : null;
+          const endDate = currentFilters.dateEnd ? new Date(currentFilters.dateEnd) : null;
+          
+          if (startDate && entryDate < startDate) return false;
+          if (endDate && entryDate > endDate) return false;
+          return true;
+        });
+      }
+
+      return filtered;
+    };
+
+    // Calculate viable categories
+    const viableCategories = {};
+    const categoryCandidates = applyFiltersExcept('categories');
+    categoryCandidates.forEach(entry => {
+      entry.categories?.forEach(cat => {
+        viableCategories[cat] = (viableCategories[cat] || 0) + 1;
+      });
+    });
+
+    // Calculate viable tags
+    const viableTags = {};
+    const tagCandidates = applyFiltersExcept('tags');
+    tagCandidates.forEach(entry => {
+      entry.tags?.forEach(tag => {
+        viableTags[tag] = (viableTags[tag] || 0) + 1;
+      });
+    });
+
+    // Calculate viable post formats
+    const viablePostFormats = {};
+    const formatCandidates = applyFiltersExcept('postFormat');
+    formatCandidates.forEach(entry => {
+      if (entry['post-format']?.name) {
+        const formatName = entry['post-format'].name;
+        viablePostFormats[formatName] = (viablePostFormats[formatName] || 0) + 1;
+      }
+    });
+
+    return {
+      categories: viableCategories,
+      tags: viableTags,
+      postFormats: viablePostFormats
+    };
+  }
+
   // Get recent posts
   getRecentPosts(limit = 5) {
     if (!this.searchIndex || typeof window === 'undefined') {

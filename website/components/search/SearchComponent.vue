@@ -4,6 +4,22 @@
       <v-card-title class="search-header">
         <v-icon class="search-icon">mdi-magnify</v-icon>
         <span>AI-Powered Search</span>
+        <v-spacer />
+        <v-btn
+          variant="text"
+          size="small"
+          @click="showFilters = !showFilters"
+          :color="hasActiveFilters ? 'primary' : 'default'"
+        >
+          <v-icon start>mdi-filter-variant</v-icon>
+          Filters
+          <v-badge
+            v-if="activeFilterCount > 0"
+            :content="activeFilterCount"
+            color="primary"
+            inline
+          />
+        </v-btn>
       </v-card-title>
 
       <v-card-text>
@@ -20,73 +36,33 @@
           class="search-input"
         />
 
-        <!-- Search Options -->
-        <div class="search-options" v-if="showAdvancedOptions">
-          <v-row>
-            <v-col cols="12" md="6">
-              <v-autocomplete
-                v-model="selectedCategories"
-                :items="availableCategories"
-                label="Filter by Categories"
-                variant="outlined"
-                multiple
-                chips
-                closable-chips
-                dense
-                clearable
-                hide-no-data
-              />
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-autocomplete
-                v-model="selectedTags"
-                :items="availableTags"
-                label="Filter by Tags"
-                variant="outlined"
-                multiple
-                chips
-                closable-chips
-                dense
-                clearable
-                hide-no-data
-              />
-            </v-col>
-          </v-row>
-
-          <v-row>
-            <v-col cols="12" md="6">
-              <v-switch
-                v-model="useSemanticSearch"
-                label="Use AI Semantic Search"
-                color="primary"
-                inset
-              />
-            </v-col>
-            <v-col cols="12" md="6">
-              <v-slider
-                v-model="maxResults"
-                label="Max Results"
-                min="5"
-                max="50"
-                step="5"
-                thumb-label
-              />
-            </v-col>
-          </v-row>
-        </div>
-
-        <!-- Toggle Advanced Options -->
-        <v-btn
-          variant="text"
-          size="small"
-          @click="showAdvancedOptions = !showAdvancedOptions"
-          class="mt-2"
-        >
-          {{ showAdvancedOptions ? 'Hide' : 'Show' }} Advanced Options
-          <v-icon>{{ showAdvancedOptions ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-        </v-btn>
+        <!-- Active Filter Chips -->
+        <FilterChips
+          v-if="hasActiveFilters"
+          :filters="currentFilters"
+          :result-count="searchResults?.totalResults"
+          @remove-filter="removeFilter"
+          @clear-all="clearAllFilters"
+        />
       </v-card-text>
     </v-card>
+
+    <!-- Enhanced Filters Panel -->
+    <v-expand-transition>
+      <div v-if="showFilters" class="filters-panel mt-4">
+        <SearchFilters
+          :available-categories="availableCategories"
+          :available-tags="availableTags"
+          :available-post-formats="availablePostFormats"
+          :category-counts="categoryCounts"
+          :tag-counts="tagCounts"
+          :post-format-counts="postFormatCounts"
+          :initial-filters="currentFilters"
+          @update:filters="updateFiltersLocal"
+          @clear-all="clearAllFilters"
+        />
+      </div>
+    </v-expand-transition>
 
     <!-- Search Results -->
     <div class="search-results" v-if="searchResults || isSearching">
@@ -94,17 +70,28 @@
         <v-card-title class="results-header">
           <v-icon class="results-icon">mdi-file-search</v-icon>
           <span v-if="searchResults">
-            {{ searchResults.totalResults }} results for "{{ searchResults.query }}"
+            {{ searchResults.totalResults }} results
+            <span v-if="searchResults.query">for "{{ searchResults.query }}"</span>
           </span>
           <span v-else>Searching...</span>
           <v-spacer/>
-          <v-chip
-            v-if="searchResults"
-            :color="searchResults.searchType === 'semantic' ? 'primary' : 'secondary'"
-            size="small"
-          >
-            {{ searchResults.searchType === 'semantic' ? 'AI Semantic' : 'Keyword' }}
-          </v-chip>
+          <div class="result-meta-chips">
+            <v-chip
+              v-if="searchResults"
+              :color="searchResults.searchType === 'semantic' ? 'primary' : 'secondary'"
+              size="small"
+              class="mr-2"
+            >
+              {{ searchResults.searchType === 'semantic' ? 'AI Semantic' : 'Keyword' }}
+            </v-chip>
+            <v-chip
+              v-if="searchResults && hasActiveFilters"
+              color="info"
+              size="small"
+            >
+              Filtered
+            </v-chip>
+          </div>
         </v-card-title>
 
         <v-card-text>
@@ -153,6 +140,19 @@
                     >
                       {{ Math.round(result.score * 100) }}% match
                     </v-chip>
+                    <br>
+                    <div class="result-categories mt-1" v-if="result.categories && result.categories.length > 0">
+                      <v-chip
+                        v-for="category in result.categories.slice(0, 2)"
+                        :key="category"
+                        size="x-small"
+                        variant="outlined"
+                        color="info"
+                        class="mr-1 mb-1"
+                      >
+                        {{ category }}
+                      </v-chip>
+                    </div>
                   </div>
                 </template>
               </v-list-item>
@@ -206,28 +206,61 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, watch } from 'vue'
+import SearchFilters from './SearchFilters.vue'
+import FilterChips from './FilterChips.vue'
+import dayjs from 'dayjs'
+import { useSearchFilters } from '~/composables/useSearchFilters'
+
 // Only import search service on client side
 let searchService = null
 if (typeof window !== 'undefined') {
   searchService = (await import('~/utils/searchService')).searchService
 }
 
+// Use the search filters composable
+const { 
+  filters: currentFilters, 
+  updateFilters, 
+  clearFilters, 
+  removeFilter: removeFilterFromState,
+  setSearchQuery,
+  hasActiveFilters: filtersHasActive,
+  activeFilterCount: filtersActiveCount,
+  loadFiltersFromStorage,
+  saveFiltersToStorage
+} = useSearchFilters()
+
 // Reactive state
-const searchQuery = ref('')
+const searchQuery = ref(currentFilters.value.searchQuery || '')
 const searchResults = ref(null)
 const isSearching = ref(false)
-const showAdvancedOptions = ref(false)
-const selectedCategories = ref([])
-const selectedTags = ref([])
-const useSemanticSearch = ref(true)
-const maxResults = ref(10)
+const showFilters = ref(false)
 const recentPosts = ref([])
 const suggestions = ref({ categories: [], tags: [] })
+const categoryCounts = ref({})
+const tagCounts = ref({})
+const postFormatCounts = ref({})
 
 // Computed properties
 const availableCategories = computed(() => suggestions.value.categories)
 const availableTags = computed(() => suggestions.value.tags)
+const availablePostFormats = computed(() => {
+  // Extract post formats from search service if available
+  if (searchService && searchService.searchIndex) {
+    const formats = new Set()
+    searchService.searchIndex.forEach(entry => {
+      if (entry['post-format']?.name) {
+        formats.add(entry['post-format'].name)
+      }
+    })
+    return Array.from(formats).sort()
+  }
+  return []
+})
+
+const hasActiveFilters = computed(() => filtersHasActive.value)
+const activeFilterCount = computed(() => filtersActiveCount.value)
 
 // Search debounce timer
 let searchTimeout = null
@@ -257,14 +290,34 @@ const performSearch = async () => {
 
   try {
     const options = {
-      limit: maxResults.value,
-      useSemanticSearch: useSemanticSearch.value,
-      categories: selectedCategories.value,
-      tags: selectedTags.value
+      limit: currentFilters.value.maxResults,
+      threshold: currentFilters.value.similarityThreshold,
+      useSemanticSearch: currentFilters.value.useSemanticSearch,
+      categories: currentFilters.value.categories,
+      tags: currentFilters.value.tags,
+      postFormat: currentFilters.value.postFormat,
+      dateStart: currentFilters.value.dateStart,
+      dateEnd: currentFilters.value.dateEnd
     }
 
     if (searchService) {
-      searchResults.value = await searchService.search(searchQuery.value, options)
+      let results = await searchService.search(searchQuery.value, options)
+      
+      // Apply additional filters
+      if (options.dateStart || options.dateEnd) {
+        results.results = results.results.filter(result => {
+          const resultDate = dayjs(result.date)
+          const startDate = options.dateStart ? dayjs(options.dateStart) : null
+          const endDate = options.dateEnd ? dayjs(options.dateEnd) : null
+          
+          if (startDate && resultDate.isBefore(startDate)) return false
+          if (endDate && resultDate.isAfter(endDate)) return false
+          return true
+        })
+        results.totalResults = results.results.length
+      }
+      
+      searchResults.value = results
     }
   } catch (error) {
     console.error('Search failed:', error)
@@ -290,16 +343,109 @@ const loadSuggestions = async () => {
       await searchService.initialize()
       suggestions.value = searchService.getSuggestions()
       recentPosts.value = searchService.getRecentPosts(5)
+      
+      // Calculate filter counts
+      calculateFilterCounts()
     } catch (error) {
       console.error('Failed to load suggestions:', error)
     }
   }
 }
 
+const calculateFilterCounts = () => {
+  if (!searchService || !searchService.searchIndex) return
+  
+  // Use the enhanced search service methods
+  const counts = searchService.getFilterCounts()
+  categoryCounts.value = counts.categories
+  tagCounts.value = counts.tags
+  postFormatCounts.value = counts.postFormats
+  
+  // Update viable combinations based on current filters
+  updateViableFilterCounts()
+}
+
+const updateViableFilterCounts = () => {
+  if (!searchService || !searchService.searchIndex) return
+  
+  const viableCounts = searchService.getViableFilterCombinations(currentFilters.value)
+  
+  // Update counts to show only viable options
+  // This helps users understand which filters will yield results
+  Object.keys(categoryCounts.value).forEach(category => {
+    if (!viableCounts.categories[category]) {
+      categoryCounts.value[category] = 0
+    } else {
+      categoryCounts.value[category] = viableCounts.categories[category]
+    }
+  })
+  
+  Object.keys(tagCounts.value).forEach(tag => {
+    if (!viableCounts.tags[tag]) {
+      tagCounts.value[tag] = 0
+    } else {
+      tagCounts.value[tag] = viableCounts.tags[tag]
+    }
+  })
+}
+
+const updateFiltersLocal = (newFilters) => {
+  updateFilters(newFilters)
+  updateViableFilterCounts()
+  
+  // Trigger search if there's a query and filters changed
+  if (searchQuery.value.trim()) {
+    performSearch()
+  }
+}
+
+const removeFilter = ({ type, value }) => {
+  removeFilterFromState({ type, value })
+  updateViableFilterCounts()
+  
+  // Trigger search if there's a query
+  if (searchQuery.value.trim()) {
+    performSearch()
+  }
+}
+
+const clearAllFilters = () => {
+  clearFilters()
+  calculateFilterCounts() // Reset to full counts when clearing all filters
+  
+  // Trigger search if there's a query
+  if (searchQuery.value.trim()) {
+    performSearch()
+  }
+}
+
 // Lifecycle
 onMounted(() => {
+  loadFiltersFromStorage()
   loadSuggestions()
+  
+  // Perform initial search if there's a query in URL
+  if (currentFilters.value.searchQuery) {
+    searchQuery.value = currentFilters.value.searchQuery
+    performSearch()
+  }
 })
+
+// Watch for search query changes and sync with composable
+watch(searchQuery, (newQuery) => {
+  setSearchQuery(newQuery)
+})
+
+// Watch for filter changes
+watch(currentFilters, () => {
+  // Auto-search when filters change and there's a query
+  if (searchQuery.value.trim()) {
+    performSearch()
+  }
+  
+  // Save search preferences to localStorage
+  saveFiltersToStorage()
+}, { deep: true })
 </script>
 
 <style scoped>
@@ -324,16 +470,17 @@ onMounted(() => {
 }
 
 .search-input {
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
-.search-options {
-  background: rgb(var(--v-theme-surface));
-  border-radius: 8px;
-  padding: 16px;
-  margin-top: 16px;
-  border: 1px solid rgb(var(--v-theme-outline));
-  opacity: 0.9;
+.filters-panel {
+  width: 100%;
+}
+
+.result-meta-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .results-card {
@@ -413,6 +560,22 @@ onMounted(() => {
 
   .result-meta {
     min-width: 80px;
+  }
+  
+  .result-meta-chips {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+  
+  .search-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .filters-panel {
+    margin-top: 16px;
   }
 }
 </style>

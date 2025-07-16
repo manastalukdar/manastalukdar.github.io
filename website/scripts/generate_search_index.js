@@ -155,6 +155,7 @@ async function generateSearchIndex() {
         date: postMetadata['first-published-on'] || `${postInfo.year}-${postInfo.month}-${postInfo.day}`,
         categories: categories,
         tags: tags,
+        'post-format': postMetadata['post-format'] || null,
         embedding: embedding
       };
       
