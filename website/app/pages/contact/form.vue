@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import breadcrumbs from '../../components/breadcrumbs';
+import breadcrumbs from "~/components/breadcrumbs";
 import { useNavigationStore } from '@/stores/Navigation';
 import { useGlobalDataStore } from '@/stores/GlobalData';
 export default {

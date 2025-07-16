@@ -30,7 +30,7 @@
 <script setup>
 import { usePaperizer } from 'paperizer'
 import breadcrumbs from '../../../components/breadcrumbs'
-import highlights from '../../components/about/highlights.vue';
+import highlights from "~/components/about/highlights.vue";
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'

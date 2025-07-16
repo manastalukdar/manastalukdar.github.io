@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import breadcrumbs from '../components/breadcrumbs';
+import breadcrumbs from "~/components/breadcrumbs";
 import { computed } from 'vue';
 import { useNavigationStore } from '@/stores/Navigation';
 import { useGlobalDataStore } from '@/stores/GlobalData';

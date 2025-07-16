@@ -29,8 +29,8 @@
 
 <script setup>
 import { usePaperizer } from 'paperizer'
-import breadcrumbs from '../../components/breadcrumbs'
-import interests from '../components/about/interests.vue';
+import breadcrumbs from '~/components/breadcrumbs'
+import interests from '~/components/about/interests.vue';
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'

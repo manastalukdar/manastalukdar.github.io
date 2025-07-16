@@ -44,7 +44,7 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useNavigationStore } from '@/stores/Navigation';
-import setCorrectHJsStyle from '../utils/setCorrectHJsStyle.ts';
+import setCorrectHJsStyle from "~/utils/setCorrectHJsStyle.ts";
 import { useTheme } from 'vuetify';
 const theme = useTheme();
 const navigationStore = useNavigationStore();

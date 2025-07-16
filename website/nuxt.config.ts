@@ -260,9 +260,9 @@ export default defineNuxtConfig({
     //'./modules/helper',
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    // 'nuxt-simple-sitemap', // Temporarily disabled for migration
-    // 'nuxt-gtag', // Temporarily disabled for migration
-    // '@vite-pwa/nuxt', // Temporarily disabled for migration
+    '@nuxtjs/sitemap',
+    'nuxt-gtag',
+    '@vite-pwa/nuxt',
   ],
 
   plugins: [

@@ -23,8 +23,8 @@
 </template>
 
 <script setup>
-import breadcrumbs from '../../components/breadcrumbs'
-import postsList from '../../components/blog/posts-list/list.vue'
+import breadcrumbs from "~/components/breadcrumbs"
+import postsList from "~/components/blog/posts-list/list.vue"
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'

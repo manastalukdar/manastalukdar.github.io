@@ -28,11 +28,11 @@
 </template>
 
 <script setup>
-import aboutBlurb from '../components/home-page/about-blurb.vue';
-import recentPostsHomePage from '../components/home-page/recent-posts.vue';
-import featured from '../components/home-page/featured.vue';
-import otherLocationsAndResumeLinks from '../components/home-page/other-locations-resume.vue';
-import recentUpdates from '../components/home-page/recent-updates.vue';
+import aboutBlurb from "~/components/home-page/about-blurb.vue";
+import recentPostsHomePage from "~/components/home-page/recent-posts.vue";
+import featured from "~/components/home-page/featured.vue";
+import otherLocationsAndResumeLinks from "~/components/home-page/other-locations-resume.vue";
+import recentUpdates from "~/components/home-page/recent-updates.vue";
 import { useBlogMetadataStore } from '@/stores/BlogMetadata';
 import { useNavigationStore } from '@/stores/Navigation';
 import { useGlobalDataStore } from '@/stores/GlobalData';

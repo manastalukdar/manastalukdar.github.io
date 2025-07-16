@@ -58,7 +58,7 @@
 
 <script setup>
 import dayjs from 'dayjs'
-import breadcrumbs from '../../components/breadcrumbs'
+import breadcrumbs from "~/components/breadcrumbs"
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'

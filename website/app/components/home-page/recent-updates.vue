@@ -29,7 +29,7 @@ import currentReadingGoodreads from './currently-reading-goodreads.vue';
 import fm from 'front-matter';
 import mdit from 'markdown-it';
 import { computedAsync } from '@vueuse/core';
-import getTargetBlankLinkRender from '../../utils/markdownRenderHelpers.ts';
+import getTargetBlankLinkRender from "~/utils/markdownRenderHelpers.ts";
 const md = new mdit({
   html: true,
   linkify: true,

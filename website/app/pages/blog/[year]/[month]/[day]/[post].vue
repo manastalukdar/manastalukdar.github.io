@@ -67,7 +67,7 @@ hljs.registerLanguage('markdown', markdown);
 hljs.registerLanguage('plaintext', plaintext);
 hljs.registerLanguage('yaml', yaml);
 import fm from 'front-matter';
-import getTargetBlankLinkRender from '../../../../../utils/markdownRenderHelpers.ts';
+import getTargetBlankLinkRender from "~/utils/markdownRenderHelpers.ts";
 
 const appOwner = globalDataStore.appOwner;
 const currentPage = navigationStore.blog.blogText;

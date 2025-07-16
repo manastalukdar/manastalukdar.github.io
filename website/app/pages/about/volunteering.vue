@@ -42,11 +42,11 @@ import { usePaperizer } from 'paperizer'
 import fm from 'front-matter'
 import mdit from 'markdown-it'
 import { computedAsync } from '@vueuse/core'
-import breadcrumbs from '../../components/breadcrumbs'
+import breadcrumbs from "~/components/breadcrumbs"
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
-import getTargetBlankLinkRender from '../../utils/markdownRenderHelpers.ts';
+import getTargetBlankLinkRender from "~/utils/markdownRenderHelpers.ts";
 const navigationStore = useNavigationStore();
 const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
