@@ -1,5 +1,5 @@
 import { groupBy } from 'lodash-es'
-import blogMetadata from '../public/blogdata/metadata/blog_metadata.json'
+import blogMetadata from '../../public/blogdata/metadata/blog_metadata.json'
 import dayjs from 'dayjs'
 
 export const properties = {

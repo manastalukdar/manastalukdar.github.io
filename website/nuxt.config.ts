@@ -4,7 +4,7 @@ import fs from 'fs'
 import { Feed, Item } from 'feed'
 import { createResolver } from '@nuxt/kit'
 import { config, Configuration } from 'webpack';
-import * as getRoutes from './utils/getRoutes.js'
+import * as getRoutes from './app/utils/getRoutes.js'
 
 const { resolve } = createResolver(import.meta.url)
 
@@ -27,9 +27,6 @@ const siteDescription =
   'Manas Talukdar builds AI and Data products used globally in critical industrial infrastructure and leads organizations in Enterprise AI.'
 
 export default defineNuxtConfig({
-  future: {
-    compatibilityVersion: 4,
-  },
   
   runtimeConfig: {
     public: {
@@ -200,7 +197,7 @@ export default defineNuxtConfig({
       config.plugins?.push(
         vuetify({
           autoImport: true,
-          styles: { configFile: resolve('./style/settings.scss') },
+          styles: { configFile: resolve('./app/style/settings.scss') },
         })
       )
     },
@@ -263,9 +260,9 @@ export default defineNuxtConfig({
     //'./modules/helper',
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    'nuxt-simple-sitemap',
-    'nuxt-gtag',
-    '@vite-pwa/nuxt',
+    // 'nuxt-simple-sitemap', // Temporarily disabled for migration
+    // 'nuxt-gtag', // Temporarily disabled for migration
+    // '@vite-pwa/nuxt', // Temporarily disabled for migration
   ],
 
   plugins: [

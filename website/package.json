@@ -10,7 +10,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "getHighlightJsStyleSheets": "node utils/getHighlightJsStyleSheets.js",
+    "getHighlightJsStyleSheets": "node app/utils/getHighlightJsStyleSheets.js",
     "clean": "npx nuxi cleanup",
     "generate-search-index": "node scripts/generate_search_index.js"
   },
