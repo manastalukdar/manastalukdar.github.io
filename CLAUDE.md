@@ -14,7 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Linting
 
-- `cd website && node node_modules/eslint/bin/eslint.js --fix ./pages/**` - Fix ESLint issues in pages
+- `cd website && node node_modules/eslint/bin/eslint.js --fix ./app/pages/**` - Fix ESLint issues in pages
 
 ### Dependencies
 
@@ -23,16 +23,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Architecture
 
-This is a personal website and blog built with Nuxt 3 and Vue 3. The main application lives in the `website/` directory.
+This is a personal website and blog built with Nuxt 4 and Vue 3. The main application lives in the `website/` directory.
 
 ### Key Directory Structure
 
-- `website/` - Main Nuxt 3 application
-  - `components/` - Vue components organized by feature (about, blog, home-page, etc.)
-  - `pages/` - File-based routing with dynamic blog post pages
+- `website/` - Main Nuxt 4 application
+  - `app/` - **New Nuxt 4 structure** - Contains client-side code
+    - `components/` - Vue components organized by feature (about, blog, home-page, etc.)
+    - `pages/` - File-based routing with dynamic blog post pages
+    - `layouts/` - Layout components
+    - `plugins/` - Client-side plugins
+    - `stores/` - Pinia stores for state management
+    - `utils/` - Utility functions and helpers
+    - `composables/` - Vue composables
+    - `style/` - SCSS style files
+    - `app.vue` - Main app component
   - `public/` - Static assets and generated blog content
-  - `stores/` - Pinia stores for state management
-  - `utils/` - Utility functions and helpers
+  - `server/` - Server-side code (API routes, etc.)
   - `nuxt.config.ts` - Main configuration file
 
 - `blog/` - Blog post source files in markdown format, organized by year/month/day
@@ -41,12 +48,13 @@ This is a personal website and blog built with Nuxt 3 and Vue 3. The main applic
 
 ### Technology Stack
 
-- **Framework**: Nuxt 3 with Vue 3
+- **Framework**: Nuxt 4 with Vue 3
 - **UI**: Vuetify 3 with Material Design Icons
 - **State Management**: Pinia
 - **Styling**: SCSS with Vuetify
 - **Content**: Markdown with markdown-it plugins
-- **Build**: Vite (via Nuxt 3)
+- **Build**: Vite (via Nuxt 4)
+- **PWA**: @vite-pwa/nuxt (replaces deprecated @kevinmarrec/nuxt-pwa)
 
 ### Blog System Architecture
 
@@ -67,6 +75,18 @@ This is a personal website and blog built with Nuxt 3 and Vue 3. The main applic
 - Blog posts use a specific markdown format with frontmatter
 - The build process generates static files and RSS feeds
 - PWA functionality is configured for offline access
+
+### Migration to Nuxt 4 (July 2025) - COMPLETED ✅
+
+- **Status**: COMPLETE - Full migration to Nuxt 4 with new app directory structure
+- **Node.js Version**: Using Node.js 24.4.1 (compatible with Nuxt 4 requirements)
+- **Modules**: All modules updated and working:
+  - Replaced `nuxt-simple-sitemap` with `@nuxtjs/sitemap`
+  - Updated `@kevinmarrec/nuxt-pwa` to `@vite-pwa/nuxt` 
+  - `nuxt-gtag` updated and working
+- **New Structure**: All client-side code successfully moved to `app/` directory
+- **Import Paths**: All relative imports updated to use `~/` alias for better compatibility
+- **Build Status**: Build and generate processes working successfully
 
 ### CI/CD
 
