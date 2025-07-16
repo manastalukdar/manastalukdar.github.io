@@ -68,8 +68,9 @@ export async function getReadingTimeForPost(
     const fs = await import('fs')
     const path = await import('path')
     
-    // Construct full path to the blog post
-    const fullPath = path.join(process.cwd(), 'public', 'blogdata', postPath)
+    // Construct full path to the blog post (ensure we're in the website directory)
+    const websiteRoot = path.resolve(process.cwd(), 'website')
+    const fullPath = path.join(websiteRoot, 'public', 'blogdata', postPath)
     
     // Read the markdown file
     const content = fs.readFileSync(fullPath, 'utf-8')

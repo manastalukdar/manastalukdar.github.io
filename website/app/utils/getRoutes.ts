@@ -1,6 +1,12 @@
 import { groupBy } from 'lodash-es'
-import blogMetadata from '../../public/blogdata/metadata/blog_metadata.json'
+import * as fs from 'fs'
+import * as path from 'path'
 import dayjs from 'dayjs'
+
+// Load blog metadata from JSON file
+const websiteRoot = path.resolve(__dirname, '../..')
+const blogMetadataPath = path.join(websiteRoot, 'public/blogdata/metadata/blog_metadata.json')
+const blogMetadata = JSON.parse(fs.readFileSync(blogMetadataPath, 'utf-8'))
 
 export const properties = {
   sitemapRoutes: <any>[],
