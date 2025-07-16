@@ -17,7 +17,7 @@
   "devDependencies": {
     "@nuxtjs/sitemap": "^7.4.3",
     "@types/lodash": "^4.17.20",
-    "@types/node": "^24.0.11",
+    "@types/node": "^24.0.14",
     "@vite-pwa/nuxt": "^1.0.4",
     "@vueuse/core": "^13.5.0",
     "@vueuse/nuxt": "^13.5.0",
@@ -27,7 +27,7 @@
     "sass": "^1.89.2",
     "sass-loader": "^16.0.5",
     "volar-service-vetur": "latest",
-    "webpack": "^5.99.9"
+    "webpack": "^5.100.2"
   },
   "dependencies": {
     "@babel/cli": "^7.28.0",
@@ -52,7 +52,7 @@
     "markdown-it-mathjax": "^2.0.0",
     "markdown-it-textual-uml": "^0.17.1",
     "markdown-it-toc-done-right": "^4.2.0",
-    "mermaid": "^11.8.1",
+    "mermaid": "^11.9.0",
     "paperizer": "^0.1.6",
     "pinia": "^3.0.3",
     "plyr": "^3.7.8",
