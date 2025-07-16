@@ -27,6 +27,10 @@ const siteDescription =
   'Manas Talukdar builds AI and Data products used globally in critical industrial infrastructure and leads organizations in Enterprise AI.'
 
 export default defineNuxtConfig({
+  future: {
+    compatibilityVersion: 4,
+  },
+  
   runtimeConfig: {
     public: {
       baseUrl: baseUrl,
@@ -261,7 +265,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-simple-sitemap',
     'nuxt-gtag',
-    '@kevinmarrec/nuxt-pwa',
+    '@vite-pwa/nuxt',
   ],
 
   plugins: [
@@ -306,24 +310,31 @@ export default defineNuxtConfig({
   },
 
   pwa: {
-    /* workbox: {
-      enabled: true
-    }, */
-    icon: {
-      source: publicDir + '/images/android-chrome-512x512.png',
-      targetDir: './', // publicDir + '/generatedIcons',
+    registerType: 'autoUpdate',
+    workbox: {
+      globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
     },
-  },
-
-  // https://pwa.nuxtjs.org/modules/manifest.html
-  manifest: {
-    short_name: 'MTalukdar',
-    name: 'Manas Talukdar',
-    start_url: '/',
-    background_color: '#303030',
-    theme_color: '#263238',
-    display: 'standalone',
-    lang: 'en',
+    manifest: {
+      short_name: 'MTalukdar',
+      name: 'Manas Talukdar',
+      start_url: '/',
+      background_color: '#303030',
+      theme_color: '#263238',
+      display: 'standalone',
+      lang: 'en',
+      icons: [
+        {
+          src: '/images/android-chrome-192x192.png',
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          src: '/images/android-chrome-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+      ],
+    },
   },
 
 /*   render: {
