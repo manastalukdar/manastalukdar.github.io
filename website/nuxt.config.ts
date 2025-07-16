@@ -4,7 +4,7 @@ import fs from 'fs'
 import { Feed, Item } from 'feed'
 import { createResolver } from '@nuxt/kit'
 import { config, Configuration } from 'webpack';
-import * as getRoutes from './utils/getRoutes.js'
+import * as getRoutes from './app/utils/getRoutes.js'
 
 const { resolve } = createResolver(import.meta.url)
 
@@ -27,6 +27,7 @@ const siteDescription =
   'Manas Talukdar builds AI and Data products used globally in critical industrial infrastructure and leads organizations in Enterprise AI.'
 
 export default defineNuxtConfig({
+  
   runtimeConfig: {
     public: {
       baseUrl: baseUrl,
@@ -196,7 +197,7 @@ export default defineNuxtConfig({
       config.plugins?.push(
         vuetify({
           autoImport: true,
-          styles: { configFile: resolve('./style/settings.scss') },
+          styles: { configFile: resolve('./app/style/settings.scss') },
         })
       )
     },
@@ -259,9 +260,9 @@ export default defineNuxtConfig({
     //'./modules/helper',
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    'nuxt-simple-sitemap',
+    '@nuxtjs/sitemap',
     'nuxt-gtag',
-    '@kevinmarrec/nuxt-pwa',
+    '@vite-pwa/nuxt',
   ],
 
   plugins: [
@@ -306,24 +307,31 @@ export default defineNuxtConfig({
   },
 
   pwa: {
-    /* workbox: {
-      enabled: true
-    }, */
-    icon: {
-      source: publicDir + '/images/android-chrome-512x512.png',
-      targetDir: './', // publicDir + '/generatedIcons',
+    registerType: 'autoUpdate',
+    workbox: {
+      globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
     },
-  },
-
-  // https://pwa.nuxtjs.org/modules/manifest.html
-  manifest: {
-    short_name: 'MTalukdar',
-    name: 'Manas Talukdar',
-    start_url: '/',
-    background_color: '#303030',
-    theme_color: '#263238',
-    display: 'standalone',
-    lang: 'en',
+    manifest: {
+      short_name: 'MTalukdar',
+      name: 'Manas Talukdar',
+      start_url: '/',
+      background_color: '#303030',
+      theme_color: '#263238',
+      display: 'standalone',
+      lang: 'en',
+      icons: [
+        {
+          src: '/images/android-chrome-192x192.png',
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          src: '/images/android-chrome-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+      ],
+    },
   },
 
 /*   render: {
