@@ -310,6 +310,7 @@ export default defineNuxtConfig({
     registerType: 'autoUpdate',
     workbox: {
       globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
+      globIgnores: ['**/404**', '**/404.html'],
     },
     manifest: {
       short_name: 'MTalukdar',
