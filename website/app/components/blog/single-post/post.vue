@@ -5,6 +5,20 @@
         <v-card color="cardColor" raised elevation="8" class="py-6 px-6 v-row">
           <postHeader :post-metadata="passedProps.postMetadata"/>
           <p />
+          
+          <!-- Table of Contents -->
+          <client-only>
+            <tableOfContents 
+              content-selector=".blogPostContent"
+              :min-headings="3"
+              :max-level="4"
+              position="sticky"
+              :show-progress="true"
+              :smooth-scroll="true"
+              :collapsible="true"
+            />
+          </client-only>
+          
           <!-- eslint-disable-next-line vue/no-v-html -->
           <div class="blogPostContent col px-5 pt-5" v-html="passedProps.postContent" />
         </v-card>
@@ -72,6 +86,7 @@ import comments from './comments.vue'
 import postNavigation from './post-navigation.vue'
 import relatedPosts from './related-posts.vue'
 import readingProgress from './reading-progress.vue'
+import tableOfContents from './table-of-contents.vue'
 import seriesNavigation from '../series/series-navigation.vue'
 import mermaid from 'mermaid'
 if (process.browser) {

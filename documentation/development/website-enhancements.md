@@ -112,9 +112,9 @@ This enhancement project focuses on improving user experience, content discovery
 **Status**: Completed  
 **Description**: Visual interface for filtering search results by categories, tags, dates, and post formats.
 
-#### 🔄 Table of Contents Widget
+#### ✅ Table of Contents Widget
 
-**Status**: Pending  
+**Status**: Completed  
 **Description**: Auto-generated TOC with smooth scrolling for long posts.
 
 ### Phase 3: Community Features
