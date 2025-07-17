@@ -10,7 +10,7 @@
           Your saved blog posts for easy access and reference
         </p>
       </div>
-      
+
       <ClientOnly>
         <div class="bookmarks-content">
           <!-- Bookmark Statistics -->
@@ -234,13 +234,13 @@ import BookmarkPostCard from '~/components/blog/bookmark-post-card.vue'
 
 // Page metadata
 definePageMeta({
-  title: 'Bookmarks - Manas Talukdar',
+  title: 'Bookmarks | Manas Talukdar',
   description: 'Your saved blog posts for easy access and reference'
 })
 
 // SEO head configuration
 useHead({
-  title: 'Bookmarks - Manas Talukdar',
+  title: 'Bookmarks | Manas Talukdar',
   meta: [
     {
       name: 'description',
@@ -311,7 +311,7 @@ const performSearch = () => {
 
 const sortBookmarks = () => {
   let sorted = [...filteredBookmarks.value]
-  
+
   switch (sortBy.value) {
     case 'recent':
       sorted.sort((a, b) => new Date(b.bookmarkedAt) - new Date(a.bookmarkedAt))
@@ -332,7 +332,7 @@ const sortBookmarks = () => {
       sorted.sort((a, b) => new Date(a['first-published-on']) - new Date(b['first-published-on']))
       break
   }
-  
+
   displayedBookmarks.value = sorted
 }
 
@@ -361,7 +361,7 @@ const exportBookmarks = () => {
     a.click()
     document.body.removeChild(a)
     URL.revokeObjectURL(url)
-    
+
     showSnackbar.value = true
     snackbarMessage.value = 'Bookmarks exported successfully'
     snackbarColor.value = 'success'
@@ -375,12 +375,12 @@ const exportBookmarks = () => {
 
 const importBookmarks = async () => {
   if (!importFile.value || importFile.value.length === 0) return
-  
+
   try {
     const file = importFile.value[0]
     const content = await file.text()
     const result = importBookmarksData(content, true) // Merge mode
-    
+
     if (result.success) {
       showSnackbar.value = true
       snackbarMessage.value = `Successfully imported ${result.imported} bookmarks`
@@ -497,7 +497,7 @@ onMounted(() => {
   .page-title {
     font-size: 2rem;
   }
-  
+
   .stats-actions {
     flex-direction: column;
     gap: 8px;
@@ -508,27 +508,27 @@ onMounted(() => {
   .bookmarks-page {
     padding: 16px 0;
   }
-  
+
   .page-title {
     font-size: 1.8rem;
     flex-direction: column;
     gap: 8px;
   }
-  
+
   .title-icon {
     font-size: 2rem;
   }
-  
+
   .page-description {
     font-size: 1rem;
   }
-  
+
   .stats-item {
     flex-direction: column;
     text-align: center;
     gap: 4px;
   }
-  
+
   .stats-actions {
     flex-direction: column;
     gap: 8px;

@@ -5,7 +5,7 @@
     variant="text"
     size="large"
     :loading="isLoading"
-    @click="handleBookmarkToggle"
+    @click.stop.prevent="handleBookmarkToggle"
     :aria-label="bookmarkLabel"
     class="bookmark-btn"
   >
@@ -70,7 +70,13 @@ const bookmarkTooltip = computed(() => {
 })
 
 // Handle bookmark toggle with loading state and events
-const handleBookmarkToggle = async () => {
+const handleBookmarkToggle = async (event) => {
+  // Explicitly prevent event propagation and default behavior
+  if (event) {
+    event.stopPropagation()
+    event.preventDefault()
+  }
+  
   if (isLoading.value || !props.post) return
   
   isLoading.value = true

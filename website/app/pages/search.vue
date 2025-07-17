@@ -7,7 +7,7 @@
           Find blog posts using AI-powered semantic search or traditional keyword matching
         </p>
       </div>
-      
+
       <ClientOnly>
         <SearchComponent />
         <template #fallback>
@@ -24,14 +24,14 @@
           </div>
         </template>
       </ClientOnly>
-      
+
       <div class="search-info mt-8">
         <v-card class="info-card" elevation="1">
           <v-card-title class="info-header">
             <v-icon class="info-icon">mdi-information</v-icon>
             <span>How Search Works</span>
           </v-card-title>
-          
+
           <v-card-text>
             <v-row>
               <v-col cols="12" md="6">
@@ -40,50 +40,50 @@
                   <div class="feature-content">
                     <h3>AI Semantic Search</h3>
                     <p>
-                      Uses advanced natural language processing to understand the meaning 
-                      behind your queries. Search with natural language like "machine learning 
+                      Uses advanced natural language processing to understand the meaning
+                      behind your queries. Search with natural language like "machine learning
                       papers" or "engineering management techniques".
                     </p>
                   </div>
                 </div>
               </v-col>
-              
+
               <v-col cols="12" md="6">
                 <div class="feature-item">
                   <v-icon color="secondary" size="24">mdi-text-search</v-icon>
                   <div class="feature-content">
                     <h3>Keyword Matching</h3>
                     <p>
-                      Traditional search that matches exact words and phrases in titles, 
-                      content, categories, and tags. Great for finding specific topics 
+                      Traditional search that matches exact words and phrases in titles,
+                      content, categories, and tags. Great for finding specific topics
                       or technical terms.
                     </p>
                   </div>
                 </div>
               </v-col>
-              
+
               <v-col cols="12" md="6">
                 <div class="feature-item">
                   <v-icon color="success" size="24">mdi-filter</v-icon>
                   <div class="feature-content">
                     <h3>Advanced Filters</h3>
                     <p>
-                      Narrow down results by categories, tags, or date ranges. 
-                      Combine filters with both semantic and keyword search for 
+                      Narrow down results by categories, tags, or date ranges.
+                      Combine filters with both semantic and keyword search for
                       precise results.
                     </p>
                   </div>
                 </div>
               </v-col>
-              
+
               <v-col cols="12" md="6">
                 <div class="feature-item">
                   <v-icon color="warning" size="24">mdi-speedometer</v-icon>
                   <div class="feature-content">
                     <h3>Relevance Scoring</h3>
                     <p>
-                      Results are ranked by relevance using similarity scores. 
-                      Higher percentages indicate better matches to your query. 
+                      Results are ranked by relevance using similarity scores.
+                      Higher percentages indicate better matches to your query.
                       Perfect for finding the most relevant content.
                     </p>
                   </div>
@@ -93,14 +93,14 @@
           </v-card-text>
         </v-card>
       </div>
-      
+
       <div class="search-tips mt-4">
         <v-card class="tips-card" elevation="1">
           <v-card-title class="tips-header">
             <v-icon class="tips-icon">mdi-lightbulb</v-icon>
             <span>Search Tips</span>
           </v-card-title>
-          
+
           <v-card-text>
             <div class="tips-grid">
               <div class="tip-item">
@@ -140,13 +140,13 @@ import SearchComponent from '~/components/search/SearchComponent.vue'
 
 // Page metadata
 definePageMeta({
-  title: 'Search - Manas Talukdar',
+  title: 'Search | Manas Talukdar',
   description: 'Search blog posts using AI-powered semantic search and keyword matching'
 })
 
 // SEO head configuration
 useHead({
-  title: 'Search - Manas Talukdar',
+  title: 'Search | Manas Talukdar',
   meta: [
     {
       name: 'description',
@@ -306,7 +306,7 @@ useHead({
   .page-title {
     font-size: 2rem;
   }
-  
+
   .tips-grid {
     grid-template-columns: 1fr;
   }
@@ -316,20 +316,20 @@ useHead({
   .search-page {
     padding: 16px 0;
   }
-  
+
   .page-title {
     font-size: 1.8rem;
   }
-  
+
   .page-description {
     font-size: 1rem;
   }
-  
+
   .feature-item {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .feature-content {
     margin-left: 0;
     margin-top: 8px;

@@ -33,11 +33,10 @@
           <span>...read more</span>
         </nuxt-link>
       </div>
-      <div v-if="props.showBookmark" class="d-flex justify-end mt-3">
+      <div v-if="props.showBookmark" class="d-flex justify-end mt-3" @click.stop.prevent>
         <BookmarkButton 
           :post="props.postMetadata"
           size="large"
-          @click.stop
         />
       </div>
     </v-card>
