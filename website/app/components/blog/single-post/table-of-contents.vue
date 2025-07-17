@@ -183,11 +183,49 @@ const extractTocFromContent = () => {
   return items
 }
 
-const handleTocClick = (id, event, closeMobile = false) => {
+const handleTocClick = async (id, event, closeMobile = false) => {
   event.preventDefault()
   
+  if (closeMobile) {
+    // For mobile: close modal first, then scroll after DOM updates
+    showMobileMenu.value = false
+    await nextTick()
+    
+    // Wait a bit more for modal close animation to complete
+    setTimeout(() => {
+      scrollToElement(id)
+    }, 100)
+  } else {
+    // Desktop: scroll directly
+    scrollToElement(id)
+  }
+}
+
+const scrollToElement = (id) => {
   const element = document.getElementById(id)
-  if (element) {
+  if (!element) {
+    console.warn(`TOC: Element with ID "${id}" not found`)
+    return
+  }
+
+  if (isMobile.value) {
+    // Mobile-specific scrolling: use coordinates instead of scrollIntoView
+    // This is more reliable for mobile browsers, especially in modal contexts
+    const elementRect = element.getBoundingClientRect()
+    const bodyRect = document.body.getBoundingClientRect()
+    const elementTop = elementRect.top - bodyRect.top
+    const scrollTop = elementTop - 80 // 80px offset for better visibility
+    
+    if (props.smoothScroll) {
+      window.scrollTo({ 
+        top: scrollTop, 
+        behavior: 'smooth'
+      })
+    } else {
+      window.scrollTo(0, scrollTop)
+    }
+  } else {
+    // Desktop scrolling
     if (props.smoothScroll) {
       element.scrollIntoView({ 
         behavior: 'smooth', 
@@ -196,19 +234,6 @@ const handleTocClick = (id, event, closeMobile = false) => {
       })
     } else {
       element.scrollIntoView()
-    }
-    
-    // For mobile, delay closing the dialog to allow smooth scrolling to complete
-    if (closeMobile) {
-      setTimeout(() => {
-        showMobileMenu.value = false
-      }, props.smoothScroll ? 800 : 100)
-    }
-  } else {
-    // Handle case where element is not found
-    console.warn(`TOC: Element with ID "${id}" not found`)
-    if (closeMobile) {
-      showMobileMenu.value = false
     }
   }
 }
@@ -432,6 +457,33 @@ onUnmounted(() => {
 .toc-mobile-title {
   text-align: center;
   font-weight: 600;
+}
+
+/* Mobile modal scrolling fixes */
+.v-dialog .v-card-text {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .v-dialog .v-card-text {
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  
+  /* Improve mobile touch interaction */
+  .toc-mobile .toc-link {
+    padding: 12px 16px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Better modal presentation on mobile */
+  .v-dialog > .v-card {
+    margin: 16px;
+    max-height: calc(100vh - 32px);
+  }
 }
 
 /* Print Styles */
