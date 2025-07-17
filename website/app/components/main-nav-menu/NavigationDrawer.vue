@@ -43,6 +43,11 @@
       </v-list-group>
 
       <div class="px-0">
+        <v-list-item text nuxt to="/bookmarks/" prepend-icon="mdi-bookmark" title="Bookmarks">
+        </v-list-item>
+      </div>
+
+      <div class="px-0">
         <v-list-item text nuxt to="/search" prepend-icon="mdi-magnify" title="Search">
         </v-list-item>
       </div>
