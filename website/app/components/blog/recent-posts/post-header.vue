@@ -1,18 +1,21 @@
 <template>
   <div class="text-center" justify="center">
     <client-only>
-      <nuxt-link
-        :to="
-          getBlogPostRoute(
-            postLinkSlugs.year,
-            postLinkSlugs.month,
-            postLinkSlugs.day,
-            postLinkSlugs.post,
-          )
-        "
-      >
-        {{ props.postMetadata.title }}
-      </nuxt-link>
+      <div class="d-flex align-center justify-center flex-wrap">
+        <nuxt-link
+          :to="
+            getBlogPostRoute(
+              postLinkSlugs.year,
+              postLinkSlugs.month,
+              postLinkSlugs.day,
+              postLinkSlugs.post,
+            )
+          "
+          class="me-2"
+        >
+          {{ props.postMetadata.title }}
+        </nuxt-link>
+      </div>
     </client-only>
   </div>
 </template>

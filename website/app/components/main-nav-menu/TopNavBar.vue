@@ -27,6 +27,7 @@
         <v-icon left>mdi-magnify</v-icon>
         Search
       </v-btn>
+      <BookmarksNavButton />
     </v-toolbar-items>
     <client-only>
     <v-btn text icon class="hidden-md-and-up" @click="flipSidebarVisibility">
@@ -50,6 +51,7 @@ import MainNavMenuBlog from './Blog.vue';
 import MainNavMenuAbout from './About.vue';
 import MainNavMenuLegal from './Legal.vue';
 import MainNavMenuContact from './Contact.vue';
+import BookmarksNavButton from './BookmarksNavButton.vue';
 import settings from '../settings.vue';
 const appTitle = globalDataStore.appTitle;
 function flipSidebarVisibility() {

@@ -14,13 +14,20 @@
               Part {{ props.postMetadata.series.part }}
             </v-chip>
           </div>
-          
+
           <!-- Post Title -->
-          <div>
-            {{ props.postMetadata.title }}
-            <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
-              <v-icon>{{ postFormatIcon() }}</v-icon>
-            </nuxt-link>
+          <div class="d-flex align-center justify-center flex-wrap">
+            <span class="me-2">{{ props.postMetadata.title }}</span>
+            <div class="d-flex align-center">
+              <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
+                <v-icon>{{ postFormatIcon() }}</v-icon>
+              </nuxt-link>
+              <BookmarkButton
+                :post="props.postMetadata"
+                size="large"
+                class="ml-1"
+              />
+            </div>
           </div>
         </v-col>
         <p />
@@ -56,6 +63,7 @@
 </template>
 
 <script setup>
+import BookmarkButton from '~/components/blog/bookmark-button.vue';
 import { useBlogMetadataStore } from '@/stores/BlogMetadata';
 import { useNavigationStore } from '@/stores/Navigation';
 import { useGlobalDataStore } from '@/stores/GlobalData';

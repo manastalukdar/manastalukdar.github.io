@@ -33,12 +33,20 @@
           <span>...read more</span>
         </nuxt-link>
       </div>
+      <div v-if="props.showBookmark" class="d-flex justify-end mt-3">
+        <BookmarkButton 
+          :post="props.postMetadata"
+          size="large"
+          @click.stop
+        />
+      </div>
     </v-card>
   </v-col>
 </template>
 
 <script setup>
 import postHeader from './post-header.vue';
+import BookmarkButton from '~/components/blog/bookmark-button.vue';
 import { useNavigationStore } from '@/stores/Navigation';
 import dayjs from 'dayjs';
 const navigationStore = useNavigationStore();
@@ -51,6 +59,10 @@ const props = defineProps({
     }
   },
   showSeriesInfo: {
+    type: Boolean,
+    default: false
+  },
+  showBookmark: {
     type: Boolean,
     default: false
   }

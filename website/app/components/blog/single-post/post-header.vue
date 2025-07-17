@@ -3,10 +3,19 @@
     <v-col cols="12">
       <v-row id="single-post-title" class="text-h5 px-3 py-3" justify="center">
         <v-col class="text-center align-center">
-          {{ props.postMetadata.title }}
-          <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
-            <v-icon>{{ postFormatIcon() }}</v-icon>
-          </nuxt-link>
+          <div class="d-flex align-center justify-center flex-wrap">
+            <span class="me-2">{{ props.postMetadata.title }}</span>
+            <div class="d-flex align-center">
+              <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
+                <v-icon>{{ postFormatIcon() }}</v-icon>
+              </nuxt-link>
+              <BookmarkButton 
+                :post="props.postMetadata"
+                size="default"
+                class="ml-2"
+              />
+            </div>
+          </div>
         </v-col>
         <p />
       </v-row>
@@ -48,6 +57,7 @@
 </template>
 
 <script setup>
+import BookmarkButton from '~/components/blog/bookmark-button.vue';
 import { useNavigationStore } from '@/stores/Navigation';
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
 const navigationStore = useNavigationStore();

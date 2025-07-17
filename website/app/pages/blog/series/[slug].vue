@@ -86,6 +86,7 @@
             :posts-list="formattedPosts"
             :initial-page="currentPage"
             :show-series-info="true"
+            :show-bookmark="false"
             @page-changed="onPageChanged"
             @per-page-changed="onPerPageChanged"
           />
