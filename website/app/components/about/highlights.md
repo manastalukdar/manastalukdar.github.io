@@ -8,7 +8,11 @@
 
 - Experienced in running large organizations spanning multiple teams across multiple geographies.
 
+- Experience with established large enterprises as well as startups.
+
 - Strong track record of driving _organizational growth_ and _product development_ in _fast-paced environments_.
+
+- Enabled a startup to successfully pivot resulting in significant revenue increase.
 
 - Established the Data org within Platform engineering department at C3 AI. Grew a team of 6 to an org of ~30 engineers across 6 teams. Defined charter for each team. Identified, mentored and promoted senior engineers to lead roles for each team.
 
