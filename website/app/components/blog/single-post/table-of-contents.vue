@@ -197,10 +197,19 @@ const handleTocClick = (id, event, closeMobile = false) => {
     } else {
       element.scrollIntoView()
     }
-  }
-  
-  if (closeMobile) {
-    showMobileMenu.value = false
+    
+    // For mobile, delay closing the dialog to allow smooth scrolling to complete
+    if (closeMobile) {
+      setTimeout(() => {
+        showMobileMenu.value = false
+      }, props.smoothScroll ? 800 : 100)
+    }
+  } else {
+    // Handle case where element is not found
+    console.warn(`TOC: Element with ID "${id}" not found`)
+    if (closeMobile) {
+      showMobileMenu.value = false
+    }
   }
 }
 
