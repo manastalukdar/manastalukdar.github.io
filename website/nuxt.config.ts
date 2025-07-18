@@ -28,6 +28,8 @@ const siteDescription =
 
 export default defineNuxtConfig({
   
+  ssr: false,
+  
   runtimeConfig: {
     public: {
       baseUrl: baseUrl,
@@ -315,7 +317,6 @@ export default defineNuxtConfig({
     manifest: {
       short_name: 'MTalukdar',
       name: 'Manas Talukdar',
-      start_url: '/',
       background_color: '#303030',
       theme_color: '#263238',
       display: 'standalone',
