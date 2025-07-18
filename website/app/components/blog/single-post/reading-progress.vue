@@ -14,7 +14,7 @@
     <div
       v-if="showTimeRemaining && timeRemaining > 0"
       class="time-remaining"
-      style="background: rgb(var(--v-theme-backToTopBackground)); bottom: 180px;"
+      style="background: rgb(var(--v-theme-backToTopBackground)); color: rgb(var(--v-theme-backToTopText)); bottom: 180px;"
     >
       {{ timeRemaining }} min left
     </div>
