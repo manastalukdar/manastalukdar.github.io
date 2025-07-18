@@ -299,12 +299,11 @@ export default defineNuxtConfig({
       if (getRoutes.properties.sitemapRoutes.length == 0) {
         getRoutes.functions.generateRoutes()
       }
-      getRoutes.properties.sitemapRoutes.map((route: any) => ({
-        loc: route
-      }))
       getRoutes.properties.sitemapRoutes.push(baseUrl + sitemapPath)
       getRoutes.properties.sitemapRoutes.push(baseUrl + feedFileName)
-      return getRoutes.properties.sitemapRoutes
+      return getRoutes.properties.sitemapRoutes.map((route: any) => ({
+        loc: route
+      }))
     }
   },
 
