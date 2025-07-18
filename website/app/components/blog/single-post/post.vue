@@ -5,10 +5,10 @@
         <v-card color="cardColor" raised elevation="8" class="py-6 px-6 v-row">
           <postHeader :post-metadata="passedProps.postMetadata"/>
           <p />
-          
+
           <!-- Table of Contents -->
           <client-only>
-            <tableOfContents 
+            <tableOfContents class="pl-10 pt-15"
               content-selector=".blogPostContent"
               :min-headings="3"
               :max-level="4"
@@ -18,7 +18,7 @@
               :collapsible="true"
             />
           </client-only>
-          
+
           <!-- eslint-disable-next-line vue/no-v-html -->
           <div class="blogPostContent col px-5 pt-5" v-html="passedProps.postContent" />
         </v-card>
@@ -28,7 +28,7 @@
       <v-row v-if="currentSeries" class="py-3">
         <v-col cols="12">
           <client-only>
-            <seriesNavigation 
+            <seriesNavigation
               :series="currentSeries"
               :current-post-slug="passedProps.postMetadata['url-slug']"
             />
@@ -66,10 +66,10 @@
         <comments :post-id="postId" :url="url" />
       </v-row>
     </v-col>
-    
+
     <!-- Reading Progress Indicator -->
     <client-only>
-      <readingProgress 
+      <readingProgress
         content-selector=".blogPostContent"
         :reading-speed="225"
         :show-time-remaining="true"
@@ -139,17 +139,17 @@ const loadSeriesData = async () => {
   if (!passedProps.postMetadata.series) {
     return
   }
-  
+
   try {
     const response = await fetch('/blogdata/metadata/series_metadata.json')
     if (!response.ok) {
       console.error('Failed to load series metadata')
       return
     }
-    
+
     const seriesData = await response.json()
     const series = seriesData.find(s => s['url-slug'] === passedProps.postMetadata.series['url-slug'])
-    
+
     if (series) {
       currentSeries.value = {
         name: series.name,
