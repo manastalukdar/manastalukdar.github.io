@@ -71,5 +71,6 @@
     }
   },
   "makefile.configureOnOpen": false,
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "python-envs.pythonProjects": []
 }

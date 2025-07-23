@@ -46,7 +46,7 @@
     {
       "label": "create-blog-metadata",
       "type": "shell",
-      "command": "python ${workspaceFolder}/website/scripts/create_blog_metadata.py"
+      "command": "${workspaceFolder}/.venv/bin/python ${workspaceFolder}/website/scripts/create_blog_metadata.py"
     }
   ]
 }
