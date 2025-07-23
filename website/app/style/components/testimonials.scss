@@ -24,10 +24,11 @@
   font-family: 'Maven Pro', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
   font-style: italic;
   margin: 0 0 1.5rem 0;
-  font-size: inherit;
+  font-size: 15px;
   line-height: 1.8;
   color: rgb(var(--v-theme-on-surface));
-  text-align: justify;
+  text-align: justify !important;
+  text-justify: inter-word;
 }
 
 .testimonial-attribution {
