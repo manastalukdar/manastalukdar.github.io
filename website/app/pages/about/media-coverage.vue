@@ -56,11 +56,11 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.about.aboutItems[4].text +
+  navigationStore.about.aboutItems[5].text +
   ' | ' +
   navigationStore.about.aboutText;
-const currentHref = navigationStore.about.aboutItems[4].href;
-const mediaText = navigationStore.about.aboutItems[4].text;
+const currentHref = navigationStore.about.aboutItems[5].href;
+const mediaText = navigationStore.about.aboutItems[5].text;
 const title = currentPage + ' || ' + appOwner;
 const description = 'Media';
 const url = baseUrl + currentHref;

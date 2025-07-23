@@ -192,6 +192,12 @@ const initialState = () => ({
         icon: 'mdi-medal',
         text: 'Honors',
       },
+      {
+        href: '/about/testimonials/',
+        target: '_blank',
+        icon: 'mdi-account-heart',
+        text: 'Testimonials',
+      },
       // {
       //   href: '/about/awards/',
       //   target: '_blank',
