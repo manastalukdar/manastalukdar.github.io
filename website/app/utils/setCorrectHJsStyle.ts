@@ -4,7 +4,7 @@
 // https://opensource.org/licenses/MIT
 
 export default function setCorrectHJsStyle(theme: any) {
-  if (theme.global.name.value.includes("dark")) {
+  if (theme.global.current.value.dark) {
     setCorrectHJsStyleBase("dark", "light");
   } else {
     setCorrectHJsStyleBase("light", "dark");

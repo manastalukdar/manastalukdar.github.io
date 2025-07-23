@@ -72,7 +72,7 @@ onMounted(() => {
   if (savedTheme) {
     Object.entries(themeLookup).forEach(([k,v]) => {
       if (v === savedTheme) {
-        theme.global.name.value = k;
+        theme.change(k);
         setCorrectHJsStyle(theme);
       }
     });
@@ -82,7 +82,7 @@ onMounted(() => {
 const setTheme = () => {
   Object.entries(themeLookup).forEach(([k,v]) => {
     if (v === selectedTheme.value) {
-      theme.global.name.value = k;
+      theme.change(k);
       // Save theme to localStorage
       localStorage.setItem('selectedTheme', selectedTheme.value);
     }
