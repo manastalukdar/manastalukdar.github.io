@@ -70,5 +70,6 @@
       "source.fixAll.eslint": "explicit"
     }
   },
-  "makefile.configureOnOpen": false
+  "makefile.configureOnOpen": false,
+  "editor.wordWrap": "on"
 }
