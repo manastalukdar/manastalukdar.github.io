@@ -22,7 +22,7 @@
     </v-row>
 
     <v-row class="px-2 py-2">
-      <testimonials />
+      <testimonialCarousel />
     </v-row>
 
     <v-row class="px-2 py-2">
@@ -37,7 +37,7 @@ import recentPostsHomePage from "~/components/home-page/recent-posts.vue";
 import featured from "~/components/home-page/featured.vue";
 import otherLocationsAndResumeLinks from "~/components/home-page/other-locations-resume.vue";
 import recentUpdates from "~/components/home-page/recent-updates.vue";
-import testimonials from "~/components/home-page/testimonials.vue";
+import testimonialCarousel from "~/components/home-page/testimonial-carousel.vue";
 import { useBlogMetadataStore } from '@/stores/BlogMetadata';
 import { useNavigationStore } from '@/stores/Navigation';
 import { useGlobalDataStore } from '@/stores/GlobalData';

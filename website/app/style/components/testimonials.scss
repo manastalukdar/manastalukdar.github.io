@@ -1,0 +1,107 @@
+// Shared testimonials styles
+.testimonials-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.testimonial-item,
+.testimonial-card {
+  background: rgba(var(--v-theme-surface), 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border-left: 4px solid rgb(var(--v-theme-primary));
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: rgba(var(--v-theme-surface), 0.15);
+  }
+}
+
+.testimonial-quote,
+.testimonial-item blockquote {
+  font-family: 'Maven Pro', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+  font-style: italic;
+  margin: 0 0 1.5rem 0;
+  font-size: inherit;
+  line-height: 1.8;
+  color: rgb(var(--v-theme-on-surface));
+}
+
+.testimonial-attribution {
+  text-align: right;
+  margin-top: 1rem;
+
+  strong {
+    font-family: 'Maven Pro', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+    color: rgb(var(--v-theme-primary));
+    font-size: inherit;
+
+    a {
+      color: rgb(var(--v-theme-primary));
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: rgb(var(--v-theme-linkHoverColor));
+        text-decoration: underline;
+      }
+    }
+  }
+
+  em {
+    font-family: 'Maven Pro', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+    color: rgba(var(--v-theme-on-surface), 0.7);
+    font-size: 0.9em;
+  }
+}
+
+.testimonial-read-more {
+  margin-top: 1rem;
+  text-align: right;
+
+  .read-more-link {
+    color: rgb(var(--v-theme-primary));
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: rgb(var(--v-theme-linkHoverColor));
+      text-decoration: underline;
+    }
+  }
+}
+
+// Home page specific overrides
+.testimonials-card {
+  .testimonials-container {
+    padding: 0 1rem;
+  }
+}
+
+// Dedicated page specific overrides  
+.testimonials-page {
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 1rem 0;
+  }
+}
+
+// Responsive design
+@media (max-width: 600px) {
+  .testimonials-container,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .testimonial-item,
+  .testimonial-card {
+    padding: 1rem;
+  }
+}
