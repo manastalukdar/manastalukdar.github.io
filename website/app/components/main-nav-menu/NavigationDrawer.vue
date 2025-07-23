@@ -43,7 +43,7 @@
       </v-list-group>
 
       <div class="px-0">
-        <v-list-item text nuxt to="/bookmarks/" prepend-icon="mdi-bookmark" title="Bookmarks">
+        <v-list-item key="bookmarks-standalone" text prepend-icon="mdi-bookmark" title="Bookmarks" @click="navigateToBookmarks">
         </v-list-item>
       </div>
 
@@ -79,6 +79,10 @@ const contact = ref(false);
 watch(sidebarVisible, () => {
   //console.log('sidebarVisible changed', sidebarVisible)
 });
+
+const navigateToBookmarks = () => {
+  navigateTo('/bookmarks/');
+};
 </script>
 
 <style></style>
