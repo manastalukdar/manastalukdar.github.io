@@ -142,7 +142,7 @@
 
 <script setup>
 import { usePaperizer } from 'paperizer'
-import { ref, computed, onMounted, nextTick } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
 import breadcrumbs from "~/components/breadcrumbs"
 import { useNavigationStore } from '@/stores/Navigation'
 import { useGlobalDataStore } from '@/stores/GlobalData'
@@ -154,6 +154,8 @@ const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
 const runtimeConfig = useRuntimeConfig();
 const baseUrl = runtimeConfig.public.baseUrl;
+const route = useRoute();
+const router = useRouter();
 
 // Load testimonials using the new composable
 const { fullTestimonials, loading, error, formatTestimonialContent, generateTestimonialId } = useTestimonials()
@@ -210,25 +212,62 @@ const getCategoryCount = (category) => {
   ).length
 }
 
-// Handle fragment-based navigation and smooth scrolling
-const scrollToTestimonial = async () => {
+// Debounced scroll handler to prevent multiple simultaneous scroll attempts
+let scrollTimeout = null
+const debouncedScrollToTestimonial = (delay = 100) => {
+  if (scrollTimeout) {
+    clearTimeout(scrollTimeout)
+  }
+  
+  scrollTimeout = setTimeout(async () => {
+    await performScroll()
+  }, delay)
+}
+
+// Core scroll functionality
+const performScroll = async () => {
   await nextTick()
   const hash = window.location.hash
-  if (hash && hash.startsWith('#testimonial-')) {
-    // Clear any active filters to ensure the target testimonial is visible
-    selectedCategory.value = 'all'
-    searchQuery.value = ''
-    
-    // Wait for re-render after clearing filters
-    await nextTick()
+  console.log('[performScroll] Attempting scroll with hash:', hash, 'loading:', loading.value, 'testimonials count:', fullTestimonials.value.length)
+  
+  if (!hash || !hash.startsWith('#testimonial-')) {
+    console.log('[performScroll] No valid hash found')
+    return
+  }
+
+  // Clear any active filters to ensure the target testimonial is visible
+  selectedCategory.value = 'all'
+  searchQuery.value = ''
+  
+  // Wait for re-render after clearing filters
+  await nextTick()
+  
+  // Wait for testimonials to be loaded and DOM to be ready
+  let attempts = 0
+  const maxAttempts = 100 // 10 seconds max
+  
+  const findAndScrollToElement = async () => {
+    // Check if testimonials are loaded
+    if (loading.value || fullTestimonials.value.length === 0) {
+      console.log('[findAndScrollToElement] Still loading testimonials...')
+      if (attempts < maxAttempts) {
+        attempts++
+        setTimeout(findAndScrollToElement, 100)
+      }
+      return
+    }
     
     const targetElement = document.querySelector(hash)
+    console.log('[findAndScrollToElement] Attempt:', attempts, 'Element found:', !!targetElement, 'Hash:', hash)
+    
     if (targetElement) {
+      console.log('[findAndScrollToElement] SUCCESS - Scrolling to element:', hash)
+      
       // Add visual highlight to the targeted testimonial
       targetElement.classList.add('testimonial-highlighted')
       
       // Smooth scroll to the element with offset for fixed headers
-      const headerOffset = 120 // Adjust based on your header height
+      const headerOffset = 120
       const elementPosition = targetElement.getBoundingClientRect().top
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset
       
@@ -241,14 +280,61 @@ const scrollToTestimonial = async () => {
       setTimeout(() => {
         targetElement.classList.remove('testimonial-highlighted')
       }, 3000)
+      
+      return // Success, stop trying
+    }
+    
+    // Element not found, try again
+    if (attempts < maxAttempts) {
+      attempts++
+      setTimeout(findAndScrollToElement, 100)
+    } else {
+      console.log('[findAndScrollToElement] FAILED - Max attempts reached, element not found:', hash)
     }
   }
+  
+  await findAndScrollToElement()
 }
 
-// Set up fragment navigation on component mount
+// Set up fragment navigation on component mount and route changes
 onMounted(() => {
-  scrollToTestimonial()
+  console.log('[onMounted] Initial scroll attempt')
+  debouncedScrollToTestimonial(200)
+  
+  // Add router afterEach hook to handle navigation completion
+  const removeAfterEach = router.afterEach((to) => {
+    console.log('[router.afterEach] Navigation completed to:', to.path, 'hash:', to.hash)
+    if (to.path === '/about/testimonials' && to.hash && to.hash.startsWith('#testimonial-')) {
+      debouncedScrollToTestimonial(300)
+    }
+  })
+  
+  // Cleanup on unmount
+  onBeforeUnmount(() => {
+    removeAfterEach()
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout)
+    }
+  })
 })
+
+// Single comprehensive watcher for all navigation changes
+watch([() => route.fullPath, () => loading.value, () => fullTestimonials.value.length], 
+  ([newPath, isLoading, testimonialsCount], [oldPath, oldLoading, oldCount]) => {
+    console.log('[comprehensive watcher] Path:', newPath, 'Loading:', isLoading, 'Testimonials:', testimonialsCount)
+    
+    const hasTestimonialHash = newPath && newPath.includes('/about/testimonials#testimonial-')
+    const testimonialsJustLoaded = oldLoading && !isLoading && testimonialsCount > 0
+    const pathChanged = newPath !== oldPath
+    
+    if (hasTestimonialHash && (pathChanged || testimonialsJustLoaded)) {
+      const delay = pathChanged ? 400 : 200 // Longer delay for navigation vs. loading
+      console.log('[comprehensive watcher] Triggering scroll with delay:', delay)
+      debouncedScrollToTestimonial(delay)
+    }
+  },
+  { immediate: true }
+)
 
 async function setupBlogMetadata() {
     try {
