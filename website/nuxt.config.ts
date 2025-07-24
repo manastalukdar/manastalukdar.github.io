@@ -243,14 +243,33 @@ export default defineNuxtConfig({
         // Generate search index
         try {
           console.log('Generating search index...')
-          const { exec } = require('child_process')
-          exec('npm run generate-search-index', (error, stdout, stderr) => {
-            if (error) {
-              console.error('Search index generation failed:', error)
-            } else {
+          const { spawn } = require('child_process')
+          
+          const searchIndexProcess = spawn('npm', ['run', 'generate-search-index'], {
+            stdio: ['ignore', 'pipe', 'pipe'],
+            detached: false
+          })
+          
+          searchIndexProcess.stdout.on('data', (_data: any) => {
+            // Ignore stdout to prevent EPIPE errors
+          })
+          
+          searchIndexProcess.stderr.on('data', (_data: any) => {
+            // Ignore stderr to prevent EPIPE errors
+          })
+          
+          searchIndexProcess.on('close', (code: number | null) => {
+            if (code === 0) {
               console.log('Search index generated successfully')
+            } else {
+              console.warn(`Search index generation exited with code ${code}`)
             }
           })
+          
+          searchIndexProcess.on('error', (error: Error) => {
+            console.error('Failed to start search index generation:', error.message)
+          })
+          
         } catch (error) {
           console.error('Failed to generate search index:', error)
         }
