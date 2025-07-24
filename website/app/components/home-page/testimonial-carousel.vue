@@ -25,6 +25,7 @@
       <div v-else class="carousel-container">
         <v-carousel
           v-model="currentSlide"
+          :show-arrows="homePageTestimonials.length > 1 && hover"
           :continuous="true"
           :cycle="autoRotate"
           :interval="rotationInterval"
@@ -116,14 +117,17 @@ const currentSlide = ref(0)
 const autoRotate = ref(true)
 const rotationInterval = ref(8000) // 8 seconds
 const rotationTimer = ref(null)
+const hover = ref(false)
 
 
 const pauseRotation = () => {
   autoRotate.value = false
+  hover.value = true
 }
 
 const resumeRotation = () => {
   autoRotate.value = true
+  hover.value = false
 }
 
 // Cleanup
