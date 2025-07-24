@@ -90,7 +90,7 @@
                     </div>
                   </div>
 
-                  <div class="testimonial-actions">
+                  <div class="testimonial-actions pb-5">
                     <nuxt-link :to="`/about/testimonials#${generateTestimonialId(testimonial.name)}`" class="read-more-link">
                       Read full testimonial →
                     </nuxt-link>
