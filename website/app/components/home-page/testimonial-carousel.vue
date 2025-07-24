@@ -11,17 +11,17 @@
         <span>What colleagues have said about me</span>
       </v-row>
       <p />
-      
+
       <div v-if="loading" class="text-center pa-4">
         <v-progress-circular indeterminate color="primary" />
       </div>
-      
+
       <div v-else-if="error" class="text-center pa-4">
         <v-alert type="error" variant="text">
           Failed to load testimonials
         </v-alert>
       </div>
-      
+
       <div v-else class="carousel-container">
         <v-carousel
           v-model="currentSlide"
@@ -43,11 +43,11 @@
           >
             <div class="testimonial-slide pa-4">
               <div class="testimonial-content">
-                <blockquote 
+                <blockquote
                   class="testimonial-quote"
                   v-html="formatTestimonialContent(testimonial.content)"
                 />
-                
+
                 <div class="testimonial-meta">
                   <div class="testimonial-attribution">
                     <div class="author-info">
@@ -76,7 +76,7 @@
                         </div>
                       </div>
                     </div>
-                    
+
                     <div v-if="testimonial.category" class="testimonial-categories">
                       <v-chip
                         v-for="category in testimonial.category"
@@ -89,7 +89,7 @@
                       </v-chip>
                     </div>
                   </div>
-                  
+
                   <div class="testimonial-actions">
                     <nuxt-link :to="`/about/testimonials#${generateTestimonialId(testimonial.name)}`" class="read-more-link">
                       Read full testimonial →
@@ -100,7 +100,7 @@
             </div>
           </v-carousel-item>
         </v-carousel>
-        
+
         <!-- Custom navigation dots -->
         <div v-if="homePageTestimonials.length > 1" class="carousel-dots">
           <v-btn
@@ -165,11 +165,11 @@ onBeforeUnmount(() => {
 
   .testimonial-carousel {
     border-radius: 12px;
-    
+
     :deep(.v-carousel__controls) {
       background: transparent;
     }
-    
+
     :deep(.v-carousel__item) {
       padding: 0;
     }
@@ -195,7 +195,7 @@ onBeforeUnmount(() => {
     padding: 2rem;
     border-left: 4px solid rgb(var(--v-theme-primary));
     transition: all 0.3s ease;
-    
+
     &:hover {
       background: rgba(var(--v-theme-surface), 0.15);
       transform: translateY(-2px);
@@ -207,7 +207,6 @@ onBeforeUnmount(() => {
     font-family: 'Maven Pro', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
     font-style: italic;
     margin: 0 0 1.5rem 0;
-    font-size: 1.1rem;
     line-height: 1.8;
     color: rgb(var(--v-theme-on-surface));
     text-align: center;
@@ -350,7 +349,7 @@ onBeforeUnmount(() => {
     .carousel-item {
       min-height: 250px;
     }
-    
+
     .testimonial-content {
       padding: 1rem;
     }
