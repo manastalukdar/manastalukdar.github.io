@@ -29,7 +29,8 @@
       </v-list-group>
 
       <div class="px-0">
-        <v-list-item text nuxt :to="legalPath" :prepend-icon="legalIcon" :title=legalText>
+        <v-list-item nuxt :to="legalPath" :prepend-icon="legalIcon">
+          <v-list-item-title>{{ legalText }}</v-list-item-title>
         </v-list-item>
       </div>
 
@@ -43,12 +44,14 @@
       </v-list-group>
 
       <div class="px-0">
-        <v-list-item key="bookmarks-standalone" text prepend-icon="mdi-bookmark" title="Bookmarks" @click="navigateToBookmarks">
+        <v-list-item key="bookmarks-standalone" prepend-icon="mdi-bookmark" @click="navigateToBookmarks">
+          <v-list-item-title>Bookmarks</v-list-item-title>
         </v-list-item>
       </div>
 
       <div class="px-0">
-        <v-list-item text nuxt to="/search" prepend-icon="mdi-magnify" title="Search">
+        <v-list-item nuxt to="/search" prepend-icon="mdi-magnify">
+          <v-list-item-title>Search</v-list-item-title>
         </v-list-item>
       </div>
     </v-list>
