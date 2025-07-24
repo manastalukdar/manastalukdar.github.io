@@ -25,7 +25,6 @@
       <div v-else class="carousel-container">
         <v-carousel
           v-model="currentSlide"
-          :show-arrows="homePageTestimonials.length > 1"
           :continuous="true"
           :cycle="autoRotate"
           :interval="rotationInterval"
@@ -101,21 +100,6 @@
           </v-carousel-item>
         </v-carousel>
 
-        <!-- Custom navigation dots -->
-        <div v-if="homePageTestimonials.length > 1" class="carousel-dots">
-          <v-btn
-            v-for="(testimonial, index) in homePageTestimonials"
-            :key="`dot-${index}`"
-            :class="{ active: currentSlide === index }"
-            @click="goToSlide(index)"
-            size="small"
-            variant="text"
-            icon
-            class="carousel-dot"
-          >
-            <v-icon size="small">mdi-circle</v-icon>
-          </v-btn>
-        </div>
       </div>
     </v-card>
   </v-col>
@@ -133,10 +117,6 @@ const autoRotate = ref(true)
 const rotationInterval = ref(8000) // 8 seconds
 const rotationTimer = ref(null)
 
-// Carousel controls
-const goToSlide = (index) => {
-  currentSlide.value = index
-}
 
 const pauseRotation = () => {
   autoRotate.value = false
@@ -293,26 +273,6 @@ onBeforeUnmount(() => {
     }
   }
 
-  .carousel-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    gap: 0.5rem;
-
-    .carousel-dot {
-      opacity: 0.4;
-      transition: opacity 0.3s ease;
-
-      &.active {
-        opacity: 1;
-        color: rgb(var(--v-theme-primary));
-      }
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-  }
 }
 
 // Responsive design
