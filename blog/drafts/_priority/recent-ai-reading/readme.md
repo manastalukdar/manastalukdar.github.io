@@ -57,6 +57,7 @@ excerpt: ""
   - [Code in GitHub](https://github.com/raymin0223/mixture_of_recursions)
 - [Writing is thinking](https://www.nature.com/articles/s44222-025-00323-4)
 - [AlphaGo Moment for Model Architecture Discovery](https://arxiv.org/abs/2507.18074)
+- [Working with AI: Measuring the Occupational Implications of Generative AI](https://arxiv.org/abs/2507.07935)
 
 ## Technical Reports
 
