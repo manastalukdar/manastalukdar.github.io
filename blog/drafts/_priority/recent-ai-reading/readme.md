@@ -43,6 +43,8 @@ excerpt: ""
 
 ### Large Language Models
 
+- [Learning without training: The implicit dynamics of in-context learning](https://arxiv.org/abs/2507.16003)
+
 ### Model Evaluation
 
 ### Retrieval-Augmented Generation
