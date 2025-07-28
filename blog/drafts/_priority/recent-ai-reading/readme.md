@@ -51,8 +51,20 @@ excerpt: ""
 
 ### Miscellaneous
 
+- [Mixture-of-Recursions: Learning Dynamic Recursive Depths for Adaptive Token-Level Computation](https://arxiv.org/abs/2507.10524)
+  - [Code in GitHub](https://github.com/raymin0223/mixture_of_recursions)
+- [Writing is thinking](https://www.nature.com/articles/s44222-025-00323-4)
+- [AlphaGo Moment for Model Architecture Discovery](https://arxiv.org/abs/2507.18074)
+
 ## Technical Reports
 
+- [Kimi K2: Open Agentic Intelligence](https://github.com/MoonshotAI/Kimi-K2/blob/main/tech_report.pdf)
+  - [Discussion on X](https://x.com/nrehiew_/status/1947420382312730706)
+- [Apple Intelligence Foundation Language Models Tech Report 2025](https://machinelearning.apple.com/research/apple-foundation-models-tech-report-2025)
+
 ## Articles and Blog Posts
+
+- [Prompt engineering overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
+- [How to Build an Agent](https://ampcode.com/how-to-build-an-agent)
 
 ## Miscellaneous
