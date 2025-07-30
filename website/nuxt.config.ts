@@ -331,6 +331,7 @@ export default defineNuxtConfig({
     workbox: {
       globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
       globIgnores: ['**/404**', '**/404.html'],
+      navigateFallbackDenylist: [/^\/resume-cv/],
     },
     manifest: {
       short_name: 'MTalukdar',
