@@ -43,11 +43,13 @@ excerpt: ""
 
 ### Large Language Models
 
-- [Learning without training: The implicit dynamics of in-context learning](https://arxiv.org/abs/2507.16003)
+- [[Learning without training: The implicit dynamics of in-context learning](https://arxiv.org/abs/2507.16003)](https://arxiv.org/abs/2507.21892)
 
 ### Model Evaluation
 
 ### Retrieval-Augmented Generation
+
+- Graph-R1: Towards Agentic GraphRAG Framework via End-to-end Reinforcement Learning
 
 ### Synthetic Data
 
