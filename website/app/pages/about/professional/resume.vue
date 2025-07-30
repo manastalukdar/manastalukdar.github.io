@@ -4,7 +4,14 @@
     <p />
     <v-card class="resume-wrapper">
       <client-only>
-        placeholder
+        <iframe
+          id="resumeBox"
+          title="resume"
+          name="resumeBox"
+          src="https://manastalukdar.github.io/resume-cv"
+        >
+          iframes are not supported by your browser.
+        </iframe>
       </client-only>
     </v-card>
   </v-container>
