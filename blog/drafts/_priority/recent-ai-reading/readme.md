@@ -39,6 +39,8 @@ excerpt: ""
 
 ### Agentic AI / AI Agents
 
+- [A Survey of Self-Evolving Agents: On Path to Artificial Super Intelligence](https://arxiv.org/abs/2507.21046)
+
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
 ### Large Language Models
