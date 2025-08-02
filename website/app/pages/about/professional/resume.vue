@@ -8,7 +8,7 @@
           id="resumeBox"
           title="resume"
           name="resumeBox"
-          src="https://manastalukdar.github.io/resume"
+          src="https://manas-talukdar-resume.netlify.app"
         >
           iframes are not supported by your browser.
         </iframe>
