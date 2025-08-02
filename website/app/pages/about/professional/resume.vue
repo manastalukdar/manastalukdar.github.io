@@ -8,7 +8,7 @@
           id="resumeBox"
           title="resume"
           name="resumeBox"
-          src="https://manastalukdar.github.io/resume-cv"
+          src="https://manastalukdar.github.io/resume"
         >
           iframes are not supported by your browser.
         </iframe>

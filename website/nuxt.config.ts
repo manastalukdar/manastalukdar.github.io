@@ -27,9 +27,9 @@ const siteDescription =
   'Manas Talukdar builds AI and Data products used globally in critical industrial infrastructure and leads organizations in Enterprise AI.'
 
 export default defineNuxtConfig({
-  
+
   ssr: false,
-  
+
   runtimeConfig: {
     public: {
       baseUrl: baseUrl,
@@ -244,20 +244,20 @@ export default defineNuxtConfig({
         try {
           console.log('Generating search index...')
           const { spawn } = require('child_process')
-          
+
           const searchIndexProcess = spawn('npm', ['run', 'generate-search-index'], {
             stdio: ['ignore', 'pipe', 'pipe'],
             detached: false
           })
-          
+
           searchIndexProcess.stdout.on('data', (_data: any) => {
             // Ignore stdout to prevent EPIPE errors
           })
-          
+
           searchIndexProcess.stderr.on('data', (_data: any) => {
             // Ignore stderr to prevent EPIPE errors
           })
-          
+
           searchIndexProcess.on('close', (code: number | null) => {
             if (code === 0) {
               console.log('Search index generated successfully')
@@ -265,11 +265,11 @@ export default defineNuxtConfig({
               console.warn(`Search index generation exited with code ${code}`)
             }
           })
-          
+
           searchIndexProcess.on('error', (error: Error) => {
             console.error('Failed to start search index generation:', error.message)
           })
-          
+
         } catch (error) {
           console.error('Failed to generate search index:', error)
         }
@@ -331,7 +331,7 @@ export default defineNuxtConfig({
     workbox: {
       globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
       globIgnores: ['**/404**', '**/404.html'],
-      navigateFallbackDenylist: [/^\/resume-cv/],
+      navigateFallbackDenylist: [/^\/resume/],
     },
     manifest: {
       short_name: 'MTalukdar',
