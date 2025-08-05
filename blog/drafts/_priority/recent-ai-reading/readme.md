@@ -44,6 +44,7 @@ excerpt: ""
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
 - [Rubrics as Rewards: Reinforcement Learning Beyond Verifiable Domains](https://arxiv.org/abs/2507.17746)
+  - Blog Post: [Rubrics as Rewards: Reinforcement Learning Beyond Verifiable Domains](https://scale.com/research/rubrics_as_rewards)
 
 ### Large Language Models
 
