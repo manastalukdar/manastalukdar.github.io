@@ -43,6 +43,8 @@ excerpt: ""
 
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
+- [Rubrics as Rewards: Reinforcement Learning Beyond Verifiable Domains](https://arxiv.org/abs/2507.17746)
+
 ### Large Language Models
 
 - [[Learning without training: The implicit dynamics of in-context learning](https://arxiv.org/abs/2507.16003)](https://arxiv.org/abs/2507.21892)
