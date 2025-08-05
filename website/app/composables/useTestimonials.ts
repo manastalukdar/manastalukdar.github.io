@@ -27,7 +27,7 @@ export const useTestimonials = () => {
     try {
       const fileContent = await import(`~/pages/about/content-testimonials/${fileName}.md?raw`)
       const parsed = fm(fileContent.default)
-      
+
       let content = parsed.body.trim()
       if (content.startsWith('"') && content.endsWith('"')) {
         content = content.slice(1, -1)
@@ -47,19 +47,19 @@ export const useTestimonials = () => {
   const loadAllTestimonials = computedAsync(async () => {
     loading.value = true
     error.value = null
-    
+
     try {
       // List of testimonial files (could be made dynamic in the future)
-      const testimonialFiles = ['greg-holt', 'cherif-jazra', 'dylan-huang', 'jim-walker']
-      
+      const testimonialFiles = ['greg-holt', 'cherif-jazra', 'dylan-huang', 'jim-walker', 'Jeffrey-Fischer']
+
       const loadedTestimonials = await Promise.all(
         testimonialFiles.map(fileName => loadTestimonialFile(fileName))
       )
-      
+
       const validTestimonials = loadedTestimonials
         .filter((t): t is TestimonialData => t !== null)
         .sort((a, b) => (a.order || 999) - (b.order || 999))
-      
+
       testimonials.value = validTestimonials
       return validTestimonials
     } catch (err) {
@@ -80,7 +80,7 @@ export const useTestimonials = () => {
       if (!a.featured && b.featured) return 1
       return (a.order || 999) - (b.order || 999)
     })
-    
+
     return sorted.map(testimonial => ({
       ...testimonial,
       content: testimonial.excerpt // Use excerpt for home page
@@ -91,15 +91,15 @@ export const useTestimonials = () => {
   const fullTestimonials = computed(() => loadAllTestimonials.value || [])
 
   // Filter testimonials by category
-  const getTestimonialsByCategory = (category: string) => 
-    computed(() => 
-      fullTestimonials.value.filter(testimonial => 
+  const getTestimonialsByCategory = (category: string) =>
+    computed(() =>
+      fullTestimonials.value.filter(testimonial =>
         testimonial.category?.includes(category)
       )
     )
 
   // Get featured testimonials only
-  const featuredTestimonials = computed(() => 
+  const featuredTestimonials = computed(() =>
     fullTestimonials.value.filter(testimonial => testimonial.featured)
   )
 
