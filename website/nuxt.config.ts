@@ -28,7 +28,7 @@ const siteDescription =
 
 export default defineNuxtConfig({
 
-  ssr: false,
+  ssr: true,
 
   runtimeConfig: {
     public: {
@@ -116,6 +116,32 @@ export default defineNuxtConfig({
           name: 'og:description',
           property: 'og:description',
           content: siteDescription,
+        },
+        // Modern meta tags for improved SEO
+        {
+          name: 'robots',
+          content: 'index,follow',
+        },
+        {
+          name: 'theme-color',
+          content: '#263238',
+        },
+        // Twitter Card meta tags
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          name: 'twitter:title',
+          content: siteOwner,
+        },
+        {
+          name: 'twitter:description',
+          content: siteDescription,
+        },
+        {
+          name: 'twitter:image',
+          content: baseUrl + '/images/android-chrome-512x512.png',
         },
       ],
       link: [
