@@ -3,10 +3,11 @@ name: "Dylan Huang"
 title: "Software Engineer"
 company: "Fireworks AI"
 linkedin: "https://www.linkedin.com/in/dphuang2/"
-order: 3
+order: 4
 excerpt: "I had the privilege of working under Manas's leadership at C3.ai, where I witnessed firsthand his exceptional organizational skills and passion for engineering excellence... Manas is the epitome of a reliable and effective engineering leader, someone who can be trusted to foster growth and drive efficiency in any engineering organization."
+featured: true
 category: ["leadership", "engineering", "management"]
-date: "2023"
+date: "December 14, 2023"
 ---
 
 "I had the privilege of working under Manas’s leadership at C3.ai, where I witnessed firsthand his exceptional organizational skills and passion for engineering excellence. When Manas joined our team, we were facing a daunting array of tasks with little structure in place to manage them. With remarkable efficiency and dedication, he took the reins, swiftly organizing our team to maximize productivity and minimize distractions.
