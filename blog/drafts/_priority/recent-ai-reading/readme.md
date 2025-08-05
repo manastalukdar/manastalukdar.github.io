@@ -58,6 +58,10 @@ excerpt: ""
 
 ### Synthetic Data
 
+### Embodies AI
+
+- [Embodied Artificial Intelligence: Trends and Challenges](https://link.springer.com/chapter/10.1007/978-3-540-27833-7_1) [[pdf](https://people.csail.mit.edu/iida/papers/PfeiferIidaEAIDags.pdf)]
+
 ### Miscellaneous
 
 - [Mixture-of-Recursions: Learning Dynamic Recursive Depths for Adaptive Token-Level Computation](https://arxiv.org/abs/2507.10524)
