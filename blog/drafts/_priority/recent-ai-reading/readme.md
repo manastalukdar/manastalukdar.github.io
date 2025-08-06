@@ -82,3 +82,6 @@ excerpt: ""
 - [How to Build an Agent](https://ampcode.com/how-to-build-an-agent)
 
 ## Miscellaneous
+
+- [Eval protocol](https://evalprotocol.io/)
+  - [Code](https://github.com/eval-protocol/eval-protocol)
