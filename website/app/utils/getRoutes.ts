@@ -3,7 +3,11 @@ import * as fs from 'fs'
 import * as path from 'path'
 import dayjs from 'dayjs'
 
-// Load blog metadata from JSON file
+// Load blog metadata from JSON file (ES module compatible)
+import { fileURLToPath } from 'url'
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 const websiteRoot = path.resolve(__dirname, '../..')
 const blogMetadataPath = path.join(websiteRoot, 'public/blogdata/metadata/blog_metadata.json')
 const blogMetadata = JSON.parse(fs.readFileSync(blogMetadataPath, 'utf-8'))

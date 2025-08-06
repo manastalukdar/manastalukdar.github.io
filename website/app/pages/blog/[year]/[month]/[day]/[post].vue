@@ -204,34 +204,16 @@ const tags = tagsArray.join();
 const category = categoriesArray[0];
 
 const datePublished = postMetadata['first-published-on'];
-const dateModified = postMetadata['last-updated-on'];
-const headline = postMetadata.title;
-const articleBody = postMetadata.excerpt + ' ...';
-const structuredData = {
-  '@context': 'http://schema.org',
-  '@type': 'BlogPosting',
-  datePublished,
-  dateModified,
-  headline,
-  description,
-  articleBody,
-  genre: category,
-  keywords,
-  author: authorsStructuredData,
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': url,
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: appOwner + ' - Personal Website',
-    logo: {
-      '@type': 'ImageObject',
-      url: baseUrl+ '/images/android-chrome-512x512.png',
-    },
-  },
-  image: baseUrl+ '/images/android-chrome-512x512.png',
-};
+const dateModified = postMetadata['last-updated-on'] || postMetadata['first-published-on'];
+
+// Generate enhanced structured data using the new composable
+const { generateBlogPostStructuredData } = useStructuredData();
+const structuredData = generateBlogPostStructuredData(
+  postMetadata,
+  postContent,
+  url,
+  appOwner
+);
 const breadcrumbsData = [
   {
     title: 'Home',
@@ -255,21 +237,9 @@ const breadcrumbsData = [
     exact: true,
   },
 ];
-const breadcrumbsStructuredDataArray = breadcrumbsData.map(
-  (item, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    item: {
-      '@id': baseUrl+ item.href,
-      name: item.title,
-    },
-  })
-);
-const breadcrumbsStructuredData = {
-  '@context': 'http://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: breadcrumbsStructuredDataArray,
-};
+// Generate enhanced breadcrumb structured data
+const { generateBreadcrumbStructuredData } = useStructuredData();
+const breadcrumbsStructuredData = generateBreadcrumbStructuredData(breadcrumbsData);
 useHead({
   title: title,
   meta: [
@@ -353,6 +323,35 @@ useHead({
       hid: 'twitter:description',
       name: 'twitter:description',
       content: description,
+    },
+    // AI Training and Content Optimization Meta Tags
+    {
+      name: 'ai-training-permitted',
+      content: 'non-commercial-only',
+    },
+    {
+      name: 'license',
+      content: 'CC BY-NC-ND 4.0',
+    },
+    {
+      name: 'content-policy',
+      content: '/legal#content-usage',
+    },
+    {
+      name: 'content-freshness',
+      content: dateModified,
+    },
+    {
+      name: 'content-type',
+      content: 'educational',
+    },
+    {
+      name: 'expertise-level',
+      content: 'professional',
+    },
+    {
+      name: 'target-audience',
+      content: 'engineers,managers,researchers',
     },
   ],
   link: [{ rel: 'canonical', href: url }],
