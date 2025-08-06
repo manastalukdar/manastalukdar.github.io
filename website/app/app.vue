@@ -186,12 +186,31 @@ if (typeof window !== 'undefined') {
   // When 404.html redirects here with hash-encoded path, navigate to the correct route
   function handleGitHubPagesSPARouting() {
     const hash = window.location.hash
+    const pathname = window.location.pathname
+    
+    // Debug logging
+    if (hash || pathname !== '/') {
+      console.log('GitHub Pages SPA Routing Check:', {
+        hash,
+        pathname,
+        href: window.location.href,
+        timestamp: new Date().toISOString()
+      })
+    }
+    
     if (hash && hash.startsWith('#/') && hash !== '#/') {
       // Extract the intended path from the hash
       const intendedPath = hash.substring(1) // Remove the # symbol
       
+      console.log('SPA Routing - Hash-encoded path detected:', {
+        originalHash: hash,
+        intendedPath,
+        currentPathname: pathname
+      })
+      
       // Only redirect if we're currently on the homepage and the intended path is different
-      if (window.location.pathname === '/' && intendedPath !== '/') {
+      if (pathname === '/' && intendedPath !== '/') {
+        console.log('SPA Routing - Redirecting to:', intendedPath)
         // Clear the hash and navigate to the intended route
         window.history.replaceState({}, '', window.location.pathname + window.location.search)
         router.push(intendedPath)

@@ -484,11 +484,13 @@ ${sitemapUrls.map(url => `  <url>
       navigateFallbackDenylist: [/.*/], // Deny all navigation fallbacks
       // Force service worker update for existing users
       cleanupOutdatedCaches: true,
+      // Add skipWaiting to immediately activate new service worker
+      skipWaiting: true,
     },
     manifest: {
       short_name: 'MTalukdar',
       name: 'Manas Talukdar',
-      version: '2.0.0', // Increment version to force cache refresh
+      version: '2.1.0', // Increment version again to force cache refresh
       background_color: '#303030',
       theme_color: '#263238',
       display: 'standalone',
