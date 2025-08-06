@@ -320,6 +320,74 @@ export default defineNuxtConfig({
         } catch (error) {
           console.error('Failed to generate search index:', error)
         }
+
+        // Generate sitemap
+        try {
+          console.log('Generating sitemap...')
+          
+          // Generate routes if not already done
+          if (getRoutes.properties.sitemapRoutes.length == 0) {
+            getRoutes.functions.generateRoutes()
+          }
+
+          // Create sitemap XML content
+          const sitemapUrls = [
+            '/',
+            '/blog/',
+            '/about/',
+            '/about/honors/',
+            '/about/interests/',
+            '/about/volunteering/',
+            '/about/media-coverage/',
+            '/about/services/',
+            '/about/testimonials/',
+            '/about/professional/recruiters/',
+            '/about/professional/patents/',
+            '/about/professional/highlights/',
+            '/about/professional/resume/',
+            '/about/professional/engagements/',
+            '/about/professional/engagements/speaking/',
+            '/about/professional/engagements/memberships-affiliations/',
+            '/about/professional/engagements/judging-roles/',
+            '/about/professional/engagements/fellowships/',
+            '/about/professional/engagements/board-memberships/',
+            '/about/professional/engagements/advisory-roles/',
+            '/about/professional/engagements/editor-reviewer-roles/',
+            '/contact/',
+            '/contact/form/',
+            '/search/',
+            '/bookmarks/',
+            '/legal/',
+            '/blog/tags/',
+            '/blog/categories/',
+            '/blog/post-formats/',
+            '/blog/archive/',
+            ...getRoutes.properties.sitemapRoutes
+          ]
+
+          const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls.map(url => `  <url>
+    <loc>${baseUrl}${url}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`).join('\n')}
+</urlset>`
+
+          // Write sitemap to public directory
+          const sitemapFilePath = publicDir + '/sitemap.xml'
+          fs.writeFile(sitemapFilePath, sitemapXml, (err) => {
+            if (err) {
+              console.error('Failed to write sitemap:', err)
+            } else {
+              console.log('Sitemap generated successfully at', sitemapFilePath)
+            }
+          })
+
+        } catch (error) {
+          console.error('Failed to generate sitemap:', error)
+        }
       }
     },
   },
@@ -328,63 +396,48 @@ export default defineNuxtConfig({
     //'./modules/helper',
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    '@nuxtjs/sitemap',
+    // '@nuxtjs/sitemap', // Temporarily disabled due to compatibility issues
     'nuxt-gtag',
     '@vite-pwa/nuxt',
   ],
 
   plugins: [
+    // '~/plugins/error-handler.server.ts' // Temporarily disabled to avoid MaxListenersExceeded warning
   ],
 
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: () => {
-        // Generate all routes using the same logic as sitemap
-        if (getRoutes.properties.sitemapRoutes.length == 0) {
-          getRoutes.functions.generateRoutes()
-        }
-        
-        // Add static routes that should always be prerendered
-        const staticRoutes = [
-          '/',
-          '/blog/',
-          '/about/',
-          '/about/honors/',
-          '/about/interests/',
-          '/about/volunteering/',
-          '/about/media-coverage/',
-          '/about/services/',
-          '/about/testimonials/',
-          '/about/professional/recruiters/',
-          '/about/professional/patents/',
-          '/about/professional/highlights/',
-          '/about/professional/resume/',
-          '/about/professional/engagements/',
-          '/about/professional/engagements/speaking/',
-          '/about/professional/engagements/memberships-affiliations/',
-          '/about/professional/engagements/judging-roles/',
-          '/about/professional/engagements/fellowships/',
-          '/about/professional/engagements/board-memberships/',
-          '/about/professional/engagements/advisory-roles/',
-          '/about/professional/engagements/editor-reviewer-roles/',
-          '/contact/',
-          '/contact/form/',
-          '/search/',
-          '/bookmarks/',
-          '/legal/',
-          '/blog/tags/',
-          '/blog/categories/',
-          '/blog/post-formats/',
-          '/blog/archive/',
-        ]
-        
-        // Combine static routes with dynamically generated ones
-        const allRoutes = [...staticRoutes, ...getRoutes.properties.sitemapRoutes]
-        
-        // Remove duplicates and return
-        return [...new Set(allRoutes)]
-      }
+      routes: [
+        '/',
+        '/blog/',
+        '/about/honors/',
+        '/about/interests/',
+        '/about/volunteering/',
+        '/about/media-coverage/',
+        '/about/services/',
+        '/about/testimonials/',
+        '/about/professional/recruiters/',
+        '/about/professional/patents/',
+        '/about/professional/highlights/',
+        '/about/professional/resume/',
+        '/about/professional/engagements/',
+        '/about/professional/engagements/speaking/',
+        '/about/professional/engagements/memberships-affiliations/',
+        '/about/professional/engagements/judging-roles/',
+        '/about/professional/engagements/fellowships/',
+        '/about/professional/engagements/board-memberships/',
+        '/about/professional/engagements/advisory-roles/',
+        '/about/professional/engagements/editor-reviewer-roles/',
+        '/contact/form/',
+        '/search/',
+        '/bookmarks/',
+        '/legal/',
+        '/blog/tags/',
+        '/blog/categories/',
+        '/blog/post-formats/',
+        '/blog/archive/',
+      ]
     }
   },
 
@@ -420,18 +473,6 @@ export default defineNuxtConfig({
     '/**': { swr: 60 }, // 1 min cache for other routes
   },
 
-  sitemap: {
-    urls: () => {
-      if (getRoutes.properties.sitemapRoutes.length == 0) {
-        getRoutes.functions.generateRoutes()
-      }
-      getRoutes.properties.sitemapRoutes.push(baseUrl + sitemapPath)
-      getRoutes.properties.sitemapRoutes.push(baseUrl + feedFileName)
-      return getRoutes.properties.sitemapRoutes.map((route: any) => ({
-        loc: route
-      }))
-    }
-  },
 
   pwa: {
     registerType: 'autoUpdate',
