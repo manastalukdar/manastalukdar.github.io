@@ -322,6 +322,38 @@ useHead({
       property: 'og:article:tag',
       content: tags,
     },
+    // Article-specific meta tags for enhanced SEO
+    {
+      name: 'article:published_time',
+      content: datePublished,
+    },
+    {
+      name: 'article:modified_time',
+      content: dateModified,
+    },
+    {
+      name: 'article:author',
+      content: authorsArray.join(', '),
+    },
+    {
+      name: 'article:section',
+      content: category,
+    },
+    {
+      name: 'article:tag',
+      content: tags,
+    },
+    // Override Twitter Card title/description for blog posts
+    {
+      hid: 'twitter:title',
+      name: 'twitter:title',
+      content: title,
+    },
+    {
+      hid: 'twitter:description',
+      name: 'twitter:description',
+      content: description,
+    },
   ],
   link: [{ rel: 'canonical', href: url }],
   __dangerouslyDisableSanitizers: ['script'],
