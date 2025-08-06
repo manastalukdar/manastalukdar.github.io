@@ -321,73 +321,8 @@ export default defineNuxtConfig({
           console.error('Failed to generate search index:', error)
         }
 
-        // Generate sitemap
-        try {
-          console.log('Generating sitemap...')
-          
-          // Generate routes if not already done
-          if (getRoutes.properties.sitemapRoutes.length == 0) {
-            getRoutes.functions.generateRoutes()
-          }
-
-          // Create sitemap XML content
-          const sitemapUrls = [
-            '/',
-            '/blog/',
-            '/about/',
-            '/about/honors/',
-            '/about/interests/',
-            '/about/volunteering/',
-            '/about/media-coverage/',
-            '/about/services/',
-            '/about/testimonials/',
-            '/about/professional/recruiters/',
-            '/about/professional/patents/',
-            '/about/professional/highlights/',
-            '/about/professional/resume/',
-            '/about/professional/engagements/',
-            '/about/professional/engagements/speaking/',
-            '/about/professional/engagements/memberships-affiliations/',
-            '/about/professional/engagements/judging-roles/',
-            '/about/professional/engagements/fellowships/',
-            '/about/professional/engagements/board-memberships/',
-            '/about/professional/engagements/advisory-roles/',
-            '/about/professional/engagements/editor-reviewer-roles/',
-            '/contact/',
-            '/contact/form/',
-            '/search/',
-            '/bookmarks/',
-            '/legal/',
-            '/blog/tags/',
-            '/blog/categories/',
-            '/blog/post-formats/',
-            '/blog/archive/',
-            ...getRoutes.properties.sitemapRoutes
-          ]
-
-          const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemapUrls.map(url => `  <url>
-    <loc>${baseUrl}${url}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>`).join('\n')}
-</urlset>`
-
-          // Write sitemap to public directory
-          const sitemapFilePath = publicDir + '/sitemap.xml'
-          fs.writeFile(sitemapFilePath, sitemapXml, (err) => {
-            if (err) {
-              console.error('Failed to write sitemap:', err)
-            } else {
-              console.log('Sitemap generated successfully at', sitemapFilePath)
-            }
-          })
-
-        } catch (error) {
-          console.error('Failed to generate sitemap:', error)
-        }
+        // Sitemap generation is now handled by @nuxtjs/sitemap module
+        console.log('Sitemap generation handled by @nuxtjs/sitemap module')
       }
     },
   },
@@ -396,7 +331,7 @@ ${sitemapUrls.map(url => `  <url>
     //'./modules/helper',
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    // '@nuxtjs/sitemap', // Temporarily disabled due to compatibility issues
+    '@nuxtjs/sitemap',
     'nuxt-gtag',
     '@vite-pwa/nuxt',
   ],
@@ -450,6 +385,19 @@ ${sitemapUrls.map(url => `  <url>
 
   site: {
     url: baseUrl,
+  },
+  
+  sitemap: {
+    exclude: [
+      '/404/**',
+      '/_payload.json',
+      '/**/_payload.json'
+    ],
+    defaults: {
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date().toISOString()
+    }
   },
 
   routeRules: {
