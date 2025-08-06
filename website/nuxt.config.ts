@@ -479,11 +479,16 @@ ${sitemapUrls.map(url => `  <url>
     workbox: {
       globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
       globIgnores: ['**/404**', '**/404.html'],
-      navigateFallbackDenylist: [/^\/resume/],
+      // Disable navigation route caching to allow 404.html SPA routing fallback
+      navigateFallback: null,
+      navigateFallbackDenylist: [/.*/], // Deny all navigation fallbacks
+      // Force service worker update for existing users
+      cleanupOutdatedCaches: true,
     },
     manifest: {
       short_name: 'MTalukdar',
       name: 'Manas Talukdar',
+      version: '2.0.0', // Increment version to force cache refresh
       background_color: '#303030',
       theme_color: '#263238',
       display: 'standalone',
