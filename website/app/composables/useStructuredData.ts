@@ -122,6 +122,12 @@ interface WebSiteStructuredData {
   name: string
   url: string
   description: string
+  license?: string
+  copyrightYear?: number
+  copyrightHolder?: {
+    '@type': string
+    name: string
+  }
   publisher: {
     '@type': string
     name: string
@@ -364,6 +370,12 @@ export const useStructuredData = () => {
       name,
       url: baseUrl,
       description,
+      license: 'https://creativecommons.org/licenses/by-nc-nd/4.0/',
+      copyrightYear: new Date().getFullYear(),
+      copyrightHolder: {
+        '@type': 'Person',
+        name: 'Manas Talukdar'
+      },
       publisher: {
         '@type': 'Person',
         name: 'Manas Talukdar'

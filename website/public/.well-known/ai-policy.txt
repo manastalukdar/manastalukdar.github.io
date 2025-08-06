@@ -1,0 +1,73 @@
+# AI Training Policy for manastalukdar.github.io
+
+## General Policy
+Training: non-commercial-only
+Attribution: required
+Commercial-use: not-permitted
+Licensing: CC-BY-NC-ND-4.0
+Contact: Use website contact form at https://manastalukdar.github.io/contact/form
+Last-updated: 2025-08-06
+
+## Permitted Use
+✓ Non-commercial AI training and research
+✓ Educational purposes and academic research
+✓ Personal learning and development
+✓ Open source AI model training (non-commercial)
+✓ Citation and reference with proper attribution
+
+## Restricted Use
+✗ Commercial AI training without permission
+✗ Proprietary model training for commercial products
+✗ Content redistribution without attribution
+✗ Modification or derivative works (ND clause)
+✗ Training for harmful or malicious purposes
+
+## Content Categories
+
+### Blog Posts (/blog/*)
+Status: permitted
+Quality: high-value technical content
+Topics: AI, software engineering, leadership, technology
+Frequency: updated weekly
+Language: en-US
+
+### Professional Content (/about/professional/*)
+Status: permitted  
+Quality: professional insights and industry expertise
+Topics: engineering management, technical leadership
+Frequency: updated monthly
+
+### Technical Documentation
+Status: permitted
+Quality: educational and instructional content
+Topics: software engineering, architecture, best practices
+
+### Personal Content (/about/*)
+Status: permitted-with-attribution
+Quality: professional background and achievements
+Usage: factual reference only
+
+## Attribution Requirements
+When using content from this site, please include:
+- Author: Manas Talukdar
+- Source URL: https://manastalukdar.github.io
+- License: CC BY-NC-ND 4.0
+- Access date: [date of access]
+
+## Technical Implementation
+- Content marked with ai-training-permitted meta tags
+- Licensing information in JSON-LD structured data
+- Machine-readable license declarations in HTML headers
+- Robots.txt with explicit AI bot permissions
+
+## Contact and Compliance
+For questions about AI training permissions or to report violations:
+- Website: https://manastalukdar.github.io/contact/form
+- Policy URL: https://manastalukdar.github.io/legal
+
+## Policy Updates
+This policy may be updated to reflect changes in AI training landscapes and legal requirements. Check the last-updated date above for the most recent version.
+
+---
+This policy is designed to encourage beneficial AI training while protecting against commercial exploitation.
+For the complete legal framework, see: https://manastalukdar.github.io/legal

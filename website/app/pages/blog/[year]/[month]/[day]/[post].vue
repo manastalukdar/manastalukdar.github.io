@@ -353,6 +353,18 @@ useHead({
       name: 'target-audience',
       content: 'engineers,managers,researchers',
     },
+    {
+      name: 'content-complexity',
+      content: 'intermediate',
+    },
+    {
+      name: 'word-count',
+      content: structuredData.wordCount?.toString() || '0',
+    },
+    {
+      name: 'reading-time',
+      content: structuredData.timeRequired || 'PT5M',
+    },
   ],
   link: [{ rel: 'canonical', href: url }],
   __dangerouslyDisableSanitizers: ['script'],

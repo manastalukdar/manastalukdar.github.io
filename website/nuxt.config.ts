@@ -143,6 +143,27 @@ export default defineNuxtConfig({
           name: 'twitter:image',
           content: baseUrl + '/images/android-chrome-512x512.png',
         },
+        // Global licensing meta tags for AI training
+        {
+          name: 'license',
+          content: 'CC BY-NC-ND 4.0',
+        },
+        {
+          name: 'ai-training',
+          content: 'non-commercial-only',
+        },
+        {
+          name: 'content-policy',
+          content: '/legal#content-usage',
+        },
+        {
+          name: 'update-frequency',
+          content: 'weekly',
+        },
+        {
+          name: 'content-language',
+          content: 'en-US',
+        },
       ],
       link: [
         {
@@ -204,6 +225,11 @@ export default defineNuxtConfig({
           rel: 'preload',
           href: 'https://fonts.googleapis.com/css?family=Maven+Pro|Material+Icons',
           as: 'style',
+        },
+        // Global license link for machine-readable declarations
+        {
+          rel: 'license',
+          href: 'https://creativecommons.org/licenses/by-nc-nd/4.0/',
         },
       ],
     },
