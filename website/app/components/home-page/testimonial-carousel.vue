@@ -52,7 +52,7 @@
                   <div class="testimonial-attribution">
                     <div class="author-info">
                       <div class="author-avatar" v-if="testimonial.photo">
-                        <v-avatar size="48" :image="testimonial.photo" />
+                        <v-avatar size="48" :image="testimonial.photo" :alt="`Photo of ${testimonial.name}`" />
                       </div>
                       <div class="author-details">
                         <strong class="author-name">

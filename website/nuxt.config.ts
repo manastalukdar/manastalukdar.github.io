@@ -184,6 +184,27 @@ export default defineNuxtConfig({
           href: '/styles/atom-one-dark.css',
           as: 'style',
         },
+        // Preload critical fonts for performance
+        {
+          rel: 'preload',
+          href: 'https://fonts.gstatic.com/s/mavenpro/v32/7Auup_AqnyWWAxW2Wk3swUz56MS91Eww8SX25nCpozp5GvU.woff2',
+          as: 'font',
+          type: 'font/woff2',
+          crossorigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          href: 'https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2',
+          as: 'font',
+          type: 'font/woff2',
+          crossorigin: 'anonymous',
+        },
+        // Preload critical CSS
+        {
+          rel: 'preload',
+          href: 'https://fonts.googleapis.com/css?family=Maven+Pro|Material+Icons',
+          as: 'style',
+        },
       ],
     },
   },

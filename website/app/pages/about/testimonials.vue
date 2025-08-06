@@ -13,7 +13,7 @@
           id="printMe"
         >
           <v-row class="text-h5 px-3 py-3 page-header justify-center">
-            <span>What colleagues have said about me</span>
+            <h1>What colleagues have said about me</h1>
           </v-row>
           <p />
           <div v-if="loading" class="text-center pa-4">

@@ -13,7 +13,7 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Professional Memberships and Affiliations</span>
+          <h1>Professional Memberships and Affiliations</h1>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->

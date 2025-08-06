@@ -13,7 +13,7 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Volunteering</span>
+          <h1>Volunteering</h1>
         </v-row>
         <p />
         <client-only>

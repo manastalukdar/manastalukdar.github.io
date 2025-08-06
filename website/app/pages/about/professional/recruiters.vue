@@ -13,7 +13,7 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 recruiters-header justify-center">
-          <span>For Recruiters and Hiring Managers</span>
+          <h1>For Recruiters and Hiring Managers</h1>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->

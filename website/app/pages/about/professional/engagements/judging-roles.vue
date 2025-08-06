@@ -13,13 +13,13 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Judging Roles</span>
+          <h1>Judging Roles</h1>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
         <div class="pl-2 pb-2 markdown-content" v-html="judgingRoles" />
         <v-row class="text-h6 px-3 py-3 page-header justify-center">
-          <span>Past</span>
+          <h2>Past</h2>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->

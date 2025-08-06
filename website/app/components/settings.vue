@@ -9,7 +9,7 @@
       class="pa-8">
       <v-row>
         <v-card-title>
-          <span class="text-h5">Settings</span>
+          <h2 class="text-h5">Settings</h2>
         </v-card-title>
       </v-row>
       <v-row class="pt-5 justify-center">

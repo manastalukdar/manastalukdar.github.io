@@ -13,13 +13,13 @@
         id="printMe"
       >
         <v-row class="text-h5 px-3 py-3 page-header justify-center">
-          <span>Upcoming {{ speakingText }} Engagements</span>
+          <h1>Upcoming {{ speakingText }} Engagements</h1>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
         <div class="pl-2 pb-2 markdown-content" v-html="speaking" />
         <v-row class="text-h6 px-3 py-3 page-header justify-center">
-          <span>Recent Past</span>
+          <h2>Recent Past</h2>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->

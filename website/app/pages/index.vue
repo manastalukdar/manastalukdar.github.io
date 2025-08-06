@@ -113,6 +113,23 @@ const structuredData = {
     'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA',
   ],
 };
+
+const organizationStructuredData = {
+  '@context': 'http://schema.org',
+  '@type': 'Organization',
+  name: 'Manas Talukdar',
+  url: baseUrl,
+  logo: baseUrl + '/images/android-chrome-512x512.png',
+  sameAs: [
+    otherLocations[0].href,
+    otherLocations[1].href,
+    otherLocations[2].href,
+    'https://www.facebook.com/manas.talukdar',
+    'https://www.instagram.com/manastalukdar/',
+    'https://www.youtube.com/channel/UCskNDdaQXOKw1pLpPVpulbA',
+  ],
+  description: 'AI and Data products leader, Enterprise AI expert'
+};
 useHead({
   title: homepageTitle,
     link: [{ rel: 'canonical', href: url }],
@@ -120,6 +137,10 @@ useHead({
     script: [
       {
         innerHTML: JSON.stringify(structuredData),
+        type: 'application/ld+json',
+      },
+      {
+        innerHTML: JSON.stringify(organizationStructuredData),
         type: 'application/ld+json',
       },
       {

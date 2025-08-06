@@ -15,7 +15,7 @@
             <v-card class="search-card" elevation="2">
               <v-card-title class="search-header">
                 <v-icon class="search-icon">mdi-magnify</v-icon>
-                <span>AI-Powered Search</span>
+                <h2>AI-Powered Search</h2>
               </v-card-title>
               <v-card-text>
                 <v-skeleton-loader type="text, text, divider, text, text" />
@@ -29,7 +29,7 @@
         <v-card class="info-card" elevation="1">
           <v-card-title class="info-header">
             <v-icon class="info-icon">mdi-information</v-icon>
-            <span>How Search Works</span>
+            <h2>How Search Works</h2>
           </v-card-title>
 
           <v-card-text>
@@ -98,7 +98,7 @@
         <v-card class="tips-card" elevation="1">
           <v-card-title class="tips-header">
             <v-icon class="tips-icon">mdi-lightbulb</v-icon>
-            <span>Search Tips</span>
+            <h2>Search Tips</h2>
           </v-card-title>
 
           <v-card-text>
