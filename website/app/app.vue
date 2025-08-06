@@ -181,6 +181,29 @@ if (typeof window !== 'undefined') {
       }, 100)
     }
   })
+
+  // Handle GitHub Pages SPA routing fallback
+  // When 404.html redirects here with hash-encoded path, navigate to the correct route
+  function handleGitHubPagesSPARouting() {
+    const hash = window.location.hash
+    if (hash && hash.startsWith('#/') && hash !== '#/') {
+      // Extract the intended path from the hash
+      const intendedPath = hash.substring(1) // Remove the # symbol
+      
+      // Only redirect if we're currently on the homepage and the intended path is different
+      if (window.location.pathname === '/' && intendedPath !== '/') {
+        // Clear the hash and navigate to the intended route
+        window.history.replaceState({}, '', window.location.pathname + window.location.search)
+        router.push(intendedPath)
+      }
+    }
+  }
+
+  // Check for hash-encoded routes on page load
+  handleGitHubPagesSPARouting()
+
+  // Also check when hash changes (in case of edge cases)
+  window.addEventListener('hashchange', handleGitHubPagesSPARouting)
 }
 </script>
 

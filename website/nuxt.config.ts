@@ -339,9 +339,52 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: [
-        '/',
-      ]
+      routes: () => {
+        // Generate all routes using the same logic as sitemap
+        if (getRoutes.properties.sitemapRoutes.length == 0) {
+          getRoutes.functions.generateRoutes()
+        }
+        
+        // Add static routes that should always be prerendered
+        const staticRoutes = [
+          '/',
+          '/blog/',
+          '/about/',
+          '/about/honors/',
+          '/about/interests/',
+          '/about/volunteering/',
+          '/about/media-coverage/',
+          '/about/services/',
+          '/about/testimonials/',
+          '/about/professional/recruiters/',
+          '/about/professional/patents/',
+          '/about/professional/highlights/',
+          '/about/professional/resume/',
+          '/about/professional/engagements/',
+          '/about/professional/engagements/speaking/',
+          '/about/professional/engagements/memberships-affiliations/',
+          '/about/professional/engagements/judging-roles/',
+          '/about/professional/engagements/fellowships/',
+          '/about/professional/engagements/board-memberships/',
+          '/about/professional/engagements/advisory-roles/',
+          '/about/professional/engagements/editor-reviewer-roles/',
+          '/contact/',
+          '/contact/form/',
+          '/search/',
+          '/bookmarks/',
+          '/legal/',
+          '/blog/tags/',
+          '/blog/categories/',
+          '/blog/post-formats/',
+          '/blog/archive/',
+        ]
+        
+        // Combine static routes with dynamically generated ones
+        const allRoutes = [...staticRoutes, ...getRoutes.properties.sitemapRoutes]
+        
+        // Remove duplicates and return
+        return [...new Set(allRoutes)]
+      }
     }
   },
 
@@ -357,7 +400,24 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/**': { swr: 60  }, // 👈🏻 TTL in seconds
+    // Homepage - prerender with SWR for updates
+    '/': { prerender: true, swr: 60 },
+    
+    // Static pages - prerender for best performance
+    '/about/**': { prerender: true },
+    '/contact/**': { prerender: true },
+    '/legal/**': { prerender: true },
+    '/search/**': { prerender: true },
+    '/bookmarks/**': { prerender: true },
+    
+    // Blog pages - prerender with SWR for content updates
+    '/blog/**': { prerender: true, swr: 300 }, // 5 min cache for blog content
+    
+    // API routes - ensure they work properly
+    '/api/**': { cors: true },
+    
+    // Fallback for other routes
+    '/**': { swr: 60 }, // 1 min cache for other routes
   },
 
   sitemap: {
