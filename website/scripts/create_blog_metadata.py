@@ -10,6 +10,7 @@ import re
 import shutil
 from datetime import date, datetime
 import math
+from collections import Counter, defaultdict
 
 import frontmatter
 import yaml
@@ -63,6 +64,231 @@ def calculate_reading_time(content, words_per_minute=225):
         "minutes": minutes,
         "words": word_count,
         "text": text
+    }
+
+
+# Load topic extraction configuration from shared JSON file
+def load_topic_extraction_config():
+    """Load topic extraction configuration from shared JSON file."""
+    config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config', 'topic-extraction-data.json')
+    try:
+        with open(config_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print(f"Warning: Topic extraction config file not found: {config_path}")
+        return {
+            'topicCategories': {},
+            'technicalEntities': {},
+            'stopWords': []
+        }
+
+# Load shared configuration
+_topic_config = load_topic_extraction_config()
+
+# Topic extraction constants loaded from shared configuration
+TOPIC_CATEGORIES = _topic_config['topicCategories']
+TECHNICAL_ENTITIES = _topic_config['technicalEntities']
+STOP_WORDS = set(_topic_config['stopWords'])
+
+
+def clean_content_for_topic_extraction(content):
+    """Clean and normalize text content for topic analysis."""
+    # Remove YAML frontmatter
+    content = re.sub(r'^---\n.*?\n---\n', '', content, flags=re.DOTALL)
+    # Remove HTML tags
+    content = re.sub(r'<[^>]*>', '', content)
+    # Remove code blocks
+    content = re.sub(r'```[\s\S]*?```', '', content)
+    # Remove inline code
+    content = re.sub(r'`[^`]*`', '', content)
+    # Convert links to text
+    content = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', content)
+    # Remove markdown formatting
+    content = re.sub(r'[#*_~`]', '', content)
+    # Replace newlines with spaces
+    content = re.sub(r'\n+', ' ', content)
+    # Normalize whitespace
+    content = re.sub(r'\s+', ' ', content)
+    return content.lower().strip()
+
+
+def extract_keywords(content, max_keywords=20):
+    """Extract keywords using simple TF calculation."""
+    words = clean_content_for_topic_extraction(content).split()
+    words = [word for word in words if 
+             len(word) > 2 and 
+             word not in STOP_WORDS and 
+             re.match(r'^[a-z0-9-]+$', word)]
+    
+    word_freq = Counter(words)
+    # Only consider words that appear at least twice
+    frequent_words = {word: freq for word, freq in word_freq.items() if freq >= 2}
+    
+    # Calculate TF scores and categorize
+    total_words = len(words)
+    keywords = []
+    
+    for word, freq in frequent_words.items():
+        tf = freq / total_words if total_words > 0 else 0
+        category = categorize_keyword(word)
+        keywords.append({
+            'term': word,
+            'score': tf,
+            'category': category
+        })
+    
+    return sorted(keywords, key=lambda x: x['score'], reverse=True)[:max_keywords]
+
+
+def categorize_keyword(keyword):
+    """Categorize a keyword based on predefined topic categories."""
+    for category, terms in TOPIC_CATEGORIES.items():
+        if any(keyword in term.lower() or term.lower() in keyword for term in terms):
+            return category
+    return 'general'
+
+
+def extract_entities(content):
+    """Extract named entities from content."""
+    entities = set()
+    normalized_content = content.lower()
+    
+    # Extract technical entities
+    for entity_list in TECHNICAL_ENTITIES.values():
+        for entity in entity_list:
+            if entity.lower() in normalized_content:
+                entities.add(entity)
+    
+    # Extract capitalized terms (potential proper nouns)
+    proper_nouns = re.findall(r'\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)*\b', content)
+    for noun in proper_nouns:
+        if len(noun) > 3 and noun.lower() not in STOP_WORDS:
+            entities.add(noun)
+    
+    return list(entities)[:15]  # Limit to top 15 entities
+
+
+def assess_content_complexity(content, keywords):
+    """Determine content complexity based on various factors."""
+    word_count = len(content.split())
+    technical_terms = len([k for k in keywords if k['category'] != 'general'])
+    sentences = len(re.split(r'[.!?]+', content))
+    avg_words_per_sentence = word_count / sentences if sentences > 0 else 0
+    
+    complexity_score = 0
+    
+    # Word count factor
+    if word_count > 2000:
+        complexity_score += 2
+    elif word_count > 1000:
+        complexity_score += 1
+    
+    # Technical terms factor
+    if technical_terms > 15:
+        complexity_score += 3
+    elif technical_terms > 10:
+        complexity_score += 2
+    elif technical_terms > 5:
+        complexity_score += 1
+    
+    # Sentence complexity factor
+    if avg_words_per_sentence > 25:
+        complexity_score += 2
+    elif avg_words_per_sentence > 20:
+        complexity_score += 1
+    
+    # Advanced technical categories
+    advanced_categories = ['artificial-intelligence', 'software-architecture', 'data-engineering']
+    if any(k['category'] in advanced_categories for k in keywords):
+        complexity_score += 1
+    
+    # Return complexity level
+    if complexity_score >= 6:
+        return 'expert'
+    elif complexity_score >= 4:
+        return 'advanced'
+    elif complexity_score >= 2:
+        return 'intermediate'
+    else:
+        return 'beginner'
+
+
+def identify_target_audience(keywords, complexity):
+    """Determine target audience based on content analysis."""
+    audiences = set()
+    
+    category_audience_map = {
+        'artificial-intelligence': ['data-scientists', 'ml-engineers', 'researchers'],
+        'data-engineering': ['data-engineers', 'software-engineers', 'architects'],
+        'software-architecture': ['architects', 'senior-engineers', 'technical-leads'],
+        'leadership-management': ['engineering-managers', 'technical-leads', 'executives'],
+        'software-development': ['software-engineers', 'developers'],
+        'data-science': ['data-scientists', 'analysts', 'researchers'],
+        'cloud-computing': ['devops-engineers', 'cloud-architects', 'software-engineers']
+    }
+    
+    for keyword in keywords:
+        category_audiences = category_audience_map.get(keyword['category'], [])
+        audiences.update(category_audiences)
+    
+    # Complexity-based audience
+    if complexity in ['expert', 'advanced']:
+        audiences.add('senior-professionals')
+    if complexity == 'beginner':
+        audiences.add('students')
+        audiences.add('career-changers')
+    
+    # Default audiences
+    if not audiences:
+        audiences.add('general-tech-audience')
+    
+    return list(audiences)[:5]
+
+
+def extract_topics_from_content(content, title=''):
+    """Main topic extraction function."""
+    # Combine title and content for analysis, giving title more weight
+    analysis_text = f"{title} {title} {content}"
+    
+    # Extract keywords
+    keywords = extract_keywords(analysis_text)
+    
+    # Extract entities
+    entities = extract_entities(content)
+    
+    # Determine primary topic (highest scoring category)
+    category_scores = defaultdict(float)
+    for keyword in keywords:
+        if keyword['category'] != 'general':
+            category_scores[keyword['category']] += keyword['score']
+    
+    sorted_categories = sorted(category_scores.items(), key=lambda x: x[1], reverse=True)
+    
+    primary_topic = sorted_categories[0][0] if sorted_categories else 'general-technology'
+    secondary_topics = [cat for cat, _ in sorted_categories[1:4]]
+    
+    # Assess complexity
+    complexity = assess_content_complexity(content, keywords)
+    
+    # Identify target audience
+    target_audience = identify_target_audience(keywords, complexity)
+    
+    # Calculate confidence score
+    total_keywords = len(keywords)
+    categorized_keywords = len([k for k in keywords if k['category'] != 'general'])
+    confidence = (categorized_keywords / total_keywords) if total_keywords > 0 else 0
+    
+    # Extract related concepts (high-scoring keywords)
+    related_concepts = [k['term'] for k in keywords[:8]]
+    
+    return {
+        'topic-primary': primary_topic,
+        'topic-secondary': secondary_topics,
+        'content-entities': entities,
+        'topic-confidence': round(confidence, 2),
+        'related-concepts': related_concepts,
+        'content-complexity': complexity,
+        'target-audience': target_audience
     }
 
 
@@ -128,6 +354,28 @@ def create_posts_list(files):
                 content = f.read()
             reading_time = calculate_reading_time(content)
             post['reading-time'] = reading_time
+            
+            # Extract topics from content
+            try:
+                topic_data = extract_topics_from_content(content, post.metadata.get('title', ''))
+                # Add topic data to post metadata
+                for key, value in topic_data.items():
+                    post.metadata[key] = value
+                print(f"Extracted topics for '{post.metadata.get('title', 'Unknown')}': {topic_data['topic-primary']}")
+            except Exception as e:
+                print(f"Error extracting topics for '{post.metadata.get('title', 'Unknown')}': {e}")
+                # Add default topic data if extraction fails
+                default_topic_data = {
+                    'topic-primary': 'general-technology',
+                    'topic-secondary': [],
+                    'content-entities': [],
+                    'topic-confidence': 0.0,
+                    'related-concepts': [],
+                    'content-complexity': 'intermediate',
+                    'target-audience': ['general-tech-audience']
+                }
+                for key, value in default_topic_data.items():
+                    post.metadata[key] = value
             
             # Handle series information
             if 'series' in post.metadata:

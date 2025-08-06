@@ -176,12 +176,36 @@ export const useStructuredData = () => {
     // Extract categories and tags for enhanced semantic understanding
     const categories = postMetadata.categories?.map((cat: any) => cat.name) || []
     const tags = postMetadata.tags?.map((tag: any) => tag.name) || []
-    const allKeywords = [...categories, ...tags].join(', ')
     
-    // Generate topics/subjects the article covers
-    const aboutTopics = [...categories, ...tags].map((topic: string) => ({
+    // Extract AI-generated topic metadata
+    const primaryTopic = postMetadata['topic-primary'] || 'general-technology'
+    const secondaryTopics = postMetadata['topic-secondary'] || []
+    const contentEntities = postMetadata['content-entities'] || []
+    const relatedConcepts = postMetadata['related-concepts'] || []
+    const contentComplexity = postMetadata['content-complexity'] || 'intermediate'
+    const targetAudience = postMetadata['target-audience'] || ['general-tech-audience']
+    
+    // Combine manual tags with AI-extracted topics for keywords
+    const allKeywords = [
+      ...categories, 
+      ...tags, 
+      primaryTopic.replace('-', ' '),
+      ...secondaryTopics.map((topic: string) => topic.replace('-', ' ')),
+      ...relatedConcepts
+    ].join(', ')
+    
+    // Generate enhanced topics/subjects the article covers
+    const aboutTopics = [
+      ...categories.map((topic: string) => ({ '@type': 'Thing', name: topic })),
+      ...tags.map((topic: string) => ({ '@type': 'Thing', name: topic })),
+      { '@type': 'Thing', name: primaryTopic.replace('-', ' ') },
+      ...secondaryTopics.map((topic: string) => ({ '@type': 'Thing', name: topic.replace('-', ' ') }))
+    ]
+    
+    // Generate mentions for technical entities
+    const mentions = contentEntities.map((entity: string) => ({
       '@type': 'Thing',
-      name: topic
+      name: entity
     }))
     
     // Author information with enhanced details
@@ -196,12 +220,20 @@ export const useStructuredData = () => {
       ]
     })) || []
     
-    // Determine content type and educational level
-    const isEducational = tags.some((tag: string) => 
-      ['tutorial', 'guide', 'how-to', 'learn', 'learning'].includes(tag.toLowerCase())
+    // Determine content type and educational level using AI-extracted data
+    const isEducational = (
+      tags.some((tag: string) => 
+        ['tutorial', 'guide', 'how-to', 'learn', 'learning'].includes(tag.toLowerCase())
+      ) ||
+      relatedConcepts.some((concept: string) =>
+        ['tutorial', 'guide', 'learning', 'introduction'].includes(concept.toLowerCase())
+      )
     )
-    const isTechnical = categories.some((cat: string) => 
-      ['technology', 'programming', 'software'].includes(cat.toLowerCase())
+    const isTechnical = (
+      categories.some((cat: string) => 
+        ['technology', 'programming', 'software'].includes(cat.toLowerCase())
+      ) ||
+      ['artificial-intelligence', 'data-engineering', 'software-architecture', 'software-development', 'cloud-computing'].includes(primaryTopic)
     )
     
     const structuredData: BlogPostStructuredData = {
@@ -232,10 +264,11 @@ export const useStructuredData = () => {
       },
       datePublished: postMetadata['first-published-on'],
       dateModified: postMetadata['last-updated-on'] || postMetadata['first-published-on'],
-      articleSection: categories[0] || 'Blog',
+      articleSection: categories[0] || primaryTopic.replace('-', ' '),
       keywords: allKeywords,
       about: aboutTopics,
-      genre: categories[0] || 'Technology',
+      mentions: mentions.length > 0 ? mentions : undefined,
+      genre: primaryTopic.replace('-', ' '),
       wordCount: readingStats.wordCount,
       timeRequired: `PT${readingStats.readingTimeMinutes}M`,
       inLanguage: 'en-US',
@@ -248,13 +281,32 @@ export const useStructuredData = () => {
       }
     }
     
-    // Add educational metadata if applicable
-    if (isEducational) {
-      structuredData.educationalLevel = isTechnical ? 'Professional' : 'Intermediate'
+    // Add educational metadata using AI-extracted complexity and audience data
+    if (isEducational || contentComplexity !== 'beginner') {
+      // Map AI-extracted complexity to schema.org educational levels
+      const complexityMapping: Record<string, string> = {
+        'beginner': 'Beginner',
+        'intermediate': 'Intermediate',
+        'advanced': 'Advanced',
+        'expert': 'Professional'
+      }
+      
+      structuredData.educationalLevel = complexityMapping[contentComplexity] || 'Intermediate'
       structuredData.learningResourceType = 'Article'
-      structuredData.teaches = tags.filter((tag: string) => 
-        !['blog', 'post', 'article'].includes(tag.toLowerCase())
-      )
+      
+      // Use AI-extracted related concepts and manual tags for teaching topics
+      const teachingTopics = [
+        ...tags.filter((tag: string) => 
+          !['blog', 'post', 'article'].includes(tag.toLowerCase())
+        ),
+        ...relatedConcepts.filter((concept: string) => 
+          concept.length > 3 && !['blog', 'post', 'article'].includes(concept.toLowerCase())
+        )
+      ].slice(0, 10) // Limit to 10 teaching topics
+      
+      if (teachingTopics.length > 0) {
+        structuredData.teaches = teachingTopics
+      }
     }
     
     return structuredData

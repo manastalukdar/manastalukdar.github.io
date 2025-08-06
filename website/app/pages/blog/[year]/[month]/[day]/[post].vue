@@ -347,15 +347,35 @@ useHead({
     },
     {
       name: 'expertise-level',
-      content: 'professional',
+      content: postMetadata['content-complexity'] || 'intermediate',
     },
     {
       name: 'target-audience',
-      content: 'engineers,managers,researchers',
+      content: (postMetadata['target-audience'] || ['general-tech-audience']).join(','),
     },
     {
       name: 'content-complexity',
-      content: 'intermediate',
+      content: postMetadata['content-complexity'] || 'intermediate',
+    },
+    {
+      name: 'topic-primary',
+      content: postMetadata['topic-primary'] || 'general-technology',
+    },
+    {
+      name: 'topic-secondary',
+      content: (postMetadata['topic-secondary'] || []).join(','),
+    },
+    {
+      name: 'content-entities',
+      content: (postMetadata['content-entities'] || []).join(','),
+    },
+    {
+      name: 'related-concepts',
+      content: (postMetadata['related-concepts'] || []).join(','),
+    },
+    {
+      name: 'topic-confidence',
+      content: (postMetadata['topic-confidence'] || 0).toString(),
     },
     {
       name: 'word-count',
