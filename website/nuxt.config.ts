@@ -240,6 +240,18 @@ export default defineNuxtConfig({
   },
 
   hooks: {
+    async 'prerender:routes'(ctx) {
+      // Generate dynamic blog routes using existing logic
+      getRoutes.functions.setBaseUrl(baseUrl)
+      getRoutes.functions.generateRoutes()
+      
+      // Add all dynamic routes from the existing system
+      getRoutes.properties.sitemapRoutes.forEach((route: string) => {
+        ctx.routes.add(route)
+      })
+      
+      console.log(`Added ${getRoutes.properties.sitemapRoutes.length} dynamic routes via prerender:routes hook`)
+    },
     'vite:extend' ({ nuxt, config }) {
     },
     'vite:extendConfig': (config, { isClient, isServer }) => {
@@ -344,34 +356,7 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: [
-        '/',
-        '/blog/',
-        '/about/honors/',
-        '/about/interests/',
-        '/about/volunteering/',
-        '/about/media-coverage/',
-        '/about/services/',
-        '/about/testimonials/',
-        '/about/professional/recruiters/',
-        '/about/professional/patents/',
-        '/about/professional/highlights/',
-        '/about/professional/resume/',
-        '/about/professional/engagements/',
-        '/about/professional/engagements/speaking/',
-        '/about/professional/engagements/memberships-affiliations/',
-        '/about/professional/engagements/judging-roles/',
-        '/about/professional/engagements/fellowships/',
-        '/about/professional/engagements/board-memberships/',
-        '/about/professional/engagements/advisory-roles/',
-        '/about/professional/engagements/editor-reviewer-roles/',
-        '/contact/form/',
-        '/search/',
-        '/bookmarks/',
-        '/legal/',
-        '/blog/tags/',
-        '/blog/categories/',
-        '/blog/post-formats/',
-        '/blog/archive/',
+        '/', // Starting point for crawling - other routes auto-discovered or added via prerender:routes hook
       ]
     }
   },
