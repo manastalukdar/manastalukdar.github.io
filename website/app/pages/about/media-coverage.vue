@@ -12,7 +12,7 @@
         style="height: 100%"
         id="printMe"
       >
-        <v-row class="text-h5 px-3 py-3 page-header justify-center">
+        <v-row class="text-h6 px-3 py-3 page-header justify-center">
           <h1>Media Coverage</h1>
         </v-row>
         <p />

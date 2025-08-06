@@ -429,7 +429,7 @@ onMounted(() => {
 }
 
 .page-title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: rgb(var(--v-theme-primary));
   margin-bottom: 16px;
@@ -440,7 +440,7 @@ onMounted(() => {
 }
 
 .title-icon {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 .page-description {
@@ -495,7 +495,7 @@ onMounted(() => {
 
 @media (max-width: 960px) {
   .page-title {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 
   .stats-actions {
@@ -510,13 +510,13 @@ onMounted(() => {
   }
 
   .page-title {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     flex-direction: column;
     gap: 8px;
   }
 
   .title-icon {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 
   .page-description {

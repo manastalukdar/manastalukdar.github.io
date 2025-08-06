@@ -191,7 +191,7 @@ useHead({
 }
 
 .page-title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: rgb(var(--v-theme-primary));
   margin-bottom: 16px;
@@ -304,7 +304,7 @@ useHead({
 
 @media (max-width: 960px) {
   .page-title {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 
   .tips-grid {
@@ -318,7 +318,7 @@ useHead({
   }
 
   .page-title {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 
   .page-description {
