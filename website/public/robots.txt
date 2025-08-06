@@ -1,12 +1,136 @@
-User-agent: *
+# AI Training Bots - Non-Commercial Use Only
+User-agent: GPTBot
 Allow: /
 Disallow: /404
 Disallow: /*?*
 Disallow: /api/
 Disallow: /_nuxt/
 Disallow: /_payload.json
-Crawl-delay: 1
+Crawl-delay: 5
 
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 5
+
+User-agent: CCBot
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 5
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 5
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 5
+
+User-agent: BardBot
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 5
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 5
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 5
+
+User-agent: YouBot
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 5
+
+User-agent: Diffbot
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 10
+
+# Academic and Research Bots - Allowed
+User-agent: ia_archiver
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 10
+
+User-agent: archive.org_bot
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 10
+
+# Commercial AI Training - Restricted
+User-agent: Facebook-AI
+Disallow: /
+
+User-agent: Meta-AI
+Disallow: /
+
+User-agent: ByteDance
+Disallow: /
+
+User-agent: TikTokBot
+Disallow: /
+
+User-agent: facebookexternalhit
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 10
+
+# Search Engine Crawlers
 User-agent: Googlebot
 Allow: /
 Disallow: /404
@@ -23,5 +147,33 @@ Disallow: /api/
 Disallow: /_nuxt/
 Disallow: /_payload.json
 Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 5
+
+User-agent: YandexBot
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 5
+
+# General Crawlers
+User-agent: *
+Allow: /
+Disallow: /404
+Disallow: /*?*
+Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /_payload.json
+Crawl-delay: 1
 
 Sitemap: https://manastalukdar.github.io/sitemap.xml
