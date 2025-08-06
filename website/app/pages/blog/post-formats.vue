@@ -77,14 +77,14 @@ await setupBlogMetadata();
 
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.blog.blogItems[3].text +
+  navigationStore.blog.blogItems[4].text +
   ' | ' +
   navigationStore.blog.blogText;
 const blogMetadata = blogMetadataStore.getBlogMetadata();
-const pageTitle = navigationStore.blog.blogItems[3].text;
+const pageTitle = navigationStore.blog.blogItems[4].text;
 const blogHref = navigationStore.blog.blogItems[0].href;
-const currentHref = navigationStore.blog.blogItems[3].href;
-const postFormatsText = navigationStore.blog.blogItems[3].text;
+const currentHref = navigationStore.blog.blogItems[4].href;
+const postFormatsText = navigationStore.blog.blogItems[4].text;
 const blogDynamicItemsPostFormats =
   navigationStore.blog.dynamicItems.postFormat.href;
 const title = currentPage + ' || ' + appOwner;

@@ -81,15 +81,15 @@ async function setupBlogMetadata() {
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
 const currentPage =
-  navigationStore.blog.blogItems[4].text +
+  navigationStore.blog.blogItems[5].text +
   ' | ' +
   navigationStore.blog.blogText;
 const blogMetadata = blogMetadataStore.getBlogMetadata();
 //console.log(blogMetadata)
-const pageTitle = navigationStore.blog.blogItems[4].text;
+const pageTitle = navigationStore.blog.blogItems[5].text;
 const blogHref = navigationStore.blog.blogItems[0].href;
-const currentHref = navigationStore.blog.blogItems[4].href;
-const archiveText = navigationStore.blog.blogItems[4].text;
+const currentHref = navigationStore.blog.blogItems[5].href;
+const archiveText = navigationStore.blog.blogItems[5].text;
 const blogDynamicItemsBlogPost =
   navigationStore.blog.dynamicItems.blogPost.href;
 const search = ref('');
