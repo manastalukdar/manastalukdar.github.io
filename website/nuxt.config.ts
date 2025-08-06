@@ -56,7 +56,7 @@ export default defineNuxtConfig({
         {
           hid: 'keywords',
           name: 'keywords',
-          content: siteOwner + ', website, blog, resume, data infrastructure, enterprise ai',
+          content: siteOwner + ', enterprise ai, data infrastructure, ai products, machine learning, data engineering, artificial intelligence, enterprise solutions, industrial ai, data science, technology leadership, website, blog, resume',
         },
         {
           hid: 'description',
