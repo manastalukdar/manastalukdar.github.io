@@ -9,9 +9,17 @@
       style="border-radius:0"
     >
       <v-row class="justify-end">
-        <v-col class="text-left" style="margin-left: 1em; margin-right: 1em">
-          &copy;&nbsp; {{ copyrightStartYear }} —
-          {{ copyrightEndYear }} &nbsp;<strong> {{ appOwner }} </strong>
+        <v-col class="text-left d-flex align-center" style="margin-left: 1em; margin-right: 1em">
+          <span>
+            &copy;&nbsp; {{ copyrightStartYear }} —
+            {{ copyrightEndYear }} &nbsp;<strong> {{ appOwner }} </strong>
+          </span>
+          <a href="/legal" class="license-link" style="text-decoration: none; margin-left: 0.5em;">
+            <img src="/images/cc-by-nc-nd-4.0-80x15.png"
+                 alt="CC BY-NC-ND 4.0 License"
+                 class="license-badge"
+                 style="vertical-align: middle;" />
+          </a>
         </v-col>
         <v-col class="text-right" style="margin-left: 1em; margin-right: 1em">
           <a
