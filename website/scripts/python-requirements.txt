@@ -17,7 +17,7 @@ torch==2.4.0
 transformers==4.44.0
 sentence-transformers==3.0.1
 
-# Advanced topic modeling - optional but beneficial
-bertopic==0.16.0
-umap-learn==0.5.6
-hdbscan==0.8.38
+# Advanced topic modeling - latest versions for Python 3.13 compatibility
+bertopic==0.17.3
+umap-learn==0.5.7
+hdbscan==0.8.40
