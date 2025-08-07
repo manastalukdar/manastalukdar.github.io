@@ -12,14 +12,14 @@
           style="height: 100%"
           id="printMe"
         >
-          <v-row class="text-h5 px-3 py-3 page-header justify-center">
+          <v-row class="text-h6 px-3 py-3 page-header justify-center">
             <h1>Legal Information & Licensing</h1>
           </v-row>
           <p />
-          
+
           <client-only>
             <v-expansion-panels multiple v-model="panelLegal">
-              
+
               <!-- Copyright & Ownership Section -->
               <v-expansion-panel>
                 <v-expansion-panel-title>

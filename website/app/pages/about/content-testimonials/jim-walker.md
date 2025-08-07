@@ -3,7 +3,7 @@ name: "Jim Walker"
 title: "Retired"
 company: "OSIsoft"
 linkedin: "https://www.linkedin.com/in/jim-walker-27144341"
-order: 5
+order: 6
 excerpt: "Manas and I worked on a proof of concept trial for a customer in the Solar Power Industry. I still to this day am impressed by his hard work and dedication... Without his vision and dedication to the task at hand, the sale may have not been possible as this data was critical to the customers needs."
 category: ["technical", "problem-solving"]
 date: "May 3, 2012"

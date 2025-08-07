@@ -50,7 +50,7 @@ export const useTestimonials = () => {
 
     try {
       // List of testimonial files (could be made dynamic in the future)
-      const testimonialFiles = ['greg-holt', 'cherif-jazra', 'dylan-huang', 'jim-walker', 'Jeffrey-Fischer']
+      const testimonialFiles = ['greg-holt', 'cherif-jazra', 'dylan-huang', 'jim-walker', 'Jeffrey-Fischer', 'Aaron-Aung']
 
       const loadedTestimonials = await Promise.all(
         testimonialFiles.map(fileName => loadTestimonialFile(fileName))
