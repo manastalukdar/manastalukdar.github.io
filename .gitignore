@@ -147,3 +147,8 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+# Topic Extraction ML Models (regenerable via setup scripts)
+**/topic_models/*.pkl
+**/topic_models/discovered_topics.json
+**/topic_models/*_backup_*.json

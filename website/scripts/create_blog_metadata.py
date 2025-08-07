@@ -16,6 +16,10 @@ import frontmatter
 import yaml
 from dateutil import parser
 
+# Import enhanced topic extraction
+from topic_discovery import TopicDiscoverySystem
+from enhanced_topic_extraction import EnhancedTopicExtractor
+
 POSTS_LIST_FILE_JSON = "website/public/blogdata/metadata/blog_metadata.json"
 SERIES_LIST_FILE_JSON = "website/public/blogdata/metadata/series_metadata.json"
 SERIES_DEFINITIONS_FILE = "blog/metadata/series-definitions.yaml"
@@ -245,18 +249,25 @@ def identify_target_audience(keywords, complexity):
     return list(audiences)[:5]
 
 
-def extract_topics_from_content(content, title=''):
-    """Main topic extraction function."""
-    # Combine title and content for analysis, giving title more weight
+def extract_topics_from_content(content, title='', use_enhanced=True):
+    """Main topic extraction function with enhanced dynamic analysis."""
+    if use_enhanced:
+        try:
+            # Use enhanced topic extraction (dynamic + static)
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            config_folder = os.path.join(os.path.dirname(script_dir), 'config')
+            
+            extractor = EnhancedTopicExtractor(config_folder)
+            return extractor.extract_topics_enhanced(content, title)
+            
+        except Exception as e:
+            print(f"Enhanced extraction failed, falling back to static method: {e}")
+    
+    # Fallback to original static method
     analysis_text = f"{title} {title} {content}"
-    
-    # Extract keywords
     keywords = extract_keywords(analysis_text)
-    
-    # Extract entities
     entities = extract_entities(content)
     
-    # Determine primary topic (highest scoring category)
     category_scores = defaultdict(float)
     for keyword in keywords:
         if keyword['category'] != 'general':
@@ -267,18 +278,13 @@ def extract_topics_from_content(content, title=''):
     primary_topic = sorted_categories[0][0] if sorted_categories else 'general-technology'
     secondary_topics = [cat for cat, _ in sorted_categories[1:4]]
     
-    # Assess complexity
     complexity = assess_content_complexity(content, keywords)
-    
-    # Identify target audience
     target_audience = identify_target_audience(keywords, complexity)
     
-    # Calculate confidence score
     total_keywords = len(keywords)
     categorized_keywords = len([k for k in keywords if k['category'] != 'general'])
     confidence = (categorized_keywords / total_keywords) if total_keywords > 0 else 0
     
-    # Extract related concepts (high-scoring keywords)
     related_concepts = [k['term'] for k in keywords[:8]]
     
     return {
@@ -288,7 +294,8 @@ def extract_topics_from_content(content, title=''):
         'topic-confidence': round(confidence, 2),
         'related-concepts': related_concepts,
         'content-complexity': complexity,
-        'target-audience': target_audience
+        'target-audience': target_audience,
+        'classification-method': 'static-fallback'
     }
 
 
@@ -322,11 +329,25 @@ def find_files():
     return result
 
 
-def create_posts_list(files):
-    """Creates the list of posts"""
+def create_posts_list(files, run_topic_discovery=True):
+    """Creates the list of posts with enhanced topic extraction."""
     count = 0
     data_all = []
     series_data = {}
+    
+    # Run topic discovery first if enabled
+    if run_topic_discovery:
+        try:
+            print("Running topic discovery...")
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            blog_folder = os.path.join(os.path.dirname(script_dir), 'blog')
+            config_folder = os.path.join(os.path.dirname(script_dir), 'config')
+            
+            discovery_system = TopicDiscoverySystem(blog_folder, config_folder)
+            discovered_topics = discovery_system.discover_topics()
+            print(f"Topic discovery completed: {len(discovered_topics.get('discoveredTopics', {}))} topics found")
+        except Exception as e:
+            print(f"Topic discovery failed: {e}. Proceeding with static extraction only.")
     
     # Load series definitions from central file
     series_definitions = load_series_definitions()
@@ -355,13 +376,15 @@ def create_posts_list(files):
             reading_time = calculate_reading_time(content)
             post['reading-time'] = reading_time
             
-            # Extract topics from content
+            # Extract topics from content using enhanced method
             try:
-                topic_data = extract_topics_from_content(content, post.metadata.get('title', ''))
+                topic_data = extract_topics_from_content(content, post.metadata.get('title', ''), use_enhanced=True)
                 # Add topic data to post metadata
                 for key, value in topic_data.items():
                     post.metadata[key] = value
-                print(f"Extracted topics for '{post.metadata.get('title', 'Unknown')}': {topic_data['topic-primary']}")
+                
+                method = topic_data.get('classification-method', 'unknown')
+                print(f"Extracted topics for '{post.metadata.get('title', 'Unknown')}': {topic_data['topic-primary']} ({method})")
             except Exception as e:
                 print(f"Error extracting topics for '{post.metadata.get('title', 'Unknown')}': {e}")
                 # Add default topic data if extraction fails
@@ -372,7 +395,8 @@ def create_posts_list(files):
                     'topic-confidence': 0.0,
                     'related-concepts': [],
                     'content-complexity': 'intermediate',
-                    'target-audience': ['general-tech-audience']
+                    'target-audience': ['general-tech-audience'],
+                    'classification-method': 'fallback'
                 }
                 for key, value in default_topic_data.items():
                     post.metadata[key] = value
@@ -557,12 +581,14 @@ def json_serial(obj):
     raise TypeError("Type %s not serializable" % type(obj))
 
 
-def main():
-    """main method."""
+def main(run_topic_discovery=True):
+    """main method with enhanced topic extraction."""
     initialize()
     files = find_files()
     copy_blog_posts(POSTS_FOLDER, POSTS_DIST_FOLDER)
-    create_posts_list(files)
+    create_posts_list(files, run_topic_discovery=run_topic_discovery)
+    
+    print("\nBlog metadata creation completed with enhanced topic extraction!")
 
 
 if __name__ == '__main__':

@@ -6,7 +6,26 @@ on:
   pull_request:
     branches:
       - source
+  schedule:
+    # Weekly full topic discovery on Sundays at 2 AM UTC
+    - cron: '0 2 * * 0'
   workflow_dispatch:
+    inputs:
+      topic_mode:
+        description: 'Topic extraction mode'
+        required: false
+        default: 'auto'
+        type: choice
+        options:
+        - auto
+        - metadata-only
+        - full-discovery
+        - force
+      deploy:
+        description: 'Deploy to GitHub Pages'
+        required: false
+        default: true
+        type: boolean
 jobs:
   build:
     name: Build, Deploy
@@ -18,32 +37,191 @@ jobs:
     steps:
       - name: Extract Branch Name
         run: echo "BRANCH=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
-      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
-      - uses: actions/setup-python@v5
+        
+      - name: Checkout Repository
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           architecture: "x64"
-      - run: python --version
-      - run: pip install -r website/scripts/python-requirements.txt
-      - run: python website/scripts/create_blog_metadata.py
-      - uses: actions/setup-node@v4
+          
+      - name: Cache Python Virtual Environment
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: python-venv-${{ runner.os }}-${{ hashFiles('website/scripts/python-requirements.txt') }}
+          restore-keys: |
+            python-venv-${{ runner.os }}-
+            
+      - name: Cache NLTK Data
+        uses: actions/cache@v4
+        with:
+          path: ~/nltk_data
+          key: nltk-data-${{ runner.os }}-v1
+          restore-keys: |
+            nltk-data-${{ runner.os }}-
+            
+      - name: Cache Topic Models
+        uses: actions/cache@v4
+        with:
+          path: website/config/topic_models
+          key: topic-models-${{ runner.os }}-${{ hashFiles('blog/**/*.md') }}
+          restore-keys: |
+            topic-models-${{ runner.os }}-
+            
+      - name: Setup Topic Extraction System (CI Mode)
+        run: |
+          chmod +x ./setup-topic-extraction.sh
+          ./setup-topic-extraction.sh --skip-discovery
+        env:
+          # Ensure UTF-8 encoding for Python
+          PYTHONIOENCODING: utf-8
+          LC_ALL: C.UTF-8
+          LANG: C.UTF-8
+          
+      - name: Determine Topic Extraction Mode
+        id: topic-mode
+        run: |
+          # Initialize variables
+          TOPIC_MODE="metadata-only"
+          REASON="default fast mode"
+          
+          # Check manual workflow dispatch input
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            MANUAL_MODE="${{ inputs.topic_mode }}"
+            if [ "$MANUAL_MODE" != "auto" ]; then
+              TOPIC_MODE="$MANUAL_MODE"
+              REASON="manual workflow dispatch: $MANUAL_MODE"
+            fi
+          fi
+          
+          # Check for scheduled run (weekly full discovery)
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            TOPIC_MODE="full-discovery"
+            REASON="scheduled weekly full discovery"
+          fi
+          
+          # Check commit message for manual triggers
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          if [[ "$COMMIT_MSG" == *"[full-topics]"* ]]; then
+            TOPIC_MODE="full-discovery"
+            REASON="commit message contains [full-topics]"
+          elif [[ "$COMMIT_MSG" == *"[force-topics]"* ]]; then
+            TOPIC_MODE="force"
+            REASON="commit message contains [force-topics]"
+          fi
+          
+          # Auto-detect blog content changes (only if still in auto mode)
+          if [ "$TOPIC_MODE" = "metadata-only" ] && [ "${{ github.event_name }}" = "push" ]; then
+            # Check if this is not the first commit (to avoid errors)
+            if [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
+              if git diff --name-only ${{ github.event.before }}..${{ github.sha }} | grep -q "^blog/"; then
+                TOPIC_MODE="full-discovery"
+                REASON="blog content changes detected"
+              fi
+            else
+              # First commit - run full discovery
+              TOPIC_MODE="full-discovery"
+              REASON="initial commit - full discovery"
+            fi
+          fi
+          
+          # Check if topic models exist in cache
+          if [ ! -f "website/config/topic_models/discovered_topics.json" ] && [ "$TOPIC_MODE" = "metadata-only" ]; then
+            TOPIC_MODE="full-discovery"
+            REASON="no cached topic models found"
+          fi
+          
+          echo "topic_mode=$TOPIC_MODE" >> $GITHUB_OUTPUT
+          echo "reason=$REASON" >> $GITHUB_OUTPUT
+          echo "🎯 Topic extraction mode: $TOPIC_MODE ($REASON)"
+          
+      - name: Generate Blog Metadata with Smart Topic Extraction
+        run: |
+          chmod +x ./update-blog-metadata.sh
+          
+          MODE="${{ steps.topic-mode.outputs.topic_mode }}"
+          case "$MODE" in
+            "metadata-only")
+              echo "🚀 Running fast metadata-only update..."
+              ./update-blog-metadata.sh --metadata-only
+              ;;
+            "full-discovery")
+              echo "🔍 Running full topic discovery and metadata generation..."
+              ./update-blog-metadata.sh
+              ;;
+            "force")
+              echo "⚡ Running forced complete regeneration..."
+              ./update-blog-metadata.sh --force
+              ;;
+            *)
+              echo "❌ Unknown topic mode: $MODE"
+              exit 1
+              ;;
+          esac
+        env:
+          PYTHONIOENCODING: utf-8
+          LC_ALL: C.UTF-8
+          LANG: C.UTF-8
+          
+      - name: Verify Metadata Generation
+        run: |
+          if [ ! -f "website/public/blogdata/metadata/blog_metadata.json" ]; then
+            echo "Error: Blog metadata file was not generated"
+            exit 1
+          fi
+          echo "✅ Blog metadata generated successfully"
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: latest
-      - run: node --version
-      - run: npm --version
-      - working-directory: website
-        run: npm install
-      - working-directory: website
+          cache: 'npm'
+          cache-dependency-path: website/package-lock.json
+          
+      - name: Display Versions
+        run: |
+          echo "Python version: $(python --version)"
+          echo "Node version: $(node --version)"
+          echo "NPM version: $(npm --version)"
+          
+      - name: Install Node Dependencies
+        working-directory: website
+        run: npm ci
+        
+      - name: Get Highlight.js Stylesheets
+        working-directory: website
         run: npm run getHighlightJsStyleSheets
-      - working-directory: website
+        
+      - name: Generate Static Site
+        working-directory: website
         run: npm run generate
-      - name: Deploy
+        
+      - name: Verify Build Output
+        run: |
+          if [ ! -d "website/.output/public" ]; then
+            echo "Error: Build output directory not found"
+            exit 1
+          fi
+          echo "✅ Static site generated successfully"
+          
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
-        if: ${{ github.event_name == 'push' && env.BRANCH == 'source' }}
+        if: |
+          (github.event_name == 'push' && env.BRANCH == 'source') ||
+          (github.event_name == 'schedule') ||
+          (github.event_name == 'workflow_dispatch' && inputs.deploy == true)
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./website/.output/public
           publish_branch: main # default: gh-pages
           keep_files: false # default: false
           force_orphan: true
-          commit_message: "GitHub CI Updates [ci skip]"
+          commit_message: |
+            GitHub CI Updates [ci skip]
+            
+            Topic extraction mode: ${{ steps.topic-mode.outputs.topic_mode }}
+            Reason: ${{ steps.topic-mode.outputs.reason }}
+            Triggered by: ${{ github.event_name }}

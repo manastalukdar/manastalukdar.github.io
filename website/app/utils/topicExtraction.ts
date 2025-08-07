@@ -267,3 +267,15 @@ export function extractTopics(content: string, title: string = ''): TopicExtract
     targetAudience
   }
 }
+
+/**
+ * Async version of extractTopics that ensures dynamic topics are loaded
+ */
+export async function extractTopicsAsync(content: string, title: string = ''): Promise<TopicExtractionResult> {
+  // Ensure dynamic topics are loaded
+  if (!DISCOVERED_TOPICS) {
+    DISCOVERED_TOPICS = await loadDiscoveredTopics()
+  }
+  
+  return extractTopics(content, title)
+}
