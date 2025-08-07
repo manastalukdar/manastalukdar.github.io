@@ -34,6 +34,10 @@ update-topics-metadata-force:
 	@echo "Force updating all topics and metadata..."
 	./update-blog-metadata.sh --force
 
+update-topic-config:
+	@echo "Updating topic configuration from blog content analysis..."
+	./update-blog-metadata.sh --update-config
+
 # Build Integration
 build-with-topics:
 	@echo "Building website with updated topics..."
@@ -109,6 +113,7 @@ help:
 	@echo "  update-metadata      - Fast metadata-only update"
 	@echo "  update-discovery     - Topic discovery only"
 	@echo "  update-topics-force  - Force complete regeneration"
+	@echo "  update-topic-config  - Update topic config from content analysis"
 	@echo "  build-with-topics    - Build website with updated topics"
 	@echo "  generate-with-topics - Generate static site with updated topics"
 	@echo "  dev-with-topics      - Start dev server with updated topics"

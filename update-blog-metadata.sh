@@ -45,6 +45,7 @@ METADATA_FILE="$WEBSITE_DIR/public/blogdata/metadata/blog_metadata.json"
 METADATA_ONLY=false
 DISCOVERY_ONLY=false
 FORCE_REGENERATION=false
+UPDATE_CONFIG=false
 CUSTOM_BLOG_FOLDER=""
 SHOW_HELP=false
 
@@ -61,6 +62,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         --force)
             FORCE_REGENERATION=true
+            shift
+            ;;
+        --update-config)
+            UPDATE_CONFIG=true
             shift
             ;;
         --blog-folder)
@@ -89,6 +94,7 @@ if [ "$SHOW_HELP" = true ]; then
     echo "  --metadata-only      Generate metadata only (skip topic discovery)"
     echo "  --discovery-only     Run topic discovery only (skip metadata generation)"
     echo "  --force              Force regeneration even if files are recent"
+    echo "  --update-config      Update topic configuration from blog content analysis"
     echo "  --blog-folder PATH   Custom path to blog folder"
     echo "  --help               Show this help message"
     echo ""
@@ -96,6 +102,7 @@ if [ "$SHOW_HELP" = true ]; then
     echo "  $0                            # Update both topics and metadata"
     echo "  $0 --metadata-only            # Only regenerate metadata (faster)"
     echo "  $0 --discovery-only           # Only discover new topics"
+    echo "  $0 --update-config            # Update topic configuration from content"
     echo "  $0 --force                    # Force complete regeneration"
     echo ""
     echo "Note: This script assumes the system is already set up."
@@ -218,6 +225,34 @@ should_regenerate_metadata() {
     
     log_info "Existing metadata is up to date"
     return 1  # No regeneration needed
+}
+
+# Update topic configuration from blog content analysis
+update_topic_config() {
+    log_step "Updating topic configuration from blog content analysis..."
+    
+    source "$VENV_PATH/bin/activate"
+    
+    log_info "Analyzing blog content for enhanced topic configuration..."
+    
+    # Capture output to show statistics
+    local output
+    if output=$(python "$SCRIPTS_DIR/generate_topic_config.py" --blog-folder "$BLOG_FOLDER" --config-folder "$CONFIG_DIR" --replace --verbose 2>&1); then
+        echo "$output" | grep -E "(Generated|Enhanced|Posts analyzed)" || true
+        
+        log_success "Topic configuration updated successfully"
+        
+        # Show what was enhanced
+        if [ -f "$CONFIG_DIR/topic-extraction-data.json" ]; then
+            log_info "Enhanced topic configuration with content-specific terms"
+        fi
+        
+        return 0
+    else
+        log_error "Topic configuration update failed:"
+        echo "$output"
+        return 1
+    fi
 }
 
 # Create backup of existing files
@@ -360,6 +395,16 @@ main() {
     
     # Create backups
     create_backups
+    
+    # Handle config update mode
+    if [ "$UPDATE_CONFIG" = true ]; then
+        update_topic_config || {
+            log_error "Topic configuration update failed - aborting"
+            exit 1
+        }
+        log_success "Topic configuration updated successfully"
+        exit 0
+    fi
     
     # Determine what to do
     local need_discovery=false
