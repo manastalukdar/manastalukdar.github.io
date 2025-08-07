@@ -18,6 +18,12 @@
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
         <div class="pl-2 pb-2 markdown-content" v-html="boardMemberships" />
+        <v-row class="text-h6 px-3 py-3 page-header justify-center">
+          <h2>Past</h2>
+        </v-row>
+        <p />
+        <!--eslint-disable-next-line vue/no-v-html-->
+        <div class="pl-2 pb-2 markdown-content" v-html="boardMembershipsPast" />
 
         <v-row class="printButton row py-10 justify-center">
           <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
@@ -167,6 +173,15 @@ getTargetBlankLinkRender(md);
 const boardMemberships = computedAsync(async () => {
   try {
     const fileContent = await import('../content-engagements/board-memberships.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const boardMembershipsPast = computedAsync(async () => {
+  try {
+    const fileContent = await import('../content-engagements/board-memberships-past.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
