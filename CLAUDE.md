@@ -11,6 +11,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `cd website && npm run generate` - Generate static site
 - `cd website && npm run preview` - Preview the built site
 - `cd website && npm run clean` - Clean build artifacts
+- `cd website && npm run generate-search-index` - Generate search index for blog posts
+
+### Topic Extraction & AI Features
+
+- `./scripts/setup-topic-extraction.sh` - Setup ML-based topic extraction system
+- `./scripts/update-blog-metadata.sh` - Update blog metadata including topics
+- Python scripts in `website/scripts/` for enhanced topic analysis and generation
 
 ### Linting
 
@@ -28,68 +35,96 @@ This is a personal website and blog built with Nuxt 4 and Vue 3. The main applic
 ### Key Directory Structure
 
 - `website/` - Main Nuxt 4 application
-  - `app/` - **New Nuxt 4 structure** - Contains client-side code
+  - `app/` - **Nuxt 4 structure** - Contains client-side code
     - `components/` - Vue components organized by feature (about, blog, home-page, etc.)
     - `pages/` - File-based routing with dynamic blog post pages
     - `layouts/` - Layout components
-    - `plugins/` - Client-side plugins
+    - `plugins/` - Client-side plugins (includes error handlers)
     - `stores/` - Pinia stores for state management
-    - `utils/` - Utility functions and helpers
+    - `utils/` - Utility functions and helpers (including topic extraction)
     - `composables/` - Vue composables
     - `style/` - SCSS style files
     - `app.vue` - Main app component
+  - `config/` - Configuration files including topic extraction data
   - `public/` - Static assets and generated blog content
-  - `server/` - Server-side code (API routes, etc.)
+  - `scripts/` - Python scripts for topic extraction, metadata generation
+  - `server/` - Server-side code (API routes, sitemap, RSS feed)
   - `nuxt.config.ts` - Main configuration file
+  - `tsconfig.json` - TypeScript configuration with strict mode
+  - `volar.config.js` - Vue tooling configuration
 
 - `blog/` - Blog post source files in markdown format, organized by year/month/day
 - `documentation/` - Project documentation
+- `scripts/` - Root-level shell scripts for setup and maintenance
 - `public/blogdata/` - Mirror of blog content for static generation
 
 ### Technology Stack
 
-- **Framework**: Nuxt 4 with Vue 3
-- **UI**: Vuetify 3 with Material Design Icons
-- **State Management**: Pinia
-- **Styling**: SCSS with Vuetify
-- **Content**: Markdown with markdown-it plugins
-- **Build**: Vite (via Nuxt 4)
-- **PWA**: @vite-pwa/nuxt (replaces deprecated @kevinmarrec/nuxt-pwa)
+- **Framework**: Nuxt 4.0.1 with Vue 3.5.18
+- **UI**: Vuetify 3.9.2 with Material Design Icons
+- **State Management**: Pinia 3.0.3
+- **Styling**: SCSS with Vuetify, Sass 1.89.2
+- **Content**: Markdown with markdown-it plugins and enhanced processing
+- **Build**: Vite (via Nuxt 4) with Webpack 5.100.2 support
+- **PWA**: @vite-pwa/nuxt 1.0.4 (modern PWA solution)
+- **AI/ML**: @xenova/transformers 2.17.2 for topic extraction
+- **TypeScript**: Strict mode enabled with enhanced type checking
 
 ### Blog System Architecture
 
 - Blog posts are stored as markdown files in `blog/YYYY/MM/DD/post-name/readme.md`
-- A Python script (`website/scripts/create_blog_metadata.py`) generates metadata
+- Python scripts generate enhanced metadata with AI-powered topic extraction:
+  - `website/scripts/create_blog_metadata.py` - Core metadata generation
+  - `website/scripts/enhanced_topic_extraction.py` - ML-based topic analysis
+  - `website/scripts/topic_discovery.py` - Dynamic topic discovery
 - Static routes are generated dynamically based on blog post structure
-- RSS feed generation is handled in the build process
+- RSS feed and sitemap generation handled via Nuxt hooks
+- Search index generation for full-text blog search
+- JSON-LD structured data for enhanced SEO
 
 ### Key Configuration Files
 
-- `website/nuxt.config.ts` - Main Nuxt configuration with PWA, sitemap, and feed generation
+- `website/nuxt.config.ts` - Main Nuxt configuration with PWA, sitemap, feed, and prerendering
 - `website/package.json` - Dependencies and build scripts
-- `website/vetur.config.js` - Vue tooling configuration
+- `website/tsconfig.json` - TypeScript configuration with strict compilation
+- `website/volar.config.js` - Vue tooling configuration
+- `website/config/topic-extraction-data.json` - ML topic extraction configuration
+- `renovate.json` - Dependency update automation
+- `.github/workflows/main.yml` - CI/CD with topic extraction automation
 
 ### Development Notes
 
 - The site is deployed to GitHub Pages from the `source` branch
-- Blog posts use a specific markdown format with frontmatter
-- The build process generates static files and RSS feeds
-- PWA functionality is configured for offline access
+- Blog posts use a specific markdown format with frontmatter and AI-generated topics
+- The build process generates static files, RSS feeds, search index, and structured data
+- PWA functionality is configured for offline access with service worker
+- Content is licensed under CC BY-NC-ND 4.0 with AI training restrictions
+- Enhanced SEO with comprehensive meta tags and OpenGraph data
+- TypeScript strict mode enabled for better code quality
 
-### Migration to Nuxt 4 (July 2025) - COMPLETED ✅
+### AI-Powered Content Features ✨
 
-- **Status**: COMPLETE - Full migration to Nuxt 4 with new app directory structure
-- **Node.js Version**: Using Node.js 24.4.1 (compatible with Nuxt 4 requirements)
-- **Modules**: All modules updated and working:
-  - Replaced `nuxt-simple-sitemap` with `@nuxtjs/sitemap`
-  - Updated `@kevinmarrec/nuxt-pwa` to `@vite-pwa/nuxt` 
-  - `nuxt-gtag` updated and working
-- **New Structure**: All client-side code successfully moved to `app/` directory
-- **Import Paths**: All relative imports updated to use `~/` alias for better compatibility
-- **Build Status**: Build and generate processes working successfully
+- **Dynamic Topic Extraction**: ML-based topic analysis using transformers
+- **Automated Content Enhancement**: Python scripts for metadata and topic generation
+- **Smart Content Licensing**: CC BY-NC-ND 4.0 with machine-readable AI training policies
+- **Enhanced SEO**: JSON-LD structured data and comprehensive meta tags
+- **Content Discovery**: Advanced search with topic-based filtering
+- **Automated Workflows**: GitHub Actions with weekly topic discovery
 
-### CI/CD
+### Content Licensing & AI Policy
 
-- GitHub Actions handle build and deployment
-- ESLint and other linting tools are configured
-- Multiple CI providers are used (GitHub Actions, CircleCI)
+- **License**: CC BY-NC-ND 4.0 (Creative Commons Attribution-NonCommercial-NoDerivatives)
+- **AI Training Policy**: Non-commercial use only with explicit restrictions
+- **Machine-Readable Policies**: HTML meta tags and robots.txt directives
+- **Content Protection**: Comprehensive AI bot blocking in robots.txt
+- **Legal Documentation**: Detailed policies in `/legal` section
+
+### CI/CD & Automation
+
+- **GitHub Actions**: Build, deployment, and automated topic extraction
+- **Scheduled Tasks**: Weekly topic discovery runs on Sundays at 2 AM UTC
+- **Workflow Dispatch**: Manual trigger with configurable topic extraction modes
+- **Multi-Environment**: Python 3.12 and Node.js latest versions
+- **Caching**: Intelligent caching for topic models and dependencies
+- **Error Handling**: Client and server-side error handlers
+- **Quality Tools**: ESLint, TypeScript strict mode, and automated testing
