@@ -15,6 +15,7 @@
 # Options:
 #   --metadata-only      Generate metadata only (skip topic discovery)
 #   --discovery-only     Run topic discovery only (skip metadata generation)
+#   --skip-topics        Generate minimal metadata without any topic processing
 #   --incremental        Process only changed blog posts (optimized for CI)
 #   --force              Force regeneration even if files are recent
 #   --blog-folder PATH   Custom path to blog folder
@@ -45,6 +46,7 @@ METADATA_FILE="$WEBSITE_DIR/public/blogdata/metadata/blog_metadata.json"
 # Command line options
 METADATA_ONLY=false
 DISCOVERY_ONLY=false
+SKIP_TOPICS=false
 INCREMENTAL_MODE=false
 FORCE_REGENERATION=false
 UPDATE_CONFIG=false
@@ -60,6 +62,11 @@ while [[ $# -gt 0 ]]; do
             ;;
         --discovery-only)
             DISCOVERY_ONLY=true
+            shift
+            ;;
+        --skip-topics)
+            SKIP_TOPICS=true
+            METADATA_ONLY=true  # Implies metadata-only
             shift
             ;;
         --incremental)
@@ -320,11 +327,18 @@ generate_metadata() {
     
     source "$VENV_PATH/bin/activate"
     
-    log_info "Generating metadata with enhanced topic classification..."
-    
     # Capture output to show statistics
     local output
-    if output=$(python "$SCRIPTS_DIR/create_blog_metadata.py" 2>&1); then
+    local python_args=""
+    
+    if [ "$SKIP_TOPICS" = true ]; then
+        log_info "Generating minimal metadata without topic processing..."
+        python_args="--skip-topics"
+    else
+        log_info "Generating metadata with enhanced topic classification..."
+    fi
+    
+    if output=$(python "$SCRIPTS_DIR/create_blog_metadata.py" $python_args 2>&1); then
         echo "$output" | grep -E "(Extracted topics|Total posts|Blog metadata creation)" || true
         
         log_success "Enhanced metadata generation completed"
@@ -416,7 +430,10 @@ main() {
     local need_discovery=false
     local need_metadata=false
     
-    if [ "$METADATA_ONLY" = true ]; then
+    if [ "$SKIP_TOPICS" = true ]; then
+        need_metadata=true
+        log_info "Skip-topics mode - minimal metadata generation without topic processing"
+    elif [ "$METADATA_ONLY" = true ]; then
         need_metadata=true
         log_info "Metadata-only mode - skipping topic discovery"
     elif [ "$DISCOVERY_ONLY" = true ]; then

@@ -630,4 +630,13 @@ def main(run_topic_discovery=True):
 
 
 if __name__ == '__main__':
-    main()
+    import sys
+    
+    # Simple argument parsing for --skip-topics flag
+    skip_topics = False
+    if '--skip-topics' in sys.argv:
+        skip_topics = True
+        print("Running with --skip-topics: minimal metadata generation without topic processing")
+    
+    # Invert the logic: run_topic_discovery = not skip_topics
+    main(run_topic_discovery=not skip_topics)

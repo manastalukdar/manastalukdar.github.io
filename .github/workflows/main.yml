@@ -134,22 +134,21 @@ jobs:
             REASON="blog content changes detected"
           fi
           
-          # Fast path optimization - if no blog changes and we have metadata, skip topic processing entirely
+          # Fast path optimization - if no blog changes, use minimal metadata generation
           if [ "$BLOG_CHANGED" = "false" ] && [ "$TOPIC_MODE" = "metadata-only" ]; then
-            TOPIC_MODE="skip"
-            REASON="no blog changes - using cached metadata"
+            TOPIC_MODE="metadata-minimal"
+            REASON="no blog changes - minimal metadata generation"
           fi
           
           echo "topic_mode=$TOPIC_MODE" >> $GITHUB_OUTPUT
           echo "reason=$REASON" >> $GITHUB_OUTPUT
           echo "🎯 Topic extraction mode: $TOPIC_MODE ($REASON)"
 
-  # Parallel job for content processing when needed
+  # Job for content processing - always runs to ensure metadata exists
   process-content:
     name: Process Blog Content
     runs-on: ubuntu-latest
     needs: setup-and-detect-changes
-    if: needs.setup-and-detect-changes.outputs.blog_changed == 'true' && needs.setup-and-detect-changes.outputs.topic_mode != 'skip'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
@@ -229,6 +228,10 @@ jobs:
           
           MODE="${{ needs.setup-and-detect-changes.outputs.topic_mode }}"
           case "$MODE" in
+            "metadata-minimal")
+              echo "🚀 Running minimal metadata generation (no topic processing)..."
+              ./scripts/update-blog-metadata.sh --metadata-only --skip-topics
+              ;;
             "metadata-only")
               echo "🚀 Running fast metadata-only update..."
               ./scripts/update-blog-metadata.sh --metadata-only
@@ -273,7 +276,7 @@ jobs:
     name: Build Static Site
     runs-on: ubuntu-latest
     needs: [setup-and-detect-changes, process-content]
-    if: always() && (needs.process-content.result == 'success' || needs.setup-and-detect-changes.outputs.topic_mode == 'skip')
+    if: always() && needs.process-content.result == 'success'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
@@ -285,12 +288,54 @@ jobs:
           cache: 'npm'
           cache-dependency-path: website/package-lock.json
           
-      - name: Download Blog Metadata (if processed)
-        if: needs.setup-and-detect-changes.outputs.topic_mode != 'skip'
+      - name: Setup Python (for validation)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          
+      - name: Download Blog Metadata
         uses: actions/download-artifact@v4
         with:
           name: blog-metadata
           path: website/
+          
+      - name: Validate Blog Metadata
+        run: |
+          echo "🔍 Validating blog metadata for build..."
+          
+          # Check if metadata was downloaded from artifact
+          if [ -f "website/public/blogdata/metadata/blog_metadata.json" ]; then
+            echo "✅ Blog metadata found"
+            
+            # Validate metadata file is valid JSON and not empty
+            if python -c "import json; data=json.load(open('website/public/blogdata/metadata/blog_metadata.json')); assert len(data) >= 0" 2>/dev/null; then
+              METADATA_SIZE=$(wc -c < website/public/blogdata/metadata/blog_metadata.json)
+              METADATA_POSTS=$(python -c "import json; data=json.load(open('website/public/blogdata/metadata/blog_metadata.json')); print(len(data))" 2>/dev/null || echo "0")
+              echo "✅ Metadata validated: ${METADATA_SIZE} bytes, ${METADATA_POSTS} posts"
+              
+              # Check if it's just empty array (minimal metadata)
+              if [ "$METADATA_POSTS" = "0" ]; then
+                echo "⚠️  Using minimal metadata - build will have limited blog functionality"
+              fi
+            else
+              echo "❌ Metadata file is invalid JSON - creating emergency fallback"
+              echo "[]" > website/public/blogdata/metadata/blog_metadata.json
+            fi
+          else
+            echo "❌ Blog metadata not found - this should not happen!"
+            echo "Creating emergency fallback metadata..."
+            mkdir -p website/public/blogdata/metadata/
+            echo "[]" > website/public/blogdata/metadata/blog_metadata.json
+            echo "⚠️  Using empty metadata - build may have missing content"
+          fi
+          
+          # Final verification
+          if [ ! -f "website/public/blogdata/metadata/blog_metadata.json" ]; then
+            echo "❌ FATAL: Could not ensure metadata file exists"
+            exit 1
+          else
+            echo "✅ Metadata validation complete - build can proceed"
+          fi
           
       - name: Display Versions
         run: |

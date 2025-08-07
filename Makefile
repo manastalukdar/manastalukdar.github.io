@@ -18,16 +18,24 @@ setup-topics-force:
 	./scripts/setup-topic-extraction.sh --force
 
 # Update Commands
-update-topics-metadata:
-	@echo "Updating topic extraction (smart update) and blog metadata..."
+update-topics-and-metadata:
+	@echo "Updating topics and metadata (full processing)..."
 	./scripts/update-blog-metadata.sh
 
-update-metadata:
-	@echo "Updating blog metadata only (fast)..."
+update-metadata-only:
+	@echo "Updating blog metadata only (skip topic discovery)..."
 	./scripts/update-blog-metadata.sh --metadata-only
 
-update-topic-discovery:
-	@echo "Updating topic discovery only..."
+update-metadata-minimal:
+	@echo "Updating blog metadata with minimal processing (skip topics entirely)..."
+	./scripts/update-blog-metadata.sh --metadata-only --skip-topics
+
+update-metadata-incremental:
+	@echo "Updating blog metadata incrementally (changed posts only)..."
+	./scripts/update-blog-metadata.sh --metadata-only --incremental
+
+update-topics-only:
+	@echo "Updating topic discovery only (skip metadata generation)..."
 	./scripts/update-blog-metadata.sh --discovery-only
 
 update-topics-metadata-force:
@@ -55,9 +63,48 @@ dev-with-topics:
 	./scripts/update-blog-metadata.sh --metadata-only
 	cd website && npm run dev
 
+dev-fast:
+	@echo "Starting development server with minimal topic processing..."
+	./scripts/update-blog-metadata.sh --metadata-only --skip-topics
+	cd website && npm run dev
+
+# CI-Optimized Commands
+ci-setup:
+	@echo "Setting up topic extraction for CI (skip discovery)..."
+	./scripts/setup-topic-extraction.sh --skip-discovery
+
+ci-metadata-minimal:
+	@echo "Generating minimal metadata for CI (no topic processing)..."
+	./scripts/update-blog-metadata.sh --metadata-only --skip-topics
+
+ci-metadata-full:
+	@echo "Generating full metadata with topic discovery for CI..."
+	./scripts/update-blog-metadata.sh
+
+ci-build:
+	@echo "Building for CI with optimized metadata..."
+	./scripts/update-blog-metadata.sh --metadata-only --skip-topics
+	cd website && npm run generate
+
 test-topics:
 	@echo "Testing topic extraction system..."
 	source .venv/bin/activate && python website/scripts/setup_models.py --action test_system --verbose
+
+test-metadata-flags:
+	@echo "Testing new metadata generation flags..."
+	@echo "1. Testing minimal metadata generation..."
+	./scripts/update-blog-metadata.sh --metadata-only --skip-topics
+	@echo "2. Testing incremental metadata generation..."
+	./scripts/update-blog-metadata.sh --metadata-only --incremental
+	@echo "✅ All new flags tested successfully"
+
+validate-ci-setup:
+	@echo "Validating CI setup and commands..."
+	@echo "1. Testing CI setup..."
+	./scripts/setup-topic-extraction.sh --skip-discovery
+	@echo "2. Testing minimal metadata for CI..."
+	./scripts/update-blog-metadata.sh --metadata-only --skip-topics
+	@echo "✅ CI setup validation complete"
 
 # Utility Commands
 clean-topics:
@@ -107,19 +154,30 @@ help:
 	@echo "Available commands:"
 	@echo ""
 	@echo "Topic Extraction:"
-	@echo "  setup-topics         - Initial setup of topic extraction system"
-	@echo "  setup-topics-force   - Force complete regeneration of all models"
-	@echo "  update-topics        - Smart update (only regenerates what's needed)"
-	@echo "  update-metadata      - Fast metadata-only update"
-	@echo "  update-discovery     - Topic discovery only"
-	@echo "  update-topics-force  - Force complete regeneration"
-	@echo "  update-topic-config  - Update topic config from content analysis"
-	@echo "  build-with-topics    - Build website with updated topics"
-	@echo "  generate-with-topics - Generate static site with updated topics"
-	@echo "  dev-with-topics      - Start dev server with updated topics"
-	@echo "  test-topics          - Validate topic extraction system"
-	@echo "  clean-topics         - Clean generated topic models"
-	@echo "  backup-topics        - Create manual backup of models"
+	@echo "  setup-topics               - Initial setup of topic extraction system"
+	@echo "  setup-topics-force         - Force complete regeneration of all models"
+	@echo "  update-topics-and-metadata - Full processing (topics + metadata)"
+	@echo "  update-metadata-only       - Metadata only (skip topic discovery)"
+	@echo "  update-metadata-minimal    - Minimal metadata (skip topics entirely)"
+	@echo "  update-metadata-incremental - Incremental (changed posts only)"
+	@echo "  update-topics-only         - Topic discovery only (skip metadata)"
+	@echo "  update-topics-force        - Force complete regeneration"
+	@echo "  update-topic-config     - Update topic config from content analysis"
+	@echo "  build-with-topics       - Build website with updated topics"
+	@echo "  generate-with-topics    - Generate static site with updated topics"
+	@echo "  dev-with-topics         - Start dev server with updated topics"
+	@echo "  dev-fast                - Start dev server with minimal processing"
+	@echo "  test-topics             - Validate topic extraction system"
+	@echo "  test-metadata-flags     - Test new metadata generation flags"
+	@echo "  validate-ci-setup       - Validate CI setup and commands"
+	@echo "  clean-topics            - Clean generated topic models"
+	@echo "  backup-topics           - Create manual backup of models"
+	@echo ""
+	@echo "CI-Optimized Commands:"
+	@echo "  ci-setup                - Setup for CI (no discovery)"
+	@echo "  ci-metadata-minimal     - Minimal metadata for CI"
+	@echo "  ci-metadata-full        - Full metadata with discovery for CI"
+	@echo "  ci-build                - Optimized CI build with minimal processing"
 	@echo ""
 	@echo "Website Development:"
 	@echo "  dev                  - Start development server"
@@ -137,4 +195,4 @@ help:
 	@echo "  frontend             - WIP"
 	@echo "  all                  - Run backend, cli, frontend"
 
-.PHONY: backend cli frontend all setup-topics setup-topics-force update-topics update-metadata update-discovery update-topics-force build-with-topics generate-with-topics dev-with-topics test-topics clean-topics backup-topics dev build generate preview clean install postinstall lint-fix help
+.PHONY: backend cli frontend all setup-topics setup-topics-force update-topics-and-metadata update-metadata-only update-metadata-minimal update-metadata-incremental update-topics-only update-topics-force update-topic-config build-with-topics generate-with-topics dev-with-topics dev-fast ci-setup ci-metadata-minimal ci-metadata-full ci-build test-topics test-metadata-flags validate-ci-setup clean-topics backup-topics dev build generate preview clean install postinstall lint-fix help
