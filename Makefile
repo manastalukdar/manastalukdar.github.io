@@ -11,48 +11,48 @@ endif
 # Setup Commands
 setup-topics:
 	@echo "Setting up topic extraction system..."
-	./setup-topic-extraction.sh
+	./scripts/setup-topic-extraction.sh
 
 setup-topics-force:
 	@echo "Force setting up topic extraction system..."
-	./setup-topic-extraction.sh --force
+	./scripts/setup-topic-extraction.sh --force
 
 # Update Commands
 update-topics-metadata:
 	@echo "Updating topic extraction (smart update) and blog metadata..."
-	./update-blog-metadata.sh
+	./scripts/update-blog-metadata.sh
 
 update-metadata:
 	@echo "Updating blog metadata only (fast)..."
-	./update-blog-metadata.sh --metadata-only
+	./scripts/update-blog-metadata.sh --metadata-only
 
 update-topic-discovery:
 	@echo "Updating topic discovery only..."
-	./update-blog-metadata.sh --discovery-only
+	./scripts/update-blog-metadata.sh --discovery-only
 
 update-topics-metadata-force:
 	@echo "Force updating all topics and metadata..."
-	./update-blog-metadata.sh --force
+	./scripts/update-blog-metadata.sh --force
 
 update-topic-config:
 	@echo "Updating topic configuration from blog content analysis..."
-	./update-blog-metadata.sh --update-config
+	./scripts/update-blog-metadata.sh --update-config
 
 # Build Integration
 build-with-topics:
 	@echo "Building website with updated topics..."
-	./update-blog-metadata.sh
+	./scripts/update-blog-metadata.sh
 	cd website && npm run build
 
 generate-with-topics:
 	@echo "Generating static site with updated topics..."
-	./update-blog-metadata.sh
+	./scripts/update-blog-metadata.sh
 	cd website && npm run generate
 
 # Development Commands
 dev-with-topics:
 	@echo "Starting development server with updated topics..."
-	./update-blog-metadata.sh --metadata-only
+	./scripts/update-blog-metadata.sh --metadata-only
 	cd website && npm run dev
 
 test-topics:
