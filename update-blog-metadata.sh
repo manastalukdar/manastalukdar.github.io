@@ -244,13 +244,12 @@ run_topic_discovery() {
     log_step "Running topic discovery..."
     
     source "$VENV_PATH/bin/activate"
-    cd "$SCRIPTS_DIR"
     
     log_info "Analyzing blog corpus and discovering topics..."
     
     # Capture the output to show statistics
     local output
-    if output=$(python topic_discovery.py 2>&1); then
+    if output=$(python "$SCRIPTS_DIR/topic_discovery.py" 2>&1); then
         echo "$output" | grep -E "(Discovered|Processed|Topic [0-9]+:)" || true
         
         # Verify output files were created
@@ -279,13 +278,12 @@ generate_metadata() {
     log_step "Generating enhanced metadata..."
     
     source "$VENV_PATH/bin/activate"
-    cd "$SCRIPTS_DIR"
     
     log_info "Generating metadata with enhanced topic classification..."
     
     # Capture output to show statistics
     local output
-    if output=$(python create_blog_metadata.py 2>&1); then
+    if output=$(python "$SCRIPTS_DIR/create_blog_metadata.py" 2>&1); then
         echo "$output" | grep -E "(Extracted topics|Total posts|Blog metadata creation)" || true
         
         log_success "Enhanced metadata generation completed"
