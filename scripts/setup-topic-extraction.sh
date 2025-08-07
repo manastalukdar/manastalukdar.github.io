@@ -32,7 +32,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 VENV_PATH="$PROJECT_ROOT/.venv"
 BLOG_FOLDER="$PROJECT_ROOT/blog"
 WEBSITE_DIR="$PROJECT_ROOT/website"
@@ -380,7 +380,7 @@ show_usage_instructions() {
     echo "To use the system:"
     echo ""
     echo "1. Regenerate topics after content changes:"
-    echo "   ${BLUE}./update-blog-metadata.sh${NC}"
+    echo "   ${BLUE}./scripts/update-blog-metadata.sh${NC}"
     echo ""
     echo "2. Generate metadata only (faster):"
     echo "   ${BLUE}source .venv/bin/activate && cd website/scripts && python create_blog_metadata.py${NC}"
@@ -389,7 +389,7 @@ show_usage_instructions() {
     echo "   ${BLUE}source .venv/bin/activate && cd website/scripts && python topic_discovery.py${NC}"
     echo ""
     echo "4. Full regeneration:"
-    echo "   ${BLUE}./setup-topic-extraction.sh --force${NC}"
+    echo "   ${BLUE}./scripts/setup-topic-extraction.sh --force${NC}"
     echo ""
     echo "The system will automatically use both static categories and discovered topics"
     echo "for the most accurate classification possible."

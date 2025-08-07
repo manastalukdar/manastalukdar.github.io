@@ -60,8 +60,9 @@ project-root/
 │   │   └── setup_models.py            # System validation
 │   └── public/blogdata/metadata/
 │       └── blog_metadata.json         # Enhanced metadata output
-├── setup-topic-extraction.sh          # Complete system setup
-├── update-blog-metadata.sh            # Smart update script
+├── scripts/
+│   ├── setup-topic-extraction.sh      # Complete system setup
+│   └── update-blog-metadata.sh        # Smart update script
 └── documentation/development/
     └── TOPIC_EXTRACTION_COMPREHENSIVE_GUIDE.md # Complete documentation
 ```
@@ -96,7 +97,7 @@ project-root/
 
 ### 1. **Smart Update (Metadata-Only)**
 
-**Command**: `./update-blog-metadata.sh --metadata-only`
+**Command**: `./scripts/update-blog-metadata.sh --metadata-only`
 
 **What it does:**
 
@@ -122,7 +123,7 @@ project-root/
 
 ### 2. **Full Discovery (Default Smart Mode)**
 
-**Command**: `./update-blog-metadata.sh` (no flags)
+**Command**: `./scripts/update-blog-metadata.sh` (no flags)
 
 **What it does:**
 
@@ -148,7 +149,7 @@ project-root/
 
 ### 3. **Force Update (Complete Regeneration)**
 
-**Command**: `./update-blog-metadata.sh --force`
+**Command**: `./scripts/update-blog-metadata.sh --force`
 
 **What it does:**
 
@@ -177,7 +178,7 @@ project-root/
 
 ### 4. **Discovery-Only Mode**
 
-**Command**: `./update-blog-metadata.sh --discovery-only`
+**Command**: `./scripts/update-blog-metadata.sh --discovery-only`
 
 **What it does:**
 
@@ -193,7 +194,7 @@ project-root/
 
 ### 5. **Config Update Mode**
 
-**Command**: `./update-blog-metadata.sh --update-config`
+**Command**: `./scripts/update-blog-metadata.sh --update-config`
 
 **What it does:**
 
@@ -230,13 +231,13 @@ project-root/
 1. **Initial Setup** (one-time):
 
    ```bash
-   ./setup-topic-extraction.sh
+   ./scripts/setup-topic-extraction.sh
    ```
 
 2. **Regular Updates** (after adding content):
 
    ```bash
-   ./update-blog-metadata.sh
+   ./scripts/update-blog-metadata.sh
    ```
 
 ### Detailed Setup Process
@@ -255,19 +256,19 @@ The setup script performs these steps:
 
 ```bash
 # Standard setup
-./setup-topic-extraction.sh
+./scripts/setup-topic-extraction.sh
 
 # Force complete regeneration
-./setup-topic-extraction.sh --force
+./scripts/setup-topic-extraction.sh --force
 
 # Setup dependencies only (for CI)
-./setup-topic-extraction.sh --skip-discovery
+./scripts/setup-topic-extraction.sh --skip-discovery
 
 # Custom blog folder
-./setup-topic-extraction.sh --blog-folder /path/to/blog
+./scripts/setup-topic-extraction.sh --blog-folder /path/to/blog
 
 # Show help
-./setup-topic-extraction.sh --help
+./scripts/setup-topic-extraction.sh --help
 ```
 
 ---
@@ -288,7 +289,7 @@ The setup script performs these steps:
 
    ```bash
    # Smart update - automatically detects new content
-   ./update-blog-metadata.sh
+   ./scripts/update-blog-metadata.sh
    ```
 
 3. **Build website**:
@@ -477,7 +478,7 @@ make preview       # Preview the built site
 
 ```bash
 # Fixed in latest version - script now runs from project root
-./update-blog-metadata.sh
+./scripts/update-blog-metadata.sh
 ```
 
 **Verification**:
@@ -495,7 +496,7 @@ find blog/ -name "*.md" | head -5
 **Solution**:
 
 ```bash
-./setup-topic-extraction.sh
+./scripts/setup-topic-extraction.sh
 ```
 
 #### "Required Python packages not found"  
@@ -506,7 +507,7 @@ find blog/ -name "*.md" | head -5
 
 ```bash
 # Force reinstall dependencies
-./setup-topic-extraction.sh --force
+./scripts/setup-topic-extraction.sh --force
 ```
 
 #### "Blog folder not found"
@@ -517,7 +518,7 @@ find blog/ -name "*.md" | head -5
 
 ```bash
 # Use custom path
-./update-blog-metadata.sh --blog-folder /path/to/blog
+./scripts/update-blog-metadata.sh --blog-folder /path/to/blog
 
 # Or ensure you're in project root
 pwd  # Should show project root directory
@@ -534,7 +535,7 @@ pwd  # Should show project root directory
 grep -r "published: true" blog/ | wc -l
 
 # Force regeneration
-./update-blog-metadata.sh --force
+./scripts/update-blog-metadata.sh --force
 ```
 
 ### Performance Issues
@@ -574,7 +575,7 @@ make update-topic-discovery
 
 ```bash
 export DEBUG=1
-./setup-topic-extraction.sh
+./scripts/setup-topic-extraction.sh
 ```
 
 **Python Components**:
@@ -633,7 +634,7 @@ python website/scripts/generate_topic_config.py
 python website/scripts/generate_topic_config.py --compare
 
 # Replace existing config with enhanced version
-./update-blog-metadata.sh --update-config
+./scripts/update-blog-metadata.sh --update-config
 
 # Or using makefile
 make update-topic-config
@@ -879,7 +880,7 @@ website/public/blogdata/metadata/blog_metadata_backup_YYYYMMDD_HHMMSS.json
 make backup-topics
 
 # Or use script directly
-./update-blog-metadata.sh  # Automatically creates backups
+./scripts/update-blog-metadata.sh  # Automatically creates backups
 ```
 
 ### Recovery Process
@@ -907,18 +908,18 @@ make setup-topics-force
 # Basic integration
 - name: Update Topics and Build
   run: |
-    ./update-blog-metadata.sh
+    ./scripts/update-blog-metadata.sh
     cd website && npm run generate
 
 # Advanced integration with mode selection
 - name: Smart Topic Update
   run: |
     if [[ "${{ github.event.head_commit.message }}" == *"[force-topics]"* ]]; then
-      ./update-blog-metadata.sh --force
+      ./scripts/update-blog-metadata.sh --force
     elif git diff --name-only ${{ github.event.before }}..${{ github.sha }} | grep -q "^blog/"; then
-      ./update-blog-metadata.sh
+      ./scripts/update-blog-metadata.sh
     else
-      ./update-blog-metadata.sh --metadata-only
+      ./scripts/update-blog-metadata.sh --metadata-only
     fi
 ```
 
@@ -927,10 +928,10 @@ make setup-topics-force
 ```json
 {
   "scripts": {
-    "update-topics": "../update-blog-metadata.sh",
-    "update-topics-fast": "../update-blog-metadata.sh --metadata-only",
-    "dev-with-topics": "../update-blog-metadata.sh --metadata-only && npm run dev",
-    "build-with-topics": "../update-blog-metadata.sh && npm run generate"
+    "update-topics": "../scripts/update-blog-metadata.sh",
+    "update-topics-fast": "../scripts/update-blog-metadata.sh --metadata-only",
+    "dev-with-topics": "../scripts/update-blog-metadata.sh --metadata-only && npm run dev",
+    "build-with-topics": "../scripts/update-blog-metadata.sh && npm run generate"
   }
 }
 ```
@@ -946,7 +947,7 @@ make setup-topics-force
     {
       "label": "Update Blog Topics",
       "type": "shell", 
-      "command": "./update-blog-metadata.sh",
+      "command": "./scripts/update-blog-metadata.sh",
       "group": "build",
       "presentation": {
         "echo": true,

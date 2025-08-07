@@ -73,8 +73,8 @@ jobs:
             
       - name: Setup Topic Extraction System (CI Mode)
         run: |
-          chmod +x ./setup-topic-extraction.sh
-          ./setup-topic-extraction.sh --skip-discovery
+          chmod +x ./scripts/setup-topic-extraction.sh
+          ./scripts/setup-topic-extraction.sh --skip-discovery
         env:
           # Ensure UTF-8 encoding for Python
           PYTHONIOENCODING: utf-8
@@ -140,21 +140,21 @@ jobs:
           
       - name: Generate Blog Metadata with Smart Topic Extraction
         run: |
-          chmod +x ./update-blog-metadata.sh
+          chmod +x ./scripts/update-blog-metadata.sh
           
           MODE="${{ steps.topic-mode.outputs.topic_mode }}"
           case "$MODE" in
             "metadata-only")
               echo "🚀 Running fast metadata-only update..."
-              ./update-blog-metadata.sh --metadata-only
+              ./scripts/update-blog-metadata.sh --metadata-only
               ;;
             "full-discovery")
               echo "🔍 Running full topic discovery and metadata generation..."
-              ./update-blog-metadata.sh
+              ./scripts/update-blog-metadata.sh
               ;;
             "force")
               echo "⚡ Running forced complete regeneration..."
-              ./update-blog-metadata.sh --force
+              ./scripts/update-blog-metadata.sh --force
               ;;
             *)
               echo "❌ Unknown topic mode: $MODE"

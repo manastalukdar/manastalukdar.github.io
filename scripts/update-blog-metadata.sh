@@ -32,7 +32,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$SCRIPT_DIR"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 VENV_PATH="$PROJECT_ROOT/.venv"
 BLOG_FOLDER="$PROJECT_ROOT/blog"
 WEBSITE_DIR="$PROJECT_ROOT/website"
@@ -106,7 +106,7 @@ if [ "$SHOW_HELP" = true ]; then
     echo "  $0 --force                    # Force complete regeneration"
     echo ""
     echo "Note: This script assumes the system is already set up."
-    echo "If you need to set up the system, use: ./setup-topic-extraction.sh"
+    echo "If you need to set up the system, use: ./scripts/setup-topic-extraction.sh"
     echo ""
     exit 0
 fi
@@ -144,7 +144,7 @@ check_prerequisites() {
     # Check if virtual environment exists
     if [ ! -d "$VENV_PATH" ]; then
         log_error "Virtual environment not found at $VENV_PATH"
-        echo "Please run ./setup-topic-extraction.sh first to set up the system"
+        echo "Please run ./scripts/setup-topic-extraction.sh first to set up the system"
         exit 1
     fi
     
@@ -152,7 +152,7 @@ check_prerequisites() {
     source "$VENV_PATH/bin/activate"
     python -c "import sklearn, nltk, numpy, scipy" 2>/dev/null || {
         log_error "Required Python packages not found in virtual environment"
-        echo "Please run ./setup-topic-extraction.sh to install dependencies"
+        echo "Please run ./scripts/setup-topic-extraction.sh to install dependencies"
         exit 1
     }
     
@@ -379,7 +379,7 @@ show_completion_summary() {
     echo "Next steps:"
     echo "• Your website build process will now use the updated topic classifications"
     echo "• Run this script again after adding new blog posts"
-    echo "• Use ${BLUE}./setup-topic-extraction.sh --force${NC} for complete regeneration"
+    echo "• Use ${BLUE}./scripts/setup-topic-extraction.sh --force${NC} for complete regeneration"
     echo ""
 }
 
