@@ -214,8 +214,22 @@ install_dependencies() {
 
     log_info "Installing packages from $REQUIREMENTS_FILE"
 
-    # Install with progress indication
-    pip install -r "$REQUIREMENTS_FILE" --quiet --progress-bar off
+    # Install with optimization flags for CI environments
+    pip install -r "$REQUIREMENTS_FILE" \
+        --quiet \
+        --progress-bar off \
+        --disable-pip-version-check \
+        --no-compile \
+        --prefer-binary \
+        --only-binary=:all: 2>/dev/null || {
+        # Fallback if binary-only install fails
+        log_warning "Binary-only install failed, retrying with compilation allowed..."
+        pip install -r "$REQUIREMENTS_FILE" \
+            --quiet \
+            --progress-bar off \
+            --disable-pip-version-check \
+            --prefer-binary
+    }
 
     # Verify key packages
     log_info "Verifying installations..."

@@ -15,6 +15,7 @@
 # Options:
 #   --metadata-only      Generate metadata only (skip topic discovery)
 #   --discovery-only     Run topic discovery only (skip metadata generation)
+#   --incremental        Process only changed blog posts (optimized for CI)
 #   --force              Force regeneration even if files are recent
 #   --blog-folder PATH   Custom path to blog folder
 #   --help               Show this help message
@@ -44,6 +45,7 @@ METADATA_FILE="$WEBSITE_DIR/public/blogdata/metadata/blog_metadata.json"
 # Command line options
 METADATA_ONLY=false
 DISCOVERY_ONLY=false
+INCREMENTAL_MODE=false
 FORCE_REGENERATION=false
 UPDATE_CONFIG=false
 CUSTOM_BLOG_FOLDER=""
@@ -58,6 +60,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         --discovery-only)
             DISCOVERY_ONLY=true
+            shift
+            ;;
+        --incremental)
+            INCREMENTAL_MODE=true
             shift
             ;;
         --force)

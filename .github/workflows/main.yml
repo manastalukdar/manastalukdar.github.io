@@ -27,71 +27,73 @@ on:
         default: true
         type: boolean
 jobs:
-  build:
-    name: Build, Deploy
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
+  setup-and-detect-changes:
+    name: Setup & Change Detection
+    runs-on: ubuntu-latest
+    outputs:
+      blog_changed: ${{ steps.change-detection.outputs.blog_changed }}
+      topic_mode: ${{ steps.topic-mode.outputs.topic_mode }}
+      topic_reason: ${{ steps.topic-mode.outputs.reason }}
+      blog_hash: ${{ steps.blog-hash.outputs.hash }}
+      requirements_hash: ${{ steps.requirements-hash.outputs.hash }}
     steps:
       - name: Extract Branch Name
         run: echo "BRANCH=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
         
       - name: Checkout Repository
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        with:
+          fetch-depth: 0  # Need full history for change detection
         
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          architecture: "x64"
-          
-      - name: Cache Python Virtual Environment
-        uses: actions/cache@v4
-        with:
-          path: .venv
-          key: python-venv-${{ runner.os }}-${{ hashFiles('website/scripts/python-requirements.txt') }}
-          restore-keys: |
-            python-venv-${{ runner.os }}-
-            
-      - name: Cache NLTK Data
-        uses: actions/cache@v4
-        with:
-          path: ~/nltk_data
-          key: nltk-data-${{ runner.os }}-v1
-          restore-keys: |
-            nltk-data-${{ runner.os }}-
-            
-      - name: Cache Hugging Face Transformers
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/huggingface
-          key: huggingface-transformers-${{ runner.os }}-${{ hashFiles('website/scripts/python-requirements.txt') }}
-          restore-keys: |
-            huggingface-transformers-${{ runner.os }}-
-            
-      - name: Cache Topic Models
-        uses: actions/cache@v4
-        with:
-          path: website/config/topic_models
-          key: topic-models-${{ runner.os }}-${{ hashFiles('blog/**/*.md') }}
-          restore-keys: |
-            topic-models-${{ runner.os }}-
-            
-      - name: Setup Topic Extraction System (CI Mode)
+      - name: Get Requirements Hash
+        id: requirements-hash
+        run: echo "hash=${{ hashFiles('website/scripts/python-requirements.txt') }}" >> $GITHUB_OUTPUT
+
+      - name: Get Blog Content Hash
+        id: blog-hash
         run: |
-          chmod +x ./scripts/setup-topic-extraction.sh
-          ./scripts/setup-topic-extraction.sh --skip-discovery
-        env:
-          # Ensure UTF-8 encoding for Python
-          PYTHONIOENCODING: utf-8
-          LC_ALL: C.UTF-8
-          LANG: C.UTF-8
-          # Optimize transformer performance in CI
-          TOKENIZERS_PARALLELISM: false
-          TRANSFORMERS_CACHE: ~/.cache/huggingface
-          HF_HOME: ~/.cache/huggingface
+          # Create hash of blog content for topic model caching
+          BLOG_HASH=$(find blog -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
+          echo "hash=${BLOG_HASH}" >> $GITHUB_OUTPUT
+          echo "Blog content hash: ${BLOG_HASH}"
+          
+      - name: Detect File Changes
+        id: change-detection
+        run: |
+          echo "Analyzing file changes to determine processing scope..."
+          
+          # Initialize defaults
+          BLOG_CHANGED=false
+          
+          # Check manual workflow dispatch input
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual workflow dispatch - will respect topic_mode input"
+            BLOG_CHANGED=true  # Process content for manual runs
+          fi
+          
+          # Check for scheduled run (weekly full discovery)
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            echo "Scheduled run - full processing required"
+            BLOG_CHANGED=true
+          fi
+          
+          # Check for blog content changes in push events
+          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
+            if git diff --name-only ${{ github.event.before }}..${{ github.sha }} | grep -q "^blog/"; then
+              echo "Blog content changes detected"
+              BLOG_CHANGED=true
+            else
+              echo "No blog content changes detected"
+              BLOG_CHANGED=false
+            fi
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            # First commit - process content
+            echo "Initial commit - processing content"
+            BLOG_CHANGED=true
+          fi
+          
+          echo "blog_changed=${BLOG_CHANGED}" >> $GITHUB_OUTPUT
+          echo "🔍 Blog content processing required: ${BLOG_CHANGED}"
           
       - name: Determine Topic Extraction Mode
         id: topic-mode
@@ -99,6 +101,7 @@ jobs:
           # Initialize variables
           TOPIC_MODE="metadata-only"
           REASON="default fast mode"
+          BLOG_CHANGED="${{ steps.change-detection.outputs.blog_changed }}"
           
           # Check manual workflow dispatch input
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
@@ -125,36 +128,106 @@ jobs:
             REASON="commit message contains [force-topics]"
           fi
           
-          # Auto-detect blog content changes (only if still in auto mode)
-          if [ "$TOPIC_MODE" = "metadata-only" ] && [ "${{ github.event_name }}" = "push" ]; then
-            # Check if this is not the first commit (to avoid errors)
-            if [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
-              if git diff --name-only ${{ github.event.before }}..${{ github.sha }} | grep -q "^blog/"; then
-                TOPIC_MODE="full-discovery"
-                REASON="blog content changes detected"
-              fi
-            else
-              # First commit - run full discovery
-              TOPIC_MODE="full-discovery"
-              REASON="initial commit - full discovery"
-            fi
+          # Auto-detect based on blog content changes
+          if [ "$TOPIC_MODE" = "metadata-only" ] && [ "$BLOG_CHANGED" = "true" ]; then
+            TOPIC_MODE="full-discovery"
+            REASON="blog content changes detected"
           fi
           
-          # Check if topic models exist in cache
-          if [ ! -f "website/config/topic_models/discovered_topics.json" ] && [ "$TOPIC_MODE" = "metadata-only" ]; then
-            TOPIC_MODE="full-discovery"
-            REASON="no cached topic models found"
+          # Fast path optimization - if no blog changes and we have metadata, skip topic processing entirely
+          if [ "$BLOG_CHANGED" = "false" ] && [ "$TOPIC_MODE" = "metadata-only" ]; then
+            TOPIC_MODE="skip"
+            REASON="no blog changes - using cached metadata"
           fi
           
           echo "topic_mode=$TOPIC_MODE" >> $GITHUB_OUTPUT
           echo "reason=$REASON" >> $GITHUB_OUTPUT
           echo "🎯 Topic extraction mode: $TOPIC_MODE ($REASON)"
+
+  # Parallel job for content processing when needed
+  process-content:
+    name: Process Blog Content
+    runs-on: ubuntu-latest
+    needs: setup-and-detect-changes
+    if: needs.setup-and-detect-changes.outputs.blog_changed == 'true' && needs.setup-and-detect-changes.outputs.topic_mode != 'skip'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          architecture: "x64"
+          
+      - name: Cache Python Virtual Environment
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: python-venv-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.requirements_hash }}-v2
+          restore-keys: |
+            python-venv-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.requirements_hash }}-
+            python-venv-${{ runner.os }}-
+            
+      - name: Cache Pip Wheel Cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-cache-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.requirements_hash }}
+          restore-keys: |
+            pip-cache-${{ runner.os }}-
+            
+      - name: Cache NLTK Data
+        uses: actions/cache@v4
+        with:
+          path: ~/nltk_data
+          key: nltk-data-${{ runner.os }}-v2
+          restore-keys: |
+            nltk-data-${{ runner.os }}-
+            
+      - name: Cache Hugging Face Transformers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: huggingface-transformers-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.requirements_hash }}-v2
+          restore-keys: |
+            huggingface-transformers-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.requirements_hash }}-
+            huggingface-transformers-${{ runner.os }}-
+            
+      - name: Cache Topic Models
+        uses: actions/cache@v4
+        with:
+          path: website/config/topic_models
+          key: topic-models-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.blog_hash }}-v2
+          restore-keys: |
+            topic-models-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.blog_hash }}-
+            topic-models-${{ runner.os }}-
+            
+      - name: Setup Topic Extraction System
+        run: |
+          chmod +x ./scripts/setup-topic-extraction.sh
+          if [ "${{ needs.setup-and-detect-changes.outputs.topic_mode }}" = "full-discovery" ]; then
+            ./scripts/setup-topic-extraction.sh
+          else
+            ./scripts/setup-topic-extraction.sh --skip-discovery
+          fi
+        env:
+          PYTHONIOENCODING: utf-8
+          LC_ALL: C.UTF-8
+          LANG: C.UTF-8
+          TOKENIZERS_PARALLELISM: false
+          TRANSFORMERS_CACHE: ~/.cache/huggingface
+          HF_HOME: ~/.cache/huggingface
+          PIP_CACHE_DIR: ~/.cache/pip
+          PIP_DISABLE_PIP_VERSION_CHECK: 1
+          PIP_NO_COMPILE: 1
+          PIP_PREFER_BINARY: 1
           
       - name: Generate Blog Metadata with Smart Topic Extraction
         run: |
           chmod +x ./scripts/update-blog-metadata.sh
           
-          MODE="${{ steps.topic-mode.outputs.topic_mode }}"
+          MODE="${{ needs.setup-and-detect-changes.outputs.topic_mode }}"
           case "$MODE" in
             "metadata-only")
               echo "🚀 Running fast metadata-only update..."
@@ -186,6 +259,25 @@ jobs:
           fi
           echo "✅ Blog metadata generated successfully"
           
+      - name: Upload Blog Metadata Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: blog-metadata
+          path: |
+            website/public/blogdata/metadata/
+            website/config/topic_models/
+          retention-days: 1
+
+  # Parallel job for Node.js build
+  build-site:
+    name: Build Static Site
+    runs-on: ubuntu-latest
+    needs: [setup-and-detect-changes, process-content]
+    if: always() && (needs.process-content.result == 'success' || needs.setup-and-detect-changes.outputs.topic_mode == 'skip')
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+          
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -193,9 +285,15 @@ jobs:
           cache: 'npm'
           cache-dependency-path: website/package-lock.json
           
+      - name: Download Blog Metadata (if processed)
+        if: needs.setup-and-detect-changes.outputs.topic_mode != 'skip'
+        uses: actions/download-artifact@v4
+        with:
+          name: blog-metadata
+          path: website/
+          
       - name: Display Versions
         run: |
-          echo "Python version: $(python --version)"
           echo "Node version: $(node --version)"
           echo "NPM version: $(npm --version)"
           
@@ -219,21 +317,48 @@ jobs:
           fi
           echo "✅ Static site generated successfully"
           
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-site
+          path: website/.output/public/
+          retention-days: 1
+
+  # Final deployment job
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: [setup-and-detect-changes, build-site]
+    if: |
+      always() && 
+      needs.build-site.result == 'success' && 
+      (
+        (github.event_name == 'push' && github.ref_name == 'source') ||
+        (github.event_name == 'schedule') ||
+        (github.event_name == 'workflow_dispatch' && inputs.deploy == true)
+      )
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: static-site
+          path: ./public
+          
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: peaceiris/actions-gh-pages@v4
-        if: |
-          (github.event_name == 'push' && env.BRANCH == 'source') ||
-          (github.event_name == 'schedule') ||
-          (github.event_name == 'workflow_dispatch' && inputs.deploy == true)
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./website/.output/public
-          publish_branch: main # default: gh-pages
-          keep_files: false # default: false
+          publish_dir: ./public
+          publish_branch: main
+          keep_files: false
           force_orphan: true
           commit_message: |
             GitHub CI Updates [ci skip]
             
-            Topic extraction mode: ${{ steps.topic-mode.outputs.topic_mode }}
-            Reason: ${{ steps.topic-mode.outputs.reason }}
+            Topic extraction mode: ${{ needs.setup-and-detect-changes.outputs.topic_mode }}
+            Reason: ${{ needs.setup-and-detect-changes.outputs.topic_reason }}
             Triggered by: ${{ github.event_name }}
