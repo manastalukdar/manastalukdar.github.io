@@ -63,6 +63,14 @@ jobs:
           restore-keys: |
             nltk-data-${{ runner.os }}-
             
+      - name: Cache Hugging Face Transformers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: huggingface-transformers-${{ runner.os }}-${{ hashFiles('website/scripts/python-requirements.txt') }}
+          restore-keys: |
+            huggingface-transformers-${{ runner.os }}-
+            
       - name: Cache Topic Models
         uses: actions/cache@v4
         with:
@@ -80,6 +88,10 @@ jobs:
           PYTHONIOENCODING: utf-8
           LC_ALL: C.UTF-8
           LANG: C.UTF-8
+          # Optimize transformer performance in CI
+          TOKENIZERS_PARALLELISM: false
+          TRANSFORMERS_CACHE: ~/.cache/huggingface
+          HF_HOME: ~/.cache/huggingface
           
       - name: Determine Topic Extraction Mode
         id: topic-mode

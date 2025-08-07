@@ -1,13 +1,13 @@
 #!/bin/bash
 
 ##############################################################################
-# Enhanced Topic Extraction System - Quick Update Script
+# Unified Transformer-Based Topic Extraction System - Quick Update Script
 # 
-# This script quickly regenerates topics and metadata without full setup.
+# This script quickly regenerates topics and metadata using the unified multi-tier system.
 # Use this when:
-# - Blog content has changed and you want to update topic classifications
-# - You want to regenerate metadata with current models
-# - Dependencies are already installed
+# - Blog content has changed and you want to update topic classifications  
+# - You want to regenerate metadata with current transformer/traditional models
+# - Dependencies are already installed and models are set up
 #
 # Usage:
 #   ./update-topics.sh [options]

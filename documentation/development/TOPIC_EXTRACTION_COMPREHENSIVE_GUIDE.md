@@ -1,6 +1,6 @@
 # Complete Topic Extraction System Guide
 
-This comprehensive guide covers the enhanced topic extraction system that combines traditional rule-based classification with machine learning-based topic discovery for accurate content categorization.
+This comprehensive guide covers the unified transformer-based topic extraction system that combines semantic understanding with traditional classification methods for accurate content categorization.
 
 ## Table of Contents
 
@@ -21,19 +21,23 @@ This comprehensive guide covers the enhanced topic extraction system that combin
 
 ### What It Does
 
-The topic extraction system automatically analyzes your blog content and assigns relevant topic classifications using two complementary approaches:
+The topic extraction system automatically analyzes your blog content and assigns relevant topic classifications using a unified multi-tier approach:
 
-- **Static Classification**: Rule-based matching using predefined categories
-- **Dynamic Discovery**: Machine learning analysis to discover natural topic clusters
-- **Hybrid Approach**: Combines both methods for maximum accuracy
+- **🚀 Transformer-Based (Primary)**: Semantic analysis using sentence transformers with the same `all-MiniLM-L6-v2` model as search
+- **🔄 Enhanced Hybrid (Fallback)**: Static classification + dynamic ML discovery  
+- **📝 Traditional (Final Fallback)**: Rule-based matching using predefined categories
+- **🧠 Unified Architecture**: Consistent embeddings across search and topic extraction
 
 ### Key Benefits
 
-- **Truly Dynamic**: Discovers topics naturally present in your content
-- **High Accuracy**: ML-based classification with confidence scoring
-- **Fast Updates**: Smart caching for quick rebuilds
-- **CI/CD Ready**: Automated integration with build pipelines
-- **Manual Control**: Override options for specific needs
+- **🎯 Semantic Understanding**: Understands context and meaning, not just keywords
+- **🔄 Unified Architecture**: Same embeddings for search and topics ensure consistency
+- **⚡ Smart Fallbacks**: Three-tier system ensures reliability and performance
+- **📈 High Accuracy**: Transformer-based semantic similarity with confidence scoring
+- **⚙️ Advanced Options**: BERTopic integration for automatic topic modeling
+- **🚀 Fast Updates**: Smart caching and model reuse for quick rebuilds
+- **🤖 CI/CD Ready**: Automated integration with build pipelines and dependency caching
+- **🛠️ Manual Control**: Override options and multiple extraction modes
 
 ---
 
@@ -49,15 +53,19 @@ project-root/
 │   ├── config/
 │   │   ├── topic-extraction-data.json  # Static topic categories (committed)
 │   │   └── topic_models/               # Generated ML models (gitignored)
-│   │       ├── discovered_topics.json  # Dynamic topic definitions
-│   │       ├── tfidf_vectorizer.pkl    # Trained TF-IDF model
-│   │       ├── topic_clusters.pkl      # K-means clustering model
-│   │       └── *_backup_*.json         # Automatic backups
+│   │       ├── transformer_topics.json    # **NEW** Transformer-discovered topics
+│   │       ├── category_embeddings.pkl    # **NEW** Pre-computed category embeddings
+│   │       ├── discovered_topics.json     # Traditional dynamic topic definitions
+│   │       ├── tfidf_vectorizer.pkl       # Trained TF-IDF model (fallback)
+│   │       ├── topic_clusters.pkl         # K-means clustering model (fallback)
+│   │       └── *_backup_*.json            # Automatic backups
 │   ├── scripts/
-│   │   ├── topic_discovery.py         # ML topic discovery
-│   │   ├── enhanced_topic_extraction.py # Hybrid classification
-│   │   ├── create_blog_metadata.py    # Main metadata generator
-│   │   └── setup_models.py            # System validation
+│   │   ├── transformer_topic_extraction.py # **NEW** Unified transformer-based system
+│   │   ├── enhanced_topic_extraction.py    # Enhanced hybrid classification (fallback)
+│   │   ├── topic_discovery.py              # Traditional ML topic discovery (fallback)
+│   │   ├── create_blog_metadata.py         # Main metadata generator with unified approach
+│   │   ├── test_unified_extraction.py      # **NEW** Test suite for all extraction methods
+│   │   └── setup_models.py                 # System validation
 │   └── public/blogdata/metadata/
 │       └── blog_metadata.json         # Enhanced metadata output
 ├── scripts/
@@ -77,19 +85,67 @@ project-root/
 - **Generation**: Can be manually maintained OR dynamically generated from blog content
 - **Dynamic Enhancement**: Automatically discovers new technical terms from your actual blog content
 
-#### 2. **Dynamic Topic Models**
+#### 2. **Transformer Models & Embeddings**
+
+- **Files**: `website/config/topic_models/category_embeddings.pkl`, `transformer_topics.json`
+- **Purpose**: Pre-computed semantic embeddings and transformer-discovered topics
+- **Version Controlled**: No (excluded via .gitignore)
+- **Auto-Generated**: Created by unified transformer system using `all-MiniLM-L6-v2` model
+
+#### 3. **Traditional ML Models (Fallback)**
 
 - **Files**: `website/config/topic_models/*.pkl` and `discovered_topics.json`
-- **Purpose**: ML-generated topic clusters and classification models
+- **Purpose**: TF-IDF vectorizers, K-means clusters, traditional topic discovery
 - **Version Controlled**: No (excluded via .gitignore)
-- **Auto-Generated**: Created by topic discovery system
+- **Auto-Generated**: Created by enhanced topic extraction system as fallback
 
-#### 3. **Enhanced Metadata**
+#### 4. **Enhanced Metadata**
 
 - **File**: `website/public/blogdata/metadata/blog_metadata.json`
 - **Purpose**: Complete blog metadata including topic classifications
 - **Contains**: Topics, reading time, series data, complexity scores
 - **Used By**: Website build process for content organization
+
+### Multi-Tier Extraction System
+
+The unified system uses a three-tier approach for maximum reliability:
+
+#### **🚀 Tier 1: Transformer-Based (Primary)**
+
+- **Model**: `all-MiniLM-L6-v2` sentence transformer (same as search system)
+- **Method**: Semantic similarity between content embeddings and pre-computed category embeddings
+- **Advantages**: Context-aware, handles synonyms, consistent with search
+- **Speed**: Fast (embeddings cached)
+- **Accuracy**: Highest for semantic understanding
+
+#### **🔄 Tier 2: Enhanced Hybrid (Fallback)**
+
+- **Method**: Static categories + traditional TF-IDF clustering
+- **Advantages**: Explainable, customizable, works without transformers
+- **Speed**: Medium (requires TF-IDF computation)
+- **Accuracy**: Good for keyword-based content
+
+#### **📝 Tier 3: Static Classification (Final Fallback)**
+
+- **Method**: Rule-based keyword matching
+- **Advantages**: Always available, fast, predictable
+- **Speed**: Fastest
+- **Accuracy**: Basic but reliable
+
+#### **🧠 Extraction Flow**
+
+```mermaid
+graph TD
+    A[Blog Content] --> B[Try Transformer Extraction]
+    B -->|Success| C[Transformer Results]
+    B -->|Fail| D[Try Enhanced Hybrid]
+    D -->|Success| E[Enhanced Results]
+    D -->|Fail| F[Static Fallback]
+    F --> G[Static Results]
+    C --> H[Final Metadata]
+    E --> H
+    G --> H
+```
 
 ---
 
@@ -246,11 +302,12 @@ The setup script performs these steps:
 
 1. **Environment Validation**: Checks Python version and system requirements
 2. **Virtual Environment**: Creates/validates Python virtual environment
-3. **Dependencies**: Installs ML packages (scikit-learn, nltk, numpy, scipy)
-4. **NLTK Data**: Downloads required language models
+3. **Dependencies**: Installs transformer packages (sentence-transformers, torch) + traditional ML (scikit-learn, nltk)
+4. **Model Downloads**: Downloads sentence transformer models and NLTK data
 5. **Directory Structure**: Creates necessary directories
-6. **Topic Discovery**: Analyzes blog corpus and discovers topics
-7. **Metadata Generation**: Creates enhanced metadata with topic classifications
+6. **Embedding Generation**: Pre-computes category embeddings for semantic similarity
+7. **Topic Discovery**: Analyzes blog corpus with transformer-based clustering (optional: BERTopic)
+8. **Metadata Generation**: Creates enhanced metadata with unified topic classifications
 
 ### Setup Options
 
@@ -317,8 +374,11 @@ The setup script performs these steps:
 3. **Testing topic extraction**:
 
    ```bash
-   # Test system
+   # Test all extraction methods
    make test-topics
+   
+   # Test unified transformer system specifically
+   cd website && python scripts/test_unified_extraction.py
    ```
 
 ### Maintenance Workflow
@@ -842,13 +902,26 @@ website/config/topic_models/
 
 Automatically installed via `website/scripts/python-requirements.txt`:
 
-- `scikit-learn>=1.3.0` - Machine learning algorithms
-- `nltk>=3.8` - Natural language processing
+#### **Transformer Dependencies (Primary)**
+- `sentence-transformers>=2.2.2` - Semantic embeddings (same model as search)
+- `torch>=2.0.0` - PyTorch backend for transformers
+- `transformers>=4.21.0` - Hugging Face transformers library
+
+#### **Advanced Topic Modeling (Optional)**
+- `bertopic>=0.15.0` - Advanced transformer-based topic discovery
+- `umap-learn>=0.5.0` - Dimensionality reduction for BERTopic
+- `hdbscan>=0.8.0` - Hierarchical clustering for BERTopic
+
+#### **Traditional ML (Fallback)**
+- `scikit-learn>=1.3.0` - Traditional machine learning algorithms
+- `nltk>=3.8` - Natural language processing and tokenization
 - `numpy>=1.24.0` - Numerical operations  
 - `scipy>=1.10.0` - Sparse matrix operations
-- `python-frontmatter` - Markdown parsing
-- `python-dateutil` - Date parsing
-- `PyYAML` - YAML configuration
+
+#### **Content Processing**
+- `python-frontmatter` - Markdown parsing with frontmatter
+- `python-dateutil` - Date parsing and manipulation
+- `PyYAML` - YAML configuration files
 
 ### System Compatibility
 

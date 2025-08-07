@@ -16,9 +16,19 @@ import frontmatter
 import yaml
 from dateutil import parser
 
-# Import enhanced topic extraction
+# Import enhanced topic extraction systems
 from topic_discovery import TopicDiscoverySystem
 from enhanced_topic_extraction import EnhancedTopicExtractor
+
+# Import new unified transformer-based extraction
+try:
+    from transformer_topic_extraction import UnifiedTopicExtractor
+    TRANSFORMER_EXTRACTION_AVAILABLE = True
+    print("Transformer-based topic extraction available")
+except ImportError as e:
+    TRANSFORMER_EXTRACTION_AVAILABLE = False
+    print(f"Transformer-based topic extraction not available: {e}")
+    print("Will use traditional method as fallback")
 
 POSTS_LIST_FILE_JSON = "website/public/blogdata/metadata/blog_metadata.json"
 SERIES_LIST_FILE_JSON = "website/public/blogdata/metadata/series_metadata.json"
@@ -249,19 +259,38 @@ def identify_target_audience(keywords, complexity):
     return list(audiences)[:5]
 
 
-def extract_topics_from_content(content, title='', use_enhanced=True):
-    """Main topic extraction function with enhanced dynamic analysis."""
-    if use_enhanced:
+def extract_topics_from_content(content, title='', use_enhanced=True, prefer_transformer=True):
+    """Main topic extraction function with unified transformer and enhanced dynamic analysis."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    config_folder = os.path.join(os.path.dirname(script_dir), 'config')
+    
+    # Try transformer-based extraction first if available and preferred
+    if use_enhanced and prefer_transformer and TRANSFORMER_EXTRACTION_AVAILABLE:
         try:
-            # Use enhanced topic extraction (dynamic + static)
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            config_folder = os.path.join(os.path.dirname(script_dir), 'config')
+            print(f"Using transformer-based topic extraction for: {title[:50]}...")
+            extractor = UnifiedTopicExtractor(config_folder)
+            result = extractor.extract_topics_unified(content, title)
             
-            extractor = EnhancedTopicExtractor(config_folder)
-            return extractor.extract_topics_enhanced(content, title)
+            # Add transformer method indicator
+            result['extraction-method'] = 'unified-transformer'
+            return result
             
         except Exception as e:
-            print(f"Enhanced extraction failed, falling back to static method: {e}")
+            print(f"Transformer extraction failed for '{title}', falling back to enhanced method: {e}")
+    
+    # Try enhanced topic extraction (dynamic + static) as fallback
+    if use_enhanced:
+        try:
+            print(f"Using enhanced topic extraction for: {title[:50]}...")
+            extractor = EnhancedTopicExtractor(config_folder)
+            result = extractor.extract_topics_enhanced(content, title)
+            
+            # Add enhanced method indicator
+            result['extraction-method'] = 'enhanced-hybrid'
+            return result
+            
+        except Exception as e:
+            print(f"Enhanced extraction failed for '{title}', falling back to static method: {e}")
     
     # Fallback to original static method
     analysis_text = f"{title} {title} {content}"
@@ -295,7 +324,8 @@ def extract_topics_from_content(content, title='', use_enhanced=True):
         'related-concepts': related_concepts,
         'content-complexity': complexity,
         'target-audience': target_audience,
-        'classification-method': 'static-fallback'
+        'classification-method': 'static-fallback',
+        'extraction-method': 'static-fallback'
     }
 
 

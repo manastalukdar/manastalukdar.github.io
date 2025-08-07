@@ -17,7 +17,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `./scripts/setup-topic-extraction.sh` - Setup ML-based topic extraction system
 - `./scripts/update-blog-metadata.sh` - Update blog metadata including topics
-- Python scripts in `website/scripts/` for enhanced topic analysis and generation
+- Python scripts in `website/scripts/` for advanced topic analysis and generation:
+  - `transformer_topic_extraction.py` - **NEW** Unified transformer-based approach
+  - `enhanced_topic_extraction.py` - Enhanced hybrid static/dynamic method
+  - `topic_discovery.py` - Traditional scikit-learn clustering
 
 ### Linting
 
@@ -67,16 +70,17 @@ This is a personal website and blog built with Nuxt 4 and Vue 3. The main applic
 - **Content**: Markdown with markdown-it plugins and enhanced processing
 - **Build**: Vite (via Nuxt 4) with Webpack 5.100.2 support
 - **PWA**: @vite-pwa/nuxt 1.0.4 (modern PWA solution)
-- **AI/ML**: @xenova/transformers 2.17.2 for topic extraction
+- **AI/ML**: @xenova/transformers 2.17.2 for search + sentence-transformers for unified topic extraction
 - **TypeScript**: Strict mode enabled with enhanced type checking
 
 ### Blog System Architecture
 
 - Blog posts are stored as markdown files in `blog/YYYY/MM/DD/post-name/readme.md`
-- Python scripts generate enhanced metadata with AI-powered topic extraction:
-  - `website/scripts/create_blog_metadata.py` - Core metadata generation
-  - `website/scripts/enhanced_topic_extraction.py` - ML-based topic analysis
-  - `website/scripts/topic_discovery.py` - Dynamic topic discovery
+- Python scripts generate enhanced metadata with unified AI-powered topic extraction:
+  - `website/scripts/create_blog_metadata.py` - Core metadata generation with hybrid extraction
+  - `website/scripts/transformer_topic_extraction.py` - **NEW** Unified transformer-based extraction
+  - `website/scripts/enhanced_topic_extraction.py` - Enhanced hybrid static/dynamic analysis
+  - `website/scripts/topic_discovery.py` - Traditional clustering for fallback
 - Static routes are generated dynamically based on blog post structure
 - RSS feed and sitemap generation handled via Nuxt hooks
 - Search index generation for full-text blog search
@@ -104,12 +108,17 @@ This is a personal website and blog built with Nuxt 4 and Vue 3. The main applic
 
 ### AI-Powered Content Features ✨
 
-- **Dynamic Topic Extraction**: ML-based topic analysis using transformers
-- **Automated Content Enhancement**: Python scripts for metadata and topic generation
+- **Unified Topic Extraction**: Transformer-based semantic analysis using same embeddings as search
+- **Multi-Tier AI System**: 
+  - Primary: Sentence transformers with semantic similarity
+  - Fallback: Enhanced hybrid static/dynamic method
+  - Final fallback: Traditional TF-IDF + clustering
+- **Semantic Consistency**: Same `all-MiniLM-L6-v2` model for search and topic analysis
+- **Advanced Topic Discovery**: BERTopic integration for automatic topic modeling
 - **Smart Content Licensing**: CC BY-NC-ND 4.0 with machine-readable AI training policies
 - **Enhanced SEO**: JSON-LD structured data and comprehensive meta tags
-- **Content Discovery**: Advanced search with topic-based filtering
-- **Automated Workflows**: GitHub Actions with weekly topic discovery
+- **Content Discovery**: Advanced search with semantic similarity and topic-based filtering
+- **Automated Workflows**: GitHub Actions with weekly topic discovery and model caching
 
 ### Content Licensing & AI Policy
 

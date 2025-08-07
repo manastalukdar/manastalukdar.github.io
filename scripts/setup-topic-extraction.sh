@@ -1,14 +1,15 @@
 #!/bin/bash
 
 ##############################################################################
-# Enhanced Topic Extraction System Setup Script
+# Unified Transformer-Based Topic Extraction System Setup Script
 # 
-# This script sets up the complete enhanced topic extraction system by:
+# This script sets up the complete unified topic extraction system by:
 # 1. Creating/validating Python virtual environment
-# 2. Installing required ML dependencies
-# 3. Downloading NLTK data models
-# 4. Running topic discovery on blog corpus
-# 5. Generating enhanced metadata with dynamic topics
+# 2. Installing transformer dependencies (sentence-transformers, torch) + traditional ML
+# 3. Downloading transformer models and NLTK data
+# 4. Pre-computing category embeddings for semantic similarity
+# 5. Running advanced topic discovery (BERTopic or transformer-based clustering)
+# 6. Generating enhanced metadata with unified multi-tier extraction
 #
 # Usage:
 #   ./setup-topic-extraction.sh [options]
@@ -218,17 +219,33 @@ install_dependencies() {
     
     # Verify key packages
     log_info "Verifying installations..."
-    python -c "import sklearn, nltk, numpy, scipy; print('All ML packages imported successfully')" || {
-        log_error "Package verification failed"
+    
+    # Test core packages
+    python -c "import sklearn, nltk, numpy, scipy; print('Traditional ML packages imported successfully')" || {
+        log_error "Traditional ML package verification failed"
         exit 1
+    }
+    
+    # Test transformer packages if available
+    python -c "
+try:
+    import sentence_transformers, torch, transformers
+    print('Transformer packages imported successfully')
+    transformer_available = True
+except ImportError as e:
+    print(f'Transformer packages not available: {e}')
+    print('System will use traditional methods as fallback')
+    transformer_available = False
+" || {
+        log_warning "Transformer package verification failed, system will use fallbacks"
     }
     
     log_success "All dependencies installed and verified"
 }
 
-# Download NLTK data
-download_nltk_data() {
-    show_progress 3 7 "Downloading NLTK data models"
+# Download models and data
+download_models_and_data() {
+    show_progress 3 7 "Downloading transformer models and NLTK data"
     
     source "$VENV_PATH/bin/activate"
     
@@ -249,7 +266,24 @@ download_nltk_data() {
         exit 1
     }
     
-    log_success "NLTK data models downloaded successfully"
+    # Download transformer models if available
+    log_info "Pre-loading transformer models (this may take a few minutes)..."
+    python -c "
+try:
+    from sentence_transformers import SentenceTransformer
+    print('Loading all-MiniLM-L6-v2 model (same as search system)...')
+    model = SentenceTransformer('all-MiniLM-L6-v2')
+    print('Transformer model loaded and cached successfully')
+except ImportError:
+    print('Transformer packages not available, skipping model download')
+except Exception as e:
+    print(f'Transformer model download failed: {e}')
+    print('System will still work with fallback methods')
+" || {
+        log_warning "Transformer model download failed, system will use fallbacks"
+    }
+    
+    log_success "Models and data downloaded successfully"
 }
 
 # Create necessary directories
@@ -269,9 +303,9 @@ create_directories() {
     log_success "Directory structure ready"
 }
 
-# Run topic discovery
-run_topic_discovery() {
-    show_progress 5 7 "Running topic discovery on blog corpus"
+# Run unified topic extraction setup
+run_unified_topic_setup() {
+    show_progress 5 7 "Setting up unified transformer-based topic extraction"
     
     if [ "$SKIP_DISCOVERY" = true ]; then
         log_info "Skipping topic discovery (--skip-discovery flag used)"
@@ -282,35 +316,82 @@ run_topic_discovery() {
     cd "$SCRIPTS_DIR"
     
     # Backup existing models if they exist
-    if [ -f "$MODELS_DIR/discovered_topics.json" ] && [ "$FORCE_REGENERATION" = false ]; then
-        backup_file="$MODELS_DIR/discovered_topics_backup_$(date +%Y%m%d_%H%M%S).json"
-        cp "$MODELS_DIR/discovered_topics.json" "$backup_file"
-        log_info "Backed up existing topics to $backup_file"
-    fi
+    backup_models() {
+        local backup_suffix="_backup_$(date +%Y%m%d_%H%M%S)"
+        if [ -f "$MODELS_DIR/discovered_topics.json" ] && [ "$FORCE_REGENERATION" = false ]; then
+            cp "$MODELS_DIR/discovered_topics.json" "$MODELS_DIR/discovered_topics${backup_suffix}.json"
+            log_info "Backed up traditional topics"
+        fi
+        if [ -f "$MODELS_DIR/transformer_topics.json" ] && [ "$FORCE_REGENERATION" = false ]; then
+            cp "$MODELS_DIR/transformer_topics.json" "$MODELS_DIR/transformer_topics${backup_suffix}.json"
+            log_info "Backed up transformer topics"
+        fi
+    }
+    backup_models
     
-    log_info "Analyzing blog corpus and discovering topics..."
-    python topic_discovery.py || {
-        log_error "Topic discovery failed"
-        exit 1
+    # Try unified transformer approach first
+    log_info "Setting up unified transformer-based topic extraction..."
+    python -c "
+try:
+    from transformer_topic_extraction import UnifiedTopicExtractor
+    import os
+    config_folder = os.path.join(os.path.dirname(os.getcwd()), 'config')
+    extractor = UnifiedTopicExtractor(config_folder)
+    
+    # Pre-compute category embeddings
+    print('Pre-computing category embeddings...')
+    # This happens automatically in __init__
+    
+    # Test the system
+    test_content = 'Machine learning and data science applications with neural networks'
+    result = extractor.extract_topics_unified(test_content, 'Test Content')
+    print(f'Transformer extraction test successful: {result[\"topic-primary\"]}')
+    print('Unified transformer system ready')
+    
+except ImportError as e:
+    print(f'Transformer extraction not available: {e}')
+    print('Will use traditional fallback methods')
+except Exception as e:
+    print(f'Transformer setup failed: {e}')
+    print('Will use traditional fallback methods')
+" || {
+        log_warning "Transformer setup failed, using traditional methods"
     }
     
-    # Verify output files were created
-    if [ ! -f "$MODELS_DIR/discovered_topics.json" ]; then
-        log_error "Topic discovery did not generate discovered_topics.json"
-        exit 1
+    # Run traditional topic discovery as fallback/supplement
+    log_info "Running traditional topic discovery as fallback...")
+    python topic_discovery.py || {
+        log_warning "Traditional topic discovery failed, but system can still work with static methods"
+    }
+    
+    log_success "Unified topic extraction setup completed"
+    
+    # Show summary of available methods
+    transformer_available=false
+    traditional_available=false
+    
+    if [ -f "$MODELS_DIR/transformer_topics.json" ] || [ -f "$MODELS_DIR/category_embeddings.pkl" ]; then
+        transformer_available=true
     fi
     
-    if [ ! -f "$MODELS_DIR/tfidf_vectorizer.pkl" ]; then
-        log_error "Topic discovery did not generate tfidf_vectorizer.pkl"
-        exit 1
+    if [ -f "$MODELS_DIR/discovered_topics.json" ]; then
+        traditional_available=true
+        topic_count=$(python -c "import json; data=json.load(open('$MODELS_DIR/discovered_topics.json')); print(len(data.get('discoveredTopics', {})))" 2>/dev/null || echo "0")
+        doc_count=$(python -c "import json; data=json.load(open('$MODELS_DIR/discovered_topics.json')); print(len(data.get('documentAssignments', [])))" 2>/dev/null || echo "0")
+        log_info "Traditional system: $topic_count topics from $doc_count documents"
     fi
     
-    log_success "Topic discovery completed successfully"
+    if [ "$transformer_available" = true ]; then
+        log_info "✅ Transformer-based extraction: Available (primary method)"
+    else
+        log_info "❌ Transformer-based extraction: Not available"
+    fi
     
-    # Show discovered topics summary
-    topic_count=$(python -c "import json; data=json.load(open('$MODELS_DIR/discovered_topics.json')); print(len(data.get('discoveredTopics', {})))")
-    doc_count=$(python -c "import json; data=json.load(open('$MODELS_DIR/discovered_topics.json')); print(len(data.get('documentAssignments', [])))")
-    log_info "Discovered $topic_count topics from $doc_count documents"
+    if [ "$traditional_available" = true ]; then
+        log_info "✅ Traditional extraction: Available (fallback method)"
+    else
+        log_warning "❌ Traditional extraction: Not available"
+    fi
 }
 
 # Generate enhanced metadata
@@ -364,18 +445,22 @@ run_validation() {
 # Show usage instructions
 show_usage_instructions() {
     echo ""
-    echo -e "${GREEN}🎉 Enhanced Topic Extraction System Setup Complete!${NC}"
+    echo -e "${GREEN}🎉 Unified Transformer-Based Topic Extraction System Setup Complete!${NC}"
     echo ""
     echo "Your system is now ready with:"
-    echo "• Dynamic topic discovery using machine learning"
-    echo "• Enhanced metadata generation with confidence scores"
-    echo "• Hybrid static + dynamic topic classification"
+    echo "• 🚀 Transformer-based semantic topic extraction (primary)"
+    echo "• 🔄 Enhanced hybrid static + dynamic classification (fallback)"
+    echo "• 📝 Traditional rule-based classification (final fallback)"
+    echo "• 🧠 Unified embeddings consistent with search system"
+    echo "• 📈 Multi-tier reliability with graceful degradation"
     echo ""
     echo "Generated files:"
-    echo "• $MODELS_DIR/discovered_topics.json"
-    echo "• $MODELS_DIR/tfidf_vectorizer.pkl"
-    echo "• $MODELS_DIR/topic_clusters.pkl"
-    echo "• Enhanced blog_metadata.json with dynamic topics"
+    echo "• $MODELS_DIR/category_embeddings.pkl (transformer category embeddings)"
+    echo "• $MODELS_DIR/transformer_topics.json (transformer-discovered topics)"
+    echo "• $MODELS_DIR/discovered_topics.json (traditional fallback topics)"
+    echo "• $MODELS_DIR/tfidf_vectorizer.pkl (traditional fallback model)"
+    echo "• $MODELS_DIR/topic_clusters.pkl (traditional fallback model)"
+    echo "• Enhanced blog_metadata.json with unified topic classifications"
     echo ""
     echo "To use the system:"
     echo ""
@@ -391,8 +476,14 @@ show_usage_instructions() {
     echo "4. Full regeneration:"
     echo "   ${BLUE}./scripts/setup-topic-extraction.sh --force${NC}"
     echo ""
-    echo "The system will automatically use both static categories and discovered topics"
-    echo "for the most accurate classification possible."
+    echo "5. Test the unified system:"
+    echo "   ${BLUE}cd website && python scripts/test_unified_extraction.py${NC}"
+    echo ""
+    echo "The system will automatically use:"
+    echo "• Transformer-based semantic analysis (primary)"
+    echo "• Enhanced static+dynamic classification (fallback)"
+    echo "• Simple rule-based matching (final fallback)"
+    echo "for maximum reliability and accuracy."
     echo ""
 }
 
@@ -409,9 +500,9 @@ main() {
     # Setup steps
     setup_virtual_environment
     install_dependencies
-    download_nltk_data
+    download_models_and_data
     create_directories
-    run_topic_discovery
+    run_unified_topic_setup
     generate_enhanced_metadata
     run_validation
     
