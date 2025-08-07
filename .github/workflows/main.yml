@@ -41,7 +41,7 @@ jobs:
         run: echo "BRANCH=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
         
       - name: Checkout Repository
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         with:
           fetch-depth: 0  # Need full history for change detection
         
@@ -152,7 +152,7 @@ jobs:
     if: needs.setup-and-detect-changes.outputs.blog_changed == 'true' && needs.setup-and-detect-changes.outputs.topic_mode != 'skip'
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
         
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -276,7 +276,7 @@ jobs:
     if: always() && (needs.process-content.result == 'success' || needs.setup-and-detect-changes.outputs.topic_mode == 'skip')
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
           
       - name: Setup Node.js
         uses: actions/setup-node@v4
