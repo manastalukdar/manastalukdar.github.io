@@ -13,13 +13,8 @@ scikit-learn==1.5.1
 nltk==3.9
 
 # Transformer stack - critical path optimization
-<<<<<<< HEAD
 torch==2.4.0
 transformers==4.44.0
-=======
-torch==2.4.0+cpu --index-url https://download.pytorch.org/whl/cpu
-transformers==4.53.0
->>>>>>> 739560c39f2c2982a261d59bc1de16c168d302a7
 sentence-transformers==3.0.1
 
 # Advanced topic modeling - optional but beneficial
