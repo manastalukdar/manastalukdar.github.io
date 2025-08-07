@@ -23,19 +23,18 @@
       </div>
 
       <div v-else class="carousel-container">
-        <v-carousel
-          v-model="currentSlide"
-          :show-arrows="homePageTestimonials.length > 1 && hover"
-          :continuous="true"
-          :cycle="autoRotate"
-          :interval="rotationInterval"
-          hide-delimiter-background
-          delimiter-icon="mdi-circle"
-          height="auto"
-          class="testimonial-carousel"
-          @mouseenter="pauseRotation"
-          @mouseleave="resumeRotation"
-        >
+        <div class="carousel-wrapper" @mouseenter="pauseRotation" @mouseleave="resumeRotation">
+          <v-carousel
+            v-model="currentSlide"
+            :show-arrows="false"
+            :continuous="true"
+            :cycle="autoRotate"
+            :interval="rotationInterval"
+            hide-delimiter-background
+            delimiter-icon="mdi-circle"
+            height="auto"
+            class="testimonial-carousel"
+          >
           <v-carousel-item
             v-for="(testimonial, index) in homePageTestimonials"
             :key="`${testimonial.name}-${index}`"
@@ -103,7 +102,31 @@
               </div>
             </div>
           </v-carousel-item>
-        </v-carousel>
+          </v-carousel>
+          
+          <!-- Custom Navigation Arrows -->
+          <v-btn
+            v-if="homePageTestimonials.length > 1 && isHovered"
+            icon
+            class="custom-arrow custom-arrow-left"
+            @click="previousSlide"
+            size="large"
+            color="primary"
+          >
+            <v-icon>mdi-chevron-left</v-icon>
+          </v-btn>
+          
+          <v-btn
+            v-if="homePageTestimonials.length > 1 && isHovered"
+            icon
+            class="custom-arrow custom-arrow-right"
+            @click="nextSlide"
+            size="large"
+            color="primary"
+          >
+            <v-icon>mdi-chevron-right</v-icon>
+          </v-btn>
+        </div>
 
       </div>
     </v-card>
@@ -121,17 +144,31 @@ const currentSlide = ref(0)
 const autoRotate = ref(true)
 const rotationInterval = ref(8000) // 8 seconds
 const rotationTimer = ref(null)
-const hover = ref(false)
+const isHovered = ref(false)
 
+// Navigation functions for custom arrows
+const nextSlide = () => {
+  if (homePageTestimonials.value.length > 0) {
+    currentSlide.value = (currentSlide.value + 1) % homePageTestimonials.value.length
+  }
+}
+
+const previousSlide = () => {
+  if (homePageTestimonials.value.length > 0) {
+    currentSlide.value = currentSlide.value === 0 
+      ? homePageTestimonials.value.length - 1 
+      : currentSlide.value - 1
+  }
+}
 
 const pauseRotation = () => {
   autoRotate.value = false
-  hover.value = true
+  isHovered.value = true
 }
 
 const resumeRotation = () => {
   autoRotate.value = true
-  hover.value = false
+  isHovered.value = false
 }
 
 // Cleanup
@@ -149,6 +186,39 @@ onBeforeUnmount(() => {
   .carousel-container {
     position: relative;
     margin: 1rem 0;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+  }
+
+  // Custom arrow styling
+  .custom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(var(--v-theme-surface), 0.9) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(var(--v-theme-surface), 1) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .v-icon {
+      color: rgb(var(--v-theme-primary));
+    }
+  }
+
+  .custom-arrow-left {
+    left: 1rem;
+  }
+
+  .custom-arrow-right {
+    right: 1rem;
   }
 
   .testimonial-carousel {
@@ -325,6 +395,10 @@ onBeforeUnmount(() => {
 
     .testimonial-relationship {
       justify-content: center;
+    }
+
+    .custom-arrow {
+      display: none; // Hide arrows on mobile for better touch experience
     }
   }
 }
