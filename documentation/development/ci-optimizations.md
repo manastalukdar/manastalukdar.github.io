@@ -9,7 +9,7 @@ Implemented comprehensive optimizations to reduce the 14-minute CI build time by
 ### 1.1 Python Dependencies Optimization ✅
 
 - **Pinned exact versions** for consistent caching and faster installs
-- **CPU-only PyTorch** (`torch==2.4.0+cpu`) - significantly smaller than GPU version
+- **Standard PyTorch** (`torch==2.4.0`) - reliable cross-platform installation
 - **Pre-compiled wheel preference** with fallback compilation
 - **Optimized pip flags**: `--prefer-binary`, `--no-compile`, `--disable-pip-version-check`
 
