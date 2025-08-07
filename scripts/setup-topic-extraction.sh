@@ -249,20 +249,40 @@ download_models_and_data() {
 
     source "$VENV_PATH/bin/activate"
 
-    log_info "Downloading NLTK punkt tokenizer..."
-    python -c "import nltk; nltk.download('punkt', quiet=True); print('punkt downloaded')" || {
-        log_warning "Failed to download punkt, trying punkt_tab..."
-    }
+    log_info "Downloading NLTK data with SSL workaround..."
+    python -c "
+import nltk
+import ssl
 
-    log_info "Downloading NLTK punkt_tab tokenizer..."
-    python -c "import nltk; nltk.download('punkt_tab', quiet=True); print('punkt_tab downloaded')" || {
-        log_error "Failed to download punkt_tab tokenizer"
-        exit 1
-    }
+# SSL workaround for certificate issues
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
 
-    log_info "Downloading NLTK stopwords..."
-    python -c "import nltk; nltk.download('stopwords', quiet=True); print('stopwords downloaded')" || {
-        log_error "Failed to download stopwords"
+# Download required NLTK data
+try:
+    nltk.download('punkt', quiet=True)
+    print('punkt downloaded')
+except Exception as e:
+    print(f'punkt download failed: {e}')
+
+try:
+    nltk.download('punkt_tab', quiet=True)
+    print('punkt_tab downloaded')
+except Exception as e:
+    print(f'punkt_tab download failed: {e}')
+
+try:
+    nltk.download('stopwords', quiet=True)
+    print('stopwords downloaded')
+except Exception as e:
+    print(f'stopwords download failed: {e}')
+    raise
+" || {
+        log_error "Failed to download required NLTK data"
         exit 1
     }
 
