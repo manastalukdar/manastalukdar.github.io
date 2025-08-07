@@ -2,7 +2,7 @@
 
 ##############################################################################
 # Unified Transformer-Based Topic Extraction System Setup Script
-# 
+#
 # This script sets up the complete unified topic extraction system by:
 # 1. Creating/validating Python virtual environment
 # 2. Installing transformer dependencies (sentence-transformers, torch) + traditional ML
@@ -139,50 +139,50 @@ command_exists() {
 # Validate environment
 validate_environment() {
     log_step "Validating environment..."
-    
+
     # Check if Python is available
     if ! command_exists python3; then
         log_error "Python 3 is not installed or not in PATH"
         echo "Please install Python 3.8 or higher"
         exit 1
     fi
-    
+
     # Check Python version
     python_version=$(python3 -c "import sys; print('.'.join(map(str, sys.version_info[:2])))")
     python_major=$(echo "$python_version" | cut -d. -f1)
     python_minor=$(echo "$python_version" | cut -d. -f2)
-    
+
     if [ "$python_major" -lt 3 ] || ([ "$python_major" -eq 3 ] && [ "$python_minor" -lt 8 ]); then
         log_error "Python $python_version detected. Python 3.8 or higher is required."
         exit 1
     fi
-    
+
     log_success "Python $python_version detected - compatible"
-    
+
     # Check required directories
     if [ ! -d "$BLOG_FOLDER" ]; then
         log_error "Blog folder not found: $BLOG_FOLDER"
         echo "Please ensure the blog folder exists or use --blog-folder option"
         exit 1
     fi
-    
+
     if [ ! -d "$SCRIPTS_DIR" ]; then
         log_error "Scripts directory not found: $SCRIPTS_DIR"
         exit 1
     fi
-    
+
     if [ ! -f "$REQUIREMENTS_FILE" ]; then
         log_error "Requirements file not found: $REQUIREMENTS_FILE"
         exit 1
     fi
-    
+
     log_success "Environment validation completed"
 }
 
 # Setup virtual environment
 setup_virtual_environment() {
     show_progress 1 7 "Setting up Python virtual environment"
-    
+
     if [ -d "$VENV_PATH" ] && [ "$FORCE_REGENERATION" = false ]; then
         log_info "Virtual environment already exists at $VENV_PATH"
         log_info "Use --force to recreate the environment"
@@ -191,41 +191,41 @@ setup_virtual_environment() {
             log_warning "Removing existing virtual environment for regeneration"
             rm -rf "$VENV_PATH"
         fi
-        
+
         log_info "Creating virtual environment at $VENV_PATH"
         python3 -m venv "$VENV_PATH"
     fi
-    
+
     # Activate virtual environment
     source "$VENV_PATH/bin/activate"
-    
+
     # Upgrade pip
     log_info "Upgrading pip..."
     pip install --upgrade pip > /dev/null 2>&1
-    
+
     log_success "Virtual environment ready"
 }
 
 # Install Python dependencies
 install_dependencies() {
     show_progress 2 7 "Installing Python dependencies"
-    
+
     source "$VENV_PATH/bin/activate"
-    
+
     log_info "Installing packages from $REQUIREMENTS_FILE"
-    
+
     # Install with progress indication
     pip install -r "$REQUIREMENTS_FILE" --quiet --progress-bar off
-    
+
     # Verify key packages
     log_info "Verifying installations..."
-    
+
     # Test core packages
     python -c "import sklearn, nltk, numpy, scipy; print('Traditional ML packages imported successfully')" || {
         log_error "Traditional ML package verification failed"
         exit 1
     }
-    
+
     # Test transformer packages if available
     python -c "
 try:
@@ -239,33 +239,33 @@ except ImportError as e:
 " || {
         log_warning "Transformer package verification failed, system will use fallbacks"
     }
-    
+
     log_success "All dependencies installed and verified"
 }
 
 # Download models and data
 download_models_and_data() {
     show_progress 3 7 "Downloading transformer models and NLTK data"
-    
+
     source "$VENV_PATH/bin/activate"
-    
+
     log_info "Downloading NLTK punkt tokenizer..."
     python -c "import nltk; nltk.download('punkt', quiet=True); print('punkt downloaded')" || {
         log_warning "Failed to download punkt, trying punkt_tab..."
     }
-    
+
     log_info "Downloading NLTK punkt_tab tokenizer..."
     python -c "import nltk; nltk.download('punkt_tab', quiet=True); print('punkt_tab downloaded')" || {
         log_error "Failed to download punkt_tab tokenizer"
         exit 1
     }
-    
+
     log_info "Downloading NLTK stopwords..."
     python -c "import nltk; nltk.download('stopwords', quiet=True); print('stopwords downloaded')" || {
         log_error "Failed to download stopwords"
         exit 1
     }
-    
+
     # Download transformer models if available
     log_info "Pre-loading transformer models (this may take a few minutes)..."
     python -c "
@@ -282,39 +282,39 @@ except Exception as e:
 " || {
         log_warning "Transformer model download failed, system will use fallbacks"
     }
-    
+
     log_success "Models and data downloaded successfully"
 }
 
 # Create necessary directories
 create_directories() {
     show_progress 4 7 "Creating necessary directories"
-    
+
     if [ ! -d "$CONFIG_DIR" ]; then
         mkdir -p "$CONFIG_DIR"
         log_info "Created config directory: $CONFIG_DIR"
     fi
-    
+
     if [ ! -d "$MODELS_DIR" ]; then
         mkdir -p "$MODELS_DIR"
         log_info "Created models directory: $MODELS_DIR"
     fi
-    
+
     log_success "Directory structure ready"
 }
 
 # Run unified topic extraction setup
 run_unified_topic_setup() {
     show_progress 5 7 "Setting up unified transformer-based topic extraction"
-    
+
     if [ "$SKIP_DISCOVERY" = true ]; then
         log_info "Skipping topic discovery (--skip-discovery flag used)"
         return 0
     fi
-    
+
     source "$VENV_PATH/bin/activate"
     cd "$SCRIPTS_DIR"
-    
+
     # Backup existing models if they exist
     backup_models() {
         local backup_suffix="_backup_$(date +%Y%m%d_%H%M%S)"
@@ -328,7 +328,7 @@ run_unified_topic_setup() {
         fi
     }
     backup_models
-    
+
     # Try unified transformer approach first
     log_info "Setting up unified transformer-based topic extraction..."
     python -c "
@@ -337,17 +337,17 @@ try:
     import os
     config_folder = os.path.join(os.path.dirname(os.getcwd()), 'config')
     extractor = UnifiedTopicExtractor(config_folder)
-    
+
     # Pre-compute category embeddings
     print('Pre-computing category embeddings...')
     # This happens automatically in __init__
-    
+
     # Test the system
     test_content = 'Machine learning and data science applications with neural networks'
     result = extractor.extract_topics_unified(test_content, 'Test Content')
     print(f'Transformer extraction test successful: {result[\"topic-primary\"]}')
     print('Unified transformer system ready')
-    
+
 except ImportError as e:
     print(f'Transformer extraction not available: {e}')
     print('Will use traditional fallback methods')
@@ -357,36 +357,36 @@ except Exception as e:
 " || {
         log_warning "Transformer setup failed, using traditional methods"
     }
-    
+
     # Run traditional topic discovery as fallback/supplement
-    log_info "Running traditional topic discovery as fallback...")
+    log_info "Running traditional topic discovery as fallback..."
     python topic_discovery.py || {
         log_warning "Traditional topic discovery failed, but system can still work with static methods"
     }
-    
+
     log_success "Unified topic extraction setup completed"
-    
+
     # Show summary of available methods
     transformer_available=false
     traditional_available=false
-    
+
     if [ -f "$MODELS_DIR/transformer_topics.json" ] || [ -f "$MODELS_DIR/category_embeddings.pkl" ]; then
         transformer_available=true
     fi
-    
+
     if [ -f "$MODELS_DIR/discovered_topics.json" ]; then
         traditional_available=true
         topic_count=$(python -c "import json; data=json.load(open('$MODELS_DIR/discovered_topics.json')); print(len(data.get('discoveredTopics', {})))" 2>/dev/null || echo "0")
         doc_count=$(python -c "import json; data=json.load(open('$MODELS_DIR/discovered_topics.json')); print(len(data.get('documentAssignments', [])))" 2>/dev/null || echo "0")
         log_info "Traditional system: $topic_count topics from $doc_count documents"
     fi
-    
+
     if [ "$transformer_available" = true ]; then
         log_info "✅ Transformer-based extraction: Available (primary method)"
     else
         log_info "❌ Transformer-based extraction: Not available"
     fi
-    
+
     if [ "$traditional_available" = true ]; then
         log_info "✅ Traditional extraction: Available (fallback method)"
     else
@@ -397,10 +397,10 @@ except Exception as e:
 # Generate enhanced metadata
 generate_enhanced_metadata() {
     show_progress 6 7 "Generating enhanced blog metadata"
-    
+
     source "$VENV_PATH/bin/activate"
     cd "$SCRIPTS_DIR"
-    
+
     # Backup existing metadata
     metadata_file="$WEBSITE_DIR/public/blogdata/metadata/blog_metadata.json"
     if [ -f "$metadata_file" ] && [ "$FORCE_REGENERATION" = false ]; then
@@ -408,15 +408,15 @@ generate_enhanced_metadata() {
         cp "$metadata_file" "$backup_file"
         log_info "Backed up existing metadata to $backup_file"
     fi
-    
+
     log_info "Generating enhanced metadata with dynamic topics..."
     python create_blog_metadata.py || {
         log_error "Enhanced metadata generation failed"
         exit 1
     }
-    
+
     log_success "Enhanced metadata generated successfully"
-    
+
     # Show statistics
     if [ -f "$metadata_file" ]; then
         post_count=$(python -c "import json; data=json.load(open('$metadata_file')); print(len(data))")
@@ -428,17 +428,17 @@ generate_enhanced_metadata() {
 # Run validation tests
 run_validation() {
     show_progress 7 7 "Running validation tests"
-    
+
     source "$VENV_PATH/bin/activate"
     cd "$SCRIPTS_DIR"
-    
+
     log_info "Running system validation..."
     python simple_test.py || {
         log_warning "Some validation tests failed, but system should still work"
         log_warning "Check the test output above for details"
         return 0  # Don't fail the entire setup for test warnings
     }
-    
+
     log_success "All validation tests passed"
 }
 
@@ -493,10 +493,10 @@ main() {
     echo -e "${PURPLE}Enhanced Topic Extraction System Setup${NC}"
     echo -e "${PURPLE}======================================${NC}"
     echo ""
-    
+
     # Validate environment
     validate_environment
-    
+
     # Setup steps
     setup_virtual_environment
     install_dependencies
@@ -505,7 +505,7 @@ main() {
     run_unified_topic_setup
     generate_enhanced_metadata
     run_validation
-    
+
     # Show completion message
     show_usage_instructions
 }
