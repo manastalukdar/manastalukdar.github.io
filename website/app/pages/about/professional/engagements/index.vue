@@ -40,6 +40,16 @@
             </v-expansion-panel-title>
             <v-expansion-panel-text>
               <div class="pl-2 pb-2 markdown-content" v-html="boardMemberships" />
+              <v-expansion-panels>
+                <v-expansion-panel>
+                  <v-expansion-panel-title>
+                    Past
+                  </v-expansion-panel-title>
+                  <v-expansion-panel-text>
+                    <div class="pl-2 pb-2 markdown-content" v-html="boardMembershipsPast" />
+                  </v-expansion-panel-text>
+                </v-expansion-panel>
+              </v-expansion-panels>
             </v-expansion-panel-text>
           </v-expansion-panel>
           <v-expansion-panel>
@@ -270,6 +280,15 @@ const fellowships = computedAsync(async () => {
 const boardMemberships = computedAsync(async () => {
   try {
     const fileContent = await import('../content-engagements/board-memberships.md?raw')
+    const res = fm(fileContent.default)
+    return md.render(res.body)
+  } catch (error) {
+    console.log(error)
+  }
+});
+const boardMembershipsPast = computedAsync(async () => {
+  try {
+    const fileContent = await import('../content-engagements/board-memberships-past.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {
