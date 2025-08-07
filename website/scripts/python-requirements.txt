@@ -14,7 +14,7 @@ nltk==3.9
 
 # Transformer stack - critical path optimization
 torch==2.4.0+cpu --index-url https://download.pytorch.org/whl/cpu
-transformers==4.44.0
+transformers==4.53.0
 sentence-transformers==3.0.1
 
 # Advanced topic modeling - optional but beneficial
