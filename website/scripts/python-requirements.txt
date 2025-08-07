@@ -13,7 +13,7 @@ scikit-learn==1.5.1
 nltk==3.9
 
 # Transformer stack - critical path optimization
-torch==2.4.0
+torch==2.8.0
 transformers==4.44.0
 sentence-transformers==3.0.1
 
@@ -21,3 +21,5 @@ sentence-transformers==3.0.1
 bertopic==0.16.0
 umap-learn==0.5.6
 hdbscan==0.8.38
+setuptools>=78.1.1 # not directly required, pinned by Snyk to avoid a vulnerability
+wheel>=0.38.0 # not directly required, pinned by Snyk to avoid a vulnerability
