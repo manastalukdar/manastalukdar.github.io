@@ -147,6 +147,7 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+.venv/
 
 # Topic Extraction ML Models (regenerable via setup scripts)
 **/topic_models/*.pkl
