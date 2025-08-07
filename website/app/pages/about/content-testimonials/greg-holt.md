@@ -8,6 +8,12 @@ excerpt: "Manas and I have known each other for almost a decade now... Once we s
 featured: true
 category: ["leadership", "technical"]
 date: "November 2, 2023"
+enabled: true
+relationship: "Gregory worked with Manas on the same team at OSIsoft/AVEVA"
+positions:
+  - title: "R&D Principal Technologist"
+    company: "AVEVA"
+    relationship: ["peer"]
 ---
 
 "Manas and I have known each other for almost a decade now. Even before I came to work with him I was aware of his reputation as a solid developer. Once we started working together, I saw that not only was he a strong developer, but he was also a skilled Software Engineering Leader. He and I worked together side-by-side on the kick off of several initiatives, including initiatives relating to distributed systems and edge processing, all related to large-scale data products and services.

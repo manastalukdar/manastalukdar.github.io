@@ -19,13 +19,13 @@
           <div v-if="loading" class="text-center pa-4">
             <v-progress-circular indeterminate color="primary" />
           </div>
-          
+
           <div v-else-if="error" class="text-center pa-4">
             <v-alert type="error" variant="text">
               Failed to load testimonials
             </v-alert>
           </div>
-          
+
           <div v-else>
             <!-- Filtering Controls -->
             <div class="testimonial-filters mb-4">
@@ -54,7 +54,7 @@
                   </v-chip>
                 </div>
               </div>
-              
+
               <div class="filter-section">
                 <h6 class="filter-title">Search:</h6>
                 <v-text-field
@@ -79,7 +79,7 @@
               >
                 <blockquote class="testimonial-quote" v-html="formatTestimonialContent(testimonial.content)">
                 </blockquote>
-                
+
                 <div class="testimonial-meta">
                   <div class="testimonial-attribution">
                     <div class="author-info">
@@ -103,9 +103,13 @@
                         <div v-if="testimonial.date" class="testimonial-date">
                           {{ testimonial.date }}
                         </div>
+                        <div v-if="testimonial.relationship" class="testimonial-relationship">
+                          <v-icon size="small" class="mr-1">mdi-account-group</v-icon>
+                          {{ testimonial.relationship }}
+                        </div>
                       </div>
                     </div>
-                    
+
                     <div v-if="testimonial.category" class="testimonial-categories">
                       <v-chip
                         v-for="category in testimonial.category"
@@ -122,7 +126,7 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- No Results Message -->
             <div v-if="filteredTestimonials.length === 0" class="no-results text-center pa-4">
               <v-icon size="large" class="mb-2">mdi-comment-search</v-icon>
@@ -178,18 +182,18 @@ const availableCategories = computed(() => {
 // Filter testimonials based on category and search
 const filteredTestimonials = computed(() => {
   let filtered = [...fullTestimonials.value]
-  
+
   // Filter by category
   if (selectedCategory.value !== 'all') {
-    filtered = filtered.filter(testimonial => 
+    filtered = filtered.filter(testimonial =>
       testimonial.category?.includes(selectedCategory.value)
     )
   }
-  
+
   // Filter by search query
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
-    filtered = filtered.filter(testimonial => 
+    filtered = filtered.filter(testimonial =>
       testimonial.name.toLowerCase().includes(query) ||
       testimonial.title.toLowerCase().includes(query) ||
       testimonial.company.toLowerCase().includes(query) ||
@@ -197,7 +201,7 @@ const filteredTestimonials = computed(() => {
       testimonial.category?.some(cat => cat.toLowerCase().includes(query))
     )
   }
-  
+
   return filtered
 })
 
@@ -207,7 +211,7 @@ const filterByCategory = (category) => {
 }
 
 const getCategoryCount = (category) => {
-  return fullTestimonials.value.filter(testimonial => 
+  return fullTestimonials.value.filter(testimonial =>
     testimonial.category?.includes(category)
   ).length
 }
@@ -218,7 +222,7 @@ const debouncedScrollToTestimonial = (delay = 100) => {
   if (scrollTimeout) {
     clearTimeout(scrollTimeout)
   }
-  
+
   scrollTimeout = setTimeout(async () => {
     await performScroll()
   }, delay)
@@ -229,7 +233,7 @@ const performScroll = async () => {
   await nextTick()
   const hash = window.location.hash
   console.log('[performScroll] Attempting scroll with hash:', hash, 'loading:', loading.value, 'testimonials count:', fullTestimonials.value.length)
-  
+
   if (!hash || !hash.startsWith('#testimonial-')) {
     console.log('[performScroll] No valid hash found')
     return
@@ -238,14 +242,14 @@ const performScroll = async () => {
   // Clear any active filters to ensure the target testimonial is visible
   selectedCategory.value = 'all'
   searchQuery.value = ''
-  
+
   // Wait for re-render after clearing filters
   await nextTick()
-  
+
   // Wait for testimonials to be loaded and DOM to be ready
   let attempts = 0
   const maxAttempts = 100 // 10 seconds max
-  
+
   const findAndScrollToElement = async () => {
     // Check if testimonials are loaded
     if (loading.value || fullTestimonials.value.length === 0) {
@@ -256,34 +260,34 @@ const performScroll = async () => {
       }
       return
     }
-    
+
     const targetElement = document.querySelector(hash)
     console.log('[findAndScrollToElement] Attempt:', attempts, 'Element found:', !!targetElement, 'Hash:', hash)
-    
+
     if (targetElement) {
       console.log('[findAndScrollToElement] SUCCESS - Scrolling to element:', hash)
-      
+
       // Add visual highlight to the targeted testimonial
       targetElement.classList.add('testimonial-highlighted')
-      
+
       // Smooth scroll to the element with offset for fixed headers
       const headerOffset = 120
       const elementPosition = targetElement.getBoundingClientRect().top
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-      
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       })
-      
+
       // Remove highlight after a delay
       setTimeout(() => {
         targetElement.classList.remove('testimonial-highlighted')
       }, 3000)
-      
+
       return // Success, stop trying
     }
-    
+
     // Element not found, try again
     if (attempts < maxAttempts) {
       attempts++
@@ -292,7 +296,7 @@ const performScroll = async () => {
       console.log('[findAndScrollToElement] FAILED - Max attempts reached, element not found:', hash)
     }
   }
-  
+
   await findAndScrollToElement()
 }
 
@@ -300,7 +304,7 @@ const performScroll = async () => {
 onMounted(() => {
   console.log('[onMounted] Initial scroll attempt')
   debouncedScrollToTestimonial(200)
-  
+
   // Add router afterEach hook to handle navigation completion
   const removeAfterEach = router.afterEach((to) => {
     console.log('[router.afterEach] Navigation completed to:', to.path, 'hash:', to.hash)
@@ -308,7 +312,7 @@ onMounted(() => {
       debouncedScrollToTestimonial(300)
     }
   })
-  
+
   // Cleanup on unmount
   onBeforeUnmount(() => {
     removeAfterEach()
@@ -319,14 +323,14 @@ onMounted(() => {
 })
 
 // Single comprehensive watcher for all navigation changes
-watch([() => route.fullPath, () => loading.value, () => fullTestimonials.value.length], 
+watch([() => route.fullPath, () => loading.value, () => fullTestimonials.value.length],
   ([newPath, isLoading, testimonialsCount], [oldPath, oldLoading, oldCount]) => {
     console.log('[comprehensive watcher] Path:', newPath, 'Loading:', isLoading, 'Testimonials:', testimonialsCount)
-    
+
     const hasTestimonialHash = newPath && newPath.includes('/about/testimonials#testimonial-')
     const testimonialsJustLoaded = oldLoading && !isLoading && testimonialsCount > 0
     const pathChanged = newPath !== oldPath
-    
+
     if (hasTestimonialHash && (pathChanged || testimonialsJustLoaded)) {
       const delay = pathChanged ? 400 : 200 // Longer delay for navigation vs. loading
       console.log('[comprehensive watcher] Triggering scroll with delay:', delay)
@@ -541,6 +545,19 @@ const print = () => {
   margin-bottom: 0.25rem;
 }
 
+.testimonial-relationship {
+  font-size: 0.85rem;
+  color: rgba(var(--v-theme-primary), 0.8);
+  margin-bottom: 0.25rem;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+
+  .v-icon {
+    color: rgba(var(--v-theme-primary), 0.7);
+  }
+}
+
 .testimonial-date {
   font-size: 0.8rem;
   color: rgba(var(--v-theme-on-surface), 0.6);
@@ -566,7 +583,7 @@ const print = () => {
 // No results styling
 .no-results {
   color: rgba(var(--v-theme-on-surface), 0.6);
-  
+
   .v-icon {
     color: rgba(var(--v-theme-on-surface), 0.4);
   }
@@ -580,7 +597,7 @@ const print = () => {
   box-shadow: 0 4px 20px rgba(var(--v-theme-primary), 0.15) !important;
   transition: all 0.6s ease !important;
   transform: scale(1.02) !important;
-  
+
   // Smooth fade-out animation
   &.testimonial-highlighted {
     animation: highlightFade 3s ease-in-out;
@@ -620,6 +637,11 @@ const print = () => {
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
+  }
+
+  .testimonial-relationship {
+    justify-content: center;
+    text-align: center;
   }
 }
 </style>

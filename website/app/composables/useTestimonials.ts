@@ -2,6 +2,11 @@ import { ref, computed } from 'vue'
 import { computedAsync } from '@vueuse/core'
 import fm from 'front-matter'
 
+export interface Position {
+  title: string
+  company: string
+}
+
 export interface TestimonialData {
   name: string
   title: string
@@ -15,6 +20,9 @@ export interface TestimonialData {
   date?: string
   featured?: boolean
   category?: string[]
+  enabled?: boolean
+  relationship?: string
+  positions?: Position[]
 }
 
 export const useTestimonials = () => {
@@ -49,8 +57,14 @@ export const useTestimonials = () => {
     error.value = null
 
     try {
-      // List of testimonial files (could be made dynamic in the future)
-      const testimonialFiles = ['greg-holt', 'cherif-jazra', 'dylan-huang', 'jim-walker', 'Jeffrey-Fischer', 'Aaron-Aung']
+      // Dynamically discover all testimonial files
+      const testimonialModules = import.meta.glob('~/pages/about/content-testimonials/*.md', { as: 'raw' })
+      
+      // Extract filenames without extension from the module paths
+      const testimonialFiles = Object.keys(testimonialModules).map(path => {
+        const fileName = path.split('/').pop()?.replace('.md', '') || ''
+        return fileName
+      }).filter(Boolean)
 
       const loadedTestimonials = await Promise.all(
         testimonialFiles.map(fileName => loadTestimonialFile(fileName))
@@ -58,6 +72,7 @@ export const useTestimonials = () => {
 
       const validTestimonials = loadedTestimonials
         .filter((t): t is TestimonialData => t !== null)
+        .filter(t => t.enabled !== false) // Filter out disabled testimonials
         .sort((a, b) => (a.order || 999) - (b.order || 999))
 
       testimonials.value = validTestimonials

@@ -71,6 +71,10 @@
                         <div class="author-title">
                           {{ testimonial.title }}{{ testimonial.company ? ` @ ${testimonial.company}` : '' }}
                         </div>
+                        <div v-if="testimonial.relationship" class="testimonial-relationship">
+                          <v-icon size="small" class="mr-1">mdi-account-group</v-icon>
+                          {{ testimonial.relationship }}
+                        </div>
                         <div v-if="testimonial.date" class="testimonial-date">
                           {{ testimonial.date }}
                         </div>
@@ -248,6 +252,19 @@ onBeforeUnmount(() => {
     margin-bottom: 0.25rem;
   }
 
+  .testimonial-relationship {
+    font-size: 0.8rem;
+    color: rgba(var(--v-theme-primary), 0.8);
+    margin-bottom: 0.25rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    
+    .v-icon {
+      color: rgba(var(--v-theme-primary), 0.7);
+    }
+  }
+
   .testimonial-date {
     font-size: 0.8rem;
     color: rgba(var(--v-theme-on-surface), 0.6);
@@ -304,6 +321,10 @@ onBeforeUnmount(() => {
 
     .author-details {
       text-align: center;
+    }
+
+    .testimonial-relationship {
+      justify-content: center;
     }
   }
 }

@@ -8,6 +8,12 @@ excerpt: "I had the privilege of working under Manas's leadership at C3.ai, wher
 featured: true
 category: ["leadership", "engineering", "management"]
 date: "December 14, 2023"
+enabled: true
+relationship: "Dylan reported directly to Manas at C3 AI"
+positions:
+  - title: "Senior Software Engineer"
+    company: "C3 AI"
+    relationship: ["direct_report"]
 ---
 
 "I had the privilege of working under Manas’s leadership at C3.ai, where I witnessed firsthand his exceptional organizational skills and passion for engineering excellence. When Manas joined our team, we were facing a daunting array of tasks with little structure in place to manage them. With remarkable efficiency and dedication, he took the reins, swiftly organizing our team to maximize productivity and minimize distractions.
