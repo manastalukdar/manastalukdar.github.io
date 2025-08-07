@@ -608,6 +608,14 @@ def json_serial(obj):
 
     if isinstance(obj, (datetime, date)):
         return obj.isoformat()
+    # Handle numpy types
+    import numpy as np
+    if isinstance(obj, np.floating):
+        return float(obj)
+    if isinstance(obj, np.integer):
+        return int(obj)
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
     raise TypeError("Type %s not serializable" % type(obj))
 
 
