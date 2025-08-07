@@ -295,6 +295,21 @@ try:
 except Exception as e:
     print(f'stopwords download failed: {e}')
     raise
+
+try:
+    nltk.download('wordnet', quiet=True)
+    print('wordnet downloaded')
+except Exception as e:
+    print(f'wordnet download failed: {e}')
+    raise
+
+try:
+    nltk.download('omw-1.4', quiet=True)
+    print('omw-1.4 downloaded')
+except Exception as e:
+    print(f'omw-1.4 download failed: {e}')
+    # Not critical, continue
+    pass
 " || {
         log_error "Failed to download required NLTK data"
         exit 1

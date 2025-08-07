@@ -180,8 +180,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/nltk_data
-          key: nltk-data-${{ runner.os }}-v2
+          key: nltk-data-${{ runner.os }}-v3
           restore-keys: |
+            nltk-data-${{ runner.os }}-v3-
             nltk-data-${{ runner.os }}-
             
       - name: Cache Hugging Face Transformers
