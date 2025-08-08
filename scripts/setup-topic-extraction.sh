@@ -476,18 +476,7 @@ run_unified_topic_setup() {
 
     # Early exit for skip-discovery mode if models already exist and are up-to-date
     if [ "$SKIP_DISCOVERY" = true ]; then
-        # Check if we can skip everything based on existing topic models
-        if ! should_regenerate_topics; then
-            log_success "Cached topic models are up-to-date - skipping all setup"
-            return 0
-        else
-            log_info "Topic models need regeneration despite --skip-discovery flag"
-        fi
-    fi
-    
-    # If not skipping, check if regeneration is actually needed
-    if [ "$SKIP_DISCOVERY" != true ] && ! should_regenerate_topics; then
-        log_success "Topic models are up-to-date - skipping regeneration"
+        log_info "Skipping topic discovery (--skip-discovery flag used)"
         return 0
     fi
 
@@ -579,6 +568,7 @@ except Exception as e:
 
 # Generate enhanced metadata
 generate_enhanced_metadata() {
+    local topic_models_regenerated="$1"
     show_progress 6 7 "Generating enhanced blog metadata"
 
     source "$VENV_PATH/bin/activate"
@@ -588,6 +578,9 @@ generate_enhanced_metadata() {
 
     # Check if metadata regeneration is needed
     metadata_file="$WEBSITE_DIR/public/blogdata/metadata/blog_metadata.json"
+    local skip_metadata=false
+    local use_skip_topics=false
+    
     if [ "$FORCE_REGENERATION" = false ] && [ -f "$metadata_file" ]; then
         # Check if any blog posts are newer than metadata
         local newest_blog_file=$(find "$BLOG_FOLDER" -name "*.md" -type f -printf '%T@ %p\n' 2>/dev/null | sort -n | tail -1 | cut -d' ' -f2-)
@@ -598,9 +591,20 @@ generate_enhanced_metadata() {
             
             if [ "$metadata_time" -ge "$blog_time" ]; then
                 log_success "Metadata is up-to-date - skipping regeneration"
-                return 0
+                skip_metadata=true
             fi
         fi
+    fi
+    
+    # If metadata doesn't need regeneration, skip entirely
+    if [ "$skip_metadata" = true ]; then
+        return 0
+    fi
+    
+    # If topic models weren't regenerated, use --skip-topics to avoid expensive topic extraction
+    if [ "$topic_models_regenerated" = false ]; then
+        use_skip_topics=true
+        log_info "Topic models are cached - using skip-topics mode for faster metadata generation"
     fi
 
     # Backup existing metadata
@@ -610,11 +614,20 @@ generate_enhanced_metadata() {
         log_info "Backed up existing metadata to $backup_file"
     fi
 
-    log_info "Generating enhanced metadata with dynamic topics..."
-    python "$SCRIPTS_DIR/create_blog_metadata.py" || {
-        log_error "Enhanced metadata generation failed"
-        exit 1
-    }
+    # Run metadata generation with appropriate flags
+    if [ "$use_skip_topics" = true ]; then
+        log_info "Generating metadata with cached topic models (no topic extraction)..."
+        python "$SCRIPTS_DIR/create_blog_metadata.py" --skip-topics || {
+            log_error "Enhanced metadata generation failed"
+            exit 1
+        }
+    else
+        log_info "Generating enhanced metadata with dynamic topics..."
+        python "$SCRIPTS_DIR/create_blog_metadata.py" || {
+            log_error "Enhanced metadata generation failed"
+            exit 1
+        }
+    fi
 
     log_success "Enhanced metadata generated successfully"
 
@@ -705,8 +718,18 @@ main() {
     install_dependencies
     download_models_and_data
     create_directories
-    run_unified_topic_setup
-    generate_enhanced_metadata
+    
+    # Check if topic models need regeneration and store result
+    local topic_models_regenerated=false
+    if should_regenerate_topics || [ "$FORCE_REGENERATION" = true ]; then
+        run_unified_topic_setup
+        topic_models_regenerated=true
+    else
+        log_success "Topic models are up-to-date - skipping topic setup"
+    fi
+    
+    # Generate metadata based on topic model state
+    generate_enhanced_metadata "$topic_models_regenerated"
     run_validation
 
     # Show completion message
