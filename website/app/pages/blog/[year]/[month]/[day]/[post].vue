@@ -31,12 +31,9 @@ const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
 const baseUrl = runtimeConfig.public.baseUrl;
 
-// During static generation (nuxt generate), use relative paths instead of full URLs
-// to avoid 404 errors when fetching local content that hasn't been deployed yet
-// Check multiple conditions to detect static generation reliably
-const isStaticGeneration = process.prerender || 
-                          (process.server && process.env.NITRO_PRESET === 'static') ||
-                          (process.server && process.env.npm_lifecycle_event === 'generate');
+// Only use relative paths during actual static generation (nuxt generate)
+// Don't interfere with development server or SSR mode
+const isStaticGeneration = process.env.npm_lifecycle_event === 'generate';
 const contentBaseUrl = isStaticGeneration ? '' : baseUrl;
 //console.log(baseUrl)
 async function setupBlogMetadata() {

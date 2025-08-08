@@ -9,11 +9,9 @@ export const useSeriesMetadataStore = defineStore('SeriesMetadata', {
   state: initialState,
   actions: {
     async setupSeriesMetadata(baseURL: string) {
-      // During static generation, use relative path to avoid 404 errors
-      // Check multiple conditions to detect static generation reliably
-      const isStaticGeneration = process.prerender || 
-                                (process.server && process.env.NITRO_PRESET === 'static') ||
-                                (process.server && process.env.npm_lifecycle_event === 'generate');
+      // Only use filesystem reading during actual static generation (nuxt generate)
+      // Don't interfere with development server or SSR mode
+      const isStaticGeneration = process.env.npm_lifecycle_event === 'generate';
       
       try {
         let data: any;
