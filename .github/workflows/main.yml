@@ -266,12 +266,12 @@ jobs:
           fi
           echo "✅ Blog metadata generated successfully"
 
-      - name: Upload Blog Metadata Artifact
+      - name: Upload Blog Content and Metadata Artifact
         uses: actions/upload-artifact@v4
         with:
           name: blog-metadata
           path: |
-            website/public/blogdata/metadata/
+            website/public/blogdata/
             website/config/topic_models/
           retention-days: 1
 
@@ -297,15 +297,15 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Download Blog Metadata
+      - name: Download Blog Content and Metadata
         uses: actions/download-artifact@v5
         with:
           name: blog-metadata
           path: website/
 
-      - name: Validate Blog Metadata
+      - name: Validate Blog Content and Metadata
         run: |
-          echo "🔍 Validating blog metadata for build..."
+          echo "🔍 Validating blog content and metadata for build..."
 
           # Check if metadata was downloaded from artifact
           if [ -f "website/public/blogdata/metadata/blog_metadata.json" ]; then
@@ -333,12 +333,20 @@ jobs:
             echo "⚠️  Using empty metadata - build may have missing content"
           fi
 
+          # Validate blog content files exist
+          BLOG_FILE_COUNT=$(find website/public/blogdata -name "*.md" -type f | wc -l)
+          if [ "$BLOG_FILE_COUNT" -gt 0 ]; then
+            echo "✅ Found $BLOG_FILE_COUNT blog content files"
+          else
+            echo "⚠️  No blog content files found - this may indicate an artifact transfer issue"
+          fi
+
           # Final verification
           if [ ! -f "website/public/blogdata/metadata/blog_metadata.json" ]; then
             echo "❌ FATAL: Could not ensure metadata file exists"
             exit 1
           else
-            echo "✅ Metadata validation complete - build can proceed"
+            echo "✅ Blog content and metadata validation complete - build can proceed"
           fi
 
       - name: Display Versions
