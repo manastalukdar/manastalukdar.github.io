@@ -29,7 +29,15 @@ const globalDataStore = useGlobalDataStore();
 const blogMetadataStore = useBlogMetadataStore();
 const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
-const baseUrl= runtimeConfig.public.baseUrl;
+const baseUrl = runtimeConfig.public.baseUrl;
+
+// During static generation (nuxt generate), use relative paths instead of full URLs
+// to avoid 404 errors when fetching local content that hasn't been deployed yet
+// Check multiple conditions to detect static generation reliably
+const isStaticGeneration = process.prerender || 
+                          (process.server && process.env.NITRO_PRESET === 'static') ||
+                          (process.server && process.env.npm_lifecycle_event === 'generate');
+const contentBaseUrl = isStaticGeneration ? '' : baseUrl;
 //console.log(baseUrl)
 async function setupBlogMetadata() {
     try {
@@ -160,10 +168,14 @@ const postMetadata = blogMetadataStore.getPostMetadata(
 );
 let fileContent;
 try {
-  fileContent = await $fetch(baseUrl+ '/blogdata/' + postMetadata.path);
+  // Use appropriate base URL based on context (static generation vs runtime)
+  const fetchUrl = contentBaseUrl + '/blogdata/' + postMetadata.path;
+  fileContent = await $fetch(fetchUrl);
 } catch (error) {
   // eslint-disable-next-line no-console
-  console.log('Error fetching blog post content:', error);
+  console.log(`Error fetching blog post content: ${error}`);
+  console.log(`Attempted URL: ${contentBaseUrl}/blogdata/${postMetadata.path}`);
+  console.log(`Static generation mode: ${isStaticGeneration}`);
   fileContent = '';
 }
 const res = fm(fileContent);

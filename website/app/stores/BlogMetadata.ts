@@ -13,11 +13,22 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
   actions: {
     async setupBlogMetadata(baseURL: string) {
       try {
-        const data: any = await $fetch(baseURL + '/blogdata/metadata/blog_metadata.json')
+        // During static generation, use relative path to avoid 404 errors
+        // Check multiple conditions to detect static generation reliably
+        const isStaticGeneration = process.prerender || 
+                                  (process.server && process.env.NITRO_PRESET === 'static') ||
+                                  (process.server && process.env.npm_lifecycle_event === 'generate');
+        const fetchUrl = isStaticGeneration 
+          ? '/blogdata/metadata/blog_metadata.json'
+          : baseURL + '/blogdata/metadata/blog_metadata.json';
+        
+        const data: any = await $fetch(fetchUrl)
         this.blogMetadata = data
       } catch (error) {
         // eslint-disable-next-line no-console
         console.log('Error fetching blog metadata:', error)
+        console.log('Static generation mode:', isStaticGeneration)
+        console.log('Attempted URL:', fetchUrl)
       }
     },
 
