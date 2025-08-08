@@ -106,6 +106,43 @@ validate-ci-setup:
 	./scripts/update-blog-metadata.sh --metadata-only --skip-topics
 	@echo "✅ CI setup validation complete"
 
+# Python Dependency Management
+# =============================
+
+# Check for Python package updates (like ncu for npm)
+check-python-updates:
+	@echo "Checking for Python package updates..."
+	@bash -c "source .venv/bin/activate && pur -r website/scripts/python-requirements.txt --dry-run"
+
+# Update Python packages (interactive)
+update-python-interactive:
+	@echo "Updating Python packages interactively..."
+	@bash -c "source .venv/bin/activate && pur -r website/scripts/python-requirements.txt --interactive"
+
+# Update Python packages (all)
+update-python:
+	@echo "Updating all Python packages..."
+	@bash -c "source .venv/bin/activate && pur -r website/scripts/python-requirements.txt"
+
+# Update only specific Python packages
+update-python-specific:
+	@echo "Usage: make update-python-specific PACKAGES='package1,package2'"
+	@if [ -z "$(PACKAGES)" ]; then \
+		echo "Error: Please specify PACKAGES='package1,package2'"; \
+		exit 1; \
+	fi
+	@bash -c "source .venv/bin/activate && pur -r website/scripts/python-requirements.txt --only $(PACKAGES)"
+
+# Update only minor versions for critical packages
+update-python-minor:
+	@echo "Updating Python packages (minor versions only for critical packages)..."
+	@bash -c "source .venv/bin/activate && pur -r website/scripts/python-requirements.txt --minor torch,transformers,sentence-transformers"
+
+# Update only patch versions for critical packages
+update-python-patch:
+	@echo "Updating Python packages (patch versions only for critical packages)..."
+	@bash -c "source .venv/bin/activate && pur -r website/scripts/python-requirements.txt --patch torch,transformers,sentence-transformers,numpy"
+
 # Utility Commands
 clean-topics:
 	@echo "Cleaning generated topic models and backups..."
@@ -179,6 +216,14 @@ help:
 	@echo "  ci-metadata-full        - Full metadata with discovery for CI"
 	@echo "  ci-build                - Optimized CI build with minimal processing"
 	@echo ""
+	@echo "Python Dependency Management:"
+	@echo "  check-python-updates        - Check for Python package updates (like ncu)"
+	@echo "  update-python-interactive   - Update Python packages interactively"
+	@echo "  update-python               - Update all Python packages"
+	@echo "  update-python-specific      - Update specific packages (set PACKAGES='pkg1,pkg2')"
+	@echo "  update-python-minor         - Update minor versions only for critical packages"
+	@echo "  update-python-patch         - Update patch versions only for critical packages"
+	@echo ""
 	@echo "Website Development:"
 	@echo "  dev                  - Start development server"
 	@echo "  build                - Build the application"
@@ -195,4 +240,4 @@ help:
 	@echo "  frontend             - WIP"
 	@echo "  all                  - Run backend, cli, frontend"
 
-.PHONY: backend cli frontend all setup-topics setup-topics-force update-topics-and-metadata update-metadata-only update-metadata-minimal update-metadata-incremental update-topics-only update-topics-force update-topic-config build-with-topics generate-with-topics dev-with-topics dev-fast ci-setup ci-metadata-minimal ci-metadata-full ci-build test-topics test-metadata-flags validate-ci-setup clean-topics backup-topics dev build generate preview clean install postinstall lint-fix help
+.PHONY: backend cli frontend all setup-topics setup-topics-force update-topics-and-metadata update-metadata-only update-metadata-minimal update-metadata-incremental update-topics-only update-topics-force update-topic-config build-with-topics generate-with-topics dev-with-topics dev-fast ci-setup ci-metadata-minimal ci-metadata-full ci-build test-topics test-metadata-flags validate-ci-setup check-python-updates update-python-interactive update-python update-python-specific update-python-minor update-python-patch clean-topics backup-topics dev build generate preview clean install postinstall lint-fix help

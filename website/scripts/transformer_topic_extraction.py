@@ -122,7 +122,10 @@ class UnifiedTopicExtractor:
                 return json.load(f)
         except FileNotFoundError:
             print(f"Info: Transformer topics not found at {topics_path} (will be created)")
-            return {'discoveredTopics': {}, 'topicStats': {}, 'documentAssignments': []}
+            # Create minimal transformer topics file from static categories
+            minimal_topics = self._create_minimal_transformer_topics()
+            self._save_transformer_topics(minimal_topics)
+            return minimal_topics
     
     def _initialize_category_embeddings(self):
         """Create or load embeddings for static categories."""
@@ -171,6 +174,37 @@ class UnifiedTopicExtractor:
             }, f)
         
         print(f"Created and saved embeddings for {len(self.category_names)} categories")
+    
+    def _create_minimal_transformer_topics(self) -> Dict:
+        """Create minimal transformer topics from static categories."""
+        minimal_topics = {
+            'discoveredTopics': {},
+            'topicStats': {},
+            'documentAssignments': [],
+            'metadata': {
+                'method': 'static-categories',
+                'created': 'initialization',
+                'categories_count': len(self.static_config.get('topicCategories', {}))
+            }
+        }
+        
+        # Convert static categories to transformer topics format
+        categories = self.static_config.get('topicCategories', {})
+        for category_name, keywords in categories.items():
+            if isinstance(keywords, list) and keywords:
+                minimal_topics['discoveredTopics'][category_name] = {
+                    'keywords': keywords[:10],  # Limit to top 10
+                    'weight': 1.0,
+                    'method': 'static-category',
+                    'confidence': 1.0
+                }
+                minimal_topics['topicStats'][category_name] = {
+                    'document_count': 0,
+                    'avg_confidence': 1.0,
+                    'keyword_count': len(keywords[:10])
+                }
+        
+        return minimal_topics
     
     def preprocess_text(self, text: str) -> str:
         """Clean and preprocess text for analysis."""

@@ -28,8 +28,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Dependencies
 
+**Node.js Dependencies:**
 - `cd website && npm install` - Install dependencies
 - `cd website && npm run postinstall` - Run post-install tasks
+
+**Python Dependencies:**
+- `make check-python-updates` - Check for Python package updates (equivalent to `ncu` for npm)
+- `make update-python-interactive` - Update Python packages interactively with prompts
+- `make update-python` - Update all Python packages in requirements.txt
+- `make update-python-specific PACKAGES='numpy,torch'` - Update only specific packages
+- `make update-python-minor` - Update minor versions only for critical packages
+- `make update-python-patch` - Update patch versions only for critical packages
 
 ## Project Architecture
 

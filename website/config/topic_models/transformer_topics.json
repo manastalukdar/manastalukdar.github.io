@@ -1,0 +1,182 @@
+{
+  "discoveredTopics": {
+    "artificial-intelligence": {
+      "keywords": [
+        "ai",
+        "artificial intelligence",
+        "bert",
+        "computer vision",
+        "deep",
+        "deep learning",
+        "generative ai",
+        "gpt",
+        "iframe-container-youtube",
+        "large language models"
+      ],
+      "weight": 1.0,
+      "method": "static-category",
+      "confidence": 1.0
+    },
+    "data-engineering": {
+      "keywords": [
+        "airflow",
+        "batch processing",
+        "data",
+        "data lake",
+        "data pipeline",
+        "data processing",
+        "data quality",
+        "data warehouse",
+        "databricks",
+        "etl"
+      ],
+      "weight": 1.0,
+      "method": "static-category",
+      "confidence": 1.0
+    },
+    "software-architecture": {
+      "keywords": [
+        "ability",
+        "api design",
+        "architecture",
+        "caching",
+        "database design",
+        "design patterns",
+        "distributed systems",
+        "fault tolerance",
+        "load balancing",
+        "microservices"
+      ],
+      "weight": 1.0,
+      "method": "static-category",
+      "confidence": 1.0
+    },
+    "cloud-computing": {
+      "keywords": [
+        "aws",
+        "azure",
+        "ci/cd",
+        "cloud native",
+        "containerization",
+        "devops",
+        "docker",
+        "gcp",
+        "infrastructure",
+        "kubernetes"
+      ],
+      "weight": 1.0,
+      "method": "static-category",
+      "confidence": 1.0
+    },
+    "leadership-management": {
+      "keywords": [
+        "career development",
+        "engineering management",
+        "hiring",
+        "mentorship",
+        "organizational growth",
+        "performance management",
+        "team building",
+        "team leadership",
+        "technical leadership"
+      ],
+      "weight": 1.0,
+      "method": "static-category",
+      "confidence": 1.0
+    },
+    "software-development": {
+      "keywords": [
+        "algorithms",
+        "code review",
+        "coding",
+        "data structures",
+        "debugging",
+        "development",
+        "programming",
+        "software engineering",
+        "testing"
+      ],
+      "weight": 1.0,
+      "method": "static-category",
+      "confidence": 1.0
+    },
+    "data-science": {
+      "keywords": [
+        "a/b testing",
+        "analytics",
+        "data analysis",
+        "data visualization",
+        "experimentation",
+        "feature engineering",
+        "model",
+        "modeling",
+        "models",
+        "statistics"
+      ],
+      "weight": 1.0,
+      "method": "static-category",
+      "confidence": 1.0
+    },
+    "technology-trends": {
+      "keywords": [
+        "digital transformation",
+        "emerging technologies",
+        "future of technology",
+        "industry trends",
+        "innovation",
+        "research"
+      ],
+      "weight": 1.0,
+      "method": "static-category",
+      "confidence": 1.0
+    }
+  },
+  "topicStats": {
+    "artificial-intelligence": {
+      "document_count": 0,
+      "avg_confidence": 1.0,
+      "keyword_count": 10
+    },
+    "data-engineering": {
+      "document_count": 0,
+      "avg_confidence": 1.0,
+      "keyword_count": 10
+    },
+    "software-architecture": {
+      "document_count": 0,
+      "avg_confidence": 1.0,
+      "keyword_count": 10
+    },
+    "cloud-computing": {
+      "document_count": 0,
+      "avg_confidence": 1.0,
+      "keyword_count": 10
+    },
+    "leadership-management": {
+      "document_count": 0,
+      "avg_confidence": 1.0,
+      "keyword_count": 9
+    },
+    "software-development": {
+      "document_count": 0,
+      "avg_confidence": 1.0,
+      "keyword_count": 9
+    },
+    "data-science": {
+      "document_count": 0,
+      "avg_confidence": 1.0,
+      "keyword_count": 10
+    },
+    "technology-trends": {
+      "document_count": 0,
+      "avg_confidence": 1.0,
+      "keyword_count": 6
+    }
+  },
+  "documentAssignments": [],
+  "metadata": {
+    "method": "static-categories",
+    "created": "initialization",
+    "categories_count": 8
+  }
+}

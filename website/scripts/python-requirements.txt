@@ -16,6 +16,9 @@ torch>=2.0.0,<2.9.0
 transformers>=4.20.0
 sentence-transformers>=2.2.0
 
+# Development tools
+pur>=7.3.0  # Python dependency updater (equivalent to ncu for npm)
+
 # Advanced topic modeling - made optional due to Python 3.13 constraints
 # These will be installed individually with fallback handling in setup script
 # bertopic>=0.15.0  
