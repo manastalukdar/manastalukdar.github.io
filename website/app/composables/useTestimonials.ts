@@ -58,7 +58,7 @@ export const useTestimonials = () => {
 
     try {
       // Dynamically discover all testimonial files
-      const testimonialModules = import.meta.glob('~/pages/about/content-testimonials/*.md', { as: 'raw' })
+      const testimonialModules = import.meta.glob('~/pages/about/content-testimonials/*.md', { query: '?raw', import: 'default' })
       
       // Extract filenames without extension from the module paths
       const testimonialFiles = Object.keys(testimonialModules).map(path => {

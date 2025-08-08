@@ -66,7 +66,7 @@ const title =
   postFormatType() + ' | ' + currentPage + ' || ' + appOwner
 const description = 'Blog posts of format ' + postFormatType()
 const url =
-  baseUrl + blogDynamicItemsPostFormat + postFormatType() + '/'
+  baseUrl + blogDynamicItemsPostFormat + (route.params.type || '') + '/'
 const breadcrumbsData = [
   {
     title: 'Home',
@@ -81,7 +81,7 @@ const breadcrumbsData = [
   {
     title: 'Blog Posts by Post-Format',
     disabled: false,
-    href: blogDynamicItemsPostFormat + postFormatType() + '/',
+    href: blogDynamicItemsPostFormat + (route.params.type || '') + '/',
   },
 ];
 const breadcrumbsStructuredDataArray = breadcrumbsData.map(

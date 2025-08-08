@@ -9,23 +9,43 @@ export const useSeriesMetadataStore = defineStore('SeriesMetadata', {
   state: initialState,
   actions: {
     async setupSeriesMetadata(baseURL: string) {
+      // During static generation, use relative path to avoid 404 errors
+      // Check multiple conditions to detect static generation reliably
+      const isStaticGeneration = process.prerender || 
+                                (process.server && process.env.NITRO_PRESET === 'static') ||
+                                (process.server && process.env.npm_lifecycle_event === 'generate');
+      
       try {
-        // During static generation, use relative path to avoid 404 errors
-        // Check multiple conditions to detect static generation reliably
-        const isStaticGeneration = process.prerender || 
-                                  (process.server && process.env.NITRO_PRESET === 'static') ||
-                                  (process.server && process.env.npm_lifecycle_event === 'generate');
-        const fetchUrl = isStaticGeneration 
-          ? '/blogdata/metadata/series_metadata.json'
-          : baseURL + '/blogdata/metadata/series_metadata.json';
+        let data: any;
         
-        const data: any = await $fetch(fetchUrl)
+        if (isStaticGeneration && process.server) {
+          // During static generation on server, read file directly from filesystem
+          try {
+            const fs = await import('fs')
+            const path = await import('path')
+            const filePath = path.resolve('./public/blogdata/metadata/series_metadata.json')
+            const fileContent = fs.readFileSync(filePath, 'utf8')
+            data = JSON.parse(fileContent)
+          } catch (fsError) {
+            console.log('Could not read series metadata from filesystem during static generation:', fsError)
+            // Fallback to empty array for now
+            data = []
+          }
+        } else {
+          // Runtime: use $fetch with appropriate URL
+          const fetchUrl = isStaticGeneration 
+            ? '/blogdata/metadata/series_metadata.json'
+            : baseURL + '/blogdata/metadata/series_metadata.json';
+          data = await $fetch(fetchUrl)
+        }
+        
         this.seriesMetadata = data
       } catch (error) {
         // eslint-disable-next-line no-console
         console.log('Error fetching series metadata:', error)
         console.log('Static generation mode:', isStaticGeneration)
-        console.log('Attempted URL:', fetchUrl)
+        // Gracefully handle missing metadata during static generation
+        this.seriesMetadata = []
       }
     },
 
