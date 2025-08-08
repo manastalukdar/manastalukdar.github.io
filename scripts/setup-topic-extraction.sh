@@ -118,6 +118,57 @@ log_error() {
     echo -e "${RED}[ERROR]${NC} $1"
 }
 
+# Check if topic models need regeneration based on blog content changes
+should_regenerate_topics() {
+    if [ "$FORCE_REGENERATION" = true ]; then
+        return 0  # Force regeneration
+    fi
+    
+    # Check for essential topic model files
+    local topics_file="$MODELS_DIR/discovered_topics.json"
+    local transformer_topics="$MODELS_DIR/transformer_topics.json"
+    local category_embeddings="$MODELS_DIR/category_embeddings.pkl"
+    
+    # If no topic model files exist, regeneration is needed
+    if [ ! -f "$topics_file" ] && [ ! -f "$transformer_topics" ] && [ ! -f "$category_embeddings" ]; then
+        log_info "No topic model files found - regeneration needed"
+        return 0
+    fi
+    
+    # Find the newest topic model file to compare against blog content
+    local newest_model_time=0
+    for model_file in "$topics_file" "$transformer_topics" "$category_embeddings"; do
+        if [ -f "$model_file" ]; then
+            local model_time=$(stat -c %Y "$model_file" 2>/dev/null || echo "0")
+            if [ "$model_time" -gt "$newest_model_time" ]; then
+                newest_model_time="$model_time"
+            fi
+        fi
+    done
+    
+    # Check if any blog posts are newer than the newest topic model
+    local newest_blog_file=$(find "$BLOG_FOLDER" -name "*.md" -type f -printf '%T@ %p\n' 2>/dev/null | sort -n | tail -1 | cut -d' ' -f2-)
+    
+    if [ -n "$newest_blog_file" ]; then
+        local blog_time=$(stat -c %Y "$newest_blog_file" 2>/dev/null || echo "0")
+        if [ "$blog_time" -gt "$newest_model_time" ]; then
+            log_info "Blog content is newer than existing topic models - regeneration needed"
+            return 0
+        fi
+    fi
+    
+    log_info "Existing topic models are up to date - no regeneration needed"
+    return 1  # No regeneration needed
+}
+
+log_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+log_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
 log_step() {
     echo -e "${PURPLE}[STEP]${NC} $1"
 }
@@ -423,11 +474,24 @@ create_directories() {
 run_unified_topic_setup() {
     show_progress 5 7 "Setting up unified transformer-based topic extraction"
 
+    # Early exit for skip-discovery mode if models already exist and are up-to-date
     if [ "$SKIP_DISCOVERY" = true ]; then
-        log_info "Skipping topic discovery (--skip-discovery flag used)"
+        # Check if we can skip everything based on existing topic models
+        if ! should_regenerate_topics; then
+            log_success "Cached topic models are up-to-date - skipping all setup"
+            return 0
+        else
+            log_info "Topic models need regeneration despite --skip-discovery flag"
+        fi
+    fi
+    
+    # If not skipping, check if regeneration is actually needed
+    if [ "$SKIP_DISCOVERY" != true ] && ! should_regenerate_topics; then
+        log_success "Topic models are up-to-date - skipping regeneration"
         return 0
     fi
 
+    log_info "Topic model regeneration needed - proceeding with setup"
     source "$VENV_PATH/bin/activate"
     
     # Change to project root directory for consistent path handling  
@@ -522,8 +586,24 @@ generate_enhanced_metadata() {
     # Change to project root directory since create_blog_metadata.py expects to run from there
     cd "$PROJECT_ROOT"
 
-    # Backup existing metadata
+    # Check if metadata regeneration is needed
     metadata_file="$WEBSITE_DIR/public/blogdata/metadata/blog_metadata.json"
+    if [ "$FORCE_REGENERATION" = false ] && [ -f "$metadata_file" ]; then
+        # Check if any blog posts are newer than metadata
+        local newest_blog_file=$(find "$BLOG_FOLDER" -name "*.md" -type f -printf '%T@ %p\n' 2>/dev/null | sort -n | tail -1 | cut -d' ' -f2-)
+        
+        if [ -n "$newest_blog_file" ]; then
+            local blog_time=$(stat -c %Y "$newest_blog_file" 2>/dev/null || echo "0")
+            local metadata_time=$(stat -c %Y "$metadata_file" 2>/dev/null || echo "0")
+            
+            if [ "$metadata_time" -ge "$blog_time" ]; then
+                log_success "Metadata is up-to-date - skipping regeneration"
+                return 0
+            fi
+        fi
+    fi
+
+    # Backup existing metadata
     if [ -f "$metadata_file" ] && [ "$FORCE_REGENERATION" = false ]; then
         backup_file="$WEBSITE_DIR/public/blogdata/metadata/blog_metadata_backup_$(date +%Y%m%d_%H%M%S).json"
         cp "$metadata_file" "$backup_file"
