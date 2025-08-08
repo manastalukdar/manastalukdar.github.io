@@ -19,5 +19,5 @@ sentence-transformers==3.0.1
 
 # Advanced topic modeling - latest versions for Python 3.13 compatibility
 bertopic==0.17.3
-umap-learn==0.5.7
+umap-learn==0.5.9.post2
 hdbscan==0.8.40
