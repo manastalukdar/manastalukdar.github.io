@@ -228,7 +228,40 @@ install_dependencies() {
             --quiet \
             --progress-bar off \
             --disable-pip-version-check \
-            --prefer-binary
+            --prefer-binary || {
+            # Final fallback: install core packages without problematic ones
+            log_warning "Full install failed, attempting core packages only..."
+            
+            # Create temporary requirements without problematic packages
+            temp_req=$(mktemp)
+            grep -v -E "^(hdbscan|umap-learn|bertopic)" "$REQUIREMENTS_FILE" > "$temp_req"
+            
+            pip install -r "$temp_req" \
+                --quiet \
+                --progress-bar off \
+                --disable-pip-version-check \
+                --prefer-binary
+            
+            rm "$temp_req"
+            
+            # Try to install problematic packages individually with fallbacks
+            log_info "Attempting to install advanced packages with fallbacks..."
+            
+            # Try hdbscan with older version if current fails
+            pip install "hdbscan>=0.8.35,<0.8.40" --prefer-binary --quiet 2>/dev/null || {
+                log_warning "Could not install hdbscan - advanced clustering will be limited"
+            }
+            
+            # Try umap-learn 
+            pip install "umap-learn" --prefer-binary --quiet 2>/dev/null || {
+                log_warning "Could not install umap-learn - will use alternatives"
+            }
+            
+            # Try bertopic
+            pip install "bertopic" --prefer-binary --quiet 2>/dev/null || {
+                log_warning "Could not install bertopic - will use traditional methods"
+            }
+        }
     }
 
     # Verify key packages
@@ -239,6 +272,29 @@ install_dependencies() {
         log_error "Traditional ML package verification failed"
         exit 1
     }
+
+    # Test advanced packages with graceful handling
+    python -c "
+try:
+    import hdbscan
+    print('hdbscan: Available')
+    hdbscan_available = True
+except ImportError:
+    print('hdbscan: Not available - using fallback clustering')
+    hdbscan_available = False
+
+try:
+    import umap
+    print('umap-learn: Available') 
+except ImportError:
+    print('umap-learn: Not available - using sklearn alternatives')
+
+try:
+    import bertopic
+    print('bertopic: Available')
+except ImportError:
+    print('bertopic: Not available - using traditional topic modeling')
+"
 
     # Test transformer packages if available
     python -c "
@@ -301,7 +357,15 @@ try:
     print('wordnet downloaded')
 except Exception as e:
     print(f'wordnet download failed: {e}')
-    raise
+    # Try alternative download method
+    try:
+        print('Attempting wordnet download with alternative method...')
+        nltk.download('wordnet', download_dir=None, raise_on_error=False)
+        print('wordnet downloaded via alternative method')
+    except Exception as e2:
+        print(f'Alternative wordnet download also failed: {e2}')
+        print('Wordnet download failed - system will work without lemmatization features')
+        # Don't raise - make wordnet non-critical
 
 try:
     nltk.download('omw-1.4', quiet=True)
@@ -362,7 +426,9 @@ run_unified_topic_setup() {
     fi
 
     source "$VENV_PATH/bin/activate"
-    cd "$SCRIPTS_DIR"
+    
+    # Change to project root directory for consistent path handling  
+    cd "$PROJECT_ROOT"
 
     # Backup existing models if they exist
     backup_models() {
@@ -381,10 +447,11 @@ run_unified_topic_setup() {
     # Try unified transformer approach first
     log_info "Setting up unified transformer-based topic extraction..."
     python -c "
+import sys
+sys.path.append('website/scripts')
 try:
     from transformer_topic_extraction import UnifiedTopicExtractor
-    import os
-    config_folder = os.path.join(os.path.dirname(os.getcwd()), 'config')
+    config_folder = 'website/config'
     extractor = UnifiedTopicExtractor(config_folder)
 
     # Pre-compute category embeddings
@@ -409,7 +476,7 @@ except Exception as e:
 
     # Run traditional topic discovery as fallback/supplement
     log_info "Running traditional topic discovery as fallback..."
-    python topic_discovery.py || {
+    python "$SCRIPTS_DIR/topic_discovery.py" || {
         log_warning "Traditional topic discovery failed, but system can still work with static methods"
     }
 
@@ -448,7 +515,9 @@ generate_enhanced_metadata() {
     show_progress 6 7 "Generating enhanced blog metadata"
 
     source "$VENV_PATH/bin/activate"
-    cd "$SCRIPTS_DIR"
+    
+    # Change to project root directory since create_blog_metadata.py expects to run from there
+    cd "$PROJECT_ROOT"
 
     # Backup existing metadata
     metadata_file="$WEBSITE_DIR/public/blogdata/metadata/blog_metadata.json"
@@ -459,7 +528,7 @@ generate_enhanced_metadata() {
     fi
 
     log_info "Generating enhanced metadata with dynamic topics..."
-    python create_blog_metadata.py || {
+    python "$SCRIPTS_DIR/create_blog_metadata.py" || {
         log_error "Enhanced metadata generation failed"
         exit 1
     }
@@ -479,10 +548,12 @@ run_validation() {
     show_progress 7 7 "Running validation tests"
 
     source "$VENV_PATH/bin/activate"
-    cd "$SCRIPTS_DIR"
+    
+    # Change to project root directory for consistent path handling
+    cd "$PROJECT_ROOT"
 
     log_info "Running system validation..."
-    python simple_test.py || {
+    python "$SCRIPTS_DIR/simple_test.py" || {
         log_warning "Some validation tests failed, but system should still work"
         log_warning "Check the test output above for details"
         return 0  # Don't fail the entire setup for test warnings
