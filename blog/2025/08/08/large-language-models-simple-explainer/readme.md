@@ -20,6 +20,8 @@ excerpt: "A simple explainer on large language models."
 
 # Large Language Models - A Simple Explainer
 
+This is one of the most succinct and effective explanations on LLM architecture I have come across.
+
 ::: iframe-container-youtube
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LPZh9BOjkQs?si=i4FCxaXxMmIvZ_lx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="900" height="550" src="https://www.youtube.com/embed/LPZh9BOjkQs?si=i4FCxaXxMmIvZ_lx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 :::
