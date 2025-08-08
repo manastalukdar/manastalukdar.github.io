@@ -153,3 +153,7 @@ MANIFEST
 **/topic_models/*.pkl
 **/topic_models/discovered_topics.json
 **/topic_models/*_backup_*.json
+
+# TypeScript incremental compilation cache
+*.tsbuildinfo
+**/*.tsbuildinfo
