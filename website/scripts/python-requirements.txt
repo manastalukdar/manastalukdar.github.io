@@ -1,23 +1,23 @@
 # Core content processing - stable versions
-markdown==3.7
+markdown==3.8.2
 python-frontmatter==1.1.0
-python-dateutil==2.8.2
+python-dateutil==2.9.0.post0
 PyYAML==6.0.2
 zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
 
 # ML/AI stack - pinned for consistent caching and faster installs
 # Using exact versions to ensure cache hits and avoid build compilation
 numpy==1.26.4
-scipy==1.13.1
-scikit-learn==1.5.1
-nltk==3.9
+scipy==1.16.1
+scikit-learn==1.7.1
+nltk==3.9.1
 
 # Transformer stack - critical path optimization
-torch==2.4.0
-transformers==4.44.0
-sentence-transformers==3.0.1
+torch==2.7.1
+transformers==4.53.0
+sentence-transformers==3.4.1
 
 # Advanced topic modeling - latest versions for Python 3.13 compatibility
 bertopic==0.17.3
-umap-learn==0.5.7
+umap-learn==0.5.9.post2
 hdbscan==0.8.40
