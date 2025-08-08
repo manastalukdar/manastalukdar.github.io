@@ -218,7 +218,27 @@ should_regenerate_metadata() {
     
     # If metadata file doesn't exist, regeneration is needed
     if [ ! -f "$METADATA_FILE" ]; then
+        log_info "Metadata file doesn't exist - regeneration needed"
         return 0
+    fi
+    
+    # Fast path: For skip-topics mode, check if cached metadata is valid
+    if [ "$SKIP_TOPICS" = true ]; then
+        # Check if any blog posts are newer than metadata
+        local newest_blog_file=$(find "$BLOG_FOLDER" -name "*.md" -type f -printf '%T@ %p\n' 2>/dev/null | sort -n | tail -1 | cut -d' ' -f2-)
+        
+        if [ -z "$newest_blog_file" ]; then
+            log_info "No blog files found - using existing metadata"
+            return 1  # No regeneration needed
+        fi
+        
+        if [ "$newest_blog_file" -nt "$METADATA_FILE" ]; then
+            log_info "Blog content is newer than metadata - regeneration needed"
+            return 0
+        else
+            log_info "Cached metadata is up to date - no processing needed"
+            return 1  # No regeneration needed
+        fi
     fi
     
     # Check if topics file is newer than metadata
@@ -453,7 +473,17 @@ main() {
     # Exit early if nothing needs updating
     if [ "$need_discovery" = false ] && [ "$need_metadata" = false ]; then
         log_success "Everything is up to date - no regeneration needed"
+        
+        # Ensure metadata file exists for build process
+        if [ ! -f "$METADATA_FILE" ]; then
+            log_warning "Metadata file missing but should exist - this shouldn't happen"
+            log_info "Creating minimal fallback metadata..."
+            mkdir -p "$(dirname "$METADATA_FILE")"
+            echo "[]" > "$METADATA_FILE"
+        fi
+        
         echo "Use --force flag to force regeneration"
+        echo "✅ Fast path completed - cached metadata used"
         exit 0
     fi
     

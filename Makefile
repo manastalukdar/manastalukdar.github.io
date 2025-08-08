@@ -43,7 +43,7 @@ update-topics-metadata-force:
 	./scripts/update-blog-metadata.sh --force
 
 update-topic-config:
-	@echo "Updating topic configuration from blog content analysis..."
+	@echo "Updating static topic configuration from blog content analysis..."
 	./scripts/update-blog-metadata.sh --update-config
 
 # Build Integration

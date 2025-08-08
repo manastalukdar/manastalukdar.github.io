@@ -633,8 +633,41 @@ def json_serial(obj):
     raise TypeError("Type %s not serializable" % type(obj))
 
 
+def check_cached_metadata_validity():
+    """Check if cached metadata is still valid and can be reused."""
+    metadata_file = POSTS_LIST_FILE_JSON
+    
+    # Check if metadata file exists
+    if not os.path.exists(metadata_file):
+        return False
+    
+    try:
+        # Get metadata file modification time
+        metadata_mtime = os.path.getmtime(metadata_file)
+        
+        # Check if any blog post is newer than metadata
+        for root, dirs, files in os.walk(POSTS_FOLDER):
+            for file in files:
+                if file.lower().endswith('.md'):
+                    blog_file_path = os.path.join(root, file)
+                    blog_mtime = os.path.getmtime(blog_file_path)
+                    if blog_mtime > metadata_mtime:
+                        return False
+        
+        return True
+    except Exception as e:
+        print(f"Error checking cached metadata validity: {e}")
+        return False
+
+
 def main(run_topic_discovery=True):
     """main method with enhanced topic extraction."""
+    # Fast path: Check if we can use cached metadata
+    if not run_topic_discovery and check_cached_metadata_validity():
+        print("✅ Using cached metadata - no blog content changes detected")
+        print("Skipping expensive blog processing operations")
+        return
+    
     initialize()
     files = find_files()
     copy_blog_posts(POSTS_FOLDER, POSTS_DIST_FOLDER)

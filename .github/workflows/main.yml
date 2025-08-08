@@ -134,10 +134,10 @@ jobs:
             REASON="blog content changes detected"
           fi
           
-          # Fast path optimization - if no blog changes, use minimal metadata generation
+          # Fast path optimization - if no blog changes, use cached metadata mode
           if [ "$BLOG_CHANGED" = "false" ] && [ "$TOPIC_MODE" = "metadata-only" ]; then
-            TOPIC_MODE="metadata-minimal"
-            REASON="no blog changes - minimal metadata generation"
+            TOPIC_MODE="use-cached"
+            REASON="no blog changes - use cached metadata"
           fi
           
           echo "topic_mode=$TOPIC_MODE" >> $GITHUB_OUTPUT
@@ -229,6 +229,10 @@ jobs:
           
           MODE="${{ needs.setup-and-detect-changes.outputs.topic_mode }}"
           case "$MODE" in
+            "use-cached")
+              echo "🚀 Using cached metadata - no processing needed..."
+              ./scripts/update-blog-metadata.sh --metadata-only --skip-topics
+              ;;
             "metadata-minimal")
               echo "🚀 Running minimal metadata generation (no topic processing)..."
               ./scripts/update-blog-metadata.sh --metadata-only --skip-topics
