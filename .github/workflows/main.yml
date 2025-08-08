@@ -295,7 +295,7 @@ jobs:
           python-version: "3.13"
           
       - name: Download Blog Metadata
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: blog-metadata
           path: website/
@@ -388,7 +388,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Download Build Artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: static-site
           path: ./public
