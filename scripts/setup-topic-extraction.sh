@@ -244,22 +244,25 @@ install_dependencies() {
             
             rm "$temp_req"
             
-            # Try to install problematic packages individually with fallbacks
-            log_info "Attempting to install advanced packages with fallbacks..."
+            # Try to install advanced packages individually with Python 3.13 compatibility
+            log_info "Attempting to install advanced packages with Python 3.13 compatibility..."
             
-            # Try hdbscan with older version if current fails
-            pip install "hdbscan>=0.8.35,<0.8.40" --prefer-binary --quiet 2>/dev/null || {
+            # Try installing advanced packages that may not have Python 3.13 wheels yet
+            # These are optional for the basic transformer functionality
+            
+            # Try umap-learn (usually has better Python 3.13 support)
+            pip install "umap-learn>=0.5.0" --prefer-binary --quiet 2>/dev/null || {
+                log_warning "Could not install umap-learn - will use sklearn alternatives"
+            }
+            
+            # Try hdbscan (may not support Python 3.13 yet)
+            pip install "hdbscan>=0.8.0" --prefer-binary --quiet 2>/dev/null || {
                 log_warning "Could not install hdbscan - advanced clustering will be limited"
             }
             
-            # Try umap-learn 
-            pip install "umap-learn" --prefer-binary --quiet 2>/dev/null || {
-                log_warning "Could not install umap-learn - will use alternatives"
-            }
-            
-            # Try bertopic
-            pip install "bertopic" --prefer-binary --quiet 2>/dev/null || {
-                log_warning "Could not install bertopic - will use traditional methods"
+            # Try bertopic (depends on hdbscan and umap, may fail)
+            pip install "bertopic>=0.15.0" --prefer-binary --quiet 2>/dev/null || {
+                log_warning "Could not install bertopic - will use transformer-based methods"
             }
         }
     }

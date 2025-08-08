@@ -25,10 +25,13 @@ try:
     from transformer_topic_extraction import UnifiedTopicExtractor
     TRANSFORMER_EXTRACTION_AVAILABLE = True
     print("Transformer-based topic extraction available")
+    # Global transformer extractor instance to avoid repeated model loading
+    _TRANSFORMER_EXTRACTOR = None
 except ImportError as e:
     TRANSFORMER_EXTRACTION_AVAILABLE = False
     print(f"Transformer-based topic extraction not available: {e}")
     print("Will use traditional method as fallback")
+    _TRANSFORMER_EXTRACTOR = None
 
 POSTS_LIST_FILE_JSON = "website/public/blogdata/metadata/blog_metadata.json"
 SERIES_LIST_FILE_JSON = "website/public/blogdata/metadata/series_metadata.json"
@@ -37,6 +40,16 @@ POSTS_DIST_FOLDER = "website/public/blogdata"
 POSTS_FOLDER = "blog"
 
 POST_PATH_STRING = "path"
+
+
+def get_transformer_extractor(config_folder: str):
+    """Get cached transformer extractor instance to avoid repeated model loading."""
+    global _TRANSFORMER_EXTRACTOR
+    if TRANSFORMER_EXTRACTION_AVAILABLE and _TRANSFORMER_EXTRACTOR is None:
+        print("Initializing transformer extractor (one-time setup)...")
+        _TRANSFORMER_EXTRACTOR = UnifiedTopicExtractor(config_folder)
+        print("Transformer extractor ready for reuse")
+    return _TRANSFORMER_EXTRACTOR
 
 
 def calculate_reading_time(content, words_per_minute=225):
@@ -268,12 +281,13 @@ def extract_topics_from_content(content, title='', use_enhanced=True, prefer_tra
     if use_enhanced and prefer_transformer and TRANSFORMER_EXTRACTION_AVAILABLE:
         try:
             print(f"Using transformer-based topic extraction for: {title[:50]}...")
-            extractor = UnifiedTopicExtractor(config_folder)
-            result = extractor.extract_topics_unified(content, title)
-            
-            # Add transformer method indicator
-            result['extraction-method'] = 'unified-transformer'
-            return result
+            extractor = get_transformer_extractor(config_folder)
+            if extractor:
+                result = extractor.extract_topics_unified(content, title)
+                
+                # Add transformer method indicator
+                result['extraction-method'] = 'unified-transformer'
+                return result
             
         except Exception as e:
             print(f"Transformer extraction failed for '{title}', falling back to enhanced method: {e}")

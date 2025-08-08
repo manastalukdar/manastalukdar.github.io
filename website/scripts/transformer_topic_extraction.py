@@ -8,10 +8,12 @@ import json
 import os
 import pickle
 import re
+import time
 from collections import defaultdict, Counter
 from typing import Dict, List, Tuple, Any, Optional
 
 import numpy as np
+import torch
 from sentence_transformers import SentenceTransformer
 from sklearn.cluster import KMeans
 from sklearn.metrics.pairwise import cosine_similarity
@@ -20,6 +22,30 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import frontmatter
+
+# Force CPU usage for transformers to avoid CUDA compatibility issues
+os.environ['CUDA_VISIBLE_DEVICES'] = ''
+torch.set_default_device('cpu')
+
+def load_sentence_transformer_with_retry(model_name: str, max_retries: int = 3, base_delay: float = 2.0):
+    """Load sentence transformer with retry logic for network issues."""
+    for attempt in range(max_retries):
+        try:
+            print(f"Loading sentence transformer model: {model_name} (CPU mode), attempt {attempt + 1}/{max_retries}")
+            model = SentenceTransformer(model_name, device='cpu')
+            print(f"Successfully loaded {model_name}")
+            return model
+        except Exception as e:
+            if "429" in str(e) or "rate limit" in str(e).lower():
+                if attempt < max_retries - 1:
+                    delay = base_delay * (2 ** attempt)  # Exponential backoff
+                    print(f"Rate limit hit, retrying in {delay} seconds...")
+                    time.sleep(delay)
+                    continue
+                else:
+                    print(f"Failed to load model after {max_retries} attempts due to rate limiting")
+            raise e
+    return None
 
 # Try to import optional advanced topic modeling
 try:
@@ -46,9 +72,11 @@ class UnifiedTopicExtractor:
         # Create models directory
         os.makedirs(self.models_folder, exist_ok=True)
         
-        # Initialize sentence transformer (same as search system)
-        print(f"Loading sentence transformer model: {model_name}")
-        self.sentence_model = SentenceTransformer(model_name)
+        # Initialize sentence transformer (same as search system) with CPU device and retry logic
+        self.sentence_model = load_sentence_transformer_with_retry(model_name)
+        
+        if self.sentence_model is None:
+            raise RuntimeError(f"Failed to load sentence transformer model: {model_name}")
         
         # Load configurations
         self.static_config = self._load_static_config()
