@@ -10,7 +10,7 @@ zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
 numpy==1.26.4
 scipy==1.13.1
 scikit-learn==1.7.1
-nltk==3.9
+nltk==3.9.1
 
 # Transformer stack - critical path optimization
 torch==2.4.0
