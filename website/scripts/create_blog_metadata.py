@@ -674,15 +674,17 @@ def check_cached_metadata_validity():
 
 def main(run_topic_discovery=True):
     """main method with enhanced topic extraction."""
-    # Fast path: Check if we can use cached metadata
-    if not run_topic_discovery and check_cached_metadata_validity():
-        print("✅ Using cached metadata - no blog content changes detected")
-        print("Skipping expensive blog processing operations")
-        return
-    
+    # Always ensure blog posts are copied and basic setup is done
     initialize()
     files = find_files()
     copy_blog_posts(POSTS_FOLDER, POSTS_DIST_FOLDER)
+    
+    # Fast path: Check if we can use cached metadata for topic processing only
+    if not run_topic_discovery and check_cached_metadata_validity():
+        print("✅ Using cached metadata - no blog content changes detected")
+        print("Blog posts copied, skipping expensive topic processing operations")
+        return
+    
     create_posts_list(files, run_topic_discovery=run_topic_discovery, skip_per_post_extraction=(not run_topic_discovery))
     
     print("\nBlog metadata creation completed with enhanced topic extraction!")
