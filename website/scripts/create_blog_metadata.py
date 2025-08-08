@@ -373,7 +373,7 @@ def find_files():
     return result
 
 
-def create_posts_list(files, run_topic_discovery=True):
+def create_posts_list(files, run_topic_discovery=True, skip_per_post_extraction=False):
     """Creates the list of posts with enhanced topic extraction."""
     count = 0
     data_all = []
@@ -420,9 +420,21 @@ def create_posts_list(files, run_topic_discovery=True):
             reading_time = calculate_reading_time(content)
             post['reading-time'] = reading_time
             
-            # Extract topics from content using enhanced method
-            try:
+            # Extract topics from content using enhanced method (skip if requested for performance)
+            if not skip_per_post_extraction:
                 topic_data = extract_topics_from_content(content, post.metadata.get('title', ''), use_enhanced=True)
+            else:
+                # Skip expensive topic extraction and use cached/static fallback
+                print(f"Skipping topic extraction for '{post.metadata.get('title', '')}' (cached mode)")
+                topic_data = {
+                    'topic-primary': 'general',  
+                    'topic-secondary': [],
+                    'extraction-method': 'cached',
+                    'classification-method': 'static'
+                }
+                
+            # Apply topic data to post
+            try:
                 # Add topic data to post metadata
                 for key, value in topic_data.items():
                     post.metadata[key] = value
@@ -671,7 +683,7 @@ def main(run_topic_discovery=True):
     initialize()
     files = find_files()
     copy_blog_posts(POSTS_FOLDER, POSTS_DIST_FOLDER)
-    create_posts_list(files, run_topic_discovery=run_topic_discovery)
+    create_posts_list(files, run_topic_discovery=run_topic_discovery, skip_per_post_extraction=(not run_topic_discovery))
     
     print("\nBlog metadata creation completed with enhanced topic extraction!")
 
