@@ -31,10 +31,9 @@ const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
 const baseUrl = runtimeConfig.public.baseUrl;
 
-// Only use relative paths during actual static generation (nuxt generate)
-// Don't interfere with development server or SSR mode
-const isStaticGeneration = process.env.npm_lifecycle_event === 'generate';
-const contentBaseUrl = isStaticGeneration ? '' : baseUrl;
+// Determine content base URL based on context
+// Use relative paths for static sites, full URL for dev server
+const contentBaseUrl = process.client && baseUrl.includes('github.io') ? '' : baseUrl;
 //console.log(baseUrl)
 async function setupBlogMetadata() {
     try {
@@ -172,7 +171,7 @@ try {
   // eslint-disable-next-line no-console
   console.log(`Error fetching blog post content: ${error}`);
   console.log(`Attempted URL: ${contentBaseUrl}/blogdata/${postMetadata.path}`);
-  console.log(`Static generation mode: ${isStaticGeneration}`);
+  console.log(`Base URL: ${baseUrl}, Client: ${process.client}`);
   fileContent = '';
 }
 const res = fm(fileContent);

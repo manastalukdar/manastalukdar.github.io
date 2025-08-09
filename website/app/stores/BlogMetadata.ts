@@ -12,15 +12,11 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
   state: initialState,
   actions: {
     async setupBlogMetadata(baseURL: string) {
-      // Only use filesystem reading during actual static generation (nuxt generate)
-      // Don't interfere with development server or SSR mode
-      const isStaticGeneration = process.env.npm_lifecycle_event === 'generate';
-      
       try {
         let data: any;
         
-        if (isStaticGeneration && process.server) {
-          // During static generation on server, read file directly from filesystem
+        if (process.server) {
+          // During SSR or static generation on server, try filesystem first
           try {
             const fs = await import('fs')
             const path = await import('path')
@@ -28,13 +24,14 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
             const fileContent = fs.readFileSync(filePath, 'utf8')
             data = JSON.parse(fileContent)
           } catch (fsError) {
-            console.log('Could not read metadata from filesystem during static generation:', fsError)
-            // Fallback to empty array for now
-            data = []
+            console.log('Could not read metadata from filesystem, using fetch:', fsError)
+            // Fallback to fetch for server-side
+            const fetchUrl = baseURL + '/blogdata/metadata/blog_metadata.json';
+            data = await $fetch(fetchUrl)
           }
         } else {
-          // Runtime: use $fetch with appropriate URL
-          const fetchUrl = isStaticGeneration 
+          // Client-side: use appropriate URL based on deployment context
+          const fetchUrl = baseURL.includes('github.io') 
             ? '/blogdata/metadata/blog_metadata.json'
             : baseURL + '/blogdata/metadata/blog_metadata.json';
           data = await $fetch(fetchUrl)
@@ -44,8 +41,8 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
       } catch (error) {
         // eslint-disable-next-line no-console
         console.log('Error fetching blog metadata:', error)
-        console.log('Static generation mode:', isStaticGeneration)
-        // Gracefully handle missing metadata during static generation
+        console.log('Base URL:', baseURL, 'Client:', process.client)
+        // Gracefully handle missing metadata
         this.blogMetadata = []
       }
     },
