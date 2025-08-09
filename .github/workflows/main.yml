@@ -79,17 +79,41 @@ jobs:
 
           # Check for blog content changes in push events
           if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
-            if git diff --name-only ${{ github.event.before }}..${{ github.sha }} | grep -q "^blog/"; then
+            # Get list of changed blog posts
+            CHANGED_POSTS=$(git diff --name-only ${{ github.event.before }}..${{ github.sha }} | grep "^blog/.*\.md$" || true)
+            
+            if [ -n "$CHANGED_POSTS" ]; then
               echo "Blog content changes detected"
               BLOG_CHANGED=true
+              
+              # Count and display changed posts
+              CHANGED_COUNT=$(echo "$CHANGED_POSTS" | wc -l)
+              echo "📝 Changed blog posts ($CHANGED_COUNT):"
+              echo "$CHANGED_POSTS" | while read post; do
+                echo "  • $post"
+              done
+              
+              # Save changed posts for granular processing
+              echo "$CHANGED_POSTS" > /tmp/changed_blog_posts.txt
+              
+              # Set processing mode based on number of changes
+              if [ "$CHANGED_COUNT" -le 5 ]; then
+                echo "✨ Small change set - enabling granular processing"
+                echo "GRANULAR_MODE=true" >> /tmp/processing_mode.env
+              else
+                echo "🔄 Large change set - using full processing for reliability"
+                echo "GRANULAR_MODE=false" >> /tmp/processing_mode.env
+              fi
             else
               echo "No blog content changes detected"
               BLOG_CHANGED=false
+              echo "GRANULAR_MODE=false" >> /tmp/processing_mode.env
             fi
           elif [ "${{ github.event_name }}" = "push" ]; then
             # First commit - process content
             echo "Initial commit - processing content"
             BLOG_CHANGED=true
+            echo "GRANULAR_MODE=false" >> /tmp/processing_mode.env
           fi
 
           echo "blog_changed=${BLOG_CHANGED}" >> $GITHUB_OUTPUT
@@ -130,8 +154,20 @@ jobs:
 
           # Auto-detect based on blog content changes
           if [ "$TOPIC_MODE" = "metadata-only" ] && [ "$BLOG_CHANGED" = "true" ]; then
-            TOPIC_MODE="full-discovery"
-            REASON="blog content changes detected"
+            # Check if granular processing is enabled
+            if [ -f "/tmp/processing_mode.env" ]; then
+              source /tmp/processing_mode.env
+              if [ "$GRANULAR_MODE" = "true" ]; then
+                TOPIC_MODE="granular-processing"
+                REASON="small blog changes - granular processing enabled"
+              else
+                TOPIC_MODE="full-discovery"
+                REASON="blog content changes detected"
+              fi
+            else
+              TOPIC_MODE="full-discovery"
+              REASON="blog content changes detected"
+            fi
           fi
 
           # Fast path optimization - if no blog changes, use cached metadata mode
@@ -144,6 +180,16 @@ jobs:
           echo "reason=$REASON" >> $GITHUB_OUTPUT
           echo "🎯 Topic extraction mode: $TOPIC_MODE ($REASON)"
 
+      - name: Upload Changed Posts Info
+        if: steps.change-detection.outputs.blog_changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: changed-posts-info
+          path: |
+            /tmp/changed_blog_posts.txt
+            /tmp/processing_mode.env
+          retention-days: 1
+
   # Job for content processing - always runs to ensure metadata exists
   process-content:
     name: Process Blog Content
@@ -152,6 +198,14 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+      - name: Download Changed Posts Info
+        if: needs.setup-and-detect-changes.outputs.blog_changed == 'true'
+        uses: actions/download-artifact@v5
+        with:
+          name: changed-posts-info
+          path: /tmp/
+        continue-on-error: true
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -243,6 +297,17 @@ jobs:
             "full-discovery")
               echo "🔍 Running full topic discovery and metadata generation..."
               ./scripts/update-blog-metadata.sh
+              ;;
+            "granular-processing")
+              echo "⚡ Running granular processing for changed posts..."
+              if [ -f "/tmp/changed_blog_posts.txt" ] && [ -f "/tmp/processing_mode.env" ]; then
+                # Export changed posts for the processing script
+                export CHANGED_POSTS_FILE="/tmp/changed_blog_posts.txt"
+                ./scripts/update-blog-metadata.sh --incremental
+              else
+                echo "⚠️  Granular processing requested but changed posts info not available - falling back to full processing"
+                ./scripts/update-blog-metadata.sh
+              fi
               ;;
             "force")
               echo "⚡ Running forced complete regeneration..."

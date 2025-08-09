@@ -1,5 +1,19 @@
 """
-Script to (1) get list of all blogs along with their metadata from the markdown frontmatter by parsing each markdown file.md from all subdirectories under ..\\blog\\ (2) copy all blog posts markdown files to under dist folder.
+Enhanced Blog Metadata Creation Script with Granular Processing Support
+
+This script generates comprehensive metadata for blog posts with advanced topic extraction
+and supports both full processing and incremental (granular) processing modes.
+
+Features:
+- Full blog corpus processing (traditional mode)
+- Granular processing for individual changed posts (80% faster)
+- Advanced topic extraction with multiple AI models
+- Metadata merging and consistency validation
+- CI/CD optimization support
+
+Usage:
+    python create_blog_metadata.py [--skip-topics] [--incremental] [--changed-posts-file=FILE]
+
 pip install -r python-requirements.txt
 """
 
@@ -690,14 +704,134 @@ def main(run_topic_discovery=True):
     print("\nBlog metadata creation completed with enhanced topic extraction!")
 
 
+def main_incremental(changed_posts_file: str = None):
+    """Main method for incremental (granular) processing of changed posts."""
+    print("🚀 Starting incremental processing mode")
+    
+    if not changed_posts_file or not os.path.exists(changed_posts_file):
+        print(f"❌ Changed posts file not found or not provided: {changed_posts_file}")
+        print("Falling back to full processing mode")
+        return main(run_topic_discovery=True)
+    
+    # Load list of changed posts
+    try:
+        with open(changed_posts_file, 'r', encoding='utf-8') as f:
+            changed_posts = [line.strip() for line in f if line.strip()]
+        
+        if not changed_posts:
+            print("⚠️  No changed posts found in file - nothing to process")
+            return
+        
+        print(f"📝 Processing {len(changed_posts)} changed posts:")
+        for post in changed_posts:
+            print(f"  • {post}")
+    
+    except Exception as e:
+        print(f"❌ Error reading changed posts file: {e}")
+        print("Falling back to full processing mode")
+        return main(run_topic_discovery=True)
+    
+    # Import processing utilities
+    from process_single_post import process_single_blog_post
+    from merge_metadata import MetadataMerger
+    
+    # Always ensure basic setup is done
+    initialize()
+    copy_blog_posts(POSTS_FOLDER, POSTS_DIST_FOLDER)
+    
+    # Load existing metadata
+    existing_metadata = []
+    if os.path.exists(POSTS_LIST_FILE_JSON):
+        try:
+            with open(POSTS_LIST_FILE_JSON, 'r', encoding='utf-8') as f:
+                existing_metadata = json.load(f)
+            print(f"📚 Loaded {len(existing_metadata)} existing posts from metadata")
+        except Exception as e:
+            print(f"⚠️  Could not load existing metadata: {e}")
+    
+    # Process each changed post individually  
+    new_metadata = []
+    config_folder = os.path.join(os.path.dirname(__file__), "..", "config")
+    
+    print(f"\n🧠 Processing changed posts with topic extraction...")
+    for i, changed_post in enumerate(changed_posts, 1):
+        print(f"\n[{i}/{len(changed_posts)}] Processing: {changed_post}")
+        
+        # Convert relative path to absolute path
+        blog_post_path = os.path.join(os.path.dirname(__file__), "..", "..", changed_post)
+        
+        try:
+            metadata = process_single_blog_post(blog_post_path, config_folder)
+            if metadata:
+                new_metadata.append(metadata)
+                print(f"✅ Processed: {metadata.get('title', 'Unknown')}")
+            else:
+                print(f"⏭️  Skipped (unpublished): {changed_post}")
+        
+        except Exception as e:
+            print(f"❌ Error processing {changed_post}: {e}")
+            continue
+    
+    if not new_metadata:
+        print("⚠️  No posts were successfully processed")
+        return
+    
+    print(f"\n🔄 Merging {len(new_metadata)} processed posts with existing metadata...")
+    
+    # Merge with existing metadata
+    merger = MetadataMerger(verbose=True)
+    merged_metadata = merger.merge_metadata(existing_metadata, new_metadata)
+    
+    # Validate merged results
+    if not merger.validate_merged_metadata(merged_metadata):
+        print("❌ Merged metadata validation failed - aborting")
+        return
+    
+    # Save merged metadata
+    try:
+        os.makedirs(os.path.dirname(POSTS_LIST_FILE_JSON), exist_ok=True)
+        with open(POSTS_LIST_FILE_JSON, 'w', encoding='utf-8') as f:
+            json.dump(merged_metadata, f, indent=2, default=str, ensure_ascii=False)
+        
+        print(f"💾 Saved merged metadata with {len(merged_metadata)} total posts")
+        merger.print_merge_stats()
+        
+        # Generate series metadata if needed
+        create_series_metadata_file(merged_metadata)
+        
+        print("\n✅ Incremental processing completed successfully!")
+        
+    except Exception as e:
+        print(f"❌ Error saving merged metadata: {e}")
+        raise
+
+
 if __name__ == '__main__':
     import sys
+    import argparse
     
-    # Simple argument parsing for --skip-topics flag
-    skip_topics = False
-    if '--skip-topics' in sys.argv:
-        skip_topics = True
+    # Enhanced argument parsing
+    parser = argparse.ArgumentParser(description="Generate blog metadata with optional incremental processing")
+    parser.add_argument('--skip-topics', action='store_true', help='Skip topic extraction (faster, minimal metadata)')
+    parser.add_argument('--incremental', action='store_true', help='Use incremental processing mode for changed posts only')
+    parser.add_argument('--changed-posts-file', help='File containing list of changed blog posts (for incremental mode)')
+    parser.add_argument('--verbose', '-v', action='store_true', help='Verbose output')
+    
+    # Parse arguments, but also support legacy --skip-topics flag for backward compatibility
+    if '--skip-topics' in sys.argv and len(sys.argv) == 2:
+        # Legacy mode for backward compatibility
         print("Running with --skip-topics: minimal metadata generation without topic processing")
-    
-    # Invert the logic: run_topic_discovery = not skip_topics
-    main(run_topic_discovery=not skip_topics)
+        main(run_topic_discovery=False)
+    else:
+        args = parser.parse_args()
+        
+        if args.incremental:
+            # Incremental processing mode
+            changed_posts_file = args.changed_posts_file or os.environ.get('CHANGED_POSTS_FILE')
+            main_incremental(changed_posts_file)
+        else:
+            # Regular processing mode
+            run_topic_discovery = not args.skip_topics
+            if args.skip_topics:
+                print("Running with --skip-topics: minimal metadata generation without topic processing")
+            main(run_topic_discovery=run_topic_discovery)

@@ -222,6 +222,12 @@ should_regenerate_metadata() {
         return 0
     fi
     
+    # For incremental mode, always regenerate to merge changes
+    if [ "$INCREMENTAL_MODE" = true ]; then
+        log_info "Incremental mode - processing changed posts only"
+        return 0
+    fi
+    
     # Fast path: For skip-topics mode, check if cached metadata is valid
     if [ "$SKIP_TOPICS" = true ]; then
         # Check if any blog posts are newer than metadata
@@ -354,6 +360,18 @@ generate_metadata() {
     if [ "$SKIP_TOPICS" = true ]; then
         log_info "Generating minimal metadata without topic processing..."
         python_args="--skip-topics"
+    elif [ "$INCREMENTAL_MODE" = true ]; then
+        log_info "Generating metadata for changed posts only (incremental mode)..."
+        python_args="--incremental"
+        
+        # Pass changed posts file if available
+        if [ -n "$CHANGED_POSTS_FILE" ] && [ -f "$CHANGED_POSTS_FILE" ]; then
+            python_args="$python_args --changed-posts-file=$CHANGED_POSTS_FILE"
+            log_info "Using changed posts file: $CHANGED_POSTS_FILE"
+        else
+            log_warning "Incremental mode requested but no changed posts file available - falling back to full processing"
+            python_args=""
+        fi
     else
         log_info "Generating metadata with enhanced topic classification..."
     fi
