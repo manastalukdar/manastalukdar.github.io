@@ -27,7 +27,7 @@ from pathlib import Path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import frontmatter
-from dateutil import parser
+from dateutil import parser as dateutil_parser
 
 # Import topic extraction systems
 from topic_discovery import TopicDiscoverySystem
@@ -164,8 +164,8 @@ def process_single_blog_post(blog_post_path: str, config_folder: str = "config")
     
     # Process dates
     try:
-        post.metadata['first-published-on'] = parser.parse(str(post.metadata['first-published-on']))
-        post.metadata['last-updated-on'] = parser.parse(str(post.metadata['last-updated-on']))
+        post.metadata['first-published-on'] = dateutil_parser.parse(str(post.metadata['first-published-on']))
+        post.metadata['last-updated-on'] = dateutil_parser.parse(str(post.metadata['last-updated-on']))
     except Exception as e:
         print(f"⚠️  Error processing dates for {blog_post_path}: {e}")
     
