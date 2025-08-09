@@ -292,6 +292,19 @@ jobs:
           cache: "npm"
           cache-dependency-path: website/package-lock.json
 
+      - name: Cache Vite Build Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            website/node_modules/.vite
+            website/node_modules/.cache
+            website/.nuxt
+            website/dist
+          key: vite-cache-${{ runner.os }}-${{ hashFiles('website/package-lock.json', 'website/nuxt.config.ts') }}
+          restore-keys: |
+            vite-cache-${{ runner.os }}-${{ hashFiles('website/package-lock.json') }}-
+            vite-cache-${{ runner.os }}-
+
       - name: Setup Python (for validation)
         uses: actions/setup-python@v5
         with:
@@ -362,17 +375,96 @@ jobs:
         working-directory: website
         run: npm run getHighlightJsStyleSheets
 
-      - name: Generate Static Site
-        working-directory: website
-        run: npm run generate
-
-      - name: Verify Build Output
+      - name: Generate Build Cache Key
+        id: build-cache-key
         run: |
+          # Create comprehensive hash of all factors that affect build output
+          BLOG_HASH=$(find blog -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
+          SOURCE_HASH=$(find website/app website/nuxt.config.ts website/package.json website/server -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
+          METADATA_HASH=$(sha256sum website/public/blogdata/metadata/blog_metadata.json | cut -d' ' -f1)
+          CONFIG_HASH=$(find website/config -name "*.json" -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
+          ASSETS_HASH=$(find website/public/images website/public/styles -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
+          
+          # Combine all hashes for comprehensive cache key
+          COMBINED_HASH="${BLOG_HASH}-${SOURCE_HASH}-${METADATA_HASH}-${CONFIG_HASH}-${ASSETS_HASH}"
+          CACHE_KEY="nuxt-build-${COMBINED_HASH}"
+          
+          echo "cache_key=${CACHE_KEY}" >> $GITHUB_OUTPUT
+          echo "blog_hash=${BLOG_HASH}" >> $GITHUB_OUTPUT
+          echo "source_hash=${SOURCE_HASH}" >> $GITHUB_OUTPUT
+          echo "🔑 Build cache key: ${CACHE_KEY}"
+
+      - name: Check Build Output Cache
+        id: build-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            website/.output/public
+            website/.output/nitro.json
+          key: ${{ steps.build-cache-key.outputs.cache_key }}
+          restore-keys: |
+            nuxt-build-${{ steps.build-cache-key.outputs.blog_hash }}-${{ steps.build-cache-key.outputs.source_hash }}-
+            nuxt-build-${{ steps.build-cache-key.outputs.blog_hash }}-
+            nuxt-build-
+
+      - name: Generate Static Site
+        if: steps.build-cache.outputs.cache-hit != 'true'
+        working-directory: website
+        run: |
+          echo "🏗️  Cache miss - generating static site..."
+          echo "Build will take approximately 1.5-2 minutes..."
+          
+          # Enable Vite build caching optimizations
+          export VITE_BUILD_TARGET=static
+          export NODE_ENV=production
+          
+          # Run generation with timing
+          START_TIME=$(date +%s)
+          npm run generate
+          END_TIME=$(date +%s)
+          
+          BUILD_TIME=$((END_TIME - START_TIME))
+          echo "⚡ Build completed in ${BUILD_TIME} seconds"
+
+      - name: Verify Cached or Generated Build Output
+        run: |
+          if [ "${{ steps.build-cache.outputs.cache-hit }}" = "true" ]; then
+            echo "✅ Using cached build output - skipped generation"
+            echo "Cache key: ${{ steps.build-cache-key.outputs.cache_key }}"
+          else
+            echo "✅ Static site generated and cached for future builds"
+          fi
+          
           if [ ! -d "website/.output/public" ]; then
-            echo "Error: Build output directory not found"
+            echo "❌ Error: Build output directory not found"
             exit 1
           fi
-          echo "✅ Static site generated successfully"
+          
+          # Display cache statistics
+          BUILD_SIZE=$(du -sh website/.output/public | cut -f1)
+          FILE_COUNT=$(find website/.output/public -type f | wc -l)
+          echo "📊 Build output: ${BUILD_SIZE} (${FILE_COUNT} files)"
+          
+          # Add to job summary
+          {
+            echo "## 🏗️ Build Output Cache Performance"
+            echo ""
+            if [ "${{ steps.build-cache.outputs.cache-hit }}" = "true" ]; then
+              echo "✅ **Cache Hit** - Build skipped entirely"
+              echo "- **Time Saved**: ~90-120 seconds"
+              echo "- **Cache Key**: \`${{ steps.build-cache-key.outputs.cache_key }}\`"
+            else
+              echo "❌ **Cache Miss** - Full build required"
+              echo "- **Cache Key**: \`${{ steps.build-cache-key.outputs.cache_key }}\`"
+              echo "- **Future builds** with same content will use cache"
+            fi
+            echo ""
+            echo "### Build Statistics"
+            echo "- **Output Size**: ${BUILD_SIZE}"
+            echo "- **File Count**: ${FILE_COUNT} files"
+            echo "- **Cached Paths**: \`.output/public\`, \`.output/nitro.json\`"
+          } >> $GITHUB_STEP_SUMMARY
+
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
