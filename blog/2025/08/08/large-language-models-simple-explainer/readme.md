@@ -15,7 +15,7 @@ first-published-on: 2025-08-08 10:32
 last-updated-on: 2025-08-08 10:32
 meta:
  description: "A simple explainer on large language models."
-excerpt: "A simple explainer on large language models."
+excerpt: "This is one of the most succinct and effective explanations on LLM architecture"
 ---
 
 # Large Language Models - A Simple Explainer
