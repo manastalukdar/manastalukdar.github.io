@@ -109,12 +109,15 @@ export const functions = {
     for (const [key, value] of Object.entries<any>(groupedByAuthor)) {
       const route = '/blog/author/' + key + '/'
       const authorName = value[0].authors.filter((author: { [x: string]: string; name: any }) => {
-        if (author['url-slug'] === key) {
-          return author.name
-        } else {
-          return ''
-        }
+        return author['url-slug'] === key
       })
+      
+      // Skip if no matching author found (safety check)
+      if (!authorName || authorName.length === 0) {
+        console.warn(`No author found with slug: ${key}`)
+        continue
+      }
+      
       properties.authors.push({
         name: authorName[0].name,
         slug: key,
