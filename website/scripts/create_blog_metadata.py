@@ -349,13 +349,15 @@ def extract_topics_from_cached_data(content, title, cached_topics):
     
     topic_scores = {}
     
-    # Score topics based on keyword matches
-    for topic_id, topic_data in cached_topics.items():
+    # Score topics based on keyword matches (deterministic order)
+    for topic_id in sorted(cached_topics.keys()):  # Sort for deterministic iteration
+        topic_data = cached_topics[topic_id]
         keywords = topic_data.get('keywords', [])
         score = 0
         matched_keywords = []
         
-        for keyword in keywords:
+        # Sort keywords for deterministic processing
+        for keyword in sorted(keywords) if keywords else []:
             if isinstance(keyword, str):
                 keyword_lower = keyword.lower()
                 # Count occurrences, with title matches weighted higher
@@ -366,6 +368,8 @@ def extract_topics_from_cached_data(content, title, cached_topics):
                     score += title_matches + content_matches
         
         if score > 0:
+            # Sort matched keywords for consistent output
+            matched_keywords.sort()
             topic_scores[topic_id] = {
                 'score': score,
                 'matched_keywords': matched_keywords,
@@ -393,7 +397,7 @@ def extract_topics_from_cached_data(content, title, cached_topics):
         'extraction-method': 'cached',
         'classification-method': 'keyword-matching',
         'matched-keywords': topic_scores[primary_topic]['matched_keywords'][:5],
-        'confidence': min(topic_scores[primary_topic]['score'] / 10.0, 1.0)  # Normalize confidence
+        'confidence': round(min(topic_scores[primary_topic]['score'] / 10.0, 1.0), 3)  # Round for consistency
     }
 
 
@@ -556,9 +560,16 @@ def create_posts_list(files, run_topic_discovery=True, skip_per_post_extraction=
             post['authors'] = newAuthors
             newPostFormat = get_data_with_url_slug(post['post-format'])
             post['post-format'] = newPostFormat
+            # Parse dates with consistent timezone handling
             newPublishedDate = dateutil_parser.parse(str(post['first-published-on']))
+            if newPublishedDate.tzinfo is None:
+                # Ensure all dates have consistent timezone info (or lack thereof)
+                newPublishedDate = newPublishedDate.replace(tzinfo=None)
             post['first-published-on'] = newPublishedDate
+            
             newUpdatedDate = dateutil_parser.parse(str(post['last-updated-on']))
+            if newUpdatedDate.tzinfo is None:
+                newUpdatedDate = newUpdatedDate.replace(tzinfo=None)
             post['last-updated-on'] = newUpdatedDate
             
             # Calculate reading time
@@ -661,8 +672,8 @@ def create_posts_list(files, run_topic_discovery=True, skip_per_post_extraction=
     print(f"Total posts: {count}")
     data_all.sort(key=extract_time, reverse=True)
     
-    # Save posts metadata
-    json_data = json.dumps(data_all, default=json_serial)  #, indent=2)
+    # Save posts metadata with deterministic formatting
+    json_data = json.dumps(data_all, default=json_serial, sort_keys=True, separators=(',', ':'))
     # https://stackoverflow.com/a/12517490
     dir = os.path.dirname(POSTS_LIST_FILE_JSON)
     if not os.path.exists(dir):
@@ -703,8 +714,8 @@ def create_series_metadata(series_data):
     # Sort series by first publication date
     series_list.sort(key=lambda x: x['first_published'] if x['first_published'] else datetime.min, reverse=True)
     
-    # Save series metadata
-    json_data = json.dumps(series_list, default=json_serial)
+    # Save series metadata with deterministic formatting
+    json_data = json.dumps(series_list, default=json_serial, sort_keys=True, separators=(',', ':'))
     dir = os.path.dirname(SERIES_LIST_FILE_JSON)
     if not os.path.exists(dir):
         try:
@@ -784,6 +795,13 @@ def json_serial(obj):
     """JSON serializer for objects not serializable by default json code"""
 
     if isinstance(obj, (datetime, date)):
+        # Ensure consistent date serialization by removing microseconds for consistency
+        if isinstance(obj, datetime):
+            # Remove microseconds for consistent output
+            obj = obj.replace(microsecond=0)
+            # Ensure timezone consistency
+            if obj.tzinfo is not None:
+                obj = obj.replace(tzinfo=None)
         return obj.isoformat()
     # Handle numpy types
     import numpy as np
@@ -958,7 +976,7 @@ def main_incremental(changed_posts_file: str = None):
     try:
         os.makedirs(os.path.dirname(POSTS_LIST_FILE_JSON), exist_ok=True)
         with open(POSTS_LIST_FILE_JSON, 'w', encoding='utf-8') as f:
-            json.dump(merged_metadata, f, indent=2, default=str, ensure_ascii=False)
+            json.dump(merged_metadata, f, default=str, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
         
         print(f"💾 Saved merged metadata with {len(merged_metadata)} total posts")
         merger.print_merge_stats()
