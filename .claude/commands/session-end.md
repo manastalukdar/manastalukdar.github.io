@@ -15,6 +15,7 @@ End the current development session by:
      * List any incomplete tasks with status
    - Key accomplishments
    - All features implemented
+   - All fixes implemented
    - Problems encountered and solutions
    - Breaking changes or important findings
    - Dependencies added/removed
