@@ -41,6 +41,8 @@ try:
     print("Transformer-based topic extraction available")
     # Global transformer extractor instance to avoid repeated model loading
     _TRANSFORMER_EXTRACTOR = None
+    # Global flag to indicate skip mode
+    _SKIP_TOPICS_MODE = False
 except ImportError as e:
     TRANSFORMER_EXTRACTION_AVAILABLE = False
     print(f"Transformer-based topic extraction not available: {e}")
@@ -56,9 +58,15 @@ POSTS_FOLDER = "blog"
 POST_PATH_STRING = "path"
 
 
-def get_transformer_extractor(config_folder: str):
+def get_transformer_extractor(config_folder: str, skip_mode: bool = False):
     """Get cached transformer extractor instance to avoid repeated model loading."""
-    global _TRANSFORMER_EXTRACTOR
+    global _TRANSFORMER_EXTRACTOR, _SKIP_TOPICS_MODE
+    
+    # Never initialize in skip mode - this is a safety check
+    if skip_mode or _SKIP_TOPICS_MODE:
+        print("⚠️ Attempted to initialize transformer in skip mode - blocked for performance")
+        return None
+        
     if TRANSFORMER_EXTRACTION_AVAILABLE and _TRANSFORMER_EXTRACTOR is None:
         print("Initializing transformer extractor (one-time setup)...")
         _TRANSFORMER_EXTRACTOR = UnifiedTopicExtractor(config_folder)
@@ -286,16 +294,26 @@ def identify_target_audience(keywords, complexity):
     return list(audiences)[:5]
 
 
-def extract_topics_from_content(content, title='', use_enhanced=True, prefer_transformer=True):
+def extract_topics_from_content(content, title='', use_enhanced=True, prefer_transformer=True, skip_mode=False):
     """Main topic extraction function with unified transformer and enhanced dynamic analysis."""
     script_dir = os.path.dirname(os.path.abspath(__file__))
     config_folder = os.path.join(os.path.dirname(script_dir), 'config')
+    
+    # If in skip mode, return minimal topic data without any processing
+    if skip_mode:
+        print(f"Skipping topic extraction for '{title}' (skip mode enabled)")
+        return {
+            'topic-primary': 'general',  
+            'topic-secondary': [],
+            'extraction-method': 'skipped',
+            'classification-method': 'static'
+        }
     
     # Try transformer-based extraction first if available and preferred
     if use_enhanced and prefer_transformer and TRANSFORMER_EXTRACTION_AVAILABLE:
         try:
             print(f"Using transformer-based topic extraction for: {title[:50]}...")
-            extractor = get_transformer_extractor(config_folder)
+            extractor = get_transformer_extractor(config_folder, skip_mode=skip_mode)
             if extractor:
                 result = extractor.extract_topics_unified(content, title)
                 
@@ -688,16 +706,29 @@ def check_cached_metadata_validity():
 
 def main(run_topic_discovery=True):
     """main method with enhanced topic extraction."""
+    global _SKIP_TOPICS_MODE
+    
+    # Set global skip mode flag for safety
+    _SKIP_TOPICS_MODE = not run_topic_discovery
+    
     # Always ensure blog posts are copied and basic setup is done
     initialize()
     files = find_files()
     copy_blog_posts(POSTS_FOLDER, POSTS_DIST_FOLDER)
     
-    # Fast path: Check if we can use cached metadata for topic processing only
-    if not run_topic_discovery and check_cached_metadata_validity():
-        print("✅ Using cached metadata - no blog content changes detected")
-        print("Blog posts copied, skipping expensive topic processing operations")
-        return
+    # Fast path: Check if we can use cached metadata when topics are disabled
+    if not run_topic_discovery:
+        print("🚀 Skip-topics mode enabled - no transformer processing will occur")
+        if check_cached_metadata_validity():
+            print("✅ Using cached metadata - no blog content changes detected")
+            print("Blog posts copied, skipping expensive topic processing operations")
+            return
+        else:
+            print("⚠️ Cached metadata not valid or missing - generating minimal metadata without topics")
+            # Generate basic metadata without topic processing
+            create_posts_list(files, run_topic_discovery=False, skip_per_post_extraction=True)
+            print("\nBlog metadata creation completed (minimal mode - no topic processing)!")
+            return
     
     create_posts_list(files, run_topic_discovery=run_topic_discovery, skip_per_post_extraction=(not run_topic_discovery))
     
