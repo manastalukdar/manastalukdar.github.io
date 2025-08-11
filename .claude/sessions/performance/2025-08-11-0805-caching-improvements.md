@@ -321,3 +321,87 @@ at workbox-build/node_modules/@apideck/better-ajv-errors
 **Result**: ✅ **Build completed successfully** - 950 routes prerendered in 20.958 seconds
 
 **Final Status**: All caching improvements implemented and working correctly in production build.
+
+### 🔧 **Node.js Module Externalization Fix - 2025-08-11 11:40 PM**
+
+**Issue**: Build warnings about Node.js modules being externalized for browser compatibility
+```
+[warn] [plugin vite:resolve] Module "crypto" has been externalized for browser compatibility
+[warn] [plugin vite:resolve] Module "fs" has been externalized for browser compatibility  
+[warn] [plugin vite:resolve] Module "path" has been externalized for browser compatibility
+```
+
+**Root Cause**: 
+- `contentHash.ts` utility imported Node.js modules (`crypto`, `fs`, `path`)
+- Vue components were importing `getBuildTimestamp()` from this utility
+- Vite tried to bundle Node.js modules for browser execution
+
+**Solution Applied**:
+- **Split utility by environment**: Created separate server and client files
+- **`contentHash.server.ts`**: Node.js modules for build-time hashing (server-only)
+- **`contentHash.client.ts`**: Browser-safe timestamp function (client-safe)
+- **Updated imports**: Nuxt config uses server utility, components use client utility
+
+**Files Modified**:
+- `✅ Created: website/app/utils/contentHash.server.ts`
+- `✅ Created: website/app/utils/contentHash.client.ts`  
+- `✅ Updated: website/nuxt.config.ts`
+- `✅ Updated: website/app/components/home-page/about-blurb.vue`
+- `✅ Updated: website/app/components/home-page/recent-updates.vue`
+- `✅ Updated: website/app/components/home-page/featured.vue`
+- `✅ Removed: website/app/utils/contentHash.ts`
+
+**Result**: ✅ **No externalized module warnings found** - clean build output achieved
+
+### 🔧 **ONNXRUNTIME Eval Warning Suppression - 2025-08-11 11:45 PM**
+
+**Issue**: Third-party ML library eval warning during build
+```
+[WARN] node_modules/onnxruntime-web/dist/ort-web.min.js (6:62546): 
+Use of eval in "node_modules/onnxruntime-web/dist/ort-web.min.js" is strongly discouraged
+```
+
+**Root Cause**: 
+- ONNXRUNTIME-web (dependency of `@xenova/transformers`) uses eval for ML operations
+- Powers semantic search functionality via `Xenova/all-MiniLM-L6-v2` model
+- Third-party library issue, not our code
+
+**Solution Applied**:
+- **Added Vite rollup configuration** to suppress specific third-party warnings
+- **Maintained semantic search**: Full AI functionality preserved
+- **Targeted suppression**: Only suppresses known ONNXRUNTIME eval warnings
+- **Improved chunking**: Isolated ML models in separate chunk for better caching
+
+**Configuration Added**:
+```javascript
+vite: {
+  build: {
+    rollupOptions: {
+      onwarn(warning, warn) {
+        // Suppress eval warnings from ONNXRUNTIME-web (third-party ML library)
+        if (warning.code === 'EVAL' && warning.id?.includes('onnxruntime-web')) {
+          return
+        }
+        warn(warning)
+      },
+      output: {
+        manualChunks: {
+          'ml-models': ['@xenova/transformers']
+        }
+      }
+    }
+  }
+}
+```
+
+**Result**: ✅ **ONNXRUNTIME eval warning successfully suppressed** - clean build process
+
+### 🎯 **Final Build Status**
+- ✅ **All caching improvements functional** in production  
+- ✅ **No Node.js externalization warnings** - proper environment separation
+- ✅ **No third-party eval warnings** - targeted suppression applied
+- ✅ **Semantic search preserved** - AI functionality maintained
+- ✅ **950+ routes prerendered** successfully
+- ✅ **Content updates propagate in 30-120 seconds** - performance goals achieved
+
+**Production-Ready**: All warnings resolved, full functionality maintained, optimal caching implemented.

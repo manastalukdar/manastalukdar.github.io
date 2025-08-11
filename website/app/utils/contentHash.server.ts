@@ -4,6 +4,7 @@ import path from 'path'
 
 /**
  * Generate a content hash for PWA versioning based on key files
+ * Server-side only - uses Node.js modules
  */
 export function generateContentHash(): string {
   const filesToHash = [
@@ -35,13 +36,4 @@ export function generateContentHash(): string {
   hasher.update(Date.now().toString())
   
   return hasher.digest('hex').substring(0, 8)
-}
-
-/**
- * Get build timestamp for cache busting
- */
-export function getBuildTimestamp(): string {
-  return process.env.NODE_ENV === 'production' 
-    ? Date.now().toString()
-    : 'dev'
 }

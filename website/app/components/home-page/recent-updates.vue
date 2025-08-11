@@ -30,7 +30,7 @@ import fm from 'front-matter';
 import mdit from 'markdown-it';
 import { computedAsync } from '@vueuse/core';
 import getTargetBlankLinkRender from "~/utils/markdownRenderHelpers.ts";
-import { getBuildTimestamp } from '~/utils/contentHash';
+import { getBuildTimestamp } from '~/utils/contentHash.client';
 const md = new mdit({
   html: true,
   linkify: true,

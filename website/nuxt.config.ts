@@ -5,7 +5,7 @@ import { Feed, Item } from 'feed'
 import { createResolver } from '@nuxt/kit'
 import { config, Configuration } from 'webpack';
 import * as getRoutes from './app/utils/getRoutes.js'
-import { generateContentHash } from './app/utils/contentHash'
+import { generateContentHash } from './app/utils/contentHash.server'
 
 const { resolve } = createResolver(import.meta.url)
 
@@ -255,13 +255,31 @@ export default defineNuxtConfig({
     define: {
       'process.env.DEBUG': false,
     },
-    css    : {
+    css: {
       preprocessorOptions: {
         scss: {
           // Removed additionalData import since Vuetify plugin handles it with @use
         },
       },
     },
+    build: {
+      rollupOptions: {
+        onwarn(warning, warn) {
+          // Suppress eval warnings from ONNXRUNTIME-web (third-party ML library)
+          if (warning.code === 'EVAL' && warning.id?.includes('onnxruntime-web')) {
+            return
+          }
+          // Pass through all other warnings
+          warn(warning)
+        },
+        output: {
+          manualChunks: {
+            // Isolate ML models in separate chunk for better caching
+            'ml-models': ['@xenova/transformers']
+          }
+        }
+      }
+    }
   },
 
   sourcemap: {
