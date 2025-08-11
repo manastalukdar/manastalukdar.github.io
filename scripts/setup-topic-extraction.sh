@@ -128,6 +128,7 @@ should_regenerate_topics() {
     local topics_file="$MODELS_DIR/discovered_topics.json"
     local transformer_topics="$MODELS_DIR/transformer_topics.json"
     local category_embeddings="$MODELS_DIR/category_embeddings.pkl"
+    local blog_hash_file="$MODELS_DIR/blog_content_hash.txt"
     
     # If no topic model files exist, regeneration is needed
     if [ ! -f "$topics_file" ] && [ ! -f "$transformer_topics" ] && [ ! -f "$category_embeddings" ]; then
@@ -135,30 +136,54 @@ should_regenerate_topics() {
         return 0
     fi
     
-    # Find the newest topic model file to compare against blog content
-    local newest_model_time=0
-    for model_file in "$topics_file" "$transformer_topics" "$category_embeddings"; do
-        if [ -f "$model_file" ]; then
-            local model_time=$(stat -c %Y "$model_file" 2>/dev/null || echo "0")
-            if [ "$model_time" -gt "$newest_model_time" ]; then
-                newest_model_time="$model_time"
-            fi
-        fi
-    done
+    # Hash-based cache validation for more reliable caching
+    log_info "Checking blog content hash for smart caching..."
     
-    # Check if any blog posts are newer than the newest topic model
-    local newest_blog_file=$(find "$BLOG_FOLDER" -name "*.md" -type f -printf '%T@ %p\n' 2>/dev/null | sort -n | tail -1 | cut -d' ' -f2-)
-    
-    if [ -n "$newest_blog_file" ]; then
-        local blog_time=$(stat -c %Y "$newest_blog_file" 2>/dev/null || echo "0")
-        if [ "$blog_time" -gt "$newest_model_time" ]; then
-            log_info "Blog content is newer than existing topic models - regeneration needed"
-            return 0
-        fi
+    # Calculate current blog content hash
+    local current_blog_hash=""
+    if command -v sha256sum >/dev/null 2>&1; then
+        current_blog_hash=$(find "$BLOG_FOLDER" -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
+    else
+        # Fallback for macOS
+        current_blog_hash=$(find "$BLOG_FOLDER" -name "*.md" -type f -exec shasum -a 256 {} \; | shasum -a 256 | cut -d' ' -f1)
     fi
     
-    log_info "Existing topic models are up to date - no regeneration needed"
-    return 1  # No regeneration needed
+    log_info "Current blog content hash: $current_blog_hash"
+    
+    # Check if we have a stored hash from previous topic model generation
+    if [ -f "$blog_hash_file" ]; then
+        local stored_hash=$(cat "$blog_hash_file" 2>/dev/null | tr -d '\n')
+        log_info "Stored blog content hash: $stored_hash"
+        
+        if [ "$current_blog_hash" = "$stored_hash" ] && [ -n "$stored_hash" ]; then
+            log_success "Blog content hash matches cached topic models - no regeneration needed"
+            return 1  # No regeneration needed
+        else
+            log_info "Blog content hash changed - topic model regeneration needed"
+            return 0
+        fi
+    else
+        log_info "No stored blog hash found - topic model regeneration needed"
+        return 0
+    fi
+}
+
+# Save blog content hash for future cache validation
+save_blog_content_hash() {
+    local blog_hash_file="$MODELS_DIR/blog_content_hash.txt"
+    
+    # Calculate current blog content hash (same logic as should_regenerate_topics)
+    local current_blog_hash=""
+    if command -v sha256sum >/dev/null 2>&1; then
+        current_blog_hash=$(find "$BLOG_FOLDER" -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
+    else
+        # Fallback for macOS
+        current_blog_hash=$(find "$BLOG_FOLDER" -name "*.md" -type f -exec shasum -a 256 {} \; | shasum -a 256 | cut -d' ' -f1)
+    fi
+    
+    # Save hash to file
+    echo "$current_blog_hash" > "$blog_hash_file"
+    log_info "Saved blog content hash for cache validation: $current_blog_hash"
 }
 
 log_warning() {
@@ -536,6 +561,9 @@ except Exception as e:
         log_warning "Traditional topic discovery failed, but system can still work with static methods"
     }
 
+    # Save blog content hash for cache validation
+    save_blog_content_hash
+
     log_success "Unified topic extraction setup completed"
 
     # Show summary of available methods
@@ -601,10 +629,17 @@ generate_enhanced_metadata() {
         return 0
     fi
     
-    # If topic models weren't regenerated, use --skip-topics to avoid expensive topic extraction
+    # Determine if we can reuse cached topics or need to skip entirely
     if [ "$topic_models_regenerated" = false ]; then
-        use_skip_topics=true
-        log_info "Topic models are cached - using skip-topics mode for faster metadata generation"
+        # Check if we have usable cached topic models
+        if [ -f "$MODELS_DIR/transformer_topics.json" ] || [ -f "$MODELS_DIR/discovered_topics.json" ]; then
+            log_info "Using existing topic models for metadata generation (cached topics)"
+            # Don't use --skip-topics, let the system use the cached topic models
+            use_skip_topics=false
+        else
+            log_info "No topic models available - using skip-topics mode for minimal metadata generation"
+            use_skip_topics=true
+        fi
     fi
 
     # Backup existing metadata
@@ -723,12 +758,13 @@ main() {
     local topic_models_regenerated=false
     if [ "$SKIP_DISCOVERY" = true ]; then
         log_success "Topic discovery skipped (--skip-discovery flag) - using existing models"
-        # Keep topic_models_regenerated=false to enable skip-topics mode
+        # Don't set topic_models_regenerated=true since we're not actually regenerating
     elif should_regenerate_topics || [ "$FORCE_REGENERATION" = true ]; then
         run_unified_topic_setup
         topic_models_regenerated=true
     else
         log_success "Topic models are up-to-date - skipping topic setup"
+        # Models exist and are current, so we can reuse them for metadata generation
     fi
     
     # Generate metadata based on topic model state

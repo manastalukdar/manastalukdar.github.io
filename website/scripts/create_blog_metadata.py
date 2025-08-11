@@ -708,17 +708,18 @@ def main(run_topic_discovery=True):
     """main method with enhanced topic extraction."""
     global _SKIP_TOPICS_MODE
     
-    # Set global skip mode flag for safety
-    _SKIP_TOPICS_MODE = not run_topic_discovery
+    # Set global skip mode flag only for true skip scenarios
+    _SKIP_TOPICS_MODE = False  # Reset, will be set conditionally
     
     # Always ensure blog posts are copied and basic setup is done
     initialize()
     files = find_files()
     copy_blog_posts(POSTS_FOLDER, POSTS_DIST_FOLDER)
     
-    # Fast path: Check if we can use cached metadata when topics are disabled
+    # Check if we're in true skip mode (no topics at all)
     if not run_topic_discovery:
-        print("🚀 Skip-topics mode enabled - no transformer processing will occur")
+        _SKIP_TOPICS_MODE = True
+        print("🚀 Skip-topics mode enabled - no topic processing will occur")
         if check_cached_metadata_validity():
             print("✅ Using cached metadata - no blog content changes detected")
             print("Blog posts copied, skipping expensive topic processing operations")
@@ -730,7 +731,8 @@ def main(run_topic_discovery=True):
             print("\nBlog metadata creation completed (minimal mode - no topic processing)!")
             return
     
-    create_posts_list(files, run_topic_discovery=run_topic_discovery, skip_per_post_extraction=(not run_topic_discovery))
+    # Normal mode: Run topic discovery and/or use cached topic models
+    create_posts_list(files, run_topic_discovery=run_topic_discovery, skip_per_post_extraction=False)
     
     print("\nBlog metadata creation completed with enhanced topic extraction!")
 

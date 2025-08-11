@@ -252,7 +252,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: website/config/topic_models
-          key: topic-models-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.blog_hash }}-v2
+          key: topic-models-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.blog_hash }}-v3
           restore-keys: |
             topic-models-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.blog_hash }}-
             topic-models-${{ runner.os }}-
