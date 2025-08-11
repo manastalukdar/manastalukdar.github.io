@@ -356,16 +356,23 @@ def extract_topics_from_cached_data(content, title, cached_topics):
         score = 0
         matched_keywords = []
         
-        # Sort keywords for deterministic processing
-        for keyword in sorted(keywords) if keywords else []:
+        # Process keywords (handle both string and dict formats)
+        processed_keywords = []
+        for keyword in keywords or []:
             if isinstance(keyword, str):
-                keyword_lower = keyword.lower()
-                # Count occurrences, with title matches weighted higher
-                title_matches = title_lower.count(keyword_lower) * 3
-                content_matches = content_lower.count(keyword_lower)
-                if title_matches + content_matches > 0:
-                    matched_keywords.append(keyword)
-                    score += title_matches + content_matches
+                processed_keywords.append(keyword)
+            elif isinstance(keyword, dict) and 'term' in keyword:
+                processed_keywords.append(keyword['term'])
+        
+        # Sort keywords for deterministic processing
+        for keyword in sorted(processed_keywords):
+            keyword_lower = keyword.lower()
+            # Count occurrences, with title matches weighted higher
+            title_matches = title_lower.count(keyword_lower) * 3
+            content_matches = content_lower.count(keyword_lower)
+            if title_matches + content_matches > 0:
+                matched_keywords.append(keyword)
+                score += title_matches + content_matches
         
         if score > 0:
             # Sort matched keywords for consistent output
