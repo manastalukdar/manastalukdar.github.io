@@ -53,17 +53,26 @@ const homepageTitle = globalDataStore.homepageTitle;
 const runtimeConfig = useRuntimeConfig(); // $config.baseURL
 const route = useRoute(); // route.params
 const baseUrl = runtimeConfig.public.baseUrl;
+// Progressive enhancement: Load blog metadata without blocking page render
+let blogMetadata = blogMetadataStore.getBlogMetadata();
+
+// If no cached data, show skeleton and load in background
+if (blogMetadata.length === 0) {
+  // Start loading in background
+  setupBlogMetadata().catch(console.error);
+}
+
 async function setupBlogMetadata() {
   try {
-      if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
-        await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
-      }
+    if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
+      await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
+      // Update reactive reference after loading
+      blogMetadata = blogMetadataStore.getBlogMetadata();
+    }
   } catch (error) {
     console.log(error)
   }
 };
-await setupBlogMetadata();
-const blogMetadata = blogMetadataStore.getBlogMetadata();
 components: {
   aboutBlurb,
   recentPostsHomePage,

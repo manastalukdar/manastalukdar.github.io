@@ -5,8 +5,12 @@ import { Feed, Item } from 'feed'
 import { createResolver } from '@nuxt/kit'
 import { config, Configuration } from 'webpack';
 import * as getRoutes from './app/utils/getRoutes.js'
+import { generateContentHash } from './app/utils/contentHash'
 
 const { resolve } = createResolver(import.meta.url)
+
+// Generate content-based version for PWA
+const contentVersion = generateContentHash()
 
 const baseUrl =
   process.env.NODE_ENV === 'production'
@@ -423,7 +427,7 @@ export default defineNuxtConfig({
     '/bookmarks/**': { prerender: true },
     
     // Blog pages - prerender with SWR for content updates
-    '/blog/**': { prerender: true, swr: 300 }, // 5 min cache for blog content
+    '/blog/**': { prerender: true, swr: 120 }, // 2 min cache for blog content
     
     // API routes - ensure they work properly
     '/api/**': { cors: true },
@@ -445,11 +449,47 @@ export default defineNuxtConfig({
       cleanupOutdatedCaches: true,
       // Add skipWaiting to immediately activate new service worker
       skipWaiting: true,
+      // Runtime caching strategies for different content types
+      runtimeCaching: [
+        {
+          urlPattern: /\/blogdata\/.*\.json$/,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'blog-metadata',
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 300 // 5 minutes
+            }
+          }
+        },
+        {
+          urlPattern: /\.md(\?raw)?$/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'markdown-content',
+            expiration: {
+              maxEntries: 50,
+              maxAgeSeconds: 3600 // 1 hour
+            }
+          }
+        },
+        {
+          urlPattern: /\/content-testimonials\//,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'testimonials-content',
+            expiration: {
+              maxEntries: 20,
+              maxAgeSeconds: 1800 // 30 minutes
+            }
+          }
+        }
+      ]
     },
     manifest: {
       short_name: 'MTalukdar',
       name: 'Manas Talukdar',
-      version: '2.1.0', // Increment version again to force cache refresh
+      version: `2.1.${contentVersion}`, // Content-based versioning for automatic cache invalidation
       background_color: '#303030',
       theme_color: '#263238',
       display: 'standalone',

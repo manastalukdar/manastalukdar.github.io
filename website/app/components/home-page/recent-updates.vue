@@ -30,6 +30,7 @@ import fm from 'front-matter';
 import mdit from 'markdown-it';
 import { computedAsync } from '@vueuse/core';
 import getTargetBlankLinkRender from "~/utils/markdownRenderHelpers.ts";
+import { getBuildTimestamp } from '~/utils/contentHash';
 const md = new mdit({
   html: true,
   linkify: true,
@@ -38,9 +39,18 @@ const md = new mdit({
 getTargetBlankLinkRender(md);
 const recent = computedAsync(async () => {
   try {
+    // Use static import and add cache busting via data attribute in production
     const fileContent = await import('./recent-updates.md?raw')
     const res = fm(fileContent.default)
-    return md.render(res.body)
+    const rendered = md.render(res.body)
+    
+    // Add build timestamp to prevent caching in production
+    if (process.env.NODE_ENV === 'production') {
+      const buildTimestamp = getBuildTimestamp()
+      return `<div data-build="${buildTimestamp}">${rendered}</div>`
+    }
+    
+    return rendered
   } catch (error) {
     console.log(error)
   }

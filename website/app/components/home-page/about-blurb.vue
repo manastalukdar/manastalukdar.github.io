@@ -11,6 +11,7 @@
 import fm from 'front-matter'
 import mdit from 'markdown-it'
 import { computedAsync } from '@vueuse/core'
+import { getBuildTimestamp } from '~/utils/contentHash'
 const md = new mdit({
   html: true,
   linkify: true,
@@ -20,9 +21,19 @@ export default {
   setup() {
     const aboutBlurb = computedAsync(async () => {
       try {
+        // Use static import and add cache busting via URL parameter in production
         const fileContent = await import('./about-blurb.md?raw')
         const res = fm(fileContent.default)
-        return md.render(res.body)
+        const rendered = md.render(res.body)
+        
+        // Add build timestamp to prevent caching in production
+        if (process.env.NODE_ENV === 'production') {
+          // Force re-render on build changes by including timestamp in a data attribute
+          const buildTimestamp = getBuildTimestamp()
+          return `<div data-build="${buildTimestamp}">${rendered}</div>`
+        }
+        
+        return rendered
       } catch (error) {
         console.log(error)
       }

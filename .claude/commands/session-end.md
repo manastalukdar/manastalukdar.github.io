@@ -25,6 +25,8 @@ End the current development session by:
    - Tips for future developers
 
 4. Empty the `.claude/sessions/.current-session` file (don't remove it, just clear its contents)
-5. Inform user the session has been documented
+5. Rename the session file by appending a name based on what was implemented or proposed.
+6. Move the session file to the appropriate sub-directory under the `.claude/sessions` directory. If it does not exist, first run the prompt as defined in the `.claude/commands/sessions-init.md` file, and then move the file.
+7. Inform user the session has been documented
 
 The summary should be thorough enough that another developer (or AI) can understand everything that happened without reading the entire session.

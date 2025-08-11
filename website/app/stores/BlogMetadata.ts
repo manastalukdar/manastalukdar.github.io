@@ -13,6 +13,21 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
   actions: {
     async setupBlogMetadata(baseURL: string) {
       try {
+        // Check localStorage cache first (client-side only)
+        if (process.client) {
+          const cachedData = localStorage.getItem('blogMetadata')
+          const cacheTimestamp = localStorage.getItem('blogMetadataTimestamp')
+          const cacheAge = Date.now() - (parseInt(cacheTimestamp || '0'))
+          
+          // Use cache if less than 5 minutes old
+          if (cachedData && cacheAge < 300000) {
+            this.blogMetadata = JSON.parse(cachedData)
+            // Still fetch in background to update cache
+            this.updateCacheInBackground(baseURL)
+            return
+          }
+        }
+        
         let data: any;
         
         if (process.server) {
@@ -35,6 +50,14 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
             ? '/blogdata/metadata/blog_metadata.json'
             : baseURL + '/blogdata/metadata/blog_metadata.json';
           data = await $fetch(fetchUrl)
+          
+          // Cache the data client-side
+          try {
+            localStorage.setItem('blogMetadata', JSON.stringify(data))
+            localStorage.setItem('blogMetadataTimestamp', Date.now().toString())
+          } catch (storageError) {
+            console.log('Could not cache blog metadata:', storageError)
+          }
         }
         
         this.blogMetadata = data
@@ -44,6 +67,23 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
         console.log('Base URL:', baseURL, 'Client:', process.client)
         // Gracefully handle missing metadata
         this.blogMetadata = []
+      }
+    },
+
+    // Background cache update without blocking UI
+    async updateCacheInBackground(baseURL: string) {
+      try {
+        const fetchUrl = baseURL.includes('github.io') 
+          ? '/blogdata/metadata/blog_metadata.json'
+          : baseURL + '/blogdata/metadata/blog_metadata.json';
+        const data = await $fetch(fetchUrl)
+        
+        // Update cache and store
+        localStorage.setItem('blogMetadata', JSON.stringify(data))
+        localStorage.setItem('blogMetadataTimestamp', Date.now().toString())
+        this.blogMetadata = data
+      } catch (error) {
+        console.log('Background cache update failed:', error)
       }
     },
 
