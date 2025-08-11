@@ -721,7 +721,10 @@ main() {
     
     # Check if topic models need regeneration and store result
     local topic_models_regenerated=false
-    if should_regenerate_topics || [ "$FORCE_REGENERATION" = true ]; then
+    if [ "$SKIP_DISCOVERY" = true ]; then
+        log_success "Topic discovery skipped (--skip-discovery flag) - using existing models"
+        # Keep topic_models_regenerated=false to enable skip-topics mode
+    elif should_regenerate_topics || [ "$FORCE_REGENERATION" = true ]; then
         run_unified_topic_setup
         topic_models_regenerated=true
     else
