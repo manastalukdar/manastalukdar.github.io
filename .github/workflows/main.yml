@@ -457,7 +457,7 @@ jobs:
           BLOG_HASH=$(find blog -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
           SOURCE_HASH=$(find website/app website/nuxt.config.ts website/package.json website/server -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
           METADATA_HASH=$(sha256sum website/public/blogdata/metadata/blog_metadata.json | cut -d' ' -f1)
-          CONFIG_HASH=$(find website/config -name "*.json" -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
+          CONFIG_HASH=$(find website/config -name "*.json" ! -name "*backup*" -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
           ASSETS_HASH=$(find website/public/images website/public/styles -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
           
           # Combine all hashes for comprehensive cache key

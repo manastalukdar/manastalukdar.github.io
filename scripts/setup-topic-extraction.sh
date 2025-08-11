@@ -529,7 +529,26 @@ run_unified_topic_setup() {
             log_info "Backed up transformer topics"
         fi
     }
+    
+    # Clean up old backup files (keep only last 3 backups)
+    cleanup_old_backups() {
+        log_info "Cleaning up old backup files..."
+        # Remove backup files older than 7 days to prevent accumulation
+        find "$MODELS_DIR" -name "*backup*.json" -type f -mtime +7 -delete 2>/dev/null || true
+        
+        # Keep only the 3 most recent backups of each type
+        for topic_type in "discovered_topics" "transformer_topics"; do
+            backup_count=$(find "$MODELS_DIR" -name "${topic_type}_backup_*.json" -type f | wc -l)
+            if [ "$backup_count" -gt 3 ]; then
+                find "$MODELS_DIR" -name "${topic_type}_backup_*.json" -type f -printf '%T@ %p\n' 2>/dev/null | \
+                sort -n | head -n $((backup_count - 3)) | cut -d' ' -f2- | \
+                xargs rm -f 2>/dev/null || true
+            fi
+        done
+    }
+    
     backup_models
+    cleanup_old_backups
 
     # Try unified transformer approach first
     log_info "Setting up unified transformer-based topic extraction..."
