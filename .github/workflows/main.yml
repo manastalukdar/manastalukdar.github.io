@@ -457,7 +457,15 @@ jobs:
           BLOG_HASH=$(find blog -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
           SOURCE_HASH=$(find website/app website/nuxt.config.ts website/package.json website/server -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
           METADATA_HASH=$(sha256sum website/public/blogdata/metadata/blog_metadata.json | cut -d' ' -f1)
-          CONFIG_HASH=$(find website/config -name "*.json" ! -name "*backup*" -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
+          # CONFIG_HASH - only include stable configuration files, exclude volatile binary and backup files
+          CONFIG_HASH_FILES=$(find website/config -name "*.json" ! -name "*backup*" -type f 2>/dev/null | sort)
+          if [ -n "$CONFIG_HASH_FILES" ]; then
+            echo "📋 Config files for hash:"
+            echo "$CONFIG_HASH_FILES" | while read f; do echo "  • $f"; done
+            CONFIG_HASH=$(echo "$CONFIG_HASH_FILES" | xargs sha256sum 2>/dev/null | sha256sum | cut -d' ' -f1)
+          else
+            CONFIG_HASH="empty-config"
+          fi
           ASSETS_HASH=$(find website/public/images website/public/styles -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
           
           # Combine all hashes for comprehensive cache key
@@ -467,6 +475,14 @@ jobs:
           echo "cache_key=${CACHE_KEY}" >> $GITHUB_OUTPUT
           echo "blog_hash=${BLOG_HASH}" >> $GITHUB_OUTPUT
           echo "source_hash=${SOURCE_HASH}" >> $GITHUB_OUTPUT
+          
+          # Debug: Show all hash components
+          echo "🔍 Cache Key Components:"
+          echo "  📚 BLOG_HASH:     ${BLOG_HASH}"
+          echo "  📦 SOURCE_HASH:   ${SOURCE_HASH}"  
+          echo "  📄 METADATA_HASH: ${METADATA_HASH}"
+          echo "  ⚙️  CONFIG_HASH:   ${CONFIG_HASH}"
+          echo "  🎨 ASSETS_HASH:   ${ASSETS_HASH}"
           echo "🔑 Build cache key: ${CACHE_KEY}"
 
       - name: Check Build Output Cache

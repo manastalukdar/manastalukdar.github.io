@@ -586,9 +586,6 @@ except Exception as e:
         log_warning "Traditional topic discovery failed, but system can still work with static methods"
     }
 
-    # Save blog content hash for cache validation
-    save_blog_content_hash
-
     log_success "Unified topic extraction setup completed"
 
     # Show summary of available methods
@@ -799,6 +796,9 @@ main() {
         log_success "Topic models are up-to-date - skipping topic setup"
         # Models exist and are current, so we can reuse them for metadata generation
     fi
+    
+    # Always save blog content hash for cache validation (regardless of skip/regeneration mode)
+    save_blog_content_hash
     
     # Generate metadata based on topic model state
     if [ "$SKIP_METADATA" = true ]; then
