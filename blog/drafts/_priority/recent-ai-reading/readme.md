@@ -80,6 +80,8 @@ excerpt: ""
 
 - [Prompt engineering overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
 - [How to Build an Agent](https://ampcode.com/how-to-build-an-agent)
+- [Understanding LLMs from Scratch Using Middle School Math](https://medium.com/data-science/understanding-llms-from-scratch-using-middle-school-math-e602d27ec876)
+- [Understanding reinforcement learning for model training from scratch](https://medium.com/data-science-collective/understanding-reinforcement-learning-for-model-training-from-scratch-8bffe8d87a07)
 
 ## Miscellaneous
 
