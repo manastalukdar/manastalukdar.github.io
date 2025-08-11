@@ -294,6 +294,109 @@ def identify_target_audience(keywords, complexity):
     return list(audiences)[:5]
 
 
+def load_cached_topics():
+    """Load pre-computed topic data from cached topic model files."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    config_folder = os.path.join(os.path.dirname(script_dir), 'config')
+    models_folder = os.path.join(config_folder, 'topic_models')
+    
+    cached_topics = {}
+    
+    # Try to load transformer topics first (preferred)
+    transformer_topics_file = os.path.join(models_folder, 'transformer_topics.json')
+    if os.path.exists(transformer_topics_file):
+        try:
+            with open(transformer_topics_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                cached_topics.update(data.get('discoveredTopics', {}))
+                print(f"Loaded {len(cached_topics)} cached transformer topics")
+        except Exception as e:
+            print(f"Error loading transformer topics: {e}")
+    
+    # Load traditional topics as fallback/supplement
+    traditional_topics_file = os.path.join(models_folder, 'discovered_topics.json')
+    if os.path.exists(traditional_topics_file):
+        try:
+            with open(traditional_topics_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                traditional_topics = data.get('discoveredTopics', {})
+                # Add topics that aren't already in cached_topics
+                for topic_id, topic_data in traditional_topics.items():
+                    if topic_id not in cached_topics:
+                        cached_topics[topic_id] = topic_data
+                print(f"Loaded {len(traditional_topics)} additional traditional topics")
+        except Exception as e:
+            print(f"Error loading traditional topics: {e}")
+    
+    return cached_topics
+
+
+def extract_topics_from_cached_data(content, title, cached_topics):
+    """Extract topics for a blog post using pre-computed topic data."""
+    if not cached_topics:
+        print(f"No cached topics available for '{title}' - using fallback")
+        return {
+            'topic-primary': 'general',
+            'topic-secondary': [],
+            'extraction-method': 'fallback',
+            'classification-method': 'none'
+        }
+    
+    # Simple keyword matching against cached topics
+    content_lower = content.lower()
+    title_lower = title.lower()
+    combined_text = f"{title_lower} {content_lower}"
+    
+    topic_scores = {}
+    
+    # Score topics based on keyword matches
+    for topic_id, topic_data in cached_topics.items():
+        keywords = topic_data.get('keywords', [])
+        score = 0
+        matched_keywords = []
+        
+        for keyword in keywords:
+            if isinstance(keyword, str):
+                keyword_lower = keyword.lower()
+                # Count occurrences, with title matches weighted higher
+                title_matches = title_lower.count(keyword_lower) * 3
+                content_matches = content_lower.count(keyword_lower)
+                if title_matches + content_matches > 0:
+                    matched_keywords.append(keyword)
+                    score += title_matches + content_matches
+        
+        if score > 0:
+            topic_scores[topic_id] = {
+                'score': score,
+                'matched_keywords': matched_keywords,
+                'weight': topic_data.get('weight', 1.0)
+            }
+    
+    # Determine primary and secondary topics
+    if not topic_scores:
+        return {
+            'topic-primary': 'general',
+            'topic-secondary': [],
+            'extraction-method': 'cached',
+            'classification-method': 'keyword-matching-no-matches'
+        }
+    
+    # Sort by score and get top topics
+    sorted_topics = sorted(topic_scores.items(), key=lambda x: x[1]['score'] * x[1]['weight'], reverse=True)
+    
+    primary_topic = sorted_topics[0][0]
+    secondary_topics = [topic_id for topic_id, _ in sorted_topics[1:4]]  # Top 3 secondary topics
+    
+    return {
+        'topic-primary': primary_topic,
+        'topic-secondary': secondary_topics,
+        'extraction-method': 'cached',
+        'classification-method': 'keyword-matching',
+        'matched-keywords': topic_scores[primary_topic]['matched_keywords'][:5],
+        'confidence': min(topic_scores[primary_topic]['score'] / 10.0, 1.0)  # Normalize confidence
+    }
+
+
 def extract_topics_from_content(content, title='', use_enhanced=True, prefer_transformer=True, skip_mode=False):
     """Main topic extraction function with unified transformer and enhanced dynamic analysis."""
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -405,11 +508,23 @@ def find_files():
     return result
 
 
-def create_posts_list(files, run_topic_discovery=True, skip_per_post_extraction=False):
+def create_posts_list(files, run_topic_discovery=True, skip_per_post_extraction=False, use_cached_topics=False):
     """Creates the list of posts with enhanced topic extraction."""
     count = 0
     data_all = []
     series_data = {}
+    
+    # Load cached topics if we're using cached mode
+    cached_topics_data = {}
+    if use_cached_topics:
+        print("🔍 Loading cached topic data for metadata generation...")
+        cached_topics_data = load_cached_topics()
+        if cached_topics_data:
+            print(f"✅ Loaded {len(cached_topics_data)} cached topics - using for all posts")
+        else:
+            print("⚠️ No cached topics found - falling back to skip mode")
+            skip_per_post_extraction = True
+            use_cached_topics = False
     
     # Run topic discovery first if enabled
     if run_topic_discovery:
@@ -453,15 +568,19 @@ def create_posts_list(files, run_topic_discovery=True, skip_per_post_extraction=
             post['reading-time'] = reading_time
             
             # Extract topics from content using enhanced method (skip if requested for performance)
-            if not skip_per_post_extraction:
+            if use_cached_topics and cached_topics_data:
+                # Use pre-computed cached topics (fast and accurate)
+                topic_data = extract_topics_from_cached_data(content, post.metadata.get('title', ''), cached_topics_data)
+                print(f"Using cached topics for '{post.metadata.get('title', '')}': {topic_data['topic-primary']} (cached)")
+            elif not skip_per_post_extraction:
                 topic_data = extract_topics_from_content(content, post.metadata.get('title', ''), use_enhanced=True)
             else:
-                # Skip expensive topic extraction and use cached/static fallback
-                print(f"Skipping topic extraction for '{post.metadata.get('title', '')}' (cached mode)")
+                # Skip expensive topic extraction and use minimal fallback
+                print(f"Skipping topic extraction for '{post.metadata.get('title', '')}' (minimal mode)")
                 topic_data = {
                     'topic-primary': 'general',  
                     'topic-secondary': [],
-                    'extraction-method': 'cached',
+                    'extraction-method': 'minimal',
                     'classification-method': 'static'
                 }
                 
@@ -732,9 +851,24 @@ def main(run_topic_discovery=True):
             return
     
     # Normal mode: Run topic discovery and/or use cached topic models
-    create_posts_list(files, run_topic_discovery=run_topic_discovery, skip_per_post_extraction=False)
+    create_posts_list(files, run_topic_discovery=run_topic_discovery, skip_per_post_extraction=False, use_cached_topics=False)
     
     print("\nBlog metadata creation completed with enhanced topic extraction!")
+
+
+def main_cached_topics():
+    """Main method for generating metadata using cached topic models."""
+    # Always ensure blog posts are copied and basic setup is done
+    initialize()
+    files = find_files()
+    copy_blog_posts(POSTS_FOLDER, POSTS_DIST_FOLDER)
+    
+    print("🔍 Using cached topics mode - loading pre-computed topic models...")
+    
+    # Generate metadata using cached topics (no topic discovery)
+    create_posts_list(files, run_topic_discovery=False, skip_per_post_extraction=False, use_cached_topics=True)
+    
+    print("\nBlog metadata creation completed using cached topics!")
 
 
 def main_incremental(changed_posts_file: str = None):
@@ -847,6 +981,7 @@ if __name__ == '__main__':
     # Enhanced argument parsing
     parser = argparse.ArgumentParser(description="Generate blog metadata with optional incremental processing")
     parser.add_argument('--skip-topics', action='store_true', help='Skip topic extraction (faster, minimal metadata)')
+    parser.add_argument('--use-cached-topics', action='store_true', help='Use cached topic models for fast topic extraction')
     parser.add_argument('--incremental', action='store_true', help='Use incremental processing mode for changed posts only')
     parser.add_argument('--changed-posts-file', help='File containing list of changed blog posts (for incremental mode)')
     parser.add_argument('--verbose', '-v', action='store_true', help='Verbose output')
@@ -868,4 +1003,9 @@ if __name__ == '__main__':
             run_topic_discovery = not args.skip_topics
             if args.skip_topics:
                 print("Running with --skip-topics: minimal metadata generation without topic processing")
-            main(run_topic_discovery=run_topic_discovery)
+                main(run_topic_discovery=run_topic_discovery)
+            elif args.use_cached_topics:
+                print("Running with --use-cached-topics: using pre-computed topic models for fast extraction")
+                main_cached_topics()
+            else:
+                main(run_topic_discovery=run_topic_discovery)

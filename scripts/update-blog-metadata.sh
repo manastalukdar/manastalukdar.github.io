@@ -47,6 +47,7 @@ METADATA_FILE="$WEBSITE_DIR/public/blogdata/metadata/blog_metadata.json"
 METADATA_ONLY=false
 DISCOVERY_ONLY=false
 SKIP_TOPICS=false
+USE_CACHED_TOPICS=false
 INCREMENTAL_MODE=false
 FORCE_REGENERATION=false
 UPDATE_CONFIG=false
@@ -66,6 +67,11 @@ while [[ $# -gt 0 ]]; do
             ;;
         --skip-topics)
             SKIP_TOPICS=true
+            METADATA_ONLY=true  # Implies metadata-only
+            shift
+            ;;
+        --use-cached-topics)
+            USE_CACHED_TOPICS=true
             METADATA_ONLY=true  # Implies metadata-only
             shift
             ;;
@@ -360,6 +366,9 @@ generate_metadata() {
     if [ "$SKIP_TOPICS" = true ]; then
         log_info "Generating minimal metadata without topic processing..."
         python_args="--skip-topics"
+    elif [ "$USE_CACHED_TOPICS" = true ]; then
+        log_info "Generating metadata using cached topic models..."
+        python_args="--use-cached-topics"
     elif [ "$INCREMENTAL_MODE" = true ]; then
         log_info "Generating metadata for changed posts only (incremental mode)..."
         python_args="--incremental"
@@ -471,6 +480,9 @@ main() {
     if [ "$SKIP_TOPICS" = true ]; then
         need_metadata=true
         log_info "Skip-topics mode - minimal metadata generation without topic processing"
+    elif [ "$USE_CACHED_TOPICS" = true ]; then
+        need_metadata=true
+        log_info "Use-cached-topics mode - generating metadata with cached topic models"
     elif [ "$METADATA_ONLY" = true ]; then
         need_metadata=true
         log_info "Metadata-only mode - skipping topic discovery"

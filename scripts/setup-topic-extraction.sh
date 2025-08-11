@@ -45,6 +45,7 @@ REQUIREMENTS_FILE="$SCRIPTS_DIR/python-requirements.txt"
 # Command line options
 FORCE_REGENERATION=false
 SKIP_DISCOVERY=false
+SKIP_METADATA=false
 CUSTOM_BLOG_FOLDER=""
 SHOW_HELP=false
 
@@ -57,6 +58,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         --skip-discovery)
             SKIP_DISCOVERY=true
+            shift
+            ;;
+        --no-metadata)
+            SKIP_METADATA=true
             shift
             ;;
         --blog-folder)
@@ -84,6 +89,7 @@ if [ "$SHOW_HELP" = true ]; then
     echo "Options:"
     echo "  --force              Force regeneration of all models"
     echo "  --skip-discovery     Skip topic discovery (use existing models)"
+    echo "  --no-metadata        Skip metadata generation (setup only)"
     echo "  --blog-folder PATH   Custom path to blog folder"
     echo "  --help               Show this help message"
     echo ""
@@ -630,15 +636,17 @@ generate_enhanced_metadata() {
     fi
     
     # Determine if we can reuse cached topics or need to skip entirely
+    local use_cached_topics=false
     if [ "$topic_models_regenerated" = false ]; then
         # Check if we have usable cached topic models
         if [ -f "$MODELS_DIR/transformer_topics.json" ] || [ -f "$MODELS_DIR/discovered_topics.json" ]; then
             log_info "Using existing topic models for metadata generation (cached topics)"
-            # Don't use --skip-topics, let the system use the cached topic models
+            use_cached_topics=true
             use_skip_topics=false
         else
             log_info "No topic models available - using skip-topics mode for minimal metadata generation"
             use_skip_topics=true
+            use_cached_topics=false
         fi
     fi
 
@@ -651,9 +659,15 @@ generate_enhanced_metadata() {
 
     # Run metadata generation with appropriate flags
     if [ "$use_skip_topics" = true ]; then
-        log_info "Generating metadata with cached topic models (no topic extraction)..."
+        log_info "Generating minimal metadata (no topic processing)..."
         python "$SCRIPTS_DIR/create_blog_metadata.py" --skip-topics || {
             log_error "Enhanced metadata generation failed"
+            exit 1
+        }
+    elif [ "$use_cached_topics" = true ]; then
+        log_info "Generating metadata using cached topic models (fast topic extraction)..."
+        python "$SCRIPTS_DIR/create_blog_metadata.py" --use-cached-topics || {
+            log_error "Cached topic metadata generation failed"
             exit 1
         }
     else
@@ -768,8 +782,12 @@ main() {
     fi
     
     # Generate metadata based on topic model state
-    generate_enhanced_metadata "$topic_models_regenerated"
-    run_validation
+    if [ "$SKIP_METADATA" = true ]; then
+        log_info "Skipping metadata generation (--no-metadata flag)"
+    else
+        generate_enhanced_metadata "$topic_models_regenerated"
+        run_validation
+    fi
 
     # Show completion message
     show_usage_instructions

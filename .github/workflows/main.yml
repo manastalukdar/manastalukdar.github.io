@@ -260,11 +260,21 @@ jobs:
       - name: Setup Topic Extraction System
         run: |
           chmod +x ./scripts/setup-topic-extraction.sh
-          if [ "${{ needs.setup-and-detect-changes.outputs.topic_mode }}" = "full-discovery" ]; then
-            ./scripts/setup-topic-extraction.sh
-          else
-            ./scripts/setup-topic-extraction.sh --skip-discovery
-          fi
+          MODE="${{ needs.setup-and-detect-changes.outputs.topic_mode }}"
+          case "$MODE" in
+            "full-discovery")
+              echo "🔍 Running full topic discovery and setup..."
+              ./scripts/setup-topic-extraction.sh
+              ;;
+            "use-cached"|"metadata-only"|"granular-processing")
+              echo "⚡ Running setup environment only (metadata handled in next step)..."
+              ./scripts/setup-topic-extraction.sh --skip-discovery --no-metadata
+              ;;
+            *)
+              echo "🔧 Running standard setup..."
+              ./scripts/setup-topic-extraction.sh --skip-discovery --no-metadata
+              ;;
+          esac
         env:
           PYTHONIOENCODING: utf-8
           LC_ALL: C.UTF-8
@@ -283,8 +293,8 @@ jobs:
           MODE="${{ needs.setup-and-detect-changes.outputs.topic_mode }}"
           case "$MODE" in
             "use-cached")
-              echo "🚀 Using cached metadata - no processing needed..."
-              ./scripts/update-blog-metadata.sh --metadata-only --skip-topics
+              echo "🚀 Using cached topic models for fast metadata generation..."
+              ./scripts/update-blog-metadata.sh --use-cached-topics
               ;;
             "metadata-minimal")
               echo "🚀 Running minimal metadata generation (no topic processing)..."
