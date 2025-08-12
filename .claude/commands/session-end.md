@@ -1,39 +1,63 @@
-End the current development session by:
 
-1. Check `.claude/sessions/.current-session` for the active session
-2. If no active session, inform user there's nothing to end
-3. If session exists, append a comprehensive summary including:
-   - Session duration
-   - Git summary:
-     * Total files changed (added/modified/deleted)
-     * List all changed files with change type
-     * Number of commits made (if any)
-     * Final git status
-   - Todo summary:
-     * Total tasks completed/remaining
-     * List all completed tasks
-     * List any incomplete tasks with status
-   - Key accomplishments
-   - All features implemented
-   - All fixes implemented
-   - Problems encountered and solutions
-   - Breaking changes or important findings
-   - Dependencies added/removed
-   - Configuration changes
-   - Deployment steps taken
-   - Lessons learned
-   - What wasn't completed
-   - Tips for future developers
+# Procedure for Ending and Archiving a Development Session
 
-4. Empty the `.claude/sessions/.current-session` file (don't remove it, just clear its contents)
-5. Examine the sub-directories under the `.claude/sessions` directory.
-   1. If none exist, run the prompt as defined in the `.claude/commands/sessions-init.md` file. This will create the sub-directories.
-6. Examine what was created (or already exists). This is a breakdown of the project areas and components. Based on this list (flat or hierarchical) review the changes made in this session as documented in the active session file.
-   1. If they do not correspond to anything on the list, it is possible that the project has changed since the sub-directories were last created. In this case, run the prompt as defined in the `.claude/commands/sessions-init.md` file. and try step `6.` again.
-      1. If there is still no good match, stop and print out a statement with details and let the user decide what to do next.
-   2. If they correspond to more than one item in the list, split the contents of this file into multiple session files using the naming convention where the timestamp (the original file name) remains as the prefix followed by appending a name based on what was implemented or proposed.
-   3. Unless you went down the path of `6.1.1`, at this point you should have the matching sub-directory or sub-directories.
-7. Move the session file or files to the appropriate sub-directories under the `.claude/sessions` directory. If the sub-directory contains a `.gitkeep` file, delete it.
-8. Inform user the session has been documented and print location of the session file.
+This procedure archives the work from the current session into a permanent, detailed log for future reference.
 
-The summary should be thorough enough that another developer (or AI) can understand everything that happened without reading the entire session.
+## Phase 1: Verify the Active Session
+
+1. Check for an active session by reading the `.claude/sessions/.current-session` file.
+2. If the file is empty or doesn't exist, inform the user that there is no active session to end and stop the process.
+
+## Phase 2: Generate the Session Summary
+
+1. Append a comprehensive summary to the end of the active session file. The summary should be structured and detailed enough for another developer to understand the session's context and outcomes. It must include:
+
+- Session Metadata:
+  - Session duration
+- Version Control Summary (Git):
+  - Total files added, modified, or deleted
+  - A list of all changed files with their status (e.g., `A`, `M`, `D`)
+  - Number of commits made during the session
+  - Final `git status` output
+- Task Management Summary (To-Do):
+  - Totals for completed vs. remaining tasks
+  - A list of all completed tasks
+  - A list of all incomplete tasks and their current status
+- Development Narrative:
+  - Key accomplishments
+  - Features and fixes implemented
+  - Problems encountered and their solutions
+  - Lessons learned and tips for future developers
+- Project Impact:
+  - Breaking changes or other important findings
+  - Dependencies added or removed
+  - Configuration changes made
+  - Deployment steps taken (if any)
+  - Work that was planned but not completed
+
+## Phase 3: File the Session Log
+
+This phase determines the correct location for the session file based on its content.
+
+1. Ensure Directory Structure Exists: Check for sub-directories inside `.claude/sessions`.
+   - If no directories exist, create them by running the `sessions-init.md` command.
+
+2. Analyze and Categorize the Session: Review the session summary to determine which feature or product area it relates to. Compare this against the existing sub-directory names.
+
+3. Handle Filing Scenarios:
+    - A) Simple Match: If the session clearly maps to one sub-directory, proceed to Phase 4.
+    - B) No Match: If the session content does not match any existing directory:
+        1. The project structure may have changed. Re-run the `sessions-init.md` command to update the directories.
+        2. Attempt to categorize the session again against the updated directories.
+        3. If there is still no match, halt the process. Inform the user that a suitable directory could not be found and that manual action is required.
+    - C) Multiple Matches: If the session covers more than one feature area:
+        1. Split the session file into multiple files.
+        2. Use the naming convention: `[original_timestamp]-[feature_name].md`.
+        3. Each new file should contain the relevant parts of the summary for that specific feature.
+
+## Phase 4: Finalize and Clean Up
+
+1. Archive the File(s): Move the session file (or the newly split files) into the appropriate sub-directory (or directories) identified in Phase 3.
+2. Clean Up Directory: If the destination directory contained a `.gitkeep` file, delete it, as the directory is no longer empty.
+3. End the Session: Clear the contents of the `.claude/sessions/.current-session` file. Do not delete the file itself.
+4. Notify the User: Confirm that the session has been successfully documented and archived. Print the final location(s) of the session file(s).

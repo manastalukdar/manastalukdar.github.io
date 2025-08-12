@@ -1,4 +1,4 @@
-Procedure for Organizing Claude Session Directories:
+# Procedure for Organizing Claude Session Directories:
 
 1. Analyze the Project
    - Perform a thorough analysis of the project's codebase and overall architecture to understand its components.
