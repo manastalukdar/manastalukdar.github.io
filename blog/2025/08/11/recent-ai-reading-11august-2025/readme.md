@@ -29,7 +29,7 @@ meta:
 excerpt: "A Survey of Self-Evolving Agents: On Path to Artificial Super Intelligence"
 ---
 
-# Recent AI Reading [dd Month yyyy]
+# Recent AI Reading [11 August 2025]
 
 ## Papers
 
