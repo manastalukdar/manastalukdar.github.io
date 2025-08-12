@@ -20,13 +20,13 @@ post-format: link
 title: Recent AI Reading [11 August 2025]
 url-slug: recent-ai-reading-11-august-2025
 first-published-on: 2025-08-11 20:59
-last-updated-on: 2025-08-11 20:59
+last-updated-on: 2025-08-11 23:50
 series:
  slug: papers-i-read-recently
  part: 13
 meta:
  description: "Recent AI reading, including papers and articles."
-excerpt: "A Survey of Self-Evolving Agents: On Path to Artificial Super Intelligence"
+excerpt: ""
 ---
 
 # Recent AI Reading [11 August 2025]
