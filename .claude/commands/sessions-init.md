@@ -12,3 +12,4 @@ Once you have the ideal structure defined, navigate to the `.claude/sessions` di
    - Create New Directories: For any features or areas in your blueprint that do not yet have a corresponding directory, create them now.
 4. Ensure Directory Persistence
    - In any sub-directory that is empty (whether newly created or after moving files), add a `.gitkeep` file. This ensures the directory structure is committed to version control.
+5. Add or update `.claude/sessions/README.md` as relevant.
