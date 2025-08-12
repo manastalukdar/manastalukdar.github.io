@@ -20,7 +20,7 @@ post-format: link
 title: Recent AI Reading [11 August 2025]
 url-slug: recent-ai-reading-11-august-2025
 first-published-on: 2025-08-11 20:59
-last-updated-on: 2025-08-11 23:50
+last-updated-on: 2025-08-12 14:46
 series:
  slug: papers-i-read-recently
  part: 13
@@ -46,6 +46,7 @@ excerpt: ""
 ### Large Language Models
 
 - [[Learning without training: The implicit dynamics of in-context learning](https://arxiv.org/abs/2507.16003)](https://arxiv.org/abs/2507.21892)
+- [Part I: Tricks or Traps? A Deep Dive into RL for LLM Reasoning](https://arxiv.org/abs/2508.08221)
 
 ### Retrieval-Augmented Generation
 
