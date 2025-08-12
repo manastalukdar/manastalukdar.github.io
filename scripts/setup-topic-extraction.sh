@@ -144,15 +144,24 @@ should_regenerate_topics() {
     
     # Hash-based cache validation for more reliable caching
     log_info "Checking blog content hash for smart caching..."
+    log_info "Working directory: $(pwd), Project root: $PROJECT_ROOT"
     
-    # Calculate current blog content hash
+    # Calculate current blog content hash (using same method as CI for consistency)
     local current_blog_hash=""
+    local old_pwd=$(pwd)
+    cd "$PROJECT_ROOT"
+    
+    # Count blog files for debugging
+    local blog_file_count=$(find blog -name "*.md" -type f | wc -l)
+    log_info "Found $blog_file_count blog files for hash calculation"
+    
     if command -v sha256sum >/dev/null 2>&1; then
-        current_blog_hash=$(find "$BLOG_FOLDER" -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
+        current_blog_hash=$(find blog -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
     else
         # Fallback for macOS
-        current_blog_hash=$(find "$BLOG_FOLDER" -name "*.md" -type f -exec shasum -a 256 {} \; | shasum -a 256 | cut -d' ' -f1)
+        current_blog_hash=$(find blog -name "*.md" -type f -exec shasum -a 256 {} \; | shasum -a 256 | cut -d' ' -f1)
     fi
+    cd "$old_pwd"
     
     log_info "Current blog content hash: $current_blog_hash"
     
@@ -161,11 +170,20 @@ should_regenerate_topics() {
         local stored_hash=$(cat "$blog_hash_file" 2>/dev/null | tr -d '\n')
         log_info "Stored blog content hash: $stored_hash"
         
-        if [ "$current_blog_hash" = "$stored_hash" ] && [ -n "$stored_hash" ]; then
-            log_success "Blog content hash matches cached topic models - no regeneration needed"
-            return 1  # No regeneration needed
+        # Validate that we have valid hashes (non-empty and reasonable length)
+        if [ -n "$current_blog_hash" ] && [ -n "$stored_hash" ] && [ ${#stored_hash} -eq 64 ]; then
+            if [ "$current_blog_hash" = "$stored_hash" ]; then
+                log_success "Blog content hash matches cached topic models - no regeneration needed"
+                return 1  # No regeneration needed
+            else
+                log_info "Blog content hash changed - topic model regeneration needed"
+                log_info "  Previous: $stored_hash"  
+                log_info "  Current:  $current_blog_hash"
+                return 0
+            fi
         else
-            log_info "Blog content hash changed - topic model regeneration needed"
+            log_warning "Invalid hash data detected - forcing topic model regeneration"
+            log_info "  Current hash length: ${#current_blog_hash}, Stored hash length: ${#stored_hash}"
             return 0
         fi
     else
@@ -178,18 +196,31 @@ should_regenerate_topics() {
 save_blog_content_hash() {
     local blog_hash_file="$MODELS_DIR/blog_content_hash.txt"
     
-    # Calculate current blog content hash (same logic as should_regenerate_topics)
+    # Calculate current blog content hash (same logic as should_regenerate_topics and CI)
     local current_blog_hash=""
+    local old_pwd=$(pwd)
+    cd "$PROJECT_ROOT"
     if command -v sha256sum >/dev/null 2>&1; then
-        current_blog_hash=$(find "$BLOG_FOLDER" -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
+        current_blog_hash=$(find blog -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
     else
         # Fallback for macOS
-        current_blog_hash=$(find "$BLOG_FOLDER" -name "*.md" -type f -exec shasum -a 256 {} \; | shasum -a 256 | cut -d' ' -f1)
+        current_blog_hash=$(find blog -name "*.md" -type f -exec shasum -a 256 {} \; | shasum -a 256 | cut -d' ' -f1)
     fi
+    cd "$old_pwd"
     
-    # Save hash to file
-    echo "$current_blog_hash" > "$blog_hash_file"
-    log_info "Saved blog content hash for cache validation: $current_blog_hash"
+    # Save hash to file with validation
+    if [ -n "$current_blog_hash" ] && [ ${#current_blog_hash} -eq 64 ]; then
+        echo "$current_blog_hash" > "$blog_hash_file"
+        if [ $? -eq 0 ]; then
+            log_success "Saved blog content hash for cache validation: $current_blog_hash"
+        else
+            log_error "Failed to save blog content hash to file: $blog_hash_file"
+        fi
+    else
+        log_error "Invalid blog content hash calculated (length: ${#current_blog_hash})"
+        log_error "Hash value: $current_blog_hash"
+        log_warning "Topic models may not cache correctly without valid hash"
+    fi
 }
 
 log_warning() {
