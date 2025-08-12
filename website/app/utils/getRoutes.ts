@@ -143,12 +143,15 @@ export const functions = {
     for (const [key, value] of Object.entries<any>(groupedByTag)) {
       const route = '/blog/tag/' + key + '/'
       const tagName = value[0].tags.filter((tag: { [x: string]: string; name: any }) => {
-        if (tag['url-slug'] === key) {
-          return tag.name
-        } else {
-          return ''
-        }
+        return tag['url-slug'] === key
       })
+      
+      // Skip if no matching tag found (safety check)
+      if (!tagName || tagName.length === 0) {
+        console.warn(`No tag found with slug: ${key}`)
+        continue
+      }
+      
       properties.tags.push({
         name: tagName[0].name,
         slug: key,
@@ -179,12 +182,15 @@ export const functions = {
     for (const [key, value] of Object.entries<any>(groupedByCategories)) {
       const route = '/blog/category/' + key + '/'
       const catName = value[0].categories.filter((category: { [x: string]: string; name: any }) => {
-        if (category['url-slug'] === key) {
-          return category.name
-        } else {
-          return ''
-        }
+        return category['url-slug'] === key
       })
+      
+      // Skip if no matching category found (safety check)
+      if (!catName || catName.length === 0) {
+        console.warn(`No category found with slug: ${key}`)
+        continue
+      }
+      
       properties.categories.push({
         name: catName[0].name,
         slug: key,
