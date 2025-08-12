@@ -119,6 +119,18 @@ jobs:
           echo "blog_changed=${BLOG_CHANGED}" >> $GITHUB_OUTPUT
           echo "🔍 Blog content processing required: ${BLOG_CHANGED}"
 
+      - name: Check Topic Cache Validity
+        id: topic-cache
+        run: |
+          # Calculate current blog content hash using same method as local script
+          CURRENT_HASH=$(find blog -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
+          echo "current_hash=${CURRENT_HASH}" >> $GITHUB_OUTPUT
+          echo "📊 Current blog content hash: ${CURRENT_HASH}"
+          
+          # This will be used to validate against cached topic models after cache restoration
+          TOPICS_REGENERATION_NEEDED="unknown"
+          echo "topics_regeneration_needed=${TOPICS_REGENERATION_NEEDED}" >> $GITHUB_OUTPUT
+
       - name: Determine Topic Extraction Mode
         id: topic-mode
         run: |
@@ -257,24 +269,71 @@ jobs:
             topic-models-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.blog_hash }}-
             topic-models-${{ runner.os }}-
 
+      - name: Validate Topic Cache Hash
+        id: validate-cache
+        run: |
+          echo "🔍 Validating topic cache against current blog content..."
+          
+          # Get the current hash calculated earlier
+          CURRENT_HASH="${{ needs.setup-and-detect-changes.outputs.blog_hash }}"
+          
+          # Check if we have cached topic models and hash file
+          HASH_FILE="website/config/topic_models/blog_content_hash.txt"
+          TOPICS_NEED_REGEN="true"
+          CACHE_STATUS="no-cache"
+          
+          if [ -f "$HASH_FILE" ]; then
+            CACHED_HASH=$(cat "$HASH_FILE" 2>/dev/null | tr -d '\n')
+            echo "📊 Current hash: ${CURRENT_HASH}"
+            echo "📁 Cached hash:  ${CACHED_HASH}"
+            
+            if [ -n "$CACHED_HASH" ] && [ ${#CACHED_HASH} -eq 64 ]; then
+              if [ "$CURRENT_HASH" = "$CACHED_HASH" ]; then
+                echo "✅ Blog content hash matches cached topics - no regeneration needed"
+                TOPICS_NEED_REGEN="false"
+                CACHE_STATUS="valid-cache"
+              else
+                echo "🔄 Blog content hash changed - topic regeneration needed"
+                echo "   Previous: ${CACHED_HASH}"
+                echo "   Current:  ${CURRENT_HASH}"
+                TOPICS_NEED_REGEN="true" 
+                CACHE_STATUS="invalid-cache"
+              fi
+            else
+              echo "⚠️ Invalid cached hash (length: ${#CACHED_HASH}) - forcing regeneration"
+              TOPICS_NEED_REGEN="true"
+              CACHE_STATUS="corrupted-cache"
+            fi
+          else
+            echo "📝 No cached hash file found - topic regeneration needed"
+            TOPICS_NEED_REGEN="true"
+            CACHE_STATUS="no-cache"
+          fi
+          
+          echo "topics_need_regen=${TOPICS_NEED_REGEN}" >> $GITHUB_OUTPUT
+          echo "cache_status=${CACHE_STATUS}" >> $GITHUB_OUTPUT
+          echo "🎯 Topic regeneration needed: ${TOPICS_NEED_REGEN} (${CACHE_STATUS})"
+
       - name: Setup Topic Extraction System
         run: |
           chmod +x ./scripts/setup-topic-extraction.sh
+          
+          # Use hash-based validation instead of git diff for topic regeneration decision
+          TOPICS_NEED_REGEN="${{ steps.validate-cache.outputs.topics_need_regen }}"
+          CACHE_STATUS="${{ steps.validate-cache.outputs.cache_status }}"
           MODE="${{ needs.setup-and-detect-changes.outputs.topic_mode }}"
-          case "$MODE" in
-            "full-discovery")
-              echo "🔍 Running full topic discovery and setup..."
-              ./scripts/setup-topic-extraction.sh
-              ;;
-            "use-cached"|"metadata-only"|"granular-processing")
-              echo "⚡ Running setup environment only (metadata handled in next step)..."
-              ./scripts/setup-topic-extraction.sh --skip-discovery --no-metadata
-              ;;
-            *)
-              echo "🔧 Running standard setup..."
-              ./scripts/setup-topic-extraction.sh --skip-discovery --no-metadata
-              ;;
-          esac
+          
+          echo "🔍 Hash-based validation: topics_need_regen=${TOPICS_NEED_REGEN}, cache_status=${CACHE_STATUS}"
+          echo "📋 Workflow topic mode: ${MODE}"
+          
+          # Override topic mode based on hash validation for accuracy
+          if [ "$TOPICS_NEED_REGEN" = "true" ]; then
+            echo "🔄 Hash validation indicates topics need regeneration - running full discovery"
+            ./scripts/setup-topic-extraction.sh
+          else
+            echo "✅ Hash validation indicates topics are current - skipping discovery"
+            ./scripts/setup-topic-extraction.sh --skip-discovery --no-metadata
+          fi
         env:
           PYTHONIOENCODING: utf-8
           LC_ALL: C.UTF-8
@@ -290,44 +349,29 @@ jobs:
         run: |
           chmod +x ./scripts/update-blog-metadata.sh
 
+          # Use hash-based validation for metadata generation decision
+          TOPICS_NEED_REGEN="${{ steps.validate-cache.outputs.topics_need_regen }}"
+          CACHE_STATUS="${{ steps.validate-cache.outputs.cache_status }}"
           MODE="${{ needs.setup-and-detect-changes.outputs.topic_mode }}"
-          case "$MODE" in
-            "use-cached")
-              echo "🚀 Using cached topic models for fast metadata generation..."
-              ./scripts/update-blog-metadata.sh --use-cached-topics
-              ;;
-            "metadata-minimal")
-              echo "🚀 Running minimal metadata generation (no topic processing)..."
-              ./scripts/update-blog-metadata.sh --metadata-only --skip-topics
-              ;;
-            "metadata-only")
-              echo "🚀 Running fast metadata-only update..."
-              ./scripts/update-blog-metadata.sh --metadata-only
-              ;;
-            "full-discovery")
-              echo "🔍 Running full topic discovery and metadata generation..."
-              ./scripts/update-blog-metadata.sh
-              ;;
-            "granular-processing")
-              echo "⚡ Running granular processing for changed posts..."
-              if [ -f "/tmp/changed_blog_posts.txt" ] && [ -f "/tmp/processing_mode.env" ]; then
-                # Export changed posts for the processing script
-                export CHANGED_POSTS_FILE="/tmp/changed_blog_posts.txt"
-                ./scripts/update-blog-metadata.sh --incremental
-              else
-                echo "⚠️  Granular processing requested but changed posts info not available - falling back to full processing"
-                ./scripts/update-blog-metadata.sh
-              fi
-              ;;
-            "force")
-              echo "⚡ Running forced complete regeneration..."
-              ./scripts/update-blog-metadata.sh --force
-              ;;
-            *)
-              echo "❌ Unknown topic mode: $MODE"
-              exit 1
-              ;;
-          esac
+          
+          echo "🔍 Hash validation for metadata: topics_need_regen=${TOPICS_NEED_REGEN}, cache_status=${CACHE_STATUS}"
+          echo "📋 Original workflow mode: ${MODE}"
+          
+          # Use hash validation to determine the correct approach
+          if [ "$TOPICS_NEED_REGEN" = "false" ] && [ "$CACHE_STATUS" = "valid-cache" ]; then
+            echo "✅ Using cached topics for fast metadata generation (hash-validated)"
+            ./scripts/update-blog-metadata.sh --use-cached-topics
+          elif [ "$MODE" = "force" ]; then
+            echo "⚡ Running forced complete regeneration (manual override)..."
+            ./scripts/update-blog-metadata.sh --force
+          elif [ "$MODE" = "granular-processing" ] && [ -f "/tmp/changed_blog_posts.txt" ]; then
+            echo "⚡ Running granular processing for changed posts..."
+            export CHANGED_POSTS_FILE="/tmp/changed_blog_posts.txt"
+            ./scripts/update-blog-metadata.sh --incremental
+          else
+            echo "🔄 Running full metadata generation (topics regenerated or no cache)"
+            ./scripts/update-blog-metadata.sh
+          fi
         env:
           PYTHONIOENCODING: utf-8
           LC_ALL: C.UTF-8

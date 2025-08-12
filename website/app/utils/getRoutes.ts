@@ -98,6 +98,12 @@ export const functions = {
     // https://stackoverflow.com/questions/55450096/how-to-groupby-in-lodash-for-each-item-in-a-nested-array
     const groupedByAuthor = blogMetadata.reduce<any>(function (acc, curr) {
       curr.authors.forEach(function (item) {
+        // Skip items with invalid url-slug to prevent undefined routes
+        if (!item || !item['url-slug'] || item['url-slug'] === 'undefined' || item['url-slug'] === 'null') {
+          console.warn(`Skipping author with invalid url-slug:`, item)
+          return
+        }
+        
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
         } else {
@@ -132,6 +138,12 @@ export const functions = {
 
     const groupedByTag = blogMetadata.reduce<any>(function (acc, curr) {
       curr.tags.forEach(function (item) {
+        // Skip items with invalid url-slug to prevent undefined routes
+        if (!item || !item['url-slug'] || item['url-slug'] === 'undefined' || item['url-slug'] === 'null') {
+          console.warn(`Skipping tag with invalid url-slug:`, item)
+          return
+        }
+        
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
         } else {
@@ -171,6 +183,12 @@ export const functions = {
 
     const groupedByCategories = blogMetadata.reduce<any>(function (acc, curr) {
       curr.categories.forEach(function (item) {
+        // Skip items with invalid url-slug to prevent undefined routes
+        if (!item || !item['url-slug'] || item['url-slug'] === 'undefined' || item['url-slug'] === 'null') {
+          console.warn(`Skipping category with invalid url-slug:`, item)
+          return
+        }
+        
         if (acc[item['url-slug']]) {
           acc[item['url-slug']].push(curr)
         } else {

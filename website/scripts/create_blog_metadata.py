@@ -559,13 +559,36 @@ def create_posts_list(files, run_topic_discovery=True, skip_per_post_extraction=
         post[POST_PATH_STRING] = item[0]
         if post["published"] is True:
             count = count + 1
-            newTags = get_data_with_url_slug(post['tags'])
+            # Validate and process tags with defaults
+            tags = post.metadata.get('tags', post.get('tags', []))
+            if not tags or not isinstance(tags, list):
+                print(f"Warning: Missing or invalid tags for post '{post.metadata.get('title', 'Unknown')}', using default")
+                tags = ['General']
+            newTags = get_data_with_url_slug(tags)
             post['tags'] = newTags
-            newCategories = get_data_with_url_slug(post['categories'])
+            
+            # Validate and process categories with defaults  
+            categories = post.metadata.get('categories', post.get('categories', []))
+            if not categories or not isinstance(categories, list):
+                print(f"Warning: Missing or invalid categories for post '{post.metadata.get('title', 'Unknown')}', using default")
+                categories = ['Technology']
+            newCategories = get_data_with_url_slug(categories)
             post['categories'] = newCategories
-            newAuthors = get_data_with_url_slug(post['authors'])
+            
+            # Validate and process authors with defaults
+            authors = post.metadata.get('authors', post.get('authors', []))
+            if not authors or not isinstance(authors, list):
+                print(f"Warning: Missing or invalid authors for post '{post.metadata.get('title', 'Unknown')}', using default")
+                authors = ['Manas Talukdar']
+            newAuthors = get_data_with_url_slug(authors)
             post['authors'] = newAuthors
-            newPostFormat = get_data_with_url_slug(post['post-format'])
+            
+            # Validate and process post-format with defaults
+            post_format = post.metadata.get('post-format', post.get('post-format', 'standard'))
+            if not post_format or not isinstance(post_format, str):
+                print(f"Warning: Missing or invalid post-format for post '{post.metadata.get('title', 'Unknown')}', using default")
+                post_format = 'standard'
+            newPostFormat = get_data_with_url_slug(post_format)
             post['post-format'] = newPostFormat
             # Parse dates with consistent timezone handling
             newPublishedDate = dateutil_parser.parse(str(post['first-published-on']))
@@ -674,6 +697,10 @@ def create_posts_list(files, run_topic_discovery=True, skip_per_post_extraction=
                         'reading-time': reading_time
                     })
             
+            # Validate and fix post metadata before adding to final data
+            validated_metadata = validate_post_metadata(post.metadata)
+            post.metadata = validated_metadata
+            
             data_all.append(post.metadata)
     
     print(f"Total posts: {count}")
@@ -780,9 +807,26 @@ def get_data_with_url_slug(items):
 
 
 def process_item_for_url_slug(item):
+    # Validate input and provide defaults for null/empty values
+    if not item or item is None:
+        print(f"Warning: Empty or null item passed to process_item_for_url_slug, using 'general'")
+        item = 'general'
+    
+    # Convert to string if not already
+    item_str = str(item).strip()
+    if not item_str:
+        print(f"Warning: Empty string item passed to process_item_for_url_slug, using 'general'")
+        item_str = 'general'
+        item = 'general'
+    
     # https://stackoverflow.com/questions/43358857/how-to-remove-special-characters-except-space-from-a-file-in-python/43358965
-    noSpecialChar = re.sub(r"[^a-zA-Z0-9]+", ' ', item)
-    itemSlug = noSpecialChar.lower().replace(" ", "-")
+    noSpecialChar = re.sub(r"[^a-zA-Z0-9]+", ' ', item_str)
+    itemSlug = noSpecialChar.lower().replace(" ", "-").strip("-")
+    
+    # Ensure slug is not empty after processing
+    if not itemSlug:
+        itemSlug = 'general'
+        
     newItem = {"name": item, "url-slug": itemSlug}
     return newItem
 
@@ -846,6 +890,52 @@ def check_cached_metadata_validity():
     except Exception as e:
         print(f"Error checking cached metadata validity: {e}")
         return False
+
+
+def validate_post_metadata(post):
+    """Validate post metadata to prevent undefined values in routes."""
+    title = post.get('title', 'Unknown Post')
+    
+    # Check for required fields and fix any issues
+    issues_found = []
+    
+    # Validate authors
+    if not post.get('authors') or not isinstance(post['authors'], list) or len(post['authors']) == 0:
+        issues_found.append('authors')
+        post['authors'] = [{"name": "Manas Talukdar", "url-slug": "manas-talukdar"}]
+    
+    # Validate categories  
+    if not post.get('categories') or not isinstance(post['categories'], list) or len(post['categories']) == 0:
+        issues_found.append('categories')
+        post['categories'] = [{"name": "Technology", "url-slug": "technology"}]
+    
+    # Validate tags
+    if not post.get('tags') or not isinstance(post['tags'], list) or len(post['tags']) == 0:
+        issues_found.append('tags')
+        post['tags'] = [{"name": "General", "url-slug": "general"}]
+    
+    # Validate post-format
+    if not post.get('post-format') or not isinstance(post['post-format'], dict):
+        issues_found.append('post-format')
+        post['post-format'] = {"name": "standard", "url-slug": "standard"}
+    
+    # Check for null/undefined values in critical fields
+    for field_name in ['authors', 'categories', 'tags']:
+        field_value = post.get(field_name, [])
+        if isinstance(field_value, list):
+            for i, item in enumerate(field_value):
+                if not item or not isinstance(item, dict):
+                    issues_found.append(f'{field_name}[{i}]')
+                    continue
+                if not item.get('name') or not item.get('url-slug'):
+                    issues_found.append(f'{field_name}[{i}].name/url-slug')
+                    item['name'] = item.get('name') or 'General'
+                    item['url-slug'] = item.get('url-slug') or 'general'
+    
+    if issues_found:
+        print(f"⚠️ Fixed metadata issues in '{title}': {', '.join(issues_found)}")
+    
+    return post
 
 
 def main(run_topic_discovery=True):
