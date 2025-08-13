@@ -20,7 +20,7 @@ post-format: link
 title: Recent AI Reading [11 August 2025]
 url-slug: recent-ai-reading-11-august-2025
 first-published-on: 2025-08-11 20:59
-last-updated-on: 2025-08-13 11:21
+last-updated-on: 2025-08-13 14:05
 series:
  slug: papers-i-read-recently
  part: 13

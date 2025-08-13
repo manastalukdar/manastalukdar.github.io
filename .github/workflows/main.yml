@@ -52,8 +52,8 @@ jobs:
       - name: Get Blog Content Hash
         id: blog-hash
         run: |
-          # Create hash of blog content for topic model caching
-          BLOG_HASH=$(find blog -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
+          # Create hash of blog content for topic model caching (excludes drafts)
+          BLOG_HASH=$(find blog -name "*.md" -type f ! -path "*/drafts/*" -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
           echo "hash=${BLOG_HASH}" >> $GITHUB_OUTPUT
           echo "Blog content hash: ${BLOG_HASH}"
 
@@ -161,8 +161,8 @@ jobs:
       - name: Check Topic Cache Validity
         id: topic-cache
         run: |
-          # Calculate current blog content hash using same method as local script
-          CURRENT_HASH=$(find blog -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
+          # Calculate current blog content hash using same method as local script (excludes drafts)
+          CURRENT_HASH=$(find blog -name "*.md" -type f ! -path "*/drafts/*" -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
           echo "current_hash=${CURRENT_HASH}" >> $GITHUB_OUTPUT
           echo "📊 Current blog content hash: ${CURRENT_HASH}"
           
@@ -303,9 +303,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: website/config/topic_models
-          key: topic-models-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.blog_hash }}-v3
+          key: topic-models-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.blog_hash }}-v4
           restore-keys: |
-            topic-models-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.blog_hash }}-
+            topic-models-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.blog_hash }}-v4-
             topic-models-${{ runner.os }}-
 
       - name: Validate Topic Cache Hash
@@ -539,8 +539,8 @@ jobs:
       - name: Generate Build Cache Key
         id: build-cache-key
         run: |
-          # Create comprehensive hash of all factors that affect build output
-          BLOG_HASH=$(find blog -name "*.md" -type f -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
+          # Create comprehensive hash of all factors that affect build output (excludes drafts)
+          BLOG_HASH=$(find blog -name "*.md" -type f ! -path "*/drafts/*" -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
           SOURCE_HASH=$(find website/app website/nuxt.config.ts website/package.json website/server -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
           METADATA_HASH=$(sha256sum website/public/blogdata/metadata/blog_metadata.json | cut -d' ' -f1)
           # CONFIG_HASH - only include stable configuration files, exclude volatile binary and backup files
