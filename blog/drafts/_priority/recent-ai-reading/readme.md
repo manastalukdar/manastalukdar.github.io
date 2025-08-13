@@ -44,6 +44,8 @@ excerpt: ""
 
 ### Large Language Models
 
+- [Large Language Models Do Not Simulate Human Psychology](https://arxiv.org/abs/2508.06950)
+
 ### Model Evaluation
 
 ### Retrieval-Augmented Generation
