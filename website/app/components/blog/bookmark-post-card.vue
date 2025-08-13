@@ -166,14 +166,26 @@ const getPostRoute = () => {
 }
 
 const getCategoryRoute = (slug) => {
+  if (!slug || slug === 'undefined') {
+    console.warn('Invalid category slug:', slug);
+    return '#'; // Return a safe fallback
+  }
   return `${dynamicCategoryRoute}${slug}/`
 }
 
 const getTagRoute = (slug) => {
+  if (!slug || slug === 'undefined') {
+    console.warn('Invalid tag slug:', slug);
+    return '#'; // Return a safe fallback
+  }
   return `${dynamicTagRoute}${slug}/`
 }
 
 const getAuthorRoute = (slug) => {
+  if (!slug || slug === 'undefined') {
+    console.warn('Invalid author slug:', slug);
+    return '#'; // Return a safe fallback
+  }
   return `${dynamicAuthorRoute}${slug}/`
 }
 

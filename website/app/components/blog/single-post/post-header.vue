@@ -79,12 +79,24 @@ function postFormatIcon() {
   );
 };
 function getCategoryRoute(slug) {
+  if (!slug || slug === 'undefined') {
+    console.warn('Invalid category slug:', slug);
+    return '#'; // Return a safe fallback
+  }
   return dynamicCategoryRoute + slug + '/';
 };
 function getTagRoute(slug) {
+  if (!slug || slug === 'undefined') {
+    console.warn('Invalid tag slug:', slug);
+    return '#'; // Return a safe fallback
+  }
   return dynamicTagRoute + slug + '/';
 };
 function getAuthorRoute(slug) {
+  if (!slug || slug === 'undefined') {
+    console.warn('Invalid author slug:', slug);
+    return '#'; // Return a safe fallback
+  }
   return dynamicAuthorRoute + slug + '/';
 };
 function getPostFormatRoute(slug) {

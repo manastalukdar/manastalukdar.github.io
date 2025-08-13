@@ -162,6 +162,16 @@ const postMetadata = blogMetadataStore.getPostMetadata(
   route.params.day,
   route.params.post
 );
+
+// Handle case where post metadata is not found
+if (!postMetadata) {
+  console.error(`Post metadata not found for: ${route.params.year}/${route.params.month}/${route.params.day}/${route.params.post}`);
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Blog post not found'
+  });
+}
+
 let fileContent;
 try {
   // Use appropriate base URL based on context (static generation vs runtime)
@@ -191,22 +201,40 @@ const categoriesArray = [];
 const tagsArray = [];
 const authorsArray = [];
 const authorsStructuredData = [];
-postMetadata.categories.forEach((cat) => {
-  categoriesArray.push(cat.name)
-  keywordsArray.push(cat.name)
-});
-postMetadata.tags.forEach((tag) => {
-  tagsArray.push(tag.name)
-  keywordsArray.push(tag.name)
-});
-postMetadata.authors.forEach((author) => {
-  authorsArray.push(author.name)
-  keywordsArray.push(author.name)
-  authorsStructuredData.push({
-    '@type': 'Person',
-    name: author.name,
-  })
-});
+
+// Safely process categories
+if (postMetadata.categories && Array.isArray(postMetadata.categories)) {
+  postMetadata.categories.forEach((cat) => {
+    if (cat && cat.name) {
+      categoriesArray.push(cat.name)
+      keywordsArray.push(cat.name)
+    }
+  });
+}
+
+// Safely process tags
+if (postMetadata.tags && Array.isArray(postMetadata.tags)) {
+  postMetadata.tags.forEach((tag) => {
+    if (tag && tag.name) {
+      tagsArray.push(tag.name)
+      keywordsArray.push(tag.name)
+    }
+  });
+}
+
+// Safely process authors
+if (postMetadata.authors && Array.isArray(postMetadata.authors)) {
+  postMetadata.authors.forEach((author) => {
+    if (author && author.name) {
+      authorsArray.push(author.name)
+      keywordsArray.push(author.name)
+      authorsStructuredData.push({
+        '@type': 'Person',
+        name: author.name,
+      })
+    }
+  });
+}
 const keywords = keywordsArray.join();
 const tags = tagsArray.join();
 const category = categoriesArray[0];
