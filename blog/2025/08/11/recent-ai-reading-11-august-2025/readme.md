@@ -20,7 +20,7 @@ post-format: link
 title: Recent AI Reading [11 August 2025]
 url-slug: recent-ai-reading-11-august-2025
 first-published-on: 2025-08-11 20:59
-last-updated-on: 2025-08-12 14:46
+last-updated-on: 2025-08-13 11:21
 series:
  slug: papers-i-read-recently
  part: 13
@@ -69,6 +69,7 @@ excerpt: ""
 - [Kimi K2: Open Agentic Intelligence](https://github.com/MoonshotAI/Kimi-K2/blob/main/tech_report.pdf)
   - [Discussion on X](https://x.com/nrehiew_/status/1947420382312730706)
 - [Apple Intelligence Foundation Language Models Tech Report 2025](https://machinelearning.apple.com/research/apple-foundation-models-tech-report-2025)
+- [AI-enabled scientific revolution in the age of generative AI: second NSF workshop report](https://www.nature.com/articles/s44387-025-00018-6)
 
 ## Articles and Blog Posts
 
