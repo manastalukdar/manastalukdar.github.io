@@ -79,18 +79,49 @@ jobs:
 
           # Check for blog content changes in push events
           if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
-            # Get list of changed blog posts
-            CHANGED_POSTS=$(git diff --name-only ${{ github.event.before }}..${{ github.sha }} | grep "^blog/.*\.md$" || true)
+            # Get list of all changed blog posts
+            ALL_CHANGED_POSTS=$(git diff --name-only ${{ github.event.before }}..${{ github.sha }} | grep "^blog/.*\.md$" || true)
+            
+            # Filter out draft posts (posts in drafts/ folders or with published: false)
+            CHANGED_POSTS=""
+            if [ -n "$ALL_CHANGED_POSTS" ]; then
+              echo "🔍 Analyzing blog post changes..."
+              echo "$ALL_CHANGED_POSTS" | while read post; do
+                echo "  📄 Checking: $post"
+              done
+              
+              # Filter out draft posts from processing
+              CHANGED_POSTS=$(echo "$ALL_CHANGED_POSTS" | grep -v "/drafts/" || true)
+              
+              # Additional check: exclude posts marked as published: false
+              if [ -n "$CHANGED_POSTS" ]; then
+                PUBLISHABLE_POSTS=""
+                for post in $CHANGED_POSTS; do
+                  if [ -f "$post" ]; then
+                    # Check if post has published: false in frontmatter
+                    if grep -q "^published: false" "$post" 2>/dev/null; then
+                      echo "  ⏸️  Skipping unpublished post: $post"
+                    else
+                      echo "  ✅ Including published post: $post"
+                      PUBLISHABLE_POSTS="$PUBLISHABLE_POSTS$post"$'\n'
+                    fi
+                  fi
+                done
+                CHANGED_POSTS=$(echo "$PUBLISHABLE_POSTS" | grep -v '^$' || true)
+              fi
+            fi
             
             if [ -n "$CHANGED_POSTS" ]; then
-              echo "Blog content changes detected"
+              echo "✅ Publishable blog content changes detected"
               BLOG_CHANGED=true
               
               # Count and display changed posts
-              CHANGED_COUNT=$(echo "$CHANGED_POSTS" | wc -l)
-              echo "📝 Changed blog posts ($CHANGED_COUNT):"
+              CHANGED_COUNT=$(echo "$CHANGED_POSTS" | grep -v '^$' | wc -l)
+              echo "📝 Changed publishable blog posts ($CHANGED_COUNT):"
               echo "$CHANGED_POSTS" | while read post; do
-                echo "  • $post"
+                if [ -n "$post" ]; then
+                  echo "  • $post"
+                fi
               done
               
               # Save changed posts for granular processing
@@ -105,7 +136,15 @@ jobs:
                 echo "GRANULAR_MODE=false" >> /tmp/processing_mode.env
               fi
             else
-              echo "No blog content changes detected"
+              if [ -n "$ALL_CHANGED_POSTS" ]; then
+                echo "📝 Blog file changes detected but all are drafts or unpublished posts:"
+                echo "$ALL_CHANGED_POSTS" | while read post; do
+                  echo "  ⏸️  $post"
+                done
+                echo "🚀 Skipping metadata processing - no publishable content changes"
+              else
+                echo "📭 No blog content changes detected"
+              fi
               BLOG_CHANGED=false
               echo "GRANULAR_MODE=false" >> /tmp/processing_mode.env
             fi
@@ -358,7 +397,10 @@ jobs:
           echo "📋 Original workflow mode: ${MODE}"
           
           # Use hash validation to determine the correct approach
-          if [ "$TOPICS_NEED_REGEN" = "false" ] && [ "$CACHE_STATUS" = "valid-cache" ]; then
+          if [ "$MODE" = "use-cached" ]; then
+            echo "🚀 No publishable content changes - using existing cached metadata"
+            ./scripts/update-blog-metadata.sh --use-cached-topics
+          elif [ "$TOPICS_NEED_REGEN" = "false" ] && [ "$CACHE_STATUS" = "valid-cache" ]; then
             echo "✅ Using cached topics for fast metadata generation (hash-validated)"
             ./scripts/update-blog-metadata.sh --use-cached-topics
           elif [ "$MODE" = "force" ]; then
