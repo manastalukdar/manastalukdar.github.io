@@ -57,13 +57,19 @@ function getPostsForAuthor() {
 };
 const authorName = () => {
   const temp = getPostsForAuthor()
+  if (!temp || temp.length === 0 || !temp[0].authors) {
+    return 'Unknown Author'
+  }
   const authName = temp[0].authors.filter((author) => {
     if (author['url-slug'] === route.params.name) {
       return author.name
     }
     return ''
   });
-  return authName[0].name;
+  if (authName.length > 0 && authName[0].name) {
+    return authName[0].name;
+  }
+  return 'Unknown Author'
 }
 const blogMetadata = getPostsForAuthor();
 const title =

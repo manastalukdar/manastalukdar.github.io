@@ -56,13 +56,19 @@ function getPostsForCategory() {
 };
 const categoryName = () => {
   const temp = getPostsForCategory()
+  if (!temp || temp.length === 0 || !temp[0].categories) {
+    return 'Unknown Category'
+  }
   const catName = temp[0].categories.filter((category) => {
     if (category['url-slug'] === route.params.name) {
       return category.name
     }
     return ''
   });
-  return catName[0].name;
+  if (catName.length > 0 && catName[0].name) {
+    return catName[0].name;
+  }
+  return 'Unknown Category'
 };
 const blogMetadata = getPostsForCategory();
 const title =

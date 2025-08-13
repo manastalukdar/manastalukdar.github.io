@@ -263,7 +263,9 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
           }
           return ''
         })
-        items.push({ name: catName[0].name, slug: key, count: value.length })
+        if (catName.length > 0 && catName[0].name) {
+          items.push({ name: catName[0].name, slug: key, count: value.length })
+        }
       }
       return items
     },
@@ -287,7 +289,9 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
           }
           return ''
         })
-        items.push({ name: tagName[0].name, slug: key, count: value.length })
+        if (tagName.length > 0 && tagName[0].name) {
+          items.push({ name: tagName[0].name, slug: key, count: value.length })
+        }
       }
       return items
     },

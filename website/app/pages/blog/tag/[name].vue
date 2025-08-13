@@ -53,13 +53,19 @@ function getPostsForTag() {
 };
 const tagName = () => {
   const temp = getPostsForTag()
+  if (!temp || temp.length === 0 || !temp[0].tags) {
+    return 'Unknown Tag'
+  }
   const tagNameTemp = temp[0].tags.filter((tag) => {
     if (tag['url-slug'] === route.params.name) {
       return tag.name
     }
     return ''
   });
-  return tagNameTemp[0].name;
+  if (tagNameTemp.length > 0 && tagNameTemp[0].name) {
+    return tagNameTemp[0].name;
+  }
+  return 'Unknown Tag'
 };
 const blogMetadata = getPostsForTag();
 const title =
