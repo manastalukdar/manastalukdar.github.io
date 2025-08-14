@@ -72,5 +72,6 @@
   },
   "makefile.configureOnOpen": false,
   "editor.wordWrap": "on",
-  "python-envs.pythonProjects": []
+  "python-envs.pythonProjects": [],
+  "licenser.license": "CC-BY-NC-ND-4"
 }
