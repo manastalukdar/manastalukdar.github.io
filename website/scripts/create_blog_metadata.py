@@ -1079,8 +1079,66 @@ def main_incremental(changed_posts_file: str = None):
         merger.print_merge_stats()
         
         # Generate series metadata if needed
-        # Note: Series metadata generation is handled by create_series_metadata() which expects series_data dict
-        # For incremental processing, we'll skip series regeneration to avoid complexity
+        # Check if series metadata file exists, create it if missing (important for CI)
+        if not os.path.exists(SERIES_LIST_FILE_JSON):
+            print("⚠️ Series metadata file missing - generating it now for CI compatibility...")
+            
+            # Load existing blog metadata to extract series information
+            # Use backup file which has complete metadata, not the incremental one
+            series_data = {}
+            backup_files = []
+            metadata_dir = os.path.dirname(POSTS_LIST_FILE_JSON)
+            
+            # Find the most recent backup file
+            if os.path.exists(metadata_dir):
+                for filename in os.listdir(metadata_dir):
+                    if filename.startswith('blog_metadata_backup_') and filename.endswith('.json'):
+                        backup_files.append(os.path.join(metadata_dir, filename))
+            
+            # Sort by modification time and use the most recent
+            if backup_files:
+                backup_files.sort(key=os.path.getmtime, reverse=True)
+                metadata_file = backup_files[0]
+                print(f"📁 Using backup metadata file: {os.path.basename(metadata_file)}")
+            else:
+                metadata_file = POSTS_LIST_FILE_JSON
+                print(f"📁 Using current metadata file: {os.path.basename(metadata_file)}")
+            
+            if os.path.exists(metadata_file):
+                try:
+                    with open(metadata_file, 'r') as f:
+                        all_posts = json.load(f)
+                    
+                    # Extract series information from posts
+                    for post in all_posts:
+                        if 'series' in post and post['series']:
+                            series_slug = post['series'].get('url-slug')
+                            if series_slug:
+                                if series_slug not in series_data:
+                                    series_data[series_slug] = {
+                                        'name': post['series']['name'],
+                                        'url-slug': series_slug,
+                                        'description': post['series'].get('description', ''),
+                                        'posts': []
+                                    }
+                                series_data[series_slug]['posts'].append({
+                                    'title': post['title'],
+                                    'url-slug': post['url-slug'],
+                                    'path': post['path'],
+                                    'first-published-on': post['first-published-on'],
+                                    'excerpt': post.get('excerpt', ''),
+                                    'reading-time': post.get('reading-time', {}),
+                                    'part': post['series'].get('part')
+                                })
+                    
+                    # Generate series metadata
+                    create_series_metadata(series_data)
+                    print("✅ Series metadata generated successfully")
+                    
+                except Exception as e:
+                    print(f"⚠️ Could not generate series metadata: {e}")
+        else:
+            print("✅ Series metadata file exists - skipping regeneration for performance")
         
         print("\n✅ Incremental processing completed successfully!")
         
