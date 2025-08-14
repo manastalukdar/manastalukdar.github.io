@@ -45,7 +45,7 @@ excerpt: ""
 
 ### Large Language Models
 
-- [[Learning without training: The implicit dynamics of in-context learning](https://arxiv.org/abs/2507.16003)](https://arxiv.org/abs/2507.21892)
+- [Learning without training: The implicit dynamics of in-context learning](https://arxiv.org/abs/2507.16003)
 - [Part I: Tricks or Traps? A Deep Dive into RL for LLM Reasoning](https://arxiv.org/abs/2508.08221)
 
 ### Retrieval-Augmented Generation
