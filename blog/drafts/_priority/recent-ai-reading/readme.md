@@ -40,6 +40,8 @@ excerpt: ""
 
 ### Agentic AI
 
+- [AWorld: Dynamic Multi-Agent System with Stable Maneuvering for Robust GAIA Problem Solving](https://arxiv.org/abs/2508.09889)
+
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
 ### Large Language Models
