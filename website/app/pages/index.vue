@@ -22,7 +22,25 @@
     </v-row>
 
     <v-row class="px-2 py-2">
-      <testimonialCarousel />
+      <Suspense>
+        <testimonialCarousel />
+        <template #fallback>
+          <v-col cols="12">
+            <v-card
+              color="cardColor"
+              class="pa-8"
+              raised
+              elevation="8"
+              style="height: 300px"
+            >
+              <v-row class="text-h6 px-3 py-3" justify="center">
+                <span>Loading testimonials...</span>
+              </v-row>
+              <v-skeleton-loader type="paragraph, paragraph, divider, button" />
+            </v-card>
+          </v-col>
+        </template>
+      </Suspense>
     </v-row>
 
     <v-row class="px-2 py-2">
@@ -37,7 +55,10 @@ import recentPostsHomePage from "~/components/home-page/recent-posts.vue";
 import featured from "~/components/home-page/featured.vue";
 import otherLocationsAndResumeLinks from "~/components/home-page/other-locations-resume.vue";
 import recentUpdates from "~/components/home-page/recent-updates.vue";
-import testimonialCarousel from "~/components/home-page/testimonial-carousel.vue";
+// Dynamic import for testimonial carousel (reduces initial bundle size)
+const testimonialCarousel = defineAsyncComponent(() => 
+  import("~/components/home-page/testimonial-carousel.vue")
+);
 import { useBlogMetadataStore } from '@/stores/BlogMetadata';
 import { useNavigationStore } from '@/stores/Navigation';
 import { useGlobalDataStore } from '@/stores/GlobalData';

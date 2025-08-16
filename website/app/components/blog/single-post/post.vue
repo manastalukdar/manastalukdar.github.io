@@ -81,7 +81,8 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import postHeader from './post-header.vue'
-import socialSharing from './social-sharing.vue'
+// Dynamic import for social sharing (loads only when blog post is viewed)
+const socialSharing = defineAsyncComponent(() => import('./social-sharing.vue'))
 import comments from './comments.vue'
 import postNavigation from './post-navigation.vue'
 import relatedPosts from './related-posts.vue'

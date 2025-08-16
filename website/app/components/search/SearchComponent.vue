@@ -50,17 +50,32 @@
     <!-- Enhanced Filters Panel -->
     <v-expand-transition>
       <div v-if="showFilters" class="filters-panel mt-4">
-        <SearchFilters
-          :available-categories="availableCategories"
-          :available-tags="availableTags"
-          :available-post-formats="availablePostFormats"
-          :category-counts="categoryCounts"
-          :tag-counts="tagCounts"
-          :post-format-counts="postFormatCounts"
-          :initial-filters="currentFilters"
-          @update:filters="updateFiltersLocal"
-          @clear-all="clearAllFilters"
-        />
+        <Suspense>
+          <SearchFilters
+            :available-categories="availableCategories"
+            :available-tags="availableTags"
+            :available-post-formats="availablePostFormats"
+            :category-counts="categoryCounts"
+            :tag-counts="tagCounts"
+            :post-format-counts="postFormatCounts"
+            :initial-filters="currentFilters"
+            @update:filters="updateFiltersLocal"
+            @clear-all="clearAllFilters"
+          />
+          <template #fallback>
+            <v-card class="filters-loading pa-4" elevation="1">
+              <v-row class="align-center">
+                <v-col cols="auto">
+                  <v-progress-circular indeterminate color="primary" size="20" />
+                </v-col>
+                <v-col>
+                  <span class="text-body-2">Loading advanced filters...</span>
+                </v-col>
+              </v-row>
+              <v-skeleton-loader class="mt-3" type="chip, chip, divider, chip, chip" />
+            </v-card>
+          </template>
+        </Suspense>
       </div>
     </v-expand-transition>
 
@@ -207,7 +222,8 @@
 
 <script setup>
 import { ref, onMounted, computed, watch } from 'vue'
-import SearchFilters from './SearchFilters.vue'
+// Dynamic import for SearchFilters (contains heavy ML models and complex filtering logic)
+const SearchFilters = defineAsyncComponent(() => import('./SearchFilters.vue'))
 import FilterChips from './FilterChips.vue'
 import dayjs from 'dayjs'
 import { useSearchFilters } from '~/composables/useSearchFilters'
@@ -475,6 +491,13 @@ watch(currentFilters, () => {
 
 .filters-panel {
   width: 100%;
+}
+
+.filters-loading {
+  border-radius: 8px;
+  background: rgb(var(--v-theme-cardColor));
+  border: 1px solid rgb(var(--v-theme-outline));
+  opacity: 0.8;
 }
 
 .result-meta-chips {

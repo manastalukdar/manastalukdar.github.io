@@ -136,7 +136,8 @@
 </template>
 
 <script setup>
-import SearchComponent from '~/components/search/SearchComponent.vue'
+// Dynamic import for SearchComponent (contains heavy ML models and search logic)
+const SearchComponent = defineAsyncComponent(() => import('~/components/search/SearchComponent.vue'))
 
 // Page metadata
 definePageMeta({
