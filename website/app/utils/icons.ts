@@ -51,6 +51,10 @@ import {
   mdiScriptText,
   mdiListBox,
   
+  // Navigation drawer specific icons
+  mdiGavel,
+  mdiMail,
+  
   // Social/external icons
   mdiGithub,
   mdiTwitter,
@@ -130,6 +134,10 @@ export const iconMap = {
   'open-in-new': mdiOpenInNew,
   'tag-outline': mdiTagOutline,
   
+  // Legal & Contact
+  'gavel': mdiGavel,
+  'mail': mdiMail,
+  
   // Utility
   'theme-light-dark': mdiThemeLightDark,
   'text-search': mdiTextSearch,
@@ -200,4 +208,6 @@ export {
   mdiComment,
   mdiDownload,
   mdiOpenInNew,
+  mdiGavel,
+  mdiMail,
 }

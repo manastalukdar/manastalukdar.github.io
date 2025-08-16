@@ -12,7 +12,10 @@
     <v-list nav density="default">
       <v-list-group no-action>
         <template v-slot:activator="{props}">
-          <v-list-item :prepend-icon="blogIcon" v-bind="props">
+          <v-list-item v-bind="props">
+            <template v-slot:prepend>
+              <TreeShakenIcon icon="mdi-newspaper" class="mr-4" />
+            </template>
             <v-list-item-title> {{ blogText }} </v-list-item-title>
           </v-list-item>
         </template>
@@ -21,7 +24,10 @@
 
       <v-list-group no-action>
         <template v-slot:activator="{props}">
-        <v-list-item :prepend-icon="aboutIcon" v-bind="props">
+        <v-list-item v-bind="props">
+          <template v-slot:prepend>
+            <TreeShakenIcon icon="mdi-information" class="mr-4" />
+          </template>
           <v-list-item-title> {{ aboutText }} </v-list-item-title>
         </v-list-item>
         </template>
@@ -29,14 +35,20 @@
       </v-list-group>
 
       <div class="px-0">
-        <v-list-item nuxt :to="legalPath" :prepend-icon="legalIcon">
+        <v-list-item nuxt :to="legalPath">
+          <template v-slot:prepend>
+            <TreeShakenIcon icon="mdi-gavel" class="mr-4" />
+          </template>
           <v-list-item-title>{{ legalText }}</v-list-item-title>
         </v-list-item>
       </div>
 
       <v-list-group no-action :value="contact">
         <template v-slot:activator="{props}">
-        <v-list-item :prepend-icon="contactIcon" v-bind="props">
+        <v-list-item v-bind="props">
+          <template v-slot:prepend>
+            <TreeShakenIcon icon="mdi-mail" class="mr-4" />
+          </template>
           <v-list-item-title> {{ contactText }} </v-list-item-title>
         </v-list-item>
         </template>
@@ -44,13 +56,19 @@
       </v-list-group>
 
       <div class="px-0">
-        <v-list-item key="bookmarks-standalone" prepend-icon="mdi-bookmark" @click="navigateToBookmarks">
+        <v-list-item key="bookmarks-standalone" @click="navigateToBookmarks">
+          <template v-slot:prepend>
+            <TreeShakenIcon icon="mdi-bookmark" class="mr-4" />
+          </template>
           <v-list-item-title>Bookmarks</v-list-item-title>
         </v-list-item>
       </div>
 
       <div class="px-0">
-        <v-list-item nuxt to="/search" prepend-icon="mdi-magnify">
+        <v-list-item nuxt to="/search">
+          <template v-slot:prepend>
+            <TreeShakenIcon icon="mdi-magnify" class="mr-4" />
+          </template>
           <v-list-item-title>Search</v-list-item-title>
         </v-list-item>
       </div>
@@ -64,6 +82,8 @@ import { storeToRefs } from 'pinia';
 import BlogMenuItems from './BlogMenuItems.vue';
 import AboutMenuItems from './AboutMenuItems.vue';
 import ContactMenuItems from './ContactMenuItems.vue';
+import TreeShakenIcon from '@/components/TreeShakenIcon.vue';
+
 const navigationStore = useNavigationStore();
 const blogText = navigationStore.blog.blogText;
 const aboutText = navigationStore.about.aboutText;
@@ -71,10 +91,6 @@ const aboutPath = navigationStore.aboutPath;
 const legalText = navigationStore.legal.legalText;
 const legalPath = navigationStore.legal.legalPath;
 const contactText = navigationStore.contact.contactText;
-const blogIcon = navigationStore.blog.icon;
-const aboutIcon = navigationStore.about.icon;
-const legalIcon = navigationStore.legal.icon;
-const contactIcon = navigationStore.contact.icon;
 const { sidebarVisible } = storeToRefs(navigationStore);
 //const blog = ref(false);
 //const about = ref(false);
