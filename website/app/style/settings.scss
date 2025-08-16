@@ -14,9 +14,9 @@
   $button-font-weight: 100,
 );
 
-// Then come @import statements and other CSS
-@import 'https://fonts.googleapis.com/css?family=Maven+Pro|Hind+Madurai&display=swap';
-// Nunito+Sans
+// Font imports removed - now using self-hosted fonts loaded via nuxt.config.ts
+// @import 'https://fonts.googleapis.com/css?family=Maven+Pro|Hind+Madurai&display=swap'; // Removed Google Fonts CDN
+// Self-hosted fonts with font-display: swap loaded via /fonts/fonts.css
 
 $v-main-padding: 65px 0 65px;
 
