@@ -6,7 +6,7 @@
     variant="outlined"
   >
     <v-card-title class="text-h6 py-3">
-      <v-icon class="me-2">mdi-book-open-variant</v-icon>
+      <TreeShakenIcon icon="mdi-book-open-variant" class="me-2" />
       Part {{ currentPart }} of {{ series.posts.length }} in 
       <NuxtLink 
         :to="`/blog/series/${series.urlSlug}`"
@@ -29,7 +29,7 @@
           color="primary"
           size="small"
         >
-          <v-icon start>mdi-chevron-left</v-icon>
+          <TreeShakenIcon icon="mdi-chevron-left" />
           Previous
         </v-btn>
         <div v-else></div>
@@ -51,7 +51,7 @@
           size="small"
         >
           Next
-          <v-icon end>mdi-chevron-right</v-icon>
+          <TreeShakenIcon icon="mdi-chevron-right" />
         </v-btn>
         <div v-else></div>
       </div>
@@ -61,7 +61,7 @@
       <v-expansion-panels variant="accordion">
         <v-expansion-panel>
           <v-expansion-panel-title>
-            <v-icon class="me-2">mdi-format-list-bulleted</v-icon>
+            <TreeShakenIcon icon="mdi-format-list-bulleted" class="me-2" />
             All Posts in This Series
           </v-expansion-panel-title>
           <v-expansion-panel-text>
@@ -107,6 +107,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue'
 
 const props = defineProps({
   series: {

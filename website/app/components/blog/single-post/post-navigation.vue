@@ -17,7 +17,7 @@
                   hover
                 >
                   <div class="d-flex align-start">
-                    <v-icon class="mr-2 mt-1" size="small">mdi-chevron-left</v-icon>
+                    <TreeShakenIcon icon="mdi-chevron-left" class="mr-2 mt-1" size="small" />
                     <div class="flex-grow-1">
                       <div class="text-body-2 font-weight-medium mb-1 text-wrap">
                         {{ previousPost.title }}
@@ -34,7 +34,7 @@
               </NuxtLink>
             </div>
             <div v-else class="text-center text-medium-emphasis">
-              <v-icon class="mr-1">mdi-minus</v-icon>
+              <TreeShakenIcon icon="mdi-minus" class="mr-1" />
               No previous post
             </div>
           </v-col>
@@ -49,7 +49,7 @@
                 size="small"
                 class="text-caption"
               >
-                <v-icon left size="small">mdi-view-list</v-icon>
+                <TreeShakenIcon icon="mdi-view-list" size="small" />
                 Back to Blog
               </v-btn>
             </NuxtLink>
@@ -80,13 +80,13 @@
                         {{ truncateText(nextPost.excerpt, 80) }}
                       </div>
                     </div>
-                    <v-icon class="ml-2 mt-1" size="small">mdi-chevron-right</v-icon>
+                    <TreeShakenIcon icon="mdi-chevron-right" class="ml-2 mt-1" size="small" />
                   </div>
                 </v-card>
               </NuxtLink>
             </div>
             <div v-else class="text-center text-medium-emphasis">
-              <v-icon class="mr-1">mdi-minus</v-icon>
+              <TreeShakenIcon icon="mdi-minus" class="mr-1" />
               No next post
             </div>
           </v-col>
@@ -99,6 +99,7 @@
 <script setup>
 import dayjs from 'dayjs'
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue'
 
 const props = defineProps({
   currentPost: {

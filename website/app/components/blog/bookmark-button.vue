@@ -9,7 +9,7 @@
     :aria-label="bookmarkLabel"
     class="bookmark-btn"
   >
-    <v-icon :icon="bookmarkIcon" />
+    <TreeShakenIcon :icon="bookmarkIcon" />
     
     <v-tooltip
       activator="parent"
@@ -22,6 +22,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useBookmarks } from '~/composables/useBookmarks'
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue'
 
 const props = defineProps({
   post: {

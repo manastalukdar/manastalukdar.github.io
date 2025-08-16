@@ -88,6 +88,28 @@ import {
   mdiDownload,
   mdiOpenInNew,
   
+  // Blog component icons
+  mdiBookmarkOutline,
+  mdiChevronDown,
+  mdiChevronUp,
+  mdiFormatListBulleted,
+  mdiArrowRight,
+  mdiMinus,
+  mdiViewList,
+  mdiBookOpenPageVariant,
+  mdiFacebook,
+  
+  // Search component icons
+  mdiFilterVariant,
+  mdiFolderOutline,
+  mdiCalendarRange,
+  mdiCogOutline,
+  mdiFileSearch,
+  mdiMagnifyClose,
+  mdiClockOutline,
+  mdiInformationOutline,
+  mdiNumeric,
+  
 } from '@mdi/js'
 
 // Icon mapping object for easy access
@@ -177,6 +199,28 @@ export const iconMap = {
   'text-search': mdiTextSearch,
   'speedometer': mdiSpeedometer,
   'pin': mdiPin,
+  
+  // Blog components
+  'bookmark-outline': mdiBookmarkOutline,
+  'chevron-down': mdiChevronDown,
+  'chevron-up': mdiChevronUp,
+  'format-list-bulleted': mdiFormatListBulleted,
+  'arrow-right': mdiArrowRight,
+  'minus': mdiMinus,
+  'view-list': mdiViewList,
+  'book-open-page-variant': mdiBookOpenPageVariant,
+  'facebook': mdiFacebook,
+  
+  // Search components
+  'filter-variant': mdiFilterVariant,
+  'folder-outline': mdiFolderOutline,
+  'calendar-range': mdiCalendarRange,
+  'cog-outline': mdiCogOutline,
+  'file-search': mdiFileSearch,
+  'magnify-close': mdiMagnifyClose,
+  'clock-outline': mdiClockOutline,
+  'information-outline': mdiInformationOutline,
+  'numeric': mdiNumeric,
 } as const
 
 // Helper function to get icon path by name
@@ -255,4 +299,26 @@ export {
   mdiToolboxOutline,
   mdiEmailBox,
   mdiAlphaX,
+  
+  // Blog component exports
+  mdiBookmarkOutline,
+  mdiChevronDown,
+  mdiChevronUp,
+  mdiFormatListBulleted,
+  mdiArrowRight,
+  mdiMinus,
+  mdiViewList,
+  mdiBookOpenPageVariant,
+  mdiFacebook,
+  
+  // Search component exports
+  mdiFilterVariant,
+  mdiFolderOutline,
+  mdiCalendarRange,
+  mdiCogOutline,
+  mdiFileSearch,
+  mdiMagnifyClose,
+  mdiClockOutline,
+  mdiInformationOutline,
+  mdiNumeric,
 }

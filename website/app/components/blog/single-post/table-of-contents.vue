@@ -17,7 +17,7 @@
           @click="toggleCollapse"
           class="toc-toggle"
         >
-          <v-icon>{{ isCollapsed ? 'mdi-chevron-down' : 'mdi-chevron-up' }}</v-icon>
+          <TreeShakenIcon :icon="isCollapsed ? 'mdi-chevron-down' : 'mdi-chevron-up'" />
         </v-btn>
       </div>
       
@@ -61,7 +61,7 @@
         @click="showMobileMenu = !showMobileMenu"
         class="toc-mobile-toggle"
       >
-        <v-icon left>mdi-format-list-bulleted</v-icon>
+        <TreeShakenIcon icon="mdi-format-list-bulleted" />
         Table of Contents
       </v-btn>
       
@@ -102,6 +102,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick, computed } from 'vue'
 import { useDisplay } from 'vuetify'
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue'
 
 // Props
 const props = defineProps({

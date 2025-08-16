@@ -2,7 +2,7 @@
   <div class="search-filters">
     <v-card class="filters-card" elevation="1">
       <v-card-title class="filters-header">
-        <v-icon class="filters-icon">mdi-filter-variant</v-icon>
+        <TreeShakenIcon icon="mdi-filter-variant" class="filters-icon" />
         <span>Search Filters</span>
         <v-spacer />
         <v-btn
@@ -13,7 +13,7 @@
           @click="clearAllFilters"
         >
           Clear All
-          <v-icon end>mdi-close</v-icon>
+          <TreeShakenIcon icon="mdi-close" />
         </v-btn>
       </v-card-title>
 
@@ -28,7 +28,7 @@
           <v-expansion-panel value="categories">
             <v-expansion-panel-title>
               <div class="panel-header">
-                <v-icon class="panel-icon">mdi-folder-outline</v-icon>
+                <TreeShakenIcon icon="mdi-folder-outline" class="panel-icon" />
                 <span class="panel-title">Categories</span>
                 <v-chip
                   v-if="selectedCategories.length > 0"
@@ -47,7 +47,7 @@
                   label="Search categories..."
                   variant="outlined"
                   density="compact"
-                  prepend-inner-icon="mdi-magnify"
+                  :prepend-inner-icon="null"
                   clearable
                   hide-details
                   class="mb-3"
@@ -79,7 +79,7 @@
           <v-expansion-panel value="tags">
             <v-expansion-panel-title>
               <div class="panel-header">
-                <v-icon class="panel-icon">mdi-tag-outline</v-icon>
+                <TreeShakenIcon icon="mdi-tag-outline" class="panel-icon" />
                 <span class="panel-title">Tags</span>
                 <v-chip
                   v-if="selectedTags.length > 0"
@@ -132,7 +132,7 @@
           <v-expansion-panel value="dateRange">
             <v-expansion-panel-title>
               <div class="panel-header">
-                <v-icon class="panel-icon">mdi-calendar-range</v-icon>
+                <TreeShakenIcon icon="mdi-calendar-range" class="panel-icon" />
                 <span class="panel-title">Date Range</span>
                 <v-chip
                   v-if="dateRange.start || dateRange.end"
@@ -189,7 +189,7 @@
           <v-expansion-panel value="postFormat" v-if="availablePostFormats.length > 0">
             <v-expansion-panel-title>
               <div class="panel-header">
-                <v-icon class="panel-icon">mdi-file-document-outline</v-icon>
+                <TreeShakenIcon icon="mdi-file-document-outline" class="panel-icon" />
                 <span class="panel-title">Post Format</span>
                 <v-chip
                   v-if="selectedPostFormats.length > 0"
@@ -236,7 +236,7 @@
           <v-expansion-panel value="searchOptions">
             <v-expansion-panel-title>
               <div class="panel-header">
-                <v-icon class="panel-icon">mdi-cog-outline</v-icon>
+                <TreeShakenIcon icon="mdi-cog-outline" class="panel-icon" />
                 <span class="panel-title">Search Options</span>
               </div>
             </v-expansion-panel-title>
@@ -289,6 +289,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import dayjs from 'dayjs'
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue'
 
 // Props
 const props = defineProps({

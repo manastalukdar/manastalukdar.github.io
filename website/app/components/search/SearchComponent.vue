@@ -2,7 +2,7 @@
   <div class="search-component">
     <v-card class="search-card" elevation="2">
       <v-card-title class="search-header">
-        <v-icon class="search-icon">mdi-magnify</v-icon>
+        <TreeShakenIcon icon="mdi-magnify" class="search-icon" />
         <span>AI-Powered Search</span>
         <v-spacer />
         <v-btn
@@ -11,7 +11,7 @@
           @click="showFilters = !showFilters"
           :color="hasActiveFilters ? 'primary' : 'default'"
         >
-          <v-icon start>mdi-filter-variant</v-icon>
+          <TreeShakenIcon icon="mdi-filter-variant" />
           Filters
           <v-badge
             v-if="activeFilterCount > 0"
@@ -28,7 +28,6 @@
           label="Search posts with natural language..."
           placeholder="e.g., 'AI research papers about transformers' or 'engineering management'"
           variant="outlined"
-          prepend-inner-icon="mdi-magnify"
           :loading="isSearching"
           @input="onSearchInput"
           @keyup.enter="performSearch"
@@ -83,7 +82,7 @@
     <div class="search-results" v-if="searchResults || isSearching">
       <v-card class="results-card mt-4" elevation="1">
         <v-card-title class="results-header">
-          <v-icon class="results-icon">mdi-file-search</v-icon>
+          <TreeShakenIcon icon="mdi-file-search" class="results-icon" />
           <span v-if="searchResults">
             {{ searchResults.totalResults }} results
             <span v-if="searchResults.query">for "{{ searchResults.query }}"</span>
@@ -125,7 +124,7 @@
               >
                 <template #prepend>
                   <v-avatar color="primary" size="40">
-                    <v-icon>mdi-file-document</v-icon>
+                    <TreeShakenIcon icon="mdi-file-document" />
                   </v-avatar>
                 </template>
 
@@ -175,7 +174,7 @@
           </div>
 
           <div v-else-if="searchResults && searchResults.results.length === 0" class="text-center pa-4">
-            <v-icon size="48" color="grey">mdi-magnify-close</v-icon>
+            <TreeShakenIcon icon="mdi-magnify-close" size="48" color="grey" />
             <p class="mt-2">No results found for "{{ searchResults.query }}"</p>
             <p class="text-body-2 text-grey">Try different keywords or use semantic search</p>
           </div>
@@ -187,7 +186,7 @@
     <div class="recent-posts" v-if="!searchResults && !isSearching && recentPosts.length > 0">
       <v-card class="recent-card mt-4" elevation="1">
         <v-card-title class="recent-header">
-          <v-icon class="recent-icon">mdi-clock-outline</v-icon>
+          <TreeShakenIcon icon="mdi-clock-outline" class="recent-icon" />
           <span>Recent Posts</span>
         </v-card-title>
 
@@ -201,7 +200,7 @@
             >
               <template #prepend>
                 <v-avatar color="secondary" size="32">
-                  <v-icon size="16">mdi-file-document</v-icon>
+                  <TreeShakenIcon icon="mdi-file-document" size="16" />
                 </v-avatar>
               </template>
 
@@ -227,6 +226,7 @@ const SearchFilters = defineAsyncComponent(() => import('./SearchFilters.vue'))
 import FilterChips from './FilterChips.vue'
 import dayjs from 'dayjs'
 import { useSearchFilters } from '~/composables/useSearchFilters'
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue'
 
 // Only import search service on client side
 let searchService = null

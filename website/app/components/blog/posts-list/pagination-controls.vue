@@ -32,7 +32,7 @@
               @click="prevPage()"
               class="mr-2"
             >
-              <v-icon left>mdi-chevron-left</v-icon>
+              <TreeShakenIcon icon="mdi-chevron-left" />
               Previous
             </v-btn>
 
@@ -47,7 +47,7 @@
               class="ml-2"
             >
               Next
-              <v-icon right>mdi-chevron-right</v-icon>
+              <TreeShakenIcon icon="mdi-chevron-right" />
             </v-btn>
           </v-col>
         </v-row>
@@ -75,6 +75,8 @@
 </template>
 
 <script setup>
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue'
+
 const props = defineProps({
   totalPosts: {
     type: Number,

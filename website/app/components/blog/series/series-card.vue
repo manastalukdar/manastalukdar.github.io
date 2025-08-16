@@ -59,7 +59,7 @@
         :to="`/blog/series/${series.urlSlug}`"
       >
         View Series
-        <v-icon end>mdi-arrow-right</v-icon>
+        <TreeShakenIcon icon="mdi-arrow-right" />
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -67,6 +67,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue'
 
 const props = defineProps({
   series: {

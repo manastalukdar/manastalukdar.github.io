@@ -27,7 +27,7 @@
           class="filter-chip"
           @click:close="removeFilter('categories', category)"
         >
-          <v-icon start>mdi-folder-outline</v-icon>
+          <TreeShakenIcon icon="mdi-folder-outline" />
           {{ category }}
         </v-chip>
       </div>
@@ -45,7 +45,7 @@
           class="filter-chip"
           @click:close="removeFilter('tags', tag)"
         >
-          <v-icon start>mdi-tag-outline</v-icon>
+          <TreeShakenIcon icon="mdi-tag-outline" />
           {{ tag }}
         </v-chip>
       </div>
@@ -61,7 +61,7 @@
           class="filter-chip"
           @click:close="removeFilter('postFormat')"
         >
-          <v-icon start>mdi-file-document-outline</v-icon>
+          <TreeShakenIcon icon="mdi-file-document-outline" />
           {{ filters.postFormat }}
         </v-chip>
       </div>
@@ -77,7 +77,7 @@
           class="filter-chip"
           @click:close="removeDateFilter"
         >
-          <v-icon start>mdi-calendar-range</v-icon>
+          <TreeShakenIcon icon="mdi-calendar-range" />
           {{ formatDateRange(filters.dateStart, filters.dateEnd) }}
         </v-chip>
       </div>
@@ -91,7 +91,7 @@
           variant="outlined"
           class="filter-chip"
         >
-          <v-icon start>mdi-text-search</v-icon>
+          <TreeShakenIcon icon="mdi-text-search" />
           Keyword Search
         </v-chip>
       </div>
@@ -105,7 +105,7 @@
           variant="outlined"
           class="filter-chip"
         >
-          <v-icon start>mdi-numeric</v-icon>
+          <TreeShakenIcon icon="mdi-numeric" />
           {{ filters.maxResults }} results
         </v-chip>
       </div>
@@ -119,7 +119,7 @@
           variant="outlined"
           class="filter-chip"
         >
-          <v-icon start>mdi-speedometer</v-icon>
+          <TreeShakenIcon icon="mdi-speedometer" />
           {{ (filters.similarityThreshold * 100).toFixed(0) }}% similarity
         </v-chip>
       </div>
@@ -127,7 +127,7 @@
 
     <!-- Filter Summary -->
     <div class="filter-summary" v-if="totalFilterCount > 0">
-      <v-icon size="16">mdi-information-outline</v-icon>
+      <TreeShakenIcon icon="mdi-information-outline" size="16" />
       <span class="summary-text">
         {{ totalFilterCount }} filter{{ totalFilterCount > 1 ? 's' : '' }} applied
         <span v-if="resultCount !== undefined">
@@ -141,6 +141,7 @@
 <script setup>
 import { computed } from 'vue'
 import dayjs from 'dayjs'
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue'
 
 // Props
 const props = defineProps({

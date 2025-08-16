@@ -9,10 +9,10 @@
             :title="title"
             :description="description"
           >
-            <a><em class="socialSharingItem mdi mdi-email mdi-24px"></em></a>
+            <a><TreeShakenIcon icon="mdi-email" size="24" class="socialSharingItem" /></a>
           </ShareNetwork>
           <ShareNetwork network="linkedin" :url="url" :title="title">
-            <a><em class="socialSharingItem mdi mdi-linkedin mdi-24px"></em></a>
+            <a><TreeShakenIcon icon="mdi-linkedin" size="24" class="socialSharingItem" /></a>
           </ShareNetwork>
           <ShareNetwork
             network="twitter"
@@ -21,7 +21,7 @@
             :hashtags="hashtags"
             :twitter-user="twitterUser"
           >
-            <a><em class="socialSharingItem mdi mdi-twitter mdi-24px"></em></a>
+            <a><TreeShakenIcon icon="mdi-twitter" size="24" class="socialSharingItem" /></a>
           </ShareNetwork>
           <ShareNetwork
             network="facebook"
@@ -31,12 +31,12 @@
             :quote="quote"
             :hashtags="hashtags"
           >
-            <a><em class="socialSharingItem mdi mdi-facebook mdi-24px"></em></a>
+            <a><TreeShakenIcon icon="mdi-facebook" size="24" class="socialSharingItem" /></a>
           </ShareNetwork>
         </div>
       </div>
       <div class="printButton col pt-2" justify="center">
-        <v-icon @click="print">mdi-printer</v-icon>
+        <TreeShakenIcon icon="mdi-printer" @click="print" style="cursor: pointer;" />
       </div>
     </v-card>
   </v-col>
@@ -44,6 +44,7 @@
 
 <script setup>
 import { usePaperizer } from 'paperizer'
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue'
 defineProps ({
   url: {
     type: String,

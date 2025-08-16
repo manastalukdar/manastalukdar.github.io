@@ -11,7 +11,7 @@
     <div class="post-header mb-3">
       <div class="d-flex align-items-center justify-space-between">
         <div class="bookmark-info d-flex align-items-center">
-          <v-icon color="primary" class="me-2">mdi-bookmark</v-icon>
+          <TreeShakenIcon icon="mdi-bookmark" color="primary" class="me-2" />
           <span class="bookmark-date text-caption">
             Bookmarked {{ formatBookmarkDate(post.bookmarkedAt) }}
           </span>
@@ -30,7 +30,7 @@
         <h3 class="text-h6 me-2 text-center">{{ post.title }}</h3>
         <div class="d-flex align-items-center">
           <nuxt-link :to="getPostFormatRoute(post['post-format']['url-slug'])" class="pl-2">
-            <v-icon>{{ getPostFormatIcon(post['post-format'].name) }}</v-icon>
+            <TreeShakenIcon :icon="getPostFormatIcon(post['post-format'].name)" />
           </nuxt-link>
         </div>
       </div>
@@ -97,7 +97,7 @@
         size="small"
         :to="getPostRoute()"
       >
-        <v-icon class="me-1">mdi-book-open-page-variant</v-icon>
+        <TreeShakenIcon icon="mdi-book-open-page-variant" class="me-1" />
         Read Post
       </v-btn>
       
@@ -107,7 +107,7 @@
           variant="outlined"
           :color="getPostFormatColor(post['post-format'].name)"
         >
-          <v-icon start>{{ getPostFormatIcon(post['post-format'].name) }}</v-icon>
+          <TreeShakenIcon :icon="getPostFormatIcon(post['post-format'].name)" />
           {{ post['post-format'].name }}
         </v-chip>
       </div>
@@ -120,6 +120,7 @@ import { computed } from 'vue'
 import { useNavigationStore } from '~/stores/Navigation'
 import { useBlogMetadataStore } from '~/stores/BlogMetadata'
 import BookmarkButton from '~/components/blog/bookmark-button.vue'
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
