@@ -233,9 +233,9 @@ export default defineNuxtConfig({
 
   css: [
     'vuetify/lib/styles/main.sass',
-    // Removed duplicate icon imports - keeping only vue-material-design-icons
-    // '@mdi/font/css/materialdesignicons.min.css', // ~4MB of fonts
-    // 'material-design-icons-iconfont/dist/material-design-icons.css', // ~2MB of fonts
+    // Restored MDI icons - required for 166 icon references throughout the site
+    '@mdi/font/css/materialdesignicons.min.css', // ~400KB critical for UI functionality
+    // 'material-design-icons-iconfont/dist/material-design-icons.css', // Still removed - redundant with MDI
     'vue-material-design-icons/styles.css',
     //'~/styles/print-blog-post.css'
   ],

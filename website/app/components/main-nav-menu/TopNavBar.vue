@@ -3,7 +3,7 @@
     <v-app-bar-nav-icon class="hidden-lg-and-up home-icon">
       <nuxt-link v-slot="{ navigate }" to="/">
         <span role="link" @click="navigate" @keypress.enter="navigate"
-          ><v-icon>mdi-home</v-icon></span
+          ><TreeShakenIcon icon="mdi-home" /></span
         >
       </nuxt-link>
     </v-app-bar-nav-icon>
@@ -16,7 +16,7 @@
     </v-toolbar-title>
     <div class="flex-grow-1" />
 <!--     <v-btn text icon @click="flipThemeMode">
-      <v-icon>mdi-theme-light-dark</v-icon>
+      <TreeShakenIcon icon="mdi-theme-light-dark" />
     </v-btn> -->
     <v-toolbar-items class="hidden-sm-and-down">
       <MainNavMenuBlog />
@@ -24,7 +24,7 @@
       <MainNavMenuLegal />
       <MainNavMenuContact />
       <v-btn text to="/search">
-        <v-icon left>mdi-magnify</v-icon>
+        <TreeShakenIcon icon="mdi-magnify" class="mr-2" />
         Search
       </v-btn>
       <BookmarksNavButton />
