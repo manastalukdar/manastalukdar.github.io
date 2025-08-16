@@ -211,7 +211,7 @@ export default defineNuxtConfig({
         // Preload critical self-hosted fonts for performance
         {
           rel: 'preload',
-          href: '/fonts/maven-pro-v32-latin-regular.woff2',
+          href: '/fonts/roboto-v30-latin-regular.woff2',
           as: 'font',
           type: 'font/woff2',
           crossorigin: 'anonymous',

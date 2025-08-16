@@ -518,7 +518,7 @@ const print = () => {
 }
 
 .author-name {
-  font-family: 'Maven Pro', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+  font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
   color: rgb(var(--v-theme-primary));
   font-size: 1rem;
   display: block;
@@ -539,7 +539,7 @@ const print = () => {
 }
 
 .author-title {
-  font-family: 'Maven Pro', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+  font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
   color: rgba(var(--v-theme-on-surface), 0.8);
   font-size: 0.9rem;
   margin-bottom: 0.25rem;
