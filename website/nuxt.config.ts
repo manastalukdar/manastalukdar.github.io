@@ -388,6 +388,7 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     'nuxt-gtag',
     '@vite-pwa/nuxt',
+    '@nuxt/image',
   ],
 
   plugins: [
@@ -526,6 +527,32 @@ export default defineNuxtConfig({
       ttl: 1000 * 60 * 60 * 24 * 7,
     },
   }, */
+
+  image: {
+    // Image optimization configuration
+    quality: 80,
+    format: ['webp'],
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+    },
+    // Use IPX provider for better compatibility
+    provider: 'ipx',
+    densities: [1, 2],
+    presets: {
+      blog: {
+        modifiers: {
+          format: 'webp',
+          quality: 80,
+          sizes: 'sm:640px md:768px lg:1024px',
+        }
+      }
+    }
+  },
 
   compatibilityDate: '2024-07-10',
 })

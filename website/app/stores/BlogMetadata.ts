@@ -341,17 +341,21 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
     },
 
     getNextPost(currentPost: any) {
+      // Since posts are sorted in reverse chronological order (newest first),
+      // "next" means newer, so we go to index-1
       const currentIndex = this.getPostIndex(currentPost)
-      if (currentIndex >= 0 && currentIndex < this.blogMetadata.length - 1) {
-        return this.blogMetadata[currentIndex + 1]
+      if (currentIndex > 0) {
+        return this.blogMetadata[currentIndex - 1]
       }
       return null
     },
 
     getPreviousPost(currentPost: any) {
+      // Since posts are sorted in reverse chronological order (newest first),  
+      // "previous" means older, so we go to index+1
       const currentIndex = this.getPostIndex(currentPost)
-      if (currentIndex > 0) {
-        return this.blogMetadata[currentIndex - 1]
+      if (currentIndex >= 0 && currentIndex < this.blogMetadata.length - 1) {
+        return this.blogMetadata[currentIndex + 1]
       }
       return null
     },

@@ -72,6 +72,7 @@ hljs.registerLanguage('plaintext', plaintext);
 hljs.registerLanguage('yaml', yaml);
 import fm from 'front-matter';
 import getTargetBlankLinkRender from "~/utils/markdownRenderHelpers.ts";
+import markdownImagePlugin from "~/utils/markdownImagePlugin.ts";
 
 const appOwner = globalDataStore.appOwner;
 const currentPage = navigationStore.blog.blogText;
@@ -145,6 +146,7 @@ var md = new MarkdownIt({
   level: 2,
 }).use(markdownItFootnote).use(markdownItTextualUml);
 getTargetBlankLinkRender(md);
+markdownImagePlugin(md);
 const postIdTemp =
   '/blog/' +
   route.params.year +

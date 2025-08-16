@@ -17,7 +17,7 @@
                   hover
                 >
                   <div class="d-flex align-start">
-                    <TreeShakenIcon icon="mdi-chevron-left" class="mr-2 mt-1" size="small" />
+                    <TreeShakenIcon icon="mdi-chevron-left" class="mr-2 mt-1" size="16" />
                     <div class="flex-grow-1">
                       <div class="text-body-2 font-weight-medium mb-1 text-wrap">
                         {{ previousPost.title }}
@@ -34,7 +34,7 @@
               </NuxtLink>
             </div>
             <div v-else class="text-center text-medium-emphasis">
-              <TreeShakenIcon icon="mdi-minus" class="mr-1" />
+              <TreeShakenIcon icon="mdi-minus" class="mr-1" size="16" />
               No previous post
             </div>
           </v-col>
@@ -49,7 +49,7 @@
                 size="small"
                 class="text-caption"
               >
-                <TreeShakenIcon icon="mdi-view-list" size="small" />
+                <TreeShakenIcon icon="mdi-view-list" size="16" />
                 Back to Blog
               </v-btn>
             </NuxtLink>
@@ -80,13 +80,13 @@
                         {{ truncateText(nextPost.excerpt, 80) }}
                       </div>
                     </div>
-                    <TreeShakenIcon icon="mdi-chevron-right" class="ml-2 mt-1" size="small" />
+                    <TreeShakenIcon icon="mdi-chevron-right" class="ml-2 mt-1" size="16" />
                   </div>
                 </v-card>
               </NuxtLink>
             </div>
             <div v-else class="text-center text-medium-emphasis">
-              <TreeShakenIcon icon="mdi-minus" class="mr-1" />
+              <TreeShakenIcon icon="mdi-minus" class="mr-1" size="16" />
               No next post
             </div>
           </v-col>
