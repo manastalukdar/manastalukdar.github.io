@@ -4,10 +4,10 @@
       <template v-slot:activator="{ props }">
         <v-list-item :key="engagementsText" v-bind="props">
           <v-avatar>
-            <v-icon>{{ engagementsIcon }}</v-icon>
+            <TreeShakenIcon :icon="engagementsIcon" />
           </v-avatar>
           <v-list-item-title class="wrap-text text-center" v-text="engagementsText" />
-          <v-icon>mdi-menu-right</v-icon>
+          <TreeShakenIcon icon="mdi-menu-right" />
         </v-list-item>
       </template>
       <v-list density="default">
@@ -19,7 +19,7 @@
     :href="!item.isRouterLink ? item.href : null"
     :target="!item.isRouterLink ? item.target: null">
       <v-avatar>
-        <v-icon>{{ item.icon }}</v-icon>
+        <TreeShakenIcon :icon="item.icon" />
       </v-avatar>
       <v-list-item-title class="wrap-text text-center" v-text="item.text" />
     </v-list-item>
@@ -29,6 +29,7 @@
 <script setup>
 import { useNavigationStore } from '@/stores/Navigation'
 import AboutProfessionalEngagementsItems from './AboutProfessionalEngagementsMenuItems.vue';
+import TreeShakenIcon from '@/components/TreeShakenIcon.vue';
 const navigationStore = useNavigationStore();
 const aboutProfessionalItems = navigationStore.about.aboutItems[0].professionalItems.filter(function (item) {
   return 'text' in item

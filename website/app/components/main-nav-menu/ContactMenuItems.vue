@@ -2,7 +2,7 @@
   <div>
     <v-list-item :to="contactForm.href">
       <v-avatar>
-        <v-icon>{{ contactForm.icon }}</v-icon>
+        <TreeShakenIcon :icon="contactForm.icon" />
       </v-avatar>
       <v-list-item-title v-text="contactForm.text" />
     </v-list-item>
@@ -15,7 +15,7 @@
       :target="item.target"
     >
       <v-avatar>
-        <v-icon>{{ item.icon }}</v-icon>
+        <TreeShakenIcon :icon="item.icon" />
       </v-avatar>
       <v-list-item-title class="wrap-text" v-text="item.text" />
     </v-list-item>
@@ -24,6 +24,8 @@
 
 <script setup>
 import { useNavigationStore } from '@/stores/Navigation';
+import TreeShakenIcon from '@/components/TreeShakenIcon.vue';
+
 const navigationStore = useNavigationStore();
 const subHeaderTextOtherLocationsText = navigationStore.contact.subHeaderTextOtherLocations.text;
 const contactForm = navigationStore.contact.contactForm;

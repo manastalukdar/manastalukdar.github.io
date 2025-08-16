@@ -1,6 +1,6 @@
 <template>
   <v-btn text to="/bookmarks" :aria-label="buttonLabel">
-    <v-icon left>mdi-bookmark</v-icon>
+    <TreeShakenIcon icon="mdi-bookmark" class="mr-2" />
     <span class="hidden-sm-and-down mr-1">Bookmarks</span>
     <v-badge
       v-if="bookmarkCount > 0"
@@ -15,6 +15,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useBookmarks } from '~/composables/useBookmarks'
+import TreeShakenIcon from '@/components/TreeShakenIcon.vue'
 
 const { bookmarkCount, isLoaded } = useBookmarks()
 

@@ -55,6 +55,23 @@ import {
   mdiGavel,
   mdiMail,
   
+  // Menu navigation icons
+  mdiMenuLeft,
+  mdiMenuRight,
+  
+  // About section icons
+  mdiSchool,
+  mdiHandshake,
+  mdiDeskLamp,
+  mdiThumbUp,
+  mdiMedal,
+  mdiAccountHeart,
+  mdiToolboxOutline,
+  
+  // Contact icons
+  mdiEmailBox,
+  mdiAlphaX,
+  
   // Social/external icons
   mdiGithub,
   mdiTwitter,
@@ -137,6 +154,23 @@ export const iconMap = {
   // Legal & Contact
   'gavel': mdiGavel,
   'mail': mdiMail,
+  'email-box': mdiEmailBox,
+  
+  // Menu navigation
+  'menu-left': mdiMenuLeft,
+  'menu-right': mdiMenuRight,
+  
+  // About section
+  'school': mdiSchool,
+  'handshake': mdiHandshake,
+  'desk-lamp': mdiDeskLamp,
+  'thumb-up': mdiThumbUp,
+  'medal': mdiMedal,
+  'account-heart': mdiAccountHeart,
+  'toolbox-outline': mdiToolboxOutline,
+  
+  // Social platforms
+  'alpha-x': mdiAlphaX,
   
   // Utility
   'theme-light-dark': mdiThemeLightDark,
@@ -210,4 +244,15 @@ export {
   mdiOpenInNew,
   mdiGavel,
   mdiMail,
+  mdiMenuLeft,
+  mdiMenuRight,
+  mdiSchool,
+  mdiHandshake,
+  mdiDeskLamp,
+  mdiThumbUp,
+  mdiMedal,
+  mdiAccountHeart,
+  mdiToolboxOutline,
+  mdiEmailBox,
+  mdiAlphaX,
 }
