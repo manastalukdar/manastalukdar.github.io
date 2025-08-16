@@ -241,8 +241,9 @@ export default defineNuxtConfig({
 
   css: [
     'vuetify/lib/styles/main.sass',
-    '@mdi/font/css/materialdesignicons.min.css',
-    'material-design-icons-iconfont/dist/material-design-icons.css',
+    // Removed duplicate icon imports - keeping only vue-material-design-icons
+    // '@mdi/font/css/materialdesignicons.min.css', // ~4MB of fonts
+    // 'material-design-icons-iconfont/dist/material-design-icons.css', // ~2MB of fonts
     'vue-material-design-icons/styles.css',
     //'~/styles/print-blog-post.css'
   ],
@@ -306,6 +307,7 @@ export default defineNuxtConfig({
       config.plugins?.push(
         vuetify({
           autoImport: true,
+          treeShake: true, // Enable component tree-shaking for smaller bundles
           styles: { configFile: resolve('./app/style/settings.scss') },
         })
       )
