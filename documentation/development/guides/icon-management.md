@@ -67,24 +67,34 @@ Replace the font-based icon with the tree-shaken component:
 
 Add the new icon to this list for tracking:
 
-#### Currently Tree-Shaken Icons (50+):
+#### Currently Tree-Shaken Icons (60+):
 
 **Navigation & UI**
-- `mdi-home`, `mdi-menu`, `mdi-close`, `mdi-magnify`
-- `mdi-chevron-left`, `mdi-chevron-right`, `mdi-menu-down`
-- `mdi-cog`, `mdi-information`, `mdi-bookmark`
+- `mdi-home`, `mdi-menu`, `mdi-close`, `mdi-magnify`, `mdi-bookmark`
+- `mdi-chevron-left`, `mdi-chevron-right`, `mdi-menu-down`, `mdi-menu-left`, `mdi-menu-right`
+- `mdi-cog`, `mdi-information`, `mdi-newspaper`, `mdi-gavel`, `mdi-mail`
 
 **Professional & Documents**  
-- `mdi-briefcase-outline`, `mdi-account-group`, `mdi-domain`
-- `mdi-file-document`, `mdi-file-document-outline`, `mdi-text`
-- `mdi-newspaper`, `mdi-book-open-variant`
+- `mdi-briefcase-outline`, `mdi-account-group`, `mdi-domain`, `mdi-text`
+- `mdi-file-document`, `mdi-file-document-outline`, `mdi-script-text`, `mdi-list-box`
+- `mdi-book-open-variant`, `mdi-tag-multiple`, `mdi-format-list-bulleted-type`, `mdi-archive`
+
+**Professional Engagements**
+- `mdi-seal-variant`, `mdi-account-tie`, `mdi-scale-balance`, `mdi-book-edit`
+- `mdi-human-male-board`, `mdi-microphone-variant`, `mdi-school`, `mdi-handshake`
+
+**About & Personal**
+- `mdi-desk-lamp`, `mdi-thumb-up`, `mdi-medal`, `mdi-account-heart`, `mdi-toolbox-outline`
 
 **Content & Blog**
-- `mdi-calendar`, `mdi-clock`, `mdi-eye`, `mdi-share`
-- `mdi-tag-outline`, `mdi-printer`, `mdi-check-circle`
+- `mdi-calendar`, `mdi-clock`, `mdi-eye`, `mdi-share`, `mdi-heart`, `mdi-comment`
+- `mdi-tag-outline`, `mdi-printer`, `mdi-check-circle`, `mdi-download`, `mdi-open-in-new`
 
 **Social & External**
-- `mdi-linkedin`, `mdi-github`, `mdi-twitter`, `mdi-email`
+- `mdi-linkedin`, `mdi-github`, `mdi-twitter`, `mdi-email`, `mdi-email-box`, `mdi-alpha-x`, `mdi-web`
+
+**Utility**
+- `mdi-theme-light-dark`, `mdi-text-search`, `mdi-speedometer`, `mdi-pin`
 
 [Add your new icon here with appropriate category]
 
@@ -185,10 +195,10 @@ This means:
 
 ## Future Migration Goals
 
-### Phase 1: Critical Icons (In Progress)
+### Phase 1: Critical Icons (COMPLETED ✅)
 - [x] TopNavBar icons (3/3)
-- [ ] NavigationDrawer icons (10+ icons)
-- [ ] MainNavMenu components (15+ icons)
+- [x] NavigationDrawer icons (6/6)  
+- [x] MainNavMenu components (35+/35+)
 
 ### Phase 2: Content Icons  
 - [ ] Blog post headers and metadata
@@ -219,6 +229,12 @@ npm run dev
 
 ---
 
-**Last Updated**: 2025-08-16  
-**Current Status**: 3 icons tree-shaken, 163+ remaining  
-**Next Priority**: NavigationDrawer and MainNavMenu components
+**Last Updated**: 2025-08-16 (Updated after major migration)  
+**Current Status**: 60+ icons tree-shaken, 100+ remaining  
+**Next Priority**: Blog components and content areas
+
+## 📚 Additional Documentation
+
+For comprehensive component migration instructions, see:
+- **[Tree-Shaking Migration Guide](./tree-shaking.md)** - Complete step-by-step component conversion process
+- **[Performance Optimization Session](../../../.claude/sessions/2025-08-16-1430.md)** - Detailed implementation history and results
