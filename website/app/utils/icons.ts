@@ -111,6 +111,11 @@ import {
   mdiInformationOutline,
   mdiNumeric,
   
+  // Legal page icons
+  mdiCopyright,
+  mdiCreativeCommons,
+  mdiRobot,
+  
 } from '@mdi/js'
 
 // Icon mapping object for easy access
@@ -223,6 +228,11 @@ export const iconMap = {
   'clock-outline': mdiClockOutline,
   'information-outline': mdiInformationOutline,
   'numeric': mdiNumeric,
+  
+  // Legal page
+  'copyright': mdiCopyright,
+  'creative-commons': mdiCreativeCommons,
+  'robot': mdiRobot,
 } as const
 
 // Helper function to get icon path by name
@@ -323,4 +333,9 @@ export {
   mdiClockOutline,
   mdiInformationOutline,
   mdiNumeric,
+  
+  // Legal page exports
+  mdiCopyright,
+  mdiCreativeCommons,
+  mdiRobot,
 }
