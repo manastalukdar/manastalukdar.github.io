@@ -12,7 +12,8 @@
     "postinstall": "nuxt prepare",
     "getHighlightJsStyleSheets": "node app/utils/getHighlightJsStyleSheets.js",
     "clean": "npx nuxi cleanup",
-    "generate-search-index": "node scripts/generate_search_index.js"
+    "generate-search-index": "node scripts/generate_search_index.js",
+    "generate-fonts": "node scripts/generate-font-css.js && node scripts/generate-font-scss.js"
   },
   "devDependencies": {
     "@nuxtjs/sitemap": "^7.4.3",

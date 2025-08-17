@@ -1,592 +1,350 @@
 # Font Management Guide
 
-This guide provides step-by-step instructions for adding new fonts or changing the current font on the website. The site uses self-hosted fonts for optimal performance and privacy.
+This guide explains how to manage fonts in the website using the centralized font management system.
 
 ## 🎯 Overview
 
 **Current Font Setup (August 2025):**
-- ✅ **Primary Font**: Maven Pro (400, 500, 700 weights)
-- ✅ **Self-hosted**: ~5KB total vs 1MB+ from Google Fonts CDN
+- ✅ **Primary Font**: Roboto (400, 500, 700 weights)
+- ✅ **Self-hosted**: ~33KB total vs 1MB+ from Google Fonts CDN
 - ✅ **Performance Optimized**: `font-display: swap`, preload links, WOFF2 format
-- ✅ **Privacy Compliant**: No external CDN tracking
+- ✅ **Centralized System**: Single configuration file controls entire website
 
-**Goal**: Maintain optimal font loading performance while providing flexibility for font changes.
+## Architecture
 
-## 🏗️ Current Architecture
+The website uses a centralized font management system that allows you to change fonts across the entire website by updating a single configuration file. This eliminates the need to update font references in multiple locations.
 
-### Font Loading Strategy
+### Files Structure
 
-**Self-Hosted Fonts** (preferred)
-```css
-/* website/public/fonts/fonts.css */
-@font-face {
-  font-family: 'Maven Pro';
-  font-display: swap;
-  src: url('./maven-pro-v32-latin-regular.woff2') format('woff2');
-}
+```
+website/
+├── app/config/fonts.ts              # 🎯 SINGLE SOURCE OF TRUTH
+├── app/style/_fonts.scss            # Auto-generated SCSS utilities  
+├── app/style/settings.scss          # Uses centralized config
+├── public/fonts/fonts.css           # Auto-generated font CSS
+├── scripts/generate-font-css.js     # CSS generation script
+├── scripts/generate-font-scss.js    # SCSS generation script
+└── nuxt.config.ts                   # Uses centralized config
 ```
 
-**Configuration**
+### Key Components
+
+1. **Font Configuration** (`app/config/fonts.ts`)
+   - Primary font family and fallbacks
+   - Font weights and file names
+   - Font display strategy
+   - Unicode range for optimization
+
+2. **Auto-generated Files**
+   - `app/style/_fonts.scss` - SCSS variables and mixins
+   - `public/fonts/fonts.css` - Font-face declarations
+
+3. **Build Integration**
+   - Font preloading in Nuxt configuration
+   - Vuetify font settings
+   - Component style utilities
+
+## How to Change Fonts
+
+### 1. Primary Font Change (e.g., Roboto → Inter)
+
+**Step 1**: Update the font configuration in `app/config/fonts.ts`:
+
 ```typescript
-// nuxt.config.ts
-app: {
-  head: {
-    link: [
-      {
-        rel: 'stylesheet',
-        href: '/fonts/fonts.css'
-      },
-      {
-        rel: 'preload',
-        href: '/fonts/maven-pro-v32-latin-regular.woff2',
-        as: 'font',
-        type: 'font/woff2',
-        crossorigin: 'anonymous'
-      }
-    ]
-  }
-}
-```
-
-**SCSS Variables**
-```scss
-// website/app/style/settings.scss
-$body-font-family: 'Maven Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-```
-
-## 📋 Step-by-Step: Adding a New Font
-
-### Step 1: Obtain Font Files
-
-**Option A: Download from Google Fonts (Recommended)**
-
-1. Go to [Google Fonts](https://fonts.google.com/)
-2. Select your desired font
-3. Choose required weights (e.g., 400, 500, 700)
-4. Click "Download family"
-
-**Option B: Use Google Webfonts Helper (Preferred)**
-
-1. Visit [Google Webfonts Helper](https://gwfh.mranftl.com/fonts)
-2. Search for your font
-3. Select character sets (usually "latin")
-4. Choose styles and weights needed
-5. Copy the CSS and download font files
-
-**Example for adding "Inter" font:**
-```bash
-# Download Inter font files
-curl -o inter-v13-latin-regular.woff2 "https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-curl -o inter-v13-latin-500.woff2 "https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2"
-curl -o inter-v13-latin-700.woff2 "https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfAZ9hiA.woff2"
-```
-
-### Step 2: Optimize Font Files
-
-**Check current font sizes:**
-```bash
-# List current font files
-ls -la website/public/fonts/
-```
-
-**Optimize new fonts (if needed):**
-```bash
-# Install font optimization tools (optional)
-npm install -g fonttools
-pip install fonttools
-
-# Subset fonts to reduce size (if needed)
-pyftsubset font.ttf --unicodes="U+0020-007F" --output-file=font-subset.woff2
-```
-
-### Step 3: Add Font Files to Project
-
-**Create font directory structure:**
-```bash
-# Ensure fonts directory exists
-mkdir -p website/public/fonts
-
-# Copy font files
-cp /path/to/inter-v13-latin-regular.woff2 website/public/fonts/
-cp /path/to/inter-v13-latin-500.woff2 website/public/fonts/
-cp /path/to/inter-v13-latin-700.woff2 website/public/fonts/
-```
-
-**Verify font files:**
-```bash
-# Check file sizes (should be small for performance)
-ls -lah website/public/fonts/
-# Target: <10KB per weight for optimal performance
-```
-
-### Step 4: Update Font CSS
-
-**Edit `website/public/fonts/fonts.css`:**
-```css
-/* Add new font-face declarations */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('./inter-v13-latin-regular.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('./inter-v13-latin-500.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('./inter-v13-latin-700.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-```
-
-### Step 5: Update Preload Links
-
-**Edit `website/nuxt.config.ts`:**
-```typescript
-// Add preload links for critical font files
-app: {
-  head: {
-    link: [
-      {
-        rel: 'stylesheet',
-        href: '/fonts/fonts.css'
-      },
-      // Preload critical fonts
-      {
-        rel: 'preload',
-        href: '/fonts/inter-v13-latin-regular.woff2',
-        as: 'font',
-        type: 'font/woff2',
-        crossorigin: 'anonymous'
-      },
-      {
-        rel: 'preload',
-        href: '/fonts/inter-v13-latin-500.woff2',
-        as: 'font',
-        type: 'font/woff2',
-        crossorigin: 'anonymous'
-      },
-      // Add 700 weight only if used above-the-fold
-      // {
-      //   rel: 'preload',
-      //   href: '/fonts/inter-v13-latin-700.woff2',
-      //   as: 'font',
-      //   type: 'font/woff2',
-      //   crossorigin: 'anonymous'
-      // }
-    ]
-  }
-}
-```
-
-### Step 6: Test Font Loading
-
-**Development testing:**
-```bash
-# Start dev server
-npm run dev
-
-# Open browser dev tools:
-# 1. Network tab → Filter by "Font"
-# 2. Verify fonts load from /fonts/ path
-# 3. Check for FOIT (Flash of Invisible Text)
-# 4. Confirm font-display: swap works
-```
-
-**Performance testing:**
-```bash
-# Test production build
-npm run build
-npm run preview
-
-# Use Lighthouse or WebPageTest:
-# - Check LCP (Largest Contentful Paint)
-# - Verify no CLS (Cumulative Layout Shift)
-# - Confirm font loading doesn't block rendering
-```
-
-## 📋 Step-by-Step: Changing Primary Font
-
-### Step 1: Follow "Adding a New Font" process above
-
-Complete steps 1-6 to add your new font files.
-
-### Step 2: Update SCSS Variables
-
-**Edit `website/app/style/settings.scss`:**
-```scss
-// Before
-// $body-font-family: 'Maven Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-// After - Update primary font
-$body-font-family: 'Inter', 'Maven Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-// Or completely replace
-$body-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-```
-
-### Step 3: Update Vuetify Configuration
-
-**Edit `website/nuxt.config.ts`:**
-```typescript
-// Update Vuetify theme configuration
-vuetify: {
-  theme: {
-    themes: {
-      light: {
-        // ... existing theme config
-      }
+export const FONT_CONFIG: FontConfig = {
+  primaryFont: 'Inter',                                           // ✏️ Change this
+  fontStack: "'Inter', 'Helvetica Neue', 'Segoe UI', 'sans-serif'", // ✏️ Change this
+  weights: [
+    {
+      weight: 400,
+      fileName: 'inter-v13-latin-regular.woff2',                 // ✏️ Change this
+      displayName: 'Regular'
+    },
+    {
+      weight: 500,
+      fileName: 'inter-v13-latin-500.woff2',                     // ✏️ Change this  
+      displayName: 'Medium'
+    },
+    {
+      weight: 700,
+      fileName: 'inter-v13-latin-700.woff2',                     // ✏️ Change this
+      displayName: 'Bold'
     }
-  },
-  // Add custom CSS variables if needed
-  styles: {
-    configFile: resolve('./app/style/settings.scss')
+  ],
+  // ... other settings remain the same
+}
+```
+
+**Step 2**: Add new font files to `public/fonts/`:
+```bash
+# Download Inter WOFF2 files to public/fonts/
+├── public/fonts/
+    ├── inter-v13-latin-regular.woff2
+    ├── inter-v13-latin-500.woff2
+    └── inter-v13-latin-700.woff2
+```
+
+**Step 3**: Regenerate auto-generated files:
+```bash
+# Generate new font CSS and SCSS
+npm run generate-fonts
+
+# Or manually:
+node scripts/generate-font-css.js
+node scripts/generate-font-scss.js
+```
+
+**Step 4**: Test the build:
+```bash
+npm run build
+```
+
+**That's it!** 🎉 The entire website now uses Inter font.
+
+### 2. Add New Font Weight
+
+To add a new font weight (e.g., Extra Bold 800):
+
+```typescript
+// In app/config/fonts.ts
+weights: [
+  // ... existing weights
+  {
+    weight: 800,
+    fileName: 'roboto-v30-latin-800.woff2',
+    displayName: 'Extra Bold'
+  }
+]
+```
+
+Then regenerate files and rebuild.
+
+### 3. Change Font Display Strategy
+
+```typescript
+// In app/config/fonts.ts
+fontDisplay: 'swap', // or 'auto', 'block', 'fallback', 'optional'
+```
+
+### 4. Update Fallback Fonts
+
+```typescript
+// In app/config/fonts.ts
+fontStack: "'Roboto', 'System-UI', 'Arial', 'sans-serif'",
+```
+
+## Using Font Utilities in Components
+
+### SCSS Components
+
+```scss
+// Import the font utilities
+@use '../_fonts.scss' as fonts;
+
+.my-component {
+  @include fonts.primary-font();      // Uses default weight (400)
+  @include fonts.primary-font(500);   // Uses specific weight
+  @include fonts.font-medium();       // Uses predefined medium weight
+  @include fonts.font-bold();         // Uses predefined bold weight
+}
+```
+
+### Vue Components
+
+```vue
+<style scoped lang="scss">
+@use '~/style/_fonts.scss' as fonts;
+
+.my-text {
+  @include fonts.font-regular();
+}
+
+.my-heading {
+  @include fonts.font-bold();
+}
+</style>
+```
+
+### CSS Custom Properties
+
+```css
+.my-element {
+  font-family: var(--font-stack);
+  font-weight: var(--font-weight-medium);
+}
+```
+
+### Utility Classes
+
+```vue
+<template>
+  <div class="font-primary">Primary font</div>
+  <div class="font-medium">Medium weight</div>
+  <div class="font-bold">Bold text</div>
+</template>
+```
+
+## Automation Scripts
+
+### Package.json Scripts
+
+Current scripts available:
+
+```json
+{
+  "scripts": {
+    "generate-fonts": "node scripts/generate-font-css.js && node scripts/generate-font-scss.js"
   }
 }
 ```
 
-### Step 4: Test Typography
+### Font Generation Commands
 
-**Visual testing checklist:**
-- [ ] Headers (h1, h2, h3, h4, h5, h6)
-- [ ] Body text and paragraphs
-- [ ] Navigation menu items
-- [ ] Button text
-- [ ] Form inputs and labels
-- [ ] Blog post content
-- [ ] Footer text
-
-**Cross-browser testing:**
-- [ ] Chrome/Edge (Blink)
-- [ ] Firefox (Gecko)
-- [ ] Safari (WebKit)
-- [ ] Mobile Safari (iOS)
-- [ ] Chrome Mobile (Android)
-
-### Step 5: Update Fallback Stack
-
-**Ensure robust fallback:**
-```scss
-// Good fallback chain
-$body-font-family: 'New Font', 
-                   'Maven Pro',           // Previous font as fallback
-                   -apple-system,         // macOS system font
-                   BlinkMacSystemFont,    // macOS system font
-                   'Segoe UI',            // Windows system font
-                   Roboto,                // Android system font
-                   sans-serif;            // Generic fallback
-```
-
-### Step 6: Performance Verification
-
-**Bundle size check:**
 ```bash
-# Before font change
-npm run build | grep -E "fonts|css"
+# Regenerate font files after configuration changes
+npm run generate-fonts
 
-# After font change
-npm run build | grep -E "fonts|css"
-
-# Compare sizes - target: <50KB total for all fonts
+# Manual generation
+node scripts/generate-font-css.js      # Generates public/fonts/fonts.css
+node scripts/generate-font-scss.js     # Generates app/style/_fonts.scss
 ```
 
-**Core Web Vitals testing:**
-```bash
-# Use Lighthouse CLI
-npx lighthouse http://localhost:3000 --preset=perf
+## Font Performance Best Practices
 
-# Key metrics to monitor:
-# - LCP should remain <2.5s
-# - CLS should remain <0.1
-# - FCP should remain <1.8s
-```
+### 1. Font Loading Strategy
 
-## 🔧 Advanced Font Configuration
-
-### Variable Fonts
-
-**For modern variable fonts (single file, multiple weights):**
-```css
-@font-face {
-  font-family: 'Inter Variable';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url('./inter-variable.woff2') format('woff2-variations');
-}
-```
-
-```scss
-// Use with CSS custom properties
-$body-font-family: 'Inter Variable', sans-serif;
-
-// In components, adjust weight dynamically
-.heading {
-  font-weight: 650; // Any value between 100-900
-}
-```
-
-### Font Loading Strategies
-
-**Strategy 1: Critical Font Preload (Current)**
 ```typescript
-// Preload only critical fonts (regular weight)
-{
-  rel: 'preload',
-  href: '/fonts/font-regular.woff2',
-  as: 'font',
-  type: 'font/woff2',
-  crossorigin: 'anonymous'
-}
+// Current configuration uses font-display: swap
+fontDisplay: 'swap', // Prevents invisible text during font load
 ```
 
-**Strategy 2: Progressive Enhancement**
-```css
-/* Use system font first, then custom font */
-.font-progressive {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}
+### 2. Font Preloading
 
-/* After font loads */
-.fonts-loaded .font-progressive {
-  font-family: 'Custom Font', -apple-system, BlinkMacSystemFont, sans-serif;
-}
+```typescript
+// Auto-generated in nuxt.config.ts
+link: [
+  ...generateFontPreloads() // Preloads all font files
+]
 ```
 
-**Strategy 3: Font Loading API**
-```javascript
-// In a plugin or composable
-if ('fonts' in document) {
-  const font = new FontFace('Custom Font', 'url(/fonts/font.woff2)');
-  font.load().then(() => {
-    document.fonts.add(font);
-    document.documentElement.classList.add('custom-font-loaded');
-  });
-}
+### 3. Font Subsetting
+
+Unicode range is configured for Latin characters:
+```typescript
+unicodeRange: 'U+0000-00FF, U+0131, U+0152-0153, ...'
 ```
 
-### Subsetting for Performance
+### 4. File Formats
 
-**Create subsets for different languages:**
+Uses WOFF2 format for maximum compression and browser support.
+
+## Troubleshooting
+
+### Fonts Not Loading
+
+1. **Check file paths**: Ensure font files exist in `public/fonts/`
+2. **Regenerate files**: Run `npm run generate-fonts`
+3. **Clear cache**: Clear browser cache and rebuild
+4. **Check console**: Look for 404 errors for font files
+
+### Build Errors
+
+1. **TypeScript errors**: Ensure font config types are correct
+2. **SCSS errors**: Check that `_fonts.scss` was regenerated
+3. **Missing files**: Verify all font files are present
+
+### Performance Issues
+
+1. **Too many fonts**: Limit to essential weights only
+2. **Large files**: Consider font subsetting tools
+3. **Loading strategy**: Adjust `fontDisplay` setting
+
+## Migration from Old System
+
+The centralized system replaces the old method of updating fonts in multiple locations.
+
+### Old vs New Approach
+
+**Before (Multiple Updates Required):**
+- Update `app/style/settings.scss`
+- Update `app/style/components/testimonials.scss`  
+- Update component Vue files
+- Update `public/fonts/fonts.css`
+- Update `nuxt.config.ts`
+
+**Now (Single Update):**
+- Update `app/config/fonts.ts` only
+- Run `npm run generate-fonts`
+- Run `npm run build`
+
+### Finding Old Font References
+
 ```bash
-# Latin only (most common)
-pyftsubset font.ttf --unicodes="U+0020-007F,U+00A0-00FF" --output-file=font-latin.woff2
+# Find hardcoded font references (if any remain)
+grep -r "font-family.*Roboto" app/
 
-# Extended Latin
-pyftsubset font.ttf --unicodes="U+0020-024F" --output-file=font-latin-ext.woff2
+# Replace with SCSS mixins
+# OLD: font-family: 'Roboto', 'Helvetica Neue', 'sans-serif';
+# NEW: @include fonts.primary-font();
 ```
 
-**Use in CSS:**
-```css
-@font-face {
-  font-family: 'Font Name';
-  src: url('./font-latin.woff2') format('woff2');
-  unicode-range: U+0020-00FF;
+## Advanced Configuration
+
+### Custom Font Weights
+
+```typescript
+// Define custom weight mapping
+weights: [
+  { weight: 100, fileName: 'font-thin.woff2', displayName: 'Thin' },
+  { weight: 200, fileName: 'font-extra-light.woff2', displayName: 'Extra Light' },
+  { weight: 300, fileName: 'font-light.woff2', displayName: 'Light' },
+  // ... etc
+]
+```
+
+### Multiple Font Families
+
+For multiple fonts (e.g., display vs body), extend the configuration:
+
+```typescript
+export const DISPLAY_FONT_CONFIG: FontConfig = {
+  primaryFont: 'Playfair Display',
+  fontStack: "'Playfair Display', 'Georgia', 'serif'",
+  // ... config for display font
 }
 
-@font-face {
-  font-family: 'Font Name';
-  src: url('./font-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F;
-}
-```
-
-## 📊 Performance Monitoring
-
-### Font Loading Metrics
-
-**Key performance indicators:**
-```bash
-# Font file sizes (target: <10KB per weight)
-ls -lah website/public/fonts/
-
-# Total font payload (target: <50KB)
-du -sh website/public/fonts/
-
-# Network requests (should be minimal)
-curl -I http://localhost:3000/fonts/font.woff2
-```
-
-**Web Performance APIs:**
-```javascript
-// Measure font loading time
-const fontLoadTime = performance.getEntriesByType('resource')
-  .filter(entry => entry.name.includes('/fonts/'))
-  .map(entry => ({
-    name: entry.name,
-    loadTime: entry.responseEnd - entry.startTime
-  }));
-
-console.log('Font loading times:', fontLoadTime);
-```
-
-### Bundle Analysis
-
-**Before/after comparisons:**
-```bash
-# Generate bundle analysis
-npm run build
-ls -la .nuxt/dist/client/_nuxt/ | grep -E "\.(woff2|woff|ttf)"
-
-# Expected results:
-# Old approach: 1MB+ from CDN
-# New approach: <50KB self-hosted
-```
-
-## 🚨 Common Issues and Solutions
-
-### Font Not Loading
-
-**Problem**: Font appears as system fallback
-**Solutions**:
-1. Check file paths in `fonts.css`
-2. Verify MIME types: `.woff2` → `font/woff2`
-3. Check browser dev tools for 404 errors
-4. Ensure `crossorigin="anonymous"` in preload
-
-### Flash of Invisible Text (FOIT)
-
-**Problem**: Text invisible while font loads
-**Solution**: Always use `font-display: swap`
-```css
-@font-face {
-  font-family: 'Font Name';
-  font-display: swap; /* Critical for preventing FOIT */
-  src: url('./font.woff2') format('woff2');
+export const BODY_FONT_CONFIG: FontConfig = {
+  primaryFont: 'Inter',
+  fontStack: "'Inter', 'Helvetica Neue', 'sans-serif'", 
+  // ... config for body font
 }
 ```
 
-### Performance Regression
+## Current Font Specifications
 
-**Problem**: Slower loading after font change
-**Solutions**:
-1. Check font file sizes (should be <10KB each)
-2. Limit preloaded fonts (only critical weights)
-3. Use WOFF2 format (better compression)
-4. Consider variable fonts for multiple weights
+### Roboto Font Details
 
-### Layout Shift (CLS)
+**Font Family**: Roboto  
+**Hosting**: Self-hosted (performance optimized)  
+**Total Size**: ~33KB (vs 1MB+ from Google Fonts CDN)  
+**Format**: WOFF2 (optimal compression)  
+**Performance**: `font-display: swap` (prevents FOIT)
 
-**Problem**: Text reflows when font loads
-**Solutions**:
-1. Use `font-display: swap` (not `block`)
-2. Match fallback font metrics
-3. Preload critical fonts
-4. Use `size-adjust` CSS property if available
+**Available Weights**:
+- **400 (Regular)**: `roboto-v30-latin-regular.woff2` (11.028 KB)
+- **500 (Medium)**: `roboto-v30-latin-500.woff2` (11.072 KB)  
+- **700 (Bold)**: `roboto-v30-latin-700.woff2` (11.040 KB)
 
-```css
-@font-face {
-  font-family: 'Custom Font';
-  src: url('./font.woff2') format('woff2');
-  font-display: swap;
-  size-adjust: 95%; /* Adjust to match fallback font */
-}
-```
+**Font Stack**: `'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif'`
 
-## 📚 Font Resources and Tools
+## Support
 
-### Font Sources
-- [Google Fonts](https://fonts.google.com/) - Free, high-quality fonts
-- [Google Webfonts Helper](https://gwfh.mranftl.com/fonts) - Self-hosting tool
-- [Font Squirrel](https://www.fontsquirrel.com/) - Font conversion and hosting
-- [Adobe Fonts](https://fonts.adobe.com/) - Professional fonts (subscription)
-
-### Testing Tools
-- [Lighthouse](https://developers.google.com/web/tools/lighthouse) - Performance auditing
-- [WebPageTest](https://webpagetest.org/) - Detailed font loading analysis
-- [Font Loading Strategies](https://web.dev/font-loading-strategies/) - Best practices
-
-### Development Tools
-```bash
-# Font optimization
-pip install fonttools
-
-# Bundle analysis
-npm install -g webpack-bundle-analyzer
-
-# Performance testing
-npm install -g lighthouse
-
-# Font format conversion
-npm install -g ttf2woff2
-```
-
-## 🎯 Migration Checklist
-
-### Pre-Migration
-- [ ] Backup current font files
-- [ ] Document current font stack
-- [ ] Measure baseline performance metrics
-- [ ] Prepare rollback plan
-
-### During Migration
-- [ ] Add new font files to `/public/fonts/`
-- [ ] Update `fonts.css` with @font-face declarations
-- [ ] Add preload links in `nuxt.config.ts`
-- [ ] Update SCSS variables
-- [ ] Test in development environment
-
-### Post-Migration
-- [ ] Build and test production bundle
-- [ ] Run Lighthouse performance audit
-- [ ] Test cross-browser compatibility
-- [ ] Verify mobile font rendering
-- [ ] Monitor Core Web Vitals
-- [ ] Update documentation
-
-### Performance Validation
-- [ ] LCP remains <2.5s
-- [ ] CLS remains <0.1
-- [ ] Font files <10KB per weight
-- [ ] Total font payload <50KB
-- [ ] No FOIT observed
-- [ ] Fallback fonts work correctly
-
-## 📝 Font Change Log Template
-
-```markdown
-## Font Change: [Date]
-
-**Previous Font**: Maven Pro
-**New Font**: [Font Name]
-**Reason**: [Performance/Design/Branding]
-
-### Files Changed:
-- `website/public/fonts/fonts.css`
-- `website/nuxt.config.ts`
-- `website/app/style/settings.scss`
-
-### Performance Impact:
-- Font payload: [Old size] → [New size]
-- LCP: [Old time] → [New time]
-- Build size: [Old size] → [New size]
-
-### Testing Completed:
-- [ ] Development testing
-- [ ] Production build testing  
-- [ ] Cross-browser testing
-- [ ] Mobile testing
-- [ ] Performance audit
-
-**Rollback Plan**: [Steps to revert if needed]
-```
+For questions about the font management system:
+1. Check this documentation
+2. Review the `app/config/fonts.ts` configuration
+3. Test changes in development before production
+4. Verify build passes after font changes
 
 ---
 
-**Last Updated**: August 16, 2025  
-**Current Font**: Maven Pro (self-hosted)  
-**Performance**: ~5KB total, font-display: swap, WOFF2 format  
-**Next Steps**: Consider variable fonts for further optimization
+**Remember**: The font configuration in `app/config/fonts.ts` is the single source of truth. All other font references are auto-generated from this configuration.

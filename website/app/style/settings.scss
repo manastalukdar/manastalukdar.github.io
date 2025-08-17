@@ -1,15 +1,14 @@
 // settings.scss
 // All @use and @forward rules must come first
 @use './settings.sass';
-
-//$body-font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+@use './_fonts.scss' as fonts;
 
 @forward 'vuetify/settings' with (
   // The variables you want to modify
   $font-size-root: 15px,
   $line-height-root: 1.8,
   $code-color: #383636,
-  $body-font-family: ('Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif'),
+  $body-font-family: fonts.$font-stack,
   $button-color: green,
   $button-font-weight: 400,
 );
@@ -22,7 +21,7 @@ $v-main-padding: 65px 0 65px;
 
 html {
   font-size: 15px !important;
-  font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif' !important;
+  @include fonts.primary-font();
   line-height: 1.8 !important;
 }
 

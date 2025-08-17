@@ -1,0 +1,26 @@
+// Auto-generated from font configuration
+$primary-font: 'Roboto';
+$font-stack: 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+$font-weights: (
+  regular: 400,
+  medium: 500,
+  bold: 700
+);
+
+// Font mixins
+@mixin primary-font($weight: 400) {
+  font-family: $font-stack;
+  font-weight: $weight;
+}
+
+@mixin font-regular {
+  @include primary-font(400);
+}
+
+@mixin font-medium {
+  @include primary-font(500);
+}
+
+@mixin font-bold {
+  @include primary-font(700);
+}

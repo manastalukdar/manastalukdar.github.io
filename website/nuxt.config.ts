@@ -6,6 +6,7 @@ import { createResolver } from '@nuxt/kit'
 import { config, Configuration } from 'webpack';
 import * as getRoutes from './app/utils/getRoutes.js'
 import { generateContentHash } from './app/utils/contentHash.server'
+import { generateFontPreloads } from './app/config/fonts'
 
 const { resolve } = createResolver(import.meta.url)
 
@@ -208,14 +209,8 @@ export default defineNuxtConfig({
           href: '/styles/atom-one-dark.css',
           as: 'style',
         },
-        // Preload critical self-hosted fonts for performance
-        {
-          rel: 'preload',
-          href: '/fonts/roboto-v30-latin-regular.woff2',
-          as: 'font',
-          type: 'font/woff2',
-          crossorigin: 'anonymous',
-        },
+        // Preload critical self-hosted fonts for performance (auto-generated)
+        ...generateFontPreloads(),
         // Preload font CSS for faster FOIT prevention
         {
           rel: 'preload',

@@ -1,3 +1,5 @@
+@use '../_fonts.scss' as fonts;
+
 // Shared testimonials styles
 .testimonials-container {
   display: grid;
@@ -21,7 +23,7 @@
 
 .testimonial-quote,
 .testimonial-item blockquote {
-  font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+  @include fonts.primary-font();
   font-style: italic;
   margin: 0 0 1.5rem 0;
   font-size: 15px;
@@ -36,7 +38,7 @@
   margin-top: 1rem;
 
   strong {
-    font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+    @include fonts.primary-font();
     color: rgb(var(--v-theme-primary));
     font-size: inherit;
 
@@ -53,7 +55,7 @@
   }
 
   em {
-    font-family: 'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif';
+    @include fonts.primary-font();
     color: rgba(var(--v-theme-on-surface), 0.7);
     font-size: 0.9em;
   }

@@ -1,83 +1,191 @@
 # Font Reference - Quick Guide
 
-Quick reference for the current font setup and common font operations.
+Quick reference for the current font setup and centralized font management system.
 
 ## 📊 Current Font Configuration
 
-**Primary Font**: Maven Pro  
+**Primary Font**: Roboto  
 **Hosting**: Self-hosted (performance optimized)  
-**Total Size**: ~5KB (vs 1MB+ from CDN)  
+**Total Size**: ~33KB (vs 1MB+ from Google Fonts CDN)  
 **Format**: WOFF2 (optimal compression)  
-**Loading**: font-display: swap (prevents FOIT)  
+**System**: Centralized configuration (single source of truth)
 
-### Font Weights Available
-- **400** (Regular) - 1.6KB - `maven-pro-v32-latin-regular.woff2`
-- **500** (Medium) - 1.6KB - `maven-pro-v32-latin-500.woff2` 
-- **700** (Bold) - 1.6KB - `maven-pro-v32-latin-700.woff2`
+## 🎯 Centralized System Overview
 
-### Font Stack
+**Configuration File**: `app/config/fonts.ts` (SINGLE SOURCE OF TRUTH)
+```typescript
+export const FONT_CONFIG: FontConfig = {
+  primaryFont: 'Roboto',
+  fontStack: "'Roboto', 'Helvetica Neue', 'Segoe UI', 'sans-serif'",
+  weights: [
+    { weight: 400, fileName: 'roboto-v30-latin-regular.woff2', displayName: 'Regular' },
+    { weight: 500, fileName: 'roboto-v30-latin-500.woff2', displayName: 'Medium' },
+    { weight: 700, fileName: 'roboto-v30-latin-700.woff2', displayName: 'Bold' }
+  ]
+}
+```
+
+## 📁 File Locations
+
+### Font Configuration
+- **Main Config**: `website/app/config/fonts.ts` ← Edit this to change fonts
+- **Auto-generated SCSS**: `website/app/style/_fonts.scss`
+- **Auto-generated CSS**: `website/public/fonts/fonts.css`
+
+### Font Files
+```
+website/public/fonts/
+├── roboto-v30-latin-regular.woff2  (11.028 KB)
+├── roboto-v30-latin-500.woff2      (11.072 KB)
+└── roboto-v30-latin-700.woff2      (11.040 KB)
+```
+
+### Build Scripts
+- **CSS Generator**: `website/scripts/generate-font-css.js`
+- **SCSS Generator**: `website/scripts/generate-font-scss.js`
+
+## ⚡ Quick Commands
+
+### Font Management
+```bash
+# Change fonts (after editing app/config/fonts.ts)
+npm run generate-fonts
+
+# Manual generation
+node scripts/generate-font-css.js      # → public/fonts/fonts.css
+node scripts/generate-font-scss.js     # → app/style/_fonts.scss
+
+# Build and test
+npm run build
+```
+
+### Development
+```bash
+cd website
+npm run dev                           # Start dev server
+npm run build                         # Production build
+npm run generate-fonts               # Regenerate font files
+```
+
+## 🛠️ Usage in Code
+
+### SCSS Components
 ```scss
-$body-font-family: ('Maven Pro', 'Helvetica Neue', 'Segoe UI', 'sans-serif')
+@use '../_fonts.scss' as fonts;
+
+.my-text {
+  @include fonts.primary-font();       // Default (400)
+  @include fonts.primary-font(500);    // Medium weight
+  @include fonts.font-bold();          // Bold (700)
+}
 ```
 
-## 🔧 Key Files
+### Vue Components
+```vue
+<style scoped lang="scss">
+@use '~/style/_fonts.scss' as fonts;
+.heading { @include fonts.font-bold(); }
+</style>
+```
 
-| File | Purpose |
-|------|---------|
-| `website/public/fonts/fonts.css` | Font-face declarations |
-| `website/public/fonts/*.woff2` | Font files (3 weights) |
-| `website/nuxt.config.ts` | Preload links configuration |
-| `website/app/style/settings.scss` | Font family variables |
+### CSS Custom Properties
+```css
+.element {
+  font-family: var(--font-stack);
+  font-weight: var(--font-weight-medium);
+}
+```
 
-## ⚡ Quick Actions
+### Utility Classes
+```html
+<div class="font-primary">Text with primary font</div>
+<div class="font-bold">Bold text</div>
+```
 
-### Add New Font Weight
-1. Download WOFF2 file → `website/public/fonts/`
-2. Add @font-face → `website/public/fonts/fonts.css`
-3. Add preload link → `website/nuxt.config.ts`
+## 🔧 Font Change Process
 
-### Change Primary Font
-1. Follow [complete font management guide](./guide-font-management.md)
-2. Key steps: Download → CSS → Preload → SCSS → Test
+### To Change Primary Font (e.g., Roboto → Inter):
 
-### Debug Font Issues
+1. **Edit Configuration** (`app/config/fonts.ts`):
+   ```typescript
+   primaryFont: 'Inter',
+   fontStack: "'Inter', 'Helvetica Neue', 'sans-serif'",
+   // Update file names: roboto-* → inter-*
+   ```
+
+2. **Add Font Files** to `public/fonts/`:
+   - `inter-v13-latin-regular.woff2`
+   - `inter-v13-latin-500.woff2` 
+   - `inter-v13-latin-700.woff2`
+
+3. **Generate & Build**:
+   ```bash
+   npm run generate-fonts
+   npm run build
+   ```
+
+**Result**: Entire website uses new font! 🎉
+
+## 📋 Current Font Specifications
+
+### Roboto Details
+- **Family**: Roboto
+- **Weights**: 400 (Regular), 500 (Medium), 700 (Bold)  
+- **Format**: WOFF2 (optimal compression)
+- **Unicode**: Latin character set optimized
+- **Performance**: `font-display: swap` (prevents FOIT)
+- **Preloading**: Automatic via Nuxt configuration
+
+### Performance Metrics
+- **Font Loading**: Non-blocking with `font-display: swap`
+- **File Size**: 33KB total (99% smaller than Google Fonts)
+- **Requests**: 0 external (self-hosted)
+- **Caching**: Browser cache friendly
+
+## 🚨 Troubleshooting
+
+### Common Issues
 ```bash
-# Check font files
-ls -lah website/public/fonts/
+# Fonts not showing
+npm run generate-fonts                # Regenerate files
+npm run build                        # Clear cache and rebuild
 
-# Test dev server
-npm run dev
-# Browser Dev Tools → Network → Font filter
+# Build errors
+# Check app/config/fonts.ts for syntax errors
+# Verify font files exist in public/fonts/
 
-# Performance audit
-npx lighthouse http://localhost:3000 --preset=perf
+# Performance issues  
+# Reduce font weights to essential ones only
+# Check fontDisplay setting in configuration
 ```
 
-## 📈 Performance Metrics
-
-**Target Goals** (currently achieved):
-- ✅ Font files: <10KB each
-- ✅ Total payload: <50KB  
-- ✅ LCP: <2.5s
-- ✅ CLS: <0.1
-- ✅ No FOIT (font-display: swap)
-
-**Monitoring Commands**:
-```bash
-# Bundle size
-du -sh website/public/fonts/
-
-# Network performance
-curl -I http://localhost:3000/fonts/maven-pro-v32-latin-regular.woff2
-```
+### Verification Checklist
+- ✅ Font files exist in `public/fonts/`
+- ✅ Configuration file has no TypeScript errors
+- ✅ Auto-generated files updated (`_fonts.scss`, `fonts.css`)
+- ✅ Build completes successfully
+- ✅ Browser shows new fonts (clear cache)
 
 ## 🔗 Related Documentation
 
-- **[Complete Font Management Guide](./guide-font-management.md)** - Detailed instructions for adding/changing fonts
-- **[Performance Optimization Session](../../../.claude/sessions/2025-08-16-1430.md)** - Implementation history and results
+- **Comprehensive Guide**: `guide-font-management.md` 
+- **Technical Details**: `font-centralization-technical.md`
+- **Icon Management**: `icon-management.md`
+
+## 🏗️ Architecture Benefits
+
+### Before Centralization
+❌ Update 11+ files manually  
+❌ Risk of missed references  
+❌ Inconsistent font usage  
+❌ Time-consuming font changes  
+
+### After Centralization  
+✅ Update 1 configuration file only  
+✅ Auto-generated consistency  
+✅ Type-safe configuration  
+✅ 4-step font change process  
 
 ---
 
-**Last Updated**: August 16, 2025  
-**Status**: Optimized (99.5% size reduction vs CDN)  
-**Next**: Consider variable fonts for further optimization
+**Key Takeaway**: Edit `app/config/fonts.ts` → Run `npm run generate-fonts` → Build. That's it! 🚀
