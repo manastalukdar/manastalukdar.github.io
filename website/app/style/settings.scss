@@ -1,5 +1,6 @@
 // settings.scss
 // All @use and @forward rules must come first
+@use 'sass:map';
 @use './settings.sass';
 @use './_fonts.scss' as fonts;
 
@@ -38,7 +39,7 @@ body, .v-application, .v-application--wrap {
 // Fix TopNavBar font weight issues - use centralized font weight values
 .v-app-bar .v-toolbar-title {
   font-family: fonts.$font-stack !important;
-  font-weight: map-get(fonts.$font-weights, medium) !important;
+  font-weight: map.get(fonts.$font-weights, medium) !important;
 }
 
 // https://stackoverflow.com/questions/57130910/how-do-i-apply-css-to-all-elements-except-when-first-child-is-of-certain-id/
