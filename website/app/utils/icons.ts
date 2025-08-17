@@ -85,6 +85,7 @@ import {
   mdiShare,
   mdiHeart,
   mdiComment,
+  mdiCommentSearch,
   mdiDownload,
   mdiOpenInNew,
   
@@ -169,6 +170,7 @@ export const iconMap = {
   'share': mdiShare,
   'heart': mdiHeart,
   'comment': mdiComment,
+  'comment-search': mdiCommentSearch,
   'download': mdiDownload,
   'open-in-new': mdiOpenInNew,
   'tag-outline': mdiTagOutline,
