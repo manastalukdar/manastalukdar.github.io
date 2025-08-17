@@ -18,6 +18,10 @@
 [![GitHub Super-Linter](https://github.com/manastalukdar/manastalukdar.github.io/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/manastalukdar/manastalukdar.github.io/actions)
 [![CircleCI](https://circleci.com/gh/manastalukdar/manastalukdar.github.io/tree/source.svg?style=svg)](https://circleci.com/gh/manastalukdar/manastalukdar.github.io/tree/source)
 
+**Performance Optimized**: Nuxt 4 + Vue 3 website with tree-shaken icon system, eliminating 3.6MB font dependencies for optimal loading performance.
+
+📋 **For Developers**: See [CLAUDE.md](./CLAUDE.md) for detailed technical architecture, development commands, and system documentation.
+
 [More project metadata badges [here](./documentation/project/metadata.md). More CI/CD badges [here](./documentation/development/ci-cd.md#current-status).]
 
 ## Project
@@ -47,7 +51,7 @@
 | Testing                 | [./documentation/development/testing.md](./documentation/development/testing.md)                         |
 | CI/CD                   | [./documentation/development/ci-cd.md](./documentation/development/ci-cd.md)                             |
 
-- `node node_modules/eslint/bin/eslint.js --fix ./pages/**`
+- `cd website && node node_modules/eslint/bin/eslint.js --fix ./app/pages/**`
 
 ### Contributing
 
