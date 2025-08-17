@@ -1,7 +1,7 @@
 <template>
   <svg
-    :width="size"
-    :height="size"
+    :width="computedSize"
+    :height="computedSize"
     viewBox="0 0 24 24"
     :class="computedClasses"
     :style="computedStyles"
@@ -70,10 +70,7 @@ const computedClasses = computed(() => {
 
 // Compute styles
 const computedStyles = computed(() => {
-  return {
-    width: computedSize.value,
-    height: computedSize.value,
-  }
+  return {}
 })
 
 // Compute color
