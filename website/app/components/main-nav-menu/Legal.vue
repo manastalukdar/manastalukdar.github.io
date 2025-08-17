@@ -8,7 +8,7 @@
         style="min-width: 48px"
         v-bind="props"
       >
-        <v-icon start>{{legalIcon}}</v-icon>
+        <TreeShakenIcon :icon="legalIcon" class="mr-2" />
         <span class="hidden-sm-and-down mr-1" v-text="legalText" />
       </v-btn>
     </template>
