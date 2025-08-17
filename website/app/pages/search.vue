@@ -14,7 +14,7 @@
           <div class="search-loading">
             <v-card class="search-card" elevation="2">
               <v-card-title class="search-header">
-                <v-icon class="search-icon">mdi-magnify</v-icon>
+                <TreeShakenIcon icon="mdi-magnify" class="search-icon" />
                 <h2>AI-Powered Search</h2>
               </v-card-title>
               <v-card-text>
@@ -28,7 +28,7 @@
       <div class="search-info mt-8">
         <v-card class="info-card" elevation="1">
           <v-card-title class="info-header">
-            <v-icon class="info-icon">mdi-information</v-icon>
+            <TreeShakenIcon icon="mdi-information" class="info-icon" />
             <h2>How Search Works</h2>
           </v-card-title>
 
@@ -36,7 +36,7 @@
             <v-row>
               <v-col cols="12" md="6">
                 <div class="feature-item">
-                  <v-icon color="primary" size="24">mdi-brain</v-icon>
+                  <TreeShakenIcon icon="mdi-brain" color="primary" size="24" />
                   <div class="feature-content">
                     <h3>AI Semantic Search</h3>
                     <p>
@@ -50,7 +50,7 @@
 
               <v-col cols="12" md="6">
                 <div class="feature-item">
-                  <v-icon color="secondary" size="24">mdi-text-search</v-icon>
+                  <TreeShakenIcon icon="mdi-text-search" color="secondary" size="24" />
                   <div class="feature-content">
                     <h3>Keyword Matching</h3>
                     <p>
@@ -64,7 +64,7 @@
 
               <v-col cols="12" md="6">
                 <div class="feature-item">
-                  <v-icon color="success" size="24">mdi-filter</v-icon>
+                  <TreeShakenIcon icon="mdi-filter" color="success" size="24" />
                   <div class="feature-content">
                     <h3>Advanced Filters</h3>
                     <p>
@@ -78,7 +78,7 @@
 
               <v-col cols="12" md="6">
                 <div class="feature-item">
-                  <v-icon color="warning" size="24">mdi-speedometer</v-icon>
+                  <TreeShakenIcon icon="mdi-speedometer" color="warning" size="24" />
                   <div class="feature-content">
                     <h3>Relevance Scoring</h3>
                     <p>
@@ -97,34 +97,34 @@
       <div class="search-tips mt-4">
         <v-card class="tips-card" elevation="1">
           <v-card-title class="tips-header">
-            <v-icon class="tips-icon">mdi-lightbulb</v-icon>
+            <TreeShakenIcon icon="mdi-lightbulb" class="tips-icon" />
             <h2>Search Tips</h2>
           </v-card-title>
 
           <v-card-text>
             <div class="tips-grid">
               <div class="tip-item">
-                <v-icon color="primary" size="20">mdi-check-circle</v-icon>
+                <TreeShakenIcon icon="mdi-check-circle" color="primary" size="20" />
                 <span>Use natural language: "artificial intelligence research"</span>
               </div>
               <div class="tip-item">
-                <v-icon color="primary" size="20">mdi-check-circle</v-icon>
+                <TreeShakenIcon icon="mdi-check-circle" color="primary" size="20" />
                 <span>Try conceptual queries: "data science best practices"</span>
               </div>
               <div class="tip-item">
-                <v-icon color="primary" size="20">mdi-check-circle</v-icon>
+                <TreeShakenIcon icon="mdi-check-circle" color="primary" size="20" />
                 <span>Search for topics: "machine learning algorithms"</span>
               </div>
               <div class="tip-item">
-                <v-icon color="primary" size="20">mdi-check-circle</v-icon>
+                <TreeShakenIcon icon="mdi-check-circle" color="primary" size="20" />
                 <span>Use specific terms: "neural networks transformers"</span>
               </div>
               <div class="tip-item">
-                <v-icon color="primary" size="20">mdi-check-circle</v-icon>
+                <TreeShakenIcon icon="mdi-check-circle" color="primary" size="20" />
                 <span>Filter by categories and tags for focused results</span>
               </div>
               <div class="tip-item">
-                <v-icon color="primary" size="20">mdi-check-circle</v-icon>
+                <TreeShakenIcon icon="mdi-check-circle" color="primary" size="20" />
                 <span>Toggle between semantic and keyword search modes</span>
               </div>
             </div>

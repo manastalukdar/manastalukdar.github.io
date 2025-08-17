@@ -228,10 +228,10 @@ export default defineNuxtConfig({
 
   css: [
     'vuetify/lib/styles/main.sass',
-    // Restored MDI icons - required for 166 icon references throughout the site
-    '@mdi/font/css/materialdesignicons.min.css', // ~400KB critical for UI functionality
+    // All MDI icons converted to tree-shaken components - no font imports needed
+    // '@mdi/font/css/materialdesignicons.min.css', // REMOVED: All icons now tree-shaken
     // 'material-design-icons-iconfont/dist/material-design-icons.css', // Still removed - redundant with MDI
-    'vue-material-design-icons/styles.css',
+    'vue-material-design-icons/styles.css', // Keep for TreeShakenIcon component styles
     //'~/styles/print-blog-post.css'
   ],
 

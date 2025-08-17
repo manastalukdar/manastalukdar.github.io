@@ -93,7 +93,7 @@
                             class="linkedin-link"
                           >
                             {{ testimonial.name }}
-                            <v-icon size="small" class="ml-1">mdi-linkedin</v-icon>
+                            <TreeShakenIcon icon="mdi-linkedin" size="small" class="ml-1" />
                           </a>
                           <span v-else>{{ testimonial.name }}</span>
                         </strong>
@@ -104,7 +104,7 @@
                           {{ testimonial.date }}
                         </div>
                         <div v-if="testimonial.relationship" class="testimonial-relationship">
-                          <v-icon size="small" class="mr-1">mdi-account-group</v-icon>
+                          <TreeShakenIcon icon="mdi-account-group" size="small" class="mr-1" />
                           {{ testimonial.relationship }}
                         </div>
                       </div>
@@ -129,14 +129,14 @@
 
             <!-- No Results Message -->
             <div v-if="filteredTestimonials.length === 0" class="no-results text-center pa-4">
-              <v-icon size="large" class="mb-2">mdi-comment-search</v-icon>
+              <TreeShakenIcon icon="mdi-comment-search" size="large" class="mb-2" />
               <h6>No testimonials found</h6>
               <p class="text-body-2">Try adjusting your filters or search terms.</p>
             </div>
           </div>
           <p />
           <v-row class="printButton row py-10 justify-center">
-            <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
+            <TreeShakenIcon icon="mdi-printer" class="justify-center" @click="print" />
           </v-row>
         </v-card>
       </v-col>

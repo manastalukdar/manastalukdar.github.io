@@ -14,7 +14,7 @@
       </v-row>
       <v-row class="pt-5 justify-center">
         <v-col class="justify-center">
-          <v-icon>mdi-theme-light-dark</v-icon>
+          <TreeShakenIcon icon="mdi-theme-light-dark" />
         </v-col>
         <v-col>
           <span>Theme</span>

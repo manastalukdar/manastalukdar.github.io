@@ -63,7 +63,7 @@
                             class="linkedin-link"
                           >
                             {{ testimonial.name }}
-                            <v-icon size="small" class="ml-1">mdi-linkedin</v-icon>
+                            <TreeShakenIcon icon="mdi-linkedin" size="small" class="ml-1" />
                           </a>
                           <span v-else>{{ testimonial.name }}</span>
                         </strong>
@@ -74,7 +74,7 @@
                           {{ testimonial.date }}
                         </div>
                         <div v-if="testimonial.relationship" class="testimonial-relationship">
-                          <v-icon size="small" class="mr-1">mdi-account-group</v-icon>
+                          <TreeShakenIcon icon="mdi-account-group" size="small" class="mr-1" />
                           {{ testimonial.relationship }}
                         </div>
                       </div>
@@ -113,7 +113,7 @@
             size="large"
             color="primary"
           >
-            <v-icon>mdi-chevron-left</v-icon>
+            <TreeShakenIcon icon="mdi-chevron-left" />
           </v-btn>
           
           <v-btn
@@ -124,7 +124,7 @@
             size="large"
             color="primary"
           >
-            <v-icon>mdi-chevron-right</v-icon>
+            <TreeShakenIcon icon="mdi-chevron-right" />
           </v-btn>
         </div>
 

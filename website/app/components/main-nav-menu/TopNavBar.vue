@@ -31,10 +31,10 @@
     </v-toolbar-items>
     <client-only>
     <v-btn text icon class="hidden-md-and-up" @click="flipSidebarVisibility">
-      <v-icon>mdi-menu</v-icon>
+      <TreeShakenIcon icon="mdi-menu" />
     </v-btn>
     <v-btn @click="flipSettingsDialogVisibility">
-      <v-icon>mdi-cog</v-icon>
+      <TreeShakenIcon icon="mdi-cog" />
       <settings>
       </settings>
     </v-btn>

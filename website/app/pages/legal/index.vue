@@ -23,7 +23,7 @@
               <!-- Copyright & Ownership Section -->
               <v-expansion-panel>
                 <v-expansion-panel-title>
-                  <v-icon>mdi-copyright</v-icon>&nbsp;&nbsp;Copyright & Ownership
+                  <TreeShakenIcon icon="mdi-copyright" />&nbsp;&nbsp;Copyright & Ownership
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
                   <div class="pl-2 pb-2 markdown-content" v-html="copyrightContent" />
@@ -33,7 +33,7 @@
               <!-- Creative Commons License Section -->
               <v-expansion-panel>
                 <v-expansion-panel-title>
-                  <v-icon>mdi-creative-commons</v-icon>&nbsp;&nbsp;Creative Commons License (CC BY-NC-ND 4.0)
+                  <TreeShakenIcon icon="mdi-creative-commons" />&nbsp;&nbsp;Creative Commons License (CC BY-NC-ND 4.0)
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
                   <div class="pl-2 pb-2 markdown-content" v-html="ccLicenseContent" />
@@ -43,7 +43,7 @@
               <!-- AI Training Policy Section -->
               <v-expansion-panel>
                 <v-expansion-panel-title>
-                  <v-icon>mdi-robot</v-icon>&nbsp;&nbsp;AI Training & Data Usage Policy
+                  <TreeShakenIcon icon="mdi-robot" />&nbsp;&nbsp;AI Training & Data Usage Policy
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
                   <div class="pl-2 pb-2 markdown-content" v-html="aiPolicyContent" />
@@ -53,7 +53,7 @@
               <!-- Professional Disclaimer Section -->
               <v-expansion-panel>
                 <v-expansion-panel-title>
-                  <v-icon>mdi-account-tie</v-icon>&nbsp;&nbsp;Professional Disclaimer
+                  <TreeShakenIcon icon="mdi-account-tie" />&nbsp;&nbsp;Professional Disclaimer
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
                   <div class="pl-2 pb-2 markdown-content" v-html="professionalDisclaimerContent" />
@@ -63,7 +63,7 @@
               <!-- Website Terms Section -->
               <v-expansion-panel>
                 <v-expansion-panel-title>
-                  <v-icon>mdi-file-document-outline</v-icon>&nbsp;&nbsp;Website Terms & Conditions
+                  <TreeShakenIcon icon="mdi-file-document-outline" />&nbsp;&nbsp;Website Terms & Conditions
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
                   <div class="pl-2 pb-2 markdown-content" v-html="websiteTermsContent" />
@@ -74,7 +74,7 @@
           </client-only>
 
           <v-row class="printButton row py-10 justify-center">
-            <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
+            <TreeShakenIcon icon="mdi-printer" class="justify-center" @click="print" />
           </v-row>
         </v-card>
       </v-col>

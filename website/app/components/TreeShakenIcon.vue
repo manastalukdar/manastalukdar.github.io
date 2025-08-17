@@ -37,11 +37,25 @@ const iconPath = computed(() => {
   return path
 })
 
-// Compute size value
+// Compute size value with Vuetify size mappings
 const computedSize = computed(() => {
   if (typeof props.size === 'number') {
     return `${props.size}px`
   }
+  
+  // Handle Vuetify size names
+  const sizeMap: Record<string, string> = {
+    'x-small': '12px',
+    'small': '16px', 
+    'default': '24px',
+    'large': '32px',
+    'x-large': '40px'
+  }
+  
+  if (typeof props.size === 'string' && sizeMap[props.size]) {
+    return sizeMap[props.size]
+  }
+  
   return props.size
 })
 

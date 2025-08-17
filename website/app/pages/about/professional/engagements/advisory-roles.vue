@@ -26,7 +26,7 @@
         <div class="pl-2 pb-2 markdown-content" v-html="advisoryRolesPast" />
 
         <v-row class="printButton row py-10 justify-center">
-          <v-icon class="justify-center" @click="print">mdi-printer</v-icon>
+          <TreeShakenIcon icon="mdi-printer" class="justify-center" @click="print" />
         </v-row>
       </v-card>
     </v-col>

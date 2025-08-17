@@ -25,6 +25,22 @@ html {
   line-height: 1.8 !important;
 }
 
+// Ensure centralized font config is applied to all elements including Vuetify components
+body, .v-application, .v-application--wrap {
+  font-family: fonts.$font-stack !important;
+}
+
+// Ensure proper font weights for navigation and headers
+.v-app-bar, .v-toolbar, .v-btn {
+  font-family: fonts.$font-stack !important;
+}
+
+// Fix TopNavBar font weight issues - use centralized font weight values
+.v-app-bar .v-toolbar-title {
+  font-family: fonts.$font-stack !important;
+  font-weight: map-get(fonts.$font-weights, medium) !important;
+}
+
 // https://stackoverflow.com/questions/57130910/how-do-i-apply-css-to-all-elements-except-when-first-child-is-of-certain-id/
 .content-body {
   max-width: 1050px;

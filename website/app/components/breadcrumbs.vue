@@ -19,7 +19,7 @@
               </client-only>
             </template>
             <template v-slot:divider>
-              <v-icon icon="mdi-chevron-right"></v-icon>
+              <TreeShakenIcon icon="mdi-chevron-right" />
             </template>
           </v-breadcrumbs>
         </div>

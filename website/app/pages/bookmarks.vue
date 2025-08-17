@@ -3,7 +3,7 @@
     <div class="container">
       <div class="bookmarks-header">
         <h1 class="page-title">
-          <v-icon class="title-icon">mdi-bookmark</v-icon>
+          <TreeShakenIcon icon="mdi-bookmark" class="title-icon" />
           Bookmarks
         </h1>
         <p class="page-description">
@@ -18,7 +18,7 @@
             <v-card class="stats-card" elevation="2">
               <v-card-text class="d-flex align-center justify-space-between">
                 <div class="stats-item">
-                  <v-icon color="primary" class="me-2">mdi-bookmark-multiple</v-icon>
+                  <TreeShakenIcon icon="mdi-bookmark-multiple" color="primary" class="me-2" />
                   <span class="stats-text">{{ bookmarkCount }} bookmark{{ bookmarkCount === 1 ? '' : 's' }}</span>
                 </div>
                 <div class="stats-actions">
@@ -29,7 +29,7 @@
                     @click="showManagement = !showManagement"
                     class="me-2"
                   >
-                    <v-icon class="me-1">mdi-cog</v-icon>
+                    <TreeShakenIcon icon="mdi-cog" class="me-1" />
                     Manage
                   </v-btn>
                   <v-btn
@@ -38,7 +38,7 @@
                     size="small"
                     @click="confirmClearAll = true"
                   >
-                    <v-icon class="me-1">mdi-delete</v-icon>
+                    <TreeShakenIcon icon="mdi-delete" class="me-1" />
                     Clear All
                   </v-btn>
                 </div>
@@ -50,7 +50,7 @@
           <div v-if="showManagement && bookmarkCount > 0" class="management-panel mb-4">
             <v-card class="management-card" elevation="2">
               <v-card-title class="management-header">
-                <v-icon class="me-2">mdi-cog</v-icon>
+                <TreeShakenIcon icon="mdi-cog" class="me-2" />
                 Bookmark Management
               </v-card-title>
               <v-card-text>
@@ -62,7 +62,7 @@
                       block
                       @click="exportBookmarks"
                     >
-                      <v-icon class="me-2">mdi-download</v-icon>
+                      <TreeShakenIcon icon="mdi-download" class="me-2" />
                       Export Bookmarks
                     </v-btn>
                   </v-col>
@@ -77,7 +77,7 @@
                       hide-details
                     >
                       <template #prepend-inner>
-                        <v-icon>mdi-upload</v-icon>
+                        <TreeShakenIcon icon="mdi-upload" />
                       </template>
                     </v-file-input>
                   </v-col>
@@ -101,7 +101,7 @@
                       @input="performSearch"
                     >
                       <template #prepend-inner>
-                        <v-icon>mdi-magnify</v-icon>
+                        <TreeShakenIcon icon="mdi-magnify" />
                       </template>
                     </v-text-field>
                   </v-col>
@@ -137,7 +137,7 @@
           <div v-else-if="bookmarkCount === 0" class="empty-state">
             <v-card class="empty-card" elevation="2">
               <v-card-text class="text-center py-12">
-                <v-icon size="80" color="grey-lighten-1" class="mb-4">mdi-bookmark-outline</v-icon>
+                <TreeShakenIcon icon="mdi-bookmark-outline" size="80" color="grey-lighten-1" class="mb-4" />
                 <h2 class="text-h5 mb-4">No bookmarks yet</h2>
                 <p class="text-body-1 mb-6">
                   Start exploring the blog and bookmark posts you'd like to read later.
@@ -149,7 +149,7 @@
                   to="/blog"
                   size="large"
                 >
-                  <v-icon class="me-2">mdi-book-open-page-variant</v-icon>
+                  <TreeShakenIcon icon="mdi-book-open-page-variant" class="me-2" />
                   Browse Blog Posts
                 </v-btn>
               </v-card-text>
@@ -160,7 +160,7 @@
           <div v-else-if="searchQuery && displayedBookmarks.length === 0" class="no-results">
             <v-card class="no-results-card" elevation="1">
               <v-card-text class="text-center py-8">
-                <v-icon size="60" color="grey-lighten-1" class="mb-3">mdi-magnify</v-icon>
+                <TreeShakenIcon icon="mdi-magnify" size="60" color="grey-lighten-1" class="mb-3" />
                 <h3 class="text-h6 mb-3">No matching bookmarks</h3>
                 <p class="text-body-2">
                   Try adjusting your search query or browse all bookmarks.

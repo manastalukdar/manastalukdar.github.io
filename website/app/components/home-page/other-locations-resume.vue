@@ -9,7 +9,7 @@
           :target="item.target"
           class="col-4 px-2 justify-center"
         >
-          <v-icon>{{ item.icon }}</v-icon>
+          <TreeShakenIcon :icon="item.icon" size="large" />
         </v-list-item>
       </v-row>
       <v-row class="pa-3" justify="center">
