@@ -30,8 +30,7 @@
             :continuous="true"
             :cycle="autoRotate"
             :interval="rotationInterval"
-            hide-delimiter-background
-            delimiter-icon="mdi-circle"
+            :hide-delimiters="true"
             height="auto"
             class="testimonial-carousel"
           >
@@ -103,7 +102,18 @@
             </div>
           </v-carousel-item>
           </v-carousel>
-          
+
+          <!-- Custom Dots/Pagination -->
+          <div class="custom-dots" v-if="homePageTestimonials.length > 1">
+            <button
+              v-for="(testimonial, index) in homePageTestimonials"
+              :key="`dot-${index}`"
+              @click="currentSlide = index"
+              :class="['custom-dot', { 'active': currentSlide === index }]"
+              :aria-label="`Go to testimonial ${index + 1}`"
+            ></button>
+          </div>
+
           <!-- Custom Navigation Arrows -->
           <v-btn
             v-if="homePageTestimonials.length > 1 && isHovered"
@@ -115,7 +125,7 @@
           >
             <TreeShakenIcon icon="mdi-chevron-left" />
           </v-btn>
-          
+
           <v-btn
             v-if="homePageTestimonials.length > 1 && isHovered"
             icon
@@ -155,8 +165,8 @@ const nextSlide = () => {
 
 const previousSlide = () => {
   if (homePageTestimonials.value.length > 0) {
-    currentSlide.value = currentSlide.value === 0 
-      ? homePageTestimonials.value.length - 1 
+    currentSlide.value = currentSlide.value === 0
+      ? homePageTestimonials.value.length - 1
       : currentSlide.value - 1
   }
 }
@@ -192,24 +202,40 @@ onBeforeUnmount(() => {
     position: relative;
   }
 
-  // Custom arrow styling
+  // Custom arrow styling with proper theming
   .custom-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    background: rgba(var(--v-theme-surface), 0.9) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: rgba(var(--v-theme-surface), 0.5) !important;
+    border: 1px solid rgba(var(--v-theme-outline), 0.2) !important;
+    box-shadow: 0 2px 8px rgba(var(--v-theme-shadow-key-penumbra-opacity, 0), 0.15);
     transition: all 0.3s ease;
-    
+    backdrop-filter: blur(8px);
+
     &:hover {
-      background: rgba(var(--v-theme-surface), 1) !important;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transform: translateY(-50%) scale(1.05);
+      background: rgba(var(--v-theme-surface), 0.7) !important;
+      border-color: rgba(var(--v-theme-primary), 0.3) !important;
+      box-shadow: 0 4px 16px rgba(var(--v-theme-shadow-key-penumbra-opacity, 0), 0.25);
+      transform: translateY(-50%) scale(1.1);
     }
 
     .v-icon {
-      color: rgb(var(--v-theme-primary));
+      color: rgb(var(--v-theme-primary)) !important;
+
+      &:hover {
+        color: rgb(var(--v-theme-primary)) !important;
+      }
+    }
+
+    // Ensure proper contrast for different themes
+    @media (prefers-color-scheme: dark) {
+      background: rgba(var(--v-theme-surface-variant), 0.5) !important;
+
+      &:hover {
+        background: rgba(var(--v-theme-surface-variant), 0.7) !important;
+      }
     }
   }
 
@@ -224,12 +250,37 @@ onBeforeUnmount(() => {
   .testimonial-carousel {
     border-radius: 12px;
 
-    :deep(.v-carousel__controls) {
-      background: transparent;
-    }
-
     :deep(.v-carousel__item) {
       padding: 0;
+    }
+  }
+
+  // Custom dots styling
+  .custom-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 8px;
+  }
+
+  .custom-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(var(--v-theme-on-surface), 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba(var(--v-theme-primary), 0.7);
+      transform: scale(1.1);
+    }
+
+    &.active {
+      background-color: rgb(var(--v-theme-primary));
+      transform: scale(1.2);
     }
   }
 
