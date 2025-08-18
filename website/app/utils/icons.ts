@@ -116,6 +116,16 @@ import {
   mdiCreativeCommons,
   mdiRobot,
   
+  // Post format icons
+  mdiNoteText,
+  mdiImageMultiple,
+  mdiLinkVariant,
+  mdiImage,
+  mdiFormatQuoteOpen,
+  mdiMessage,
+  mdiVideo,
+  mdiVolumeHigh,
+  
 } from '@mdi/js'
 
 // Icon mapping object for easy access
@@ -233,6 +243,16 @@ export const iconMap = {
   'copyright': mdiCopyright,
   'creative-commons': mdiCreativeCommons,
   'robot': mdiRobot,
+  
+  // Post format icons
+  'note-text': mdiNoteText,
+  'image-multiple': mdiImageMultiple,
+  'link-variant': mdiLinkVariant,
+  'image': mdiImage,
+  'format-quote-open': mdiFormatQuoteOpen,
+  'message': mdiMessage,
+  'video': mdiVideo,
+  'volume-high': mdiVolumeHigh,
 } as const
 
 // Helper function to get icon path by name
@@ -338,4 +358,14 @@ export {
   mdiCopyright,
   mdiCreativeCommons,
   mdiRobot,
+  
+  // Post format exports
+  mdiNoteText,
+  mdiImageMultiple,
+  mdiLinkVariant,
+  mdiImage,
+  mdiFormatQuoteOpen,
+  mdiMessage,
+  mdiVideo,
+  mdiVolumeHigh,
 }

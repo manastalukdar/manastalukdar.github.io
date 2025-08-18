@@ -7,7 +7,7 @@
             <span class="me-2">{{ props.postMetadata.title }}</span>
             <div class="d-flex align-center">
               <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
-                <v-icon>{{ postFormatIcon() }}</v-icon>
+                <TreeShakenIcon :icon="postFormatIcon()" />
               </nuxt-link>
               <BookmarkButton 
                 :post="props.postMetadata"
@@ -58,6 +58,7 @@
 
 <script setup>
 import BookmarkButton from '~/components/blog/bookmark-button.vue';
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue';
 import { useNavigationStore } from '@/stores/Navigation';
 import { useBlogMetadataStore } from '@/stores/BlogMetadata'
 const navigationStore = useNavigationStore();

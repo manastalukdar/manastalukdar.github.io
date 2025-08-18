@@ -20,7 +20,7 @@
             <span class="me-2">{{ props.postMetadata.title }}</span>
             <div class="d-flex align-center">
               <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
-                <v-icon>{{ postFormatIcon() }}</v-icon>
+                <TreeShakenIcon :icon="postFormatIcon()" />
               </nuxt-link>
               <BookmarkButton
                 :post="props.postMetadata"
@@ -64,12 +64,11 @@
 
 <script setup>
 import BookmarkButton from '~/components/blog/bookmark-button.vue';
+import TreeShakenIcon from '~/components/TreeShakenIcon.vue';
 import { useBlogMetadataStore } from '@/stores/BlogMetadata';
 import { useNavigationStore } from '@/stores/Navigation';
-import { useGlobalDataStore } from '@/stores/GlobalData';
 const blogMetadataStore = useBlogMetadataStore();
 const navigationStore = useNavigationStore();
-const globalDataStore = useGlobalDataStore();
 const props = defineProps({
   postMetadata: {
     type: Object,
@@ -93,9 +92,6 @@ const dynamicCategoryRoute = navigationStore.blog.dynamicItems.category.href;
 const dynamicTagRoute = navigationStore.blog.dynamicItems.tag.href;
 const dynamicAuthorRoute = navigationStore.blog.dynamicItems.author.href;
 const dynamicPostFormatRoute = navigationStore.blog.dynamicItems.postFormat.href;
-const aboutItems = navigationStore.about.aboutItems;
-const appOwner = globalDataStore.appOwner;
-const blogMetadata = globalDataStore.blogMetadata;
 
 const getCategoryRoute = (slug) => {
   if (!slug || slug === 'undefined') {
