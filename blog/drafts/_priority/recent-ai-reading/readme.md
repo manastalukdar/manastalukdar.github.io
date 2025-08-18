@@ -41,6 +41,8 @@ excerpt: ""
 ### Agentic AI
 
 - [AWorld: Dynamic Multi-Agent System with Stable Maneuvering for Robust GAIA Problem Solving](https://arxiv.org/abs/2508.09889)
+- [MCPEval: Automatic MCP-based Deep Evaluation for AI Agent Models](https://arxiv.org/abs/2507.12806)
+  - [Git repo](https://github.com/SalesforceAIResearch/MCPEval)
 
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
