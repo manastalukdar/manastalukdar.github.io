@@ -522,7 +522,7 @@ export default defineNuxtConfig({
     manifest: {
       short_name: 'MTalukdar',
       name: 'Manas Talukdar',
-      version: `2.1.${contentVersion}`, // Content-based versioning for automatic cache invalidation
+      id: `manas-talukdar-pwa-${contentVersion}`, // Content-based identification for cache invalidation
       background_color: '#303030',
       theme_color: '#263238',
       display: 'standalone',
