@@ -1,0 +1,50 @@
+# PWA Critical Files - Force Revalidation
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+/workbox-*.js
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+/manifest.webmanifest
+  Cache-Control: public, max-age=3600, must-revalidate
+  
+/manifest.json
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Static Assets - Longer Cache with Revalidation
+/*.js
+  Cache-Control: public, max-age=86400, must-revalidate
+  
+/*.css
+  Cache-Control: public, max-age=86400, must-revalidate
+
+# Images - Long Cache
+/images/*
+  Cache-Control: public, max-age=604800, immutable
+
+# Fonts - Long Cache
+/fonts/*
+  Cache-Control: public, max-age=2592000, immutable
+
+# Blog Content - Short Cache with Revalidation
+/blogdata/*
+  Cache-Control: public, max-age=1800, must-revalidate
+
+# HTML Pages - Short Cache
+/*.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+# API Routes - No Cache
+/api/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  
+# Nuxt Internal - No Cache
+/_nuxt/*
+  Cache-Control: public, max-age=86400, must-revalidate
+  
+/_payload.json
+  Cache-Control: no-cache, no-store, must-revalidate

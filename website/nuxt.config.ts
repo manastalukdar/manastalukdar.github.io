@@ -5,13 +5,15 @@ import { Feed, Item } from 'feed'
 import { createResolver } from '@nuxt/kit'
 import { config, Configuration } from 'webpack';
 import * as getRoutes from './app/utils/getRoutes.js'
-import { generateContentHash } from './app/utils/contentHash.server'
+import { generateContentHash, generateStableContentHash } from './app/utils/contentHash.server'
 import { generateFontPreloads } from './app/config/fonts'
 
 const { resolve } = createResolver(import.meta.url)
 
 // Generate content-based version for PWA
 const contentVersion = generateContentHash()
+// Generate stable hash for cache busting
+const stableHash = generateStableContentHash()
 
 const baseUrl =
   process.env.NODE_ENV === 'production'
@@ -388,6 +390,7 @@ export default defineNuxtConfig({
 
   plugins: [
     // '~/plugins/error-handler.server.ts' // Temporarily disabled to avoid MaxListenersExceeded warning
+    '~/plugins/pwa-update.client.ts'
   ],
 
   nitro: {
@@ -457,38 +460,60 @@ export default defineNuxtConfig({
       cleanupOutdatedCaches: true,
       // Add skipWaiting to immediately activate new service worker
       skipWaiting: true,
-      // Runtime caching strategies for different content types
+      // Add client claim to take control immediately
+      clientsClaim: true,
+      // Enhanced runtime caching with shorter TTLs for better updates
       runtimeCaching: [
         {
           urlPattern: /\/blogdata\/.*\.json$/,
           handler: 'StaleWhileRevalidate',
           options: {
-            cacheName: 'blog-metadata',
+            cacheName: 'blog-metadata-v2',
             expiration: {
               maxEntries: 10,
-              maxAgeSeconds: 300 // 5 minutes
-            }
+              maxAgeSeconds: 180 // 3 minutes - faster refresh
+            },
+            plugins: [
+              {
+                cacheKeyWillBeUsed: async ({ request }) => {
+                  // Add timestamp to force cache refresh more frequently
+                  return `${request.url}?v=${Math.floor(Date.now() / (3 * 60 * 1000))}`
+                }
+              }
+            ]
           }
         },
         {
           urlPattern: /\.md(\?raw)?$/,
-          handler: 'CacheFirst',
+          handler: 'StaleWhileRevalidate', // Changed from CacheFirst for faster updates
           options: {
-            cacheName: 'markdown-content',
+            cacheName: 'markdown-content-v2',
             expiration: {
               maxEntries: 50,
-              maxAgeSeconds: 3600 // 1 hour
+              maxAgeSeconds: 1800 // 30 minutes - reduced from 1 hour
             }
           }
         },
         {
           urlPattern: /\/content-testimonials\//,
-          handler: 'CacheFirst',
+          handler: 'StaleWhileRevalidate', // Changed from CacheFirst
           options: {
-            cacheName: 'testimonials-content',
+            cacheName: 'testimonials-content-v2',
             expiration: {
               maxEntries: 20,
-              maxAgeSeconds: 1800 // 30 minutes
+              maxAgeSeconds: 900 // 15 minutes - reduced from 30
+            }
+          }
+        },
+        {
+          // Add specific handling for main app files
+          urlPattern: /\/_nuxt\/.*\.(js|css)$/,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'nuxt-assets-v2',
+            expiration: {
+              maxEntries: 60,
+              maxAgeSeconds: 3600 // 1 hour but with revalidation
             }
           }
         }

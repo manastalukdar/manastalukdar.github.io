@@ -37,3 +37,33 @@ export function generateContentHash(): string {
   
   return hasher.digest('hex').substring(0, 8)
 }
+
+/**
+ * Generate a deterministic hash for cache busting without timestamp
+ * Used for service worker and manifest cache invalidation
+ */
+export function generateStableContentHash(): string {
+  const filesToHash = [
+    'nuxt.config.ts',
+    'package.json',
+    'app/app.vue',
+    'public/blogdata/metadata/blog_metadata.json'
+  ]
+
+  const hasher = crypto.createHash('sha256')
+  
+  filesToHash.forEach(filePath => {
+    try {
+      const fullPath = path.resolve(process.cwd(), filePath)
+      if (fs.existsSync(fullPath)) {
+        const content = fs.readFileSync(fullPath, 'utf8')
+        hasher.update(content)
+      }
+    } catch (error) {
+      console.log(`Warning: Could not hash file ${filePath}:`, error)
+    }
+  })
+  
+  // Don't add timestamp for stable hash - only content-based
+  return hasher.digest('hex').substring(0, 8)
+}

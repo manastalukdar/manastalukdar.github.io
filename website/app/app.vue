@@ -1,6 +1,11 @@
 <template>
   <NuxtLayout :name="layout">
   </NuxtLayout>
+  
+  <!-- PWA Update Notification -->
+  <ClientOnly>
+    <PWAUpdateNotification />
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">
