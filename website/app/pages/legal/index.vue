@@ -172,7 +172,7 @@ const copyrightContent = computedAsync(async () => {
     const res = fm(fileContent.default)
     // Replace 2025 with current year dynamically
     const currentYear = new Date().getFullYear()
-    const updatedContent = res.body.replace(/2019-2025/g, `2019-${currentYear}`)
+    const updatedContent = res.body.replace(/2018-2025/g, `2018-${currentYear}`)
     return md.render(updatedContent)
   } catch (error) {
     console.log(error)
