@@ -383,8 +383,9 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
         } else if (postFormatType === 'audio') {
           return 'mdi-volume-high'
         } else if (postFormatType === 'chat') {
-          return 'chat'
+          return 'mdi-message'
         }
+        return 'mdi-pin' // Default fallback
       }
     },
   },

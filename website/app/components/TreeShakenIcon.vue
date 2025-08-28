@@ -15,7 +15,7 @@ import { computed } from 'vue'
 import { getIconPath, hasIcon } from '~/utils/icons'
 
 interface Props {
-  icon: string
+  icon?: string
   size?: string | number
   color?: string
   class?: string
@@ -29,6 +29,10 @@ const props = withDefaults(defineProps<Props>(), {
 
 // Get the SVG path for the icon
 const iconPath = computed(() => {
+  if (!props.icon) {
+    console.warn('TreeShakenIcon: No icon prop provided')
+    return ''
+  }
   const path = getIconPath(props.icon)
   if (!path) {
     console.warn(`Tree-shaken icon not found: ${props.icon}. Add it to utils/icons.ts or use fallback v-icon.`)

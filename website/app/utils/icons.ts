@@ -126,6 +126,11 @@ import {
   mdiVideo,
   mdiVolumeHigh,
   
+  // Missing icons
+  mdiBrain,
+  mdiFilter,
+  mdiLightbulb,
+  
 } from '@mdi/js'
 
 // Icon mapping object for easy access
@@ -253,16 +258,23 @@ export const iconMap = {
   'message': mdiMessage,
   'video': mdiVideo,
   'volume-high': mdiVolumeHigh,
+  
+  // Missing icons
+  'brain': mdiBrain,
+  'filter': mdiFilter,
+  'lightbulb': mdiLightbulb,
 } as const
 
 // Helper function to get icon path by name
-export function getIconPath(iconName: string): string | undefined {
+export function getIconPath(iconName: string | undefined): string | undefined {
+  if (!iconName) return undefined
   const cleanName = iconName.replace('mdi-', '')
   return iconMap[cleanName as keyof typeof iconMap]
 }
 
 // Helper function to check if icon exists in our tree-shaken set
-export function hasIcon(iconName: string): boolean {
+export function hasIcon(iconName: string | undefined): boolean {
+  if (!iconName) return false
   const cleanName = iconName.replace('mdi-', '')
   return cleanName in iconMap
 }
@@ -368,4 +380,9 @@ export {
   mdiMessage,
   mdiVideo,
   mdiVolumeHigh,
+  
+  // Missing icon exports
+  mdiBrain,
+  mdiFilter,
+  mdiLightbulb,
 }
