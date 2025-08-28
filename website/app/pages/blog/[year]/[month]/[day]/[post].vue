@@ -32,8 +32,8 @@ const route = useRoute();
 const baseUrl = runtimeConfig.public.baseUrl;
 
 // Determine content base URL based on context
-// Use relative paths for static sites, full URL for dev server
-const contentBaseUrl = process.client && baseUrl.includes('github.io') ? '' : baseUrl;
+// Use relative paths for static generation and github.io deployment
+const contentBaseUrl = (import.meta.client && baseUrl.includes('github.io')) ? '' : baseUrl;
 //console.log(baseUrl)
 async function setupBlogMetadata() {
     try {
@@ -178,12 +178,27 @@ let fileContent;
 try {
   // Use appropriate base URL based on context (static generation vs runtime)
   const fetchUrl = contentBaseUrl + '/blogdata/' + postMetadata.path;
-  fileContent = await $fetch(fetchUrl);
+  
+  // During server-side rendering, try to read the file directly from the file system first
+  if (import.meta.server) {
+    try {
+      const { readFile } = await import('fs/promises');
+      const path = await import('path');
+      const filePath = path.join(process.cwd(), 'public/blogdata', postMetadata.path);
+      fileContent = await readFile(filePath, 'utf-8');
+      // console.log(`[DEBUG] Successfully read file from filesystem: ${filePath}`);
+    } catch (fsError) {
+      // console.log(`[DEBUG] Failed to read from filesystem, falling back to fetch: ${fsError.message}`);
+      fileContent = await $fetch(fetchUrl);
+    }
+  } else {
+    fileContent = await $fetch(fetchUrl);
+  }
 } catch (error) {
   // eslint-disable-next-line no-console
   console.log(`Error fetching blog post content: ${error}`);
   console.log(`Attempted URL: ${contentBaseUrl}/blogdata/${postMetadata.path}`);
-  console.log(`Base URL: ${baseUrl}, Client: ${process.client}`);
+  console.log(`Base URL: ${baseUrl}, Client: ${import.meta.client}`);
   fileContent = '';
 }
 const res = fm(fileContent);
