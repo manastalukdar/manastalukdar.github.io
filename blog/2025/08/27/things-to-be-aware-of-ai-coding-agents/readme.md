@@ -31,7 +31,7 @@ A lot of engineers and engineering organizations have been very successful in qu
 - Managing memory: Related to the aforementioned points about context windows and planning, when using Claude Code, leverage the `/memory` command. A more custom mechanism is to use sessions. See more [here](https://github.com/manastalukdar/claude-devstudio?tab=readme-ov-file#-session--project-management). It is pertinent to mention that working across context windows through compression can be expensive, so planning and executing on small steps, and/or going sessions which can be resumed across context windows is recommended.
 - Use AI as an enabler not replacement (yet). While we certainly want to embrace tools that enable higher productivity, at this point in time I would be wary of losing skills I have acquired over several years \[see [this](https://arxiv.org/abs/2506.08872) (for essays but concept applies) and [this](https://www.youtube.com/watch?v=5yE5EMAitMM)\]. And I say this even though I am not a puritan. So, please read through and fully understand any AI generated code before merging.
 
-## Further reading
+**Further reading**
 
 - https://agentic-coding.github.io/#principles
 - https://www.anthropic.com/engineering/claude-code-best-practices
