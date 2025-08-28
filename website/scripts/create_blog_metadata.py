@@ -513,8 +513,12 @@ def find_files():
         for file in files:
             if file.endswith(".md"):
                 postFile = os.path.join(cwd, root, file)
-                path = root.replace(root_dir + os.sep, "").replace(
+                # Ensure we properly remove the root_dir prefix regardless of OS
+                path = root.replace(root_dir + "/", "").replace(root_dir + "\\", "").replace(
                     "\\", "/") + "/" + file
+                # Additional safety: if path still starts with the root_dir, remove it
+                if path.startswith(root_dir + "/"):
+                    path = path[len(root_dir + "/"):]
                 result[path] = postFile
     return result
 
