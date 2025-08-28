@@ -4,7 +4,7 @@ title: "Copyright & Ownership"
 
 This website and all original content are owned by **Manas Talukdar**.
 
-**Copyright © 2019-2025 Manas Talukdar. All rights reserved.**
+**Copyright © 2018-2025 Manas Talukdar. All rights reserved.**
 
 ## Original Content Includes:
 - Blog posts and articles
