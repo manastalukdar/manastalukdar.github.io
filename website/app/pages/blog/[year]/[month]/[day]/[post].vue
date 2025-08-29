@@ -186,7 +186,6 @@ try {
       const path = await import('path');
       const filePath = path.join(process.cwd(), 'public/blogdata', postMetadata.path);
       fileContent = await readFile(filePath, 'utf-8');
-      // console.log(`[DEBUG] Successfully read file from filesystem: ${filePath}`);
     } catch (fsError) {
       // console.log(`[DEBUG] Failed to read from filesystem, falling back to fetch: ${fsError.message}`);
       fileContent = await $fetch(fetchUrl);
