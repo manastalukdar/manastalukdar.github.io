@@ -11,16 +11,17 @@ const initialState = () => ({
 export const useBlogMetadataStore = defineStore('BlogMetadata', {
   state: initialState,
   actions: {
-    async setupBlogMetadata(baseURL: string) {
+    async setupBlogMetadata(baseURL: string, forceRefresh: boolean = false) {
       try {
-        // Check localStorage cache first (client-side only)
-        if (process.client) {
+        // For same-session performance: check localStorage cache first (client-side only)
+        // But always fetch fresh on initial load (forceRefresh=true from home page)
+        if (process.client && !forceRefresh) {
           const cachedData = localStorage.getItem('blogMetadata')
           const cacheTimestamp = localStorage.getItem('blogMetadataTimestamp')
           const cacheAge = Date.now() - (parseInt(cacheTimestamp || '0'))
           
-          // Use cache if less than 5 minutes old
-          if (cachedData && cacheAge < 300000) {
+          // Use cache if less than 30 seconds old (for same-session browsing performance)
+          if (cachedData && cacheAge < 30000) {
             this.blogMetadata = JSON.parse(cachedData)
             // Still fetch in background to update cache
             this.updateCacheInBackground(baseURL)

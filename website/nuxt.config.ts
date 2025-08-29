@@ -471,13 +471,13 @@ export default defineNuxtConfig({
             cacheName: 'blog-metadata-v2',
             expiration: {
               maxEntries: 10,
-              maxAgeSeconds: 180 // 3 minutes - faster refresh
+              maxAgeSeconds: 60 // 1 minute - much faster refresh
             },
             plugins: [
               {
                 cacheKeyWillBeUsed: async ({ request }) => {
-                  // Add timestamp to force cache refresh more frequently
-                  return `${request.url}?v=${Math.floor(Date.now() / (3 * 60 * 1000))}`
+                  // Add timestamp to force cache refresh every 30 seconds
+                  return `${request.url}?v=${Math.floor(Date.now() / 30000)}`
                 }
               }
             ]

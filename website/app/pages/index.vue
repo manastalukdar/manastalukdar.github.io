@@ -73,22 +73,21 @@ const appOwner = globalDataStore.appOwner;
 const homepageTitle = globalDataStore.homepageTitle;
 const runtimeConfig = useRuntimeConfig(); // $config.baseURL
 const route = useRoute(); // route.params
+const router = useRouter();
 const baseUrl = runtimeConfig.public.baseUrl;
+
 // Progressive enhancement: Load blog metadata without blocking page render
-let blogMetadata = blogMetadataStore.getBlogMetadata();
+const blogMetadata = computed(() => blogMetadataStore.getBlogMetadata());
 
-// If no cached data, show skeleton and load in background
-if (blogMetadata.length === 0) {
-  // Start loading in background
-  setupBlogMetadata().catch(console.error);
-}
+// Always fetch fresh data on home page load to ensure latest posts are shown
+// Use background loading to avoid blocking UI
+setupBlogMetadata(true).catch(console.error);
 
-async function setupBlogMetadata() {
+async function setupBlogMetadata(forceRefresh = false) {
   try {
-    if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
-      await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
-      // Update reactive reference after loading
-      blogMetadata = blogMetadataStore.getBlogMetadata();
+    if (forceRefresh || blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
+      await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl, forceRefresh);
+      // Reactive reference will update automatically
     }
   } catch (error) {
     console.log(error)
