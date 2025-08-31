@@ -184,8 +184,15 @@ try {
     try {
       const { readFile } = await import('fs/promises');
       const path = await import('path');
-      const filePath = path.join(process.cwd(), 'public/blogdata', postMetadata.path);
-      fileContent = await readFile(filePath, 'utf-8');
+      // Handle both local dev and CI contexts - look for blogdata in current working directory
+      const filePath = path.join(process.cwd(), 'website/public/blogdata', postMetadata.path);
+      // If that doesn't exist, try the direct path (for when running from website/ directory)
+      try {
+        fileContent = await readFile(filePath, 'utf-8');
+      } catch {
+        const fallbackPath = path.join(process.cwd(), 'public/blogdata', postMetadata.path);
+        fileContent = await readFile(fallbackPath, 'utf-8');
+      }
     } catch (fsError) {
       // console.log(`[DEBUG] Failed to read from filesystem, falling back to fetch: ${fsError.message}`);
       fileContent = await $fetch(fetchUrl);
