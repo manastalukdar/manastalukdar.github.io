@@ -17,6 +17,7 @@ tags:
  - Agentic AI
  - AI Agents
  - Embodied AI
+ - Model Context Protocol
 categories:
  - Technology
 authors:
@@ -28,7 +29,7 @@ first-published-on: 2024-09-07 20:06
 last-updated-on: 2024-09-07 20:06
 series:
  slug: papers-i-read-recently
- part: 14
+ part: 15
 meta:
  description: "Recent AI reading, including papers and articles."
 excerpt: ""
@@ -40,15 +41,9 @@ excerpt: ""
 
 ### Agentic AI
 
-- [AWorld: Dynamic Multi-Agent System with Stable Maneuvering for Robust GAIA Problem Solving](https://arxiv.org/abs/2508.09889)
-- [MCPEval: Automatic MCP-based Deep Evaluation for AI Agent Models](https://arxiv.org/abs/2507.12806)
-  - [Git repo](https://github.com/SalesforceAIResearch/MCPEval)
-
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
 ### Large Language Models
-
-- [Large Language Models Do Not Simulate Human Psychology](https://arxiv.org/abs/2508.06950)
 
 ### Model Evaluation
 
