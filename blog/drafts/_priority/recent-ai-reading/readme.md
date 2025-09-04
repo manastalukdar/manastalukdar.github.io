@@ -66,3 +66,5 @@ excerpt: ""
   - 🖥️Code: <https://github.com/m-damien/VisualStoryWriting>
   - 🕹️Demo: <https://damienmasson.com/VisualStoryWriting/>
   - X post: <https://x.com/damienhci/status/1963246088674017478>
+- [Build Reliable Agents With RL](https://openpipe.ai/?refresh=1756955210542)
+  - [Code for Agent Reinforcement Trainer](https://github.com/OpenPipe/ART)
