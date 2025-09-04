@@ -60,3 +60,9 @@ excerpt: ""
 ## Articles and Blog Posts
 
 ## Miscellaneous
+
+- [Visual Story-Writing: Writing by Manipulating Visual Representations of Stories](https://arxiv.org/abs/2410.07486)
+  - 🎥Video: <https://youtu.be/6o19_D8LBC0>
+  - 🖥️Code: <https://github.com/m-damien/VisualStoryWriting>
+  - 🕹️Demo: <https://damienmasson.com/VisualStoryWriting/>
+  - X post: <https://x.com/damienhci/status/1963246088674017478>
