@@ -440,6 +440,12 @@ export default defineNuxtConfig({
     // Blog pages - prerender with SWR for content updates
     '/blog/**': { prerender: true, swr: 120 }, // 2 min cache for blog content
     
+    // Blog data - serve as static files during generation
+    '/blogdata/**': { 
+      prerender: false, // Don't prerender these as pages
+      headers: { 'Content-Type': 'text/plain' }
+    },
+    
     // API routes - ensure they work properly
     '/api/**': { cors: true },
     

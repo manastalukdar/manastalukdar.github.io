@@ -182,16 +182,33 @@ try {
   // During server-side rendering, try to read the file directly from the file system first
   if (import.meta.server) {
     try {
+      // Dynamic imports to avoid bundling for client-side
       const { readFile } = await import('fs/promises');
       const path = await import('path');
-      // Handle both local dev and CI contexts - look for blogdata in current working directory
-      const filePath = path.join(process.cwd(), 'website/public/blogdata', postMetadata.path);
-      // If that doesn't exist, try the direct path (for when running from website/ directory)
-      try {
-        fileContent = await readFile(filePath, 'utf-8');
-      } catch {
-        const fallbackPath = path.join(process.cwd(), 'public/blogdata', postMetadata.path);
-        fileContent = await readFile(fallbackPath, 'utf-8');
+      
+      // Try multiple path configurations for different deployment contexts
+      const possiblePaths = [
+        // CI context: running from project root, path has blog/
+        path.join(process.cwd(), 'website/public/blogdata', postMetadata.path),
+        // CI context: running from website directory, path has blog/
+        path.join(process.cwd(), 'public/blogdata', postMetadata.path),
+        // Local dev: running from project root, path without blog/
+        path.join(process.cwd(), 'website/public/blogdata', postMetadata.path.replace(/^blog\//, '')),
+        // Local dev: running from website directory, path without blog/
+        path.join(process.cwd(), 'public/blogdata', postMetadata.path.replace(/^blog\//, ''))
+      ];
+      
+      for (const filePath of possiblePaths) {
+        try {
+          fileContent = await readFile(filePath, 'utf-8');
+          break;
+        } catch {
+          // Continue to next path
+        }
+      }
+      
+      if (!fileContent) {
+        throw new Error('File not found in any expected location');
       }
     } catch (fsError) {
       // console.log(`[DEBUG] Failed to read from filesystem, falling back to fetch: ${fsError.message}`);
