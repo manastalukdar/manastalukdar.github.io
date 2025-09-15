@@ -77,3 +77,4 @@ excerpt: ""
   - X post: <https://x.com/damienhci/status/1963246088674017478>
 - [Build Reliable Agents With RL](https://openpipe.ai/?refresh=1756955210542)
   - [Code for Agent Reinforcement Trainer](https://github.com/OpenPipe/ART)
+- [Executive Concerns with AI Adoption: Identifying Business and Security Risks](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5405290)
