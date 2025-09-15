@@ -41,9 +41,18 @@ excerpt: ""
 
 ### Agentic AI
 
+- [Reinforcement Learning for Long-Horizon Interactive LLM Agents](https://arxiv.org/abs/2502.01600)
+- [Beyond Ten Turns: Unlocking Long-Horizon Agentic Search with Large-Scale Asynchronous RL](https://arxiv.org/abs/2508.07976)
+
 ### AI Alignment with Human Feedback and Preferences, and other methods
 
+- [Data Shapley in One Training Run](https://arxiv.org/abs/2406.11011)
+- [The Evolution of LLM Adoption in Industry Data Curation Practices](https://arxiv.org/abs/2412.16089)
+
 ### Large Language Models
+
+- [The Illusion of Diminishing Returns: Measuring Long Horizon Execution in LLMs](https://www.arxiv.org/abs/2509.09677)
+  - [X thread](https://x.com/ShashwatGoel7/status/1966527903568637972).
 
 ### Model Evaluation
 
