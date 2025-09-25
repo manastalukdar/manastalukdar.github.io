@@ -259,7 +259,7 @@ jobs:
         continue-on-error: true
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.13"
           architecture: "x64"
@@ -467,7 +467,7 @@ jobs:
             vite-cache-${{ runner.os }}-
 
       - name: Setup Python (for validation)
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.13"
 
