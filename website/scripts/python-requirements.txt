@@ -2,7 +2,7 @@
 markdown==3.8.2
 python-frontmatter==1.1.0
 python-dateutil==2.9.0.post0
-PyYAML==6.0.2
+PyYAML==6.0.3
 zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
 
 # ML/AI stack - Python 3.13 compatible versions
