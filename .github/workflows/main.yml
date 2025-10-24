@@ -233,7 +233,7 @@ jobs:
 
       - name: Upload Changed Posts Info
         if: steps.change-detection.outputs.blog_changed == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: changed-posts-info
           path: |
@@ -252,7 +252,7 @@ jobs:
 
       - name: Download Changed Posts Info
         if: needs.setup-and-detect-changes.outputs.blog_changed == 'true'
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: changed-posts-info
           path: /tmp/
@@ -428,7 +428,7 @@ jobs:
           echo "✅ Blog metadata generated successfully"
 
       - name: Upload Blog Content and Metadata Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: blog-metadata
           path: |
@@ -472,7 +472,7 @@ jobs:
           python-version: "3.13"
 
       - name: Download Blog Content and Metadata
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: blog-metadata
           path: website/
@@ -644,7 +644,7 @@ jobs:
 
 
       - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: static-site
           path: website/.output/public/
@@ -668,7 +668,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Download Build Artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: static-site
           path: ./public
