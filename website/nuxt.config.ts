@@ -37,6 +37,9 @@ export default defineNuxtConfig({
 
   ssr: true,
 
+  // Explicitly disable devtools to prevent SSR issues
+  devtools: { enabled: false },
+
   runtimeConfig: {
     public: {
       baseUrl: baseUrl,
@@ -244,6 +247,13 @@ export default defineNuxtConfig({
   vite: {
     define: {
       'process.env.DEBUG': false,
+    },
+    // Stub out devtools completely to prevent localStorage SSR errors
+    resolve: {
+      alias: {
+        '@vue/devtools-kit': resolve('./app/utils/devtools-stub.ts'),
+        '@vue/devtools-api': resolve('./app/utils/devtools-stub.ts')
+      }
     },
     css: {
       preprocessorOptions: {
