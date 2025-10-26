@@ -4,7 +4,7 @@ tags:
  - Artificial Intelligence
  - Machine Learning
  - Retrieval-Augmented Generation
- - Large language Model
+ - Large language Models
  - Reading
  - Papers I Read Recently Series
 categories:

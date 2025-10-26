@@ -8,7 +8,7 @@ tags:
  - Generative AI
  - Large Language Models
  - Model Training
- - Alignment with Human Feedback
+ - AI Alignment
  - Agentic AI
  - AI Agents
  - Embodied AI

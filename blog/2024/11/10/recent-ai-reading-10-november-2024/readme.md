@@ -11,7 +11,7 @@ tags:
  - Synthetic Data Generation
  - Large Language Models
  - Model Training
- - Alignment with Human Feedback
+ - AI Alignment
  - Agentic AI
  - Retrieval-Augmented Generation
 categories:

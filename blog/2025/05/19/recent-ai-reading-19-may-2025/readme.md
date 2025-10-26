@@ -12,7 +12,7 @@ tags:
  - Large Language Models
  - Model Training
  - LLM as Judge
- - Alignment with Human Feedback
+ - AI Alignment
  - Agentic AI
  - AI Agents
 categories:

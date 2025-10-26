@@ -10,7 +10,7 @@ tags:
  - Model Training
  - Model Evaluation
  - LLM as Judge
- - Alignment with Human Feedback
+ - AI Alignment
  - Agentic AI
 categories:
  - Technology

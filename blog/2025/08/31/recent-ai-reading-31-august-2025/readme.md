@@ -9,7 +9,7 @@ tags:
  - Large Language Models
  - Model Training
  - Model Evaluation
- - Alignment with Human Feedback
+ - AI Alignment
  - Agentic AI
  - AI Agents
  - Agent Evaluation

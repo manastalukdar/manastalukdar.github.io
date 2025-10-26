@@ -13,7 +13,7 @@ tags:
  - Model Training
  - Model Evaluation
  - LLM as Judge
- - Alignment with Human Feedback
+ - AI Alignment
 categories:
  - Technology
 authors:
