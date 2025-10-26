@@ -398,6 +398,19 @@ export default defineNuxtConfig({
     '@nuxt/image',
   ],
 
+  // Completely disable devtools to prevent it from loading
+  $production: {
+    devtools: {
+      enabled: false
+    }
+  },
+
+  $development: {
+    devtools: {
+      enabled: false
+    }
+  },
+
   plugins: [
     // '~/plugins/error-handler.server.ts' // Temporarily disabled to avoid MaxListenersExceeded warning
     '~/plugins/pwa-update.client.ts'
@@ -409,6 +422,24 @@ export default defineNuxtConfig({
       routes: [
         '/', // Starting point for crawling - other routes auto-discovered or added via prerender:routes hook
       ]
+    },
+    // Exclude devtools from server bundle to prevent localStorage SSR errors
+    alias: {
+      '@vue/devtools-kit': resolve('./app/utils/devtools-stub.ts'),
+      '@vue/devtools-api': resolve('./app/utils/devtools-stub.ts'),
+      '@vue/devtools-core': resolve('./app/utils/devtools-stub.ts')
+    },
+    // Also externalize devtools packages so they're not bundled at all
+    externals: {
+      inline: [
+        // Inline everything except devtools
+      ]
+    },
+    replace: {
+      // Replace devtools imports with empty object at compile time
+      '@vue/devtools-kit': '{}',
+      '@vue/devtools-api': '{}',
+      '@vue/devtools-core': '{}'
     }
   },
 
