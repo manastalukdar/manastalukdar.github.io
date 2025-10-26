@@ -459,8 +459,6 @@ jobs:
           path: |
             website/node_modules/.vite
             website/node_modules/.cache
-            website/.nuxt
-            website/dist
           key: vite-cache-${{ runner.os }}-${{ hashFiles('website/package-lock.json', 'website/nuxt.config.ts') }}
           restore-keys: |
             vite-cache-${{ runner.os }}-${{ hashFiles('website/package-lock.json') }}-
