@@ -1,4 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+// CRITICAL: Add localStorage polyfill BEFORE any imports
+// This prevents @vue/devtools-kit from crashing during SSR/prerendering
+// The devtools code runs at module load time and needs localStorage to exist
+if (typeof globalThis.localStorage === 'undefined') {
+  const storage = new Map<string, string>();
+  (globalThis as any).localStorage = {
+    getItem: (key: string) => storage.get(key) ?? null,
+    setItem: (key: string, value: string) => storage.set(key, String(value)),
+    removeItem: (key: string) => storage.delete(key),
+    clear: () => storage.clear(),
+    get length() { return storage.size },
+    key: (index: number) => Array.from(storage.keys())[index] ?? null
+  }
+}
+
 import vuetify from 'vite-plugin-vuetify'
 import fs from 'fs'
 import { Feed, Item } from 'feed'
@@ -248,13 +264,6 @@ export default defineNuxtConfig({
     define: {
       'process.env.DEBUG': false,
     },
-    // Stub out devtools completely to prevent localStorage SSR errors
-    resolve: {
-      alias: {
-        '@vue/devtools-kit': resolve('./app/utils/devtools-stub.ts'),
-        '@vue/devtools-api': resolve('./app/utils/devtools-stub.ts')
-      }
-    },
     css: {
       preprocessorOptions: {
         scss: {
@@ -398,19 +407,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
   ],
 
-  // Completely disable devtools to prevent it from loading
-  $production: {
-    devtools: {
-      enabled: false
-    }
-  },
-
-  $development: {
-    devtools: {
-      enabled: false
-    }
-  },
-
   plugins: [
     // '~/plugins/error-handler.server.ts' // Temporarily disabled to avoid MaxListenersExceeded warning
     '~/plugins/pwa-update.client.ts'
@@ -422,24 +418,6 @@ export default defineNuxtConfig({
       routes: [
         '/', // Starting point for crawling - other routes auto-discovered or added via prerender:routes hook
       ]
-    },
-    // Exclude devtools from server bundle to prevent localStorage SSR errors
-    alias: {
-      '@vue/devtools-kit': resolve('./app/utils/devtools-stub.ts'),
-      '@vue/devtools-api': resolve('./app/utils/devtools-stub.ts'),
-      '@vue/devtools-core': resolve('./app/utils/devtools-stub.ts')
-    },
-    // Also externalize devtools packages so they're not bundled at all
-    externals: {
-      inline: [
-        // Inline everything except devtools
-      ]
-    },
-    replace: {
-      // Replace devtools imports with empty object at compile time
-      '@vue/devtools-kit': '{}',
-      '@vue/devtools-api': '{}',
-      '@vue/devtools-core': '{}'
     }
   },
 
