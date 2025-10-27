@@ -81,7 +81,7 @@ jobs:
           if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
             # Get list of all changed blog posts
             ALL_CHANGED_POSTS=$(git diff --name-only ${{ github.event.before }}..${{ github.sha }} | grep "^blog/.*\.md$" || true)
-            
+
             # Filter out draft posts (posts in drafts/ folders or with published: false)
             CHANGED_POSTS=""
             if [ -n "$ALL_CHANGED_POSTS" ]; then
@@ -89,10 +89,10 @@ jobs:
               echo "$ALL_CHANGED_POSTS" | while read post; do
                 echo "  📄 Checking: $post"
               done
-              
+
               # Filter out draft posts from processing
               CHANGED_POSTS=$(echo "$ALL_CHANGED_POSTS" | grep -v "/drafts/" || true)
-              
+
               # Additional check: exclude posts marked as published: false
               if [ -n "$CHANGED_POSTS" ]; then
                 PUBLISHABLE_POSTS=""
@@ -110,11 +110,11 @@ jobs:
                 CHANGED_POSTS=$(echo "$PUBLISHABLE_POSTS" | grep -v '^$' || true)
               fi
             fi
-            
+
             if [ -n "$CHANGED_POSTS" ]; then
               echo "✅ Publishable blog content changes detected"
               BLOG_CHANGED=true
-              
+
               # Count and display changed posts
               CHANGED_COUNT=$(echo "$CHANGED_POSTS" | grep -v '^$' | wc -l)
               echo "📝 Changed publishable blog posts ($CHANGED_COUNT):"
@@ -123,10 +123,10 @@ jobs:
                   echo "  • $post"
                 fi
               done
-              
+
               # Save changed posts for granular processing
               echo "$CHANGED_POSTS" > /tmp/changed_blog_posts.txt
-              
+
               # Set processing mode based on number of changes
               if [ "$CHANGED_COUNT" -le 5 ]; then
                 echo "✨ Small change set - enabling granular processing"
@@ -165,7 +165,7 @@ jobs:
           CURRENT_HASH=$(find blog -name "*.md" -type f ! -path "*/drafts/*" -exec sha256sum {} \; | sha256sum | cut -d' ' -f1)
           echo "current_hash=${CURRENT_HASH}" >> $GITHUB_OUTPUT
           echo "📊 Current blog content hash: ${CURRENT_HASH}"
-          
+
           # This will be used to validate against cached topic models after cache restoration
           TOPICS_REGENERATION_NEEDED="unknown"
           echo "topics_regeneration_needed=${TOPICS_REGENERATION_NEEDED}" >> $GITHUB_OUTPUT
@@ -312,20 +312,20 @@ jobs:
         id: validate-cache
         run: |
           echo "🔍 Validating topic cache against current blog content..."
-          
+
           # Get the current hash calculated earlier
           CURRENT_HASH="${{ needs.setup-and-detect-changes.outputs.blog_hash }}"
-          
+
           # Check if we have cached topic models and hash file
           HASH_FILE="website/config/topic_models/blog_content_hash.txt"
           TOPICS_NEED_REGEN="true"
           CACHE_STATUS="no-cache"
-          
+
           if [ -f "$HASH_FILE" ]; then
             CACHED_HASH=$(cat "$HASH_FILE" 2>/dev/null | tr -d '\n')
             echo "📊 Current hash: ${CURRENT_HASH}"
             echo "📁 Cached hash:  ${CACHED_HASH}"
-            
+
             if [ -n "$CACHED_HASH" ] && [ ${#CACHED_HASH} -eq 64 ]; then
               if [ "$CURRENT_HASH" = "$CACHED_HASH" ]; then
                 echo "✅ Blog content hash matches cached topics - no regeneration needed"
@@ -335,7 +335,7 @@ jobs:
                 echo "🔄 Blog content hash changed - topic regeneration needed"
                 echo "   Previous: ${CACHED_HASH}"
                 echo "   Current:  ${CURRENT_HASH}"
-                TOPICS_NEED_REGEN="true" 
+                TOPICS_NEED_REGEN="true"
                 CACHE_STATUS="invalid-cache"
               fi
             else
@@ -348,7 +348,7 @@ jobs:
             TOPICS_NEED_REGEN="true"
             CACHE_STATUS="no-cache"
           fi
-          
+
           echo "topics_need_regen=${TOPICS_NEED_REGEN}" >> $GITHUB_OUTPUT
           echo "cache_status=${CACHE_STATUS}" >> $GITHUB_OUTPUT
           echo "🎯 Topic regeneration needed: ${TOPICS_NEED_REGEN} (${CACHE_STATUS})"
@@ -356,15 +356,15 @@ jobs:
       - name: Setup Topic Extraction System
         run: |
           chmod +x ./scripts/setup-topic-extraction.sh
-          
+
           # Use hash-based validation instead of git diff for topic regeneration decision
           TOPICS_NEED_REGEN="${{ steps.validate-cache.outputs.topics_need_regen }}"
           CACHE_STATUS="${{ steps.validate-cache.outputs.cache_status }}"
           MODE="${{ needs.setup-and-detect-changes.outputs.topic_mode }}"
-          
+
           echo "🔍 Hash-based validation: topics_need_regen=${TOPICS_NEED_REGEN}, cache_status=${CACHE_STATUS}"
           echo "📋 Workflow topic mode: ${MODE}"
-          
+
           # Override topic mode based on hash validation for accuracy
           if [ "$TOPICS_NEED_REGEN" = "true" ]; then
             echo "🔄 Hash validation indicates topics need regeneration - running full discovery"
@@ -392,10 +392,10 @@ jobs:
           TOPICS_NEED_REGEN="${{ steps.validate-cache.outputs.topics_need_regen }}"
           CACHE_STATUS="${{ steps.validate-cache.outputs.cache_status }}"
           MODE="${{ needs.setup-and-detect-changes.outputs.topic_mode }}"
-          
+
           echo "🔍 Hash validation for metadata: topics_need_regen=${TOPICS_NEED_REGEN}, cache_status=${CACHE_STATUS}"
           echo "📋 Original workflow mode: ${MODE}"
-          
+
           # Use hash validation to determine the correct approach
           if [ "$MODE" = "use-cached" ]; then
             echo "🚀 No publishable content changes - using existing cached metadata"
@@ -447,7 +447,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: latest
           cache: "npm"
@@ -551,19 +551,19 @@ jobs:
             CONFIG_HASH="empty-config"
           fi
           ASSETS_HASH=$(find website/public/images website/public/styles -type f -exec sha256sum {} \; 2>/dev/null | sha256sum | cut -d' ' -f1)
-          
+
           # Combine all hashes for comprehensive cache key
           COMBINED_HASH="${BLOG_HASH}-${SOURCE_HASH}-${METADATA_HASH}-${CONFIG_HASH}-${ASSETS_HASH}"
           CACHE_KEY="nuxt-build-${COMBINED_HASH}"
-          
+
           echo "cache_key=${CACHE_KEY}" >> $GITHUB_OUTPUT
           echo "blog_hash=${BLOG_HASH}" >> $GITHUB_OUTPUT
           echo "source_hash=${SOURCE_HASH}" >> $GITHUB_OUTPUT
-          
+
           # Debug: Show all hash components
           echo "🔍 Cache Key Components:"
           echo "  📚 BLOG_HASH:     ${BLOG_HASH}"
-          echo "  📦 SOURCE_HASH:   ${SOURCE_HASH}"  
+          echo "  📦 SOURCE_HASH:   ${SOURCE_HASH}"
           echo "  📄 METADATA_HASH: ${METADATA_HASH}"
           echo "  ⚙️  CONFIG_HASH:   ${CONFIG_HASH}"
           echo "  🎨 ASSETS_HASH:   ${ASSETS_HASH}"
@@ -588,16 +588,16 @@ jobs:
         run: |
           echo "🏗️  Cache miss - generating static site..."
           echo "Build will take approximately 1.5-2 minutes..."
-          
+
           # Enable Vite build caching optimizations
           export VITE_BUILD_TARGET=static
           export NODE_ENV=production
-          
+
           # Run generation with timing
           START_TIME=$(date +%s)
           npm run generate
           END_TIME=$(date +%s)
-          
+
           BUILD_TIME=$((END_TIME - START_TIME))
           echo "⚡ Build completed in ${BUILD_TIME} seconds"
 
@@ -609,17 +609,17 @@ jobs:
           else
             echo "✅ Static site generated and cached for future builds"
           fi
-          
+
           if [ ! -d "website/.output/public" ]; then
             echo "❌ Error: Build output directory not found"
             exit 1
           fi
-          
+
           # Display cache statistics
           BUILD_SIZE=$(du -sh website/.output/public | cut -f1)
           FILE_COUNT=$(find website/.output/public -type f | wc -l)
           echo "📊 Build output: ${BUILD_SIZE} (${FILE_COUNT} files)"
-          
+
           # Add to job summary
           {
             echo "## 🏗️ Build Output Cache Performance"
