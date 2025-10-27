@@ -12,8 +12,8 @@ scikit-learn>=1.3.0
 nltk>=3.8
 
 # Transformer stack - essential for unified topic extraction
-torch>=2.0.0,<2.9.0
-transformers>=4.20.0
+torch>=2.8.0
+transformers>=4.53.0
 sentence-transformers>=2.2.0
 
 # Development tools
