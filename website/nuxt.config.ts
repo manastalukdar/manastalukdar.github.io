@@ -37,9 +37,6 @@ export default defineNuxtConfig({
 
   ssr: true,
 
-  // Explicitly disable devtools to prevent SSR issues
-  devtools: { enabled: false },
-
   runtimeConfig: {
     public: {
       baseUrl: baseUrl,
