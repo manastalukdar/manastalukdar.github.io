@@ -154,8 +154,6 @@ excerpt: ""
 - [From reactive to cognitive: brain-inspired spatial intelligence for embodied agents](https://arxiv.org/abs/2508.17198)
   - Cross Topics: Agentic AI
 
-### Miscellaneous
-
 ## Books
 
 - [Mathematical Introduction to Deep Learning: Methods, Implementations, and Theory](https://arxiv.org/abs/2310.20360)
