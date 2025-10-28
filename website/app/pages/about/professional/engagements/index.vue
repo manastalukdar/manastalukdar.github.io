@@ -268,7 +268,7 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const panel = ref([0, 1, 2, 3, 4, 5, 6]);
+const panel = ref([0, 1, 2, 3, 4, 5, 6, 7]);
 const membershipsAffiliations = computedAsync(async () => {
   try {
     const fileContent = await import('../content-engagements/memberships-affiliations.md?raw')

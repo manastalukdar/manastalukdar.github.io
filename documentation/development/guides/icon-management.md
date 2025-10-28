@@ -81,7 +81,7 @@ Add the new icon to this list for tracking:
 
 **Professional Engagements**
 - `mdi-seal-variant`, `mdi-account-tie`, `mdi-scale-balance`, `mdi-book-edit`
-- `mdi-human-male-board`, `mdi-microphone-variant`, `mdi-school`, `mdi-handshake`
+- `mdi-human-male-board`, `mdi-microphone-variant`, `mdi-school`, `mdi-handshake`, `mdi-book-multiple`
 
 **About & Personal**
 - `mdi-desk-lamp`, `mdi-thumb-up`, `mdi-medal`, `mdi-account-heart`, `mdi-toolbox-outline`
