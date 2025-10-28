@@ -17,6 +17,10 @@
   - Conducted a workshop on `How we execute on AI projects at Labelbox`. [6 June, 2025]
 - [Panel discussion](https://www.youtube.com/watch?v=HPz8WcOd1Hk&list=PL_L8y6vMp5V1bOhwunELfKr0byviF4Wo1&index=12) on `Building a Culture of Innovation: Leadership Strategies for the Digital Age` at [CTO CON 2024](https://www.ctocon.remotebase.com/). [23 May, 2024]
 
+### Panel Discussions
+
+- Panel discussion on `​The Commons as Capital: Building Digital Infrastructure for a Just Climate Economy` as part of the [The Digital Economist x Fintech Meetup: Rewriting the Climate Contract in the Age of Agentic AI](https://luma.com/yophd9vc?tk=xebPsc) during Climate Week NYC. [22 September, 2025]
+
 ### Podcasts
 
 - [Conversation](https://diggrowth.com/podcast/the-future-of-ai-industries-jobs-and-ethical-frontiers/) on *The Future of AI: Industries, Jobs, and Ethical Frontiers* with Harshika (Hershey) Chadha on [The Revenue-Focused Marketer podcast](https://harshikachadha.com/#podcasts). [17 June, 2025]
