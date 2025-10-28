@@ -13,11 +13,11 @@
         id="printMe"
       >
         <v-row class="text-h6 px-3 py-3 page-header justify-center">
-          <h1>{{ editorReviewerRolesText }}</h1>
+          <h1>{{ publicationsText }}</h1>
         </v-row>
         <p />
         <!--eslint-disable-next-line vue/no-v-html-->
-        <div class="pl-2 pb-2 markdown-content" v-html="editorReviewerRoles" />
+        <div class="pl-2 pb-2 markdown-content" v-html="publications" />
 
         <v-row class="printButton row py-10 justify-center">
           <TreeShakenIcon icon="mdi-printer" class="justify-center" @click="print" />
@@ -55,14 +55,14 @@ async function setupBlogMetadata() {
 };
 await setupBlogMetadata();
 const appOwner = globalDataStore.appOwner;
-const currentHref = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[4].href;
-const editorReviewerRolesText = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[4].text;
+const currentHref = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[7].href;
+const publicationsText = navigationStore.about.aboutItems[0].professionalItems[3].engagementsItems[7].text;
 const professionalText = navigationStore.about.aboutItems[0].professionalText;
 const engagementsText = navigationStore.about.aboutItems[0].professionalItems[3].engagementsText;
 const engagementsHref = navigationStore.about.aboutItems[0].professionalItems[3].href;
 const aboutText = navigationStore.about.aboutText;
 const currentPage =
-  editorReviewerRolesText +
+  publicationsText +
   ' | ' +
   engagementsText +
   ' | ' +
@@ -96,7 +96,7 @@ const breadcrumbsData = [
     exact: true,
   },
   {
-    title: editorReviewerRolesText,
+    title: publicationsText,
     disabled: false,
     href: currentHref,
     exact: true,
@@ -164,9 +164,9 @@ const md = new mdit({
   typographer: true,
 });
 getTargetBlankLinkRender(md);
-const editorReviewerRoles = computedAsync(async () => {
+const publications = computedAsync(async () => {
   try {
-    const fileContent = await import('../content-engagements/editor-reviewer-roles.md?raw')
+    const fileContent = await import('../content-engagements/publications.md?raw')
     const res = fm(fileContent.default)
     return md.render(res.body)
   } catch (error) {

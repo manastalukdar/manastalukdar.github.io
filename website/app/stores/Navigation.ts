@@ -150,6 +150,12 @@ const initialState = () => ({
                   icon: 'mdi-microphone-variant',
                   text: 'Speaking',
                 },
+                {
+                  href: '/about/professional/engagements/publications/',
+                  target: '_blank',
+                  icon: 'mdi-book-multiple',
+                  text: 'Publications',
+                },
               ]
             },
             {
