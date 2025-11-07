@@ -312,9 +312,9 @@ setup_virtual_environment() {
     # Activate virtual environment
     source "$VENV_PATH/bin/activate"
 
-    # Upgrade pip
+    # Upgrade pip using python -m pip for better reliability
     log_info "Upgrading pip..."
-    pip install --upgrade pip > /dev/null 2>&1
+    python -m pip install --upgrade pip > /dev/null 2>&1
 
     log_success "Virtual environment ready"
 }
@@ -328,7 +328,7 @@ install_dependencies() {
     log_info "Installing packages from $REQUIREMENTS_FILE"
 
     # Install with optimization flags for CI environments
-    pip install -r "$REQUIREMENTS_FILE" \
+    python -m pip install -r "$REQUIREMENTS_FILE" \
         --quiet \
         --progress-bar off \
         --disable-pip-version-check \
@@ -337,44 +337,44 @@ install_dependencies() {
         --only-binary=:all: 2>/dev/null || {
         # Fallback if binary-only install fails
         log_warning "Binary-only install failed, retrying with compilation allowed..."
-        pip install -r "$REQUIREMENTS_FILE" \
+        python -m pip install -r "$REQUIREMENTS_FILE" \
             --quiet \
             --progress-bar off \
             --disable-pip-version-check \
             --prefer-binary || {
             # Final fallback: install core packages without problematic ones
             log_warning "Full install failed, attempting core packages only..."
-            
+
             # Create temporary requirements without problematic packages
             temp_req=$(mktemp)
             grep -v -E "^(hdbscan|umap-learn|bertopic)" "$REQUIREMENTS_FILE" > "$temp_req"
-            
-            pip install -r "$temp_req" \
+
+            python -m pip install -r "$temp_req" \
                 --quiet \
                 --progress-bar off \
                 --disable-pip-version-check \
                 --prefer-binary
-            
+
             rm "$temp_req"
-            
-            # Try to install advanced packages individually with Python 3.13 compatibility
-            log_info "Attempting to install advanced packages with Python 3.13 compatibility..."
-            
-            # Try installing advanced packages that may not have Python 3.13 wheels yet
+
+            # Try to install advanced packages individually with Python 3.14 compatibility
+            log_info "Attempting to install advanced packages with Python 3.14 compatibility..."
+
+            # Try installing advanced packages that may not have Python 3.14 wheels yet
             # These are optional for the basic transformer functionality
-            
-            # Try umap-learn (usually has better Python 3.13 support)
-            pip install "umap-learn>=0.5.0" --prefer-binary --quiet 2>/dev/null || {
+
+            # Try umap-learn (usually has better Python 3.14 support)
+            python -m pip install "umap-learn>=0.5.0" --prefer-binary --quiet 2>/dev/null || {
                 log_warning "Could not install umap-learn - will use sklearn alternatives"
             }
-            
-            # Try hdbscan (may not support Python 3.13 yet)
-            pip install "hdbscan>=0.8.0" --prefer-binary --quiet 2>/dev/null || {
+
+            # Try hdbscan (may not support Python 3.14 yet)
+            python -m pip install "hdbscan>=0.8.0" --prefer-binary --quiet 2>/dev/null || {
                 log_warning "Could not install hdbscan - advanced clustering will be limited"
             }
-            
+
             # Try bertopic (depends on hdbscan and umap, may fail)
-            pip install "bertopic>=0.15.0" --prefer-binary --quiet 2>/dev/null || {
+            python -m pip install "bertopic>=0.15.0" --prefer-binary --quiet 2>/dev/null || {
                 log_warning "Could not install bertopic - will use transformer-based methods"
             }
         }
