@@ -2,7 +2,7 @@ Manas Talukdar is a senior industry leader in **Enterprise AI** and **Data Infra
 
 Manas is currently the Vice President of Engineering at Pryon, a leading enterprise AI startup. Previously, as Director of Engineering at Labelbox, an AI startup,  he ran platform, product, and founded the machine learning engineering and applied research organizations, across US and EU. He was instrumental in enabling the company's successful strategic push to support leading AI Labs in developing frontier LLMs.
 
-Before Labelbox, as Director of Platform Engineering at C3 AI, the leading Enterprise AI company, he founded and led an organization that developed advanced capabilities at the intersection of artificial intelligence and large-scale systems. His work there resulted in multiple patents for foundational enterprise AI platform technologies, including innovations in intelligent data processing and a metadata-driven machine learning feature store.
+Before Labelbox, as Director of Platform Engineering at C3 AI, the leading Enterprise AI company, he founded and led an organization that developed advanced capabilities at the intersection of artificial intelligence and large-scale systems. His work there resulted in multiple patents for foundational enterprise AI platform technologies.
 
 Earlier in his career, Manas spent over a decade at OSIsoft (acquired by Aveva/Schneider Electric), where he made key contributions to the world's preeminent industrial data historian, specially ubiquitous throughout the process industry. He also delivered several widely adopted 0->1 products in the industrial AI space.
 

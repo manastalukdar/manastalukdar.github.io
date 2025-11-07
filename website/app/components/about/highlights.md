@@ -2,9 +2,11 @@
 
 - Significant experience developing products in artificial intelligence and large-scale data infrastructure, used in mission critical sectors across the world.
 
-- Led the development of complex AI and data platforms used worldwide
+- Led the development of complex AI and data platforms used worldwide.
 
 - Career marked by a proven track record of delivering complex AI and data platforms, fostering innovation, productionizing research, and leading cross-functional organizations.
+
+- Patented innovations including in in intelligent data processing and metadata-driven machine learning feature store.
 
 - _Nearly two decades of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
 
