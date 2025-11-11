@@ -8,6 +8,10 @@
 
 - Patented innovations including in in intelligent data processing and metadata-driven machine learning feature store.
 
+- As Director of Engineering at Labelbox, an AI startup, ran platform, product, and founded the machine learning engineering and applied research organizations, across US and EU. Was instrumental in enabling the company's successful strategic push to support leading AI Labs in developing frontier LLMs.
+
+- As Director of Platform Engineering at C3 AI, the leading Enterprise AI company, founded and led an organization that developed advanced capabilities at the intersection of artificial intelligence and large-scale systems.
+
 - _Nearly two decades of industry experience_, including as individual contributor, hands-on development lead and product owner. Focus in recent years on _engineering leadership_ and _driving organizational growth_.
 
 - Quick learner, self driven. Significant experience and contributions in _artificial intelligence, distributed systems, data infrastructure and cloud computing_. Recent technical focus on _scalable AI/ML platforms_ and _generative AI_.
