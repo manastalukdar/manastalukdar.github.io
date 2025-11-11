@@ -63,4 +63,7 @@ excerpt: ""
 
 ## Articles and Blog Posts
 
+- [Composer: Building a fast frontier model with RL](https://cursor.com/blog/composer)
+  - Related Talk: [Ray Summit 2025 Keynote: Building Cursor Composer with Sasha Rush](https://www.youtube.com/watch?v=md8D8eNj5JM)
+
 ## Miscellaneous
