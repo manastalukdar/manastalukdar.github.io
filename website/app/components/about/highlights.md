@@ -1,6 +1,6 @@
 - Senior industry leader in **Enterprise AI** and **Data Infrastructure**. Experienced in building and scaling high-performing engineering organizations, and developing products used in critical industrial infrastructure across the world.
 
-- Significant experience developing products in artificial intelligence and large-scale data infrastructure, used in mission critical sectors across the world.
+- Significant experience developing products in artificial intelligence and large-scale data infrastructure, used in mission critical sectors across the world in several industry verticals.
 
 - Led the development of complex AI and data platforms used worldwide.
 
