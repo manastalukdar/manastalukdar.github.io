@@ -1,4 +1,4 @@
-Manas Talukdar is a senior industry leader in Enterprise AI and Data Infrastructure with nearly two decades of experience in the San Francisco Bay Area. The enterprise products he has developed are used worldwide in enterprises, the public sector, and critical industrial infrastructure.
+Manas Talukdar is a senior industry leader in **Enterprise AI** and **Data Infrastructure** with nearly two decades of experience developing products that are used worldwide across enterprises, the public sector, and critical industrial infrastructure.
 
 Currently the Vice President of Engineering at Pryon, he previously held director-level positions at AI startup Labelbox and C3 AI. At Labelbox, he was key in supporting the development of leading AI Labs’ frontier LLMs. His work at C3 AI resulted in multiple patents for foundational enterprise AI platform technologies. Earlier in his career, Manas spent over a decade at OSIsoft (now Aveva/Schneider Electric), making significant contributions to the world’s leading industrial data historian and delivering several new products in the industrial AI space.
 
