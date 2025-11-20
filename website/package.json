@@ -55,7 +55,7 @@
     "markdown-it-mathjax": "^2.0.0",
     "markdown-it-textual-uml": "^0.17.1",
     "markdown-it-toc-done-right": "^4.2.0",
-    "mermaid": "^11.12.0",
+    "mermaid": "^11.12.1",
     "paperizer": "^0.1.6",
     "pinia": "^3.0.3",
     "plyr": "^3.8.3",
