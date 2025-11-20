@@ -223,6 +223,18 @@ Impact on security posture and compliance requirements:
 | YYYY-MM-DD | 1.0     | Accepted              | [Name] |
 ```
 
+When to use which:
+
+| Aspect    | Design Document              | ADR                                   |
+|-----------|------------------------------|---------------------------------------|
+| Scope     | Feature/system/component     | Specific architectural decision       |
+| Detail    | Comprehensive implementation | Focused decision rationale            |
+| Audience  | Entire team + stakeholders   | Architects + leads                    |
+| Lifecycle | Living document (updated)    | Point-in-time decision record         |
+| Example   | "Ingestion Pipeline Design"  | "ADR-001: Event-Driven for Ingestion" |
+
+Design Document should reference relevant ADRs, and vice versa.
+
 ## References / Further Reading
 
 - [DOCUMENTING ARCHITECTURE DECISIONS](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
