@@ -33,7 +33,8 @@ We will discuss RFC and design documents in separate posts. This post outlines a
 
 ## Template
 
-### Title
+```plaintext
+# Title
 
 A short title summarizing the documented decision.
 
@@ -50,27 +51,28 @@ A short title summarizing the documented decision.
 | Other Stakeholders          |                                                                |
 | Reviewer(s)                 |                                                                |
 
-### Problem Statement
+## Problem Statement
 
-### Motivation and Context
+## Motivation and Context
 
 Discussion of the technical and/or business requirements / use-cases that was the motivation for this decision.
 
-### Decision
+## Decision
 
 Discussion of the decision with all relevant details.
 
-### Consequences
+## Consequences
 
 Discussion of problem mitigation. Tradeoffs and risks (including short-term and/or long-term) should also be covered.
 
-### Alternatives
+## Alternatives
 
 List of any alternatives that were considered with their pros and cons.
 
-### Next Steps
+## Next Steps
 
 Who will implement, who is responsible for review, which team, etc.
+```
 
 ## References / Further Reading
 
