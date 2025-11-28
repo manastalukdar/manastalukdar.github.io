@@ -17,6 +17,9 @@
               <TreeShakenIcon icon="mdi-newspaper" class="mr-4" />
             </template>
             <v-list-item-title> {{ blogText }} </v-list-item-title>
+            <template v-slot:append>
+              <TreeShakenIcon icon="mdi-chevron-down" />
+            </template>
           </v-list-item>
         </template>
         <BlogMenuItems />
@@ -29,6 +32,9 @@
             <TreeShakenIcon icon="mdi-information" class="mr-4" />
           </template>
           <v-list-item-title> {{ aboutText }} </v-list-item-title>
+          <template v-slot:append>
+            <TreeShakenIcon icon="mdi-chevron-down" />
+          </template>
         </v-list-item>
         </template>
         <AboutMenuItems />
@@ -50,6 +56,9 @@
             <TreeShakenIcon icon="mdi-mail" class="mr-4" />
           </template>
           <v-list-item-title> {{ contactText }} </v-list-item-title>
+          <template v-slot:append>
+            <TreeShakenIcon icon="mdi-chevron-down" />
+          </template>
         </v-list-item>
         </template>
         <ContactMenuItems />
@@ -87,7 +96,6 @@ import TreeShakenIcon from '@/components/TreeShakenIcon.vue';
 const navigationStore = useNavigationStore();
 const blogText = navigationStore.blog.blogText;
 const aboutText = navigationStore.about.aboutText;
-const aboutPath = navigationStore.aboutPath;
 const legalText = navigationStore.legal.legalText;
 const legalPath = navigationStore.legal.legalPath;
 const contactText = navigationStore.contact.contactText;
