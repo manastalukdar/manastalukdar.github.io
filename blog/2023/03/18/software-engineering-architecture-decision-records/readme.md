@@ -1,5 +1,5 @@
 ---
-published: yes
+published: true
 tags:
  - Engineering Leadership
  - Technical Documentation
