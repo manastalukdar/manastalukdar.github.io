@@ -48,9 +48,10 @@ import {
   mdiHumanMaleBoard,
   mdiMicrophoneVariant,
   mdiBookOpenVariant,
+  mdiBookMultiple,
   mdiScriptText,
   mdiListBox,
-  
+
   // Navigation drawer specific icons
   mdiGavel,
   mdiMail,
@@ -159,7 +160,8 @@ export const iconMap = {
   'format-list-bulleted-type': mdiFormatListBulletedType,
   'archive': mdiArchive,
   'book-open-variant': mdiBookOpenVariant,
-  
+  'book-multiple': mdiBookMultiple,
+
   // Professional
   'account-group': mdiAccountGroup,
   'seal-variant': mdiSealVariant,
@@ -316,6 +318,7 @@ export {
   mdiHumanMaleBoard,
   mdiMicrophoneVariant,
   mdiBookOpenVariant,
+  mdiBookMultiple,
   mdiScriptText,
   mdiListBox,
   mdiGithub,
