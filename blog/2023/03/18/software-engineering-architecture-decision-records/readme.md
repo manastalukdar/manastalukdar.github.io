@@ -13,7 +13,7 @@ post-format: standard
 title: Software Engineering Architecture Decision Records (ADR)
 url-slug: software-engineering-architecture-decision-records
 first-published-on: 2023-03-18 13:44
-last-updated-on: 2023-03-18 13:44
+last-updated-on: 2025-11-28 14:39
 meta:
  description: "A discussion of Architecture Decision Record (ADR) and a proposed template."
 excerpt: "Architecture Decision Record (ADR) is a point-in-time log entry of a design and/or architectural decision. This is usually the result of..."
@@ -38,20 +38,21 @@ We will discuss RFC and design documents in separate posts. This post outlines a
 
 A short title summarizing the documented decision.
 
-| Metadata                    | Value(s)                                                                       |
-| --------------------------- | ------------------------------------------------------------------------------ |
-| Status                      | Draft / Proposed / Under Review / Accepted / Amended / Deprecated / Superseded |
-| Date Created                | YYYY-MM-DD                                                                     |
-| Date Last Updated           | YYYY-MM-DD                                                                     |
-| Date Accepted/Rejected      | YYYY-MM-DD (when final decision made)                                          |
-| Last Updated By             |                                                                                |
-| Author(s)                   |                                                                                |
-| Engineering Team(s)         |                                                                                |
-| Engineering Lead            |                                                                                |
-| Primary Product Stakeholder |                                                                                |
-| Other Stakeholders          |                                                                                |
-| Reviewer(s)                 |                                                                                |
-| Superseded By               | ADR-XXX (if applicable - use when decision is deprecated or superseded)        |
+| Metadata                    | Value(s)                                                                                         |
+| --------------------------- | ------------------------------------------------------------------------------------------------ |
+| Status                      | Draft / Proposed / Under Review / Under Evaluation/ Accepted / Amended / Deprecated / Superseded |
+| Date Created                | YYYY-MM-DD                                                                                       |
+| Date Last Updated           | YYYY-MM-DD                                                                                       |
+| Date Accepted/Rejected      | YYYY-MM-DD (when final decision made)                                                            |
+| Last Updated By             |                                                                                                  |
+| Author(s)                   |                                                                                                  |
+| Engineering Team(s)         |                                                                                                  |
+| Engineering Lead            |                                                                                                  |
+| Primary Product Stakeholder |                                                                                                  |
+| Other Stakeholders          |                                                                                                  |
+| Reviewer(s)                 |                                                                                                  |
+| Commenter(s)                |                                                                                                  |
+| Superseded By               | ADR-XXX (if applicable - use when decision is deprecated or superseded)                          |
 
 ## Problem Statement
 
@@ -225,15 +226,15 @@ Impact on security posture and compliance requirements:
 
 When to use which:
 
-| Aspect    | Design Document              | ADR                                   |
-|-----------|------------------------------|---------------------------------------|
-| Scope     | Feature/system/component     | Specific architectural decision       |
-| Detail    | Comprehensive implementation | Focused decision rationale            |
-| Audience  | Entire team + stakeholders   | Architects + leads                    |
-| Lifecycle | Living document (updated)    | Point-in-time decision record         |
-| Example   | "Ingestion Pipeline Design"  | "ADR-001: Event-Driven for Ingestion" |
+| Aspect    | Technical Design Document (TDD) | Architecture Decision Record (ADR)    |
+| --------- | ------------------------------- | ------------------------------------- |
+| Scope     | Feature/system/component        | Specific architectural decision       |
+| Detail    | Comprehensive implementation    | Focused decision rationale            |
+| Audience  | Entire team + stakeholders      | Architects + leads                    |
+| Lifecycle | Living document (updated)       | Point-in-time decision record         |
+| Example   | "Ingestion Pipeline Design"     | "ADR-001: Event-Driven for Ingestion" |
 
-Design Document should reference relevant ADRs, and vice versa.
+TDD should reference relevant ADRs, and vice versa.
 
 ## References / Further Reading
 

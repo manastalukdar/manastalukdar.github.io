@@ -3,53 +3,54 @@ published: true
 tags:
  - Engineering Leadership
  - Software Engineering
- - Design Documents
+ - Technical Design Document (TDD)
  - Technical Documentation
 categories:
  - Technology
 authors:
  - "Manas Talukdar"
 post-format: standard
-title: Software Engineering Design Documents
-url-slug: software-engineering-design-documents
+title: Software Engineering Technical Design Documents
+url-slug: software-engineering-technical-design-documents
 first-published-on: 2023-03-18 14:47
-last-updated-on: 2023-03-18 14:47
+last-updated-on: 2025-11-28 14:39
 meta:
- description: "Software engineering design documents and a proposed template."
-excerpt: "A software design document is an extremely important part of the software development effort. While not every development work item / stream necessarily entails a design document,"
+ description: "Software engineering technical design documents and a proposed template."
+excerpt: "A software technical design document is an extremely important part of the software development effort. While not every development work item / stream necessarily entails a technical design document,"
 ---
 
-# Software Engineering Design Documents
+# Software Engineering Technical Design Documents
 
 ${toc}
 
 ## Overview
 
-A software design document is an extremely important part of the software development effort. While not every development work item / stream necessarily entails a design document, engineering leaders should foster a culture where software engineers organically are able to make a judgement call on when to write a design document. A design document allows for ideas to be fleshed out in a more formal and a transparent manner. It allows for stakeholders to review and respond and to document feedback for future reference. Design documents can in some cases also act as feeders for technical / architectural documents.
+A software technical design document (TDD) is an extremely important part of the software development effort. While not every development work item / stream necessarily entails a technical design document, engineering leaders should foster a culture where software engineers organically are able to make a judgement call on when to write a technical design document. A technical design document allows for ideas to be fleshed out in a more formal and a transparent manner. It allows for stakeholders to review and respond and to document feedback for future reference. Technical design documents can in some cases also act as feeders for architectural documents, and vice versa.
 
-This post provides a template for software design document.
+This post provides a template for software technical design document.
 
 ## Template
 
 ~~~plaintext
 # Title
 
-A short title summarizing the design document.
+A short title summarizing the technical design document.
 
-| Metadata                    | Value(s)                                                                       |
-| --------------------------- | ------------------------------------------------------------------------------ |
-| Status                      | Draft / Proposed / Under Review / Accepted / Amended / Deprecated / Superseded |
-| Date Created                | YYYY-MM-DD                                                                     |
-| Date Last Updated           | YYYY-MM-DD                                                                     |
-| Date Approved               | YYYY-MM-DD (when final approval given)                                         |
-| Last Updated By             |                                                                                |
-| Author(s)                   |                                                                                |
-| Engineering Team(s)         |                                                                                |
-| Engineering Lead            |                                                                                |
-| Primary Product Stakeholder |                                                                                |
-| Other Stakeholders          |                                                                                |
-| Reviewer(s)                 |                                                                                |
-| Supersedes                  | [Previous design/system name] (if applicable)                                  |
+| Metadata                    | Value(s)                                                                                          |
+| --------------------------- | ------------------------------------------------------------------------------------------------- |
+| Status                      | Draft / Proposed / Under Review / Under Evaluation / Accepted / Amended / Deprecated / Superseded |
+| Date Created                | YYYY-MM-DD                                                                                        |
+| Date Last Updated           | YYYY-MM-DD                                                                                        |
+| Date Approved               | YYYY-MM-DD (when final approval given)                                                            |
+| Last Updated By             |                                                                                                   |
+| Author(s)                   |                                                                                                   |
+| Engineering Team(s)         |                                                                                                   |
+| Engineering Lead            |                                                                                                   |
+| Primary Product Stakeholder |                                                                                                   |
+| Other Stakeholders          |                                                                                                   |
+| Reviewer(s)                 |                                                                                                   |
+| Commenter(s)                |                                                                                                   |
+| Supersedes                  | [Previous design/system name] (if applicable)                                                     |
 
 ## Executive Summary
 
@@ -98,67 +99,6 @@ Discussion of the technical and/or business requirements / use-cases that was th
 - Performance requirements
 - Scalability needs
 - Reliability improvements# Title
-
-A short title summarizing the design document.
-
-| Metadata                    | Value(s)                                                       |
-| --------------------------- | -------------------------------------------------------------- |
-| Status                      | Draft / Proposed / Under Review / Unknown / Accepted / Amended |
-| Date Created                | [optional]                                                     |
-| Date Last Updated           | [optional]                                                     |
-| Last Updated By             | [optional]                                                     |
-| Author(s)                   |                                                                |
-| Engineering Team(s)         |                                                                |
-| Engineering Lead            |                                                                |
-| Primary Product Stakeholder |                                                                |
-| Other Stakeholders          |                                                                |
-| Reviewer(s)                 |                                                                |
-
-## Problem Statement
-
-## Background
-
-## Motivation and Context
-
-Discussion of the technical and/or business requirements / use-cases that was the motivation for this decision.
-
-### Use Cases / User Stories
-
-This should typically point to a Product document and/or user stories in the Product backlog. But its is OK to provide a brief summary.
-
-### Functional Requirements
-
-### PSR^[Performance Scalability and Reliability] Requirements
-
-PSR should be a first class citizen for all development efforts.
-
-## Goals
-
-## Proposal
-
-Include any architecture / timing / sequence / component diagrams, data models, user flows, examples, code samples, etc.
-
-### Key Takeaways
-
-## Potential Trade-offs and Risks
-
-Any short-term and/or long-term trade-offs and risks.
-
-## Alternatives
-
-List of any alternatives that were considered with their pros and cons.
-
-## Potential Future Work
-
-## Summary
-
-## Next Steps
-
-Who will implement, who is responsible for review, which team, etc.
-
-## References
-- Technical debt reduction
-- Operational efficiency
 
 ### Use Cases / User Stories
 
@@ -1030,22 +970,22 @@ POST /api/v1/resource
 
 ## Revision History
 
-| Date       | Version | Changes                    | Author |
-| ---------- | ------- | -------------------------- | ------ |
-| YYYY-MM-DD | 0.1     | Initial draft created      | [Name] |
-| YYYY-MM-DD | 0.5     | Design review feedback     | [Name] |
-| YYYY-MM-DD | 1.0     | Approved for implementation| [Name] |
-| YYYY-MM-DD | 1.1     | Updated based on Phase 1   | [Name] |
+| Date       | Version | Changes                     | Author |
+| ---------- | ------- | --------------------------- | ------ |
+| YYYY-MM-DD | 0.1     | Initial draft created       | [Name] |
+| YYYY-MM-DD | 0.5     | Design review feedback      | [Name] |
+| YYYY-MM-DD | 1.0     | Approved for implementation | [Name] |
+| YYYY-MM-DD | 1.1     | Updated based on Phase 1    | [Name] |
 ~~~
 
 When to use which:
 
-| Aspect    | Design Document              | ADR                                   |
-|-----------|------------------------------|---------------------------------------|
-| Scope     | Feature/system/component     | Specific architectural decision       |
-| Detail    | Comprehensive implementation | Focused decision rationale            |
-| Audience  | Entire team + stakeholders   | Architects + leads                    |
-| Lifecycle | Living document (updated)    | Point-in-time decision record         |
-| Example   | "Ingestion Pipeline Design"  | "ADR-001: Event-Driven for Ingestion" |
+| Aspect    | Technical Design Document (TDD) | Architecture Decision Record (ADR)    |
+| --------- | ------------------------------- | ------------------------------------- |
+| Scope     | Feature/system/component        | Specific architectural decision       |
+| Detail    | Comprehensive implementation    | Focused decision rationale            |
+| Audience  | Entire team + stakeholders      | Architects + leads                    |
+| Lifecycle | Living document (updated)       | Point-in-time decision record         |
+| Example   | "Ingestion Pipeline Design"     | "ADR-001: Event-Driven for Ingestion" |
 
-Design Document should reference relevant ADRs, and vice versa.
+TDD should reference relevant ADRs, and vice versa.
