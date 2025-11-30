@@ -7,7 +7,7 @@
       <v-list-item-title v-text="contactForm.text" />
     </v-list-item>
     <v-divider />
-    <v-list-subheader class="text-center align-center">{{ subHeaderTextOtherLocationsText }}</v-list-subheader>
+    <v-list-subheader>{{ subHeaderTextOtherLocationsText }}</v-list-subheader>
     <v-list-item
       v-for="item in otherLocations"
       :key="item.text"
@@ -17,7 +17,7 @@
       <v-avatar>
         <TreeShakenIcon :icon="item.icon" />
       </v-avatar>
-      <v-list-item-title class="wrap-text" v-text="item.text" />
+      <v-list-item-title v-text="item.text" />
     </v-list-item>
   </div>
 </template>
