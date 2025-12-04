@@ -3,7 +3,7 @@ name: "Cherif Jazra"
 title: "AI/ML SWE"
 company: "ex-Apple, C3 AI, Cornell"
 linkedin: "https://www.linkedin.com/in/gcherifjazra"
-order: 3
+order: 4
 excerpt: "I've had the pleasure of working with Manas at C3 AI and delivering a product at the intersection of Data infrastructure and Machine Learning. Manas led and grew the data organization from a small number of engineers to a group consisting of multiple teams delivering a very complex set of core capabilities for the platform department, and in the process proved to be an excellent manager of junior and senior engineers, team leads, and managers..."
 featured: true
 category: ["leadership", "management", "technical"]
