@@ -7,7 +7,7 @@ order: 2
 excerpt: "...Manas is an exceptional engineering leader—clear in his thinking, strong in execution,...Manas is one of the most dependable and impactful engineering managers I’ve partnered with, and I recommend him without hesitation and would look forward to working with him again in the future."
 featured: true
 category: ["leadership", "management", "technical"]
-date: "December" 4, 2025"
+date: "December 4, 2025"
 enabled: true
 relationship: "Shiva worked with Manas but on different teams"
 positions:
