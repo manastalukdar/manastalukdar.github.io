@@ -3,7 +3,7 @@ name: "Shiva Somasundaram"
 title: "Senior Director, Product Management"
 company: "Tekion Corp"
 linkedin: "https://www.linkedin.com/in/shivasoma/"
-order: 2
+order: 3
 excerpt: "...Manas is an exceptional engineering leader—clear in his thinking, strong in execution, and consistently focused on building scalable, high-quality platform capabilities. He effectively translated product goals into sound architectural decisions and ensured his team delivered reliably, even in complex and ambiguous environments..."
 featured: true
 category: ["leadership", "management", "technical"]

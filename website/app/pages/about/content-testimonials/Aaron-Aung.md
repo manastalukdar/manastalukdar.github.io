@@ -3,7 +3,7 @@ name: "Aaron Aung"
 title: "Senior Software Engineer"
 company: "Anduril Industries"
 linkedin: "https://www.linkedin.com/in/aaron-aung-083412159/"
-order: 3
+order: 2
 excerpt: "I’ve had the privilege of working under Manas and can confidently say he’s one of the most effective and supportive engineering leaders I’ve worked with... His clarity, technical insight, and steady leadership made a huge difference for our organization’s success..."
 featured: true
 category: ["leadership", "management", "technical"]
