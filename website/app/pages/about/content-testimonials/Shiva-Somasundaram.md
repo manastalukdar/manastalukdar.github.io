@@ -4,7 +4,7 @@ title: "Senior Director, Product Management"
 company: "Tekion Corp"
 linkedin: "https://www.linkedin.com/in/shivasoma/"
 order: 2
-excerpt: "...Manas is an exceptional engineering leader—clear in his thinking, strong in execution,...Manas is one of the most dependable and impactful engineering managers I’ve partnered with, and I recommend him without hesitation and would look forward to working with him again in the future."
+excerpt: "...Manas is an exceptional engineering leader—clear in his thinking, strong in execution, and consistently focused on building scalable, high-quality platform capabilities. He effectively translated product goals into sound architectural decisions and ensured his team delivered reliably, even in complex and ambiguous environments..."
 featured: true
 category: ["leadership", "management", "technical"]
 date: "December 4, 2025"
