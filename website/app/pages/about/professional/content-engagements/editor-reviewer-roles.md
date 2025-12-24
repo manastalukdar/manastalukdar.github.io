@@ -1,3 +1,5 @@
+### Books
+
 - Technical Editor and Reviewer for [Manning Publications](https://www.manning.com) [May 2024]. Here is a listing of some of the recent books I have reviewed:
   - [Build a Machine Learning Platform (From Scratch)](https://www.manning.com/books/build-a-machine-learning-platform-from-scratch) by Benjamin Tan Wei Hao, Shanoop Padmanabhan, and Varun Mallya
   - [LangChain in Action - Agents and LLM applications](https://www.manning.com/books/langchain-in-action) by Roberto Infante
@@ -5,3 +7,7 @@
   - [Spring AI in Action](https://www.manning.com/books/spring-ai-in-action) by Craig Walls
   - [LLMs in Production](https://www.manning.com/books/llms-in-production) by Christopher Brousseau and Matthew Sharp
   - [A Simple Guide to Retrieval Augmented Generation](https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation) by Abhinav Kimothi
+
+### Conference Proceedings
+
+- Technical reviewer for submissions to the proceedings of [IEEE International Conference on Recent Advances in Systems Science and Engineering, 2025](https://rasse25.sites.siteplex.io).
