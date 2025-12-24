@@ -34,7 +34,8 @@
 
 ### Roundtables
 
-- Moderating speaker for a discussion on "Resiliency as the New Unicorn: Surviving and Thriving in an Era of Compound Crises," hosted by [The Digital Economist](https://www.thedigitaleconomist.com/), as part of the roundtable series "Terms of Engagement: Designing What We Hold in Common." [June 13, 2025]
+- Speaker for a roundtable on "Rise of the Humanoids: Five Things You Need To Know About Physical AI", hosted by [The Digital Economist](https://www.thedigitaleconomist.com/), as part of the biannual roundtable series, "Power, Technology, Humanity - A New Alignment" [December 11, 2025]
+- Moderating speaker for a discussion on "Resiliency as the New Unicorn: Surviving and Thriving in an Era of Compound Crises," hosted by [The Digital Economist](https://www.thedigitaleconomist.com/), as part of the biannual roundtable series "Terms of Engagement: Designing What We Hold in Common." [June 13, 2025]
 
 ### Other
 
