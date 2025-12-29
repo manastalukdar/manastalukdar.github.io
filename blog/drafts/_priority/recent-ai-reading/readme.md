@@ -18,6 +18,7 @@ tags:
  - AI Agents
  - Embodied AI
  - Model Context Protocol
+ - AI Memory
 categories:
  - Technology
 authors:
@@ -54,6 +55,8 @@ excerpt: ""
 ### Synthetic Data
 
 ### Embodied AI
+
+### AI Memory
 
 ### Miscellaneous
 
