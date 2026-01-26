@@ -561,7 +561,7 @@ def create_posts_list(files, run_topic_discovery=True, skip_per_post_extraction=
     for item in files.items():
         post = frontmatter.load(item[1])
         post[POST_PATH_STRING] = item[0]
-        if post["published"] is True:
+        if post.get("published", False) is True:
             count = count + 1
             # Validate and process tags with defaults
             tags = post.metadata.get('tags', post.get('tags', []))
