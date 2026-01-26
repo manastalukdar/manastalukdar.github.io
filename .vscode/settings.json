@@ -73,5 +73,6 @@
   "makefile.configureOnOpen": false,
   "editor.wordWrap": "on",
   "python-envs.pythonProjects": [],
-  "licenser.license": "CC-BY-NC-ND-4"
+  "licenser.license": "CC-BY-NC-ND-4",
+  "python-envs.defaultEnvManager": "ms-python.python:system"
 }

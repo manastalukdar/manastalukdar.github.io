@@ -30,7 +30,7 @@ first-published-on: 2024-09-07 20:06
 last-updated-on: 2024-09-07 20:06
 series:
  slug: papers-i-read-recently
- part: 16
+ part: 17
 meta:
  description: "Recent AI reading, including papers and articles."
 excerpt: ""
@@ -65,8 +65,5 @@ excerpt: ""
 ## Technical Reports
 
 ## Articles and Blog Posts
-
-- [Composer: Building a fast frontier model with RL](https://cursor.com/blog/composer)
-  - Related Talk: [Ray Summit 2025 Keynote: Building Cursor Composer with Sasha Rush](https://www.youtube.com/watch?v=md8D8eNj5JM)
 
 ## Miscellaneous
