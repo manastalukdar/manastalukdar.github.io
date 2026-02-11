@@ -68,5 +68,8 @@
     "vue-social-sharing": "^4.0.0-alpha4",
     "vue3-disqus": "^1.0.7",
     "vuetify": "^3.11.8"
+  },
+  "overrides": {
+    "eslint": "^10.0.0"
   }
 }
