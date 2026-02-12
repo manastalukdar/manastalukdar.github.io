@@ -266,7 +266,7 @@ jobs:
           architecture: "x64"
 
       - name: Cache Python Virtual Environment
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .venv
           key: python-venv-${{ runner.os }}-py${{ steps.setup-python.outputs.python-version }}-${{ needs.setup-and-detect-changes.outputs.requirements_hash }}-v2
@@ -275,7 +275,7 @@ jobs:
             python-venv-${{ runner.os }}-py${{ steps.setup-python.outputs.python-version }}-
 
       - name: Cache Pip Wheel Cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/pip
           key: pip-cache-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.requirements_hash }}
@@ -283,7 +283,7 @@ jobs:
             pip-cache-${{ runner.os }}-
 
       - name: Cache NLTK Data
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/nltk_data
           key: nltk-data-${{ runner.os }}-v3
@@ -292,7 +292,7 @@ jobs:
             nltk-data-${{ runner.os }}-
 
       - name: Cache Hugging Face Transformers
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/huggingface
           key: huggingface-transformers-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.requirements_hash }}-v2
@@ -301,7 +301,7 @@ jobs:
             huggingface-transformers-${{ runner.os }}-
 
       - name: Cache Topic Models
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: website/config/topic_models
           key: topic-models-${{ runner.os }}-${{ needs.setup-and-detect-changes.outputs.blog_hash }}-v4
@@ -455,7 +455,7 @@ jobs:
           cache-dependency-path: website/package-lock.json
 
       - name: Cache Vite Build Cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             website/node_modules/.vite
@@ -572,7 +572,7 @@ jobs:
 
       - name: Check Build Output Cache
         id: build-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             website/.output/public
