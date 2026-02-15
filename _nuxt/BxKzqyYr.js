@@ -1,0 +1,1 @@
+import{a5 as e}from"./DEWgsSyj.js";const t=()=>({appTitle:"Manas Talukdar",appOwner:"Manas Talukdar",homepageTitle:"Manas Talukdar | Enterprise AI, Data Infrastructure",copyrightStartYear:"2018",copyrightEndYear:new Date().getFullYear(),currentPageName:""}),n=e("GlobalData",{state:t,actions:{setCurrentPageName(a){this.currentPageName=a}}});export{n as u};

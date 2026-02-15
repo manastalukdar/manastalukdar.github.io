@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Manas Talukdar - blog</title>
+        <link>https://manastalukdar.github.io/blogfeed.xml</link>
+        <description>Syndication feed for blog.</description>
+        <lastBuildDate>Sun, 15 Feb 2026 04:30:14 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <copyright>All rights reserved 2026 Manas Talukdar</copyright>
+        <category>Technology</category>
+        <category>Science</category>
+        <category>Musings</category>
+        <category>History</category>
+        <category>Miscellaneous</category>
+        <item>
+            <title><![CDATA[Recent AI Reading [25 January 2026]]]></title>
+            <link>https://manastalukdar.github.io/blog/2026/01/25/recent-ai-reading-25-january-2026/</link>
+            <guid isPermaLink="false">/blog/2026/01/25/recent-ai-reading-25-january-2026/</guid>
+            <pubDate>Sun, 25 Jan 2026 21:17:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[ ...read more]]></content:encoded>
+            <author>Manas Talukdar</author>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [25 October 2025]]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/10/25/recent-ai-reading-25-october-2025/</link>
+            <guid isPermaLink="false">/blog/2025/10/25/recent-ai-reading-25-october-2025/</guid>
+            <pubDate>Sat, 25 Oct 2025 23:38:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[ ...read more]]></content:encoded>
+            <author>Manas Talukdar</author>
+        </item>
+        <item>
+            <title><![CDATA[Kyle Corbett from OpenPipe on Building Better AI Agents with RL & Fine-Tuning]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/09/09/kyle-corbett-openpipe-ai-agents-rl-fine-tuning/</link>
+            <guid isPermaLink="false">/blog/2025/09/09/kyle-corbett-openpipe-ai-agents-rl-fine-tuning/</guid>
+            <pubDate>Tue, 09 Sep 2025 21:37:00 GMT</pubDate>
+            <description><![CDATA[Kyle Corbett from OpenPipe on Building Better AI Agents with RL & Fine-Tuning]]></description>
+            <content:encoded><![CDATA[ ...read more]]></content:encoded>
+            <author>Manas Talukdar</author>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [31 August 2025]]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/08/31/recent-ai-reading-31-august-2025/</link>
+            <guid isPermaLink="false">/blog/2025/08/31/recent-ai-reading-31-august-2025/</guid>
+            <pubDate>Sun, 31 Aug 2025 10:48:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[ ...read more]]></content:encoded>
+            <author>Manas Talukdar</author>
+        </item>
+        <item>
+            <title><![CDATA[Things to be Aware of While Using AI Coding Agents]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/08/27/things-to-be-aware-of-ai-coding-agents/</link>
+            <guid isPermaLink="false">/blog/2025/08/27/things-to-be-aware-of-ai-coding-agents/</guid>
+            <pubDate>Wed, 27 Aug 2025 18:20:00 GMT</pubDate>
+            <description><![CDATA[Things to be aware of when using AI coding agents]]></description>
+            <content:encoded><![CDATA[A lot of engineers and engineering organizations have been very successful in quickly ...read more]]></content:encoded>
+            <author>Manas Talukdar</author>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [11 August 2025]]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/08/11/recent-ai-reading-11-august-2025/</link>
+            <guid isPermaLink="false">/blog/2025/08/11/recent-ai-reading-11-august-2025/</guid>
+            <pubDate>Mon, 11 Aug 2025 20:59:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[ ...read more]]></content:encoded>
+            <author>Manas Talukdar</author>
+        </item>
+        <item>
+            <title><![CDATA[Large Language Models - A Simple Explainer]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/08/08/large-language-models-simple-explainer/</link>
+            <guid isPermaLink="false">/blog/2025/08/08/large-language-models-simple-explainer/</guid>
+            <pubDate>Fri, 08 Aug 2025 10:32:00 GMT</pubDate>
+            <description><![CDATA[A simple explainer on large language models.]]></description>
+            <content:encoded><![CDATA[This is one of the most succinct and effective explanations on LLM architecture ...read more]]></content:encoded>
+            <author>Manas Talukdar</author>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [26 July 2025]]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/07/26/recent-ai-reading-26-july-2025/</link>
+            <guid isPermaLink="false">/blog/2025/07/26/recent-ai-reading-26-july-2025/</guid>
+            <pubDate>Sat, 26 Jul 2025 12:32:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[ ...read more]]></content:encoded>
+            <author>Manas Talukdar</author>
+        </item>
+        <item>
+            <title><![CDATA[Conversation on the Future of AI on the Revenue Focused Marketer Podcast]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/07/22/conversation-future-of-ai-revenue-focused-marketer-podcast/</link>
+            <guid isPermaLink="false">/blog/2025/07/22/conversation-future-of-ai-revenue-focused-marketer-podcast/</guid>
+            <pubDate>Tue, 22 Jul 2025 21:02:00 GMT</pubDate>
+            <description><![CDATA[Conversation on the Future of AI on the Revenue Focused Marketer Podcast.]]></description>
+            <content:encoded><![CDATA[Conversation on the Future of AI on the Revenue Focused Marketer's Podcast" ...read more]]></content:encoded>
+            <author>Manas Talukdar</author>
+        </item>
+        <item>
+            <title><![CDATA[Recent AI Reading [19 May 2025]]]></title>
+            <link>https://manastalukdar.github.io/blog/2025/05/19/recent-ai-reading-19-may-2025/</link>
+            <guid isPermaLink="false">/blog/2025/05/19/recent-ai-reading-19-may-2025/</guid>
+            <pubDate>Mon, 19 May 2025 10:35:00 GMT</pubDate>
+            <description><![CDATA[Recent AI reading, including papers and articles.]]></description>
+            <content:encoded><![CDATA[ ...read more]]></content:encoded>
+            <author>Manas Talukdar</author>
+        </item>
+    </channel>
+</rss>
