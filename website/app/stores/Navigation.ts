@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
 // initial state
 const initialState = () => ({
@@ -255,21 +256,23 @@ const initialState = () => ({
   },
 })
 
-export const useNavigationStore = defineStore('Navigation', {
-  state: initialState,
-  actions: {
-    flipSidebarVisibility() {
-      this.sidebarVisible = !this.sidebarVisible
-      //console.log(this.sidebarVisible)
-    },
-    setSidebarVisibility(value: any) {
-      this.sidebarVisible = value
-    },
-    flipSettingsDialogVisibility() {
-      this.settingsDialogVisible = !this.settingsDialogVisible
-    },
-    setSettingsDialogVisibility(value: any) {
-      this.settingsDialogVisible = value
-    },
+export const useNavigationStore = defineStore('Navigation', () => {
+  const sidebarVisible = ref(false)
+  const settingsDialogVisible = ref(false)
+  const { blog, about, legal, contact } = initialState()
+
+  function flipSidebarVisibility() {
+    sidebarVisible.value = !sidebarVisible.value
   }
+  function setSidebarVisibility(value: any) {
+    sidebarVisible.value = value
+  }
+  function flipSettingsDialogVisibility() {
+    settingsDialogVisible.value = !settingsDialogVisible.value
+  }
+  function setSettingsDialogVisibility(value: any) {
+    settingsDialogVisible.value = value
+  }
+
+  return { sidebarVisible, settingsDialogVisible, blog, about, legal, contact, flipSidebarVisibility, setSidebarVisibility, flipSettingsDialogVisibility, setSettingsDialogVisibility }
 })

@@ -253,6 +253,8 @@ export default defineNuxtConfig({
       },
     },
     build: {
+      sourcemap: false,
+      cssMinify: false,
       rollupOptions: {
         onwarn(warning, warn) {
           // Suppress eval warnings from ONNXRUNTIME-web (third-party ML library)
