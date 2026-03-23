@@ -30,7 +30,7 @@ first-published-on: 2024-09-07 20:06
 last-updated-on: 2024-09-07 20:06
 series:
  slug: papers-i-read-recently
- part: 17
+ part: 18
 meta:
  description: "Recent AI reading, including papers and articles."
 excerpt: ""
