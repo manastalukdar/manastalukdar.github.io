@@ -1,5 +1,10 @@
 import { defineStore } from 'pinia'
 
-export const useHomePageStore = defineStore('HomePageData', () => {
-  return {}
+// initial state
+const initialState = () => ({})
+
+export const useHomePageStore = defineStore('HomePageData', {
+  state: initialState,
+  getters: {},
+  actions: {}
 })
