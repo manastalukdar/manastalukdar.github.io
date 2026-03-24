@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12">
-    <v-card color="cardColor" class="pa-3  pt-5 fill-height" raised elevation="8">
+    <v-card color="cardColor" class="pa-3  pt-5 fill-height" elevation="4">
       <v-row class="pa-3 px-15 justify-space-evenly">
         <v-list-item
           v-for="item in otherLocations"
@@ -12,7 +12,7 @@
           <TreeShakenIcon :icon="item.icon" size="large" />
         </v-list-item>
       </v-row>
-      <v-row class="pa-3" justify="center">
+      <v-row class="pa-3 justify-center">
         <v-list-item
           :key="aboutItems[0].professionalItems[1].text"
           :to="aboutItems[0].professionalItems[1].href"

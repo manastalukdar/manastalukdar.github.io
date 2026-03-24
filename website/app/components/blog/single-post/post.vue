@@ -2,7 +2,7 @@
   <v-container>
     <v-col class="px-2">
       <v-row id="printMe" class="py-3 px-3">
-        <v-card color="cardColor" raised elevation="8" class="py-6 px-6 v-row">
+        <v-card color="cardColor" elevation="4" class="py-6 px-6 v-row">
           <postHeader :post-metadata="passedProps.postMetadata"/>
           <p />
 

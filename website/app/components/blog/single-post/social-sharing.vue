@@ -1,6 +1,6 @@
 <template>
   <v-col class="px-0 pt-5">
-    <v-card color="cardColor" raised elevation="8" class="py-4">
+    <v-card color="cardColor" elevation="4" class="py-4">
       <div class="socialSharing" justify="center">
         <div class="socialSharingItems">
           <a :href="emailShare" target="_blank" rel="noopener noreferrer">

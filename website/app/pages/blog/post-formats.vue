@@ -4,14 +4,14 @@
     <p />
     <v-row class="text-justify">
       <v-col cols="12">
-        <v-row class="text-center py-2" justify="center">
+        <v-row class="text-center py-2 justify-center">
           <h1>
             {{ pageTitle }}
           </h1>
         </v-row>
       </v-col>
       <v-col cols="12">
-        <v-card class="my-3 pa-2" color="cardColor" raised elevation="8">
+        <v-card class="my-3 pa-2" color="cardColor" elevation="4">
           <v-card-title>
             <div class="flex-grow-1" />
             <v-text-field

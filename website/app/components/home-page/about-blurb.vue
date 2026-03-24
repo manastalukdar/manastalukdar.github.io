@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12">
-    <v-card class="pa-3 pb-5" raised elevation="8" color="cardColor">
+    <v-card class="pa-3 pb-5" elevation="4" color="cardColor">
       <!--eslint-disable-next-line vue/no-v-html-->
       <div class="text-justify px-2" v-html="aboutBlurb" />
     </v-card>

@@ -1,7 +1,7 @@
 <template>
   <v-row class="app pt-3">
     <v-col cols="12">
-      <v-card color="cardColor" raised elevation="8">
+      <v-card color="cardColor" elevation="4">
         <div>
           <v-breadcrumbs
             :items="props.breadcrumbs"

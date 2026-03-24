@@ -2,7 +2,7 @@
   <!-- Pagination Controls -->
   <v-row class="pt-6">
     <v-col cols="12">
-      <v-card color="cardColor" class="pa-4 py-5 px-5" raised elevation="8">
+      <v-card color="cardColor" class="pa-4 py-5 px-5" elevation="4">
         <!-- Results Summary -->
         <v-row class="align-center mb-3">
           <v-col cols="12" sm="6">

@@ -1,7 +1,7 @@
 <template>
   <v-row class="text-center">
     <v-col cols="12">
-      <v-row class="text-h6 px-3 py-3" justify="center">
+      <v-row class="text-h6 px-3 py-3 justify-center">
         <v-col class="text-center align-center">
           <!-- Series Part Number -->
           <div v-if="props.postMetadata.series?.part && props.showSeriesInfo" class="mb-2">
@@ -31,7 +31,7 @@
           </div>
         </v-col>
       </v-row>
-      <v-row class="px-3 py-3" justify="center">
+      <v-row class="px-3 py-3 justify-center">
         <v-col class="d-flex flex-wrap justify-center align-center pa-0">
           Authors:&nbsp;
           <div v-for="item in props.postMetadata.authors" :key="item['name']">
@@ -43,7 +43,7 @@
           || Published: {{ props.postMetadata['first-published-on'] }} || {{ props.postMetadata["reading-time"]?.text || "1 min read" }}
         </v-col>
       </v-row>
-      <v-row class="px-3" justify="center">
+      <v-row class="px-3 justify-center">
         <v-col class="d-flex flex-wrap justify-center align-center pa-0">
           Categories:&nbsp;
           <div v-for="item in props.postMetadata.categories" :key="item['name']">

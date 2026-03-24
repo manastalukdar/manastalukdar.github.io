@@ -3,8 +3,8 @@
     <v-card
       color="cardColor"
       class="pa-3 pt-5"
-      raised
-      elevation="8"
+     
+      elevation="4"
       style="height: 100%"
       :to="blogItems[0].href"
     >

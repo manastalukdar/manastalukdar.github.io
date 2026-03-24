@@ -29,11 +29,11 @@
             <v-card
               color="cardColor"
               class="pa-8"
-              raised
-              elevation="8"
+             
+              elevation="4"
               style="height: 300px"
             >
-              <v-row class="text-h6 px-3 py-3" justify="center">
+              <v-row class="text-h6 px-3 py-3 justify-center">
                 <span>Loading testimonials...</span>
               </v-row>
               <v-skeleton-loader type="paragraph, paragraph, divider, button" />

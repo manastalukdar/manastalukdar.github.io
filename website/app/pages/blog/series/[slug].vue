@@ -50,7 +50,7 @@
       <v-col cols="12">
         <!-- Series Header -->
         <div class="series-header mb-8">
-          <v-row class="text-center py-2" justify="center">
+          <v-row class="text-center py-2 justify-center">
             <h1>Series: {{ series.name }}</h1>
           </v-row>
 

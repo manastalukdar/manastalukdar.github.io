@@ -5,7 +5,7 @@
     color="primary"
     location="bottom"
     class="pwa-update-notification"
-    elevation="8"
+    elevation="4"
   >
     <div class="d-flex align-center justify-space-between w-100">
       <div class="d-flex align-center">
