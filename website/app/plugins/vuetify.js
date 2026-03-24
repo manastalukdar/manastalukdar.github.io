@@ -94,13 +94,13 @@ export default defineNuxtPlugin((nuxtApp) => {
         lightTheme,
         darkNightTheme,
       },
-    },
-    display: {
-      thresholds: {
-        md: 960,
-        lg: 1280,
-        xl: 1920,
-        xxl: 2560,
+      options: {
+        customProperties: true,
+        minifyTheme(css) {
+          return process.env.NODE_ENV === "production"
+            ? css.replace(/(?<!v-application)[\s|\r\n|\r|\n]/g, "")
+            : css;
+        },
       },
     },
     ssr: true,

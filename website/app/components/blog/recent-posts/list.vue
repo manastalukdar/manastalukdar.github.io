@@ -1,13 +1,14 @@
 <template>
   <div class="px-3 py-3">
-    <v-row class="text-h6 justify-center">
+    <v-row class="text-h6" justify="center">
       {{ pageTitle }}
     </v-row>
     <p />
     <v-row
       v-for="post in posts"
       :key="post['url-slug']"
-      class="px-2 justify-center"
+      class="px-2"
+      justify="center"
     >
       <singlePost :post-metadata="post" />
     </v-row>

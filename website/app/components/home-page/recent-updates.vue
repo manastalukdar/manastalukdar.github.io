@@ -3,11 +3,11 @@
     <v-card
       color="cardColor"
       class="pa-8"
-     
-      elevation="4"
+      raised
+      elevation="8"
       style="height: 100%"
     >
-      <v-row class="text-h6 px-3 py-3 justify-center">
+      <v-row class="text-h6 px-3 py-3" justify="center">
         <span>Recent</span>
       </v-row>
       <p />

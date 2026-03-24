@@ -1,7 +1,7 @@
 <template>
   <v-row class="py-4">
     <v-col cols="12" class="px-0 pt-5">
-      <v-card color="cardColor" elevation="4" class="pa-4 py-4">
+      <v-card color="cardColor" raised elevation="8" class="pa-4 py-4">
         <v-row class="align-center">
           <!-- Previous Post -->
           <v-col cols="12" md="5">

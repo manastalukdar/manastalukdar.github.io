@@ -7,8 +7,8 @@
         <v-card
           color="cardColor"
           class="pa-8"
-         
-          elevation="4"
+          raised
+          elevation="8"
           style="height: 100%"
           id="printMe"
         >

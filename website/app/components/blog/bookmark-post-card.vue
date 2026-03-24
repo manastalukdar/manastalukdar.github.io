@@ -3,8 +3,8 @@
     color="cardColor"
     hover
     class="bookmark-post-card py-5 px-5"
-   
-    elevation="4"
+    raised
+    elevation="8"
     @click="navigateToPost"
   >
     <!-- Post Header with Bookmark Info -->

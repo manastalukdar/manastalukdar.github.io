@@ -1,7 +1,7 @@
 <template>
   <v-row id="single-post-header" class="text-center">
     <v-col cols="12">
-      <v-row id="single-post-title" class="text-h5 px-3 py-3 justify-center">
+      <v-row id="single-post-title" class="text-h5 px-3 py-3" justify="center">
         <v-col class="text-center align-center">
           <div class="d-flex align-center justify-center flex-wrap">
             <span class="me-2">{{ props.postMetadata.title }}</span>
@@ -18,7 +18,7 @@
           </div>
         </v-col>
       </v-row>
-      <v-row id="single-post-header-meta-1" class="px-3 py-3 justify-center">
+      <v-row id="single-post-header-meta-1" class="px-3 py-3" justify="center">
         <v-col class="d-flex flex-wrap justify-center align-center pa-0">
           Authors:&nbsp;
           <div v-for="item in props.postMetadata.authors" :key="item['name']">
@@ -31,7 +31,7 @@
           {{ props.postMetadata["last-updated-on"] }} || {{ props.postMetadata["reading-time"]?.text || "1 min read" }}
         </v-col>
       </v-row>
-      <v-row id="single-post-header-meta-2" class="px-3 justify-center">
+      <v-row id="single-post-header-meta-2" class="px-3" justify="center">
         <v-col class="d-flex flex-wrap justify-center align-center pa-0">
           Categories:&nbsp;
           <div v-for="item in props.postMetadata.categories" :key="item['name']">
