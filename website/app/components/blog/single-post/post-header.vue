@@ -9,7 +9,7 @@
               <nuxt-link :to="getPostFormatRoute(props.postMetadata['post-format']['name'])" class="pl-2">
                 <TreeShakenIcon :icon="postFormatIcon()" />
               </nuxt-link>
-              <BookmarkButton
+              <BookmarkButton 
                 :post="props.postMetadata"
                 size="default"
                 class="ml-2"
@@ -17,43 +17,40 @@
             </div>
           </div>
         </v-col>
+        <p />
       </v-row>
       <v-row id="single-post-header-meta-1" class="px-3 py-3" justify="center">
-        <v-col class="d-flex flex-wrap justify-center align-center pa-0">
-          Authors:&nbsp;
-          <div v-for="item in props.postMetadata.authors" :key="item['name']">
-            <nuxt-link :to="getAuthorRoute(item['url-slug'])">
-              <span>{{ item["name"] }}</span>
-            </nuxt-link>
-            &nbsp;
-          </div>
-          || Published: {{ props.postMetadata["first-published-on"] }} || Updated:
-          {{ props.postMetadata["last-updated-on"] }} || {{ props.postMetadata["reading-time"]?.text || "1 min read" }}
-        </v-col>
+        Authors:&nbsp;
+        <div v-for="item in props.postMetadata.authors" :key="item['name']">
+          <nuxt-link :to="getAuthorRoute(item['url-slug'])">
+            <span>{{ item["name"] }}</span>
+          </nuxt-link>
+          &nbsp;
+        </div>
+        || Published: {{ props.postMetadata["first-published-on"] }} || Updated:
+        {{ props.postMetadata["last-updated-on"] }} || {{ props.postMetadata["reading-time"]?.text || "1 min read" }}
       </v-row>
       <v-row id="single-post-header-meta-2" class="px-3" justify="center">
-        <v-col class="d-flex flex-wrap justify-center align-center pa-0">
-          Categories:&nbsp;
-          <div v-for="item in props.postMetadata.categories" :key="item['name']">
-            <nuxt-link :to="getCategoryRoute(item['url-slug'])">
-              <span>{{ item["name"] }}</span>
-            </nuxt-link>
-            &nbsp;
-          </div>
-          || Tags:&nbsp;
-          <div v-for="item in props.postMetadata.tags" :key="item['name']">
-            <nuxt-link :to="getTagRoute(item['url-slug'])">
-              <span>{{ item["name"] }}</span>
-            </nuxt-link>
-            &nbsp;
-          </div>
-          &nbsp;|| Post-format:&nbsp;
-          <nuxt-link
-            :to="getPostFormatRoute(props.postMetadata['post-format']['url-slug'])"
-          >
-            {{ props.postMetadata["post-format"].name }}
+        Categories:&nbsp;
+        <div v-for="item in props.postMetadata.categories" :key="item['name']">
+          <nuxt-link :to="getCategoryRoute(item['url-slug'])">
+            <span>{{ item["name"] }}</span>
           </nuxt-link>
-        </v-col>
+          &nbsp;
+        </div>
+        || Tags:&nbsp;
+        <div v-for="item in props.postMetadata.tags" :key="item['name']">
+          <nuxt-link :to="getTagRoute(item['url-slug'])">
+            <span>{{ item["name"] }}</span>
+          </nuxt-link>
+          &nbsp;
+        </div>
+        &nbsp;|| Post-format:&nbsp;
+        <nuxt-link
+          :to="getPostFormatRoute(props.postMetadata['post-format']['url-slug'])"
+        >
+          {{ props.postMetadata["post-format"].name }}
+        </nuxt-link>
       </v-row>
     </v-col>
   </v-row>

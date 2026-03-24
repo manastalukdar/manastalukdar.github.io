@@ -30,36 +30,33 @@
             </div>
           </div>
         </v-col>
+        <p />
       </v-row>
       <v-row class="px-3 py-3" justify="center">
-        <v-col class="d-flex flex-wrap justify-center align-center pa-0">
-          Authors:&nbsp;
-          <div v-for="item in props.postMetadata.authors" :key="item['name']">
-            <nuxt-link :to="getAuthorRoute(item['url-slug'])">
-              <span>{{ item['name'] }}</span>
-            </nuxt-link>
-            &nbsp;
-          </div>
-          || Published: {{ props.postMetadata['first-published-on'] }} || {{ props.postMetadata["reading-time"]?.text || "1 min read" }}
-        </v-col>
+        Authors:&nbsp;
+        <div v-for="item in props.postMetadata.authors" :key="item['name']">
+          <nuxt-link :to="getAuthorRoute(item['url-slug'])">
+            <span>{{ item['name'] }}</span>
+          </nuxt-link>
+          &nbsp;
+        </div>
+        || Published: {{ props.postMetadata['first-published-on'] }} || {{ props.postMetadata["reading-time"]?.text || "1 min read" }}
       </v-row>
       <v-row class="px-3" justify="center">
-        <v-col class="d-flex flex-wrap justify-center align-center pa-0">
-          Categories:&nbsp;
-          <div v-for="item in props.postMetadata.categories" :key="item['name']">
-            <nuxt-link :to="getCategoryRoute(item['url-slug'])">
-              <span>{{ item['name'] }}</span>
-            </nuxt-link>
-            &nbsp;
-          </div>
-          || Tags:&nbsp;
-          <div v-for="item in props.postMetadata.tags" :key="item['name']">
-            <nuxt-link :to="getTagRoute(item['url-slug'])">
-              <span>{{ item['name'] }}</span>
-            </nuxt-link>
-            &nbsp;
-          </div>
-        </v-col>
+        Categories:&nbsp;
+        <div v-for="item in props.postMetadata.categories" :key="item['name']">
+          <nuxt-link :to="getCategoryRoute(item['url-slug'])">
+            <span>{{ item['name'] }}</span>
+          </nuxt-link>
+          &nbsp;
+        </div>
+        || Tags:&nbsp;
+        <div v-for="item in props.postMetadata.tags" :key="item['name']">
+          <nuxt-link :to="getTagRoute(item['url-slug'])">
+            <span>{{ item['name'] }}</span>
+          </nuxt-link>
+          &nbsp;
+        </div>
       </v-row>
     </v-col>
   </v-row>
