@@ -46,11 +46,8 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
             data = await $fetch(fetchUrl)
           }
         } else {
-          // Client-side: use appropriate URL based on deployment context
-          const fetchUrl = baseURL.includes('github.io') 
-            ? '/blogdata/metadata/blog_metadata.json'
-            : baseURL + '/blogdata/metadata/blog_metadata.json';
-          data = await $fetch(fetchUrl)
+          // Client-side: always use relative URL to avoid CORS/port mismatch issues
+          data = await $fetch('/blogdata/metadata/blog_metadata.json')
           
           // Cache the data client-side
           try {
@@ -74,10 +71,7 @@ export const useBlogMetadataStore = defineStore('BlogMetadata', {
     // Background cache update without blocking UI
     async updateCacheInBackground(baseURL: string) {
       try {
-        const fetchUrl = baseURL.includes('github.io') 
-          ? '/blogdata/metadata/blog_metadata.json'
-          : baseURL + '/blogdata/metadata/blog_metadata.json';
-        const data = await $fetch(fetchUrl)
+        const data = await $fetch('/blogdata/metadata/blog_metadata.json')
         
         // Update cache and store
         localStorage.setItem('blogMetadata', JSON.stringify(data))

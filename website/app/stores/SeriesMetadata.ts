@@ -30,11 +30,8 @@ export const useSeriesMetadataStore = defineStore('SeriesMetadata', {
             data = []
           }
         } else {
-          // Runtime: use $fetch with appropriate URL
-          const fetchUrl = isStaticGeneration 
-            ? '/blogdata/metadata/series_metadata.json'
-            : baseURL + '/blogdata/metadata/series_metadata.json';
-          data = await $fetch(fetchUrl)
+          // Runtime: always use relative URL to avoid CORS/port mismatch issues
+          data = await $fetch('/blogdata/metadata/series_metadata.json')
         }
         
         this.seriesMetadata = data
