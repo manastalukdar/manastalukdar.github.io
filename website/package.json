@@ -16,7 +16,7 @@
     "generate-fonts": "node scripts/generate-font-css.js && node scripts/generate-font-scss.js"
   },
   "devDependencies": {
-    "@nuxtjs/sitemap": "^7.6.0",
+    "@nuxtjs/sitemap": "^8.0.0",
     "@types/lodash": "^4.17.23",
     "@types/node": "^25.2.3",
     "@vite-pwa/nuxt": "^1.1.1",
