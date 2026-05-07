@@ -11,7 +11,7 @@ authors:
  - "Manas Talukdar"
 post-format: link
 title: Some AI Papers I Read Recently [27 May 2024]
-url-slug: some-ai-papers-I read-recently-27-may-2024
+url-slug: some-ai-papers-I-read-recently-27-may-2024
 first-published-on: 2024-05-27 18:38
 last-updated-on: 2024-05-27 18:38
 series:
