@@ -1,20 +1,17 @@
 import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
-// initial state
-const initialState = () => ({
-    appTitle: 'Manas Talukdar',
-    appOwner: 'Manas Talukdar',
-    homepageTitle: 'Manas Talukdar | Enterprise AI, Data Infrastructure',
-    copyrightStartYear: '2018',
-    copyrightEndYear: new Date().getFullYear(),
-    currentPageName: '',
-})
+export const useGlobalDataStore = defineStore('GlobalData', () => {
+  const appTitle = ref('Manas Talukdar')
+  const appOwner = ref('Manas Talukdar')
+  const homepageTitle = ref('Manas Talukdar | Enterprise AI, Data Infrastructure')
+  const copyrightStartYear = ref('2018')
+  const copyrightEndYear = ref(new Date().getFullYear())
+  const currentPageName = ref('')
 
-export const useGlobalDataStore = defineStore('GlobalData', {
-  state: initialState,
-  actions: {
-    setCurrentPageName(name: any) {
-      this.currentPageName = name
-    },
+  function setCurrentPageName(name: any) {
+    currentPageName.value = name
   }
+
+  return { appTitle, appOwner, homepageTitle, copyrightStartYear, copyrightEndYear, currentPageName, setCurrentPageName }
 })
