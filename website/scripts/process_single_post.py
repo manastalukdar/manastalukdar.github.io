@@ -19,6 +19,7 @@ Features:
 import argparse
 import json
 import os
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -110,6 +111,23 @@ def extract_topics_from_content(content: str, title: str = "", use_enhanced: boo
     }
 
 
+def process_item_for_url_slug(item):
+    """Convert a string item into {name, url-slug} dict, matching create_blog_metadata.py."""
+    if not item:
+        item = 'general'
+    item_str = str(item).strip() or 'general'
+    no_special = re.sub(r"[^a-zA-Z0-9]+", ' ', item_str)
+    slug = no_special.lower().replace(" ", "-").strip("-")
+    return {"name": item, "url-slug": slug}
+
+
+def get_data_with_url_slug(items):
+    """Normalize a string or list of strings into url-slug dicts."""
+    if isinstance(items, list):
+        return [process_item_for_url_slug(i) for i in sorted(items, key=str.lower)]
+    return process_item_for_url_slug(items)
+
+
 def calculate_reading_time(content: str) -> dict:
     """Calculate reading time for blog post content."""
     words_per_minute = 200
@@ -151,6 +169,24 @@ def process_single_blog_post(blog_post_path: str, config_folder: str = "config")
         print(f"⏭️  Skipping unpublished post: {blog_post_path}")
         return None
     
+    # Normalize tags, categories, authors, post-format to {name, url-slug} dicts
+    # (mirrors create_blog_metadata.py so the app always receives object arrays)
+    tags = post.metadata.get('tags', []) or ['General']
+    if tags and not isinstance(tags[0], dict):
+        post.metadata['tags'] = get_data_with_url_slug(tags)
+
+    categories = post.metadata.get('categories', []) or ['Technology']
+    if categories and not isinstance(categories[0], dict):
+        post.metadata['categories'] = get_data_with_url_slug(categories)
+
+    authors = post.metadata.get('authors', []) or ['Manas Talukdar']
+    if authors and not isinstance(authors[0], dict):
+        post.metadata['authors'] = get_data_with_url_slug(authors)
+
+    post_format = post.metadata.get('post-format', 'standard') or 'standard'
+    if isinstance(post_format, str):
+        post.metadata['post-format'] = get_data_with_url_slug(post_format)
+
     # Extract relative path for metadata
     blog_folder = Path("blog").resolve()
     post_path = Path(blog_post_path).resolve()
@@ -169,10 +205,15 @@ def process_single_blog_post(blog_post_path: str, config_folder: str = "config")
     except Exception as e:
         print(f"⚠️  Error processing dates for {blog_post_path}: {e}")
     
-    # Calculate reading time
+    # Calculate reading time — normalize to the {minutes, text, words} structure
+    # that the app expects (matches create_blog_metadata.py)
     content = post.content
-    reading_time_data = calculate_reading_time(content)
-    post.metadata.update(reading_time_data)
+    rt = calculate_reading_time(content)
+    post.metadata['reading-time'] = {
+        'minutes': rt['reading-time-minutes'],
+        'text': rt['reading-time-text'],
+        'words': rt['word-count'],
+    }
     
     # Extract topics from content
     title = post.metadata.get('title', '')
