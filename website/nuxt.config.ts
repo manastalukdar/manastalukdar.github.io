@@ -229,7 +229,7 @@ export default defineNuxtConfig({
   },
 
   css: [
-    'vuetify/lib/styles/main.sass',
+    'vuetify/styles',
     // All MDI icons converted to tree-shaken components - no font imports needed
     // '@mdi/font/css/materialdesignicons.min.css', // REMOVED: All icons now tree-shaken
     // 'material-design-icons-iconfont/dist/material-design-icons.css', // Still removed - redundant with MDI
@@ -253,6 +253,7 @@ export default defineNuxtConfig({
       },
     },
     build: {
+      cssMinify: 'lightningcss',
       rollupOptions: {
         onwarn(warning, warn) {
           // Suppress eval warnings from ONNXRUNTIME-web (third-party ML library)

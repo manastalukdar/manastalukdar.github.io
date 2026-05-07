@@ -2,33 +2,19 @@
   <v-col cols="12">
     <v-card
       color="cardColor"
-      hover
       class="py-5 px-5"
-      nuxt
       raised
       elevation="8"
-      :to="
-        getBlogPostRoute(
-          postLinkSlugs().year,
-          postLinkSlugs().month,
-          postLinkSlugs().day,
-          postLinkSlugs().post
-        )
-      "
     >
-      <postHeader :post-metadata="props.postMetadata" :show-series-info="props.showSeriesInfo" />
-      <p />
-      <div class="col text-left">
+      <postHeader
+        :post-metadata="props.postMetadata"
+        :show-series-info="props.showSeriesInfo"
+        :post-route="getBlogPostRoute(postLinkSlugs().year, postLinkSlugs().month, postLinkSlugs().day, postLinkSlugs().post)"
+      />
+      <div class="col text-left mt-2">
         {{ props.postMetadata.excerpt }}&nbsp;
         <nuxt-link
-          :to="
-            getBlogPostRoute(
-              postLinkSlugs().year,
-              postLinkSlugs().month,
-              postLinkSlugs().day,
-              postLinkSlugs().post
-            )
-          "
+          :to="getBlogPostRoute(postLinkSlugs().year, postLinkSlugs().month, postLinkSlugs().day, postLinkSlugs().post)"
         >
           <span>...read more</span>
         </nuxt-link>

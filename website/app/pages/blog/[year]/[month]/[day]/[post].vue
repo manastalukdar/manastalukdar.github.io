@@ -31,10 +31,6 @@ const runtimeConfig = useRuntimeConfig();
 const route = useRoute();
 const baseUrl = runtimeConfig.public.baseUrl;
 
-// Determine content base URL based on context
-// Use relative paths for static generation and github.io deployment
-const contentBaseUrl = (import.meta.client && baseUrl.includes('github.io')) ? '' : baseUrl;
-//console.log(baseUrl)
 async function setupBlogMetadata() {
     try {
         if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
@@ -174,56 +170,38 @@ if (!postMetadata) {
   });
 }
 
-let fileContent;
-try {
-  // Use appropriate base URL based on context (static generation vs runtime)
-  const fetchUrl = contentBaseUrl + '/blogdata/' + postMetadata.path;
-  
-  // During server-side rendering, try to read the file directly from the file system first
-  if (import.meta.server) {
-    try {
-      // Dynamic imports to avoid bundling for client-side
-      const { readFile } = await import('fs/promises');
-      const path = await import('path');
-      
-      // Try multiple path configurations for different deployment contexts
-      const possiblePaths = [
-        // CI context: running from project root, path has blog/
-        path.join(process.cwd(), 'website/public/blogdata', postMetadata.path),
-        // CI context: running from website directory, path has blog/
-        path.join(process.cwd(), 'public/blogdata', postMetadata.path),
-        // Local dev: running from project root, path without blog/
-        path.join(process.cwd(), 'website/public/blogdata', postMetadata.path.replace(/^blog\//, '')),
-        // Local dev: running from website directory, path without blog/
-        path.join(process.cwd(), 'public/blogdata', postMetadata.path.replace(/^blog\//, ''))
-      ];
-      
-      for (const filePath of possiblePaths) {
-        try {
-          fileContent = await readFile(filePath, 'utf-8');
-          break;
-        } catch {
-          // Continue to next path
+const { data: fileContentData } = await useAsyncData(
+  `blog-post-${route.params.year}-${route.params.month}-${route.params.day}-${route.params.post}`,
+  async () => {
+    if (import.meta.server) {
+      try {
+        const { readFile } = await import('fs/promises');
+        const path = await import('path');
+        const possiblePaths = [
+          path.join(process.cwd(), 'website/public/blogdata', postMetadata.path),
+          path.join(process.cwd(), 'public/blogdata', postMetadata.path),
+          path.join(process.cwd(), 'website/public/blogdata', postMetadata.path.replace(/^blog\//, '')),
+          path.join(process.cwd(), 'public/blogdata', postMetadata.path.replace(/^blog\//, ''))
+        ];
+        for (const filePath of possiblePaths) {
+          try {
+            return await readFile(filePath, 'utf-8');
+          } catch { /* try next */ }
         }
-      }
-      
-      if (!fileContent) {
-        throw new Error('File not found in any expected location');
-      }
-    } catch (fsError) {
-      // console.log(`[DEBUG] Failed to read from filesystem, falling back to fetch: ${fsError.message}`);
-      fileContent = await $fetch(fetchUrl);
+      } catch { /* fall through to fetch */ }
     }
-  } else {
-    fileContent = await $fetch(fetchUrl);
+
+    // Client navigation and server fallback: try both path forms
+    const strippedPath = postMetadata.path.replace(/^blog\//, '');
+    for (const candidate of [strippedPath, postMetadata.path]) {
+      try {
+        return await $fetch('/blogdata/' + candidate);
+      } catch { /* try next */ }
+    }
+    return '';
   }
-} catch (error) {
-  // eslint-disable-next-line no-console
-  console.log(`Error fetching blog post content: ${error}`);
-  console.log(`Attempted URL: ${contentBaseUrl}/blogdata/${postMetadata.path}`);
-  console.log(`Base URL: ${baseUrl}, Client: ${import.meta.client}`);
-  fileContent = '';
-}
+);
+const fileContent = fileContentData.value ?? '';
 const res = fm(fileContent);
 const postContent = md.render(res.body);
 const postId = postIdTemp;

@@ -1,8 +1,8 @@
 <template>
-  <v-container>
-    <v-col class="px-2">
-      <v-row id="printMe" class="py-3 px-3">
-        <v-card color="cardColor" raised elevation="8" class="py-6 px-6 v-row">
+  <v-col cols="12">
+    <v-row id="printMe" class="py-3">
+      <v-col cols="12">
+        <v-card color="cardColor" raised elevation="8" class="py-6 px-6">
           <postHeader :post-metadata="passedProps.postMetadata"/>
           <p />
 
@@ -22,60 +22,60 @@
           <!-- eslint-disable-next-line vue/no-v-html -->
           <div class="blogPostContent col px-5 pt-5" v-html="passedProps.postContent" />
         </v-card>
-      </v-row>
+      </v-col>
+    </v-row>
 
-      <!-- Series Navigation -->
-      <v-row v-if="currentSeries" class="py-3">
-        <v-col cols="12">
-          <client-only>
-            <seriesNavigation
-              :series="currentSeries"
-              :current-post-slug="passedProps.postMetadata['url-slug']"
-            />
-          </client-only>
-        </v-col>
-      </v-row>
-
-      <v-row class="py-3">
+    <!-- Series Navigation -->
+    <v-row v-if="currentSeries" class="py-3">
+      <v-col cols="12">
         <client-only>
-          <socialSharing
-            :url="url"
-            :title="passedProps.postMetadata.title"
-            :description="passedProps.postMetadata.description"
-            :quote="passedProps.postMetadata.excerpt"
-            :hashtags="hashtags()"
+          <seriesNavigation
+            :series="currentSeries"
+            :current-post-slug="passedProps.postMetadata['url-slug']"
           />
         </client-only>
-      </v-row>
+      </v-col>
+    </v-row>
 
-      <v-row class="py-3">
-        <v-col cols="12">
-          <postNavigation :current-post="passedProps.postMetadata" />
-        </v-col>
-      </v-row>
+    <v-row class="py-3">
+      <client-only>
+        <socialSharing
+          :url="url"
+          :title="passedProps.postMetadata.title"
+          :description="passedProps.postMetadata.description"
+          :quote="passedProps.postMetadata.excerpt"
+          :hashtags="hashtags()"
+        />
+      </client-only>
+    </v-row>
 
-      <v-row class="pt-1 pb-3">
-        <v-col cols="12">
-          <client-only>
-            <relatedPosts :current-post="passedProps.postMetadata" />
-          </client-only>
-        </v-col>
-      </v-row>
+    <v-row class="py-3">
+      <v-col cols="12">
+        <postNavigation :current-post="passedProps.postMetadata" />
+      </v-col>
+    </v-row>
 
-      <v-row class="py-3">
-        <comments :post-id="postId" :url="url" />
-      </v-row>
-    </v-col>
+    <v-row class="pt-1 pb-3">
+      <v-col cols="12">
+        <client-only>
+          <relatedPosts :current-post="passedProps.postMetadata" />
+        </client-only>
+      </v-col>
+    </v-row>
 
-    <!-- Reading Progress Indicator -->
-    <client-only>
-      <readingProgress
-        content-selector=".blogPostContent"
-        :reading-speed="225"
-        :show-time-remaining="true"
-      />
-    </client-only>
-  </v-container>
+    <v-row class="py-3">
+      <comments :post-id="postId" :url="url" />
+    </v-row>
+  </v-col>
+
+  <!-- Reading Progress Indicator -->
+  <client-only>
+    <readingProgress
+      content-selector=".blogPostContent"
+      :reading-speed="225"
+      :show-time-remaining="true"
+    />
+  </client-only>
 </template>
 
 <script setup>

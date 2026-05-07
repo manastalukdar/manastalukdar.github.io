@@ -6,10 +6,9 @@
 // plugins/vuetify.js
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
-import colors from "vuetify/lib/util/colors";
+import colors from "vuetify/util/colors";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
-import "vuetify/styles";
 
 const darkForestTheme = {
   dark: true,
@@ -93,14 +92,6 @@ export default defineNuxtPlugin((nuxtApp) => {
         darkForestTheme,
         lightTheme,
         darkNightTheme,
-      },
-      options: {
-        customProperties: true,
-        minifyTheme(css) {
-          return process.env.NODE_ENV === "production"
-            ? css.replace(/(?<!v-application)[\s|\r\n|\r|\n]/g, "")
-            : css;
-        },
       },
     },
     ssr: true,
