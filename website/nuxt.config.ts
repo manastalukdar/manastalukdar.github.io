@@ -63,7 +63,7 @@ export default defineNuxtConfig({
         {
           hid: 'keywords',
           name: 'keywords',
-          content: siteOwner + ', enterprise ai, data infrastructure, ai products, machine learning, data engineering, artificial intelligence, enterprise solutions, industrial ai, data science, technology leadership, website, blog, resume',
+          content: siteOwner + ', enterprise ai, data infrastructure, ai, agents, data, ai products, machine learning, data engineering, artificial intelligence, enterprise solutions, industrial ai, data science, technology leadership, website, blog, resume',
         },
         {
           hid: 'description',
@@ -290,12 +290,12 @@ export default defineNuxtConfig({
       // Generate dynamic blog routes using existing logic
       getRoutes.functions.setBaseUrl(baseUrl)
       getRoutes.functions.generateRoutes()
-      
+
       // Add all dynamic routes from the existing system
       getRoutes.properties.sitemapRoutes.forEach((route: string) => {
         ctx.routes.add(route)
       })
-      
+
       console.log(`Added ${getRoutes.properties.sitemapRoutes.length} dynamic routes via prerender:routes hook`)
     },
     'vite:extend' ({ nuxt, config }) {
@@ -420,7 +420,7 @@ export default defineNuxtConfig({
   site: {
     url: baseUrl,
   },
-  
+
   sitemap: {
     exclude: [
       '/404/**',
@@ -437,26 +437,26 @@ export default defineNuxtConfig({
   routeRules: {
     // Homepage - prerender with SWR for updates
     '/': { prerender: true, swr: 60 },
-    
+
     // Static pages - prerender for best performance
     '/about/**': { prerender: true },
     '/contact/**': { prerender: true },
     '/legal/**': { prerender: true },
     '/search/**': { prerender: true },
     '/bookmarks/**': { prerender: true },
-    
+
     // Blog pages - prerender with SWR for content updates
     '/blog/**': { prerender: true, swr: 120 }, // 2 min cache for blog content
-    
+
     // Blog data - serve as static files during generation
     '/blogdata/**': {
       prerender: false, // Don't prerender these as pages
       headers: { 'Content-Type': 'application/json' }
     },
-    
+
     // API routes - ensure they work properly
     '/api/**': { cors: true },
-    
+
     // Fallback for other routes
     '/**': { swr: 60 }, // 1 min cache for other routes
   },

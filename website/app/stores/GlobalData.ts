@@ -4,7 +4,7 @@ import { ref } from 'vue'
 export const useGlobalDataStore = defineStore('GlobalData', () => {
   const appTitle = ref('Manas Talukdar')
   const appOwner = ref('Manas Talukdar')
-  const homepageTitle = ref('Manas Talukdar | Enterprise AI, Data Infrastructure')
+  const homepageTitle = ref('Manas Talukdar | AI, Agents, Data')
   const copyrightStartYear = ref('2018')
   const copyrightEndYear = ref(new Date().getFullYear())
   const currentPageName = ref('')
