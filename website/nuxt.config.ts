@@ -465,11 +465,18 @@ export default defineNuxtConfig({
   pwa: {
     registerType: 'autoUpdate',
     workbox: {
-      globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
+      // NOTE: HTML is intentionally NOT precached. Workbox serves precached
+      // documents (e.g. '/') from cache for navigations regardless of
+      // navigateFallback, which pins returning visitors to a stale index.html
+      // (old chunk references -> old content/nav/icons). Keeping HTML out of
+      // the precache + the NetworkFirst navigation route below guarantees the
+      // freshest page always wins, while still allowing offline fallback.
+      globPatterns: ['**/*.{js,css,ico,png,svg,webp}'],
       globIgnores: ['**/404**', '**/404.html'],
-      // Disable navigation route caching to allow 404.html SPA routing fallback
+      // No navigateFallback: navigations are handled by the NetworkFirst
+      // runtime route below, which is compatible with GitHub Pages 404.html
+      // SPA routing (all app routes are prerendered to real HTML).
       navigateFallback: null,
-      navigateFallbackDenylist: [/.*/], // Deny all navigation fallbacks
       // Force service worker update for existing users
       cleanupOutdatedCaches: true,
       // Add skipWaiting to immediately activate new service worker
@@ -479,10 +486,26 @@ export default defineNuxtConfig({
       // Enhanced runtime caching with shorter TTLs for better updates
       runtimeCaching: [
         {
+          // HTML navigations: always try the network first so the freshest
+          // page (and its hashed chunk references) wins. Falls back to the
+          // last-seen page only when offline. This is what unsticks visitors
+          // pinned to an old build.
+          urlPattern: ({ request }) => request.mode === 'navigate',
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'pages-v3',
+            networkTimeoutSeconds: 3,
+            expiration: {
+              maxEntries: 50,
+              maxAgeSeconds: 86400 // 1 day, offline fallback only
+            }
+          }
+        },
+        {
           urlPattern: /\/blogdata\/.*\.json$/,
           handler: 'StaleWhileRevalidate',
           options: {
-            cacheName: 'blog-metadata-v2',
+            cacheName: 'blog-metadata-v3',
             expiration: {
               maxEntries: 10,
               maxAgeSeconds: 60 // 1 minute - much faster refresh
@@ -501,7 +524,7 @@ export default defineNuxtConfig({
           urlPattern: /\.md(\?raw)?$/,
           handler: 'StaleWhileRevalidate', // Changed from CacheFirst for faster updates
           options: {
-            cacheName: 'markdown-content-v2',
+            cacheName: 'markdown-content-v3',
             expiration: {
               maxEntries: 50,
               maxAgeSeconds: 1800 // 30 minutes - reduced from 1 hour
@@ -512,7 +535,7 @@ export default defineNuxtConfig({
           urlPattern: /\/content-testimonials\//,
           handler: 'StaleWhileRevalidate', // Changed from CacheFirst
           options: {
-            cacheName: 'testimonials-content-v2',
+            cacheName: 'testimonials-content-v3',
             expiration: {
               maxEntries: 20,
               maxAgeSeconds: 900 // 15 minutes - reduced from 30
@@ -524,7 +547,7 @@ export default defineNuxtConfig({
           urlPattern: /\/_nuxt\/.*\.(js|css)$/,
           handler: 'StaleWhileRevalidate',
           options: {
-            cacheName: 'nuxt-assets-v2',
+            cacheName: 'nuxt-assets-v3',
             expiration: {
               maxEntries: 60,
               maxAgeSeconds: 3600 // 1 hour but with revalidation
