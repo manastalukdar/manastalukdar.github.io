@@ -1,0 +1,1 @@
+import{a1 as u,r as a}from"./DS9JNypy.js";const g=u("GlobalData",()=>{const t=a("Manas Talukdar"),r=a("Manas Talukdar"),n=a("Manas Talukdar | AI, Agents, Data"),o=a("2018"),s=a(new Date().getFullYear()),e=a("");function l(c){e.value=c}return{appTitle:t,appOwner:r,homepageTitle:n,copyrightStartYear:o,copyrightEndYear:s,currentPageName:e,setCurrentPageName:l}});export{g as u};
