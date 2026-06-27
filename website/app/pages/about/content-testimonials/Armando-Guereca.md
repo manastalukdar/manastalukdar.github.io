@@ -1,7 +1,7 @@
 ---
 name: "Armando Guereca"
-title: "Engineering leadership for the agentic era | Founder"
-company: "Founder"
+title: "Founder"
+company: "Startup"
 linkedin: "https://www.linkedin.com/in/aguereca/"
 order: 1
 excerpt: "...Manas has real technical depth, the kind you don't often find at VP level...The results I was able to deliver were a direct product of how he leads..."
@@ -9,7 +9,7 @@ featured: true
 category: ["leadership", "management", "technical"]
 date: "June 26, 2026"
 enabled: true
-relationship: "Armando reported directly to Manas"
+relationship: "Armando reported directly to Manas at Pryon"
 positions:
   - title: "Senior Engineering Manager"
     company: "Pryon"
