@@ -3,7 +3,7 @@ name: "Jeffrey Fischer"
 title: "Senior Director, Products"
 company: "C3 AI"
 linkedin: "https://www.linkedin.com/in/fischerjeff/"
-order: 1
+order: 2
 excerpt: "I endorse Manas as a strong technical leader, having worked with him for several years at C3... Manas consistently managed and delivered on complex projects across the Data area. His leadership and technical expertise would be a great asset to any engineering organization."
 featured: true
 category: ["leadership", "management", "technical"]
