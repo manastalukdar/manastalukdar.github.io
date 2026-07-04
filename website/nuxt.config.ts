@@ -495,6 +495,11 @@ export default defineNuxtConfig({
           options: {
             cacheName: 'pages-v3',
             networkTimeoutSeconds: 3,
+            // Bypass the browser HTTP disk cache when fetching HTML so a stale
+            // index.html can never be revalidation-skipped and served. Without
+            // this, fetch() honors GitHub Pages' max-age=600 and browsers can
+            // pin an old HTML (old chunk refs -> old formatting) indefinitely.
+            fetchOptions: { cache: 'reload' },
             expiration: {
               maxEntries: 50,
               maxAgeSeconds: 86400 // 1 day, offline fallback only
