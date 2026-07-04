@@ -247,8 +247,13 @@ export default defineNuxtConfig({
     },
     optimizeDeps: {
       include: [
+        '@mdi/js',
         '@vue/devtools-core',
         '@vue/devtools-kit',
+        'dayjs', // CJS
+        'front-matter', // CJS
+        'markdown-it',
+        'vanilla-back-to-top', // CJS
         'vue3-disqus',
       ],
     },
