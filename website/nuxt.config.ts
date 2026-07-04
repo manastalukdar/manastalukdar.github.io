@@ -15,8 +15,10 @@ const contentVersion = generateContentHash()
 // Generate stable hash for cache busting
 const stableHash = generateStableContentHash()
 
+const isProductionBuild = process.env.NODE_ENV === 'production'
+
 const baseUrl =
-  process.env.NODE_ENV === 'production'
+  isProductionBuild
     ? 'https://manastalukdar.github.io'
     : 'http://localhost:3000'
 
@@ -40,7 +42,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       baseUrl: baseUrl,
-      blogPostCount: blogPostCount
+      blogPostCount: blogPostCount,
+      cacheResetVersion: contentVersion
     }
   },
 
@@ -468,19 +471,22 @@ export default defineNuxtConfig({
 
 
   pwa: {
+    disable: !isProductionBuild,
+    devOptions: {
+      enabled: false,
+    },
     registerType: 'autoUpdate',
     workbox: {
       // NOTE: HTML is intentionally NOT precached. Workbox serves precached
       // documents (e.g. '/') from cache for navigations regardless of
       // navigateFallback, which pins returning visitors to a stale index.html
       // (old chunk references -> old content/nav/icons). Keeping HTML out of
-      // the precache + the NetworkFirst navigation route below guarantees the
-      // freshest page always wins, while still allowing offline fallback.
+      // the service worker lets normal browser navigation fetch the freshest
+      // page and hashed chunk references.
       globPatterns: ['**/*.{js,css,ico,png,svg,webp}'],
       globIgnores: ['**/404**', '**/404.html'],
-      // No navigateFallback: navigations are handled by the NetworkFirst
-      // runtime route below, which is compatible with GitHub Pages 404.html
-      // SPA routing (all app routes are prerendered to real HTML).
+      // No navigateFallback: app routes are prerendered to real HTML, and
+      // navigations should not be intercepted by Workbox.
       navigateFallback: null,
       // Force service worker update for existing users
       cleanupOutdatedCaches: true,
@@ -491,27 +497,6 @@ export default defineNuxtConfig({
       // Enhanced runtime caching with shorter TTLs for better updates
       runtimeCaching: [
         {
-          // HTML navigations: always try the network first so the freshest
-          // page (and its hashed chunk references) wins. Falls back to the
-          // last-seen page only when offline. This is what unsticks visitors
-          // pinned to an old build.
-          urlPattern: ({ request }) => request.mode === 'navigate',
-          handler: 'NetworkFirst',
-          options: {
-            cacheName: 'pages-v3',
-            networkTimeoutSeconds: 3,
-            // Bypass the browser HTTP disk cache when fetching HTML so a stale
-            // index.html can never be revalidation-skipped and served. Without
-            // this, fetch() honors GitHub Pages' max-age=600 and browsers can
-            // pin an old HTML (old chunk refs -> old formatting) indefinitely.
-            fetchOptions: { cache: 'reload' },
-            expiration: {
-              maxEntries: 50,
-              maxAgeSeconds: 86400 // 1 day, offline fallback only
-            }
-          }
-        },
-        {
           urlPattern: /\/blogdata\/.*\.json$/,
           handler: 'StaleWhileRevalidate',
           options: {
@@ -519,15 +504,7 @@ export default defineNuxtConfig({
             expiration: {
               maxEntries: 10,
               maxAgeSeconds: 60 // 1 minute - much faster refresh
-            },
-            plugins: [
-              {
-                cacheKeyWillBeUsed: async ({ request }) => {
-                  // Add timestamp to force cache refresh every 30 seconds
-                  return `${request.url}?v=${Math.floor(Date.now() / 30000)}`
-                }
-              }
-            ]
+            }
           }
         },
         {

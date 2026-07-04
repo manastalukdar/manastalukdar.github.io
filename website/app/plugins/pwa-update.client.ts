@@ -1,45 +1,107 @@
 export default defineNuxtPlugin(() => {
+  const runtimeConfig = useRuntimeConfig()
+  const updateStore = reactive({
+    hasUpdate: false,
+    showNotification: false,
+    updating: false,
+
+    async applyUpdate() {},
+
+    dismissUpdate() {
+      this.showNotification = false
+    }
+  })
+
   // Only run on client-side and in browsers that support service workers
   if (typeof window === 'undefined' || !('serviceWorker' in navigator)) {
-    return
+    return {
+      provide: {
+        pwaUpdate: updateStore
+      }
+    }
+  }
+
+  const isLocalHost = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname)
+  const deployedHost = 'manastalukdar.github.io'
+
+  const clearServiceWorkerState = async (reason: string) => {
+    const registrations = await navigator.serviceWorker.getRegistrations()
+    await Promise.all(registrations.map(registration => registration.unregister()))
+
+    if ('caches' in window) {
+      const cacheNames = await caches.keys()
+      await Promise.all(cacheNames.map(cacheName => caches.delete(cacheName)))
+    }
+
+    if (registrations.length > 0) {
+      console.log(`${reason}: service workers and Cache Storage cleared`)
+    }
+  }
+
+  if (import.meta.dev || isLocalHost) {
+    onMounted(async () => {
+      try {
+        await clearServiceWorkerState('Local development')
+      } catch (error) {
+        console.warn('Failed to clear local service worker state:', error)
+      }
+    })
+
+    return {
+      provide: {
+        pwaUpdate: updateStore
+      }
+    }
+  }
+
+  if (window.location.hostname === deployedHost) {
+    onMounted(async () => {
+      const cacheResetVersion = String(runtimeConfig.public.cacheResetVersion || 'unknown')
+      const storageKey = 'pwa-cache-reset-version'
+
+      if (localStorage.getItem(storageKey) === cacheResetVersion) {
+        return
+      }
+
+      try {
+        await clearServiceWorkerState('Production cache reset')
+        localStorage.setItem(storageKey, cacheResetVersion)
+        window.location.reload()
+      } catch (error) {
+        console.warn('Failed to reset production service worker state:', error)
+      }
+    })
   }
 
   let refreshing = false
   let waitingWorker: ServiceWorker | null = null
 
-  // Create reactive update store
-  const updateStore = reactive({
-    hasUpdate: false,
-    showNotification: false,
-    updating: false,
-    
-    async applyUpdate() {
-      if (!waitingWorker) {
-        console.warn('No waiting service worker found')
-        return
-      }
-
-      this.updating = true
-      
-      try {
-        // Tell the waiting service worker to skip waiting
-        waitingWorker.postMessage({ type: 'SKIP_WAITING' })
-        console.log('🚀 Activating new service worker...')
-        
-        // Wait a moment then reload
-        await new Promise(resolve => setTimeout(resolve, 1000))
-        window.location.reload()
-      } catch (error) {
-        console.error('Error applying update:', error)
-        this.updating = false
-      }
-    },
-
-    dismissUpdate() {
-      this.showNotification = false
-      console.log('📋 PWA update dismissed by user')
+  updateStore.applyUpdate = async function () {
+    if (!waitingWorker) {
+      console.warn('No waiting service worker found')
+      return
     }
-  })
+
+    updateStore.updating = true
+
+    try {
+      // Tell the waiting service worker to skip waiting
+      waitingWorker.postMessage({ type: 'SKIP_WAITING' })
+      console.log('🚀 Activating new service worker...')
+
+      // Wait a moment then reload
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      window.location.reload()
+    } catch (error) {
+      console.error('Error applying update:', error)
+      updateStore.updating = false
+    }
+  }
+
+  updateStore.dismissUpdate = function () {
+    updateStore.showNotification = false
+    console.log('📋 PWA update dismissed by user')
+  }
 
   const showUpdateNotification = () => {
     updateStore.hasUpdate = true
