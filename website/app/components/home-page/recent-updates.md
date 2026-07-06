@@ -1,5 +1,5 @@
 #### Work
 
-I have recently joined Pryon, a leading enterprise AI startup, as Vice President of Engineering.
+Currently working on a few ideas that may lead to new products or opportunities.
 
 #### Other
