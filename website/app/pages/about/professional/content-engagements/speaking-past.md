@@ -19,6 +19,7 @@
 
 ### Panel Discussions
 
+- Panel Discussion on what “AI for Humanity” means in practice, not just in principle  at "Gamma x AI for Humanity: Live Human‑Centered AI Experience" in San Francisco. [7 May, 2026]
 - Panel discussion on `​The Commons as Capital: Building Digital Infrastructure for a Just Climate Economy` as part of the [The Digital Economist x Fintech Meetup: Rewriting the Climate Contract in the Age of Agentic AI](https://luma.com/yophd9vc?tk=xebPsc) during Climate Week NYC. [22 September, 2025]
 
 ### Podcasts
