@@ -16,7 +16,6 @@
 #   --metadata-only      Generate metadata only (skip topic discovery)
 #   --discovery-only     Run topic discovery only (skip metadata generation)
 #   --skip-topics        Generate minimal metadata without any topic processing
-#   --incremental        Process only changed blog posts (optimized for CI)
 #   --force              Force regeneration even if files are recent
 #   --blog-folder PATH   Custom path to blog folder
 #   --help               Show this help message
@@ -48,7 +47,6 @@ METADATA_ONLY=false
 DISCOVERY_ONLY=false
 SKIP_TOPICS=false
 USE_CACHED_TOPICS=false
-INCREMENTAL_MODE=false
 FORCE_REGENERATION=false
 UPDATE_CONFIG=false
 CUSTOM_BLOG_FOLDER=""
@@ -73,10 +71,6 @@ while [[ $# -gt 0 ]]; do
         --use-cached-topics)
             USE_CACHED_TOPICS=true
             METADATA_ONLY=true  # Implies metadata-only
-            shift
-            ;;
-        --incremental)
-            INCREMENTAL_MODE=true
             shift
             ;;
         --force)
@@ -228,12 +222,6 @@ should_regenerate_metadata() {
         return 0
     fi
     
-    # For incremental mode, always regenerate to merge changes
-    if [ "$INCREMENTAL_MODE" = true ]; then
-        log_info "Incremental mode - processing changed posts only"
-        return 0
-    fi
-    
     # Fast path: For skip-topics mode, check if cached metadata is valid
     if [ "$SKIP_TOPICS" = true ]; then
         # Check if any blog posts are newer than metadata
@@ -369,18 +357,6 @@ generate_metadata() {
     elif [ "$USE_CACHED_TOPICS" = true ]; then
         log_info "Generating metadata using cached topic models..."
         python_args="--use-cached-topics"
-    elif [ "$INCREMENTAL_MODE" = true ]; then
-        log_info "Generating metadata for changed posts only (incremental mode)..."
-        python_args="--incremental"
-        
-        # Pass changed posts file if available
-        if [ -n "$CHANGED_POSTS_FILE" ] && [ -f "$CHANGED_POSTS_FILE" ]; then
-            python_args="$python_args --changed-posts-file=$CHANGED_POSTS_FILE"
-            log_info "Using changed posts file: $CHANGED_POSTS_FILE"
-        else
-            log_warning "Incremental mode requested but no changed posts file available - falling back to full processing"
-            python_args=""
-        fi
     else
         log_info "Generating metadata with enhanced topic classification..."
     fi
