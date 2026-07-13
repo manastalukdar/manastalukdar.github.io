@@ -24,7 +24,7 @@
 
 ### Podcasts
 
-- [Conversion](https://www.podbean.com/media/share/pb-hinqn-1b0c2e2) with [Jeff Pedowitz](https://www.pedowitzgroup.com/about-tpg/team/jeff-pedowitz) on the [Unscripted with Jeff Pedowitz podcast](https://unscriptedwithjeffpedowitz.podbean.com). [YT Channel](https://www.youtube.com/playlist?list=PLZ0DEaPUZL50) [10 July, 2026]
+- [Conversation](https://www.podbean.com/media/share/pb-hinqn-1b0c2e2) with [Jeff Pedowitz](https://www.pedowitzgroup.com/about-tpg/team/jeff-pedowitz) on the [Unscripted with Jeff Pedowitz podcast](https://unscriptedwithjeffpedowitz.podbean.com). [YT Video](https://www.youtube.com/watch?v=1bGxbUTzpCg) [YT Channel](https://www.youtube.com/playlist?list=PLZ0DEaPUZL50) [10 July, 2026]
 - [Conversation](https://diggrowth.com/podcast/the-future-of-ai-industries-jobs-and-ethical-frontiers/) on *The Future of AI: Industries, Jobs, and Ethical Frontiers* with Harshika (Hershey) Chadha on [The Revenue-Focused Marketer podcast](https://harshikachadha.com/#podcasts). [17 June, 2025]
 - [Conversation](https://www.alchemistaccelerator.com/podcasts-archive/manas-talukdar) with [Ian Bergman](https://www.linkedin.com/in/ianbergman/) on the [Innovators Inside](https://www.alchemistaccelerator.com/podcasts) podcast from Alchemist Accelerator. [March 18, 2025]
 - [Conversation](https://www.youtube.com/watch?v=iH7PSi9PELc) on AI and engineering leadership with Dr. John Dentico on the [Throttle Up leadership podcast](https://www.throttleupleadership.com/). [17 February, 2025]
