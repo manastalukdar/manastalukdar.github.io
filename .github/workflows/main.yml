@@ -407,10 +407,15 @@ jobs:
           elif [ "$MODE" = "force" ]; then
             echo "⚡ Running forced complete regeneration (manual override)..."
             ./scripts/update-blog-metadata.sh --force
-          elif [ "$MODE" = "granular-processing" ] && [ -f "/tmp/changed_blog_posts.txt" ]; then
-            echo "⚡ Running granular processing for changed posts..."
-            export CHANGED_POSTS_FILE="/tmp/changed_blog_posts.txt"
-            ./scripts/update-blog-metadata.sh --incremental
+          elif [ "$MODE" = "granular-processing" ]; then
+            # NOTE: incremental mode merges changed posts into an existing
+            # blog_metadata.json, but that file is gitignored and not cached,
+            # so in CI the base is always empty and only the changed posts
+            # would be deployed. Use the full cached-topics path instead: the
+            # setup step already (re)generated topic models above, so this
+            # produces complete, correctly-topic'd metadata for all posts, fast.
+            echo "⚡ Small change set - full metadata generation with cached topics..."
+            ./scripts/update-blog-metadata.sh --use-cached-topics
           else
             echo "🔄 Running full metadata generation (topics regenerated or no cache)"
             ./scripts/update-blog-metadata.sh

@@ -22,6 +22,23 @@ pacman -S mingw-w64-x86_64-cmake
 
 ### Upgrading to newer versions of development environments
 
+#### Broken Python `.venv` after a Homebrew Python upgrade
+
+If Homebrew upgrades Python (e.g. 3.13 → 3.14), it removes the old `python@<version>` directory. A `.venv` created against the old version breaks in one of two ways:
+
+- The VS Code `create-blog-metadata` task (and any `./.venv/bin/python` call) fails with `no such file or directory` because `.venv/bin/python` / `python3` still symlink to the removed interpreter.
+- Scripts fail with `ModuleNotFoundError` because a rebuilt `.venv` starts empty.
+
+The reliable fix is to rebuild the venv from scratch:
+
+```bash
+rm -rf .venv
+python3 -m venv .venv
+.venv/bin/pip install -r website/scripts/python-requirements.txt
+```
+
+Confirm with `.venv/bin/python website/scripts/create_blog_metadata.py`.
+
 ## Other
 
 1. For those who may not wish to use VSCode and instead prefer a simple text editor
