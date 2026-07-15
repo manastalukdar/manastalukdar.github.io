@@ -9,3 +9,5 @@
 -->
 
 # Temp
+
+Notion page with links to traverse until you get to the actual leaf-level link, usually a blog post or article or a link to a paper; but something on the internet and not something point to a notion page: <>
