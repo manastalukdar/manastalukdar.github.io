@@ -24,3 +24,4 @@ pur>=7.3.0  # Python dependency updater (equivalent to ncu for npm)
 # bertopic>=0.15.0  
 # umap-learn>=0.5.0
 # hdbscan>=0.8.0
+urllib3>=2.6.3 # not directly required, pinned by Snyk to avoid a vulnerability
