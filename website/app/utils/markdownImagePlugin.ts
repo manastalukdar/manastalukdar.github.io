@@ -22,15 +22,13 @@ export default function markdownImagePlugin(md: any) {
       ? src.replace('../../../../../blogdata/', '/blogdata/') 
       : src;
     
-    // Check if this is a video file based on extension
-    const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov', '.avi'];
-    const isVideo = videoExtensions.some(ext => absoluteSrc.toLowerCase().endsWith(ext));
-    
-    // Also check for common video file patterns in URLs
-    const videoPatterns = [/\.mp4(\?|$)/i, /\.webm(\?|$)/i, /\.ogg(\?|$)/i, /\.mov(\?|$)/i, /\.avi(\?|$)/i];
-    const isVideoByPattern = videoPatterns.some(pattern => pattern.test(absoluteSrc));
-    
-    if (isVideo || isVideoByPattern) {
+    // Check for media files by extension (allowing a query string / hash suffix)
+    const isVideo = /\.(mp4|webm|ogv|mov|avi)([?#]|$)/i.test(absoluteSrc);
+    // .ogg is ambiguous; treat it as video for backwards compatibility
+    const isVideoOgg = /\.ogg([?#]|$)/i.test(absoluteSrc);
+    const isAudio = /\.(mp3|wav|m4a|aac|flac|oga|opus)([?#]|$)/i.test(absoluteSrc);
+
+    if (isVideo || isVideoOgg) {
       // Render as video element for video files
       return `<video
         src="${absoluteSrc}"
@@ -41,6 +39,17 @@ export default function markdownImagePlugin(md: any) {
       >
         Your browser does not support the video tag.
       </video>`;
+    } else if (isAudio) {
+      // Render as audio element for audio files
+      return `<audio
+        src="${absoluteSrc}"
+        controls
+        preload="metadata"
+        class="blog-audio"
+        style="max-width: 100%;"
+      >
+        Your browser does not support the audio tag.
+      </audio>`;
     } else {
       // Use regular img tag for images with optimized attributes
       return `<img
