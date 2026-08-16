@@ -15,13 +15,14 @@
             {{ copyrightEndYear }} &nbsp;<strong> {{ appOwner }} </strong>
           </span>
           <a href="/legal" class="license-link" style="text-decoration: none; margin-left: 0.5em;">
-            <nuxt-img src="/images/cc-by-nc-nd-4.0-80x15.png"
+            <!-- plain img: the source is 447 bytes, smaller than any webp ipx produces -->
+            <img src="/images/cc-by-nc-nd-4.0-80x15.png"
                  alt="CC BY-NC-ND 4.0 License"
                  class="license-badge"
                  style="vertical-align: middle;"
-                 loading="eager"
-                 format="webp"
-                 quality="90" />
+                 width="80"
+                 height="15"
+                 loading="eager" />
           </a>
         </v-col>
         <v-col class="text-right" style="margin-left: 1em; margin-right: 1em">

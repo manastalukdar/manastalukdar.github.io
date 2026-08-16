@@ -78,7 +78,6 @@ const blogBaseHref = navigationStore.blog.dynamicItems.blogBase.href;
 //https://github.com/markdown-it/markdown-it/issues/495
 import MarkdownIt from 'markdown-it';
 import markdownItMathjax from 'markdown-it-mathjax';
-import markdownItHtml5Embed from 'markdown-it-html5-embed';
 import markdownItContainer from 'markdown-it-container';
 import markdownItFootnote from 'markdown-it-footnote';
 var md = new MarkdownIt({
@@ -107,12 +106,8 @@ var md = new MarkdownIt({
     )
     // return '' // use external default escaping
   },
-}).use(markdownItMathjax).use(markdownItHtml5Embed, {
-    html5embed: {
-    useImageSyntax: true, // Enables video/audio embed with ![]() syntax (default)
-    useLinkSyntax: false, // Enables video/audio embed with []() syntax
-  },
-}).use(markdownItContainer, 'iframe-container', {
+// video embeds via ![](x.mp4) are handled by markdownImagePlugin below
+}).use(markdownItMathjax).use(markdownItContainer, 'iframe-container', {
   render(tokens, idx) {
     if (tokens[idx].nesting === 1) {
       // const textToProcess = tokens[idx].info
