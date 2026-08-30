@@ -157,3 +157,5 @@ MANIFEST
 # TypeScript incremental compilation cache
 *.tsbuildinfo
 **/*.tsbuildinfo
+
+.claude/settings.local.json
