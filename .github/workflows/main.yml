@@ -215,7 +215,7 @@ jobs:
 
       - name: Setup Python
         id: setup-python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.14"
           architecture: "x64"
@@ -417,7 +417,7 @@ jobs:
             vite-cache-${{ runner.os }}-
 
       - name: Setup Python (for validation)
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: "3.14"
 
