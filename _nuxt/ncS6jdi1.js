@@ -1,0 +1,1 @@
+import{R as e,gt as t,pt as n,vt as r}from"./BIn3oNYU.js";function i(){let i=t(!1);return e(()=>{window.requestAnimationFrame(()=>{i.value=!0})}),{ssrBootStyles:r(()=>i.value?void 0:{transition:`none !important`}),isBooted:n(i)}}export{i as t};

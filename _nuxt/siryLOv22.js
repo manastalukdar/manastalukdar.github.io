@@ -1,0 +1,1 @@
+import{at as e}from"./B5Wym_XL.js";var t=e(`v-spacer`,`div`,`VSpacer`);export{t};
