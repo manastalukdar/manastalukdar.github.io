@@ -1,0 +1,1 @@
+import{z as e}from"./BB7uquUK.js";function t(t,n,r){n==`__proto__`&&e?e(t,n,{configurable:!0,enumerable:!0,value:r,writable:!0}):t[n]=r}export{t};
