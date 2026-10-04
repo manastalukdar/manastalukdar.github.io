@@ -1,0 +1,10 @@
+import{mt as e}from"./BIn3oNYU.js";var t=t=>{let n=e(),r=window.document.getElementById(t);if(r)n.value=r;else throw Error(`Element with id '${t}' was not found.`);return{selectedElement:n}},n=t=>{let n=[`fullscreen=yes`,`titlebar=yes`,`scrollbars=yes`],r=window.document.title,i=e(``),a=e(``),o=e(``),s=e(!0),c=e(``),l=e(!0);return i.value=t?.target||`_blank`,a.value=(e=>e?.filter(e=>e))(t?.features||n)?.join(`,`),o.value=t?.windowTitle||r,s.value=t?.autoClose??!0,c.value=t?.bodyClass??``,l.value=t?.autoPrint??!0,{target:i.value,features:a.value,windowTitle:o.value,autoClose:s.value,bodyClass:c.value,autoPrint:l.value}},r=()=>({attachStyles:(e,t=[])=>{t.length&&t.forEach(t=>{let n=e.document.createElement(`link`);n.setAttribute(`rel`,`stylesheet`),n.setAttribute(`type`,`text/css`),n.setAttribute(`href`,t),e.document.getElementsByTagName(`head`)[0].appendChild(n)})}}),i=(t,n)=>{let r=e(),i=window.open(``,t,n);return i&&(i.opener||=self,i.focus(),r.value=i),{previewWindow:r}},a=()=>({writeWindowContent:(e,t,n)=>{e.document.write(`
+      <html>
+        <head>
+          <title>${e.document.title}</title>
+        </head>
+        <body class="${n}">
+          ${t.innerHTML}
+        </body>
+      </html>
+    `)}}),o=(e,o,s=()=>{})=>{let c=e=>{let{target:t,features:r,windowTitle:a,autoClose:o,bodyClass:s,autoPrint:c}=n(e),{previewWindow:l}=i(t,r);return{defaultWindow:l.value,target:t,windowTitle:a,autoClose:o,bodyClass:s,autoPrint:c}};return{paperize:()=>{let{selectedElement:n}=t(e),{defaultWindow:i,target:l,windowTitle:u,autoClose:d,bodyClass:f,autoPrint:p}=c(o),{writeWindowContent:m}=a(),{attachStyles:h}=r();i&&n.value&&(i.document.title=u||document.title,m(i,n.value,f),h(i,o?.styles),setTimeout(()=>{i.document.close(),i.focus(),p&&(i.print(),setTimeout(function(){l===`_blank`&&d&&i.close()},1)),s()},1e3))}}};export{o as t};

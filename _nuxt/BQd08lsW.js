@@ -1,0 +1,1 @@
+import{$ as e,gt as t,vt as n}from"./BIn3oNYU.js";import{O as r}from"./Cmcppz12.js";var i=r({eager:Boolean},`lazy`);function a(r,i){let a=t(!1),o=n(()=>a.value||r.eager||i.value);e(i,()=>a.value=!0);function s(){r.eager||(a.value=!1)}return{isBooted:a,hasContent:o,onAfterLeave:s}}export{a as n,i as t};
