@@ -217,7 +217,7 @@ jobs:
         id: setup-python
         uses: actions/setup-python@v6
         with:
-          python-version: "3.14"
+          python-version: "3.15"
           architecture: "x64"
 
       - name: Cache Python Virtual Environment
@@ -419,7 +419,7 @@ jobs:
       - name: Setup Python (for validation)
         uses: actions/setup-python@v6
         with:
-          python-version: "3.14"
+          python-version: "3.15"
 
       - name: Download Blog Content and Metadata
         uses: actions/download-artifact@v8
