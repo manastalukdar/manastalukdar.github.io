@@ -442,9 +442,10 @@ export default defineNuxtConfig({
     }
   },
 
+  // No swr/cache rules: the site is static, and Nitro's persistent route cache makes
+  // prerender serve HTML from the *previous* build (pointing at deleted chunks).
   routeRules: {
-    // Homepage - prerender with SWR for updates
-    '/': { prerender: true, swr: 60 },
+    '/': { prerender: true },
 
     // Static pages - prerender for best performance
     '/about/**': { prerender: true },
@@ -453,8 +454,7 @@ export default defineNuxtConfig({
     '/search/**': { prerender: true },
     '/bookmarks/**': { prerender: true },
 
-    // Blog pages - prerender with SWR for content updates
-    '/blog/**': { prerender: true, swr: 120 }, // 2 min cache for blog content
+    '/blog/**': { prerender: true },
 
     // Blog data - serve as static files during generation
     '/blogdata/**': {
@@ -464,9 +464,6 @@ export default defineNuxtConfig({
 
     // API routes - ensure they work properly
     '/api/**': { cors: true },
-
-    // Fallback for other routes
-    '/**': { swr: 60 }, // 1 min cache for other routes
   },
 
 
