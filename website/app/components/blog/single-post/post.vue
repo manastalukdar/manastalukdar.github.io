@@ -89,10 +89,13 @@ import relatedPosts from './related-posts.vue'
 import readingProgress from './reading-progress.vue'
 import tableOfContents from './table-of-contents.vue'
 import seriesNavigation from '../series/series-navigation.vue'
-import mermaid from 'mermaid'
-if (process.browser) {
-  mermaid.initialize({ startOnLoad: false });
-  await mermaid.run()
+
+// Mermaid is large and few posts use it — load it only when the post has a diagram
+async function renderDiagrams() {
+  if (!document.querySelector('.blogPostContent .mermaid')) return
+  const { default: mermaid } = await import('mermaid')
+  mermaid.initialize({ startOnLoad: false })
+  await mermaid.run({ querySelector: '.blogPostContent .mermaid' })
 }
 
 const currentSeries = ref(null)
@@ -166,6 +169,7 @@ const loadSeriesData = async () => {
 
 onMounted(() => {
   loadSeriesData()
+  renderDiagrams().catch(err => console.error('Error rendering diagrams:', err))
 })
 </script>
 
