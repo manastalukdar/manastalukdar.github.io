@@ -237,6 +237,7 @@ export default defineNuxtConfig({
     // '@mdi/font/css/materialdesignicons.min.css', // REMOVED: All icons now tree-shaken
     // 'material-design-icons-iconfont/dist/material-design-icons.css', // Still removed - redundant with MDI
     'vue-material-design-icons/styles.css', // Keep for TreeShakenIcon component styles
+    '~/style/global.scss',
     //'~/styles/print-blog-post.css'
   ],
 

@@ -5,12 +5,7 @@
 
     <v-main>
       <v-container id="content-body-container" class="content-body pa-3">
-        <transition name="fade">
-          <!-- component matched by the route will render here -->
-          <div>
-            <NuxtPage />
-          </div>
-        </transition>
+        <NuxtPage />
       </v-container>
     </v-main>
 
@@ -24,11 +19,7 @@
 <script setup>
 import backToTop from 'vanilla-back-to-top';
 import { useGlobalDataStore } from '@/stores/GlobalData';
-import { useBlogMetadataStore } from '@/stores/BlogMetadata';
-import { useLoadingStore } from '@/stores/Loading';
 const globalDataStore = useGlobalDataStore();
-const blogMetadataStore = useBlogMetadataStore();
-const loadingStore = useLoadingStore();
 import MainNavMenuNavigationDrawer from "~/components/main-nav-menu/NavigationDrawer.vue";
 import MainNavMenuTopNavBar from "~/components/main-nav-menu/TopNavBar.vue";
 import Footer from "~/components/footer.vue";
@@ -36,21 +27,8 @@ import LoadingIndicator from "~/components/LoadingIndicator.vue";
 import LinearLoadingIndicator from "~/components/LinearLoadingIndicator.vue";
 import setCorrectHJsStyle from "~/utils/setCorrectHJsStyle.ts";
 import { useTheme } from 'vuetify';
-const runtimeConfig = useRuntimeConfig();
+// ponytail: blog metadata is loaded by the pages that need it, not here — keeps non-blog pages from waiting on it
 const theme = useTheme();
-async function setupBlogMetadata() {
-  try {
-      if (blogMetadataStore.blogMetadata.length < runtimeConfig.public.blogPostCount) {
-        loadingStore.startLoading('Loading blog metadata...');
-        await blogMetadataStore.setupBlogMetadata(runtimeConfig.public.baseUrl);
-        loadingStore.stopLoading();
-      }
-  } catch (error) {
-    console.log(error)
-    loadingStore.stopLoading();
-  }
-};
-await setupBlogMetadata();
 /* definePageMeta({
   pageTransition: {
     name: 'fade',
@@ -83,15 +61,6 @@ onMounted(() => {
   bottom: 120px;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
 /* .theme--darkForestTheme.v-application {
   background-color: var(--v-theme-background-lighten1) !important;
 } */
@@ -114,24 +83,26 @@ a:active {
   max-height: 45px;
 } */
 
-p {
-  margin-top: 16px;
+/* Content styles apply only to class-less elements (raw markdown/HTML) inside the main
+   content area, so they don't leak into Vuetify components, the nav bar or the footer. */
+#content-body-container p:not([class]) {
+  margin-top: var(--space-m);
 }
-video {
+#content-body-container video:not([class]) {
   width: 100%;
   max-height: 100%;
-  padding: 2em;
+  padding: var(--space-l);
 }
 .table-of-contents {
-  margin: 2em;
+  margin: var(--space-l);
 }
-img {
+#content-body-container img:not([class]) {
   display: block;
   max-width: 100%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  padding: 1em;
+  padding: var(--space-m);
 }
 #mermaid {
   display: block;
@@ -139,59 +110,57 @@ img {
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  padding: 1em;
+  padding: var(--space-m);
 }
 svg[id^='mermaid-'] {
   display: block;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: var(--space-m);
+  margin-bottom: var(--space-m);
 }
-h2,
-h3,
-h4,
-h5 {
-  margin: 1em;
+#content-body-container :is(h2, h3, h4, h5):not([class]) {
+  margin-top: var(--space-l);
+  margin-bottom: var(--space-s);
 }
 .footnotes-sep {
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin-top: var(--space-l);
+  margin-bottom: var(--space-l);
 }
-.hljs {
-    white-space: pre-wrap;
-    overflow-x: auto;
+/* Code blocks scroll horizontally instead of breaking identifiers mid-word. */
+#content-body-container pre:not([class]) {
+  margin: var(--space-l) 0;
+  white-space: pre;
+  overflow-x: auto;
 }
-pre {
-  margin: 2em;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-    word-break: break-all;
-  text-align: justify;
-}
-@media all and (orientation: landscape) {
-  pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    word-break: break-all;
-    text-align: justify;
-  }
-  code {
-  white-space: pre-wrap;
-  }
-}
-pre code {
-  margin: 0em;
-  padding: 1em;
+pre code.hljs {
+  display: block;
+  margin: 0;
+  padding: var(--space-m);
+  white-space: pre;
+  overflow-x: auto;
 }
 code {
   margin-left: 0.25em;
   margin-right: 0.25em;
   background: rgb(var(--v-theme-codeBackgroundColor)) !important;
   color: rgb(var(--v-theme-codeTextColor)) !important;
+}
+:not(pre) > code {
   white-space: pre-wrap;
 }
+
+/* Readable line length for blog prose; code, tables, images and embeds keep full width. */
+.blogPostContent > :is(p, ul, ol, blockquote, h2, h3, h4, h5, h6, .footnotes) {
+  max-width: 72ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.blogPostContent h2 { font-size: var(--text-xl); }
+.blogPostContent h3 { font-size: var(--text-l); }
+.blogPostContent :is(h4, h5, h6) { font-size: var(--text-m); }
+
 /*
 blockquote {
   padding: 10px 20px;
@@ -253,12 +222,7 @@ and also iPads specifically.
 @media only screen and (max-width: 760px),
   (min-device-width: 768px) and (max-device-width: 1024px) {
   /* Force table to not be like tables anymore */
-  .blogPostContent table,
-  thead,
-  tbody,
-  th,
-  td,
-  tr {
+  .blogPostContent :is(table, thead, tbody, th, td, tr) {
     display: block;
     max-width: 100%;
   }

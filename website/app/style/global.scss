@@ -1,0 +1,93 @@
+// Global styles. Loaded once via nuxt.config.ts `css`.
+@use 'sass:map';
+@use './settings.sass';
+@use './_fonts.scss' as fonts;
+
+// Single spacing + type scale for content styles (used in layouts/default.vue)
+:root {
+  --space-s: 0.5rem;
+  --space-m: 1rem;
+  --space-l: 2rem;
+  --text-m: 1.15rem;
+  --text-l: 1.35rem;
+  --text-xl: 1.6rem;
+}
+
+html {
+  font-size: 15px !important;
+  @include fonts.primary-font();
+  line-height: 1.8 !important;
+}
+
+// Ensure centralized font config is applied to all elements including Vuetify components
+body, .v-application, .v-application--wrap {
+  font-family: fonts.$font-stack !important;
+}
+
+// Ensure proper font weights for navigation and headers
+.v-app-bar, .v-toolbar, .v-btn {
+  font-family: fonts.$font-stack !important;
+}
+
+// Fix TopNavBar font weight issues - use centralized font weight values
+.v-app-bar .v-toolbar-title {
+  font-family: fonts.$font-stack !important;
+  font-weight: map.get(fonts.$font-weights, medium) !important;
+}
+
+// https://stackoverflow.com/questions/57130910/how-do-i-apply-css-to-all-elements-except-when-first-child-is-of-certain-id/
+.content-body {
+  max-width: 1050px;
+}
+
+/*
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  .v-data-footer {
+    justify-content: center;
+  }
+
+  .v-data-footer__select {
+    margin-right: 0;
+  }
+
+  .v-data-footer__select .v-input {
+    margin-top: 13px;
+    margin-right: 0;
+    margin-bottom: 13px;
+    margin-left: 14px;
+  }
+
+  .v-data-footer__pagination {
+    margin-top: 0;
+    margin-right: 14px;
+    margin-bottom: 0;
+    margin-left: 14px;
+  }
+}
+
+pre {
+  overflow: auto;
+}
+
+div[class^='language-'] {
+  overflow: auto;
+  white-space: pre !important;
+  width: 100%;
+  font: normal 10pt Consolas, Monaco, monospace !important;
+  line-height: 1.5 !important;
+  padding: 2em;
+}
+
+.footnote-ref,
+.footnote-backref {
+  font-weight: bold;
+}
+
+.blogPostContent {
+  padding-bottom: 2em;
+}
