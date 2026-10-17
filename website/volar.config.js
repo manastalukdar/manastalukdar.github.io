@@ -1,3 +1,5 @@
-module.exports = {
-  plugins: [require("volar-service-vetur").default()],
+import { create } from "volar-service-vetur";
+
+export default {
+  plugins: [create()],
 };
