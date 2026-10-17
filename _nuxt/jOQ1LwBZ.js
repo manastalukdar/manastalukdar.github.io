@@ -1,0 +1,1 @@
+import{Sn as e,Tn as t,lt as n,vn as r}from"./C4vx4Lxn.js";function i(){let i=e(!1);return n(()=>{window.requestAnimationFrame(()=>{i.value=!0})}),{ssrBootStyles:t(()=>i.value?void 0:{transition:`none !important`}),isBooted:r(i)}}export{i as t};
