@@ -473,7 +473,7 @@ export default defineNuxtConfig({
       enabled: false,
     },
     registerType: 'autoUpdate',
-    workbox: {
+    generateSW: {
       // NOTE: HTML is intentionally NOT precached. Workbox serves precached
       // documents (e.g. '/') from cache for navigations regardless of
       // navigateFallback, which pins returning visitors to a stale index.html
