@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: white;
+    }
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+    }
+    .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .fallback-link {
+      color: white;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      margin-top: 1rem;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    .fallback-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="spinner"></div>
+    <h2>Redirecting...</h2>
+    <p>Taking you to the right page.</p>
+    <p><a href="/" class="fallback-link">Go to Homepage</a></p>
+  </div>
+
+  <script>
+    (function() {
+      // Get the path that was requested
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+      
+      // Construct the target URL for the SPA
+      var targetUrl = '/' + (search || '') + (hash || '');
+      
+      // For GitHub Pages, we need to redirect to the index.html with the path encoded
+      // This allows the Vue router to handle the routing client-side
+      var redirectUrl;
+      
+      if (path === '/404.html' || path === '/404') {
+        // If we're actually on a 404 page, just go to homepage
+        redirectUrl = '/';
+      } else {
+        // Encode the path in the URL hash so the SPA can pick it up
+        // GitHub Pages will serve index.html, and our app can read the intended path
+        redirectUrl = '/#' + path + (search || '') + (hash ? (hash.startsWith('#') ? hash.substring(1) : hash) : '');
+      }
+      
+      // Redirect immediately
+      window.location.replace(redirectUrl);
+    })();
+  </script>
+</body>
+</html>
