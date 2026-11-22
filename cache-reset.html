@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title>Reset Website Cache</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        place-items: center;
+        background: #182026;
+        color: #f3f6f8;
+      }
+
+      main {
+        max-width: 34rem;
+        padding: 2rem;
+      }
+
+      h1 {
+        margin: 0 0 0.75rem;
+        font-size: 1.75rem;
+      }
+
+      p {
+        color: #c8d2d8;
+        line-height: 1.6;
+      }
+
+      a {
+        color: #8be0d4;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Resetting Website Cache</h1>
+      <p id="status">Clearing saved service worker and cached assets...</p>
+      <p><a href="/">Return home</a></p>
+    </main>
+
+    <script>
+      (async function resetCache() {
+        var status = document.getElementById('status');
+
+        try {
+          if ('serviceWorker' in navigator) {
+            var registrations = await navigator.serviceWorker.getRegistrations();
+            await Promise.all(registrations.map(function (registration) {
+              return registration.unregister();
+            }));
+          }
+
+          if ('caches' in window) {
+            var cacheNames = await caches.keys();
+            await Promise.all(cacheNames.map(function (cacheName) {
+              return caches.delete(cacheName);
+            }));
+          }
+
+          try {
+            localStorage.removeItem('pwa-cache-reset-version');
+          } catch (_error) {}
+
+          status.textContent = 'Cache reset complete. Reloading...';
+          window.location.replace('/?cache-reset=' + Date.now());
+        } catch (error) {
+          status.textContent = 'Cache reset failed. Use browser site settings to clear storage for this site.';
+          console.error(error);
+        }
+      })();
+    </script>
+  </body>
+</html>
